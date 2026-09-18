@@ -48,7 +48,32 @@ export const faqList = [
     answer: 'The sympathetic autonomic nervous system trunk runs directly alongside the anterior vertebral column. Prolonged mental stress causes subconscious tonic spasm of the deep spinal musculature, which mechanically compresses facet joints and irritates these sympathetic ganglia. By gently decompressing the spine on an inclined plane, the Evminov board releases sympathetic tension, activates the parasympathetic vagal response, lowers circulating cortisol, normalizes breathing depth, and promotes restorative stage-4 sleep.',
   },
   {
+    question: 'Do you deliver to all 50 US States, and how fast is shipping from your California warehouse?',
+    answer: 'Yes! We proudly deliver to all 50 US States from our Burbank, California fulfillment warehouse. Hundreds of American customers in California, Texas, Florida, New York, Washington, and across the nation rely on the Evminov board. West Coast deliveries arrive in 1–2 business days; Midwest destinations in 2–3 business days; and East Coast addresses in 3–4 business days via insured FedEx or UPS Freight. Alaska and Hawaii receive fast, tracked air freight delivery.',
+  },
+  {
+    question: 'Do you ship internationally worldwide, and which global payment methods are accepted?',
+    answer: 'As a recognized global brand with over 25 years of orthopedic excellence, we ship directly to patients across 40+ countries worldwide, including Canada, the United Kingdom, all European Union nations, Australia, New Zealand, and beyond. We accept all major credit cards (Visa, MasterCard, American Express, Discover), Apple Pay, Google Pay, PayPal, and international bank wire transfers in all global currencies with transparent customs documentation.',
+  },
+  {
+    question: 'How much time and money does home spinal decompression save compared to physical therapy and massage clinics?',
+    answer: 'The average chronic back pain patient attends 2 to 3 clinic visits per week, spending $80 to $150 in co-pays per session—totaling $3,500 to $6,000+ every year. More importantly, traveling, parking, and waiting rooms consume over 200 hours per year. The Evminov board is a one-time lifetime investment of $450–$690 that provides hospital-grade decompression in just 12 minutes per day in your own home, delivering permanent postural re-education without recurring fees.',
+  },
+  {
+    question: 'How does the Evminov board relieve chronic back pain for desk and office workers?',
+    answer: 'Sitting for 8+ hours a day places 40% more compressive load on your lumbar discs than standing. This causes tight hip flexors (psoas), anterior pelvic tilt, and disc fluid extrusion leading to L4-L5 compression and "tech-neck". A 10-minute daily session on the Evminov board at a 12°–15° incline gently stretches the shortened muscles, opens compressed neuroforamina, restores lost disc height, and activates deep stabilizing multifidus muscles without joint strain.',
+  },
+  {
+    question: 'How does the Evminov decompression system help nurses, retail staff, and standing workers?',
+    answer: 'Standing on hard, unyielding floors all day exerts continuous axial gravity that jams lumbar facet joints and causes severe muscular fatigue. The Evminov board provides rapid relief by placing you in a zero-axial-load supine position. A gentle 10-to-15 minute evening session decompresses the lower spine, drains stagnant venous blood from fatigued legs, restores natural lumbar lordosis, and eliminates end-of-day muscle spasms.',
+  },
+  {
+    question: 'Can chronic disc herniation (L4-S1) and sciatica sufferers heal without medications or surgery?',
+    answer: 'Yes! Over 500,000 patients worldwide have successfully rehabilitated chronic spinal conditions using the Evminov method. In clinical trials documented by the Ukrainian Research Institute of Traumatology and Orthopedics, 93.4% of patients avoided invasive surgery. By creating a negative intradiscal vacuum (-100 to -150 mmHg), the protrusion retracts naturally, and fluid imbibition rehydrates the disc matrix—ending reliance on NSAIDs, opioids, and epidural steroid injections.',
+  },
+  {
     question: 'What is the difference between Carpathian Resonant Pine and Select Alder Wood (Вільха)?',
     answer: 'Both timbers are harvested from sustainably managed Ukrainian forests and kiln-dried to anatomical specifications. Resonant Carpathian Pine features dense slow-growth annual rings, offering maximum structural rigidity and load capacity (up to 330 lbs / 150 kg) with a golden honey grain — ideal for athletes and deep traction. Select Ukrainian Alder (Вільха) is 2.5 lbs (1.1 kg) lighter with a warm cognac hue, offering higher spring deflection and flexibility — optimal for users under 200 lbs, seniors, and sensitive cervical routines.',
   },
 ];
+

@@ -57,9 +57,9 @@ export function renderHero() {
           
           <!-- Hero Copy Column -->
           <div class="hero-content">
-            <a href="#centers" class="hero-center-plaque" title="Explore Official Kyiv Vertebral Center, Athlete Biomechanics & Tactical Heritage">
+            <a href="#global-trust" class="hero-center-plaque" title="Explore Worldwide Brand Authority, 500k+ Global Patients & 50 US States Shipping">
               <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--color-pine-emerald);"></span>
-              <span class="hero-center-plaque-text">Clinical Heritage Since 1996 • Athletes, Tactical Care &amp; Clinical Centers</span>
+              <span class="hero-center-plaque-text">🌍 Worldwide Brand • 500,000+ Patients in 40+ Countries • Ships to All 50 US States</span>
               <span class="hero-center-plaque-arrow">→</span>
             </a>
 
@@ -69,16 +69,16 @@ export function renderHero() {
                 4.9/5 Rating
               </span>
               <span style="font-size: 0.875rem; color: var(--color-text-muted);">
-                (2,400+ Verified US Patients, Athletes &amp; Veterans)
+                (Hundreds Sold Across the USA • 500k+ Global Recoveries)
               </span>
             </div>
 
             <h1 class="hero-title">
-              Hospital-Grade Spinal Decompression at Home — <span>Without the Risks of Hanging Upside Down.</span>
+              Hospital-Grade Spine Decompression at Home — <span>Without the Risks of Hanging Upside Down.</span>
             </h1>
 
             <p class="hero-subtitle">
-              The patented natural pine traction board that safely unloads herniated discs, relieves chronic sciatica, counters 8+ hours of desk compression, and accelerates athletic and tactical recovery at controlled angles (8° to 35°). Recommended by physical therapists worldwide for 25+ years.
+              The patented natural pine traction system that safely unloads herniated discs (L4-S1), relieves chronic sciatica, counters 8+ hours of desk and standing compression, and accelerates athletic recovery at controlled angles (8° to 35°). The premier non-medicinal, non-surgical home therapy saving patients 200+ hours and $3,500/year vs clinic visits.
             </p>
 
             <div class="hero-cta-group">
@@ -88,9 +88,9 @@ export function renderHero() {
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
 
-              <a href="#calculator" class="btn btn-secondary btn-lg">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
-                <span>Calculate Your Angle</span>
+              <a href="#us-shipping" class="btn btn-secondary btn-lg">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                <span>50-State & Global Delivery</span>
               </a>
             </div>
 
@@ -101,11 +101,11 @@ export function renderHero() {
               </div>
               <div class="trust-bullet-item">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-pine-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Fast 2-4 Day Delivery (Burbank, CA)</span>
+                <span>Fast 2-4 Day US Delivery (Burbank Hub)</span>
               </div>
               <div class="trust-bullet-item">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-pine-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>HSA / FSA Pre-Tax Eligible</span>
+                <span>HSA / FSA Pre-Tax Eligible (DME E0941)</span>
               </div>
               <div class="trust-bullet-item">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-pine-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>

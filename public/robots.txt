@@ -1,4 +1,32 @@
+# robots.txt for Evminov Spine Systems (US & Global)
 User-agent: *
 Allow: /
 
+# Dedicated AI Search Engine & Retrieval Crawlers (LLMs.txt Discovery)
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Sitemap & Machine-Readable AI Endpoints
 Sitemap: https://evminov-decompression-board-usa.apex-root.com/sitemap.xml
+# LLMs.txt for AI agents: https://evminov-decompression-board-usa.apex-root.com/llms.txt

@@ -7,7 +7,7 @@ export function renderHeader() {
     <aside class="announcement-bar" aria-label="Announcement">
       <div class="announcement-item">
         <span role="img" aria-label="US Flag">🇺🇸</span>
-        <span>Fast Free Shipping from Burbank, CA Warehouse via <strong>UPS Ground</strong></span>
+        <span>Fast Shipping to All 50 US States from Burbank, CA Hub • 🌍 Global Delivery to 40+ Countries</span>
       </div>
       <div class="announcement-item desktop-only">
         <span>★ 60-Day In-Home Trial</span>
@@ -53,6 +53,8 @@ export function renderHeader() {
 
         <nav class="site-nav" aria-label="Primary Navigation">
           <a href="#comparison" class="nav-link">Why Not Inversion?</a>
+          <a href="#us-shipping" class="nav-link">50 US States</a>
+          <a href="#global-trust" class="nav-link">Worldwide Brand</a>
           <a href="#catalog" class="nav-link">Boards & Pricing</a>
           <a href="#exercise-gallery" class="nav-link">Protocols</a>
           <a href="#centers" class="nav-link" style="color: var(--color-pine-emerald); font-weight: 700;">Centers &amp; Heritage</a>

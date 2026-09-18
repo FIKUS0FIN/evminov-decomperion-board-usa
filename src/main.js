@@ -7,6 +7,7 @@ import './styles/portal.css';
 import './styles/portalPage.css';
 import './styles/gallery.css';
 import './styles/centers.css';
+import './styles/globalTrust.css';
 import './styles/main.css';
 
 import { renderHeader, initHeader } from './components/Header.js';
@@ -14,6 +15,8 @@ import { renderHero, initHero } from './components/Hero.js';
 import { renderFunnelsNav, initFunnelsNav } from './components/FunnelsNav.js';
 import { renderCalculator, initCalculator } from './components/Calculator.js';
 import { renderComparisonTable, initComparisonTable } from './components/ComparisonTable.js';
+import { renderUsDistributionSection, initUsDistributionSection } from './components/UsDistributionSection.js';
+import { renderGlobalBrandTrust, initGlobalBrandTrust } from './components/GlobalBrandTrust.js';
 import { renderProductCatalog, initProductCatalog } from './components/ProductCatalog.js';
 import { renderPatentsSection, initPatentsSection } from './components/PatentsSection.js';
 import { renderMountingGuide } from './components/MountingGuide.js';
@@ -93,6 +96,8 @@ function renderApp() {
       ${renderFunnelsNav()}
       ${renderVideoProtocols()}
       ${renderComparisonTable()}
+      ${renderUsDistributionSection()}
+      ${renderGlobalBrandTrust()}
       ${renderProductCatalog()}
       ${renderPatentsSection()}
       ${renderMountingGuide()}
@@ -118,6 +123,8 @@ function renderApp() {
   initFunnelsNav();
   initVideoProtocols();
   initComparisonTable();
+  initUsDistributionSection();
+  initGlobalBrandTrust();
   initProductCatalog();
   initPatentsSection();
   initAthleteSection();
