@@ -148,11 +148,15 @@ export function renderFunnelsNav() {
 }
 
 export function initFunnelsNav() {
+  if (typeof document === 'undefined') return;
   const container = document.querySelector('.funnels-nav-section');
   if (!container) return;
 
   const cards = container.querySelectorAll('.funnel-pathway-card');
   if (!cards.length) return;
+
+  let isClickScrolling = false;
+  let clickScrollTimeout = null;
 
   function setActiveCard(targetHref) {
     cards.forEach(card => {
@@ -162,27 +166,42 @@ export function initFunnelsNav() {
     });
   }
 
-  cards.forEach(card => {
-    card.addEventListener('click', (e) => {
-      const href = card.getAttribute('href');
-      if (href && href.startsWith('#')) {
-        const target = document.querySelector(href);
-        if (target) {
-          e.preventDefault();
-          setActiveCard(href);
+  function handleNavigation(card, e) {
+    const href = card.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      const target = document.querySelector(href);
+      if (target) {
+        if (e) e.preventDefault();
+        setActiveCard(href);
 
-          const headerOffset = 90;
-          const targetY = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+        isClickScrolling = true;
+        clearTimeout(clickScrollTimeout);
+        clickScrollTimeout = setTimeout(() => {
+          isClickScrolling = false;
+        }, 1000);
 
-          window.scrollTo({
-            top: targetY,
-            behavior: 'smooth'
-          });
+        const headerEl = document.getElementById('site-header');
+        const headerOffset = headerEl ? headerEl.offsetHeight + 16 : 90;
+        const currentY = window.pageYOffset || document.documentElement.scrollTop || 0;
+        const targetY = target.getBoundingClientRect().top + currentY - headerOffset;
 
-          if (window.history && window.history.pushState) {
-            window.history.pushState(null, null, href);
-          }
+        window.scrollTo({
+          top: Math.max(0, targetY),
+          behavior: 'smooth'
+        });
+
+        if (window.history && window.history.pushState) {
+          window.history.pushState(null, '', href);
         }
+      }
+    }
+  }
+
+  cards.forEach(card => {
+    card.addEventListener('click', (e) => handleNavigation(card, e));
+    card.addEventListener('keydown', (e) => {
+      if (e.key === ' ' || e.key === 'Spacebar') {
+        handleNavigation(card, e);
       }
     });
   });
@@ -192,6 +211,8 @@ export function initFunnelsNav() {
     const targets = CLINICAL_PATHWAYS.map(p => document.querySelector(p.target)).filter(Boolean);
 
     const observer = new IntersectionObserver((entries) => {
+      if (isClickScrolling) return;
+
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const id = `#${entry.target.id}`;

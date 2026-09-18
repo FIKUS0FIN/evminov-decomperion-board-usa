@@ -1,5 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import { CLINICAL_PATHWAYS, renderFunnelsNav } from '../../src/components/FunnelsNav.js';
+import fs from 'fs';
+import path from 'path';
+import { CLINICAL_PATHWAYS, renderFunnelsNav, initFunnelsNav } from '../../src/components/FunnelsNav.js';
 
 describe('Clinical Pathways Navigation Component', () => {
   it('should have 6 structured clinical pathways with valid attributes', () => {
@@ -56,5 +58,25 @@ describe('Clinical Pathways Navigation Component', () => {
     expect(html).toContain('href="#mounting"');
     expect(html).toContain('href="#onboarding"');
     expect(html).toContain('href="#blog"');
+  });
+
+  it('should be safe to call initFunnelsNav in SSR / Node environments without throwing', () => {
+    expect(() => initFunnelsNav()).not.toThrow();
+  });
+
+  it('should define responsive grid and hover/active states in main.css', () => {
+    const cssPath = path.resolve(process.cwd(), 'src/styles/main.css');
+    const css = fs.readFileSync(cssPath, 'utf8');
+
+    // Desktop 3-column layout
+    expect(css).toContain('grid-template-columns: repeat(3, 1fr)');
+
+    // Responsive 2-column layout on tablets and mobile
+    expect(css).toContain('grid-template-columns: repeat(2, 1fr)');
+
+    // Hover, active and focus-visible states
+    expect(css).toContain('.funnel-pathway-card:hover');
+    expect(css).toContain('.funnel-pathway-card.active');
+    expect(css).toContain('.funnel-pathway-card:focus-visible');
   });
 });

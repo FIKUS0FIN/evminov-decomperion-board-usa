@@ -1482,6 +1482,12 @@ body.nav-drawer-open {
   background: var(--color-pine-emerald);
 }
 
+.funnel-pathway-card:focus-visible {
+  outline: 2px solid var(--color-pine-emerald);
+  outline-offset: 2px;
+  border-color: var(--color-pine-emerald);
+}
+
 .funnel-pathway-card.active {
   border-color: var(--color-pine-emerald);
   background: linear-gradient(135deg, #FFFFFF 0%, #F0FDF4 100%);
@@ -1671,6 +1677,13 @@ body.nav-drawer-open {
 
   .pathway-arrow {
     display: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .funnels-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 }
 
