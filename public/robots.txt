@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://decompressionboard.apexroot.com/sitemap.xml
+Sitemap: https://evminov-decompression-board-usa.apex-root.com/sitemap.xml
