@@ -33,6 +33,8 @@ import { renderMobileStickyBar } from './components/MobileStickyBar.js';
 import { renderPatientPortalPage, initPatientPortalPage } from './components/PortalPage.js';
 import { renderClinicalCentersPage, initClinicalCentersPage } from './components/RehabilitationCentersPage.js';
 
+let currentRenderedRoute = null;
+
 function renderApp() {
   const app = document.getElementById('app');
   if (!app) return;
@@ -41,6 +43,18 @@ function renderApp() {
   const pathname = window.location.pathname || '';
   const isPortalRoute = hash === '#portal' || hash.startsWith('#portal?') || pathname === '/portal';
   const isCentersRoute = hash === '#centers' || hash === '#clinic' || hash.startsWith('#centers?') || pathname === '/centers';
+  const targetRoute = isPortalRoute ? 'portal' : isCentersRoute ? 'centers' : 'storefront';
+
+  if (currentRenderedRoute === targetRoute && targetRoute === 'storefront') {
+    if (hash && hash !== '#') {
+      const targetEl = document.querySelector(hash);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+    return;
+  }
+  currentRenderedRoute = targetRoute;
 
   if (isPortalRoute) {
     // Render Dedicated Full Patient Portal Page
@@ -113,6 +127,15 @@ function renderApp() {
   initCheckoutDrawer();
   initOrderConfirmationModal();
   initCustomerPortal();
+
+  if (hash && hash !== '#' && !hash.startsWith('#centers') && !hash.startsWith('#portal')) {
+    setTimeout(() => {
+      const targetEl = document.querySelector(hash);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 120);
+  }
 }
 
 // Router Event Listeners

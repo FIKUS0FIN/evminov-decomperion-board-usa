@@ -93,9 +93,203 @@ export function renderHeader() {
             <span>Cart</span>
             <span class="cart-count-badge" id="header-cart-count">0</span>
           </button>
+          <!-- Mobile Hamburger Menu Button (3 Lines) -->
+          <button 
+            type="button" 
+            class="mobile-menu-btn" 
+            id="mobile-menu-btn" 
+            aria-label="Toggle Navigation Menu" 
+            aria-expanded="false"
+            aria-controls="mobile-nav-drawer"
+          >
+            <span class="hamburger-line line-1"></span>
+            <span class="hamburger-line line-2"></span>
+            <span class="hamburger-line line-3"></span>
+          </button>
         </div>
       </div>
     </header>
+
+    <!-- Mobile Navigation Drawer Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true">
+      <div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
+      <aside class="mobile-nav-drawer" id="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+        
+        <div class="mobile-nav-header">
+          <div class="mobile-nav-title">
+            <span class="mobile-nav-icon">🧭</span>
+            <span>Menu &amp; Sections</span>
+          </div>
+          <button type="button" class="mobile-nav-close-btn" id="mobile-nav-close-btn" aria-label="Close Navigation">✕</button>
+        </div>
+
+        <!-- Quick Incline & Catalog Action Cards -->
+        <div class="mobile-nav-quick-actions">
+          <a href="#calculator" class="mobile-nav-quick-btn quick-calibrator">
+            <span class="quick-icon">📐</span>
+            <div>
+              <div class="quick-title">Find My Angle</div>
+              <div class="quick-desc">Incline Calibrator</div>
+            </div>
+          </a>
+          <a href="#catalog" class="mobile-nav-quick-btn quick-catalog">
+            <span class="quick-icon">🛒</span>
+            <div>
+              <div class="quick-title">Shop Boards</div>
+              <div class="quick-desc">From $450 • Free UPS</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Categorized Navigation Menu List -->
+        <div class="mobile-nav-body">
+          <div class="mobile-nav-group-label">Navigate Site Blocks</div>
+          <nav class="mobile-nav-links">
+            <a href="#catalog" class="mobile-nav-item">
+              <span class="nav-item-icon">🪵</span>
+              <div class="nav-item-content">
+                <div class="nav-item-title">Decompression Boards &amp; Pricing</div>
+                <div class="nav-item-sub">Standard, Wide &amp; Accessories</div>
+              </div>
+              <span class="nav-item-tag tag-pine">Store</span>
+            </a>
+
+            <a href="#calculator" class="mobile-nav-item">
+              <span class="nav-item-icon">📐</span>
+              <div class="nav-item-content">
+                <div class="nav-item-title">Incline Angle Calibrator</div>
+                <div class="nav-item-sub">Personalized setup for L4-S1, thoracic, neck</div>
+              </div>
+              <span class="nav-item-arrow">→</span>
+            </a>
+
+            <a href="#comparison" class="mobile-nav-item">
+              <span class="nav-item-icon">⚖️</span>
+              <div class="nav-item-content">
+                <div class="nav-item-title">Why Not Inversion Tables?</div>
+                <div class="nav-item-sub">Zero stroke, retinal pressure or ankle strain</div>
+              </div>
+              <span class="nav-item-tag tag-amber">Compare</span>
+            </a>
+
+            <a href="#videos" class="mobile-nav-item">
+              <span class="nav-item-icon">🎥</span>
+              <div class="nav-item-content">
+                <div class="nav-item-title">Guided 4K Video Protocols</div>
+                <div class="nav-item-sub">Kyiv Vertebral Center demonstrations</div>
+              </div>
+              <span class="nav-item-arrow">→</span>
+            </a>
+
+            <a href="#exercise-gallery" class="mobile-nav-item nav-item-highlight">
+              <span class="nav-item-icon">📋</span>
+              <div class="nav-item-content">
+                <div class="nav-item-title">21 Clinical Exercise Protocols</div>
+                <div class="nav-item-sub">Original photo archive from evminov.shop</div>
+              </div>
+              <span class="nav-item-tag tag-blue">Archives</span>
+            </a>
+
+            <a href="#centers" class="mobile-nav-item">
+              <span class="nav-item-icon">🏛️</span>
+              <div class="nav-item-content">
+                <div class="nav-item-title">Centers Network &amp; Heritage</div>
+                <div class="nav-item-sub">Founder Vyacheslav Evminov &amp; Military Rehab</div>
+              </div>
+              <span class="nav-item-tag tag-pine">Heritage</span>
+            </a>
+
+            <a href="#patents" class="mobile-nav-item">
+              <span class="nav-item-icon">📜</span>
+              <div class="nav-item-content">
+                <div class="nav-item-title">Medical Patents &amp; Clinical Evidence</div>
+                <div class="nav-item-sub">European &amp; US medical certifications</div>
+              </div>
+              <span class="nav-item-arrow">→</span>
+            </a>
+
+            <a href="#mounting" class="mobile-nav-item">
+              <span class="nav-item-icon">🔨</span>
+              <div class="nav-item-content">
+                <div class="nav-item-title">16" Wall Stud &amp; Door Mounting</div>
+                <div class="nav-item-sub">Renter-safe &amp; zero-damage options</div>
+              </div>
+              <span class="nav-item-arrow">→</span>
+            </a>
+
+            <a href="#athletes" class="mobile-nav-item">
+              <span class="nav-item-icon">🏋️</span>
+              <div class="nav-item-content">
+                <div class="nav-item-title">For Athletes &amp; Heavy Lifters</div>
+                <div class="nav-item-sub">Axial deadlift &amp; squat decompression</div>
+              </div>
+              <span class="nav-item-arrow">→</span>
+            </a>
+
+            <a href="#onboarding" class="mobile-nav-item">
+              <span class="nav-item-icon">📅</span>
+              <div class="nav-item-content">
+                <div class="nav-item-title">30-Day Guided Spine Program</div>
+                <div class="nav-item-sub">Graduated daily home protocol</div>
+              </div>
+              <span class="nav-item-arrow">→</span>
+            </a>
+
+            <a href="#science" class="mobile-nav-item">
+              <span class="nav-item-icon">🩺</span>
+              <div class="nav-item-content">
+                <div class="nav-item-title">Clinical Trust &amp; "Home Hospital"</div>
+                <div class="nav-item-sub">120,000+ documented patient outcomes</div>
+              </div>
+              <span class="nav-item-arrow">→</span>
+            </a>
+
+            <a href="#reviews" class="mobile-nav-item">
+              <span class="nav-item-icon">⭐</span>
+              <div class="nav-item-content">
+                <div class="nav-item-title">Verified Patient Reviews</div>
+                <div class="nav-item-sub">4.9/5 stars from 2,400+ patients</div>
+              </div>
+              <span class="nav-item-tag tag-amber">4.9 ★</span>
+            </a>
+
+            <a href="#blog" class="mobile-nav-item">
+              <span class="nav-item-icon">📰</span>
+              <div class="nav-item-content">
+                <div class="nav-item-title">Spine Health Knowledge Base</div>
+                <div class="nav-item-sub">Articles &amp; clinical insights</div>
+              </div>
+              <span class="nav-item-arrow">→</span>
+            </a>
+
+            <a href="#faq" class="mobile-nav-item">
+              <span class="nav-item-icon">❓</span>
+              <div class="nav-item-content">
+                <div class="nav-item-title">Medical FAQ &amp; Insurance Coverage</div>
+                <div class="nav-item-sub">HSA/FSA DME receipt (E0941) details</div>
+              </div>
+              <span class="nav-item-arrow">→</span>
+            </a>
+          </nav>
+        </div>
+
+        <!-- Drawer Footer -->
+        <div class="mobile-nav-footer">
+          <a href="#portal" class="mobile-nav-portal-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>Patient Account &amp; Digital Rx</span>
+          </a>
+          <div class="mobile-nav-support-note">
+            <span>🇺🇸 Direct US Support: <strong>+1 (818) 555-7746</strong></span>
+            <span>• Burbank, CA Hub</span>
+          </div>
+        </div>
+
+      </aside>
+    </div>
   `;
 
   return headerHtml;
@@ -106,6 +300,93 @@ export function initHeader() {
   const countBadge = document.getElementById('header-cart-count');
   const portalBtn = document.getElementById('portal-trigger-btn');
   const userStatusSpan = document.getElementById('header-user-status');
+
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const navOverlay = document.getElementById('mobile-nav-overlay');
+  const navCloseBtn = document.getElementById('mobile-nav-close-btn');
+  const navBackdrop = document.getElementById('mobile-nav-backdrop');
+  const navLinks = document.querySelectorAll(
+    '.mobile-nav-item, .mobile-nav-quick-btn, .mobile-nav-portal-btn'
+  );
+
+  function openMobileNav() {
+    if (navOverlay) {
+      navOverlay.classList.add('active');
+      navOverlay.setAttribute('aria-hidden', 'false');
+    }
+    if (menuBtn) {
+      menuBtn.classList.add('is-active');
+      menuBtn.setAttribute('aria-expanded', 'true');
+    }
+    document.body.classList.add('nav-drawer-open');
+  }
+
+  function closeMobileNav() {
+    if (navOverlay) {
+      navOverlay.classList.remove('active');
+      navOverlay.setAttribute('aria-hidden', 'true');
+    }
+    if (menuBtn) {
+      menuBtn.classList.remove('is-active');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+    document.body.classList.remove('nav-drawer-open');
+  }
+
+  if (menuBtn) {
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (navOverlay && navOverlay.classList.contains('active')) {
+        closeMobileNav();
+      } else {
+        openMobileNav();
+      }
+    });
+  }
+
+  if (navCloseBtn) {
+    navCloseBtn.addEventListener('click', closeMobileNav);
+  }
+
+  if (navBackdrop) {
+    navBackdrop.addEventListener('click', closeMobileNav);
+  }
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navOverlay && navOverlay.classList.contains('active')) {
+      closeMobileNav();
+    }
+  });
+
+  // Link click behavior: close drawer and smoothly navigate
+  navLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      closeMobileNav();
+
+      if (href && href.startsWith('#')) {
+        const hash = href;
+        if (hash === '#centers' || hash === '#portal') {
+          window.location.hash = hash;
+          return;
+        }
+
+        // If on storefront, smooth scroll to block
+        const target = document.querySelector(hash);
+        if (target) {
+          e.preventDefault();
+          setTimeout(() => {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            window.history.pushState(null, '', hash);
+          }, 150);
+        } else {
+          // If on a different page (e.g. centers or portal), change route
+          window.location.hash = hash;
+        }
+      }
+    });
+  });
 
   if (portalBtn) {
     portalBtn.addEventListener('click', () => {
