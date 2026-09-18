@@ -174,18 +174,23 @@ export function renderClinicalCentersPage() {
         ${schemaJson}
       </script>
 
-      <!-- Sticky Top Navigation Bar -->
+      <!-- Centers Page Top Breadcrumb Bar (Non-sticky natural flow) -->
       <nav class="centers-nav-bar" aria-label="Centers Navigation">
         <div class="calc-container">
           <div class="centers-nav-inner">
             <div class="centers-breadcrumbs">
-              <a href="#">← Back to Storefront</a>
-              <span>/</span>
-              <span>Rehabilitation Centers &amp; Veteran Care</span>
+              <a href="#" class="centers-back-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                <span>Back to Storefront</span>
+              </a>
+              <span class="centers-breadcrumb-sep">/</span>
+              <span class="centers-breadcrumb-current">Rehabilitation Centers &amp; Veteran Care</span>
             </div>
-            <div style="display: flex; gap: 12px; align-items: center;">
-              <a href="#catalog" class="btn btn-primary btn-sm">
-                Shop Evminov Boards ($112/mo)
+            <div class="centers-nav-cta-wrap">
+              <a href="#catalog" class="btn btn-secondary btn-sm centers-nav-cta">
+                <span>Shop Boards</span>
+                <span class="centers-cta-price">($112/mo)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
             </div>
           </div>

@@ -9,14 +9,13 @@
   padding-bottom: 80px;
 }
 
+/* Centers Page Top Breadcrumb Bar (Clean, non-sticky, natural flow) */
 .centers-nav-bar {
   background: var(--color-surface-white);
   border-bottom: 1px solid var(--color-border-subtle);
-  padding: 16px 0;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: var(--shadow-sm);
+  padding: 12px 0;
+  position: relative;
+  z-index: 10;
 }
 
 .centers-nav-inner {
@@ -24,7 +23,6 @@
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  flex-wrap: wrap;
 }
 
 .centers-breadcrumbs {
@@ -33,16 +31,73 @@
   gap: 8px;
   font-size: 0.8125rem;
   color: var(--color-text-muted);
+  min-width: 0;
 }
 
-.centers-breadcrumbs a {
+.centers-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   color: var(--color-pine-emerald);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: color var(--transition-fast);
 }
 
-.centers-breadcrumbs a:hover {
+.centers-back-btn:hover {
+  color: var(--color-emerald-deep);
   text-decoration: underline;
+}
+
+.centers-breadcrumb-sep {
+  color: var(--color-border-subtle);
+  font-weight: 400;
+}
+
+.centers-breadcrumb-current {
+  color: var(--color-text-main);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.centers-nav-cta-wrap {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.centers-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.centers-cta-price {
+  font-weight: 400;
+  opacity: 0.85;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .centers-nav-bar {
+    padding: 10px 0;
+  }
+  .centers-breadcrumb-current {
+    display: none; /* Keep mobile breadcrumb clean: only "Back to Storefront" + compact CTA */
+  }
+  .centers-breadcrumb-sep {
+    display: none;
+  }
+  .centers-nav-cta {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+  }
 }
 
 /* Centers Hero */
