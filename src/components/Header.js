@@ -515,6 +515,24 @@ export function initHeader() {
     });
   });
 
+  // Logo click: return to top of page and clear hash
+  const siteLogo = document.querySelector('.site-logo');
+  if (siteLogo) {
+    siteLogo.addEventListener('click', (e) => {
+      const hash = window.location.hash;
+      if (hash === '#centers' || hash === '#portal') {
+        window.location.hash = '';
+        return;
+      }
+      e.preventDefault();
+      closeMobileNav();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (window.history && window.history.pushState) {
+        window.history.pushState(null, '', window.location.pathname + window.location.search);
+      }
+    });
+  }
+
   // Desktop Navigation Smooth Scroll with Header Clearance
   const desktopNavLinks = document.querySelectorAll('.site-nav .nav-link');
   desktopNavLinks.forEach((link) => {

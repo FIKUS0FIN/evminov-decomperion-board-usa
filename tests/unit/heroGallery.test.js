@@ -36,4 +36,25 @@ describe('Hero Interactive Multi-Photo Gallery', () => {
     expect(html).toContain('hero-float-badge');
     expect(html).toContain('In Stock in Burbank, CA');
   });
+
+  it('should NOT hijack vertical page scroll via scrollIntoView on thumbnail buttons', () => {
+    const heroJsPath = path.resolve(process.cwd(), 'src/components/Hero.js');
+    const heroJs = fs.readFileSync(heroJsPath, 'utf8');
+
+    // Ensure thumb.scrollIntoView is not present (prevents vertical window scroll hijacking)
+    expect(heroJs).not.toContain('thumb.scrollIntoView');
+    // Ensure horizontal container thumbsStrip.scrollTo is used instead
+    expect(heroJs).toContain('thumbsStrip.scrollTo');
+    // Ensure IntersectionObserver is used to pause autoplay when hero is offscreen
+    expect(heroJs).toContain('isHeroVisible');
+  });
+
+  it('should guarantee main.js starts at top on open and configures manual scrollRestoration', () => {
+    const mainJsPath = path.resolve(process.cwd(), 'src/main.js');
+    const mainJs = fs.readFileSync(mainJsPath, 'utf8');
+
+    expect(mainJs).toContain("scrollRestoration = 'manual'");
+    expect(mainJs).toContain("window.scrollTo({ top: 0, behavior: 'instant' })");
+    expect(mainJs).not.toContain("targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' })");
+  });
 });

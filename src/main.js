@@ -36,6 +36,11 @@ import { renderMobileStickyBar } from './components/MobileStickyBar.js';
 import { renderPatientPortalPage, initPatientPortalPage } from './components/PortalPage.js';
 import { renderClinicalCentersPage, initClinicalCentersPage } from './components/RehabilitationCentersPage.js';
 
+// Prevent browser automatic scroll restoration so the page always starts from the top
+if (typeof window !== 'undefined' && 'scrollRestoration' in window.history) {
+  window.history.scrollRestoration = 'manual';
+}
+
 let currentRenderedRoute = null;
 
 function renderApp() {
@@ -49,14 +54,17 @@ function renderApp() {
   const targetRoute = isPortalRoute ? 'portal' : isCentersRoute ? 'centers' : 'storefront';
 
   if (currentRenderedRoute === targetRoute && targetRoute === 'storefront') {
-    if (hash && hash !== '#') {
+    if (hash && hash !== '#' && hash !== '') {
       const targetEl = document.querySelector(hash);
       if (targetEl) {
         const headerEl = document.getElementById('site-header');
         const headerHeight = headerEl ? headerEl.offsetHeight : 70;
-        const topPos = targetEl.getBoundingClientRect().top + window.pageYOffset - headerHeight - 16;
+        const currentY = window.pageYOffset || document.documentElement.scrollTop || 0;
+        const topPos = targetEl.getBoundingClientRect().top + currentY - headerHeight - 16;
         window.scrollTo({ top: Math.max(0, topPos), behavior: 'smooth' });
       }
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     return;
   }
@@ -140,13 +148,14 @@ function renderApp() {
   initOrderConfirmationModal();
   initCustomerPortal();
 
-  if (hash && hash !== '#' && !hash.startsWith('#centers') && !hash.startsWith('#portal')) {
-    setTimeout(() => {
-      const targetEl = document.querySelector(hash);
-      if (targetEl) {
-        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, 120);
+  // On page open / refresh of the storefront, always start cleanly at the top of the page
+  window.scrollTo({ top: 0, behavior: 'instant' });
+
+  // Clean any stale in-page section hash (e.g. #catalog) from URL on initial load so reload always starts at the beginning
+  if (hash && !isPortalRoute && !isCentersRoute) {
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
   }
 }
 

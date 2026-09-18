@@ -213,6 +213,7 @@ export function renderHero() {
 }
 
 export function initHero() {
+  if (typeof document === 'undefined') return;
   const track = document.getElementById('hero-carousel-track');
   const viewport = document.getElementById('hero-carousel-viewport');
   const prevBtn = document.getElementById('hero-prev-btn');
@@ -220,6 +221,7 @@ export function initHero() {
   const dots = document.querySelectorAll('.hero-carousel-dot');
   const thumbs = document.querySelectorAll('.hero-thumb-btn');
   const slides = document.querySelectorAll('.hero-carousel-slide');
+  const thumbsStrip = document.getElementById('hero-thumbnails-strip');
 
   if (!track || slides.length === 0) return;
 
@@ -227,6 +229,7 @@ export function initHero() {
   const totalSlides = slides.length;
   let autoplayTimer = null;
   let isHovered = false;
+  let isHeroVisible = true;
 
   function goToSlide(index, announce = true) {
     if (index < 0) {
@@ -255,8 +258,10 @@ export function initHero() {
     thumbs.forEach((thumb, idx) => {
       const active = idx === currentIndex;
       thumb.classList.toggle('is-active', active);
-      if (active) {
-        thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      if (active && thumbsStrip) {
+        // Scroll ONLY the internal horizontal container, NEVER window.scrollIntoView
+        const scrollTarget = thumb.offsetLeft - (thumbsStrip.clientWidth / 2) + (thumb.clientWidth / 2);
+        thumbsStrip.scrollTo({ left: Math.max(0, scrollTarget), behavior: 'smooth' });
       }
     });
   }
@@ -372,11 +377,12 @@ export function initHero() {
     });
   }
 
-  // Gentle Autoplay (every 6 seconds, paused when interacting)
+  // Gentle Autoplay (every 6 seconds, paused when interacting or scrolled out of view)
   function startAutoplay() {
     stopAutoplay();
+    if (!isHeroVisible) return;
     autoplayTimer = setInterval(() => {
-      if (!isHovered) {
+      if (!isHovered && isHeroVisible) {
         goToSlide(currentIndex + 1);
       }
     }, 6000);
@@ -392,6 +398,27 @@ export function initHero() {
   function resetAutoplay() {
     stopAutoplay();
     startAutoplay();
+  }
+
+  // Only run autoplay when the hero section is actually in the viewport
+  if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+    const heroEl = document.querySelector('.hero') || document.querySelector('.hero-section') || viewport;
+    if (heroEl) {
+      const heroObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            isHeroVisible = entry.isIntersecting;
+            if (!isHeroVisible) {
+              stopAutoplay();
+            } else if (!isHovered) {
+              startAutoplay();
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      heroObserver.observe(heroEl);
+    }
   }
 
   startAutoplay();
