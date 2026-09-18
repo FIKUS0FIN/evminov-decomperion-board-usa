@@ -57,9 +57,9 @@ export function renderHero() {
           
           <!-- Hero Copy Column -->
           <div class="hero-content">
-            <a href="#global-trust" class="hero-center-plaque" title="Explore Worldwide Brand Authority, 500k+ Global Patients & 50 US States Shipping">
+            <a href="#centers" class="hero-center-plaque" title="Clinical Heritage Since 1996 • 500,000+ Patients Healed Worldwide">
               <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--color-pine-emerald);"></span>
-              <span class="hero-center-plaque-text">🌍 Worldwide Brand • 500,000+ Patients in 40+ Countries • Ships to All 50 US States</span>
+              <span class="hero-center-plaque-text">Established 1996 in Kyiv • 30 Years of Clinical Vertebrology • Over 500,000 Patients Successfully Restored</span>
               <span class="hero-center-plaque-arrow">→</span>
             </a>
 
@@ -69,7 +69,7 @@ export function renderHero() {
                 4.9/5 Rating
               </span>
               <span style="font-size: 0.875rem; color: var(--color-text-muted);">
-                (Hundreds Sold Across the USA • 500k+ Global Recoveries)
+                (Continuous Medical Practice Since 1996 • 500k+ Healed Patients • Hundreds Sold Across the USA)
               </span>
             </div>
 
@@ -78,7 +78,7 @@ export function renderHero() {
             </h1>
 
             <p class="hero-subtitle">
-              The patented natural pine traction system that safely unloads herniated discs (L4-S1), relieves chronic sciatica, counters 8+ hours of desk and standing compression, and accelerates athletic recovery at controlled angles (8° to 35°). The premier non-medicinal, non-surgical home therapy saving patients 200+ hours and $3,500/year vs clinic visits.
+              Clinically proven since 1996 at the Flagship Evminov Vertebral-Health Center in Kyiv. For 30 continuous years, our patented resonant pine traction system has successfully guided over 500,000 patients out of debilitating pain — safely unloading herniated discs (L4–S1), relieving chronic sciatica, countering 8+ hours of desk and standing compression, and helping 93.4% of patients avoid surgery entirely. The premier non-medicinal, non-surgical home therapy saving patients 200+ hours and $3,500/year vs clinic visits.
             </p>
 
             <div class="hero-cta-group">
@@ -97,19 +97,19 @@ export function renderHero() {
             <div class="hero-trust-bullets">
               <div class="trust-bullet-item">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-pine-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Continuous Practice Since 1996 (30 Years)</span>
+              </div>
+              <div class="trust-bullet-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-pine-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>500,000+ Successfully Healed Patients</span>
+              </div>
+              <div class="trust-bullet-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-pine-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Zero Inversion Stroke/Eye Risk</span>
               </div>
               <div class="trust-bullet-item">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-pine-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Fast 2-4 Day US Delivery (Burbank Hub)</span>
-              </div>
-              <div class="trust-bullet-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-pine-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>HSA / FSA Pre-Tax Eligible (DME E0941)</span>
-              </div>
-              <div class="trust-bullet-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-pine-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>60-Day In-Home Money-Back Trial</span>
+                <span>Fast 2–4 Day US Delivery &amp; HSA/FSA Eligible</span>
               </div>
             </div>
           </div>

@@ -155,10 +155,10 @@ export function renderProductCatalog() {
       <div class="calc-container">
         
         <div class="section-header">
-          <span class="badge badge-pine" style="margin-bottom: 12px;">Official North American Storefront</span>
+          <span class="badge badge-pine" style="margin-bottom: 12px;">Official North American Storefront • Clinically Proven Since 1996</span>
           <h2>Select Your Evminov Spine Decompression System</h2>
           <p>
-            Manufactured from resonant multi-layer Carpathian pine with patented elasticity. Choose direct factory delivery or expedited shipping from our California facility.
+            Operating continuously since 1996 with 30 years of medical practice and over 500,000 patients healed worldwide. Handcrafted from resonant multi-layer Carpathian pine with patented elasticity. Choose direct factory delivery or expedited shipping from our California facility.
           </p>
         </div>
 

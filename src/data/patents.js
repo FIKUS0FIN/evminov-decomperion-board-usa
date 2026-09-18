@@ -4,10 +4,10 @@
 
 export const patentsAndCertifications = {
   headline: 'Internationally Patented Spine Decompression Technology',
-  subtitle: 'Protected by European, Eurasian, and International Patent Offices with 25+ years of verified clinical validation and 7 defended doctoral dissertations.',
+  subtitle: 'Protected by European, Eurasian, and International Patent Offices with 30 continuous years of verified clinical validation since 1996, successfully healing over 500,000 patients with 7 defended doctoral dissertations.',
   stats: {
-    clinicalYears: '25+',
-    patientsTreated: '120,000+',
+    clinicalYears: '30 Years (Since 1996)',
+    patientsTreated: '120,000+ (500k+ Global)',
     surgeryAvoidanceRate: '93.4%',
     satisfactionRate: '98.2%',
     doctoralDissertations: '7',

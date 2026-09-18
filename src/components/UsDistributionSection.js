@@ -66,13 +66,13 @@ export function renderUsDistributionSection() {
         <div class="us-dist-header text-center">
           <div class="badge badge-trust" style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px;">
             <span>🇺🇸</span>
-            <span>PROVEN US TRACK RECORD: HUNDREDS OF AMERICAN HOMES EQUIPPED</span>
+            <span>PROVEN US TRACK RECORD: HUNDREDS OF AMERICAN HOMES EQUIPPED • CLINICAL HERITAGE SINCE 1996</span>
           </div>
           <h2 class="section-title">
             Direct Shipping to All 50 US States From Our Burbank, CA Hub
           </h2>
           <p class="section-subtitle max-w-700">
-            Engineered for American homes. Shipped directly from our California distribution warehouse with full insurance, real-time tracking, and certified HSA/FSA medical coverage.
+            Backed by 30 continuous years of clinical spine rehabilitation since 1996. Engineered for American homes, shipped directly from our California distribution warehouse with full insurance, real-time tracking, and certified HSA/FSA medical coverage.
           </p>
         </div>
 

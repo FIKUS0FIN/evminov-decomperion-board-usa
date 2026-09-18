@@ -6,15 +6,15 @@ export function renderHeader() {
     <!-- Top Announcement Bar -->
     <aside class="announcement-bar" aria-label="Announcement">
       <div class="announcement-item">
-        <span role="img" aria-label="US Flag">🇺🇸</span>
-        <span>Fast Shipping to All 50 US States from Burbank, CA Hub • 🌍 Global Delivery to 40+ Countries</span>
+        <span style="font-weight: 800; color: #34D399; letter-spacing: 0.04em;">ESTABLISHED 1996:</span>
+        <span>30 Years of Clinical Vertebrology • 500,000+ Patients Healed • Fast 50-State US &amp; Global Shipping</span>
       </div>
       <div class="announcement-item desktop-only">
-        <span>★ 60-Day In-Home Trial</span>
+        <span>Continuous Clinical Practice Since 1996</span>
         <span>•</span>
-        <span>HSA/FSA Pre-Tax Eligible</span>
+        <span>60-Day In-Home Trial</span>
         <span>•</span>
-        <span>10-Year Frame Warranty</span>
+        <span>HSA/FSA Pre-Tax Eligible (E0941)</span>
       </div>
     </aside>
 
@@ -57,7 +57,7 @@ export function renderHeader() {
           <a href="#global-trust" class="nav-link">Worldwide Brand</a>
           <a href="#catalog" class="nav-link">Boards & Pricing</a>
           <a href="#exercise-gallery" class="nav-link">Protocols</a>
-          <a href="#centers" class="nav-link" style="color: var(--color-pine-emerald); font-weight: 700;">Centers &amp; Heritage</a>
+          <a href="#centers" class="nav-link" style="color: var(--color-pine-emerald); font-weight: 700;">Since 1996 Clinic &amp; Heritage</a>
           <a href="#patents" class="nav-link">Patents & Trials</a>
           <a href="#athletes" class="nav-link">For Athletes</a>
           <a href="#reviews" class="nav-link">Reviews</a>
@@ -123,8 +123,8 @@ export function renderHeader() {
               <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
             </svg>
             <div class="mobile-title-group">
-              <span class="mobile-brand-name">Clinical Directory</span>
-              <span class="mobile-brand-sub">Evminov Spine Systems™</span>
+              <span class="mobile-brand-name">Clinical Directory • Since 1996</span>
+              <span class="mobile-brand-sub">Evminov Spine Systems™ • 30-Year Practice</span>
             </div>
           </div>
           <button type="button" class="mobile-nav-close-btn" id="mobile-nav-close-btn" aria-label="Close Navigation">
@@ -173,7 +173,7 @@ export function renderHeader() {
               </span>
               <div class="nav-item-content">
                 <div class="nav-item-title">Vertebral Center &amp; Founder Heritage</div>
-                <div class="nav-item-sub">Kyiv Research Center, Vyacheslav Evminov &amp; Military Care</div>
+                <div class="nav-item-sub">Continuous clinical practice since 1996 • 500k+ healed</div>
               </div>
               <span class="nav-item-tag tag-pine">Heritage</span>
             </a>

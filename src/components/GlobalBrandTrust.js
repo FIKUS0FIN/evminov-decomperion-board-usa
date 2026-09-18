@@ -23,13 +23,13 @@ export function renderGlobalBrandTrust() {
         <div class="global-trust-header text-center">
           <div class="badge badge-trust" style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px;">
             <span>🌍</span>
-            <span>A RECOGNIZED WORLDWIDE SPINAL BRAND • 25+ YEARS OF ORTHOPEDIC LEADERSHIP</span>
+            <span>CONTINUOUS CLINICAL SPINAL PRACTICE SINCE 1996 • 30 YEARS HELPING PATIENTS RECOVER</span>
           </div>
           <h2 class="section-title">
             Over 500,000 Patients Rehabilitated Across 40+ Countries Worldwide
           </h2>
           <p class="section-subtitle max-w-750">
-            The #1 non-medicinal, non-surgical home spine decompression method. Eliminating the vicious cycle of painkillers, injections, and endless clinic appointments.
+            Founded in 1996 in Kyiv, Ukraine, the Evminov clinic and decompression system have delivered 30 continuous years of medical success — helping over 500,000 people eliminate chronic back pain, restore disc height, and end the vicious cycle of painkillers, injections, and surgery.
           </p>
         </div>
 
@@ -40,7 +40,7 @@ export function renderGlobalBrandTrust() {
             <div class="stat-number">500k+</div>
             <div class="stat-label">Patients Healed Globally</div>
             <p class="stat-desc">
-              Documented across orthopedic rehabilitation clinics, sports federations, and home users across Europe and North America.
+              Continuously operating and helping patients heal since 1996 across specialized orthopedic clinics, hospitals, sports federations, and home users worldwide.
             </p>
           </div>
 

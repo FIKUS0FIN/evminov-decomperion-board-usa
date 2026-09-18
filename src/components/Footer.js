@@ -37,7 +37,7 @@ export function renderFooter() {
               </div>
             </div>
             <p>
-              The official North American distributor of the patented Evminov Spine Decompression & Rehabilitation System. Manufactured from resonant natural pine with clinical heritage since 1996.
+              The official North American distributor of the patented Evminov Spine Decompression &amp; Rehabilitation System. Operating continuously since 1996 with 30 years of medical practice and over 500,000 patients successfully healed across Europe and North America.
             </p>
             <div style="margin-top: 14px; font-size: 0.8125rem; color: #94A3B8; line-height: 1.6;">
               🇺🇸 <strong>US Operations &amp; Fulfillment:</strong> 4525 San Fernando Rd, Unit H, Glendale, CA 91204 (Hub: Burbank &amp; Sun Valley)<br>

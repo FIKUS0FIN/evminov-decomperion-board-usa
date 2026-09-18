@@ -6,9 +6,9 @@ export function renderClinicalTrust() {
         <div class="clinical-trust-grid">
           
           <div>
-            <span class="badge badge-gold" style="margin-bottom: 14px;">The Inventor's Legacy</span>
+            <span class="badge badge-gold" style="margin-bottom: 14px;">Clinical Heritage • Established 1996</span>
             <h2 style="font-size: 2.25rem; font-weight: 800; color: var(--color-primary-navy); line-height: 1.25; margin-bottom: 18px;">
-              Born from a Severe Spine Injury, Perfected Across 25+ Years of Clinical Medicine.
+              Operating Continuously Since 1996: 30 Years of Documented Clinical Success Restoring Spine Health.
             </h2>
             
             <p style="font-size: 1rem; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 16px;">
@@ -16,22 +16,22 @@ export function renderClinicalTrust() {
             </p>
 
             <p style="font-size: 1rem; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 20px;">
-              By combining low-angle gravity traction with active kinetic muscle activation on an elastic wooden plane, he completely regenerated his damaged discs. Over the following three decades, the <em>Evminov Vertebral Health Center</em> in Kyiv has rehabilitated over <strong>120,000 documented patients</strong> and holds international medical patents across Europe and North America.
+              By combining low-angle gravity traction with active kinetic muscle activation on an elastic wooden plane, he completely regenerated his damaged discs. <strong>Founded in 1996</strong>, the flagship <em>Evminov Vertebral Health Center</em> in central Kyiv has continuously operated for <strong>30 unbroken years</strong>, successfully helping over <strong>120,000 clinic patients</strong> and <strong>500,000+ home users worldwide</strong> recover from chronic herniations, sciatica, and postural collapse without surgery.
             </p>
 
             <div class="clinical-stats-grid">
               <div style="background: var(--color-surface-white); padding: 16px; border-radius: var(--radius-md); border: 1px solid var(--color-border-subtle); text-align: center;">
                 <div style="font-family: var(--font-mono); font-size: 1.75rem; font-weight: 800; color: var(--color-pine-emerald);">
-                  25+
+                  30 Yrs
                 </div>
-                <div style="font-size: 0.75rem; color: var(--color-text-muted); font-weight: 600;">Years of Clinical Trials</div>
+                <div style="font-size: 0.75rem; color: var(--color-text-muted); font-weight: 600;">Since 1996 Practice</div>
               </div>
 
               <div style="background: var(--color-surface-white); padding: 16px; border-radius: var(--radius-md); border: 1px solid var(--color-border-subtle); text-align: center;">
                 <div style="font-family: var(--font-mono); font-size: 1.75rem; font-weight: 800; color: var(--color-traction-cyan);">
-                  120k+
+                  500k+
                 </div>
-                <div style="font-size: 0.75rem; color: var(--color-text-muted); font-weight: 600;">Rehabilitated Patients</div>
+                <div style="font-size: 0.75rem; color: var(--color-text-muted); font-weight: 600;">Patients Healed Globally</div>
               </div>
 
               <div style="background: var(--color-surface-white); padding: 16px; border-radius: var(--radius-md); border: 1px solid var(--color-border-subtle); text-align: center;">

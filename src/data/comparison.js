@@ -115,6 +115,24 @@ export const comparisonData = {
       },
     },
     {
+      metric: 'Clinical Track Record & Heritage',
+      evminov: {
+        value: 'Continuous clinical practice since 1996 (30 Years)',
+        highlight: true,
+        note: 'Over 500,000 patients healed across 30 years and 7 defended medical dissertations',
+      },
+      inversion: {
+        value: 'Non-medical gym novelty with zero clinical trials',
+        highlight: false,
+        note: 'Designed for consumer fitness market without clinical hospital protocols',
+      },
+      surgery: {
+        value: 'Invasive last resort with 20%–40% recurrence rate',
+        highlight: false,
+        note: 'Frequent post-laminectomy syndrome and adjacent segment disease',
+      },
+    },
+    {
       metric: 'Total Cost',
       evminov: {
         value: '$450 – $595 (One-time, with 10-Yr Warranty)',
