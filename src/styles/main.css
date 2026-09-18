@@ -317,46 +317,135 @@
   50% { transform: translateY(-8px); }
 }
 
-/* Problem-Aware Funnels Navigation */
+/* Problem-Aware Funnels Navigation (2-Row Balanced Best Practice Layout) */
 .funnels-nav-section {
   background: var(--color-surface-white);
   border-top: 1px solid var(--color-border-subtle);
   border-bottom: 1px solid var(--color-border-subtle);
-  padding: 14px 0;
+  padding: 16px 0;
 }
 
-.funnels-scroll-row {
+.funnels-nav-container {
   display: flex;
   align-items: center;
-  gap: 12px;
-  overflow-x: auto;
-  padding: 4px 0;
-  scrollbar-width: none;
+  gap: 20px;
 }
 
-.funnels-scroll-row::-webkit-scrollbar {
-  display: none;
+.funnels-label-group {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.funnels-label-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border-subtle);
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.funnels-two-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.funnels-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .funnel-tab-btn {
-  white-space: nowrap;
-  padding: 10px 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
   border-radius: var(--radius-full);
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 700;
   background: var(--color-bg-secondary);
-  color: var(--color-text-muted);
+  color: var(--color-text-main);
+  border: 1px solid var(--color-border-subtle);
   transition: all var(--transition-fast);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
 .funnel-tab-btn:hover {
-  background: var(--color-border-subtle);
-  color: var(--color-text-main);
+  background: #FFFFFF;
+  border-color: var(--color-pine-emerald);
+  color: var(--color-primary-navy);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
 }
 
 .funnel-tab-btn.active {
   background: var(--color-primary-navy);
   color: #FFFFFF;
+  border-color: var(--color-primary-navy);
+  box-shadow: var(--shadow-sm);
+}
+
+.funnel-tab-btn .btn-emoji {
+  font-size: 0.9375rem;
+  line-height: 1;
+}
+
+.funnel-tab-btn .btn-label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+/* Tablet & Mobile Breakpoints */
+@media (max-width: 1024px) {
+  .funnels-nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .funnels-two-rows {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .funnels-two-rows {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .funnels-row {
+    display: contents; /* Flattens children directly into the 2-column grid */
+  }
+  .funnel-tab-btn {
+    justify-content: center;
+    padding: 9px 10px;
+    font-size: 0.75rem;
+    white-space: normal;
+    text-align: center;
+  }
+  .funnel-tab-btn .btn-label {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 440px) {
+  .funnels-two-rows {
+    grid-template-columns: 1fr; /* 1 column comfortable tap targets on compact phones */
+  }
 }
 
 /* Product Catalog Grid */

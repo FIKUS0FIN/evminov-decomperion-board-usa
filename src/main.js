@@ -9,7 +9,7 @@ import './styles/main.css';
 
 import { renderHeader, initHeader } from './components/Header.js';
 import { renderHero } from './components/Hero.js';
-import { renderFunnelsNav } from './components/FunnelsNav.js';
+import { renderFunnelsNav, initFunnelsNav } from './components/FunnelsNav.js';
 import { renderCalculator, initCalculator } from './components/Calculator.js';
 import { renderComparisonTable, initComparisonTable } from './components/ComparisonTable.js';
 import { renderProductCatalog, initProductCatalog } from './components/ProductCatalog.js';
@@ -73,6 +73,7 @@ function renderApp() {
 
   // Initialize storefront features
   initHeader();
+  initFunnelsNav();
   initCalculator();
   initComparisonTable();
   initProductCatalog();
