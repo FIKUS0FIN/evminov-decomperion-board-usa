@@ -35,4 +35,20 @@ export const faqList = [
     question: 'What is included with the patented Glisson Loop?',
     answer: 'The Glisson Loop is an orthopedic cervical traction harness that cradles your occiput and chin. When attached to the top of the inclined Evminov board, it provides gentle, therapeutic elongation of the cervical vertebrae (C1–C7). It is proven to relieve tension headaches, text-neck, cervical disc bulges, and nerve compression. A complete Glisson Loop kit is included FREE with every Standard and Wide Board purchase.',
   },
+  {
+    question: 'What are the 3 Clinical Stages of Spinal Recovery according to the Evminov Method?',
+    answer: 'The Evminov Method follows a proven tripartite clinical progression: Stage 1 (Restorative & Pain Relief): Low incline (8°–15°) unloads the spine, eliminates acute paraspinal muscle spasms, and restores negative pressure to draw fluids into compressed discs without muscle strain. Stage 2 (Strengthening & Stabilization): Moderate incline (15°–30°) introduces micro-amplitude kinesitherapy to isolate and strengthen the deep short paraspinal stabilizers (multifidus and rotatores), creating a lifelong biological corset. Stage 3 (Lifelong Prevention): Quick 5–10 minute daily sessions at varying angles maintain disc hydration, counteract sedentary compression, and prevent recurrence.',
+  },
+  {
+    question: 'Are there any medical contraindications for using the Evminov board?',
+    answer: 'Yes, clinical transparency is fundamental. Absolute contraindications include: acute fever (>37.5°C / 99.5°F), acute unhealed spinal fractures (within 4 months), spinal cord tumors or metastatic bone lesions, active internal hemorrhages or aortic aneurysms, recent stroke/myocardial infarction (within 6 months), and acute cauda equina syndrome requiring emergency neurosurgery. Temporary contraindications include unmanaged hypertensive crisis, acute renal colic, and pregnancy (which requires specialized low-angle obstetrical protocols). Always consult your physician if you have severe acute pathology.',
+  },
+  {
+    question: 'How does spinal decompression on the Evminov board relieve psychosomatic stress and anxiety?',
+    answer: 'The sympathetic autonomic nervous system trunk runs directly alongside the anterior vertebral column. Prolonged mental stress causes subconscious tonic spasm of the deep spinal musculature, which mechanically compresses facet joints and irritates these sympathetic ganglia. By gently decompressing the spine on an inclined plane, the Evminov board releases sympathetic tension, activates the parasympathetic vagal response, lowers circulating cortisol, normalizes breathing depth, and promotes restorative stage-4 sleep.',
+  },
+  {
+    question: 'What is the difference between Carpathian Resonant Pine and Select Alder Wood (Вільха)?',
+    answer: 'Both timbers are harvested from sustainably managed Ukrainian forests and kiln-dried to anatomical specifications. Resonant Carpathian Pine features dense slow-growth annual rings, offering maximum structural rigidity and load capacity (up to 330 lbs / 150 kg) with a golden honey grain — ideal for athletes and deep traction. Select Ukrainian Alder (Вільха) is 2.5 lbs (1.1 kg) lighter with a warm cognac hue, offering higher spring deflection and flexibility — optimal for users under 200 lbs, seniors, and sensitive cervical routines.',
+  },
 ];

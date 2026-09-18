@@ -1,4 +1,12 @@
-import { founderStory, militaryProgram, centersNetwork } from '../data/centersData.js';
+import {
+  founderStory,
+  militaryProgram,
+  centersNetwork,
+  homeHospitalConcept,
+  psychosomaticStressData,
+  woodCraftsmanshipData,
+  contraindicationsData
+} from '../data/centersData.js';
 
 export function renderClinicalCentersPage() {
   const timelineHtml = founderStory.timeline
@@ -9,6 +17,18 @@ export function renderClinicalCentersPage() {
         <span class="timeline-year">${item.year}</span>
         <div class="timeline-title">${item.title}</div>
         <p class="timeline-desc">${item.desc}</p>
+      </div>
+    `
+    )
+    .join('');
+
+  const homeHospitalPillarsHtml = homeHospitalConcept.pillars
+    .map(
+      (p) => `
+      <div class="home-hospital-pillar-card">
+        <div style="font-size: 2.25rem;">${p.icon}</div>
+        <h4 style="font-size: 1.125rem; font-weight: 800; color: var(--color-primary-navy); margin: 0;">${p.title}</h4>
+        <p style="font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.6; margin: 0;">${p.desc}</p>
       </div>
     `
     )
@@ -35,6 +55,54 @@ export function renderClinicalCentersPage() {
       </div>
     `
     )
+    .join('');
+
+  const psychosomaticMechanismsHtml = psychosomaticStressData.mechanisms
+    .map(
+      (m, idx) => `
+      <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-xl); padding: 28px;">
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: #34D399; margin-bottom: 8px;">0${idx + 1} / NEURAL PATHWAY</div>
+        <h4 style="font-size: 1.15rem; font-weight: 800; color: #FFFFFF; margin-bottom: 12px;">${m.title}</h4>
+        <p style="font-size: 0.875rem; color: #94A3B8; line-height: 1.65; margin: 0;">${m.desc}</p>
+      </div>
+    `
+    )
+    .join('');
+
+  const woodSpeciesHtml = woodCraftsmanshipData.species
+    .map(
+      (w) => `
+      <div class="card" style="background: var(--color-surface-white); border: 1.5px solid var(--color-pine-border); border-radius: var(--radius-xl); padding: 32px; display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap;">
+          <div>
+            <span class="badge badge-pine" style="margin-bottom: 8px;">${w.density}</span>
+            <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--color-primary-navy); margin: 0;">${w.name}</h3>
+          </div>
+          <span style="font-size: 0.875rem; font-weight: 800; color: var(--color-traction-cyan); font-family: var(--font-mono);">${w.weight}</span>
+        </div>
+        <p style="font-size: 0.9375rem; color: var(--color-text-main); line-height: 1.6; margin: 0;">
+          ${w.notes}
+        </p>
+        <div style="background: var(--color-bg-light); border-radius: var(--radius-md); padding: 18px; font-size: 0.875rem; display: flex; flex-direction: column; gap: 8px; border: 1px solid var(--color-border-subtle);">
+          <div><strong>Weight Capacity:</strong> ${w.maxLoad}</div>
+          <div><strong>Aesthetic Finish:</strong> ${w.tone}</div>
+          <div><strong>Clinical Application:</strong> ${w.bestFor}</div>
+        </div>
+      </div>
+    `
+    )
+    .join('');
+
+  const absoluteContraHtml = contraindicationsData.absolute
+    .map((item) => `<li style="margin-bottom: 10px; color: #DC2626; font-size: 0.875rem; line-height: 1.5;">✕ ${item}</li>`)
+    .join('');
+
+  const temporaryContraHtml = contraindicationsData.temporary
+    .map((item) => `<li style="margin-bottom: 10px; color: #D97706; font-size: 0.875rem; line-height: 1.5;">⚠️ ${item}</li>`)
+    .join('');
+
+  const safetyRulesHtml = contraindicationsData.safetyRules
+    .map((item) => `<li style="margin-bottom: 10px; color: #059669; font-size: 0.875rem; line-height: 1.5;">✓ ${item}</li>`)
     .join('');
 
   const centersCardsHtml = centersNetwork
@@ -158,6 +226,34 @@ export function renderClinicalCentersPage() {
               </div>
             </div>
 
+            <!-- Quick Section Anchor Links -->
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 24px;">
+              <a href="#founder-story" class="hero-center-plaque" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: #FFFFFF; text-decoration: none;">
+                <span class="hero-center-plaque-text" style="color: #FFFFFF;">1. Founder's Story</span>
+              </a>
+              <a href="#home-hospital" class="hero-center-plaque" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: #FFFFFF; text-decoration: none;">
+                <span class="hero-center-plaque-text" style="color: #FFFFFF;">2. Home Hospital Model</span>
+              </a>
+              <a href="#cinematic-demos" class="hero-center-plaque" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: #FFFFFF; text-decoration: none;">
+                <span class="hero-center-plaque-text" style="color: #FFFFFF;">3. Clinical Videos</span>
+              </a>
+              <a href="#military-rehab" class="hero-center-plaque" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: #FFFFFF; text-decoration: none;">
+                <span class="hero-center-plaque-text" style="color: #FFFFFF;">4. Defender Program</span>
+              </a>
+              <a href="#psychosomatic" class="hero-center-plaque" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: #FFFFFF; text-decoration: none;">
+                <span class="hero-center-plaque-text" style="color: #FFFFFF;">5. Psychosomatic Stress</span>
+              </a>
+              <a href="#wood-science" class="hero-center-plaque" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: #FFFFFF; text-decoration: none;">
+                <span class="hero-center-plaque-text" style="color: #FFFFFF;">6. Wood Science</span>
+              </a>
+              <a href="#safety-screening" class="hero-center-plaque" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: #FFFFFF; text-decoration: none;">
+                <span class="hero-center-plaque-text" style="color: #FFFFFF;">7. Safety Screening</span>
+              </a>
+              <a href="#directory" class="hero-center-plaque" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: #FFFFFF; text-decoration: none;">
+                <span class="hero-center-plaque-text" style="color: #FFFFFF;">8. Centers Directory</span>
+              </a>
+            </div>
+
           </div>
         </div>
       </header>
@@ -224,6 +320,48 @@ export function renderClinicalCentersPage() {
             <div class="timeline-wrapper">
               ${timelineHtml}
             </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section 1.5: The "Home Hospital" (Домашній Госпіталь) Model -->
+      <section class="home-hospital-section" id="home-hospital">
+        <div class="calc-container">
+          
+          <div class="section-header" style="max-width: 760px; margin: 0 auto 40px; text-align: center;">
+            <span class="badge badge-pine" style="margin-bottom: 12px;">${homeHospitalConcept.badge}</span>
+            <h2 style="font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 800; color: var(--color-primary-navy);">
+              ${homeHospitalConcept.title}
+            </h2>
+            <p style="font-size: 1.05rem; color: var(--color-text-muted); line-height: 1.65;">
+              ${homeHospitalConcept.subtitle}
+            </p>
+          </div>
+
+          <div style="background: var(--color-surface-white); border: 1.5px solid var(--color-border-subtle); border-radius: var(--radius-xl); padding: 36px; box-shadow: var(--shadow-sm); margin-bottom: 36px;">
+            <p style="font-size: 1rem; color: var(--color-text-main); line-height: 1.7; margin: 0;">
+              ${homeHospitalConcept.concept}
+            </p>
+          </div>
+
+          <div class="home-hospital-pillars-grid">
+            ${homeHospitalPillarsHtml}
+          </div>
+
+          <div class="home-hospital-heritage-banner">
+            <div style="font-size: 2.5rem;">🇺🇦</div>
+            <div style="flex: 1; min-width: 280px;">
+              <div style="font-weight: 800; font-size: 1.125rem; color: var(--color-primary-navy); margin-bottom: 6px;">
+                Proven Through Severe Medical Disruptions in Ukraine
+              </div>
+              <p style="font-size: 0.9375rem; color: var(--color-text-main); line-height: 1.6; margin: 0;">
+                ${homeHospitalConcept.kyivHeritage}
+              </p>
+            </div>
+            <a href="#catalog" class="btn btn-primary btn-sm" style="white-space: nowrap;">
+              Equip Your Home Hospital ($349)
+            </a>
           </div>
 
         </div>
@@ -392,11 +530,14 @@ export function renderClinicalCentersPage() {
             <span class="badge badge-gold" style="margin-bottom: 14px; background: rgba(245, 158, 11, 0.2); color: #FBBF24;">
               ${militaryProgram.badge}
             </span>
+            <div style="font-size: 1.15rem; font-style: italic; color: #34D399; margin-bottom: 12px; font-weight: 700;">
+              ${militaryProgram.motto}
+            </div>
             <h2 style="font-size: clamp(1.75rem, 3.2vw, 2.75rem); font-weight: 800; line-height: 1.2; margin-bottom: 16px;">
               ${militaryProgram.title}
             </h2>
             <p style="font-size: 1.0625rem; color: #94A3B8; line-height: 1.65;">
-              ${militaryProgram.subtitle} In frontline warfare, continuous patrol under 30–45 kg of ballistic armor and blast concussions destroys spinal disc integrity. The Evminov Center provides specialized clinical decompression for defenders.
+              ${militaryProgram.subtitle} In frontline warfare, continuous patrol under 15–25 kg body armor (30–45 kg full combat gear) and blast concussions destroys spinal disc integrity. The Evminov Center provides specialized clinical decompression for defenders.
             </p>
           </div>
 
@@ -426,6 +567,125 @@ export function renderClinicalCentersPage() {
             <a href="mailto:support@evminovusa.com?subject=Military%20Spine%20Rehabilitation%20Inquiry" class="btn btn-primary btn-sm" style="white-space: nowrap;">
               Contact Military Care Coordinator
             </a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section 2.5: Psychosomatic Stress & Autonomic Nervous System -->
+      <section class="psychosomatic-section" id="psychosomatic">
+        <div class="calc-container">
+          
+          <div class="section-header" style="max-width: 760px; margin: 0 auto 40px; text-align: center;">
+            <span class="badge badge-pine" style="background: rgba(52, 211, 153, 0.15); color: #34D399; border-color: rgba(52, 211, 153, 0.3); margin-bottom: 12px;">
+              ${psychosomaticStressData.badge}
+            </span>
+            <h2 style="font-size: clamp(1.75rem, 3.2vw, 2.75rem); font-weight: 800; line-height: 1.2; margin-bottom: 16px; color: #FFFFFF;">
+              ${psychosomaticStressData.title}
+            </h2>
+            <p style="font-size: 1.05rem; color: #94A3B8; line-height: 1.65;">
+              ${psychosomaticStressData.subtitle}
+            </p>
+          </div>
+
+          <div style="background: rgba(255, 255, 255, 0.04); border-left: 4px solid #34D399; border-radius: var(--radius-lg); padding: 24px 30px; margin-bottom: 36px;">
+            <p style="font-size: 1.0625rem; font-style: italic; color: #E2E8F0; line-height: 1.6; margin: 0;">
+              "${psychosomaticStressData.quote}"
+            </p>
+          </div>
+
+          <div class="psychosomatic-grid">
+            ${psychosomaticMechanismsHtml}
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section 2.6: Natural Wood Science: Resonant Pine vs. Alder Wood -->
+      <section class="wood-craft-section" id="wood-science">
+        <div class="calc-container">
+          
+          <div class="section-header" style="max-width: 760px; margin: 0 auto 40px; text-align: center;">
+            <span class="badge badge-gold" style="margin-bottom: 12px;">${woodCraftsmanshipData.badge}</span>
+            <h2 style="font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 800; color: var(--color-primary-navy);">
+              ${woodCraftsmanshipData.title}
+            </h2>
+            <p style="font-size: 1.05rem; color: var(--color-text-muted); line-height: 1.65;">
+              ${woodCraftsmanshipData.subtitle}
+            </p>
+          </div>
+
+          <div class="wood-species-grid">
+            ${woodSpeciesHtml}
+          </div>
+
+          <div style="margin-top: 36px; text-align: center;">
+            <p style="font-size: 0.9375rem; color: var(--color-text-muted); max-width: 680px; margin: 0 auto 20px;">
+              Every Evminov board is crafted from certified, FSC-compliant slow-growth Ukrainian timber, precision kiln-dried to 8% moisture equilibrium to guarantee structural elasticity for decades.
+            </p>
+            <a href="#catalog" class="btn btn-secondary btn-sm">
+              Explore Available Wood Finishes in Catalog
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section 2.7: Contraindications & Clinical Safety Screening Protocol -->
+      <section class="contraindications-section" id="safety-screening">
+        <div class="calc-container">
+          
+          <div class="section-header" style="max-width: 760px; margin: 0 auto 40px; text-align: center;">
+            <span class="badge badge-navy" style="margin-bottom: 12px;">${contraindicationsData.badge}</span>
+            <h2 style="font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 800; color: var(--color-primary-navy);">
+              ${contraindicationsData.title}
+            </h2>
+            <p style="font-size: 1.05rem; color: var(--color-text-muted); line-height: 1.65;">
+              ${contraindicationsData.subtitle}
+            </p>
+          </div>
+
+          <div class="contraindications-grid">
+            
+            <div style="background: var(--color-surface-white); border: 1.5px solid #FCA5A5; border-radius: var(--radius-xl); padding: 28px;">
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+                <span style="font-size: 1.5rem;">🛑</span>
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: #DC2626; margin: 0;">Absolute Contraindications</h3>
+              </div>
+              <p style="font-size: 0.8125rem; color: var(--color-text-muted); margin-bottom: 14px;">
+                Do not begin traction therapy if you have any of the following acute conditions:
+              </p>
+              <ul style="list-style: none; padding: 0; margin: 0;">
+                ${absoluteContraHtml}
+              </ul>
+            </div>
+
+            <div style="background: var(--color-surface-white); border: 1.5px solid #FCD34D; border-radius: var(--radius-xl); padding: 28px;">
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+                <span style="font-size: 1.5rem;">⚠️</span>
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: #D97706; margin: 0;">Temporary Contraindications</h3>
+              </div>
+              <p style="font-size: 0.8125rem; color: var(--color-text-muted); margin-bottom: 14px;">
+                Require medical stabilization or physician supervision before starting:
+              </p>
+              <ul style="list-style: none; padding: 0; margin: 0;">
+                ${temporaryContraHtml}
+              </ul>
+            </div>
+
+            <div style="background: var(--color-surface-white); border: 1.5px solid #6EE7B7; border-radius: var(--radius-xl); padding: 28px;">
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+                <span style="font-size: 1.5rem;">🛡️</span>
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: #059669; margin: 0;">Essential Safety Rules</h3>
+              </div>
+              <p style="font-size: 0.8125rem; color: var(--color-text-muted); margin-bottom: 14px;">
+                Always adhere strictly to these clinical biomechanical guidelines:
+              </p>
+              <ul style="list-style: none; padding: 0; margin: 0;">
+                ${safetyRulesHtml}
+              </ul>
+            </div>
+
           </div>
 
         </div>

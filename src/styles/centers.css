@@ -617,3 +617,100 @@
   font-weight: 800;
   font-size: 0.875rem;
 }
+
+/* Home Hospital Concept Section */
+.home-hospital-section {
+  padding: 80px 0;
+  background: var(--color-surface-white);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.home-hospital-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.home-hospital-pillar-card {
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.home-hospital-pillar-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-pine-emerald);
+}
+
+.home-hospital-heritage-banner {
+  margin-top: 40px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(6, 78, 59, 0.05) 100%);
+  border: 1.5px solid var(--color-pine-border);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* Psychosomatic & Autonomic Nervous System Section */
+.psychosomatic-section {
+  padding: 80px 0;
+  background: #080E1E;
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+
+.psychosomatic-section::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(52, 211, 153, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.psychosomatic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 36px;
+}
+
+/* Wood Science Section */
+.wood-craft-section {
+  padding: 80px 0;
+  background: var(--color-surface-white);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.wood-species-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 32px;
+  margin-top: 36px;
+}
+
+/* Clinical Safety & Contraindications Section */
+.contraindications-section {
+  padding: 80px 0;
+  background: var(--color-bg-light);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.contraindications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 36px;
+}

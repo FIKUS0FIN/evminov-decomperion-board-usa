@@ -16,8 +16,8 @@ export const products = [
     specs: {
       heightLimit: 'Up to 6\'4" (193 cm)',
       weightLimit: 'Up to 210 lbs (95 kg)',
-      material: 'Multi-layer resonant Carpathian pine with anatomical flex',
-      weight: '26 lbs (12 kg)',
+      material: 'Selected resonant Carpathian Pine or Ukrainian Alder Wood with anatomical spring flex',
+      weight: '23–26 lbs (10.5–12 kg)',
       inclineRange: '8° to 90° (and -25° reverse)',
       foldedDepth: '2.4 inches against wall',
     },
@@ -28,7 +28,7 @@ export const products = [
       '30-Day Digital Spine Rehabilitation Video Program & manual',
       '60-Day Risk-Free Home Trial & 10-Year Frame Warranty',
     ],
-    finishes: ['Natural Nordic Pine', 'Dark Walnut Stain', 'Matte Carbon Black'],
+    finishes: ['Resonant Carpathian Pine (Natural)', 'Ukrainian Alder Wood (Warm Amber)', 'Dark Walnut Stain', 'Matte Carbon Black'],
     image: '/images/products/board-perspective-view.jpg',
     galleryImages: [
       { url: '/images/products/board-perspective-view.jpg', label: 'Full Board' },
@@ -100,7 +100,7 @@ export const products = [
       '5-Minute Daily Back Care Video Guide (WHO-aligned daily mobility)',
       '60-Day Risk-Free Home Trial & 5-Year Hardware Warranty',
     ],
-    finishes: ['Natural Carpathian Pine', 'Dark Walnut Finish', 'Travel Matte Black'],
+    finishes: ['Resonant Carpathian Pine', 'Ukrainian Alder Wood Tone', 'Dark Walnut Finish', 'Travel Matte Black'],
     image: '/images/products/board-travel-bag-carrying.jpg',
     galleryImages: [
       { url: '/images/products/board-travel-bag-carrying.jpg', label: 'Travel Case' },

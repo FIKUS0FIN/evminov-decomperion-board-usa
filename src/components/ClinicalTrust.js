@@ -36,9 +36,16 @@ export function renderClinicalTrust() {
 
               <div style="background: var(--color-surface-white); padding: 16px; border-radius: var(--radius-md); border: 1px solid var(--color-border-subtle); text-align: center;">
                 <div style="font-family: var(--font-mono); font-size: 1.75rem; font-weight: 800; color: var(--color-primary-navy);">
-                  93%
+                  93.4%
                 </div>
                 <div style="font-size: 0.75rem; color: var(--color-text-muted); font-weight: 600;">Avoided Surgery</div>
+              </div>
+
+              <div style="background: var(--color-surface-white); padding: 16px; border-radius: var(--radius-md); border: 1px solid var(--color-border-subtle); text-align: center;">
+                <div style="font-family: var(--font-mono); font-size: 1.75rem; font-weight: 800; color: #D97706;">
+                  7
+                </div>
+                <div style="font-size: 0.75rem; color: var(--color-text-muted); font-weight: 600;">Doctoral Dissertations</div>
               </div>
             </div>
 
@@ -50,7 +57,7 @@ export function renderClinicalTrust() {
                   <span style="font-size: 0.75rem; color: #D97706; font-weight: 700;">★ Defender Spine Program</span>
                 </div>
                 <div style="font-size: 0.9375rem; font-weight: 800; color: var(--color-primary-navy);">
-                  Official Evminov Centers Network &amp; Founder Heritage
+                  Official Evminov Centers Network &amp; "Home Hospital" Model
                 </div>
                 <div style="font-size: 0.8125rem; color: var(--color-text-muted);">
                   9 Kostolna St, Kyiv • Glendale, CA • Frontline Combat Veteran Rehabilitation
@@ -96,6 +103,71 @@ export function renderClinicalTrust() {
             </div>
           </div>
 
+        </div>
+
+        <!-- The 3 Clinical Stages of Recovery Section (from evminov.com methodology) -->
+        <div style="margin-top: 60px; padding-top: 48px; border-top: 1px solid var(--color-border-subtle);">
+          <div style="text-align: center; max-width: 680px; margin: 0 auto 36px;">
+            <span class="badge badge-pine" style="margin-bottom: 10px;">Clinical Methodology • Три Етапи Відновлення</span>
+            <h3 style="font-size: 1.85rem; font-weight: 800; color: var(--color-primary-navy);">
+              The Three Progressive Stages of Spinal Healing
+            </h3>
+            <p style="font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.6;">
+              Based on doctoral clinical research defended at leading Ukrainian medical academies, full spinal restoration requires a structured progression — never skipping directly to heavy load.
+            </p>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+            
+            <div class="card" style="background: var(--color-surface-white); border-radius: var(--radius-xl); padding: 28px; border: 1.5px solid var(--color-pine-border); display: flex; flex-direction: column; gap: 12px;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="badge badge-pine">Stage 01 • Weeks 1–3</span>
+                <span style="font-family: var(--font-mono); font-size: 0.8125rem; font-weight: 700; color: var(--color-pine-emerald);">8°–15° Incline</span>
+              </div>
+              <h4 style="font-size: 1.2rem; font-weight: 800; color: var(--color-primary-navy); margin: 0;">
+                Restorative &amp; Pain Relief
+              </h4>
+              <div style="font-size: 0.8125rem; color: #059669; font-weight: 700;">
+                Релаксаційно-відновлювальний етап
+              </div>
+              <p style="font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.6; margin: 0;">
+                Gentle fractional gravitational traction decompresses nerve roots and relieves reflex muscle spasms. Negative intradiscal pressure triggers an osmotic pump, drawing fluid and nutrients back into dehydrated discs.
+              </p>
+            </div>
+
+            <div class="card" style="background: var(--color-surface-white); border-radius: var(--radius-xl); padding: 28px; border: 1.5px solid var(--color-pine-border); display: flex; flex-direction: column; gap: 12px;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="badge badge-cyan">Stage 02 • Weeks 4–10</span>
+                <span style="font-family: var(--font-mono); font-size: 0.8125rem; font-weight: 700; color: var(--color-traction-cyan);">15°–30° Incline</span>
+              </div>
+              <h4 style="font-size: 1.2rem; font-weight: 800; color: var(--color-primary-navy); margin: 0;">
+                Paraspinal Muscular Corset
+              </h4>
+              <div style="font-size: 0.8125rem; color: #0284C7; font-weight: 700;">
+                Зміцнювальний етап
+              </div>
+              <p style="font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.6; margin: 0;">
+                Under safe traction, patients perform low-amplitude micro-movement kinesitherapy to isolate and strengthen the deep short paraspinal rotatores and multifidus muscles, locking in newly regained intervertebral height.
+              </p>
+            </div>
+
+            <div class="card" style="background: var(--color-surface-white); border-radius: var(--radius-xl); padding: 28px; border: 1.5px solid var(--color-pine-border); display: flex; flex-direction: column; gap: 12px;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="badge badge-gold">Stage 03 • Ongoing</span>
+                <span style="font-family: var(--font-mono); font-size: 0.8125rem; font-weight: 700; color: #D97706;">5–10 Min / Day</span>
+              </div>
+              <h4 style="font-size: 1.2rem; font-weight: 800; color: var(--color-primary-navy); margin: 0;">
+                Lifelong Prevention &amp; Habit
+              </h4>
+              <div style="font-size: 0.8125rem; color: #D97706; font-weight: 700;">
+                Підтримуючий етап
+              </div>
+              <p style="font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.6; margin: 0;">
+                A simple 5–10 minute daily habit replaces costly chiropractor sessions, counteracts the compressive strain of prolonged desk work and driving, and eliminates future relapse risk.
+              </p>
+            </div>
+
+          </div>
         </div>
 
       </div>
