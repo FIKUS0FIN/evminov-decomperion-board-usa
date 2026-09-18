@@ -23,27 +23,27 @@ export function renderHeader() {
       <div class="header-inner">
         <a href="#" class="site-logo" aria-label="Evminov Spine Med Home">
           <svg width="32" height="32" viewBox="0 0 100 100" fill="none" aria-hidden="true">
-            <circle cx="50" cy="13" r="7" fill="currentColor"/>
-            <rect x="46" y="20" width="8" height="3" rx="1.5" fill="currentColor"/>
-            <line x1="50" y1="23" x2="50" y2="95" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
-            <path d="M47 24 C38 18, 26 12, 10 16 C8 24, 12 28, 14 31 C11 34, 14 39, 18 41 C16 44, 20 48, 26 49 C26 52, 32 54, 38 52 C38 55, 43 55, 47 48 Z" 
-                  fill="#ECFDF5" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
-            <path d="M14 31 C22 30, 32 30, 44 28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <path d="M18 41 C26 39, 34 38, 45 36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <path d="M26 49 C32 46, 38 45, 46 44" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <path d="M53 24 C62 18, 74 12, 90 16 C92 24, 88 28, 86 31 C89 34, 86 39, 82 41 C84 44, 80 48, 74 49 C74 52, 68 54, 62 52 C62 55, 57 55, 53 48 Z" 
-                  fill="#ECFDF5" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
-            <path d="M86 31 C78 30, 68 30, 56 28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <path d="M82 41 C74 39, 66 38, 55 36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <path d="M74 49 C68 46, 62 45, 54 44" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <path d="M44 33 C46 32, 48 34, 46 36 C42 41, 31 46, 35 55 C39 63, 62 62, 64 71 C66 79, 40 80, 42 88 C44 92, 50 94, 50 94" 
-                  fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M56 33 C54 32, 52 34, 54 36 C58 41, 69 46, 65 55 C61 63, 38 62, 36 71 C34 79, 60 80, 58 88 C56 92, 50 94, 50 94" 
-                  fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <ellipse cx="44.5" cy="33" rx="3.5" ry="2.2" fill="currentColor" transform="rotate(-15 44.5 33)"/>
-            <circle cx="43.5" cy="32.5" r="0.9" fill="#FFFFFF"/>
-            <ellipse cx="55.5" cy="33" rx="3.5" ry="2.2" fill="currentColor" transform="rotate(15 55.5 33)"/>
-            <circle cx="56.5" cy="32.5" r="0.9" fill="#FFFFFF"/>
+            <circle cx="50" cy="10" r="6" fill="currentColor"/>
+            <rect x="46.5" y="16" width="7" height="3" rx="1.5" fill="currentColor"/>
+            <line x1="50" y1="19" x2="50" y2="95" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+            <path d="M47 20 C38 12, 26 4, 8 4 C5 8, 8 12, 14 13 C7 16, 9 21, 17 21 C10 25, 14 30, 23 29 C17 33, 22 37, 32 35 C28 38, 36 40, 46 36 C47 30, 47 24, 47 20 Z" 
+                  fill="#ECFDF5" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/>
+            <path d="M14 13 C24 16, 36 18, 47 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M17 21 C26 23, 36 24, 47 23" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M23 29 C30 30, 38 30, 47 29" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M53 20 C58 12, 72 4, 92 4 C95 8, 92 12, 86 13 C93 16, 91 21, 83 21 C90 25, 86 30, 77 29 C83 33, 78 37, 68 35 C72 38, 64 40, 54 36 C53 30, 53 24, 53 20 Z" 
+                  fill="#ECFDF5" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/>
+            <path d="M86 13 C76 16, 64 18, 53 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M83 21 C74 23, 64 24, 53 23" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M77 29 C70 30, 62 30, 53 29" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M47 23 C44 19, 38 20, 36 24 C36 28, 42 31, 47 27 Z" fill="currentColor"/>
+            <circle cx="41" cy="22.5" r="1.4" fill="#FFFFFF"/>
+            <path d="M41 28 C28 34, 20 44, 24 55 C28 66, 72 62, 72 73 C72 82, 40 80, 42 88 C43 92, 50 94, 50 94" 
+                  fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M53 23 C56 19, 62 20, 64 24 C64 28, 58 31, 53 27 Z" fill="currentColor"/>
+            <circle cx="59" cy="22.5" r="1.4" fill="#FFFFFF"/>
+            <path d="M59 28 C72 34, 80 44, 76 55 C72 66, 28 62, 28 73 C28 82, 60 80, 58 88 C57 92, 50 94, 50 94" 
+                  fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <div class="logo-text-stack">
             <span class="logo-title">Evminov</span>
