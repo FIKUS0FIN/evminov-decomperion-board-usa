@@ -87,39 +87,89 @@ export function renderMountingGuide() {
 
         </div>
 
-        <!-- Step-by-Step Unboxing & Assembly Video -->
-        <div style="margin-top: 40px; background: #0B132B; border-radius: 16px; padding: 28px; color: #FFFFFF; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; align-items: center; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
-          <div>
-            <span class="badge badge-cyan" style="margin-bottom: 8px;">Video Installation Guide</span>
-            <h3 style="font-size: 1.35rem; font-weight: 800; color: #FFFFFF; line-height: 1.3; margin-bottom: 12px;">
-              Step-by-Step Unboxing &amp; Wall Assembly (Under 10 Minutes)
-            </h3>
-            <p style="font-size: 0.88rem; color: #94A3B8; line-height: 1.6; margin-bottom: 20px;">
-              Follow along with official factory unboxing footage demonstrating assembly of the sectional pine panels, sliding carriage calibration, and heavy-duty wall anchor installation into American wood studs.
-            </p>
-            <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-              <a 
-                href="https://www.youtube.com/watch?v=fP-biAHusGs" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="btn btn-primary btn-sm"
-              >
-                Watch on YouTube ↗
-              </a>
-              <a href="#product-evminov-standard" class="btn btn-secondary btn-sm" style="background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.2);">
-                View Standard Set
-              </a>
+        <!-- Step-by-Step Cinematic Unboxing & Assembly Video (Half-Screen Showcase) -->
+        <div class="cinematic-video-section" style="margin-top: 48px; padding: 40px; background: #0B132B; border-radius: var(--radius-xl); color: #FFFFFF; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 25px 50px -12px rgba(11, 19, 43, 0.4);">
+          <div class="cinematic-video-grid">
+            
+            <!-- Video Column (55% Half-Screen Player) -->
+            <div class="video-frame-container">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/fP-biAHusGs?rel=0" 
+                title="Unboxing and Assembling the Patented Evminov Board" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+              <div class="video-glow-effect"></div>
             </div>
-          </div>
-          <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #000;">
-            <iframe 
-              src="https://www.youtube-nocookie.com/embed/fP-biAHusGs?rel=0" 
-              title="Unboxing and Assembling Evminov Board" 
-              style="width: 100%; height: 100%; border: none;"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen
-              loading="lazy"
-            ></iframe>
+
+            <!-- Narrative & Chapters Column (45%) -->
+            <div class="video-narrative">
+              <div class="video-badge-strip">
+                <span class="badge badge-cyan">Factory Installation Guide</span>
+                <span style="font-size: 0.75rem; color: #94A3B8; font-family: var(--font-mono); font-weight: 700;">4:37 HD</span>
+              </div>
+
+              <h3 style="font-size: clamp(1.4rem, 2.5vw, 1.85rem); font-weight: 800; color: #FFFFFF; line-height: 1.25; margin-bottom: 12px;">
+                Unboxing &amp; 10-Minute Wall Assembly Masterclass
+              </h3>
+
+              <p style="font-size: 0.9rem; color: #94A3B8; line-height: 1.6; margin-bottom: 20px;">
+                Follow along with factory engineers assembling the authentic 3-piece folding Evminov board, calibrating the steel carriage locking mechanism, and securing the mounting bracket into standard 16-inch US wood wall studs.
+              </p>
+
+              <div class="video-chapters-list">
+                <div class="video-chapter-item" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1);">
+                  <span class="video-time-tag">0:00</span>
+                  <div class="video-chapter-text">
+                    <strong style="color: #FFFFFF;">Box Contents &amp; Pre-Assembly Check</strong>
+                    <span style="color: #94A3B8;">Unpacking the 3 resonant pine sections, adjustable carriage, and heavy-duty steel anchors.</span>
+                  </div>
+                </div>
+
+                <div class="video-chapter-item" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1);">
+                  <span class="video-time-tag">1:15</span>
+                  <div class="video-chapter-text">
+                    <strong style="color: #FFFFFF;">Sectional Interlock &amp; Steel Bracing</strong>
+                    <span style="color: #94A3B8;">Aligning the dovetail channels and tightening the vibration-dampening connecting plates.</span>
+                  </div>
+                </div>
+
+                <div class="video-chapter-item" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1);">
+                  <span class="video-time-tag">2:30</span>
+                  <div class="video-chapter-text">
+                    <strong style="color: #FFFFFF;">Carriage Calibration &amp; Quick-Release Pin</strong>
+                    <span style="color: #94A3B8;">Sliding and locking the ergonomic hand grips to your exact patient height.</span>
+                  </div>
+                </div>
+
+                <div class="video-chapter-item" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1);">
+                  <span class="video-time-tag">3:45</span>
+                  <div class="video-chapter-text">
+                    <strong style="color: #FFFFFF;">Wall Stud Mount &amp; Incline Adjustment</strong>
+                    <span style="color: #94A3B8;">Fastening the cable hook into a 16" wood stud for 400+ lbs of safe traction.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+                <a 
+                  href="https://www.youtube.com/watch?v=fP-biAHusGs" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="btn btn-primary btn-sm"
+                  style="display: inline-flex; align-items: center; gap: 8px;"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  Watch on YouTube ↗
+                </a>
+                <a href="#product-evminov-standard" class="btn btn-secondary btn-sm" style="background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.25);">
+                  Shop Standard Folding Set ($349)
+                </a>
+              </div>
+
+            </div>
+
           </div>
         </div>
 

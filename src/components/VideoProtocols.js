@@ -56,44 +56,98 @@ export function renderVideoProtocols() {
           </p>
         </div>
 
-        <!-- Featured Official YouTube Demonstration from @evminoviusa -->
-        <div class="official-youtube-feature" style="background: #0B132B; border-radius: 16px; padding: 28px; color: #FFFFFF; margin-bottom: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; align-items: center; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
-          <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #000;">
-            <iframe 
-              src="https://www.youtube-nocookie.com/embed/GDLVNWynWF0?rel=0" 
-              title="Official Exercise Set on Evminov Spine Decompression Board" 
-              style="width: 100%; height: 100%; border: none;"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen
-              loading="lazy"
-            ></iframe>
-          </div>
-          <div>
-            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-              <span class="badge badge-pine">Official US Channel</span>
-              <span style="font-size: 0.8rem; color: #94A3B8;">@evminoviusa</span>
+        <!-- Featured Official YouTube Clinical Protocol (Half-Screen Showcase) -->
+        <div class="cinematic-video-section" style="margin-bottom: 48px; padding: 40px; background: #0B132B; border-radius: var(--radius-xl); color: #FFFFFF; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 25px 50px -12px rgba(11, 19, 43, 0.4);">
+          <div class="cinematic-video-grid">
+            
+            <!-- Video Column (55% Half-Screen Player) -->
+            <div class="video-frame-container">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/GDLVNWynWF0?rel=0" 
+                title="Official Clinical Exercise Set on Evminov Spine Decompression Board" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+              <div class="video-glow-effect"></div>
             </div>
-            <h3 style="font-size: 1.35rem; font-weight: 800; color: #FFFFFF; line-height: 1.3; margin-bottom: 12px;">
-              Clinical Demonstration: Complete Exercise Protocol on the Evminov Board
-            </h3>
-            <p style="font-size: 0.88rem; color: #94A3B8; line-height: 1.6; margin-bottom: 20px;">
-              Watch certified spine specialists demonstrate proper pelvic stabilization, smooth breathing cadence, and progressive angle adjustments for disc herniation rehabilitation.
-            </p>
-            <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
-              <a 
-                href="https://www.youtube.com/channel/UCwsC2K28uWYijzAKnZljzsw" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="btn btn-primary btn-sm"
-                style="display: inline-flex; align-items: center; gap: 8px;"
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                Subscribe on YouTube
-              </a>
-              <a href="#exercise-gallery" class="btn btn-secondary btn-sm" style="background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.2);">
-                Browse 21 Photo Protocols
-              </a>
+
+            <!-- Narrative & Protocol Phases Column (45%) -->
+            <div class="video-narrative">
+              <div class="video-badge-strip">
+                <span class="badge badge-pine">Official US Channel • @evminoviusa</span>
+                <span style="font-size: 0.75rem; color: #34D399; font-family: var(--font-mono); font-weight: 700;">4:04 HD Clinical Set</span>
+              </div>
+
+              <h3 style="font-size: clamp(1.4rem, 2.5vw, 1.85rem); font-weight: 800; color: #FFFFFF; line-height: 1.25; margin-bottom: 12px;">
+                Clinical Protocol: Herniated Disc &amp; Sciatica Remission Masterclass
+              </h3>
+
+              <p style="font-size: 0.9rem; color: #94A3B8; line-height: 1.6; margin-bottom: 20px;">
+                Guided clinical demonstration from the Evminov Vertebral Center showing proper body alignment, zero-gravity pelvic decompression, and the micro-amplitude pumping motions that stimulate disc fluid reabsorption.
+              </p>
+
+              <div class="video-chapters-list">
+                <div class="video-chapter-item" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1);">
+                  <span class="video-time-tag">0:00</span>
+                  <div class="video-chapter-text">
+                    <strong style="color: #FFFFFF;">Positioning &amp; Fractional Traction (8°–12°)</strong>
+                    <span style="color: #94A3B8;">Supine grip on carriage, relaxing paraspinal musculature into gravitational decompression.</span>
+                  </div>
+                </div>
+
+                <div class="video-chapter-item" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1);">
+                  <span class="video-time-tag">1:10</span>
+                  <div class="video-chapter-text">
+                    <strong style="color: #FFFFFF;">Osmotic Pumping &amp; Lumbar Unloading</strong>
+                    <span style="color: #94A3B8;">Controlled breathing cadence paired with micro-amplitude leg flexion to relieve L4-L5/L5-S1 nerve roots.</span>
+                  </div>
+                </div>
+
+                <div class="video-chapter-item" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1);">
+                  <span class="video-time-tag">2:15</span>
+                  <div class="video-chapter-text">
+                    <strong style="color: #FFFFFF;">Deep Paraspinal Muscle Activation</strong>
+                    <span style="color: #94A3B8;">Isometric contractions of the rotatores and multifidus without compressive spinal loading.</span>
+                  </div>
+                </div>
+
+                <div class="video-chapter-item" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1);">
+                  <span class="video-time-tag">3:20</span>
+                  <div class="video-chapter-text">
+                    <strong style="color: #FFFFFF;">Controlled Discontinuation &amp; Stand-Up Safety</strong>
+                    <span style="color: #94A3B8;">Safe dismount technique preserving therapeutic intervertebral height post-traction.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+                <a 
+                  href="https://www.youtube.com/channel/UCwsC2K28uWYijzAKnZljzsw" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="btn btn-primary btn-sm"
+                  style="display: inline-flex; align-items: center; gap: 8px;"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  Subscribe on YouTube
+                </a>
+                <a 
+                  href="https://www.youtube.com/watch?v=GDLVNWynWF0" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="btn btn-secondary btn-sm"
+                  style="background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.25);"
+                >
+                  Watch on YouTube ↗
+                </a>
+                <a href="#exercise-gallery" class="btn btn-secondary btn-sm" style="background: rgba(255,255,255,0.08); color: #34D399; border-color: rgba(52, 211, 153, 0.3);">
+                  Browse 21 Photo Protocols
+                </a>
+              </div>
+
             </div>
+
           </div>
         </div>
 

@@ -6,6 +6,12 @@ export function renderHero() {
           
           <!-- Hero Copy Column -->
           <div class="hero-content">
+            <a href="#centers" class="hero-center-plaque" title="Explore Official Kyiv Vertebral Center & Founder Vyacheslav Evminov Heritage">
+              <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--color-pine-emerald);"></span>
+              <span class="hero-center-plaque-text">Clinical Heritage Since 1996 • Official Kyiv Centers &amp; Defender Care</span>
+              <span class="hero-center-plaque-arrow">→</span>
+            </a>
+
             <div class="hero-social-proof">
               <span class="star-rating">★★★★★</span>
               <span style="font-size: 0.9375rem; font-weight: 700; color: var(--color-text-main);">

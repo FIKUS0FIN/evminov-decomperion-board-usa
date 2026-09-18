@@ -42,6 +42,25 @@ export function renderClinicalTrust() {
               </div>
             </div>
 
+            <!-- Center & Veteran Program Spotlight -->
+            <div style="background: var(--color-surface-white); border: 1.5px solid var(--color-pine-border); border-radius: var(--radius-lg); padding: 20px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+              <div>
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                  <span class="badge badge-pine" style="font-size: 0.7rem; padding: 2px 8px;">Official Kyiv Flagship &amp; Branches</span>
+                  <span style="font-size: 0.75rem; color: #D97706; font-weight: 700;">★ Defender Spine Program</span>
+                </div>
+                <div style="font-size: 0.9375rem; font-weight: 800; color: var(--color-primary-navy);">
+                  Official Evminov Centers Network &amp; Founder Heritage
+                </div>
+                <div style="font-size: 0.8125rem; color: var(--color-text-muted);">
+                  9 Kostolna St, Kyiv • Glendale, CA • Frontline Combat Veteran Rehabilitation
+                </div>
+              </div>
+              <a href="#centers" class="btn btn-primary btn-sm" style="white-space: nowrap;">
+                View Centers &amp; History →
+              </a>
+            </div>
+
             <!-- Practitioner CTA -->
             <div style="background: var(--color-surface-white); border: 1.5px dashed var(--color-pine-border); border-radius: var(--radius-lg); padding: 18px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
               <div>

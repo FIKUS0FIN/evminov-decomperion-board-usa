@@ -58,12 +58,14 @@ export function renderFooter() {
             </div>
           </div>
 
-          <!-- Column 3: Clinical Protocols -->
+          <!-- Column 3: Clinical Protocols & Heritage -->
           <div>
-            <div class="footer-title">Clinical Protocols</div>
+            <div class="footer-title">Clinical Protocols &amp; Heritage</div>
             <div class="footer-links">
               <a href="#comparison">Evminov vs Inversion Tables</a>
               <a href="#calculator">Incline Angle Calculator</a>
+              <a href="#centers" style="color: #34D399; font-weight: 700;">Rehabilitation Centers &amp; Heritage</a>
+              <a href="#centers#military-rehab" style="color: #FBBF24;">Defender Spine Program</a>
               <a href="#athletes">Athletic Recovery (Deadlifts)</a>
               <a href="#exercise-gallery">21 Photo Protocols Gallery</a>
               <a href="#videos">Video Exercise Library</a>

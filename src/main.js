@@ -6,6 +6,7 @@ import './styles/checkout.css';
 import './styles/portal.css';
 import './styles/portalPage.css';
 import './styles/gallery.css';
+import './styles/centers.css';
 import './styles/main.css';
 
 import { renderHeader, initHeader } from './components/Header.js';
@@ -30,6 +31,7 @@ import { renderOrderConfirmationModal, initOrderConfirmationModal } from './comp
 import { renderCustomerPortalModal, initCustomerPortal } from './components/CustomerPortalModal.js';
 import { renderMobileStickyBar } from './components/MobileStickyBar.js';
 import { renderPatientPortalPage, initPatientPortalPage } from './components/PortalPage.js';
+import { renderClinicalCentersPage, initClinicalCentersPage } from './components/RehabilitationCentersPage.js';
 
 function renderApp() {
   const app = document.getElementById('app');
@@ -38,12 +40,34 @@ function renderApp() {
   const hash = window.location.hash || '';
   const pathname = window.location.pathname || '';
   const isPortalRoute = hash === '#portal' || hash.startsWith('#portal?') || pathname === '/portal';
+  const isCentersRoute = hash === '#centers' || hash === '#clinic' || hash.startsWith('#centers?') || pathname === '/centers';
 
   if (isPortalRoute) {
     // Render Dedicated Full Patient Portal Page
     app.innerHTML = renderPatientPortalPage();
     initPatientPortalPage();
     window.scrollTo({ top: 0, behavior: 'instant' });
+    return;
+  }
+
+  if (isCentersRoute) {
+    // Render Dedicated Rehabilitation Centers, Founder Heritage & Military Care Page
+    app.innerHTML = `
+      ${renderHeader()}
+      <main id="main-content">
+        ${renderClinicalCentersPage()}
+      </main>
+      ${renderFooter()}
+      ${renderCheckoutDrawer()}
+      ${renderOrderConfirmationModal()}
+      ${renderCustomerPortalModal()}
+      ${renderMobileStickyBar()}
+    `;
+    initHeader();
+    initClinicalCentersPage();
+    initCheckoutDrawer();
+    initOrderConfirmationModal();
+    initCustomerPortal();
     return;
   }
 
