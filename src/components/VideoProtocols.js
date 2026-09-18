@@ -49,10 +49,10 @@ export function renderVideoProtocols() {
       <div class="calc-container">
         
         <div class="section-header">
-          <span class="badge badge-pine" style="margin-bottom: 12px;">Clinically Guided Techniques</span>
-          <h2>Doctor-Designed Spinal Decompression Protocols</h2>
+          <span class="badge badge-pine" style="margin-bottom: 12px;">The Evminov Method in Motion</span>
+          <h2>See Clinical Spinal Decompression in Action</h2>
           <p>
-            Explore the core biomechanical movements that allow targeted disc elongation without straining connective ligaments.
+            Watch real clinical execution of the patented inclined traction method — targeted disc rehydration, sciatic nerve release, and active paraspinal core strengthening without surgery.
           </p>
         </div>
 

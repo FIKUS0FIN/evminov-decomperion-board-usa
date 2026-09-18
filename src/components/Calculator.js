@@ -18,11 +18,11 @@ export function renderCalculator() {
         <div class="calc-header">
           <div class="clinical-pill-badge" style="margin-bottom: 8px; padding: 4px 12px; font-size: 0.75rem;">
             <span class="pill-dot"></span>
-            <span>Biomechanical Diagnostic Engine</span>
+            <span>Personal Diagnostic Step • Configure Your Setup</span>
           </div>
-          <h2>Personalized Traction & Incline Calibrator</h2>
+          <h2>Personalized Traction &amp; Incline Calibrator</h2>
           <p>
-            Calibrate physiological traction angle, negative disc vacuum, and model sizing based on clinical spine mechanics.
+            Find your exact starting incline angle, calculate negative disc vacuum (mmHg), and identify the recommended board dimensions for your height and weight.
           </p>
         </div>
 

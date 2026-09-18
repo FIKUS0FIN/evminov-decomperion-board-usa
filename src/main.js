@@ -77,16 +77,16 @@ function renderApp() {
     <main id="main-content">
       ${renderHero()}
       ${renderFunnelsNav()}
-      ${renderCalculator()}
+      ${renderVideoProtocols()}
       ${renderComparisonTable()}
       ${renderProductCatalog()}
       ${renderPatentsSection()}
       ${renderMountingGuide()}
       ${renderAthleteSection()}
-      ${renderOnboardingProgram()}
-      ${renderVideoProtocols()}
       ${renderExerciseGallery()}
+      ${renderOnboardingProgram()}
       ${renderClinicalTrust()}
+      ${renderCalculator()}
       ${renderReviewsSection()}
       ${renderBlogSection()}
       ${renderFaqSection()}
@@ -101,12 +101,12 @@ function renderApp() {
   // Initialize storefront features
   initHeader();
   initFunnelsNav();
-  initCalculator();
+  initVideoProtocols();
   initComparisonTable();
   initProductCatalog();
   initPatentsSection();
-  initVideoProtocols();
   initExerciseGallery();
+  initCalculator();
   initReviewsSection();
   initBlogSection();
   initFaqSection();
