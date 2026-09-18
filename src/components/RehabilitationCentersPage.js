@@ -5,7 +5,8 @@ import {
   homeHospitalConcept,
   psychosomaticStressData,
   woodCraftsmanshipData,
-  contraindicationsData
+  contraindicationsData,
+  audienceUseCases
 } from '../data/centersData.js';
 
 export function renderClinicalCentersPage() {
@@ -52,6 +53,51 @@ export function renderClinicalCentersPage() {
         <div class="military-step-badge">${s.step}</div>
         <div class="military-card-title">${s.title}</div>
         <p class="military-card-desc">${s.desc}</p>
+      </div>
+    `
+    )
+    .join('');
+
+  const audienceCasesHtml = audienceUseCases
+    .map(
+      (item) => `
+      <div class="audience-case-card" id="audience-card-${item.id}">
+        <div class="audience-case-header">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px;">
+            <span class="badge badge-cyan" style="background: rgba(56, 189, 248, 0.15); color: #38BDF8; border: 1px solid rgba(56, 189, 248, 0.3);">${item.tag}</span>
+            <span style="font-size: 0.8125rem; font-weight: 700; color: #34D399;">${item.badge}</span>
+          </div>
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: #FFFFFF; line-height: 1.3; margin-bottom: 8px;">
+            ${item.icon} ${item.title}
+          </h3>
+          <p style="font-size: 0.9375rem; color: #94A3B8; line-height: 1.6; margin: 0;">
+            ${item.lead}
+          </p>
+        </div>
+
+        <div class="audience-mechanisms-list" style="margin-top: 18px; display: flex; flex-direction: column; gap: 12px;">
+          ${item.mechanisms
+            .map(
+              (m) => `
+            <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-md); padding: 14px 16px;">
+              <div style="font-size: 0.9375rem; font-weight: 700; color: #38BDF8; margin-bottom: 6px;">
+                ${m.profile}
+              </div>
+              <div style="font-size: 0.875rem; color: #E2E8F0; line-height: 1.5; margin-bottom: 6px;">
+                <span style="color: #F87171; font-weight: 600;">Challenge:</span> ${m.problem}
+              </div>
+              <div style="font-size: 0.875rem; color: #CBD5E1; line-height: 1.5;">
+                <span style="color: #34D399; font-weight: 600;">Evminov Protocol:</span> ${m.solution}
+              </div>
+            </div>
+          `
+            )
+            .join('')}
+        </div>
+
+        <div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.08); font-size: 0.8125rem; font-style: italic; color: #94A3B8; line-height: 1.5;">
+          💡 ${item.founderNote}
+        </div>
       </div>
     `
     )
@@ -243,19 +289,22 @@ export function renderClinicalCentersPage() {
                 <span class="hero-center-plaque-text" style="color: #FFFFFF;">3. Clinical Videos</span>
               </a>
               <a href="#military-rehab" class="hero-center-plaque" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: #FFFFFF; text-decoration: none;">
-                <span class="hero-center-plaque-text" style="color: #FFFFFF;">4. Defender Program</span>
+                <span class="hero-center-plaque-text" style="color: #FFFFFF;">4. Tactical &amp; Defender Care</span>
+              </a>
+              <a href="#audience-cases" class="hero-center-plaque" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: #FFFFFF; text-decoration: none;">
+                <span class="hero-center-plaque-text" style="color: #FFFFFF;">5. Clinical Indications</span>
               </a>
               <a href="#psychosomatic" class="hero-center-plaque" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: #FFFFFF; text-decoration: none;">
-                <span class="hero-center-plaque-text" style="color: #FFFFFF;">5. Psychosomatic Stress</span>
+                <span class="hero-center-plaque-text" style="color: #FFFFFF;">6. Psychosomatic Stress</span>
               </a>
               <a href="#wood-science" class="hero-center-plaque" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: #FFFFFF; text-decoration: none;">
-                <span class="hero-center-plaque-text" style="color: #FFFFFF;">6. Wood Science</span>
+                <span class="hero-center-plaque-text" style="color: #FFFFFF;">7. Wood Science</span>
               </a>
               <a href="#safety-screening" class="hero-center-plaque" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: #FFFFFF; text-decoration: none;">
-                <span class="hero-center-plaque-text" style="color: #FFFFFF;">7. Safety Screening</span>
+                <span class="hero-center-plaque-text" style="color: #FFFFFF;">8. Safety Screening</span>
               </a>
               <a href="#directory" class="hero-center-plaque" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: #FFFFFF; text-decoration: none;">
-                <span class="hero-center-plaque-text" style="color: #FFFFFF;">8. Centers Directory</span>
+                <span class="hero-center-plaque-text" style="color: #FFFFFF;">9. Centers Directory</span>
               </a>
             </div>
 
@@ -582,7 +631,7 @@ export function renderClinicalCentersPage() {
               ${militaryProgram.title}
             </h2>
             <p style="font-size: 1.0625rem; color: #94A3B8; line-height: 1.65;">
-              ${militaryProgram.subtitle} In frontline warfare, continuous patrol under 15–25 kg body armor (30–45 kg full combat gear) and blast concussions destroys spinal disc integrity. The Evminov Center provides specialized clinical decompression for defenders.
+              ${militaryProgram.subtitle} Developed in clinical practice and proven in frontline hospital units treating thousands of defenders, this non-surgical decompression protocol serves US Armed Forces service members, combat veterans (VA), law enforcement tactical teams, firefighters, and allied defense personnel worldwide.
             </p>
           </div>
 
@@ -594,7 +643,7 @@ export function renderClinicalCentersPage() {
           </div>
 
           <h3 style="font-size: 1.25rem; font-weight: 800; color: #FFFFFF; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
-            <span style="color: #34D399;">🛡️</span> The Evminov Clinical Solution for Veterans
+            <span style="color: #34D399;">🛡️</span> The Evminov Clinical Solution for Tactical Personnel &amp; Veterans
           </h3>
           <div class="military-challenges-grid">
             ${militarySolutionsHtml}
@@ -603,15 +652,38 @@ export function renderClinicalCentersPage() {
           <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(52, 211, 153, 0.3); border-radius: var(--radius-xl); padding: 28px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
             <div>
               <div style="font-size: 1.125rem; font-weight: 800; color: #FFFFFF; margin-bottom: 4px;">
-                Are you a Veteran, Active Service Member, or Military Medic?
+                Are you a US Veteran, Active Duty Member, Tactical Operator, or Medic?
               </div>
               <div style="font-size: 0.875rem; color: #94A3B8;">
-                Inquire about our expedited rehabilitation consultations and specialized tactical recovery protocols.
+                Inquire about our expedited rehabilitation consultations, tactical decompression protocols, and veteran assistance.
               </div>
             </div>
-            <a href="mailto:support@evminovusa.com?subject=Military%20Spine%20Rehabilitation%20Inquiry" class="btn btn-primary btn-sm" style="white-space: nowrap;">
-              Contact Military Care Coordinator
+            <a href="mailto:support@evminovusa.com?subject=Tactical%20and%20Veteran%20Spine%20Rehabilitation%20Inquiry" class="btn btn-primary btn-sm" style="white-space: nowrap;">
+              Contact Tactical &amp; Veteran Care
             </a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section 2.2: Cross-Disciplinary Indications & Audience Use Cases -->
+      <section class="audience-cases-section" id="audience-cases" style="background: #0B1120; border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 80px 0;">
+        <div class="calc-container">
+          
+          <div class="section-header" style="max-width: 840px; margin: 0 auto 48px; text-align: center;">
+            <span class="badge badge-pine" style="background: rgba(52, 211, 153, 0.15); color: #34D399; border-color: rgba(52, 211, 153, 0.3); margin-bottom: 12px;">
+              Clinical Indications &amp; Biomechanical Use Cases
+            </span>
+            <h2 style="font-size: clamp(1.8rem, 3.2vw, 2.75rem); font-weight: 800; line-height: 1.2; margin-bottom: 16px; color: #FFFFFF;">
+              Targeted Spinal Recovery Across 5 Core Demographics
+            </h2>
+            <p style="font-size: 1.0625rem; color: #94A3B8; line-height: 1.65; margin: 0 auto;">
+              The intervertebral disc is an avascular structure requiring negative pressure traction and gentle kinesitherapy to heal. Explore how the Evminov Method is prescribed for athletes, desk professionals, tactical defense operators, and severe herniation patients.
+            </p>
+          </div>
+
+          <div class="audience-cases-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+            ${audienceCasesHtml}
           </div>
 
         </div>

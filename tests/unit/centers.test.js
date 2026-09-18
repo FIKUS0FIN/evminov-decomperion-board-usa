@@ -6,7 +6,8 @@ import {
   homeHospitalConcept,
   psychosomaticStressData,
   woodCraftsmanshipData,
-  contraindicationsData
+  contraindicationsData,
+  audienceUseCases
 } from '../../src/data/centersData.js';
 import { renderClinicalCentersPage } from '../../src/components/RehabilitationCentersPage.js';
 
@@ -68,7 +69,26 @@ describe('Evminov Rehabilitation Centers & Founder Heritage Data Integrity', () 
     expect(us.phones[0]).toContain('+1 (747) 306-0140');
   });
 
-  it('should render the clinical centers page with schemas, founder story, military program, home hospital, wood science and videos', () => {
+  it('should export structured audience use cases covering athletes, desk workers, tactical, herniations, and family', () => {
+    expect(audienceUseCases).toBeDefined();
+    expect(audienceUseCases.length).toBe(5);
+    const athletes = audienceUseCases.find((u) => u.id === 'athletes');
+    const desk = audienceUseCases.find((u) => u.id === 'desk-workers');
+    const tactical = audienceUseCases.find((u) => u.id === 'tactical-military');
+    const herniations = audienceUseCases.find((u) => u.id === 'severe-herniations');
+    const family = audienceUseCases.find((u) => u.id === 'family-posture');
+
+    expect(athletes).toBeDefined();
+    expect(athletes.mechanisms.length).toBeGreaterThanOrEqual(4);
+    expect(desk).toBeDefined();
+    expect(desk.badge).toContain('190%');
+    expect(tactical).toBeDefined();
+    expect(tactical.title).toContain('Military');
+    expect(herniations).toBeDefined();
+    expect(family).toBeDefined();
+  });
+
+  it('should render the clinical centers page with schemas, founder story, military/tactical program, audience use cases, home hospital, wood science and videos', () => {
     const html = renderClinicalCentersPage();
     expect(html).toContain('centers-page');
     expect(html).toContain('Vyacheslav Evminov');
@@ -76,6 +96,10 @@ describe('Evminov Rehabilitation Centers & Founder Heritage Data Integrity', () 
     expect(html).toContain('Spine of the Defender Program');
     expect(html).toContain('Знімаємо броню з хребта');
     expect(html).toContain('home-hospital');
+    expect(html).toContain('audience-cases');
+    expect(html).toContain('audience-card-athletes');
+    expect(html).toContain('audience-card-desk-workers');
+    expect(html).toContain('audience-card-tactical-military');
     expect(html).toContain('psychosomatic');
     expect(html).toContain('wood-science');
     expect(html).toContain('safety-screening');

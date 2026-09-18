@@ -2029,6 +2029,64 @@ body.nav-drawer-open {
 }
 
 /* Responsive Grids for Athlete & Clinical Trust */
+.athlete-tab-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: var(--color-surface-white);
+  border: 1.5px solid var(--color-border-subtle);
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-sm);
+}
+
+.athlete-tab-pill:hover {
+  border-color: var(--color-pine-emerald);
+  color: var(--color-pine-emerald);
+  transform: translateY(-1px);
+}
+
+.athlete-tab-pill.active {
+  background: var(--color-primary-navy);
+  border-color: var(--color-primary-navy);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-md);
+}
+
+.athlete-tab-pill.active .athlete-pill-icon {
+  transform: scale(1.1);
+}
+
+.athlete-pill-icon {
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.athlete-discipline-panel {
+  display: none;
+  animation: athleteFadeIn 0.35s ease forwards;
+}
+
+.athlete-discipline-panel.active {
+  display: block;
+}
+
+@keyframes athleteFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .athlete-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -2038,7 +2096,7 @@ body.nav-drawer-open {
 
 @media (min-width: 900px) {
   .athlete-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.15fr 0.85fr;
     gap: 48px;
   }
 }
