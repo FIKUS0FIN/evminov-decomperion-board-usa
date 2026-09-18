@@ -10,7 +10,7 @@ export function renderCustomerPortalModal() {
         <div class="portal-header">
           <div class="portal-brand">
             <div class="portal-crest">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 21h10"/><path d="M12 15.5v5.5"/><path d="M5 9.5C5 13.5 8 16 12 16C16 13.5 19 9.5 19 9.5"/><path d="M4 9.5h16"/><path d="M8 19.5C8 19.5 15 19 15 17.5C15 16 9 15.5 9 13.5C9 11.5 13 10.8 16 8.5C18 7 18 4.2 15.2 3.5C12.5 2.8 10.2 4.2 10.8 6.2C11.2 7.5 13 7.6 13 7.6"/></svg>
             </div>
             <div>
               <div class="portal-title">Evminov Patient Portal</div>
