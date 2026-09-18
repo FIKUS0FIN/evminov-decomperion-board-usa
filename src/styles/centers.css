@@ -175,19 +175,175 @@
 
 .founder-split-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.1fr 1fr;
   gap: 48px;
-  align-items: center;
+  align-items: start;
   margin-bottom: 60px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .founder-split-grid {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 40px;
   }
 }
 
+/* Injury Diagnostic Card inside 50/50 Prognosis Box */
+.founder-drama-box {
+  background: #F0FDF4;
+  border: 1.5px solid var(--color-pine-border);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  margin: 24px 0;
+}
+
+.founder-drama-title {
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: var(--color-pine-emerald);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.founder-injury-diagnostic {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.founder-injury-img-wrap {
+  position: relative;
+  width: 110px;
+  height: 85px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: #1E293B;
+  box-shadow: var(--shadow-sm);
+}
+
+.founder-injury-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
+.founder-injury-badge {
+  position: absolute;
+  bottom: 3px;
+  left: 3px;
+  right: 3px;
+  background: rgba(11, 19, 43, 0.9);
+  color: #34D399;
+  font-size: 0.5625rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 2px 4px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.founder-injury-caption {
+  font-size: 0.8125rem;
+  color: var(--color-text-main);
+  line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+  .founder-injury-diagnostic {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .founder-injury-img-wrap {
+    width: 100%;
+    height: 140px;
+  }
+}
+
+/* Founder Visual Column */
+.founder-visual-column {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Founder Portrait Card (Vyacheslav Evminov full recovery with board) */
+.founder-portrait-card {
+  background: #0B132B;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+}
+
+.founder-portrait-media {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  background: #0F172A;
+}
+
+.founder-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% 20%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.founder-portrait-card:hover .founder-portrait-img {
+  transform: scale(1.02);
+}
+
+.founder-portrait-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(11, 19, 43, 0.88);
+  backdrop-filter: blur(8px);
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #34D399;
+  border: 1px solid rgba(52, 211, 153, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.founder-portrait-caption {
+  padding: 20px 24px;
+}
+
+.founder-portrait-name {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+}
+
+.founder-portrait-desc {
+  font-size: 0.8125rem;
+  color: #94A3B8;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Flagship Clinic Training Session Card */
 .founder-card-visual {
   position: relative;
   border-radius: var(--radius-xl);
@@ -198,19 +354,25 @@
 
 .founder-img {
   width: 100%;
-  height: 480px;
+  height: 360px;
   object-fit: cover;
+  object-position: 82% 25%;
   display: block;
+  transition: transform 0.5s ease;
+}
+
+.founder-card-visual:hover .founder-img {
+  transform: scale(1.02);
 }
 
 .founder-quote-overlay {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
   background: rgba(11, 19, 43, 0.92);
   backdrop-filter: blur(12px);
-  padding: 20px;
+  padding: 16px 20px;
   border-radius: var(--radius-lg);
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: #FFFFFF;
@@ -218,7 +380,7 @@
 
 .founder-quote-text {
   font-style: italic;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   line-height: 1.5;
   margin-bottom: 8px;
 }
@@ -229,21 +391,33 @@
   color: #34D399;
 }
 
-.founder-drama-box {
-  background: #F0FDF4;
-  border: 1.5px solid var(--color-pine-border);
-  border-radius: var(--radius-lg);
-  padding: 20px;
-  margin: 20px 0;
-}
+/* Mobile uncropped adjustments for the woman and quote */
+@media (max-width: 640px) {
+  .founder-portrait-media {
+    height: 300px;
+  }
+  .founder-portrait-img {
+    object-position: 68% 15%;
+  }
 
-.founder-drama-title {
-  font-size: 0.875rem;
-  font-weight: 800;
-  color: var(--color-pine-emerald);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: 6px;
+  .founder-card-visual {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .founder-img {
+    height: 290px;
+    object-position: 83% 20%;
+  }
+
+  .founder-quote-overlay {
+    position: static;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 16px 18px;
+  }
 }
 
 /* Interactive Timeline */
@@ -429,6 +603,26 @@
 
 .center-card:hover .center-card-img {
   transform: scale(1.05);
+}
+
+#center-kyiv-central .center-card-img {
+  object-position: 80% 25%;
+}
+
+#center-us-hub .center-card-img {
+  object-position: 70% 30%;
+}
+
+#center-lviv-branch .center-card-img {
+  object-position: center 30%;
+}
+
+#center-odesa-branch .center-card-img {
+  object-position: center 40%;
+}
+
+#center-poland-hub .center-card-img {
+  object-position: center 30%;
 }
 
 .center-card-badge {

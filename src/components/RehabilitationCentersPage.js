@@ -280,10 +280,24 @@ export function renderClinicalCentersPage() {
               </p>
 
               <div class="founder-drama-box">
-                <div class="founder-drama-title">The 50/50 Prognosis That Changed Everything</div>
-                <p style="font-size: 0.9375rem; color: var(--color-text-main); line-height: 1.6; margin: 0;">
+                <div class="founder-drama-title">The 50/50 Prognosis That Changed Everything (1989)</div>
+                <p style="font-size: 0.9375rem; color: var(--color-text-main); line-height: 1.6; margin-bottom: 12px;">
                   In the late 1980s, an old sports trauma suddenly intensified into an agonizing lumbar disc herniation that pinched his sciatic nerve plexus. Within weeks, Evminov lost the ability to walk. Leading neurosurgeons delivered a devastating verdict: <em>"Surgery has only a 50/50 chance of success; the alternative is permanent wheelchair paralysis."</em>
                 </p>
+                <div class="founder-injury-diagnostic">
+                  <div class="founder-injury-img-wrap">
+                    <img 
+                      src="/images/authentic/evminov-disc-injury-mri.jpg" 
+                      alt="Spinal trauma and lumbar disc herniation clinical review" 
+                      class="founder-injury-img" 
+                      loading="lazy" 
+                    />
+                    <span class="founder-injury-badge">Clinical Trauma Review</span>
+                  </div>
+                  <div class="founder-injury-caption">
+                    <strong>1989 Diagnostic Crisis:</strong> Severe multi-level lumbar extrusion compressing the sciatic root. Refusing high-risk invasive fusion, Evminov resolved to cure his own spine using biomechanical first principles.
+                  </div>
+                </div>
               </div>
 
               <p style="font-size: 1rem; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 16px;">
@@ -295,18 +309,42 @@ export function renderClinicalCentersPage() {
               </p>
             </div>
 
-            <div class="founder-card-visual">
-              <img 
-                src="/images/authentic/clinic-rehab-center-1.jpg" 
-                alt="Vyacheslav Evminov Vertebral-Health Center in Central Kyiv" 
-                class="founder-img" 
-              />
-              <div class="founder-quote-overlay">
-                <div class="founder-quote-text">
-                  "${founderStory.quote}"
+            <div class="founder-visual-column">
+              <!-- Founder Recovery Portrait Card -->
+              <div class="founder-portrait-card">
+                <div class="founder-portrait-media">
+                  <img 
+                    src="/images/authentic/vyacheslav-evminov-founder.jpg" 
+                    alt="Vyacheslav Evminov, Master of Sports and Inventor of the Evminov Method" 
+                    class="founder-portrait-img" 
+                  />
+                  <div class="founder-portrait-badge">
+                    <span class="pill-dot" style="background: #34D399;"></span>
+                    <span>Full Recovery • Master of Sports</span>
+                  </div>
                 </div>
-                <div class="founder-quote-author">
-                  — Vyacheslav Evminov, Master of Sports &amp; Method Creator
+                <div class="founder-portrait-caption">
+                  <div class="founder-portrait-name">Vyacheslav Volodymyrovych Evminov</div>
+                  <p class="founder-portrait-desc">
+                    Master of Sports &amp; Honored Coach of Ukraine in the clinical gym beside his patented inclined board and recovered patients, demonstrating full lifelong mobility after reversing paralyzing disc herniations without surgery.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Flagship Clinic Training Session Card -->
+              <div class="founder-card-visual">
+                <img 
+                  src="/images/authentic/clinic-rehab-center-1.jpg" 
+                  alt="Clinical traction and decompression training on Evminov board" 
+                  class="founder-img" 
+                />
+                <div class="founder-quote-overlay">
+                  <div class="founder-quote-text">
+                    "${founderStory.quote}"
+                  </div>
+                  <div class="founder-quote-author">
+                    — Vyacheslav Evminov, Master of Sports &amp; Method Creator
+                  </div>
                 </div>
               </div>
             </div>

@@ -286,42 +286,48 @@ export const centersNetwork = [
     id: 'lviv-branch',
     name: 'Western Ukraine Regional Center',
     city: 'Lviv, Ukraine',
-    address: 'Lviv Regional Vertebral Clinic, Lviv, Ukraine',
-    phones: ['+380 (32) 242-20-11'],
+    address: 'Lviv Center of Spine Health, 20 Zaliznychna St (вул. Залізнична, 20), Lviv',
+    phones: ['+380 (67) 587-92-05', '+380 (32) 242-20-11'],
+    hours: 'Mon–Fri: 9:00 AM – 7:00 PM • Sat: 10:00 AM – 3:00 PM',
     type: 'Regional Clinical & Veteran Recovery Center',
     features: [
       'Frontline Veteran Recovery Programs',
-      'Adolescent Scoliosis Prevention Classes'
+      'Adolescent Scoliosis Prevention Classes',
+      'Certified Evminov Kinesitherapy Instructors'
     ],
-    image: '/images/craftsmanship/clinical-evminov-center.jpg',
+    image: '/images/centers/lviv-center-rehab.jpg',
     featured: false
   },
   {
     id: 'odesa-branch',
     name: 'Southern Regional Medical Center',
     city: 'Odesa, Ukraine',
-    address: 'Odesa Physical Therapy Center, Odesa, Ukraine',
-    phones: ['+380 (48) 780-11-22'],
+    address: 'Odesa Physical Therapy Center, 78 Kanatna St (вул. Канатна, 78) & 17 Preobrazhenska St, Odesa',
+    phones: ['+380 (48) 722-61-54', '+380 (93) 722-61-54'],
+    hours: 'Mon–Fri: 8:00 AM – 8:00 PM • Sat–Sun: 9:00 AM – 6:00 PM',
     type: 'Regional Spine Rehabilitation Center',
     features: [
       'Maritime & Athletic Spinal Recovery',
-      'Post-Surgical Remission Therapy'
+      'Post-Surgical Remission Therapy',
+      'Official Evminov Regional Branch'
     ],
-    image: '/images/authentic/care-modern-spine-1.jpg',
+    image: '/images/centers/odesa-center-rehab.jpg',
     featured: false
   },
   {
     id: 'poland-hub',
     name: 'European Partner Center (Poland)',
     city: 'Warsaw & Krakow, Poland',
-    address: 'Evminov EU Rehabilitation Network, Warsaw, Poland',
-    phones: ['+48 (22) 555-38-89'],
+    address: 'Evminov EU Rehabilitation Network & Partner Centers, Warsaw & Krakow, Poland',
+    phones: ['+48 (22) 555-38-89', '+48 570 891 224'],
+    hours: 'Mon–Fri: 8:30 AM – 6:30 PM CET',
     type: 'European Training & Distribution Center',
     features: [
       'EU CE Certified Rehabilitation Facility',
-      'Multilingual Clinical Onboarding (Polish, Ukrainian, English)'
+      'Multilingual Clinical Onboarding (Polish, Ukrainian, English)',
+      'Direct EU Order Fulfillment & Certification'
     ],
-    image: '/images/authentic/care-modern-spine-2.jpg',
+    image: '/images/centers/poland-center-rehab.jpg',
     featured: false
   }
 ];
