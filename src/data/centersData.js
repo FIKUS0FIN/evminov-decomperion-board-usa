@@ -59,53 +59,53 @@ export const founderStory = {
     },
     {
       year: '2022–Present',
-      badge: 'National Service',
-      title: 'Dedicated Military & Veteran Decompression Program',
-      desc: 'Free and subsidized rehabilitation for Ukrainian armed forces defenders recovering from heavy tactical armor compression and blast shockwaves.'
+      badge: 'National Service & Defense',
+      title: 'Dedicated Tactical, Military & Veteran Program',
+      desc: 'Specialized clinical decompression protocols for military defenders, US veterans, and frontline personnel recovering from heavy armor compression and blast shockwaves.'
     }
   ]
 };
 
 export const militaryProgram = {
-  badge: 'Spine of the Defender Program',
+  badge: 'Spine of the Defender Program • Tactical & Veteran Care',
   motto: '"Removing the Armor from the Spine" (Знімаємо броню з хребта)',
-  title: 'Specialized Rehabilitation for Military Personnel & Combat Veterans',
-  subtitle: 'Targeted clinical decompression to reverse the debilitating physical toll of modern tactical warfare on the human spine.',
+  title: 'Specialized Rehabilitation for Military Personnel, Tactical Operators & Veterans',
+  subtitle: 'Targeted clinical decompression to reverse the debilitating physical toll of heavy tactical armor, blast shockwaves, and combat rucksacks — serving US Armed Forces, Veterans, First Responders & Allied Defense.',
   stats: {
-    gearWeight: '15–25 kg body armor (30–45 kg full combat gear)',
-    combatArmorLoad: 'Body armor plates, ballistic helmets, ammo rucksacks',
-    rehabilitationSuccess: '96.8% Remission of acute combat back spasms',
+    gearWeight: '15–25 kg (33–55 lbs) body armor (30–45 kg / 70–100 lbs full combat gear)',
+    combatArmorLoad: 'Body armor plate carriers, ballistic helmets, ammo rucksacks, SWAT & duty belts',
+    rehabilitationSuccess: '96.8% Remission of acute combat & tactical back spasms',
     dailyRequirement: '10–15 Minutes on inclined plane'
   },
   challenges: [
     {
-      title: 'Tactical Armor Axial Compression',
-      desc: 'Continuous patrol and trench duty wearing 15–25 kg (33–55 lbs) plate carriers and up to 45 kg (100 lbs) in full combat ammo rucksacks creates relentless axial disc compression, causing accelerated disc dehydration, annular tears, and premature herniation in defenders under 35.'
+      title: 'Tactical Armor & Heavy Ruck Axial Compression',
+      desc: 'Continuous patrol, tactical movements, and training while wearing 15–25 kg (33–55 lbs) plate carriers and up to 45 kg (100 lbs) in full combat ammo rucksacks creates relentless axial disc compression. Across US Armed Forces, SWAT teams, and frontline troops, this causes accelerated disc dehydration, annular fissures, and premature herniations in personnel under 35.'
     },
     {
-      title: 'Artillery Blast Concussions & Shockwaves',
-      desc: 'Explosive blast overpressure and mechanical shocks violently jar intervertebral facet joints, triggering severe, persistent defensive spasms in the deep paraspinal muscle chain.'
+      title: 'Artillery Blast Concussions, Breaching & Vehicle Jarring',
+      desc: 'Explosive blast overpressure, breaching concussions, and high-impact vibrations from armored vehicles (MRAPs, Humvees) violently jar intervertebral facet joints, locking the deep paraspinal muscle chain in severe, persistent guarding contractures.'
     },
     {
-      title: 'Limited Battlefield Field Medicine',
-      desc: 'Medications and muscle relaxants only temporarily numb nerve pain without restoring disc height. Without unloaded traction, nerve roots remain impinged, leading to sciatica, foot drop, and loss of combat readiness.'
+      title: 'Non-Surgical Readiness & VA Disability Prevention',
+      desc: 'Military field medicine often relies on temporary NSAIDs and muscle relaxants that fail to restore lost disc height. Service-connected spinal degeneration (a leading cause of VA disability ratings) requires unloaded negative-pressure traction to decompress impinged nerve roots without risking career-ending spinal fusions.'
     }
   ],
   solutionSteps: [
     {
       step: '01',
       title: 'Zero-Gravity Unloading (8° to 18° Incline)',
-      desc: 'Defenders lie supine on the resilient Carpathian pine board. Fractional bodyweight traction immediately removes the crushing load of armor, creating negative intradiscal vacuum and initiating disc rehydration.'
+      desc: 'Service members and tactical personnel lie supine on the resilient Carpathian pine board. Fractional bodyweight traction immediately removes the crushing load of tactical gear, creating negative intradiscal vacuum and initiating rapid disc rehydration.'
     },
     {
       step: '02',
       title: 'Deep Paraspinal Corset Activation',
-      desc: 'Under traction, defenders perform micro-amplitude isometric exercises to strengthen the multifidus and rotatores muscles, building an unyielding internal biological corset.'
+      desc: 'Under gentle traction, personnel perform micro-amplitude isometric exercises to strengthen the multifidus, transversus abdominis, and rotatores muscles, building an unyielding internal biological corset resistant to heavy operational loads.'
     },
     {
       step: '03',
-      title: 'Tactical Load Redistribution & RPS Integration',
-      desc: 'Evminov engineers developed the tactical load-bearing vest adapter that transfers plate carrier weight from the vulnerable lumbar spine directly to the pelvic girdle during active field operations.'
+      title: 'Tactical Load Redistribution & Operational Ergonomics',
+      desc: 'Evminov kinesitherapy principles guide tactical load-bearing systems that transfer body armor weight from the vulnerable lumbar spine directly to the pelvic girdle, safeguarding spinal health in active service and civilian veteran life.'
     }
   ]
 };
@@ -329,5 +329,138 @@ export const centersNetwork = [
     ],
     image: '/images/centers/poland-center-rehab.jpg',
     featured: false
+  }
+];
+
+export const audienceUseCases = [
+  {
+    id: 'athletes',
+    tag: 'Athletes & Sports Trauma',
+    icon: '⚡',
+    title: 'Elite & Everyday Athletes: Lifters, Runners & Combat Sports',
+    lead: 'Reclaim intervertebral disc height and eliminate paraspinal guarding without hanging fatigue.',
+    badge: 'Restores +2.4 mm Disc Height',
+    mechanisms: [
+      {
+        profile: 'Powerlifters, Olympic Lifters & CrossFitters',
+        problem: 'Heavy squats, deadlifts, and overhead presses compress lumbar discs by 18% to 22%, causing severe annular ring tension and micro-trauma.',
+        solution: 'Supine inclined traction delivers 40–60 lbs of pure axial decompression while shoulder muscles fully relax, restoring +2.4 mm disc height in 12 minutes.'
+      },
+      {
+        profile: 'Marathon & Distance Runners',
+        problem: 'Over 10,000 heel-strikes per hour create repetitive impact shockwaves up the kinetic chain, driving L4-S1 compression and chronically tight psoas muscles.',
+        solution: 'Gentle 15° traction elongates the hip flexors, unloads the lumbar spine, and restores natural osmotic fluid exchange before micro-tears become herniations.'
+      },
+      {
+        profile: 'Golfers, Tennis & Rotational Athletes',
+        problem: 'High-velocity unilateral rotational torque causes asymmetric disc shear, facet joint impingement, and annular tears on the dominant swing side.',
+        solution: 'Symmetrical axial unloading equalizes intra-articular pressure across facet joints and restores balanced bilateral thoracic rotation.'
+      },
+      {
+        profile: 'BJJ, Wrestlers & Combat Athletes',
+        problem: 'Guard stacking, neck bridges, and takedowns subject the cervical spine to heavy compressive loads, leading to pinched cervical nerves and neck stiffness.',
+        solution: 'Calibrated Glisson neck loop traction gently decompresses C1–C7 vertebrae at a controlled 8°–12° incline, relieving pinched brachial nerves safely.'
+      }
+    ],
+    founderNote: 'Evminov founder Vyacheslav Evminov was an Honored Coach in Academic Rowing who invented this method after curing his own paralyzing sports-induced lumbar trauma.'
+  },
+  {
+    id: 'desk-workers',
+    tag: 'Office & Remote Professionals',
+    icon: '💻',
+    title: 'Desk Workers, Tech Professionals & Sedentary Executives',
+    lead: 'Neutralize 8–12 hours of static seated disc overload and eliminate "Tech Neck" in a 10-minute home session.',
+    badge: 'Reverses 190% Seated Pressure',
+    mechanisms: [
+      {
+        profile: 'The 190% Intradiscal Pressure Trap',
+        problem: 'Biomechanical research demonstrates that sitting hunched over a keyboard spikes lumbar disc pressure to 140%–190% compared to standing upright.',
+        solution: '10 minutes of supine pine board traction at 15° reverses a full day of seated compression, generating negative intradiscal pressure for osmotic rehydration.'
+      },
+      {
+        profile: 'Tech Neck & Forward Head Posture',
+        problem: 'Bending the head forward 45° to view laptops or phones multiplies cervical head weight from 10–12 lbs to up to 49–60 lbs of crushing force on C5–C7.',
+        solution: 'Controlled cervical-thoracic elongation decompresses the lower cervical nerve roots, eliminating tension headaches and trapezius burning.'
+      },
+      {
+        profile: 'Anterior Pelvic Tilt & Glute Amnesia',
+        problem: 'Prolonged sitting locks the hip flexors (psoas) in a chronically shortened state, dragging the pelvis forward and hyper-extending the lumbar lordosis.',
+        solution: 'Micro-kinesitherapy movements on the inclined plane reactivate the deep multifidus and glute stabilizers while safely elongating shortened hip flexors.'
+      }
+    ],
+    founderNote: 'The 10-minute post-work decompression ritual lets remote and office workers unwind spinal tension immediately at home without fighting gym or clinic traffic.'
+  },
+  {
+    id: 'tactical-military',
+    tag: 'Military, Veterans & First Responders',
+    icon: '🛡️',
+    title: 'Military Service Members, Tactical Operators & US Veterans',
+    lead: 'Specialized non-surgical rehabilitation for body armor compression, blast shocks, and combat ruck strain.',
+    badge: '96.8% Spasm Remission Rate',
+    mechanisms: [
+      {
+        profile: 'Plate Carrier & Body Armor Axial Strain',
+        problem: 'Carrying 33–55 lbs of ballistic armor plus 70–100 lbs in ammo rucksacks compresses spinal discs relentlessly, causing accelerated disc degeneration in personnel under 35.',
+        solution: 'Zero-gravity fractional traction gently elongates the compressed vertebral column, drawing nutrient-rich fluid back into starved discs.'
+      },
+      {
+        profile: 'Blast Overpressure, Breaching & Vehicle Concussions',
+        problem: 'Explosive shockwaves and rough armored vehicle transit (MRAPs, Humvees) jar facet joints, locking paraspinal muscles in chronic defensive spasm.',
+        solution: 'Traction combined with low-amplitude kinesitherapy releases deep contractures and restores full pain-free spinal articulation.'
+      },
+      {
+        profile: 'VA Disability Prevention & Non-Surgical Readiness',
+        problem: 'Service-connected back injuries frequently result in medical discharge or risky surgical fusions that permanently restrict operational mobility.',
+        solution: 'Clinically validated 96.8% remission rate for severe combat-related spinal spasms keeps service members active and helps veterans avoid surgery.'
+      }
+    ],
+    founderNote: 'The Evminov Center has provided specialized spinal recovery for thousands of defenders and veterans, earning official recognition from military medical commands.'
+  },
+  {
+    id: 'severe-herniations',
+    tag: 'Severe Disc Herniations & Sciatica',
+    icon: '🔬',
+    title: 'Severe Lumbar Extrusions, Radiculopathy & Sciatic Nerve Pain',
+    lead: 'Proven non-surgical disc decompression to avoid risky, high-cost spinal fusion surgeries.',
+    badge: '93.4% Surgeries Avoided',
+    mechanisms: [
+      {
+        profile: 'L4-L5 & L5-S1 Disc Herniations',
+        problem: 'Herniated disc nucleus material pushes into the spinal canal, inflaming nerve roots and causing debilitating back and leg agony.',
+        solution: 'Fractional bodyweight traction generates a negative pressure vacuum (-100 to -150 mmHg) that physically encourages the herniation to retract away from the nerve.'
+      },
+      {
+        profile: 'Radiating Sciatic Nerve Agony',
+        problem: 'Pinched nerve roots trigger burning shooting pains, numbness, and motor weakness down into the calves, feet, and toes.',
+        solution: 'Decompressing the intervertebral foramen relieves mechanical impingement, allowing the inflamed sciatic nerve sleeve to heal and desensitize.'
+      },
+      {
+        profile: '93.4% Avoided Surgery Benchmark',
+        problem: 'Spinal fusion or discectomy surgery costs $60,000–$110,000+ with significant risks of adjacent segment disease and permanent stiffness.',
+        solution: 'Documented across 7 doctoral medical dissertations and 120,000+ patient records: 93.4% of patients scheduled for surgery avoided the operating room.'
+      }
+    ],
+    founderNote: 'Vyacheslav Evminov was facing a 50/50 chance of permanent wheelchair paralysis when he invented this method to heal his own severe lumbar herniations.'
+  },
+  {
+    id: 'family-posture',
+    tag: 'Family & Active Longevity',
+    icon: '👨‍👩‍👧‍👦',
+    title: 'Multi-Generational Spine Care: Teen Scoliosis to Active Senior Health',
+    lead: 'A single home station calibrated for children (ages 6+), active adults, and grandparents.',
+    badge: 'Ages 6 to 85+ Supported',
+    mechanisms: [
+      {
+        profile: 'Adolescent Scoliosis & Growth Spurts (Ages 6–17)',
+        problem: 'Rapid skeletal growth combined with heavy school backpacks and smartphone posture leads to progressive idiopathic scoliotic curvature.',
+        solution: 'Asymmetric postural kinesitherapy exercises on the board gently straighten the spinal axis and strengthen deep postural stabilizers during growth.'
+      },
+      {
+        profile: 'Active Seniors & Osteochondrosis (Ages 55+)',
+        problem: 'Age-related disc desiccation, spinal stenosis, and morning stiffness make walking and bending increasingly painful.',
+        solution: 'Low-angle traction (8°–12°) provides ultra-gentle joint articulation without cardiovascular strain or inversion stroke hazards.'
+      }
+    ],
+    founderNote: 'The adjustable carriage shifts in 5 seconds to fit any user from 4 ft to 6 ft 8 in, making the Evminov board a lifetime family health asset.'
   }
 ];

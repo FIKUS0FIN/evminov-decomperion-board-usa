@@ -57,9 +57,9 @@ export function renderHero() {
           
           <!-- Hero Copy Column -->
           <div class="hero-content">
-            <a href="#centers" class="hero-center-plaque" title="Explore Official Kyiv Vertebral Center & Founder Vyacheslav Evminov Heritage">
+            <a href="#centers" class="hero-center-plaque" title="Explore Official Kyiv Vertebral Center, Athlete Biomechanics & Tactical Heritage">
               <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--color-pine-emerald);"></span>
-              <span class="hero-center-plaque-text">Clinical Heritage Since 1996 • Official Kyiv Centers &amp; Defender Care</span>
+              <span class="hero-center-plaque-text">Clinical Heritage Since 1996 • Athletes, Tactical Care &amp; Clinical Centers</span>
               <span class="hero-center-plaque-arrow">→</span>
             </a>
 
@@ -69,7 +69,7 @@ export function renderHero() {
                 4.9/5 Rating
               </span>
               <span style="font-size: 0.875rem; color: var(--color-text-muted);">
-                (2,400+ Verified US Patients & Athletes)
+                (2,400+ Verified US Patients, Athletes &amp; Veterans)
               </span>
             </div>
 
@@ -78,7 +78,7 @@ export function renderHero() {
             </h1>
 
             <p class="hero-subtitle">
-              The patented natural pine traction board that safely unloads herniated discs, relieves chronic sciatica, and restores athletic spinal alignment at controlled angles (8° to 35°). Recommended by physical therapists worldwide for 25+ years.
+              The patented natural pine traction board that safely unloads herniated discs, relieves chronic sciatica, counters 8+ hours of desk compression, and accelerates athletic and tactical recovery at controlled angles (8° to 35°). Recommended by physical therapists worldwide for 25+ years.
             </p>
 
             <div class="hero-cta-group">
