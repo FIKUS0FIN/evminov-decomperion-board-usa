@@ -70,4 +70,15 @@ describe('1996 Clinical Foundation & 30-Year Continuous Success Verification', (
     expect(patentsAndCertifications.stats.clinicalYears).toBe('30 Years (Since 1996)');
     expect(patentsAndCertifications.subtitle).toContain('30 continuous years of verified clinical validation since 1996');
   });
+
+  it('should verify Hero renders unified organic hero-trust-banner-card with rating and live pulse', () => {
+    const heroHtml = renderHero();
+    expect(heroHtml).toContain('hero-trust-banner-card');
+    expect(heroHtml).toContain('clinical-live-pulse');
+    expect(heroHtml).toContain('heritage-primary-text');
+    expect(heroHtml).toContain('heritage-cta-link');
+    expect(heroHtml).toContain('hero-trust-stars');
+    expect(heroHtml).toContain('4.9 / 5.0');
+    expect(heroHtml).toContain('2,400+ Verified US Cases');
+  });
 });

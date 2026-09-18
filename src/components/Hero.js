@@ -57,20 +57,36 @@ export function renderHero() {
           
           <!-- Hero Copy Column -->
           <div class="hero-content">
-            <a href="#centers" class="hero-center-plaque" title="Clinical Heritage Since 1996 • 500,000+ Patients Healed Worldwide">
-              <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--color-pine-emerald);"></span>
-              <span class="hero-center-plaque-text">Established 1996 in Kyiv • 30 Years of Clinical Vertebrology • Over 500,000 Patients Successfully Restored</span>
-              <span class="hero-center-plaque-arrow">→</span>
-            </a>
+            <!-- Organic Clinical Trust & Heritage Banner Card -->
+            <div class="hero-trust-banner-card">
+              <a href="#centers" class="hero-trust-heritage-strip" title="Explore Kyiv Flagship Center &amp; 30 Years of Clinical Evidence">
+                <div class="hero-trust-heritage-left">
+                  <span class="clinical-live-pulse" aria-hidden="true"></span>
+                  <span class="heritage-primary-text">Established 1996 in Kyiv • 30 Years of Clinical Vertebrology • Over 500,000 Patients Successfully Restored</span>
+                </div>
+                <span class="heritage-cta-link">
+                  <span>Official Clinic</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+              </a>
 
-            <div class="hero-social-proof">
-              <span class="star-rating">★★★★★</span>
-              <span style="font-size: 0.9375rem; font-weight: 700; color: var(--color-text-main);">
-                4.9/5 Rating
-              </span>
-              <span style="font-size: 0.875rem; color: var(--color-text-muted);">
-                (Continuous Medical Practice Since 1996 • 500k+ Healed Patients • Hundreds Sold Across the USA)
-              </span>
+              <div class="hero-trust-proof-row">
+                <div class="hero-trust-rating-cluster">
+                  <div class="hero-trust-stars" aria-label="5 out of 5 stars">
+                    ★★★★★
+                  </div>
+                  <div class="hero-trust-score">
+                    <span class="score-val">4.9 / 5.0</span>
+                    <span class="score-sub">Rating</span>
+                  </div>
+                </div>
+
+                <div class="hero-trust-meta-cluster">
+                  <span class="meta-tag-pill">2,400+ Verified US Cases</span>
+                  <span class="meta-divider">•</span>
+                  <span class="meta-proven-text">Continuous Medical Practice Since 1996 • 500k+ Healed Patients</span>
+                </div>
+              </div>
             </div>
 
             <h1 class="hero-title">

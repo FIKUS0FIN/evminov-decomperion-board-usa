@@ -23,6 +23,15 @@
   .announcement-bar {
     justify-content: center;
     text-align: center;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    line-height: 1.35;
+  }
+  .announcement-item {
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    gap: 4px 6px;
   }
   .announcement-bar .desktop-only {
     display: none;
@@ -680,18 +689,196 @@ body.nav-drawer-open {
 .hero-content {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
-.hero-social-proof {
+/* Hero Unified Clinical Trust Card */
+.hero-trust-banner-card {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, rgba(236, 253, 245, 0.94) 0%, rgba(240, 249, 255, 0.88) 100%);
+  border: 1.5px solid rgba(16, 185, 129, 0.28);
+  border-radius: var(--radius-lg);
+  padding: 10px 16px;
+  box-shadow: 0 4px 14px rgba(11, 19, 43, 0.04), 0 1px 3px rgba(16, 185, 129, 0.08);
+  text-align: left;
+  max-width: 620px;
+  transition: all var(--transition-fast);
+}
+
+.hero-trust-banner-card:hover {
+  border-color: var(--color-pine-emerald);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.12);
+}
+
+.hero-trust-heritage-strip {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
+  text-decoration: none;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(16, 185, 129, 0.18);
+}
+
+.hero-trust-heritage-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.clinical-live-pulse {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  background: var(--color-pine-emerald);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.clinical-live-pulse::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--color-pine-emerald);
+  opacity: 0.6;
+  animation: pulse-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes pulse-ping {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  70%, 100% { transform: scale(2.2); opacity: 0; }
+}
+
+.heritage-primary-text {
+  font-size: 0.78125rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  letter-spacing: 0.01em;
+  white-space: normal;
+  line-height: 1.35;
+}
+
+.heritage-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--color-pine-emerald);
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.hero-trust-heritage-strip:hover .heritage-cta-link {
+  transform: translateX(2px);
+  color: #047857;
+}
+
+.hero-trust-proof-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 8px;
+  flex-wrap: wrap;
+}
+
+.hero-trust-rating-cluster {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.hero-trust-stars {
+  display: flex;
+  gap: 2px;
+  color: #F59E0B;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.hero-trust-score {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.hero-trust-score .score-val {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+}
+
+.hero-trust-score .score-sub {
+  font-size: 0.71875rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.hero-trust-meta-cluster {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78125rem;
+  color: var(--color-text-muted);
+  flex-wrap: wrap;
+}
+
+.hero-trust-meta-cluster .meta-tag-pill {
+  font-size: 0.71875rem;
+  font-weight: 700;
+  color: #047857;
+  background: rgba(16, 185, 129, 0.14);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.hero-trust-meta-cluster .meta-divider {
+  color: #CBD5E1;
+}
+
+.hero-trust-meta-cluster .meta-proven-text {
+  font-weight: 600;
+  color: var(--color-text-main);
 }
 
 @media (max-width: 992px) {
-  .hero-social-proof {
-    justify-content: center;
+  .hero-trust-banner-card {
+    margin: 0 auto;
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 24px 0 48px;
+  }
+  .hero-trust-banner-card {
+    padding: 10px 12px;
+    width: 100%;
+  }
+  .hero-trust-heritage-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .hero-trust-heritage-strip .heritage-cta-link {
+    align-self: flex-end;
+    font-size: 0.71875rem;
+  }
+  .hero-trust-proof-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
   }
 }
 
