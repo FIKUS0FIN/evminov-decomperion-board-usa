@@ -8,12 +8,28 @@ export function renderFooter() {
           <!-- Column 1: Brand & Origin -->
           <div class="footer-brand">
             <div class="site-logo" style="color: #FFFFFF;">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M7 21h10" />
-                <path d="M12 15.5v5.5" />
-                <path d="M5 9.5C5 13.5 8 16 12 16C16 13.5 19 9.5 19 9.5" />
-                <path d="M4 9.5h16" />
-                <path d="M8 19.5C8 19.5 15 19 15 17.5C15 16 9 15.5 9 13.5C9 11.5 13 10.8 16 8.5C18 7 18 4.2 15.2 3.5C12.5 2.8 10.2 4.2 10.8 6.2C11.2 7.5 13 7.6 13 7.6" />
+              <svg width="32" height="32" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+                <circle cx="50" cy="13" r="7" fill="currentColor"/>
+                <rect x="46" y="20" width="8" height="3" rx="1.5" fill="currentColor"/>
+                <line x1="50" y1="23" x2="50" y2="95" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+                <path d="M47 24 C38 18, 26 12, 10 16 C8 24, 12 28, 14 31 C11 34, 14 39, 18 41 C16 44, 20 48, 26 49 C26 52, 32 54, 38 52 C38 55, 43 55, 47 48 Z" 
+                      fill="rgba(255,255,255,0.08)" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M14 31 C22 30, 32 30, 44 28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M18 41 C26 39, 34 38, 45 36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M26 49 C32 46, 38 45, 46 44" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M53 24 C62 18, 74 12, 90 16 C92 24, 88 28, 86 31 C89 34, 86 39, 82 41 C84 44, 80 48, 74 49 C74 52, 68 54, 62 52 C62 55, 57 55, 53 48 Z" 
+                      fill="rgba(255,255,255,0.08)" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M86 31 C78 30, 68 30, 56 28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M82 41 C74 39, 66 38, 55 36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M74 49 C68 46, 62 45, 54 44" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M44 33 C46 32, 48 34, 46 36 C42 41, 31 46, 35 55 C39 63, 62 62, 64 71 C66 79, 40 80, 42 88 C44 92, 50 94, 50 94" 
+                      fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M56 33 C54 32, 52 34, 54 36 C58 41, 69 46, 65 55 C61 63, 38 62, 36 71 C34 79, 60 80, 58 88 C56 92, 50 94, 50 94" 
+                      fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <ellipse cx="44.5" cy="33" rx="3.5" ry="2.2" fill="currentColor" transform="rotate(-15 44.5 33)"/>
+                <circle cx="43.5" cy="32.5" r="0.9" fill="#0B132B"/>
+                <ellipse cx="55.5" cy="33" rx="3.5" ry="2.2" fill="currentColor" transform="rotate(15 55.5 33)"/>
+                <circle cx="56.5" cy="32.5" r="0.9" fill="#0B132B"/>
               </svg>
               <div class="logo-text-stack">
                 <span class="logo-title" style="color: #FFFFFF;">Evminov</span>
