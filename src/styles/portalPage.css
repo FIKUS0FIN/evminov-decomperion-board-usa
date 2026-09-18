@@ -182,14 +182,22 @@
 /* Master Layout: Sidebar + Workspace */
 .portal-main-layout {
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 280px minmax(0, 1fr);
   flex: 1;
   min-height: calc(100vh - 65px);
+  width: 100%;
+  max-width: 100%;
 }
 
 @media (max-width: 960px) {
   .portal-main-layout {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: none;
+    min-height: auto;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 }
 
@@ -202,13 +210,27 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 20px;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 @media (max-width: 960px) {
   .portal-sidebar {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     border-right: none;
     border-bottom: 1px solid var(--color-border-subtle);
-    padding: 12px 16px;
+    padding: 10px 12px;
+    position: sticky;
+    top: 55px;
+    z-index: 300;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+    box-sizing: border-box;
+    overflow: hidden;
   }
 }
 
@@ -224,8 +246,13 @@
     overflow-x: auto;
     overscroll-behavior-x: contain;
     -webkit-overflow-scrolling: touch;
-    padding-bottom: 4px;
+    padding: 2px 2px 6px;
+    gap: 8px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     scrollbar-width: none;
+    -ms-overflow-style: none;
   }
   .portal-nav-menu::-webkit-scrollbar {
     display: none;
@@ -259,6 +286,36 @@
   color: #064E3B;
   border-color: var(--color-pine-border);
   box-shadow: 0 1px 3px rgba(16, 185, 129, 0.1);
+}
+
+@media (max-width: 960px) {
+  .portal-nav-item {
+    padding: 8px 14px;
+    border-radius: var(--radius-full);
+    background: #F1F5F9;
+    border: 1px solid #E2E8F0;
+    color: #475569;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    gap: 6px;
+  }
+
+  .portal-nav-item:hover {
+    background: #E2E8F0;
+  }
+
+  .portal-nav-item.active {
+    background: var(--color-pine-emerald);
+    border-color: var(--color-pine-emerald);
+    color: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35);
+  }
+
+  .portal-nav-item.active .portal-tab-badge {
+    background: rgba(255, 255, 255, 0.25);
+    color: #FFFFFF;
+  }
 }
 
 .portal-tab-icon {
@@ -337,11 +394,18 @@
 .portal-workspace {
   padding: 32px 36px;
   overflow-y: auto;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 960px) {
   .portal-workspace {
-    padding: 20px 16px;
+    padding: 16px 12px 60px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
   }
 }
 
@@ -351,6 +415,18 @@
   gap: 24px;
   max-width: 1080px;
   margin: 0 auto;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 960px) {
+  .tab-pane-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    gap: 16px;
+  }
 }
 
 .pane-header {
@@ -1247,3 +1323,374 @@
   color: #94A3B8;
   flex-wrap: wrap;
 }
+
+/* ==========================================================================
+   Mobile Native App Experience (iOS / Android Smartphone Optimization)
+   ========================================================================== */
+
+@media (max-width: 640px) {
+  /* Top Clinical Bar Mobile Polish */
+  .portal-top-bar {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .portal-brand-logo svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .logo-title {
+    font-size: 0.9375rem !important;
+  }
+
+  .portal-avatar {
+    width: 30px;
+    height: 30px;
+    font-size: 0.75rem;
+  }
+
+  /* Pane Headers */
+  .pane-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding-bottom: 14px;
+  }
+
+  .pane-header h2 {
+    font-size: 1.25rem;
+    line-height: 1.25;
+  }
+
+  .pane-header p {
+    font-size: 0.8125rem;
+    line-height: 1.45;
+  }
+
+  .pane-header .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Patient Welcome Banner */
+  .patient-welcome-banner {
+    padding: 16px 14px;
+    border-radius: var(--radius-lg);
+    gap: 14px;
+  }
+
+  .welcome-left h1 {
+    font-size: 1.2rem;
+    line-height: 1.3;
+  }
+
+  .welcome-left p {
+    font-size: 0.8125rem;
+    line-height: 1.45;
+  }
+
+  .welcome-right {
+    width: 100%;
+  }
+
+  .welcome-right button {
+    width: 100%;
+    justify-content: center;
+    white-space: normal;
+    text-align: center;
+    height: auto;
+    padding: 10px 14px;
+    font-size: 0.8125rem;
+  }
+
+  /* 4-Card Quick Metrics Grid */
+  .portal-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .portal-metric-card {
+    padding: 12px 10px;
+    border-radius: var(--radius-md);
+  }
+
+  .metric-label {
+    font-size: 0.6875rem;
+  }
+
+  .metric-main-value {
+    font-size: 1.0625rem;
+  }
+
+  .metric-sub-note {
+    font-size: 0.6875rem;
+  }
+
+  /* General Portal Cards */
+  .portal-card {
+    padding: 16px 14px;
+    border-radius: var(--radius-lg);
+  }
+
+  .portal-card-header {
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+  }
+
+  .card-title-group h3 {
+    font-size: 1rem;
+  }
+
+  /* Orders Tab & UPS Interactive Tracker */
+  .portal-order-full-card {
+    padding: 16px 14px;
+    gap: 14px;
+    border-radius: var(--radius-lg);
+  }
+
+  .order-top-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .ups-interactive-tracker {
+    padding: 14px 10px;
+    border-radius: var(--radius-md);
+  }
+
+  .tracker-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 0.8125rem;
+  }
+
+  .ups-progress-track {
+    margin: 14px 0;
+    padding: 0;
+  }
+
+  .step-dot {
+    width: 26px;
+    height: 26px;
+    font-size: 0.6875rem;
+  }
+
+  .step-label {
+    font-size: 0.5625rem;
+    max-width: 52px;
+    text-align: center;
+    line-height: 1.15;
+  }
+
+  .progress-line {
+    margin: 0 -2px 14px;
+    height: 2px;
+  }
+
+  .tracking-details-strip {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .order-item-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .order-actions-row {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .order-actions-row .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Products Tab */
+  .products-portal-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .portal-product-card {
+    padding: 16px 14px;
+    border-radius: var(--radius-lg);
+  }
+
+  .prod-details-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    font-size: 0.75rem;
+  }
+
+  .prod-downloads-row {
+    gap: 8px;
+  }
+
+  .prod-download-btn {
+    padding: 8px 10px;
+    font-size: 0.75rem;
+  }
+
+  /* Subscriptions Tab */
+  .subs-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .sub-actions-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .sub-actions-row .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Payments Tab */
+  .payments-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .hsa-fsa-banner {
+    padding: 16px 14px;
+  }
+
+  .hsa-actions-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hsa-actions-row .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* 30-Day Rehab Course Tab */
+  .phase-card {
+    padding: 16px 12px;
+    border-radius: var(--radius-lg);
+  }
+
+  .phase-header h3 {
+    font-size: 1rem;
+  }
+
+  .phase-header p {
+    font-size: 0.75rem;
+  }
+
+  .lesson-row {
+    padding: 10px 8px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .lesson-info {
+    flex: 1 1 calc(100% - 46px);
+  }
+
+  .lesson-title {
+    font-size: 0.8125rem;
+  }
+
+  .lesson-meta-chips {
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 0.625rem;
+  }
+
+  .btn-play-lesson {
+    width: 100%;
+    margin-top: 4px;
+    justify-content: center;
+  }
+
+  /* Spine Biometrics Tab */
+  .biometrics-portal-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .force-stat-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  /* Chat & Clinic Messages Tab */
+  .chat-full-workspace {
+    height: calc(100vh - 220px);
+    min-height: 420px;
+    border-radius: var(--radius-lg);
+  }
+
+  .chat-thread-messages {
+    padding: 14px 10px;
+    gap: 12px;
+  }
+
+  .chat-message-row {
+    max-width: 90%;
+  }
+
+  .msg-bubble-content {
+    padding: 10px 12px;
+  }
+
+  .msg-text-body {
+    font-size: 0.8125rem;
+  }
+
+  .chat-input-bar {
+    padding: 10px;
+    gap: 8px;
+    flex-direction: column;
+  }
+
+  .chat-input-bar .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Login Screen Mobile */
+  .portal-login-card {
+    padding: 24px 16px;
+    border-radius: var(--radius-lg);
+  }
+
+  .login-header h2 {
+    font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .portal-top-bar {
+    padding: 8px 10px;
+  }
+
+  .portal-return-store-btn span {
+    display: none;
+  }
+
+  .portal-return-store-btn::after {
+    content: "Store";
+  }
+}
+
+@media (max-width: 360px) {
+  .portal-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

@@ -1015,10 +1015,21 @@ export function initPatientPortalPage() {
       }
       // Update sidebar active buttons
       document.querySelectorAll('.portal-nav-item').forEach(b => {
-        b.classList.toggle('active', b.getAttribute('data-portal-tab') === tab);
+        const isMatch = b.getAttribute('data-portal-tab') === tab;
+        b.classList.toggle('active', isMatch);
+        if (isMatch && typeof b.scrollIntoView === 'function') {
+          b.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
       });
     });
   });
+
+  // Center active tab on initial load
+  const initialTab = authStore.getState().activeTab || 'overview';
+  const initialActiveBtn = document.querySelector(`.portal-nav-item[data-portal-tab="${initialTab}"]`);
+  if (initialActiveBtn && typeof initialActiveBtn.scrollIntoView === 'function') {
+    initialActiveBtn.scrollIntoView({ behavior: 'instant', inline: 'center', block: 'nearest' });
+  }
 
   // Logout button
   const logoutBtn = document.getElementById('portal-logout-btn');
