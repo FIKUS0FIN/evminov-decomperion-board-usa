@@ -94,9 +94,10 @@ export function renderMountingGuide() {
             <!-- Video Column (55% Half-Screen Player) -->
             <div class="video-frame-container">
               <iframe 
-                src="https://www.youtube-nocookie.com/embed/fP-biAHusGs?rel=0" 
+                src="https://www.youtube.com/embed/fP-biAHusGs?playsinline=1&rel=0" 
                 title="Unboxing and Assembling the Patented Evminov Board" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen
                 loading="lazy"
               ></iframe>

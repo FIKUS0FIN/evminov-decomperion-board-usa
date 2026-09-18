@@ -515,6 +515,73 @@
   pointer-events: none;
 }
 
+/* Floating Audio Control & Scroll-Fade Indicator Badge */
+.video-audio-control-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(11, 19, 43, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--radius-full);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  user-select: none;
+}
+
+.video-audio-control-badge:hover {
+  background: rgba(11, 19, 43, 0.98);
+  border-color: var(--color-pine-emerald);
+  transform: translateY(-1px);
+}
+
+.video-audio-control-badge .audio-icon {
+  font-size: 0.875rem;
+  line-height: 1;
+}
+
+.video-audio-control-badge .audio-volume-pill {
+  background: rgba(5, 150, 105, 0.35);
+  color: #34D399;
+  border: 1px solid rgba(52, 211, 153, 0.45);
+  padding: 2px 6px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+}
+
+.video-audio-control-badge.is-muted .audio-volume-pill {
+  background: rgba(239, 68, 68, 0.25);
+  color: #F87171;
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+@media (max-width: 640px) {
+  .video-audio-control-badge {
+    top: 10px;
+    right: 10px;
+    padding: 5px 9px;
+    font-size: 0.6875rem;
+  }
+  .video-audio-control-badge .audio-label {
+    max-width: 140px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
 .video-badge-strip {
   display: flex;
   align-items: center;

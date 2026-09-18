@@ -60,16 +60,31 @@ export function renderVideoProtocols() {
         <div class="cinematic-video-section" style="margin-bottom: 48px; padding: 40px; background: #0B132B; border-radius: var(--radius-xl); color: #FFFFFF; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 25px 50px -12px rgba(11, 19, 43, 0.4);">
           <div class="cinematic-video-grid">
             
-            <!-- Video Column (55% Half-Screen Player) -->
-            <div class="video-frame-container">
+            <!-- Video Column (55% Half-Screen Player) with Scroll-Driven Autoplay & Audio Fade -->
+            <div class="video-frame-container" id="featured-video-container">
               <iframe 
-                src="https://www.youtube-nocookie.com/embed/GDLVNWynWF0?rel=0" 
+                id="featured-video-player"
+                src="https://www.youtube.com/embed/GDLVNWynWF0?enablejsapi=1&playsinline=1&rel=0&modestbranding=1" 
                 title="Official Clinical Exercise Set on Evminov Spine Decompression Board" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen
                 loading="lazy"
               ></iframe>
               <div class="video-glow-effect"></div>
+
+              <!-- Interactive Floating Sound & Autoplay Indicator / Toggle -->
+              <button 
+                type="button" 
+                class="video-audio-control-badge" 
+                id="video-audio-toggle" 
+                aria-label="Toggle video sound"
+                title="Sound automatically fades as you scroll away. Tap to toggle mute."
+              >
+                <span class="audio-icon" id="video-audio-icon">🔊</span>
+                <span class="audio-label" id="video-audio-label">Sound Active • Auto-fades on scroll</span>
+                <span class="audio-volume-pill" id="video-volume-pill">100%</span>
+              </button>
             </div>
 
             <!-- Narrative & Protocol Phases Column (45%) -->
@@ -206,4 +221,197 @@ export function initVideoProtocols() {
   if (ctaBtn && modal) {
     ctaBtn.addEventListener('click', () => modal.classList.remove('active'));
   }
+
+  // YouTube IFrame API: Scroll-Driven Autoplay & Smooth Audio Fade
+  const videoContainer = document.getElementById('featured-video-container');
+  const audioToggle = document.getElementById('video-audio-toggle');
+  const audioIcon = document.getElementById('video-audio-icon');
+  const audioLabel = document.getElementById('video-audio-label');
+  const volumePill = document.getElementById('video-volume-pill');
+
+  if (!videoContainer) return;
+
+  let ytPlayer = null;
+  let isPlayerReady = false;
+  let isPlaying = false;
+  let userManuallyMuted = false;
+  let hasAutoUnmuted = false;
+
+  function updateAudioBadge(volumePercent, isMuted) {
+    if (!audioToggle) return;
+    if (isMuted || volumePercent === 0) {
+      audioToggle.classList.add('is-muted');
+      if (audioIcon) audioIcon.textContent = '🔇';
+      if (audioLabel) audioLabel.textContent = isMuted ? 'Muted • Tap for sound' : 'Faded out';
+      if (volumePill) volumePill.textContent = '0%';
+    } else {
+      audioToggle.classList.remove('is-muted');
+      if (audioIcon) audioIcon.textContent = '🔊';
+      if (audioLabel) audioLabel.textContent = 'Sound Active • Auto-fades on scroll';
+      if (volumePill) volumePill.textContent = `${volumePercent}%`;
+    }
+  }
+
+  function handleVideoScroll() {
+    if (!ytPlayer || !isPlayerReady) return;
+
+    const rect = videoContainer.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+    // Check if video is in viewport (even partially)
+    const inViewport = rect.bottom > 0 && rect.top < windowHeight;
+
+    if (!inViewport) {
+      if (isPlaying) {
+        try {
+          ytPlayer.pauseVideo();
+          isPlaying = false;
+        } catch (e) {}
+      }
+      return;
+    }
+
+    // Video is in viewport!
+    if (!isPlaying) {
+      try {
+        ytPlayer.playVideo();
+        isPlaying = true;
+      } catch (e) {}
+    }
+
+    // Compute volume based on scroll:
+    // When video is centered in view, volume is 100%.
+    // As user scrolls down past the video (rect.top becomes negative),
+    // volume gradually fades out proportionally to the remaining visible portion.
+    let volume = 100;
+
+    if (rect.top < 0) {
+      // Top of video is moving off top of screen
+      const remainingHeight = Math.max(0, rect.bottom);
+      const ratio = remainingHeight / rect.height; // 1.0 down to 0.0
+      volume = Math.round(Math.max(0, Math.min(100, ratio * 100)));
+    } else if (rect.bottom > windowHeight) {
+      // Bottom of video is coming in from bottom of screen
+      const visibleFromBottom = Math.max(0, windowHeight - rect.top);
+      const ratio = visibleFromBottom / rect.height; // 0.0 up to 1.0
+      volume = Math.round(Math.max(0, Math.min(100, ratio * 100)));
+    } else {
+      volume = 100;
+    }
+
+    if (!userManuallyMuted) {
+      try {
+        if (typeof ytPlayer.setVolume === 'function') {
+          ytPlayer.setVolume(volume);
+        }
+        if (typeof ytPlayer.isMuted === 'function' && ytPlayer.isMuted() && volume > 0 && hasAutoUnmuted) {
+          ytPlayer.unMute();
+        }
+      } catch (e) {}
+    }
+
+    const isMutedNow = userManuallyMuted || (typeof ytPlayer.isMuted === 'function' && ytPlayer.isMuted());
+    updateAudioBadge(volume, isMutedNow);
+  }
+
+  // Audio Toggle Button Click
+  if (audioToggle) {
+    audioToggle.addEventListener('click', () => {
+      if (!ytPlayer || !isPlayerReady) return;
+
+      hasAutoUnmuted = true;
+      try {
+        const currentlyMuted = typeof ytPlayer.isMuted === 'function' && ytPlayer.isMuted();
+        if (currentlyMuted || userManuallyMuted) {
+          ytPlayer.unMute();
+          userManuallyMuted = false;
+          handleVideoScroll();
+        } else {
+          ytPlayer.mute();
+          userManuallyMuted = true;
+          updateAudioBadge(0, true);
+        }
+      } catch (e) {}
+    });
+  }
+
+  // Automatically enable sound on first user gesture anywhere if video is in view
+  function onFirstUserGesture() {
+    hasAutoUnmuted = true;
+    if (ytPlayer && isPlayerReady && !userManuallyMuted) {
+      try {
+        const rect = videoContainer.getBoundingClientRect();
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        if (rect.bottom > 0 && rect.top < windowHeight) {
+          ytPlayer.unMute();
+          handleVideoScroll();
+        }
+      } catch (e) {}
+    }
+    window.removeEventListener('pointerdown', onFirstUserGesture);
+    window.removeEventListener('keydown', onFirstUserGesture);
+  }
+
+  window.addEventListener('pointerdown', onFirstUserGesture, { passive: true, once: true });
+  window.addEventListener('keydown', onFirstUserGesture, { passive: true, once: true });
+
+  // Throttled scroll listener
+  let ticking = false;
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleVideoScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    },
+    { passive: true }
+  );
+
+  // Initialize YouTube API
+  function loadYouTubeIframeAPI(onReady) {
+    if (window.YT && window.YT.Player) {
+      onReady();
+      return;
+    }
+    const existingCallback = window.onYouTubeIframeAPIReady;
+    window.onYouTubeIframeAPIReady = () => {
+      if (typeof existingCallback === 'function') existingCallback();
+      onReady();
+    };
+    if (!document.querySelector('script[src*="youtube.com/iframe_api"]')) {
+      const tag = document.createElement('script');
+      tag.src = 'https://www.youtube.com/iframe_api';
+      document.head.appendChild(tag);
+    }
+  }
+
+  loadYouTubeIframeAPI(() => {
+    try {
+      ytPlayer = new window.YT.Player('featured-video-player', {
+        events: {
+          onReady: (event) => {
+            isPlayerReady = true;
+            // Start muted so browser autoplay policies never block playback on scroll
+            try {
+              event.target.mute();
+            } catch (e) {}
+            handleVideoScroll();
+          },
+          onStateChange: (event) => {
+            if (event.data === 1) {
+              isPlaying = true;
+            } else if (event.data === 2 || event.data === 0) {
+              isPlaying = false;
+            }
+          }
+        }
+      });
+    } catch (err) {
+      console.warn('YouTube Player initialization failed:', err);
+    }
+  });
 }

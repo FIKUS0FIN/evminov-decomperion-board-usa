@@ -385,9 +385,10 @@ export function renderClinicalCentersPage() {
           <div class="cinematic-video-grid" style="margin-bottom: 48px; background: #0B132B; border-radius: var(--radius-xl); padding: 36px; color: #FFFFFF; box-shadow: var(--shadow-xl);">
             <div class="video-frame-container">
               <iframe 
-                src="https://www.youtube-nocookie.com/embed/GDLVNWynWF0?rel=0" 
+                src="https://www.youtube.com/embed/GDLVNWynWF0?playsinline=1&rel=0" 
                 title="Clinical Exercise Routine on Evminov Spine Decompression Board" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen
                 loading="lazy"
               ></iframe>
@@ -509,9 +510,10 @@ export function renderClinicalCentersPage() {
 
             <div class="video-frame-container">
               <iframe 
-                src="https://www.youtube-nocookie.com/embed/fP-biAHusGs?rel=0" 
+                src="https://www.youtube.com/embed/fP-biAHusGs?playsinline=1&rel=0" 
                 title="Unboxing and Assembling the Evminov Board" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen
                 loading="lazy"
               ></iframe>
