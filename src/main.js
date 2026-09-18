@@ -10,7 +10,7 @@ import './styles/centers.css';
 import './styles/main.css';
 
 import { renderHeader, initHeader } from './components/Header.js';
-import { renderHero } from './components/Hero.js';
+import { renderHero, initHero } from './components/Hero.js';
 import { renderFunnelsNav, initFunnelsNav } from './components/FunnelsNav.js';
 import { renderCalculator, initCalculator } from './components/Calculator.js';
 import { renderComparisonTable, initComparisonTable } from './components/ComparisonTable.js';
@@ -114,6 +114,7 @@ function renderApp() {
 
   // Initialize storefront features
   initHeader();
+  initHero();
   initFunnelsNav();
   initVideoProtocols();
   initComparisonTable();
