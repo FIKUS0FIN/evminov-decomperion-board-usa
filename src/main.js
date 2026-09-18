@@ -5,6 +5,7 @@ import './styles/calculator.css';
 import './styles/checkout.css';
 import './styles/portal.css';
 import './styles/portalPage.css';
+import './styles/gallery.css';
 import './styles/main.css';
 
 import { renderHeader, initHeader } from './components/Header.js';
@@ -18,6 +19,7 @@ import { renderMountingGuide } from './components/MountingGuide.js';
 import { renderAthleteSection } from './components/AthleteSection.js';
 import { renderOnboardingProgram } from './components/OnboardingProgram.js';
 import { renderVideoProtocols, initVideoProtocols } from './components/VideoProtocols.js';
+import { renderExerciseGallery, initExerciseGallery } from './components/ExerciseGallery.js';
 import { renderClinicalTrust } from './components/ClinicalTrust.js';
 import { renderReviewsSection, initReviewsSection } from './components/ReviewsSection.js';
 import { renderBlogSection, initBlogSection } from './components/BlogSection.js';
@@ -59,6 +61,7 @@ function renderApp() {
       ${renderAthleteSection()}
       ${renderOnboardingProgram()}
       ${renderVideoProtocols()}
+      ${renderExerciseGallery()}
       ${renderClinicalTrust()}
       ${renderReviewsSection()}
       ${renderBlogSection()}
@@ -79,6 +82,7 @@ function renderApp() {
   initProductCatalog();
   initPatentsSection();
   initVideoProtocols();
+  initExerciseGallery();
   initReviewsSection();
   initBlogSection();
   initFaqSection();

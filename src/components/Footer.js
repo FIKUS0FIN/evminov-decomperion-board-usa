@@ -54,6 +54,7 @@ export function renderFooter() {
               <a href="#product-evminov-stick">Daily Alignment Stick</a>
               <a href="#product-evminov-stand">Demountable Renter Stand</a>
               <a href="#product-evminov-glisson">Glisson Neck Harness</a>
+              <a href="#product-evminov-foot-sleeves">Carriage Foot Attachments</a>
             </div>
           </div>
 
@@ -64,6 +65,7 @@ export function renderFooter() {
               <a href="#comparison">Evminov vs Inversion Tables</a>
               <a href="#calculator">Incline Angle Calculator</a>
               <a href="#athletes">Athletic Recovery (Deadlifts)</a>
+              <a href="#exercise-gallery">21 Photo Protocols Gallery</a>
               <a href="#videos">Video Exercise Library</a>
               <a href="#onboarding">30-Day Guided Rehab Course</a>
             </div>

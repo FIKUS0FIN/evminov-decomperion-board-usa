@@ -54,6 +54,7 @@ export function renderHeader() {
         <nav class="site-nav" aria-label="Primary Navigation">
           <a href="#comparison" class="nav-link">Why Not Inversion?</a>
           <a href="#catalog" class="nav-link">Boards & Pricing</a>
+          <a href="#exercise-gallery" class="nav-link">Protocols</a>
           <a href="#patents" class="nav-link">Patents & Trials</a>
           <a href="#athletes" class="nav-link">For Athletes</a>
           <a href="#reviews" class="nav-link">Reviews</a>
