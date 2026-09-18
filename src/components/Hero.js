@@ -60,8 +60,8 @@ export function renderHero() {
           <!-- Hero Media Column -->
           <div class="hero-media-card">
             <img 
-              src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=1000&q=80" 
-              alt="Evminov Spine Decompression Board at controlled 20 degree therapeutic incline" 
+              src="/images/authentic/hero-evminov-decompression.jpg" 
+              alt="Authentic Evminov Spine Decompression Board at controlled therapeutic incline" 
               class="hero-media-img"
               loading="eager"
             />

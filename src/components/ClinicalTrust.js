@@ -62,8 +62,8 @@ export function renderClinicalTrust() {
           <div>
             <div style="position: relative; background: var(--color-surface-white); padding: 20px; border-radius: var(--radius-xl); box-shadow: var(--shadow-xl); border: 1px solid var(--color-border-subtle);">
               <img 
-                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80" 
-                alt="Medical physical therapy spine demonstration" 
+                src="/images/authentic/clinic-rehab-center-1.jpg" 
+                alt="Official Evminov Spine Rehabilitation Center in Kyiv, Ukraine" 
                 style="width: 100%; height: 420px; object-fit: cover; border-radius: var(--radius-lg);"
               />
               <div style="position: absolute; bottom: 34px; left: 34px; right: 34px; background: rgba(11, 19, 43, 0.92); backdrop-filter: blur(8px); padding: 16px 20px; border-radius: var(--radius-md); border: 1px solid rgba(255, 255, 255, 0.2); color: #FFFFFF;">

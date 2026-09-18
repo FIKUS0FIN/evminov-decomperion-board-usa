@@ -87,6 +87,43 @@ export function renderMountingGuide() {
 
         </div>
 
+        <!-- Authentic Craftsmanship & Materials Showcase -->
+        <div style="margin-top: 48px; background: var(--color-bg-light); border-radius: var(--radius-xl); padding: 32px; border: 1px solid var(--color-border-subtle);">
+          <div style="text-align: center; max-width: 680px; margin: 0 auto 28px;">
+            <span class="badge badge-pine" style="margin-bottom: 8px;">Authentic Ukrainian Craftsmanship</span>
+            <h3 style="font-size: 1.5rem; font-weight: 800; color: var(--color-primary-navy);">Patented Carpathian Pine & Aircraft-Alloy Mechanism</h3>
+            <p style="font-size: 0.9375rem; color: var(--color-text-muted);">
+              Unlike plastic inversion tables, each Evminov board is hand-crafted from resonant multi-layer Carpathian pine providing anatomical spring flex that absorbs shock and gently pumps spinal discs.
+            </p>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+            <div style="background: var(--color-surface-white); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-border-subtle); box-shadow: var(--shadow-sm);">
+              <img src="/images/authentic/evminov-pine-wood-detail.jpg" alt="Natural Carpathian Pine Wood Grain" style="width: 100%; height: 200px; object-fit: cover;" />
+              <div style="padding: 16px;">
+                <h4 style="font-size: 1rem; font-weight: 700; color: var(--color-primary-navy); margin-bottom: 4px;">Resonant Anatomical Pine</h4>
+                <p style="font-size: 0.8125rem; color: var(--color-text-muted); margin: 0;">Multi-layered grain structure calibrated for natural flex during therapeutic exercises.</p>
+              </div>
+            </div>
+
+            <div style="background: var(--color-surface-white); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-border-subtle); box-shadow: var(--shadow-sm);">
+              <img src="/images/authentic/evminov-steel-carriage-pin.jpg" alt="Steel Carriage Locking Mechanism" style="width: 100%; height: 200px; object-fit: cover;" />
+              <div style="padding: 16px;">
+                <h4 style="font-size: 1rem; font-weight: 700; color: var(--color-primary-navy); margin-bottom: 4px;">Quick-Lock Alloy Carriage</h4>
+                <p style="font-size: 0.8125rem; color: var(--color-text-muted); margin: 0;">Precision machined handles with quick-release safety pin tested for over 400+ lbs tensile load.</p>
+              </div>
+            </div>
+
+            <div style="background: var(--color-surface-white); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-border-subtle); box-shadow: var(--shadow-sm);">
+              <img src="/images/authentic/evminov-board-head-mount.jpg" alt="Wall Mounting Cable Anchor" style="width: 100%; height: 200px; object-fit: cover;" />
+              <div style="padding: 16px;">
+                <h4 style="font-size: 1rem; font-weight: 700; color: var(--color-primary-navy); margin-bottom: 4px;">Heavy-Duty Wall Suspension</h4>
+                <p style="font-size: 0.8125rem; color: var(--color-text-muted); margin: 0;">Braided high-tensile mountaineering-grade cable and reinforced eye bolt anchor system.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   `;

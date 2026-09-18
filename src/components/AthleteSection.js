@@ -48,8 +48,8 @@ export function renderAthleteSection() {
 
           <div style="position: relative;">
             <img 
-              src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80" 
-              alt="Powerlifter decompressing spine on Evminov traction board" 
+              src="/images/authentic/exercise-reverse-traction.jpg" 
+              alt="Athletic decompression on authentic Evminov traction board" 
               style="border-radius: var(--radius-xl); box-shadow: var(--shadow-xl); border: 1px solid var(--color-border-subtle); width: 100%; height: 440px; object-fit: cover;"
             />
             <div style="position: absolute; bottom: 20px; right: 20px; background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(12px); padding: 16px 20px; border-radius: var(--radius-md); border: 1.5px solid var(--color-pine-border); box-shadow: var(--shadow-lg);">

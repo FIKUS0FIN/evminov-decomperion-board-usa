@@ -421,11 +421,17 @@ function renderProductsTab(user) {
               <span class="product-status-tag active">${prod.status}</span>
             </div>
 
-            <h3 class="prod-title">${prod.name}</h3>
-            
-            <div class="prod-serial-bar">
-              <span>Serial Number:</span>
-              <strong>${prod.serialNumber}</strong>
+            <div style="display: flex; gap: 16px; align-items: center; margin-bottom: 14px;">
+              ${prod.image ? `
+                <img src="${prod.image}" alt="${prod.name}" style="width: 72px; height: 72px; object-fit: cover; border-radius: var(--radius-md); border: 1px solid var(--color-border-subtle); flex-shrink: 0;" />
+              ` : ''}
+              <div style="flex: 1; min-width: 0;">
+                <h3 class="prod-title" style="margin: 0 0 6px 0;">${prod.name}</h3>
+                <div class="prod-serial-bar" style="margin: 0;">
+                  <span>Serial Number:</span>
+                  <strong>${prod.serialNumber}</strong>
+                </div>
+              </div>
             </div>
 
             <div class="prod-details-grid">

@@ -17,7 +17,7 @@ export const exerciseProtocols = [
       'Perform slow, micro-pelvic tilts (5-degree rotation) to pump synovial fluid into the discs.',
       'Breathe deeply into the abdomen for 8-12 minutes without abrupt movements.',
     ],
-    videoThumbnail: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=700&q=80',
+    videoThumbnail: '/images/authentic/exercise-bridge-pelvic.jpg',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Placeholder or demo
   },
   {
@@ -34,7 +34,7 @@ export const exerciseProtocols = [
       'Gently slide downward 1-2 inches until comfortable gentle neck traction is felt.',
       'Hold still for 5 minutes, followed by micro-nodding rotations of no more than 10 degrees.',
     ],
-    videoThumbnail: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=700&q=80',
+    videoThumbnail: '/images/authentic/evminov-glisson-loop-cervical.jpg',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
   },
   {
@@ -51,7 +51,7 @@ export const exerciseProtocols = [
       'Perform gentle side-waving spinal flexions to decompress facet joints.',
       'Finish with 3 minutes of passive relaxation under 25-degree incline.',
     ],
-    videoThumbnail: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=700&q=80',
+    videoThumbnail: '/images/authentic/exercise-reverse-traction.jpg',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
   },
   {
@@ -68,7 +68,7 @@ export const exerciseProtocols = [
       'Slowly slide arms into a "Y" position overhead while inhaling deeply.',
       'Repeat 12 cycles of slow, controlled breathing with gentle isometric glute engagement.',
     ],
-    videoThumbnail: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=700&q=80',
+    videoThumbnail: '/images/authentic/exercise-prone-extension.jpg',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
   },
 ];

@@ -37,6 +37,7 @@ const DEMO_USER = {
       specs: '3-Section folding, 2.4" wall depth, aircraft-grade alloy carriage',
       purchaseDate: 'September 14, 2026',
       registrationStatus: 'Official Evminov Spine Registry',
+      image: '/images/authentic/hero-evminov-decompression.jpg',
     },
     {
       id: 'prod-02',
@@ -49,6 +50,7 @@ const DEMO_USER = {
       specs: 'Memory foam anatomical chin-occipital sling with quick-latch carabiner',
       purchaseDate: 'September 14, 2026',
       registrationStatus: 'Included with Equipment Set',
+      image: '/images/authentic/evminov-glisson-loop-cervical.jpg',
     }
   ],
   subscriptions: [

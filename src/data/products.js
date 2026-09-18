@@ -28,7 +28,7 @@ export const products = [
       '60-Day Risk-Free Home Trial & 10-Year Frame Warranty',
     ],
     finishes: ['Natural Nordic Pine', 'Dark Walnut Stain', 'Matte Carbon Black'],
-    image: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=900&q=80',
+    image: '/images/authentic/hero-evminov-decompression.jpg',
     popular: true,
   },
   {
@@ -56,7 +56,7 @@ export const products = [
       '60-Day Risk-Free Home Trial & 10-Year Warranty',
     ],
     finishes: ['Natural Nordic Pine', 'Dark Walnut Stain', 'Gym Stealth Black'],
-    image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80',
+    image: '/images/authentic/exercise-reverse-traction.jpg',
     popular: false,
   },
   {
@@ -84,7 +84,7 @@ export const products = [
       '60-Day Risk-Free Home Trial & 5-Year Hardware Warranty',
     ],
     finishes: ['Natural Carpathian Pine', 'Dark Walnut Finish', 'Travel Matte Black'],
-    image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80',
+    image: '/images/authentic/evminov-pine-wood-detail.jpg',
     popular: false,
   },
   {
@@ -110,7 +110,7 @@ export const products = [
       'Instructional assembly manual and video QR code',
     ],
     finishes: ['Matching Nordic Pine', 'Natural Beech'],
-    image: 'https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=900&q=80',
+    image: '/images/authentic/evminov-board-profile.jpg',
     popular: false,
   },
   {
@@ -136,7 +136,7 @@ export const products = [
       'Note: Already INCLUDED free inside Standard & Wide Board sets',
     ],
     finishes: ['Medical Blue', 'Classic Charcoal'],
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80',
+    image: '/images/authentic/evminov-glisson-loop-cervical.jpg',
     popular: false,
   },
 ];
