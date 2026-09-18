@@ -43,6 +43,97 @@ export function renderFooter() {
               🇺🇸 US Fulfillment Facility: Burbank & Sun Valley, CA<br>
               🇺🇦 European Production: Kyiv & Odesa, Ukraine
             </div>
+
+            <!-- Medical & Fitness Authority Certifications -->
+            <div class="footer-trust-section">
+              <div class="footer-trust-header">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span>Medical &amp; Fitness Authority Certifications</span>
+              </div>
+
+              <div class="footer-trust-grid">
+                <!-- FDA Listed -->
+                <a href="#patents" class="footer-trust-card" title="View FDA Class I Medical Device Status">
+                  <div class="trust-icon-box" style="background: rgba(16, 185, 129, 0.15); color: #10B981;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 2L19 5v6c0 5-7 9-7 9s-7-4-7-9V5l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+                  </div>
+                  <div class="trust-text-stack">
+                    <span class="trust-card-title">FDA Listed</span>
+                    <span class="trust-card-sub">Class I Medical Device</span>
+                    <span class="trust-card-tag" style="color: #10B981;">21 CFR 890.5900</span>
+                  </div>
+                </a>
+
+                <!-- HSA / FSA -->
+                <a href="#faq" class="footer-trust-card" title="Learn about HSA / FSA Reimbursement">
+                  <div class="trust-icon-box" style="background: rgba(56, 189, 248, 0.15); color: #38BDF8;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><circle cx="7" cy="15" r="1.5"/></svg>
+                  </div>
+                  <div class="trust-text-stack">
+                    <span class="trust-card-title">HSA / FSA Eligible</span>
+                    <span class="trust-card-sub">Pre-Tax Health Savings</span>
+                    <span class="trust-card-tag" style="color: #38BDF8;">IRS Code Sec. 213(d)</span>
+                  </div>
+                </a>
+
+                <!-- ISO 13485 & CE -->
+                <a href="#patents" class="footer-trust-card" title="View European CE & ISO 13485 Standards">
+                  <div class="trust-icon-box" style="background: rgba(129, 140, 248, 0.15); color: #818CF8;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+                  </div>
+                  <div class="trust-text-stack">
+                    <span class="trust-card-title">ISO 13485 &amp; CE</span>
+                    <span class="trust-card-sub">Medical Quality System</span>
+                    <span class="trust-card-tag" style="color: #818CF8;">MOH Cert. № 711/2002</span>
+                  </div>
+                </a>
+
+                <!-- Sports & PT Approved -->
+                <a href="#athletes" class="footer-trust-card" title="Sports Medicine & Athletic Traction Protocols">
+                  <div class="trust-icon-box" style="background: rgba(251, 191, 36, 0.15); color: #FBBF24;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 5v14M18 5v14M2 9v6M22 9v6M6 12h12"/></svg>
+                  </div>
+                  <div class="trust-text-stack">
+                    <span class="trust-card-title">Sports &amp; PT Approved</span>
+                    <span class="trust-card-sub">Spine Axial Traction</span>
+                    <span class="trust-card-tag" style="color: #FBBF24;">Athletic Decompression</span>
+                  </div>
+                </a>
+
+                <!-- 10-Year Warranty -->
+                <a href="#faq" class="footer-trust-card" title="10-Year Frame Warranty Coverage">
+                  <div class="trust-icon-box" style="background: rgba(52, 211, 153, 0.15); color: #34D399;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l7 4v6c0 5.5-3.5 9-7 10-3.5-1-7-4.5-7-10V6l7-4z"/><path d="M12 8v8M9 12h6"/></svg>
+                  </div>
+                  <div class="trust-text-stack">
+                    <span class="trust-card-title">10-Year Warranty</span>
+                    <span class="trust-card-sub">Solid Carpathian Pine</span>
+                    <span class="trust-card-tag" style="color: #34D399;">Clinical Heritage Frame</span>
+                  </div>
+                </a>
+
+                <!-- 60-Day Trial -->
+                <a href="#faq" class="footer-trust-card" title="60-Day In-Home Risk-Free Trial Policy">
+                  <div class="trust-icon-box" style="background: rgba(244, 114, 182, 0.15); color: #F472B6;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M9 12l2 2 4-4"/></svg>
+                  </div>
+                  <div class="trust-text-stack">
+                    <span class="trust-card-title">60-Day Home Trial</span>
+                    <span class="trust-card-sub">Risk-Free Spine Relief</span>
+                    <span class="trust-card-tag" style="color: #F472B6;">100% Refund Guarantee</span>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Clinical Validation Banner -->
+              <a href="#patents" class="footer-trials-banner" title="Explore Romodanov & NAMS Clinical Trials">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#F59E0B" style="flex-shrink: 0;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <div>
+                  <strong style="color: #FFFFFF;">Hospital Clinical Trial Validated:</strong>
+                  Romodanov Neurosurgical &amp; NAMS Orthopedic Institutes (120,000+ patients treated over 25+ years).
+                </div>
+              </a>
+            </div>
           </div>
 
           <!-- Column 2: Systems -->
@@ -82,6 +173,32 @@ export function renderFooter() {
             </div>
           </div>
 
+        </div>
+
+        <!-- Security, Compliance & Payment Trust Bar -->
+        <div class="footer-security-bar">
+          <div class="security-badges-list">
+            <div class="security-badge-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span>256-Bit SSL Encrypted Checkout</span>
+            </div>
+            <div class="security-badge-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>HIPAA-Compliant Patient Data</span>
+            </div>
+            <div class="security-badge-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2.2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              <span>Insured UPS Ground from California</span>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; color: #94A3B8; font-size: 0.75rem; flex-wrap: wrap;">
+            <span>Accepted:</span>
+            <span style="background: rgba(255,255,255,0.08); padding: 3px 8px; border-radius: 4px; color: #FFF; font-weight: 600;">HSA / FSA</span>
+            <span style="background: rgba(255,255,255,0.08); padding: 3px 8px; border-radius: 4px; color: #FFF; font-weight: 600;">Visa</span>
+            <span style="background: rgba(255,255,255,0.08); padding: 3px 8px; border-radius: 4px; color: #FFF; font-weight: 600;">Mastercard</span>
+            <span style="background: rgba(255,255,255,0.08); padding: 3px 8px; border-radius: 4px; color: #FFF; font-weight: 600;">AMEX</span>
+            <span style="background: rgba(255,255,255,0.08); padding: 3px 8px; border-radius: 4px; color: #FFF; font-weight: 600;">Apple Pay</span>
+          </div>
         </div>
 
         <div style="padding: 20px; background: rgba(0, 0, 0, 0.25); border-radius: var(--radius-md); font-size: 0.75rem; color: #94A3B8; line-height: 1.6; margin-bottom: 30px;">
