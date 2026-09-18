@@ -31,9 +31,34 @@ export function renderProductCatalog() {
         <article class="product-card" id="product-${product.id}" data-product-id="${product.id}">
           
           <div class="product-card-img-wrap">
-            <img src="${product.image}" alt="${product.name}" class="product-card-img" loading="lazy" />
+            <img src="${product.image}" alt="${product.name}" class="product-card-img" id="product-img-${product.id}" loading="lazy" />
             <span class="badge badge-pine product-card-badge">${product.badge}</span>
           </div>
+
+          ${
+            product.galleryImages && product.galleryImages.length > 1
+              ? `
+            <div class="product-thumb-bar" data-product-id="${product.id}" style="display: flex; gap: 6px; padding: 10px 16px 0; overflow-x: auto; scrollbar-width: none;">
+              ${product.galleryImages
+                .map(
+                  (g, gIdx) => `
+                <button 
+                  type="button" 
+                  class="product-thumb-pill ${gIdx === 0 ? 'active' : ''}" 
+                  data-img-src="${g.url}"
+                  title="${g.label}"
+                  style="flex-shrink: 0; width: 42px; height: 42px; border-radius: 6px; overflow: hidden; border: 2px solid ${gIdx === 0 ? 'var(--color-pine-emerald)' : 'rgba(0,0,0,0.1)'}; padding: 0; background: #0F172A; cursor: pointer; transition: all 0.2s ease;"
+                  aria-label="View ${g.label}"
+                >
+                  <img src="${g.url}" alt="${g.label}" style="width: 100%; height: 100%; object-fit: cover;" />
+                </button>
+              `
+                )
+                .join('')}
+            </div>
+          `
+              : ''
+          }
 
           <div class="product-card-body">
             
@@ -190,6 +215,28 @@ export function initProductCatalog() {
     }
   });
 
+  // Thumbnail Image Gallery Switcher
+  document.querySelectorAll('.product-thumb-pill').forEach((thumbBtn) => {
+    thumbBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const bar = thumbBtn.closest('.product-thumb-bar');
+      if (!bar) return;
+      const productId = bar.getAttribute('data-product-id');
+      const mainImg = document.getElementById(`product-img-${productId}`);
+      const newSrc = thumbBtn.getAttribute('data-img-src');
+
+      if (mainImg && newSrc) {
+        mainImg.src = newSrc;
+        bar.querySelectorAll('.product-thumb-pill').forEach((b) => {
+          b.classList.remove('active');
+          b.style.borderColor = 'rgba(0, 0, 0, 0.1)';
+        });
+        thumbBtn.classList.add('active');
+        thumbBtn.style.borderColor = 'var(--color-pine-emerald)';
+      }
+    });
+  });
+
   // Add to Cart Buttons
   document.querySelectorAll('.add-to-cart-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -202,3 +249,4 @@ export function initProductCatalog() {
     });
   });
 }
+

@@ -87,11 +87,47 @@ export function renderMountingGuide() {
 
         </div>
 
+        <!-- Step-by-Step Unboxing & Assembly Video -->
+        <div style="margin-top: 40px; background: #0B132B; border-radius: 16px; padding: 28px; color: #FFFFFF; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; align-items: center; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+          <div>
+            <span class="badge badge-cyan" style="margin-bottom: 8px;">Video Installation Guide</span>
+            <h3 style="font-size: 1.35rem; font-weight: 800; color: #FFFFFF; line-height: 1.3; margin-bottom: 12px;">
+              Step-by-Step Unboxing &amp; Wall Assembly (Under 10 Minutes)
+            </h3>
+            <p style="font-size: 0.88rem; color: #94A3B8; line-height: 1.6; margin-bottom: 20px;">
+              Follow along with official factory unboxing footage demonstrating assembly of the sectional pine panels, sliding carriage calibration, and heavy-duty wall anchor installation into American wood studs.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+              <a 
+                href="https://www.youtube.com/watch?v=fP-biAHusGs" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="btn btn-primary btn-sm"
+              >
+                Watch on YouTube ↗
+              </a>
+              <a href="#product-evminov-standard" class="btn btn-secondary btn-sm" style="background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.2);">
+                View Standard Set
+              </a>
+            </div>
+          </div>
+          <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #000;">
+            <iframe 
+              src="https://www.youtube-nocookie.com/embed/fP-biAHusGs?rel=0" 
+              title="Unboxing and Assembling Evminov Board" 
+              style="width: 100%; height: 100%; border: none;"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+
         <!-- Authentic Craftsmanship & Materials Showcase -->
         <div style="margin-top: 48px; background: var(--color-bg-light); border-radius: var(--radius-xl); padding: 32px; border: 1px solid var(--color-border-subtle);">
           <div style="text-align: center; max-width: 680px; margin: 0 auto 28px;">
             <span class="badge badge-pine" style="margin-bottom: 8px;">Authentic Ukrainian Craftsmanship</span>
-            <h3 style="font-size: 1.5rem; font-weight: 800; color: var(--color-primary-navy);">Patented Carpathian Pine & Aircraft-Alloy Mechanism</h3>
+            <h3 style="font-size: 1.5rem; font-weight: 800; color: var(--color-primary-navy);">Patented Carpathian Pine &amp; Aircraft-Alloy Mechanism</h3>
             <p style="font-size: 0.9375rem; color: var(--color-text-muted);">
               Unlike plastic inversion tables, each Evminov board is hand-crafted from resonant multi-layer Carpathian pine providing anatomical spring flex that absorbs shock and gently pumps spinal discs.
             </p>
@@ -99,7 +135,7 @@ export function renderMountingGuide() {
 
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
             <div style="background: var(--color-surface-white); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-border-subtle); box-shadow: var(--shadow-sm);">
-              <img src="/images/authentic/evminov-pine-wood-detail.jpg" alt="Natural Carpathian Pine Wood Grain" style="width: 100%; height: 200px; object-fit: cover;" />
+              <img src="/images/products/board-natural-pine-finish.jpg" alt="Natural Carpathian Pine Wood Grain" style="width: 100%; height: 200px; object-fit: cover;" />
               <div style="padding: 16px;">
                 <h4 style="font-size: 1rem; font-weight: 700; color: var(--color-primary-navy); margin-bottom: 4px;">Resonant Anatomical Pine</h4>
                 <p style="font-size: 0.8125rem; color: var(--color-text-muted); margin: 0;">Multi-layered grain structure calibrated for natural flex during therapeutic exercises.</p>
@@ -107,7 +143,7 @@ export function renderMountingGuide() {
             </div>
 
             <div style="background: var(--color-surface-white); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-border-subtle); box-shadow: var(--shadow-sm);">
-              <img src="/images/authentic/evminov-steel-carriage-pin.jpg" alt="Steel Carriage Locking Mechanism" style="width: 100%; height: 200px; object-fit: cover;" />
+              <img src="/images/products/board-carriage-locking-pin.jpg" alt="Steel Carriage Locking Mechanism" style="width: 100%; height: 200px; object-fit: cover;" />
               <div style="padding: 16px;">
                 <h4 style="font-size: 1rem; font-weight: 700; color: var(--color-primary-navy); margin-bottom: 4px;">Quick-Lock Alloy Carriage</h4>
                 <p style="font-size: 0.8125rem; color: var(--color-text-muted); margin: 0;">Precision machined handles with quick-release safety pin tested for over 400+ lbs tensile load.</p>
@@ -115,7 +151,7 @@ export function renderMountingGuide() {
             </div>
 
             <div style="background: var(--color-surface-white); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-border-subtle); box-shadow: var(--shadow-sm);">
-              <img src="/images/authentic/evminov-board-head-mount.jpg" alt="Wall Mounting Cable Anchor" style="width: 100%; height: 200px; object-fit: cover;" />
+              <img src="/images/products/board-mounting-bracket.jpg" alt="Wall Mounting Cable Anchor" style="width: 100%; height: 200px; object-fit: cover;" />
               <div style="padding: 16px;">
                 <h4 style="font-size: 1rem; font-weight: 700; color: var(--color-primary-navy); margin-bottom: 4px;">Heavy-Duty Wall Suspension</h4>
                 <p style="font-size: 0.8125rem; color: var(--color-text-muted); margin: 0;">Braided high-tensile mountaineering-grade cable and reinforced eye bolt anchor system.</p>

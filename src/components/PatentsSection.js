@@ -54,6 +54,30 @@ export function renderPatentsSection() {
     )
     .join('');
 
+  const scannedDocsHtml = (patentsAndCertifications.scannedDocuments || [])
+    .map(
+      (doc) => `
+      <div class="patent-doc-card">
+        <div class="patent-doc-preview">
+          <img src="${doc.image}" alt="${doc.title} - ${doc.docNumber}" loading="lazy" class="patent-doc-img" />
+          <div class="patent-doc-overlay">
+            <a href="${doc.image}" target="_blank" rel="noopener noreferrer" class="patent-zoom-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              View Document Scan
+            </a>
+          </div>
+        </div>
+        <div class="patent-doc-body">
+          <span class="patent-doc-badge">${doc.badge}</span>
+          <div class="patent-doc-num">${doc.docNumber}</div>
+          <div class="patent-doc-title">${doc.title}</div>
+          <p class="patent-doc-caption">${doc.caption}</p>
+        </div>
+      </div>
+    `
+    )
+    .join('');
+
   return `
     <section class="patents-section" id="patents">
       <div class="calc-container">
@@ -89,10 +113,25 @@ export function renderPatentsSection() {
           </div>
         </div>
 
+        <!-- Official Scanned Document Archives Showcase -->
+        <div class="scanned-docs-wrapper">
+          <div class="scanned-docs-header">
+            <div>
+              <div class="scanned-docs-pill">Primary Legal Documents</div>
+              <h3 class="scanned-docs-title">Official Patent Grants &amp; Ministry of Health Licenses</h3>
+            </div>
+            <div class="scanned-docs-note">Scanned from the original archive files of inventor Vyacheslav Evminov</div>
+          </div>
+          <div class="scanned-docs-grid">
+            ${scannedDocsHtml}
+          </div>
+        </div>
+
         <!-- Patents Grid -->
         <div class="patents-grid">
           ${patentsListHtml}
         </div>
+
 
         <!-- Clinical Trials & Hospital Validation Grid -->
         <div class="clinical-trials-wrapper">

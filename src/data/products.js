@@ -1,5 +1,6 @@
 /**
  * Evminov US Catalog Products
+ * Augmented with authentic multi-angle studio and workshop photos from Telegram archives
  */
 
 export const products = [
@@ -28,7 +29,16 @@ export const products = [
       '60-Day Risk-Free Home Trial & 10-Year Frame Warranty',
     ],
     finishes: ['Natural Nordic Pine', 'Dark Walnut Stain', 'Matte Carbon Black'],
-    image: '/images/authentic/hero-evminov-decompression.jpg',
+    image: '/images/products/board-perspective-view.jpg',
+    galleryImages: [
+      { url: '/images/products/board-perspective-view.jpg', label: 'Full Board' },
+      { url: '/images/products/board-studio-front.jpg', label: 'Studio Front' },
+      { url: '/images/products/board-studio-carriage.jpg', label: 'Carriage Detail' },
+      { url: '/images/products/board-mounting-bracket.jpg', label: 'Wall Mount' },
+      { url: '/images/products/board-natural-pine-finish.jpg', label: 'Pine Finish' },
+      { url: '/images/products/board-dark-walnut-finish.jpg', label: 'Walnut Finish' },
+      { url: '/images/products/board-travel-bag-carrying.jpg', label: 'Carry Bag' }
+    ],
     popular: true,
   },
   {
@@ -56,7 +66,14 @@ export const products = [
       '60-Day Risk-Free Home Trial & 10-Year Warranty',
     ],
     finishes: ['Natural Nordic Pine', 'Dark Walnut Stain', 'Gym Stealth Black'],
-    image: '/images/authentic/exercise-reverse-traction.jpg',
+    image: '/images/products/board-studio-incline.jpg',
+    galleryImages: [
+      { url: '/images/products/board-studio-incline.jpg', label: 'Wide Board' },
+      { url: '/images/products/board-carriage-locking-pin.jpg', label: 'Safety Pin' },
+      { url: '/images/products/board-wall-mount-hardware.jpg', label: 'Hardware Kit' },
+      { url: '/images/products/board-studio-woodgrain.jpg', label: 'Wood Grain' },
+      { url: '/images/accessories/wide-board-heavy-duty.png', label: 'Dimensions' }
+    ],
     popular: false,
   },
   {
@@ -84,7 +101,13 @@ export const products = [
       '60-Day Risk-Free Home Trial & 5-Year Hardware Warranty',
     ],
     finishes: ['Natural Carpathian Pine', 'Dark Walnut Finish', 'Travel Matte Black'],
-    image: '/images/authentic/evminov-pine-wood-detail.jpg',
+    image: '/images/products/board-travel-bag-carrying.jpg',
+    galleryImages: [
+      { url: '/images/products/board-travel-bag-carrying.jpg', label: 'Travel Case' },
+      { url: '/images/products/board-perspective-view.jpg', label: 'Unfolded' },
+      { url: '/images/products/board-studio-carriage.jpg', label: 'Carriage' },
+      { url: '/images/accessories/folding-board-3-sections.png', label: '3-Piece Fold' }
+    ],
     popular: false,
   },
   {
@@ -111,6 +134,10 @@ export const products = [
     ],
     finishes: ['Matching Nordic Pine', 'Natural Beech'],
     image: '/images/accessories/renter-stand-setup.jpg',
+    galleryImages: [
+      { url: '/images/accessories/renter-stand-setup.jpg', label: 'Assembled Stand' },
+      { url: '/images/authentic/evminov-board-profile.jpg', label: 'Angle Profile' }
+    ],
     popular: false,
   },
   {
@@ -136,14 +163,18 @@ export const products = [
       'Note: Already INCLUDED free inside Standard & Wide Board sets',
     ],
     finishes: ['Medical Blue', 'Classic Charcoal'],
-    image: '/images/accessories/glisson-neck-loop-detailed.jpg',
+    image: '/images/products/glisson-loop-studio.jpg',
+    galleryImages: [
+      { url: '/images/products/glisson-loop-studio.jpg', label: 'Glisson Harness' },
+      { url: '/images/accessories/glisson-neck-loop-detailed.jpg', label: 'Padding Detail' }
+    ],
     popular: false,
   },
   {
     id: 'evminov-foot-sleeves',
-    name: 'Padded Foot Sleeves for Carriage Handles (М\'які насадки)',
+    name: 'Padded Foot Sleeves for Carriage Handles',
     badge: 'Inversion & Core Accessory',
-    subtitle: 'Soft high-density neoprene/foam sleeves that slide directly over the carriage handles for inverted spinal hanging and hanging ab-crunches.',
+    subtitle: 'Soft high-density neoprene sleeves that slide directly over carriage handles for comfortable inverted hanging and reverse decompression.',
     basePrice: 39,
     fastPrice: 49,
     rating: 4.9,
@@ -162,8 +193,11 @@ export const products = [
       'Lifetime non-slip guarantee',
     ],
     finishes: ['Stealth Black', 'Carbon Gray'],
-    image: '/images/accessories/soft-foot-attachments-carriage.jpg',
+    image: '/images/products/carriage-foot-sleeves-studio.jpg',
+    galleryImages: [
+      { url: '/images/products/carriage-foot-sleeves-studio.jpg', label: 'Mounted Sleeves' },
+      { url: '/images/accessories/soft-foot-attachments-carriage.jpg', label: 'Close-up Foam' }
+    ],
     popular: false,
   },
 ];
-

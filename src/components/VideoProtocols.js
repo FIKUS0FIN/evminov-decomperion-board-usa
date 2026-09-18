@@ -56,6 +56,47 @@ export function renderVideoProtocols() {
           </p>
         </div>
 
+        <!-- Featured Official YouTube Demonstration from @evminoviusa -->
+        <div class="official-youtube-feature" style="background: #0B132B; border-radius: 16px; padding: 28px; color: #FFFFFF; margin-bottom: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; align-items: center; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+          <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #000;">
+            <iframe 
+              src="https://www.youtube-nocookie.com/embed/GDLVNWynWF0?rel=0" 
+              title="Official Exercise Set on Evminov Spine Decompression Board" 
+              style="width: 100%; height: 100%; border: none;"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <span class="badge badge-pine">Official US Channel</span>
+              <span style="font-size: 0.8rem; color: #94A3B8;">@evminoviusa</span>
+            </div>
+            <h3 style="font-size: 1.35rem; font-weight: 800; color: #FFFFFF; line-height: 1.3; margin-bottom: 12px;">
+              Clinical Demonstration: Complete Exercise Protocol on the Evminov Board
+            </h3>
+            <p style="font-size: 0.88rem; color: #94A3B8; line-height: 1.6; margin-bottom: 20px;">
+              Watch certified spine specialists demonstrate proper pelvic stabilization, smooth breathing cadence, and progressive angle adjustments for disc herniation rehabilitation.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+              <a 
+                href="https://www.youtube.com/channel/UCwsC2K28uWYijzAKnZljzsw" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="btn btn-primary btn-sm"
+                style="display: inline-flex; align-items: center; gap: 8px;"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                Subscribe on YouTube
+              </a>
+              <a href="#exercise-gallery" class="btn btn-secondary btn-sm" style="background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.2);">
+                Browse 21 Photo Protocols
+              </a>
+            </div>
+          </div>
+        </div>
+
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
           ${cardsHtml}
         </div>

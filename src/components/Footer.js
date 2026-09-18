@@ -40,7 +40,7 @@ export function renderFooter() {
               The official North American distributor of the patented Evminov Spine Decompression & Rehabilitation System. Manufactured from resonant natural pine with clinical heritage since 1996.
             </p>
             <div style="margin-top: 14px; font-size: 0.8125rem; color: #94A3B8; line-height: 1.6;">
-              🇺🇸 <strong>US Fulfillment:</strong> Burbank &amp; Sun Valley, CA<br>
+              🇺🇸 <strong>US Operations &amp; Fulfillment:</strong> 4525 San Fernando Rd, Unit H, Glendale, CA 91204 (Hub: Burbank &amp; Sun Valley)<br>
               🇺🇦 <strong>European Production:</strong> Kyiv &amp; Odesa, Ukraine
             </div>
           </div>
@@ -76,7 +76,8 @@ export function renderFooter() {
             <div class="footer-title">Support &amp; Trust</div>
             <div class="footer-links">
               <a href="mailto:support@evminovusa.com">support@evminovusa.com</a>
-              <a href="tel:+18185557746">+1 (818) 555-SPINE (PST)</a>
+              <a href="tel:+17473060140">+1 (747) 306-0140 (PST / Direct)</a>
+              <a href="https://www.youtube.com/channel/UCwsC2K28uWYijzAKnZljzsw" target="_blank" rel="noopener noreferrer" style="color: #FF0000; font-weight: 600;">▶ YouTube: @evminoviusa</a>
               <a href="#faq">60-Day In-Home Trial Policy</a>
               <a href="#faq">10-Year Frame Warranty</a>
               <a href="#faq">HSA / FSA Claim Guides</a>

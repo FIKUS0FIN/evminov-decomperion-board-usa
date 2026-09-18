@@ -424,20 +424,21 @@ export const exerciseGalleryData = [
 export const biomechanicsPrinciples = [
   {
     title: 'The Spinal Pumping Mechanism (Diffusive Imbibition)',
-    subtitle: 'Насосний механізм живлення міжхребцевих дисків',
+    subtitle: 'Natural Fluid Hydration & Intervertebral Disc Pumping',
     text: 'Adult intervertebral discs have zero direct blood vessels and rely 100% on fluid exchange through diffusion. Under low-angle incline (10°–25°), axial spinal load drops by 70%, creating negative intradiscal pressure. Combined with micro-movements of deep short muscles (multifidus), this triggers a natural pumping mechanism that pulls nutrient-rich synovial fluid into compressed, dehydrated discs.',
     badge: 'Core Clinical Principle',
   },
   {
     title: 'The "Toothbrush for the Spine" Philosophy',
-    subtitle: 'Зубна щітка для хребта — 15 хвилин щоденної гігієни',
+    subtitle: '15-Minute Daily Preventive Hygiene for Disc Preservation',
     text: 'Everyone brushes their teeth twice a day to prevent cavities. Your spine carries your entire body weight every waking hour, yet most people do nothing for its daily hygiene until a debilitating disc herniation strikes. 15 minutes of daily decompression on the Evminov board is baseline hygiene that keeps discs plump, hydrated, and immune to degeneration.',
     badge: 'Vyacheslav Evminov Heritage',
   },
   {
     title: 'Deep Short Spinal Muscles vs. Superficial Muscles',
-    subtitle: 'Робота глибоких коротких м\'язів без осьового стискання',
+    subtitle: 'Targeting Intersegmental Multifidi Without Axial Strain',
     text: 'Standard gym weightlifting and crunches engage superficial global muscles, compressing the spinal column with hundreds of pounds of pressure. The Evminov Method isolates the deep intersegmental rotatores and multifidi while the spine is unweighted, strengthening the anatomical muscular corset that permanently supports the vertebrae.',
     badge: 'Anatomical Superiority',
   }
 ];
+

@@ -82,5 +82,40 @@ export const patentsAndCertifications = {
     cptBillingCode: '97012 — Mechanical Traction Therapy Modality',
     hsaFsaEligibility: '100% Eligible under IRS Code Section 213(d)',
     usWarehouse: '7539 Claybeck Ave, Burbank, CA 91505 (Fast UPS Ground Delivery)'
-  }
+  },
+  scannedDocuments: [
+    {
+      id: 'uspto-cert',
+      title: 'United States Patent & Trademark Office',
+      docNumber: 'US 6,869,387 B2',
+      badge: 'United States (USPTO)',
+      image: '/images/patents/us-patent-official.png',
+      caption: 'Official US Patent Grant issued by the United States Patent and Trademark Office.'
+    },
+    {
+      id: 'epo-cert',
+      title: 'European Patent Office (Munich)',
+      docNumber: 'EP 1 038 512 B1',
+      badge: 'European Union (EPO)',
+      image: '/images/patents/european-patent-epo.png',
+      caption: 'Granted European Patent specification covering Germany, France, Italy, and UK.'
+    },
+    {
+      id: 'ukr-cert',
+      title: 'State Department of Intellectual Property',
+      docNumber: 'UA Patent № 27976',
+      badge: 'State Patent (Ukraine)',
+      image: '/images/patents/ukraine-patent-original.png',
+      caption: 'Primary inventor patent awarded to V. V. Evminov for inclined decompression traction.'
+    },
+    {
+      id: 'moh-cert',
+      title: 'Ministry of Health Medical Device Registry',
+      docNumber: 'Certificate № 711/2002',
+      badge: 'Medical Device Certificate',
+      image: '/images/patents/moh-medical-license.png',
+      caption: 'Approved and certified as Class I medical therapeutic equipment by the Ministry of Health.'
+    }
+  ]
 };
+
