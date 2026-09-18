@@ -11,7 +11,7 @@ import { renderHeader, initHeader } from './components/Header.js';
 import { renderHero } from './components/Hero.js';
 import { renderFunnelsNav } from './components/FunnelsNav.js';
 import { renderCalculator, initCalculator } from './components/Calculator.js';
-import { renderComparisonTable } from './components/ComparisonTable.js';
+import { renderComparisonTable, initComparisonTable } from './components/ComparisonTable.js';
 import { renderProductCatalog, initProductCatalog } from './components/ProductCatalog.js';
 import { renderPatentsSection, initPatentsSection } from './components/PatentsSection.js';
 import { renderMountingGuide } from './components/MountingGuide.js';
@@ -74,6 +74,7 @@ function renderApp() {
   // Initialize storefront features
   initHeader();
   initCalculator();
+  initComparisonTable();
   initProductCatalog();
   initPatentsSection();
   initVideoProtocols();

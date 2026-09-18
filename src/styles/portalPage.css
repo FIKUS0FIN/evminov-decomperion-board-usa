@@ -132,6 +132,53 @@
   color: #DC2626;
 }
 
+@media (max-width: 640px) {
+  .portal-top-bar {
+    padding: 10px 14px;
+    gap: 8px;
+  }
+
+  .portal-bar-left {
+    gap: 8px;
+  }
+
+  .portal-brand-logo {
+    font-size: 1rem;
+  }
+
+  .portal-badge-patient {
+    display: none;
+  }
+
+  .portal-bar-right {
+    gap: 8px;
+  }
+
+  .portal-user-meta {
+    display: none;
+  }
+
+  .portal-user-chip {
+    padding: 0;
+    border: none;
+    background: transparent;
+  }
+
+  .portal-return-store-btn {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+  }
+
+  .portal-logout-btn {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+  }
+
+  .portal-logout-btn span {
+    display: none;
+  }
+}
+
 /* Master Layout: Sidebar + Workspace */
 .portal-main-layout {
   display: grid;
@@ -368,7 +415,7 @@
 /* 4-Card Quick Metrics Grid */
 .portal-metrics-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
   gap: 16px;
 }
 

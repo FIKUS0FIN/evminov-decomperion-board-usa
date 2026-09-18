@@ -224,7 +224,7 @@
 
 .hero-title {
   font-family: var(--font-heading);
-  font-size: 3.25rem;
+  font-size: clamp(2rem, 5vw + 0.5rem, 3.25rem);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.03em;
@@ -233,7 +233,7 @@
 
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 2.25rem;
+    font-size: clamp(1.75rem, 5.5vw, 2.25rem);
   }
 }
 
@@ -373,22 +373,30 @@
 
 .section-header h2 {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 3.5vw + 0.5rem, 2.5rem);
   font-weight: 800;
   letter-spacing: -0.02em;
   color: var(--color-primary-navy);
   margin-bottom: 14px;
+  line-height: 1.2;
 }
 
 .section-header p {
-  font-size: 1.125rem;
+  font-size: clamp(0.9375rem, 1.8vw, 1.125rem);
   color: var(--color-text-muted);
 }
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
   gap: 32px;
+}
+
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
 
 .product-card {
@@ -524,7 +532,7 @@
 /* Reviews Grid */
 .reviews-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: 24px;
 }
 
@@ -599,6 +607,13 @@
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 40px;
   margin-bottom: 50px;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 32px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -930,7 +945,7 @@
 }
 
 .clinical-heading {
-  font-size: 2.25rem;
+  font-size: clamp(1.5rem, 3.5vw + 0.5rem, 2.25rem);
   font-weight: 800;
   color: var(--color-primary-navy);
   line-height: 1.25;
@@ -938,7 +953,7 @@
 }
 
 .clinical-subheading {
-  font-size: 1.0625rem;
+  font-size: clamp(0.9375rem, 1.8vw, 1.0625rem);
   color: var(--color-text-muted);
   line-height: 1.6;
   max-width: 680px;
@@ -955,7 +970,7 @@
 /* Clinical KPI Counter Strip */
 .clinical-kpi-bar {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
   gap: 16px;
   margin: 40px 0;
   background: var(--color-bg-light);

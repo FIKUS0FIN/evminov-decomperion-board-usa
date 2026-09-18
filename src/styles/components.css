@@ -123,34 +123,277 @@
   border: 1px solid var(--glass-border);
 }
 
-/* Comparison Matrix Table */
+/* Comparison Matrix Table & Mobile Adaptive Card Stack */
+.comp-mobile-controls {
+  display: none;
+  margin-bottom: 24px;
+}
+
+.comp-segmented-control {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: var(--color-bg-secondary);
+  padding: 4px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-subtle);
+  gap: 4px;
+}
+
+.comp-seg-btn {
+  min-height: 42px;
+  padding: 6px 8px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  background: transparent;
+  transition: all var(--transition-fast);
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: normal;
+  line-height: 1.15;
+}
+
+.comp-seg-btn.active {
+  background: var(--color-surface-white);
+  color: var(--color-primary-navy);
+  box-shadow: var(--shadow-sm);
+}
+
+.comp-mobile-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-top: 10px;
+  text-align: center;
+}
+
+.comp-card-stack {
+  display: none;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.comp-mobile-card {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.comp-card-top-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding-bottom: 10px;
+}
+
+.comp-card-step-badge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-pine-emerald);
+  letter-spacing: 0.05em;
+}
+
+.comp-card-metric-title {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+}
+
+.comp-side-box {
+  border-radius: var(--radius-lg);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: all var(--transition-fast);
+}
+
+.comp-winner-box {
+  background: linear-gradient(135deg, #F0FDF4 0%, #ECFDF5 100%);
+  border: 1.5px solid var(--color-pine-border);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.08);
+}
+
+.comp-opponent-box.opponent-inversion {
+  background: #FFF5F5;
+  border: 1.5px solid #FECACA;
+}
+
+.comp-opponent-box.opponent-surgery {
+  background: #FFFBEB;
+  border: 1.5px solid #FDE68A;
+}
+
+.comp-side-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.comp-side-brand-tag {
+  font-size: 0.75rem;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.comp-side-brand-tag.winner-tag {
+  color: #065F46;
+}
+
+.comp-side-brand-tag.opponent-tag-danger {
+  color: #991B1B;
+}
+
+.comp-side-brand-tag.opponent-tag-warning {
+  color: #92400E;
+}
+
+.comp-status-pill {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.pill-winner {
+  background: #10B981;
+  color: #FFFFFF;
+}
+
+.pill-danger {
+  background: #F87171;
+  color: #FFFFFF;
+}
+
+.pill-warning {
+  background: #FBBF24;
+  color: #78350F;
+}
+
+.comp-card-val {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+
+.comp-card-val.winner-text {
+  color: #064E3B;
+}
+
+.comp-card-val.winner-text svg {
+  color: #059669;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.comp-card-val.danger-text {
+  color: #991B1B;
+}
+
+.comp-card-val.danger-text svg {
+  color: #DC2626;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.comp-card-val.warning-text {
+  color: #92400E;
+}
+
+.comp-card-note {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+}
+
+/* Full Table Desktop & Horizontal Scroll */
 .comparison-wrapper {
   overflow-x: auto;
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-xl);
   border: 1px solid var(--color-border-subtle);
   background: var(--color-surface-white);
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+}
+
+.comp-swipe-notice {
+  display: none;
+  background: var(--color-bg-secondary);
+  padding: 8px 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--color-border-subtle);
 }
 
 .comparison-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   text-align: left;
-  min-width: 680px;
+  min-width: 760px;
 }
 
 .comparison-table th, 
 .comparison-table td {
-  padding: 18px 24px;
+  padding: 18px 22px;
   border-bottom: 1px solid var(--color-border-subtle);
+  vertical-align: top;
 }
 
 .comparison-table th {
   background: var(--color-bg-secondary);
   font-family: var(--font-heading);
-  font-size: 1.0625rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--color-text-main);
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+/* Sticky first column so feature names remain visible */
+.comparison-table th.col-metric-th,
+.comparison-table td.col-metric {
+  position: sticky;
+  left: 0;
+  z-index: 4;
+  background: var(--color-surface-white);
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.04);
+}
+
+.comparison-table th.col-metric-th {
+  background: var(--color-bg-secondary);
+  z-index: 5;
 }
 
 .comparison-table th.col-evminov {
@@ -180,9 +423,29 @@
   border-bottom: none;
 }
 
+.comp-val-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.comp-val-line.winner-val {
+  color: #065F46;
+}
+
+.comp-val-line.danger-val {
+  color: var(--color-danger);
+}
+
+.comp-val-line.warning-val {
+  color: #B45309;
+}
+
 .comparison-metric-title {
   font-weight: 700;
-  color: var(--color-text-main);
+  color: var(--color-primary-navy);
   font-size: 0.9375rem;
 }
 
@@ -190,8 +453,33 @@
   display: block;
   font-size: 0.8125rem;
   color: var(--color-text-muted);
-  margin-top: 4px;
+  margin-top: 6px;
   font-weight: 400;
+  line-height: 1.45;
+}
+
+/* Breakpoint for Mobile Card Stack vs Desktop Matrix */
+@media (max-width: 860px) {
+  .comp-mobile-controls {
+    display: block;
+  }
+
+  .comp-card-stack {
+    display: flex;
+  }
+
+  .comparison-wrapper {
+    display: none;
+  }
+
+  .comparison-wrapper.force-mobile-show {
+    display: block;
+    margin-top: 16px;
+  }
+
+  .comparison-wrapper.force-mobile-show .comp-swipe-notice {
+    display: flex;
+  }
 }
 
 /* Video Modal */
