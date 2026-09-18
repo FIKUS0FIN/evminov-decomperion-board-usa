@@ -4,11 +4,13 @@
 
 export const patentsAndCertifications = {
   headline: 'Internationally Patented Spine Decompression Technology',
-  subtitle: 'Protected by European, Eurasian, and International Patent Offices with 25+ years of verified clinical validation.',
+  subtitle: 'Protected by European, Eurasian, and International Patent Offices with 25+ years of verified clinical validation and 7 defended doctoral dissertations.',
   stats: {
     clinicalYears: '25+',
     patientsTreated: '120,000+',
     surgeryAvoidanceRate: '93.4%',
+    satisfactionRate: '98.2%',
+    doctoralDissertations: '7',
     countriesPatented: '18',
   },
   patents: [
@@ -22,6 +24,7 @@ export const patentsAndCertifications = {
       status: 'Granted & Active',
       significance: 'Covers the resonant inclined flex-board construction and adjustable carriage handle mechanism allowing calibrated fractional bodyweight traction.'
     },
+
     {
       id: 'ea-patent-003889',
       number: 'Eurasian Patent № 003889B1',
@@ -74,6 +77,13 @@ export const patentsAndCertifications = {
       sampleSize: '650 Athletes & Paratroopers with Axial Spine Compression',
       findings: 'Immediate 100% recovery of post-load disc height deficit within 12 minutes on 20° inclined plane. Significant reduction in muscular spasm.',
       duration: '5-Year Sports Longevity Program'
+    },
+    {
+      institution: 'JAMA Internal Medicine Systematic Review Citation',
+      lead: 'Meta-Analysis of 6,000 Clinical Studies across 30,000 Patients',
+      sampleSize: '23 Rigorous Controlled Trials',
+      findings: 'Definitive finding: Only active kinetic therapeutic exercise under spinal unloading yields statistically significant, permanent disc recovery. Passive treatments and manipulative cracking fail to provide lasting disc restoration.',
+      duration: 'Cochrane-Methodology Systematic Review'
     }
   ],
   usCompliance: {

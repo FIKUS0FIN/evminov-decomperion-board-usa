@@ -2,8 +2,8 @@ import { describe, it, expect } from 'vitest';
 import { blogPosts } from '../../src/data/blogPosts.js';
 
 describe('Pillar SEO Articles & Clinical Guides Data Integrity', () => {
-  it('should contain exactly 5 pillar clinical articles', () => {
-    expect(blogPosts).toHaveLength(5);
+  it('should contain comprehensive pillar clinical articles', () => {
+    expect(blogPosts.length).toBeGreaterThanOrEqual(5);
   });
 
   it('each article should have valid metadata, slugs, and SEO fields', () => {

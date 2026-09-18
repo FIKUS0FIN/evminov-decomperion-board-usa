@@ -108,10 +108,19 @@ export function renderPatentsSection() {
             <div class="kpi-label">Avoided Disc Surgery</div>
           </div>
           <div class="kpi-block">
+            <div class="kpi-num">${patentsAndCertifications.stats.satisfactionRate}</div>
+            <div class="kpi-label">Patient Recovery Satisfaction</div>
+          </div>
+          <div class="kpi-block">
+            <div class="kpi-num">${patentsAndCertifications.stats.doctoralDissertations}</div>
+            <div class="kpi-label">Doctoral Dissertations Defended</div>
+          </div>
+          <div class="kpi-block">
             <div class="kpi-num">${patentsAndCertifications.stats.countriesPatented}</div>
             <div class="kpi-label">PCT Patent Jurisdictions</div>
           </div>
         </div>
+
 
         <!-- Official Scanned Document Archives Showcase -->
         <div class="scanned-docs-wrapper">
