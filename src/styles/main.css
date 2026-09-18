@@ -689,6 +689,16 @@
   color: #CBD5E1;
   padding: 70px 0 30px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .site-footer {
+    padding-top: 45px;
+    padding-bottom: 120px; /* Safe clearance for mobile fixed sticky buy bar */
+  }
 }
 
 .footer-grid {
@@ -728,6 +738,8 @@
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: var(--radius-lg, 12px);
   width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .footer-trust-header {
@@ -746,25 +758,42 @@
 
 .footer-trust-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 @media (max-width: 1200px) {
   .footer-trust-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 12px;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  .footer-trust-section {
+    padding: 16px 12px;
+    margin-top: 16px;
+    margin-bottom: 20px;
+    border-radius: var(--radius-md, 10px);
+  }
+
+  .footer-trust-header {
+    font-size: 0.6875rem;
+    margin-bottom: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
   .footer-trust-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 360px) {
   .footer-trust-grid {
     grid-template-columns: 1fr;
     gap: 8px;
@@ -778,9 +807,13 @@
   padding: 14px 12px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  justify-content: space-between;
+  gap: 8px;
   text-decoration: none;
   color: inherit;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow: hidden;
   transition: all var(--transition-base, 0.2s);
 }
 
@@ -791,11 +824,30 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
+@media (max-width: 768px) {
+  .footer-trust-card {
+    padding: 10px 8px;
+    gap: 6px;
+    border-radius: 8px;
+  }
+
+  .footer-trust-card:hover {
+    transform: none;
+  }
+}
+
 .trust-card-top-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .trust-card-top-row {
+    gap: 6px;
+  }
 }
 
 .trust-icon-box {
@@ -808,19 +860,44 @@
   flex-shrink: 0;
 }
 
+@media (max-width: 768px) {
+  .trust-icon-box {
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+    border-radius: 6px;
+  }
+  .trust-icon-box svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
 .trust-text-stack {
   display: flex;
   flex-direction: column;
   line-height: 1.3;
   min-width: 0;
   width: 100%;
+  gap: 2px;
 }
 
 .trust-card-title {
   font-size: 0.8125rem;
   font-weight: 800;
   color: #FFFFFF;
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.25;
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .trust-card-title {
+    font-size: 0.75rem;
+    line-height: 1.2;
+  }
 }
 
 .trust-card-sub {
@@ -828,6 +905,16 @@
   color: #94A3B8;
   margin-top: 2px;
   white-space: normal;
+  word-break: break-word;
+  line-height: 1.25;
+}
+
+@media (max-width: 768px) {
+  .trust-card-sub {
+    font-size: 0.625rem;
+    line-height: 1.2;
+    margin-top: 0;
+  }
 }
 
 .trust-card-tag {
@@ -835,6 +922,16 @@
   font-weight: 700;
   margin-top: 4px;
   display: inline-block;
+  white-space: normal;
+  word-break: break-word;
+}
+
+@media (max-width: 768px) {
+  .trust-card-tag {
+    font-size: 0.5625rem;
+    margin-top: 2px;
+    line-height: 1.2;
+  }
 }
 
 .footer-trials-banner {
@@ -850,12 +947,29 @@
   color: #CBD5E1;
   line-height: 1.45;
   text-decoration: none;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
   transition: background var(--transition-base, 0.2s), border-color var(--transition-base, 0.2s);
 }
 
 .footer-trials-banner:hover {
   background: rgba(245, 158, 11, 0.12);
   border-color: rgba(245, 158, 11, 0.4);
+}
+
+@media (max-width: 768px) {
+  .footer-trials-banner {
+    padding: 10px 12px;
+    font-size: 0.75rem;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .footer-trials-banner svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
 }
 
 /* Horizontal Security & Payment Ribbon */
@@ -873,6 +987,31 @@
   gap: 16px;
   font-size: 0.75rem;
   color: #94A3B8;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .footer-security-bar {
+    margin-top: 18px;
+    margin-bottom: 18px;
+    padding: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .security-badges-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .security-badge-item {
+    font-size: 0.75rem;
+    width: 100%;
+  }
 }
 
 .security-badges-list {
