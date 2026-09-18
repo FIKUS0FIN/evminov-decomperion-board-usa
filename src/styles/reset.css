@@ -12,12 +12,22 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  scroll-padding-top: var(--header-total-offset, 85px);
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
   overflow-x: clip;
   overscroll-behavior-x: none;
   touch-action: pan-y pinch-zoom;
+}
+
+/* Ensure all anchored targets and sections have top clearance below sticky header */
+section[id],
+nav[id],
+article[id],
+aside[id],
+div[id] {
+  scroll-margin-top: var(--header-total-offset, 85px);
 }
 
 body {

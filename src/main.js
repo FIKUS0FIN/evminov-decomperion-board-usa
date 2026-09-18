@@ -52,7 +52,10 @@ function renderApp() {
     if (hash && hash !== '#') {
       const targetEl = document.querySelector(hash);
       if (targetEl) {
-        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const headerEl = document.getElementById('site-header');
+        const headerHeight = headerEl ? headerEl.offsetHeight : 70;
+        const topPos = targetEl.getBoundingClientRect().top + window.pageYOffset - headerHeight - 16;
+        window.scrollTo({ top: Math.max(0, topPos), behavior: 'smooth' });
       }
     }
     return;

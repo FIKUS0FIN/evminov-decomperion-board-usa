@@ -110,6 +110,11 @@ export function renderHeader() {
           </button>
         </div>
       </div>
+
+      <!-- Reading / Scroll Progress Bar Micro-Indicator (UX/UI Designer Skill) -->
+      <div class="header-scroll-progress-track" aria-hidden="true">
+        <div class="header-scroll-progress-bar" id="header-progress-bar"></div>
+      </div>
     </header>
 
     <!-- Mobile Navigation Drawer Overlay -->
@@ -479,7 +484,7 @@ export function initHeader() {
     }
   });
 
-  // Link click behavior: close drawer and smoothly navigate
+  // Link click behavior: close drawer and smoothly navigate with header clearance
   navLinks.forEach((link) => {
     link.addEventListener('click', (e) => {
       const href = link.getAttribute('href');
@@ -492,12 +497,14 @@ export function initHeader() {
           return;
         }
 
-        // If on storefront, smooth scroll to block
+        // If on storefront, smooth scroll with generous header clearance
         const target = document.querySelector(hash);
         if (target) {
           e.preventDefault();
           setTimeout(() => {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const headerHeight = headerEl ? headerEl.offsetHeight : 70;
+            const topPos = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 16;
+            window.scrollTo({ top: Math.max(0, topPos), behavior: 'smooth' });
             window.history.pushState(null, '', hash);
           }, 150);
         } else {
@@ -507,6 +514,99 @@ export function initHeader() {
       }
     });
   });
+
+  // Desktop Navigation Smooth Scroll with Header Clearance
+  const desktopNavLinks = document.querySelectorAll('.site-nav .nav-link');
+  desktopNavLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        const hash = href;
+        if (hash === '#centers' || hash === '#portal') return;
+
+        const target = document.querySelector(hash);
+        if (target) {
+          e.preventDefault();
+          const headerHeight = headerEl ? headerEl.offsetHeight : 70;
+          const topPos = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 16;
+          window.scrollTo({ top: Math.max(0, topPos), behavior: 'smooth' });
+          window.history.pushState(null, '', hash);
+        }
+      }
+    });
+  });
+
+  // Smart Headroom & Reading Progress Bar (UX/UI Designer Skill)
+  const headerEl = document.getElementById('site-header');
+  const progressBar = document.getElementById('header-progress-bar');
+  let lastScrollY = typeof window !== 'undefined' ? (window.pageYOffset || document.documentElement.scrollTop) : 0;
+  let ticking = false;
+  const SCROLL_THRESHOLD = 6;
+
+  function handleScroll() {
+    const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
+    const maxScroll = (document.documentElement.scrollHeight || document.body.scrollHeight) - window.innerHeight;
+
+    // Update glowing progress line
+    if (progressBar && maxScroll > 0) {
+      const percent = Math.min(100, Math.max(0, (currentScrollY / maxScroll) * 100));
+      progressBar.style.width = `${percent}%`;
+    }
+
+    if (!headerEl) {
+      lastScrollY = currentScrollY;
+      ticking = false;
+      return;
+    }
+
+    // Glass Elevation Shadow on Scroll
+    if (currentScrollY > 15) {
+      headerEl.classList.add('header-scrolled');
+    } else {
+      headerEl.classList.remove('header-scrolled');
+    }
+
+    // Prevent hiding if mobile navigation drawer or modal is open
+    if (document.body.classList.contains('nav-drawer-open') || document.body.classList.contains('modal-open')) {
+      headerEl.classList.remove('header-hidden');
+      lastScrollY = currentScrollY;
+      ticking = false;
+      return;
+    }
+
+    // Always reveal near top of page
+    if (currentScrollY <= 40) {
+      headerEl.classList.remove('header-hidden');
+      lastScrollY = currentScrollY;
+      ticking = false;
+      return;
+    }
+
+    const delta = currentScrollY - lastScrollY;
+
+    if (Math.abs(delta) >= SCROLL_THRESHOLD) {
+      if (delta > 0 && currentScrollY > 80) {
+        // Scrolling DOWN -> Hide header to reveal 100% of content
+        headerEl.classList.add('header-hidden');
+      } else if (delta < 0) {
+        // Scrolling UP -> Reveal header immediately
+        headerEl.classList.remove('header-hidden');
+      }
+      lastScrollY = currentScrollY;
+    }
+
+    ticking = false;
+  }
+
+  if (typeof window !== 'undefined') {
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(handleScroll);
+        ticking = true;
+      }
+    }, { passive: true });
+    handleScroll();
+  }
 
   if (portalBtn) {
     portalBtn.addEventListener('click', () => {
