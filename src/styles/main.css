@@ -1,0 +1,994 @@
+/* Main Storefront Layout Styles */
+
+/* Announcement Top Bar */
+.announcement-bar {
+  background: var(--color-primary-navy);
+  color: #FFFFFF;
+  padding: 8px 16px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.announcement-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .announcement-bar {
+    justify-content: center;
+    text-align: center;
+  }
+  .announcement-bar .desktop-only {
+    display: none;
+  }
+}
+
+/* Sticky Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--color-border-subtle);
+  transition: background var(--transition-fast);
+}
+
+.header-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 16px var(--container-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  letter-spacing: -0.01em;
+}
+
+.site-logo svg {
+  color: var(--color-pine-emerald);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-link {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--color-pine-emerald);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cart-trigger-btn {
+  position: relative;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-full);
+  padding: 8px 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--color-primary-navy);
+  transition: all var(--transition-fast);
+}
+
+.cart-trigger-btn:hover {
+  background: var(--color-surface-white);
+  border-color: var(--color-pine-emerald);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.2);
+}
+
+.header-quiz-cta {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .header-quiz-cta {
+    display: inline-flex;
+  }
+}
+
+.cart-count-badge {
+  background: var(--color-pine-emerald);
+  color: #FFFFFF;
+  border-radius: var(--radius-full);
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 60px 0 80px;
+  background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.08) 0%, rgba(248, 250, 252, 1) 60%);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 50px;
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hero-social-proof {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+@media (max-width: 992px) {
+  .hero-social-proof {
+    justify-content: center;
+  }
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: 3.25rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--color-primary-navy);
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.25rem;
+  }
+}
+
+.hero-title span {
+  background: linear-gradient(135deg, var(--color-pine-emerald) 0%, #047857 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.1875rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  max-width: 600px;
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+@media (max-width: 992px) {
+  .hero-cta-group {
+    justify-content: center;
+  }
+}
+
+.hero-trust-bullets {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.trust-bullet-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+/* Hero Media Display */
+.hero-media-card {
+  position: relative;
+  background: var(--color-surface-white);
+  border-radius: var(--radius-xl);
+  padding: 16px;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.hero-media-img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
+.hero-float-badge {
+  position: absolute;
+  bottom: 30px;
+  left: -20px;
+  background: var(--color-surface-white);
+  padding: 14px 20px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border-subtle);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: floatUpDown 4s ease-in-out infinite;
+}
+
+@keyframes floatUpDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Problem-Aware Funnels Navigation */
+.funnels-nav-section {
+  background: var(--color-surface-white);
+  border-top: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding: 14px 0;
+}
+
+.funnels-scroll-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 4px 0;
+  scrollbar-width: none;
+}
+
+.funnels-scroll-row::-webkit-scrollbar {
+  display: none;
+}
+
+.funnel-tab-btn {
+  white-space: nowrap;
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 700;
+  background: var(--color-bg-secondary);
+  color: var(--color-text-muted);
+  transition: all var(--transition-fast);
+}
+
+.funnel-tab-btn:hover {
+  background: var(--color-border-subtle);
+  color: var(--color-text-main);
+}
+
+.funnel-tab-btn.active {
+  background: var(--color-primary-navy);
+  color: #FFFFFF;
+}
+
+/* Product Catalog Grid */
+.catalog-section {
+  padding: 80px 0;
+  background: var(--color-bg-light);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 50px;
+}
+
+.section-header h2 {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-primary-navy);
+  margin-bottom: 14px;
+}
+
+.section-header p {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 32px;
+}
+
+.product-card {
+  background: var(--color-surface-white);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.product-card-img-wrap {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+  background: #E2E8F0;
+}
+
+.product-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.product-card:hover .product-card-img {
+  transform: scale(1.04);
+}
+
+.product-card-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+}
+
+.product-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 16px;
+}
+
+.product-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  line-height: 1.25;
+}
+
+.product-card-desc {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.product-price-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 16px;
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-md);
+}
+
+.price-main-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.price-amount {
+  font-family: var(--font-mono);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+}
+
+.shipping-speed-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  background: #E2E8F0;
+  padding: 4px;
+  border-radius: var(--radius-md);
+}
+
+.speed-toggle-btn {
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--color-text-muted);
+  transition: all var(--transition-fast);
+}
+
+.speed-toggle-btn.active {
+  background: var(--color-surface-white);
+  color: var(--color-primary-navy);
+  box-shadow: var(--shadow-xs);
+}
+
+.product-includes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: var(--color-text-main);
+}
+
+.product-includes-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.product-includes-item svg {
+  color: var(--color-pine-emerald);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Reviews Grid */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+.review-card {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* FAQ Accordion */
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.faq-item {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-xs);
+  transition: border-color var(--transition-fast);
+}
+
+.faq-item.open {
+  border-color: var(--color-pine-emerald);
+}
+
+.faq-question-btn {
+  width: 100%;
+  padding: 20px 24px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+}
+
+.faq-answer-content {
+  padding: 0 24px 24px;
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  display: none;
+}
+
+.faq-item.open .faq-answer-content {
+  display: block;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--color-primary-navy);
+  color: #CBD5E1;
+  padding: 70px 0 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+.footer-brand p {
+  margin-top: 14px;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  max-width: 360px;
+}
+
+.footer-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.875rem;
+}
+
+.footer-links a:hover {
+  color: #FFFFFF;
+}
+
+.footer-bottom {
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8125rem;
+  color: #64748B;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Sticky Mobile Buy Bar */
+.mobile-sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-surface-white);
+  padding: 12px 16px;
+  border-top: 1px solid var(--color-border-subtle);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .mobile-sticky-bar {
+    display: flex;
+  }
+}
+
+/* Responsive Grids for Athlete & Clinical Trust */
+.athlete-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .athlete-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+}
+
+.clinical-trust-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .clinical-trust-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+}
+
+.clinical-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 640px) {
+  .clinical-stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Customer Portal Header Trigger Button */
+.portal-trigger-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-surface-white);
+  border: 1.5px solid var(--color-border-subtle);
+  border-radius: var(--radius-full);
+  padding: 8px 16px;
+  color: var(--color-primary-navy);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-xs);
+}
+
+.portal-trigger-btn:hover {
+  border-color: var(--color-pine-emerald);
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.25);
+  transform: translateY(-1px);
+  color: var(--color-pine-emerald);
+}
+
+.portal-trigger-btn.logged-in {
+  background: #F0FDF4;
+  border-color: var(--color-pine-border);
+  color: var(--color-pine-emerald);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
+}
+
+.portal-trigger-btn.logged-in svg {
+  color: var(--color-pine-emerald);
+}
+
+/* Luxury Clinical Pill Badges */
+.clinical-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #F0FDF4;
+  border: 1px solid var(--color-pine-border);
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-pine-emerald);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+
+.pill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-pine-light);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+  animation: clinicalPulse 2s infinite ease-in-out;
+}
+
+@keyframes clinicalPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.6;
+  }
+}
+
+.clinical-heading {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+
+.clinical-subheading {
+  font-size: 1.0625rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* Patents & Clinical Evidence Section */
+.patents-section {
+  padding: 80px 0;
+  background: var(--color-surface-white);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+/* Clinical KPI Counter Strip */
+.clinical-kpi-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 40px 0;
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+}
+
+.kpi-block {
+  text-align: center;
+  padding: 12px;
+}
+
+.kpi-num {
+  font-family: var(--font-mono);
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--color-pine-emerald);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.kpi-label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Patents Grid */
+.patents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.patent-card {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.patent-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-pine-emerald), var(--color-traction-cyan));
+}
+
+.patent-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-pine-border);
+}
+
+.patent-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.patent-seal-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-pine-emerald);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.patent-status-tag {
+  background: #F0FDF4;
+  color: var(--color-pine-emerald);
+  border: 1px solid var(--color-pine-border);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-size: 0.6875rem;
+  font-weight: 700;
+}
+
+.patent-num {
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  margin-bottom: 8px;
+}
+
+.patent-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  line-height: 1.35;
+  margin-bottom: 14px;
+}
+
+.patent-meta-grid {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px;
+  background: var(--color-bg-light);
+  border-radius: var(--radius-md);
+  margin-bottom: 14px;
+}
+
+.patent-significance {
+  font-size: 0.875rem;
+  color: var(--color-text-main);
+  line-height: 1.55;
+  margin-top: auto;
+}
+
+/* Clinical Trials Box */
+.clinical-trials-wrapper {
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  margin-bottom: 40px;
+}
+
+.trials-section-title {
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.trials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.clinical-trial-card {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.trial-institution {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9375rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  margin-bottom: 6px;
+}
+
+.trial-lead {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin-bottom: 8px;
+}
+
+.trial-sample-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-pine-emerald);
+  background: #ECFDF5;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 10px;
+}
+
+.trial-findings {
+  font-size: 0.875rem;
+  color: var(--color-text-main);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* US Compliance Banner */
+.us-compliance-banner {
+  background: linear-gradient(135deg, #F0FDF4 0%, #E6F4EA 100%);
+  border: 1.5px solid var(--color-pine-border);
+  border-radius: var(--radius-xl);
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.compliance-badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--color-pine-emerald);
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+.compliance-title {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  margin-bottom: 6px;
+}
+
+.compliance-details {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+

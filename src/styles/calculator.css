@@ -1,0 +1,500 @@
+/* Compact Biomechanical Spine Decompression Diagnostic Suite */
+
+.calc-section {
+  background: var(--color-surface-white);
+  border-top: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding: 44px 0 52px;
+  position: relative;
+  overflow: hidden;
+}
+
+.calc-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 250px;
+  background: radial-gradient(ellipse at top, rgba(16, 185, 129, 0.06) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+}
+
+.calc-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  position: relative;
+  z-index: 2;
+}
+
+/* Compact Header */
+.calc-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 24px;
+}
+
+.calc-header h2 {
+  font-size: 1.875rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+  color: var(--color-primary-navy);
+}
+
+.calc-header p {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* Streamlined Diagnostic Grid */
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+@media (max-width: 960px) {
+  .calc-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Left Controls Panel: Compact & Ergonomic */
+.calc-controls {
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.calc-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.calc-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calc-label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.calc-value-badge {
+  font-family: var(--font-mono);
+  background: var(--color-surface-white);
+  color: var(--color-pine-emerald);
+  border: 1px solid var(--color-pine-border);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-weight: 800;
+  font-size: 0.8125rem;
+  box-shadow: var(--shadow-xs);
+}
+
+/* Condition Pills: Sleek 2x2 Grid */
+.condition-pills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.condition-btn {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--color-text-main);
+  padding: 8px 12px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-align: left;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: var(--shadow-xs);
+}
+
+.condition-btn:hover {
+  border-color: var(--color-pine-emerald);
+  transform: translateY(-1px);
+}
+
+.condition-btn.active {
+  background: #ECFDF5;
+  border-color: var(--color-pine-emerald);
+  color: #064E3B;
+  box-shadow: 0 0 0 1px var(--color-pine-emerald), 0 2px 6px rgba(5, 150, 105, 0.12);
+}
+
+/* Biometrics Dual-Column Subgrid */
+.biometrics-dual-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 480px) {
+  .biometrics-dual-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+/* Compact Range Sliders */
+.calc-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: #E2E8F0;
+  outline: none;
+  transition: background var(--transition-fast);
+}
+
+.calc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-pine-emerald);
+  cursor: pointer;
+  box-shadow: 0 1px 6px rgba(5, 150, 105, 0.4);
+  border: 2.5px solid #FFFFFF;
+  transition: transform var(--transition-fast);
+}
+
+.calc-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.calc-sub-range {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.6875rem;
+  color: #64748B;
+  margin-top: -2px;
+}
+
+/* Quick Angle Preset Chips */
+.angle-presets-bar {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 2px 0 4px;
+}
+
+.angle-preset-chip {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-full);
+  padding: 3px 10px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.angle-preset-chip:hover {
+  border-color: var(--color-traction-cyan);
+  color: var(--color-primary-navy);
+}
+
+.angle-preset-chip.active {
+  background: #F0F9FF;
+  border-color: var(--color-traction-cyan);
+  color: #0369A1;
+  font-weight: 800;
+}
+
+/* Right Column: Telemetry Diagnostic Cockpit */
+.calc-visualizer {
+  background: #F8FAFC;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+/* Compact Biomechanical Simulator Stage */
+.visualizer-stage-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 12px 16px;
+  box-shadow: var(--shadow-xs);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stage-top-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stage-angle-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--color-traction-cyan);
+  background: #F0F9FF;
+  border: 1px solid rgba(14, 165, 233, 0.25);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.stage-vacuum-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--color-pine-emerald);
+  background: #ECFDF5;
+  border: 1px solid var(--color-pine-border);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+/* Anatomical Spine Visualizer Viewport */
+.spine-biomechanics-view {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 8px 12px;
+  background: #FAFCFE;
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--color-border-subtle);
+  min-height: 124px;
+  overflow: hidden;
+}
+
+/* Lumbar Vertebrae Column */
+.spine-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+}
+
+.vertebra-node {
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  width: 58px;
+  text-align: center;
+  line-height: 1.25;
+  position: relative;
+  z-index: 3;
+}
+
+.vertebra-node.active-lumbar {
+  border-color: var(--color-pine-emerald);
+  background: #ECFDF5;
+  color: #065F46;
+}
+
+.intervertebral-disc {
+  width: 44px;
+  height: 6px; /* Dynamically expands with JS */
+  background: linear-gradient(90deg, #10B981, #38BDF8);
+  border-radius: 3px;
+  margin: 1.5px 0;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.45);
+  transition: height 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  z-index: 2;
+}
+
+.intervertebral-disc.active-disc {
+  background: linear-gradient(90deg, #059669, #0284C7);
+  box-shadow: 0 0 8px rgba(14, 165, 233, 0.6);
+}
+
+/* Board Incline Stage */
+.board-tilt-container {
+  flex: 1;
+  height: 100px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.board-tilt-surface {
+  width: 140px;
+  height: 10px;
+  background: linear-gradient(90deg, #D97706, #F59E0B);
+  border-radius: 4px;
+  transform-origin: left bottom;
+  box-shadow: 0 3px 10px rgba(217, 119, 6, 0.3);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.board-tilt-surface::after {
+  content: 'PATIENT SUPINE';
+  position: absolute;
+  right: 8px;
+  top: -15px;
+  font-size: 0.5625rem;
+  font-weight: 800;
+  color: #B45309;
+  letter-spacing: 0.05em;
+}
+
+.board-wall-mount-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 3px;
+  background: #CBD5E1;
+  border-radius: 2px;
+}
+
+.stage-bottom-readout {
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  border-top: 1px solid #F1F5F9;
+  padding-top: 6px;
+}
+
+/* Results Display Grid: Compact 3-Column */
+.calc-results-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.result-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  padding: 8px 10px;
+  text-align: center;
+  box-shadow: var(--shadow-xs);
+}
+
+.result-title {
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+  letter-spacing: 0.02em;
+}
+
+.result-metric {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  line-height: 1.1;
+}
+
+.result-metric.highlight-cyan {
+  color: var(--color-traction-cyan);
+}
+
+.result-metric.highlight-emerald {
+  color: var(--color-pine-emerald);
+}
+
+/* Integrated Prescription Strip */
+.calc-recommendation-box {
+  background: #FFFFFF;
+  border: 1.5px solid var(--color-pine-border);
+  border-radius: var(--radius-lg);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  box-shadow: var(--shadow-xs);
+}
+
+@media (max-width: 600px) {
+  .calc-recommendation-box {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+}
+
+.rec-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.rec-badge {
+  display: inline-block;
+  font-size: 0.625rem;
+  font-weight: 800;
+  color: var(--color-pine-emerald);
+  background: #ECFDF5;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.rec-model-name {
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+}
+
+.rec-desc {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  line-height: 1.35;
+}
+
+.calc-cta-btn {
+  flex-shrink: 0;
+  padding: 10px 18px;
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}

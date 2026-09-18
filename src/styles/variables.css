@@ -1,0 +1,73 @@
+/* Design System Tokens: Medical Wellness & High-Trust E-Commerce */
+:root {
+  /* Brand Primary Colors */
+  --color-primary-navy: #0B132B;
+  --color-primary-navy-hover: #152244;
+  --color-navy-surface: #1C2541;
+  --color-navy-surface-light: #253259;
+  
+  /* Healing Pine & Health Accents */
+  --color-pine-emerald: #059669;
+  --color-pine-light: #10B981;
+  --color-pine-surface: #ECFDF5;
+  --color-pine-border: #A7F3D0;
+  
+  /* Precision Cyan (Decompression & Angles) */
+  --color-traction-cyan: #0EA5E9;
+  --color-traction-cyan-light: #38BDF8;
+  --color-traction-surface: #F0F9FF;
+  
+  /* Trust Badges & Star Ratings */
+  --color-gold-star: #F59E0B;
+  --color-gold-surface: #FEF3C7;
+  --color-gold-border: #FDE68A;
+  
+  /* Backgrounds & Neutrals */
+  --color-bg-light: #F8FAFC;
+  --color-bg-secondary: #F1F5F9;
+  --color-surface-white: #FFFFFF;
+  --color-text-main: #0F172A;
+  --color-text-muted: #475569;
+  --color-text-light: #94A3B8;
+  --color-border-subtle: #E2E8F0;
+  --color-border-focus: #0EA5E9;
+  
+  /* Alert / Urgency */
+  --color-danger: #EF4444;
+  --color-danger-surface: #FEF2F2;
+  
+  /* Typography */
+  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Space Grotesk', monospace;
+  
+  /* Shadows & Elevation */
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-sm: 0 2px 4px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 6px 16px -2px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 12px 24px -4px rgba(15, 23, 42, 0.12);
+  --shadow-xl: 0 24px 48px -12px rgba(15, 23, 42, 0.16);
+  --shadow-glow-pine: 0 0 25px -4px rgba(16, 185, 129, 0.35);
+  --shadow-glow-cyan: 0 0 25px -4px rgba(14, 165, 233, 0.35);
+  
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --glass-blur: blur(16px);
+  
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  
+  /* Spacing Container */
+  --container-max: 1240px;
+  --container-padding: 24px;
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}

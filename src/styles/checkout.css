@@ -1,0 +1,400 @@
+/* Stripe-Style Checkout Drawer & Order Confirmation Modal Styles */
+
+/* Drawer Overlay & Container */
+.checkout-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 19, 43, 0.7);
+  backdrop-filter: blur(6px);
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-normal);
+}
+
+.checkout-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.checkout-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 480px;
+  background: var(--color-surface-white);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+  z-index: 10001;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform var(--transition-normal);
+}
+
+.checkout-overlay.active .checkout-drawer {
+  transform: translateX(0);
+}
+
+.drawer-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--color-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.drawer-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-text-main);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.drawer-close-btn {
+  background: var(--color-bg-secondary);
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 1.25rem;
+  transition: background var(--transition-fast);
+}
+
+.drawer-close-btn:hover {
+  background: var(--color-border-subtle);
+  color: var(--color-text-main);
+}
+
+.drawer-body {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Cart Items in Drawer */
+.drawer-cart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.drawer-cart-item {
+  display: flex;
+  gap: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.drawer-item-img {
+  width: 70px;
+  height: 70px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.drawer-item-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.drawer-item-name {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  line-height: 1.3;
+}
+
+.drawer-item-meta {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.drawer-item-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.drawer-item-price {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--color-primary-navy);
+}
+
+.drawer-qty-controls {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-secondary);
+}
+
+.drawer-qty-btn {
+  padding: 2px 8px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: var(--color-text-main);
+}
+
+.drawer-qty-btn:hover {
+  background: var(--color-border-subtle);
+}
+
+.drawer-qty-num {
+  padding: 0 8px;
+  font-size: 0.875rem;
+  font-family: var(--font-mono);
+}
+
+/* Express Checkout Section (Apple Pay, Google Pay) */
+.express-checkout-box {
+  background: #F8FAFC;
+  border: 1.5px dashed var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.express-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+.btn-apple-pay {
+  background: #000000;
+  color: #FFFFFF;
+  font-family: -apple-system, sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: opacity var(--transition-fast);
+}
+
+.btn-apple-pay:hover {
+  opacity: 0.88;
+}
+
+.btn-google-pay {
+  background: #FFFFFF;
+  color: #3C4043;
+  border: 1px solid #DADCE0;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.08);
+}
+
+.btn-google-pay:hover {
+  background: #F8F9FA;
+}
+
+.or-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--color-text-light);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.or-divider::before,
+.or-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.or-divider span {
+  padding: 0 12px;
+}
+
+/* Klarna Installment Pill */
+.klarna-pill {
+  background: #FDF2F4;
+  border: 1px solid #FBCFE8;
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.875rem;
+}
+
+.klarna-tag {
+  background: #FFB3C7;
+  color: #831843;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+/* Payment Form Fields */
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  background: var(--color-surface-white);
+  color: var(--color-text-main);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
+}
+
+.form-input-card-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.card-brand-badge {
+  position: absolute;
+  right: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Order Summary & Submit Bar */
+.drawer-footer {
+  padding: 20px 24px;
+  border-top: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-light);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+}
+
+.summary-total {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-text-main);
+}
+
+.security-trust-strip {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* Order Confirmation Modal */
+.order-modal-card {
+  max-width: 520px;
+  padding: 36px;
+  text-align: center;
+}
+
+.success-check-icon {
+  width: 70px;
+  height: 70px;
+  background: var(--color-pine-surface);
+  border: 2px solid var(--color-pine-light);
+  color: var(--color-pine-emerald);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.25rem;
+  margin: 0 auto 20px;
+}
+
+.order-number-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  background: var(--color-bg-secondary);
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  margin: 12px 0;
+}
+
+.order-tracking-box {
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  margin: 20px 0;
+  text-align: left;
+}

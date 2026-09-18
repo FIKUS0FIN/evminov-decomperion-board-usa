@@ -1,0 +1,527 @@
+/* Customer Account & Patient Portal Styles */
+
+.portal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-normal);
+}
+
+.portal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.portal-modal-container {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.25);
+  width: 100%;
+  max-width: 780px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translateY(20px) scale(0.98);
+  transition: transform var(--transition-normal);
+}
+
+.portal-overlay.active .portal-modal-container {
+  transform: translateY(0) scale(1);
+}
+
+/* Header */
+.portal-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--color-border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color-bg-light);
+}
+
+.portal-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.portal-crest {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--color-pine-surface);
+  border: 1px solid var(--color-pine-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-pine-emerald);
+}
+
+.portal-title {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+}
+
+.portal-subtitle {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.portal-close-btn {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.portal-close-btn:hover {
+  background: var(--color-bg-secondary);
+  color: var(--color-text-main);
+  transform: scale(1.05);
+}
+
+/* Body */
+.portal-body {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Guest Login View */
+.portal-guest-box {
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.demo-login-callout {
+  background: linear-gradient(135deg, #ECFDF5 0%, #F0FDF4 100%);
+  border: 1.5px solid var(--color-pine-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+}
+
+.demo-badge {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #047857;
+  background: #D1FAE5;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  margin-bottom: 10px;
+}
+
+.portal-guest-perks {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  font-size: 0.8125rem;
+  color: var(--color-text-main);
+}
+
+@media (max-width: 640px) {
+  .portal-guest-perks {
+    grid-template-columns: 1fr;
+  }
+}
+
+.perk-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Logged-In Patient View */
+.patient-profile-card {
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.patient-avatar-col {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.patient-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-pine-emerald), #047857);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3);
+}
+
+.patient-name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.patient-name {
+  font-size: 1.0625rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+}
+
+.patient-meta-row {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  display: flex;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+/* Tabs Navigation */
+.portal-tabs-nav {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid var(--color-border-subtle);
+  margin-bottom: 20px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.portal-tab-btn {
+  background: none;
+  border: none;
+  padding: 10px 16px;
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  border-bottom: 2.5px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.portal-tab-btn:hover {
+  color: var(--color-primary-navy);
+}
+
+.portal-tab-btn.active {
+  color: var(--color-pine-emerald);
+  border-bottom-color: var(--color-pine-emerald);
+}
+
+/* Order Pane */
+.order-summary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+/* Live UPS Tracking Box */
+.tracking-live-box {
+  background: var(--color-surface-white);
+  border: 1.5px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 20px;
+}
+
+.tracking-progress-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative;
+  margin: 24px 0 16px 0;
+}
+
+.tracking-progress-steps::before {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: 10%;
+  right: 10%;
+  height: 3px;
+  background: var(--color-border-subtle);
+  z-index: 1;
+}
+
+.step-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.step-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--color-bg-light);
+  border: 2px solid var(--color-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+  transition: all var(--transition-fast);
+}
+
+.step-node.active .step-circle {
+  background: var(--color-pine-emerald);
+  border-color: var(--color-pine-emerald);
+  color: #FFFFFF;
+  box-shadow: 0 0 12px rgba(5, 150, 105, 0.4);
+}
+
+.step-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.step-node.active .step-label {
+  color: var(--color-primary-navy);
+}
+
+.tracking-details-row {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border-subtle);
+  font-size: 0.8125rem;
+}
+
+/* Ordered Items List */
+.portal-items-list {
+  background: var(--color-bg-light);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  border: 1px solid var(--color-border-subtle);
+}
+
+.portal-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.portal-item-row:last-child {
+  border-bottom: none;
+}
+
+/* Course Progress Card */
+.course-progress-card {
+  background: linear-gradient(135deg, #ECFDF5 0%, #F0FDF4 100%);
+  border: 1px solid var(--color-pine-border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.course-progress-track {
+  height: 8px;
+  background: rgba(5, 150, 105, 0.15);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.course-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-pine-emerald), var(--color-pine-light));
+  border-radius: var(--radius-full);
+  transition: width 0.4s ease;
+}
+
+/* Lesson Cards */
+.lessons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lesson-card {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: all var(--transition-fast);
+}
+
+.lesson-card:hover {
+  border-color: var(--color-pine-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.lesson-card.completed {
+  background: #F9FBFA;
+  border-color: #D1FAE5;
+}
+
+.lesson-checkbox {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border-subtle);
+  background: var(--color-surface-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.lesson-checkbox.checked {
+  background: var(--color-pine-emerald);
+  border-color: var(--color-pine-emerald);
+}
+
+.lesson-info-col {
+  flex: 1;
+}
+
+.lesson-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+}
+
+/* Biometrics Pane */
+.biometrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 640px) {
+  .biometrics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bio-stat-card {
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  text-align: center;
+}
+
+.bio-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.bio-val {
+  font-family: var(--font-mono);
+  font-size: 1.625rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.bio-sub {
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+}
+
+/* Session Timer Card */
+.timer-card {
+  background: var(--color-surface-white);
+  border: 1.5px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Documents Pane */
+.portal-documents-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.doc-card {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  transition: all var(--transition-fast);
+}
+
+.doc-card:hover {
+  border-color: var(--color-pine-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.doc-icon {
+  font-size: 1.75rem;
+}
+
+.doc-details {
+  flex: 1;
+}
+
+.doc-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+}
+
+.doc-meta {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
