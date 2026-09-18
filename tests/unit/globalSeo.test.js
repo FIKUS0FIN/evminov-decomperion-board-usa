@@ -153,6 +153,7 @@ describe('Global Brand Authority, US 50-State Distribution & AI SEO Suite', () =
       expect(html).toContain('Standing Professionals');
       expect(html).toContain('Lifters & Strength Athletes');
       expect(html).toContain('Chronic Disc & Sciatica');
+      expect(html).toContain('Kids, Students & Youth Scoliosis');
     });
   });
 
@@ -183,7 +184,7 @@ describe('Global Brand Authority, US 50-State Distribution & AI SEO Suite', () =
 
   describe('5. High-Ranking SEO Content: Blog & FAQ Clusters', () => {
     it('should include the 6th Master Pillar Article focused on Spine Decompression at Home', () => {
-      expect(blogPosts.length).toBeGreaterThanOrEqual(6);
+      expect(blogPosts.length).toBeGreaterThanOrEqual(7);
       
       const pillarArticle = blogPosts.find(p => p.id === 'spine-decompression-at-home-guide');
       expect(pillarArticle).toBeDefined();
@@ -199,7 +200,7 @@ describe('Global Brand Authority, US 50-State Distribution & AI SEO Suite', () =
     });
 
     it('should contain FAQs for 50 US States, global orders, desk/standing workers, and clinic savings', () => {
-      expect(faqList.length).toBeGreaterThanOrEqual(15);
+      expect(faqList.length).toBeGreaterThanOrEqual(17);
 
       const hasUsShippingFaq = faqList.some(f => f.question.includes('50 US States'));
       expect(hasUsShippingFaq).toBe(true);
@@ -218,6 +219,12 @@ describe('Global Brand Authority, US 50-State Distribution & AI SEO Suite', () =
 
       const hasSurgeryAvoidFaq = faqList.some(f => f.question.includes('500,000') || f.answer.includes('500,000'));
       expect(hasSurgeryAvoidFaq).toBe(true);
+
+      const hasKidsFaq = faqList.some(f => f.question.includes('children and teenagers') && f.question.includes('scoliosis'));
+      expect(hasKidsFaq).toBe(true);
+
+      const hasDentalEconFaq = faqList.some(f => f.question.includes('dental hygiene') && f.question.includes('family economics'));
+      expect(hasDentalEconFaq).toBe(true);
     });
   });
 });

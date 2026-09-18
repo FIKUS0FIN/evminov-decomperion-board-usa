@@ -49,11 +49,9 @@ jobs:
             --data '{"name":"evminov-decompression-board-usa","production_branch":"main"}' || true
 
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: 'evminov-decompression-board-usa'
-          directory: 'dist'
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          command: pages deploy dist --project-name=evminov-decompression-board-usa
 

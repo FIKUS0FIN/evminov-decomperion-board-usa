@@ -49,6 +49,23 @@ export function renderClinicalTrust() {
               </div>
             </div>
 
+            <!-- Youth Posture & Multi-Generational Family Ergonomics -->
+            <div style="background: var(--color-surface-white); border: 1.5px solid var(--color-pine-border); border-radius: var(--radius-lg); padding: 18px; margin-bottom: 16px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; flex-wrap: wrap;">
+                <span class="badge badge-cyan" style="font-size: 0.7rem; padding: 2px 8px;">Pediatric &amp; Family Ergonomics</span>
+                <span style="font-size: 0.75rem; color: var(--color-pine-emerald); font-weight: 700;">Ages 4 to 85+ • 1.25 m² Footprint</span>
+              </div>
+              <div style="font-size: 0.9375rem; font-weight: 800; color: var(--color-primary-navy); margin-bottom: 6px;">
+                Youth Scoliosis Prevention &amp; Natural Growth Unlock (+5–7 cm)
+              </div>
+              <p style="font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 10px;">
+                With 85%–90% of school-age children exhibiting postural asymmetry, a 5-minute daily playful routine de-rotates growing vertebrae, halts early scoliosis, and uncompresses epiphyseal growth plates to unlock up to 5–7 cm of natural genetic height.
+              </p>
+              <div style="background: rgba(16, 185, 129, 0.06); border-left: 3px solid var(--color-pine-emerald); padding: 8px 12px; border-radius: var(--radius-sm); font-size: 0.75rem; color: var(--color-primary-navy); font-style: italic;">
+                "Physical exercise can replace many medications, but no medication can replace physical exercise." — Angelo Mosso, Italian Physiologist
+              </div>
+            </div>
+
             <!-- Center & Veteran Program Spotlight -->
             <div style="background: var(--color-surface-white); border: 1.5px solid var(--color-pine-border); border-radius: var(--radius-lg); padding: 20px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
               <div>

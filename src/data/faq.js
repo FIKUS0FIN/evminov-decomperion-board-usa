@@ -75,5 +75,13 @@ export const faqList = [
     question: 'What is the difference between Carpathian Resonant Pine and Select Alder Wood (Вільха)?',
     answer: 'Both timbers are harvested from sustainably managed Ukrainian forests and kiln-dried to anatomical specifications. Resonant Carpathian Pine features dense slow-growth annual rings, offering maximum structural rigidity and load capacity (up to 330 lbs / 150 kg) with a golden honey grain — ideal for athletes and deep traction. Select Ukrainian Alder (Вільха) is 2.5 lbs (1.1 kg) lighter with a warm cognac hue, offering higher spring deflection and flexibility — optimal for users under 200 lbs, seniors, and sensitive cervical routines.',
   },
+  {
+    question: 'Can children and teenagers use the Evminov board for scoliosis prevention and posture correction?',
+    answer: 'Yes! Children as young as 3 to 4 years of age can safely begin acclimation under adult supervision. With 85% to 90% of school-age children developing postural misalignment from heavy backpacks and screens, and up to 20% developing scoliosis, daily 5-to-8 minute sessions on a low incline (6°–12°) uncompress epiphyseal growth plates. Exercising to rhythmic music creates a playful habit that corrects asymmetrical spinal torque, halts scoliosis progression, and can unlock an additional 5 to 7 cm (2 to 2.8 inches) of natural genetic height potential.',
+  },
+  {
+    question: 'Why is daily spine decompression compared to dental hygiene, and what are the family economics?',
+    answer: 'Just as brushing 32 teeth for two minutes daily prevented cavities worldwide, practicing 5 to 10 minutes of unloaded decompression for your 32–34 vertebrae prevents adult disc collapse and sciatica. While damaged teeth can be replaced with implants, a damaged spine and spinal cord can never be replaced. Financially, while dental hygiene supplies for a family of three cost $120–$180 annually, a 20-year durable Evminov board ($450) costs only $7.50 per person per year—under 3 cents a day—and accommodates all family members from age 4 to 85+.',
+  },
 ];
 

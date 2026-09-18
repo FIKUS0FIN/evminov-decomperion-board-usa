@@ -3,7 +3,7 @@ import { blogPosts } from '../../src/data/blogPosts.js';
 
 describe('Pillar SEO Articles & Clinical Guides Data Integrity', () => {
   it('should contain comprehensive pillar clinical articles', () => {
-    expect(blogPosts.length).toBeGreaterThanOrEqual(5);
+    expect(blogPosts.length).toBeGreaterThanOrEqual(7);
   });
 
   it('each article should have valid metadata, slugs, and SEO fields', () => {
@@ -38,5 +38,26 @@ describe('Pillar SEO Articles & Clinical Guides Data Integrity', () => {
         expect(item.a.length).toBeGreaterThan(30);
       });
     });
+  });
+
+  it('should include pediatric scoliosis article with growth potential and Hueter-Volkmann law', () => {
+    const pediatricPost = blogPosts.find((p) => p.id === 'pediatric-scoliosis-prevention-youth-posture');
+    expect(pediatricPost).toBeDefined();
+    expect(pediatricPost.category).toBe('Pediatric Spine Health');
+    expect(pediatricPost.content).toContain('Hueter-Volkmann Law');
+    expect(pediatricPost.content).toContain('5 to 7 cm');
+    expect(pediatricPost.content).toContain('Hippocrates');
+    expect(pediatricPost.content).toContain('Angelo Mosso');
+    expect(pediatricPost.content).toContain('32 Teeth vs. 32 Vertebrae');
+    expect(pediatricPost.paa.length).toBe(4);
+  });
+
+  it('should include Hippocrates and Angelo Mosso quotes in toothbrush article', () => {
+    const toothbrushPost = blogPosts.find((p) => p.id === 'toothbrush-for-the-spine-jama-meta-analysis');
+    expect(toothbrushPost).toBeDefined();
+    expect(toothbrushPost.content).toContain('Hippocrates');
+    expect(toothbrushPost.content).toContain('Angelo Mosso');
+    expect(toothbrushPost.content).toContain('32 Teeth vs. 32 Vertebrae');
+    expect(toothbrushPost.content).toContain('1.25 m²');
   });
 });

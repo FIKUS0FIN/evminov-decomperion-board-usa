@@ -269,6 +269,26 @@ export function renderUsDistributionSection() {
               <div class="usecase-badge-pill">✓ 93.4% Proven Surgery Avoidance Rate</div>
             </div>
 
+            <!-- Youth Scoliosis & Developing Children -->
+            <div class="usecase-card">
+              <div class="usecase-header">
+                <span class="usecase-icon">🎒</span>
+                <div>
+                  <h4 class="usecase-name">Kids, Students & Youth Scoliosis</h4>
+                  <span class="usecase-sub">Ages 4–18 • Heavy Backpacks & Tech-Slouch</span>
+                </div>
+              </div>
+              <div class="usecase-body">
+                <div class="usecase-problem">
+                  <strong>The Issue:</strong> 85%–90% of schoolchildren exhibit postural asymmetries; 15%–20% develop early scoliosis from 8-hour classroom sitting and heavy backpacks stunting vertebral growth plates.
+                </div>
+                <div class="usecase-solution">
+                  <strong>The Evminov Relief:</strong> 5–8 minutes of daily playful incline kinesitherapy uncompresses growing vertebrae, corrects lateral curvature, and unlocks 5–7 cm of natural genetic height potential.
+                </div>
+              </div>
+              <div class="usecase-badge-pill">✓ Halts Scoliosis & Unlocks Natural Growth Potential</div>
+            </div>
+
           </div>
         </div>
 
