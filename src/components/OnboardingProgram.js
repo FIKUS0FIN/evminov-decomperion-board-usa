@@ -11,7 +11,7 @@ export function renderOnboardingProgram() {
           </p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 24px;">
           
           <!-- Phase 1 -->
           <div class="card" style="border-top: 4px solid var(--color-traction-cyan);">

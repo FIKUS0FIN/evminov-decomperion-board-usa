@@ -38,7 +38,7 @@ export function renderProductCatalog() {
           ${
             product.galleryImages && product.galleryImages.length > 1
               ? `
-            <div class="product-thumb-bar" data-product-id="${product.id}" style="display: flex; gap: 6px; padding: 10px 16px 0; overflow-x: auto; scrollbar-width: none;">
+            <div class="product-thumb-bar" data-product-id="${product.id}" style="display: flex; gap: 6px; padding: 10px 16px 0; overflow-x: auto; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; scrollbar-width: none;">
               ${product.galleryImages
                 .map(
                   (g, gIdx) => `

@@ -222,6 +222,8 @@
   .portal-nav-menu {
     flex-direction: row;
     overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
     padding-bottom: 4px;
     scrollbar-width: none;
   }
@@ -597,7 +599,7 @@
 /* Products Tab */
 .products-portal-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: 20px;
 }
 
@@ -760,7 +762,7 @@
 
 .tracking-details-strip {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
   gap: 12px;
   background: #FFFFFF;
   border-radius: var(--radius-md);
@@ -817,7 +819,7 @@
 /* Subscriptions Grid */
 .subs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
   gap: 20px;
 }
 
@@ -873,7 +875,7 @@
 /* Payments & DME Receipts */
 .payments-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: 16px;
 }
 

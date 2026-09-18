@@ -274,7 +274,7 @@ export function renderAthleteSection() {
             </p>
           </div>
 
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 20px;">
             
             <!-- Column 1: Pullup Bar -->
             <div style="background: #FFFFFF; border: 1px solid #FECACA; border-radius: var(--radius-lg); padding: 22px; position: relative;">

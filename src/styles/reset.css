@@ -12,13 +12,36 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-x: clip;
+  overscroll-behavior-x: none;
+  touch-action: pan-y pinch-zoom;
 }
 
 body {
   min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
   color: var(--color-text-main);
   background-color: var(--color-bg-light);
   overflow-x: hidden;
+  overflow-x: clip;
+  overscroll-behavior-x: none;
+  touch-action: pan-y pinch-zoom;
+  -webkit-overflow-scrolling: touch;
+}
+
+#app {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-x: clip;
+  overscroll-behavior-x: none;
+  touch-action: pan-y pinch-zoom;
+  position: relative;
 }
 
 img, picture, video, canvas, svg {

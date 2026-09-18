@@ -682,7 +682,7 @@ export function renderClinicalCentersPage() {
             </p>
           </div>
 
-          <div class="audience-cases-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+          <div class="audience-cases-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 24px;">
             ${audienceCasesHtml}
           </div>
 

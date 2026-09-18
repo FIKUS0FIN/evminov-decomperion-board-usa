@@ -8,12 +8,15 @@
   backdrop-filter: blur(6px);
   z-index: 10000;
   opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
   pointer-events: none;
-  transition: opacity var(--transition-normal);
+  transition: opacity var(--transition-normal), visibility var(--transition-normal);
 }
 
 .checkout-overlay.active {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
 }
 
@@ -30,11 +33,15 @@
   display: flex;
   flex-direction: column;
   transform: translateX(100%);
-  transition: transform var(--transition-normal);
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform var(--transition-normal), visibility var(--transition-normal);
 }
 
 .checkout-overlay.active .checkout-drawer {
   transform: translateX(0);
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .drawer-header {

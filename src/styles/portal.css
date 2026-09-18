@@ -11,12 +11,14 @@
   justify-content: center;
   padding: 20px;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity var(--transition-normal);
+  transition: opacity var(--transition-normal), visibility var(--transition-normal);
 }
 
 .portal-overlay.active {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
 }
 
@@ -216,6 +218,8 @@
   border-bottom: 1px solid var(--color-border-subtle);
   margin-bottom: 20px;
   overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
   padding-bottom: 4px;
 }
 

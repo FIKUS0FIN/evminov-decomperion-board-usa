@@ -117,7 +117,7 @@ export function renderClinicalTrust() {
             </p>
           </div>
 
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 24px;">
             
             <div class="card" style="background: var(--color-surface-white); border-radius: var(--radius-xl); padding: 28px; border: 1.5px solid var(--color-pine-border); display: flex; flex-direction: column; gap: 12px;">
               <div style="display: flex; justify-content: space-between; align-items: center;">

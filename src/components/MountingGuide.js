@@ -11,7 +11,7 @@ export function renderMountingGuide() {
           </p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; align-items: stretch;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 32px; align-items: stretch;">
           
           <!-- Option 1: Wall Stud Mounting -->
           <div class="card" style="display: flex; flex-direction: column; gap: 16px; border-top: 4px solid var(--color-pine-emerald);">
@@ -184,7 +184,7 @@ export function renderMountingGuide() {
             </p>
           </div>
 
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 20px;">
             <div style="background: var(--color-surface-white); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-border-subtle); box-shadow: var(--shadow-sm);">
               <img src="/images/products/board-natural-pine-finish.jpg" alt="Natural Carpathian Pine Wood Grain" style="width: 100%; height: 200px; object-fit: cover;" />
               <div style="padding: 16px;">
