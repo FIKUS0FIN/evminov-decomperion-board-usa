@@ -357,15 +357,26 @@
 .mobile-nav-title {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-family: var(--font-heading);
-  font-size: 1.0625rem;
-  font-weight: 800;
-  color: var(--color-primary-navy);
+  gap: 12px;
 }
 
-.mobile-nav-icon {
-  font-size: 1.25rem;
+.mobile-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-brand-name {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  line-height: 1.2;
+}
+
+.mobile-brand-sub {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
 }
 
 .mobile-nav-close-btn {
@@ -395,9 +406,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
-  padding: 14px 18px 8px;
+  padding: 14px 18px 10px;
   background: var(--color-surface-white);
   flex-shrink: 0;
+  border-bottom: 1px solid var(--color-border-subtle);
 }
 
 .mobile-nav-quick-btn {
@@ -411,12 +423,17 @@
   border: 1.5px solid transparent;
 }
 
-.mobile-nav-quick-btn.quick-calibrator {
+.mobile-nav-quick-btn.quick-heritage {
   background: #ECFDF5;
   border-color: var(--color-pine-border);
 }
 
-.mobile-nav-quick-btn.quick-calibrator:hover {
+.mobile-nav-quick-btn.quick-heritage .quick-icon-svg {
+  background: rgba(5, 150, 105, 0.12);
+  color: var(--color-pine-emerald);
+}
+
+.mobile-nav-quick-btn.quick-heritage:hover {
   background: #D1FAE5;
   border-color: var(--color-pine-emerald);
 }
@@ -426,13 +443,23 @@
   border-color: #BFDBFE;
 }
 
+.mobile-nav-quick-btn.quick-catalog .quick-icon-svg {
+  background: rgba(37, 99, 235, 0.12);
+  color: #2563EB;
+}
+
 .mobile-nav-quick-btn.quick-catalog:hover {
   background: #DBEAFE;
   border-color: #3B82F6;
 }
 
-.quick-icon {
-  font-size: 1.35rem;
+.quick-icon-svg {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 
@@ -495,6 +522,25 @@
 .mobile-nav-item.nav-item-highlight {
   background: #F0FDF4;
   border-color: #BBF7D0;
+}
+
+.nav-item-icon-svg {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: rgba(11, 19, 43, 0.05);
+  color: var(--color-primary-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.mobile-nav-item:hover .nav-item-icon-svg,
+.mobile-nav-item.nav-item-highlight .nav-item-icon-svg {
+  background: rgba(5, 150, 105, 0.12);
+  color: var(--color-pine-emerald);
 }
 
 .nav-item-icon {

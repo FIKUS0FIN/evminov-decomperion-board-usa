@@ -115,178 +115,296 @@ export function renderHeader() {
     <!-- Mobile Navigation Drawer Overlay -->
     <div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true">
       <div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
-      <aside class="mobile-nav-drawer" id="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+      <aside class="mobile-nav-drawer" id="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Clinical Directory Navigation">
         
         <div class="mobile-nav-header">
           <div class="mobile-nav-title">
-            <span class="mobile-nav-icon">🧭</span>
-            <span>Menu &amp; Sections</span>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-pine-emerald)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+            <div class="mobile-title-group">
+              <span class="mobile-brand-name">Clinical Directory</span>
+              <span class="mobile-brand-sub">Evminov Spine Systems™</span>
+            </div>
           </div>
-          <button type="button" class="mobile-nav-close-btn" id="mobile-nav-close-btn" aria-label="Close Navigation">✕</button>
+          <button type="button" class="mobile-nav-close-btn" id="mobile-nav-close-btn" aria-label="Close Navigation">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
         </div>
 
-        <!-- Quick Incline & Catalog Action Cards -->
+        <!-- Featured Clinical Heritage & Decompression Systems Highlights -->
         <div class="mobile-nav-quick-actions">
-          <a href="#calculator" class="mobile-nav-quick-btn quick-calibrator">
-            <span class="quick-icon">📐</span>
+          <a href="#centers" class="mobile-nav-quick-btn quick-heritage">
+            <span class="quick-icon-svg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21h18M5 21V7l8-4 6 4v14M9 9h2M9 13h2M9 17h2M13 9h2M13 13h2M13 17h2"/>
+              </svg>
+            </span>
             <div>
-              <div class="quick-title">Find My Angle</div>
-              <div class="quick-desc">Incline Calibrator</div>
+              <div class="quick-title">Kyiv Clinic &amp; Heritage</div>
+              <div class="quick-desc">Since 1996 • Founder History</div>
             </div>
           </a>
           <a href="#catalog" class="mobile-nav-quick-btn quick-catalog">
-            <span class="quick-icon">🛒</span>
+            <span class="quick-icon-svg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                <path d="M7 8h10M7 12h10M7 16h6"></path>
+              </svg>
+            </span>
             <div>
-              <div class="quick-title">Shop Boards</div>
-              <div class="quick-desc">From $450 • Free UPS</div>
+              <div class="quick-title">Decompression Systems</div>
+              <div class="quick-desc">From $450 • Hospital-Grade</div>
             </div>
           </a>
         </div>
 
-        <!-- Categorized Navigation Menu List -->
+        <!-- Clinically Structured Navigation Directory -->
         <div class="mobile-nav-body">
-          <div class="mobile-nav-group-label">Navigate Site Blocks</div>
+          
+          <!-- Category 1: Clinical Foundations & Trials -->
+          <div class="mobile-nav-group-label">Clinical Foundations &amp; Research</div>
           <nav class="mobile-nav-links">
-            <a href="#catalog" class="mobile-nav-item">
-              <span class="nav-item-icon">🪵</span>
-              <div class="nav-item-content">
-                <div class="nav-item-title">Decompression Boards &amp; Pricing</div>
-                <div class="nav-item-sub">Standard, Wide &amp; Accessories</div>
-              </div>
-              <span class="nav-item-tag tag-pine">Store</span>
-            </a>
-
-            <a href="#calculator" class="mobile-nav-item">
-              <span class="nav-item-icon">📐</span>
-              <div class="nav-item-content">
-                <div class="nav-item-title">Incline Angle Calibrator</div>
-                <div class="nav-item-sub">Personalized setup for L4-S1, thoracic, neck</div>
-              </div>
-              <span class="nav-item-arrow">→</span>
-            </a>
-
-            <a href="#comparison" class="mobile-nav-item">
-              <span class="nav-item-icon">⚖️</span>
-              <div class="nav-item-content">
-                <div class="nav-item-title">Why Not Inversion Tables?</div>
-                <div class="nav-item-sub">Zero stroke, retinal pressure or ankle strain</div>
-              </div>
-              <span class="nav-item-tag tag-amber">Compare</span>
-            </a>
-
-            <a href="#videos" class="mobile-nav-item">
-              <span class="nav-item-icon">🎥</span>
-              <div class="nav-item-content">
-                <div class="nav-item-title">Guided 4K Video Protocols</div>
-                <div class="nav-item-sub">Kyiv Vertebral Center demonstrations</div>
-              </div>
-              <span class="nav-item-arrow">→</span>
-            </a>
-
-            <a href="#exercise-gallery" class="mobile-nav-item nav-item-highlight">
-              <span class="nav-item-icon">📋</span>
-              <div class="nav-item-content">
-                <div class="nav-item-title">21 Clinical Exercise Protocols</div>
-                <div class="nav-item-sub">Original photo archive from evminov.shop</div>
-              </div>
-              <span class="nav-item-tag tag-blue">Archives</span>
-            </a>
-
             <a href="#centers" class="mobile-nav-item">
-              <span class="nav-item-icon">🏛️</span>
+              <span class="nav-item-icon-svg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 21h18M5 21V7l8-4 6 4v14M9 9h2M9 13h2M9 17h2M13 9h2M13 13h2M13 17h2"/>
+                </svg>
+              </span>
               <div class="nav-item-content">
-                <div class="nav-item-title">Centers Network &amp; Heritage</div>
-                <div class="nav-item-sub">Founder Vyacheslav Evminov &amp; Military Rehab</div>
+                <div class="nav-item-title">Vertebral Center &amp; Founder Heritage</div>
+                <div class="nav-item-sub">Kyiv Research Center, Vyacheslav Evminov &amp; Military Care</div>
               </div>
               <span class="nav-item-tag tag-pine">Heritage</span>
             </a>
 
             <a href="#patents" class="mobile-nav-item">
-              <span class="nav-item-icon">📜</span>
+              <span class="nav-item-icon-svg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+              </span>
               <div class="nav-item-content">
-                <div class="nav-item-title">Medical Patents &amp; Clinical Evidence</div>
-                <div class="nav-item-sub">European &amp; US medical certifications</div>
+                <div class="nav-item-title">Medical Patents &amp; Clinical Trials</div>
+                <div class="nav-item-sub">Eurasian &amp; UA Patents • 93.4% non-surgical recovery</div>
               </div>
               <span class="nav-item-arrow">→</span>
             </a>
 
-            <a href="#mounting" class="mobile-nav-item">
-              <span class="nav-item-icon">🔨</span>
+            <a href="#comparison" class="mobile-nav-item">
+              <span class="nav-item-icon-svg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <path d="m9 12 2 2 4-4"></path>
+                </svg>
+              </span>
               <div class="nav-item-content">
-                <div class="nav-item-title">16" Wall Stud &amp; Door Mounting</div>
-                <div class="nav-item-sub">Renter-safe &amp; zero-damage options</div>
+                <div class="nav-item-title">Biomechanical Safety vs. Inversion</div>
+                <div class="nav-item-sub">Zero stroke, retinal eye pressure or ankle trauma risks</div>
               </div>
-              <span class="nav-item-arrow">→</span>
+              <span class="nav-item-tag tag-amber">Compare</span>
+            </a>
+          </nav>
+
+          <!-- Category 2: Treatment Protocols & Programs -->
+          <div class="mobile-nav-group-label">Treatment Protocols &amp; Kinesiotherapy</div>
+          <nav class="mobile-nav-links">
+            <a href="#exercise-gallery" class="mobile-nav-item nav-item-highlight">
+              <span class="nav-item-icon-svg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+              </span>
+              <div class="nav-item-content">
+                <div class="nav-item-title">21 Clinical Kinesiotherapy Protocols</div>
+                <div class="nav-item-sub">Authentic photographic archive from official institute</div>
+              </div>
+              <span class="nav-item-tag tag-pine">Archives</span>
             </a>
 
-            <a href="#athletes" class="mobile-nav-item">
-              <span class="nav-item-icon">🏋️</span>
+            <a href="#videos" class="mobile-nav-item">
+              <span class="nav-item-icon-svg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                  <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                </svg>
+              </span>
               <div class="nav-item-content">
-                <div class="nav-item-title">For Athletes &amp; Heavy Lifters</div>
-                <div class="nav-item-sub">Axial deadlift &amp; squat decompression</div>
+                <div class="nav-item-title">Guided 4K Rehabilitation Video Library</div>
+                <div class="nav-item-sub">Step-by-step masterclasses by orthopedic methodologists</div>
               </div>
               <span class="nav-item-arrow">→</span>
             </a>
 
             <a href="#onboarding" class="mobile-nav-item">
-              <span class="nav-item-icon">📅</span>
+              <span class="nav-item-icon-svg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+              </span>
               <div class="nav-item-content">
-                <div class="nav-item-title">30-Day Guided Spine Program</div>
-                <div class="nav-item-sub">Graduated daily home protocol</div>
+                <div class="nav-item-title">30-Day Progressive Spine Program</div>
+                <div class="nav-item-sub">Graduated home phases for acute disc unweighting</div>
               </div>
               <span class="nav-item-arrow">→</span>
             </a>
 
-            <a href="#science" class="mobile-nav-item">
-              <span class="nav-item-icon">🩺</span>
+            <a href="#calculator" class="mobile-nav-item">
+              <span class="nav-item-icon-svg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </span>
               <div class="nav-item-content">
-                <div class="nav-item-title">Clinical Trust &amp; "Home Hospital"</div>
-                <div class="nav-item-sub">120,000+ documented patient outcomes</div>
+                <div class="nav-item-title">Prescription Incline Angle Calibrator</div>
+                <div class="nav-item-sub">Custom angle formula for L4-S1, thoracic, and neck traction</div>
+              </div>
+              <span class="nav-item-arrow">→</span>
+            </a>
+          </nav>
+
+          <!-- Category 3: Hardware, Logistics & Occupational Care -->
+          <div class="mobile-nav-group-label">Hardware, Logistics &amp; Work Ergonomics</div>
+          <nav class="mobile-nav-links">
+            <a href="#catalog" class="mobile-nav-item">
+              <span class="nav-item-icon-svg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                </svg>
+              </span>
+              <div class="nav-item-content">
+                <div class="nav-item-title">Decompression Boards &amp; Accessories</div>
+                <div class="nav-item-sub">Standard, Wide Heavy-Duty &amp; Glisson Loop kit</div>
+              </div>
+              <span class="nav-item-tag tag-pine">Store</span>
+            </a>
+
+            <a href="#us-shipping" class="mobile-nav-item">
+              <span class="nav-item-icon-svg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="1" y="3" width="15" height="13"></rect>
+                  <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                  <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                  <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                </svg>
+              </span>
+              <div class="nav-item-content">
+                <div class="nav-item-title">US 50-State Distribution Hub</div>
+                <div class="nav-item-sub">2–4 day freight from Burbank, CA • HSA/FSA pre-tax eligible</div>
+              </div>
+              <span class="nav-item-tag tag-blue">50 States</span>
+            </a>
+
+            <a href="#global-trust" class="mobile-nav-item">
+              <span class="nav-item-icon-svg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+              </span>
+              <div class="nav-item-content">
+                <div class="nav-item-title">Worldwide Brand &amp; Global Shipping</div>
+                <div class="nav-item-sub">500,000+ patients in 40+ countries • Universal payments</div>
+              </div>
+              <span class="nav-item-tag tag-pine">Global</span>
+            </a>
+
+            <a href="#mounting" class="mobile-nav-item">
+              <span class="nav-item-icon-svg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                </svg>
+              </span>
+              <div class="nav-item-content">
+                <div class="nav-item-title">16" Wood Stud Mounting &amp; Stand Setup</div>
+                <div class="nav-item-sub">American drywall framing &amp; renter zero-drill options</div>
+              </div>
+              <span class="nav-item-arrow">→</span>
+            </a>
+
+            <a href="#athletes" class="mobile-nav-item">
+              <span class="nav-item-icon-svg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </span>
+              <div class="nav-item-content">
+                <div class="nav-item-title">Occupational &amp; Athletic Care</div>
+                <div class="nav-item-sub">Postural relief for desk workers, standing staff &amp; lifters</div>
+              </div>
+              <span class="nav-item-arrow">→</span>
+            </a>
+          </nav>
+
+          <!-- Category 4: Evidence, Reviews & Medical Billing -->
+          <div class="mobile-nav-group-label">Evidence, Reviews &amp; Medical Billing</div>
+          <nav class="mobile-nav-links">
+            <a href="#blog" class="mobile-nav-item">
+              <span class="nav-item-icon-svg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+              </span>
+              <div class="nav-item-content">
+                <div class="nav-item-title">Spine Health Clinical Knowledge Base</div>
+                <div class="nav-item-sub">Peer-reviewed guides on disc imbibition &amp; sciatica</div>
               </div>
               <span class="nav-item-arrow">→</span>
             </a>
 
             <a href="#reviews" class="mobile-nav-item">
-              <span class="nav-item-icon">⭐</span>
+              <span class="nav-item-icon-svg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </span>
               <div class="nav-item-content">
-                <div class="nav-item-title">Verified Patient Reviews</div>
-                <div class="nav-item-sub">4.9/5 stars from 2,400+ patients</div>
+                <div class="nav-item-title">Documented Patient Outcomes</div>
+                <div class="nav-item-sub">4.9/5 stars from 2,400+ verified clinical cases</div>
               </div>
-              <span class="nav-item-tag tag-amber">4.9 ★</span>
-            </a>
-
-            <a href="#blog" class="mobile-nav-item">
-              <span class="nav-item-icon">📰</span>
-              <div class="nav-item-content">
-                <div class="nav-item-title">Spine Health Knowledge Base</div>
-                <div class="nav-item-sub">Articles &amp; clinical insights</div>
-              </div>
-              <span class="nav-item-arrow">→</span>
+              <span class="nav-item-tag tag-amber">4.9 / 5.0</span>
             </a>
 
             <a href="#faq" class="mobile-nav-item">
-              <span class="nav-item-icon">❓</span>
+              <span class="nav-item-icon-svg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+              </span>
               <div class="nav-item-content">
                 <div class="nav-item-title">Medical FAQ &amp; Insurance Coverage</div>
-                <div class="nav-item-sub">HSA/FSA DME receipt (E0941) details</div>
+                <div class="nav-item-sub">Pre-tax HSA/FSA DME code E0941 billing guide</div>
               </div>
               <span class="nav-item-arrow">→</span>
             </a>
           </nav>
+
         </div>
 
-        <!-- Drawer Footer -->
+        <!-- Drawer Footer with Patient Portal & Verified Support -->
         <div class="mobile-nav-footer">
           <a href="#portal" class="mobile-nav-portal-btn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
               <circle cx="12" cy="7" r="4"></circle>
             </svg>
             <span>Patient Account &amp; Digital Rx</span>
           </a>
           <div class="mobile-nav-support-note">
-            <span>🇺🇸 Direct US Support: <strong>+1 (818) 555-7746</strong></span>
-            <span>• Burbank, CA Hub</span>
+            <span>Direct US Spine Support: <strong>+1 (818) 555-7746</strong></span>
+            <span>• Burbank, CA Facility</span>
           </div>
         </div>
 
