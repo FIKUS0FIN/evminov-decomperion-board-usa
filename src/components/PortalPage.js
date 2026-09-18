@@ -21,7 +21,10 @@ export function renderPatientPortalPage() {
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
             </svg>
-            <span>Evminov<span style="color: var(--color-pine-emerald); font-weight: 500;">Spine</span></span>
+            <div class="logo-text-stack">
+              <span class="logo-title" style="font-size: 1.0625rem;">Evminov</span>
+              <span class="logo-subtitle">Spine <span class="logo-med-tag">Med</span></span>
+            </div>
           </a>
           <span class="portal-badge-patient">Official Patient Portal</span>
         </div>
@@ -121,7 +124,10 @@ function renderPortalLoginPage() {
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
             </svg>
-            <span>Evminov<span style="color: var(--color-pine-emerald); font-weight: 500;">Spine</span></span>
+            <div class="logo-text-stack" style="text-align: left;">
+              <span class="logo-title" style="font-size: 1.25rem;">Evminov</span>
+              <span class="logo-subtitle">Spine <span class="logo-med-tag">Med</span></span>
+            </div>
           </div>
           <h2>Evminov Patient Portal</h2>
           <p>Access your equipment warranties, live UPS tracking, subscriptions, and clinical rehab protocols.</p>

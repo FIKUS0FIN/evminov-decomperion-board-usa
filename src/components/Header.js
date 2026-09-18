@@ -21,15 +21,17 @@ export function renderHeader() {
     <!-- Main Navigation Header -->
     <header class="site-header" id="site-header">
       <div class="header-inner">
-        <a href="#" class="site-logo" aria-label="Evminov Spine Systems Home">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <a href="#" class="site-logo" aria-label="Evminov Spine Med Home">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
           </svg>
-          <span>Evminov<span style="color: var(--color-pine-emerald); font-weight: 400;">Spine</span></span>
+          <div class="logo-text-stack">
+            <span class="logo-title">Evminov</span>
+            <span class="logo-subtitle">Spine <span class="logo-med-tag">Med</span></span>
+          </div>
         </a>
 
         <nav class="site-nav" aria-label="Primary Navigation">
-          <a href="#calculator" class="nav-link">Incline Quiz</a>
           <a href="#comparison" class="nav-link">Why Not Inversion?</a>
           <a href="#catalog" class="nav-link">Boards & Pricing</a>
           <a href="#patents" class="nav-link">Patents & Trials</a>

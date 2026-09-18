@@ -11,7 +11,10 @@ export function renderFooter() {
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
               </svg>
-              <span>Evminov<span style="color: var(--color-pine-light); font-weight: 400;">Spine</span></span>
+              <div class="logo-text-stack">
+                <span class="logo-title" style="color: #FFFFFF;">Evminov</span>
+                <span class="logo-subtitle" style="color: #94A3B8;">Spine <span style="color: var(--color-pine-light); font-weight: 800;">Med</span></span>
+              </div>
             </div>
             <p>
               The official North American distributor of the patented Evminov Spine Decompression & Rehabilitation System. Manufactured from resonant natural pine with clinical heritage since 1996.
