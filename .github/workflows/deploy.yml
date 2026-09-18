@@ -37,6 +37,17 @@ jobs:
       - name: Build Production Assets (Vite)
         run: npm run build
 
+      - name: Ensure Cloudflare Pages Project Exists
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          echo "Checking/creating Cloudflare Pages project 'evminov-decompression-board-usa'..."
+          curl -s -X POST "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects" \
+            -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
+            -H "Content-Type: application/json" \
+            --data '{"name":"evminov-decompression-board-usa","production_branch":"main"}' || true
+
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
@@ -45,3 +56,4 @@ jobs:
           projectName: 'evminov-decompression-board-usa'
           directory: 'dist'
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
