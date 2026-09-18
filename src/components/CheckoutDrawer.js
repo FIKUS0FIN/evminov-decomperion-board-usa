@@ -29,7 +29,7 @@ export function renderCheckoutDrawer() {
         </div>
 
         <!-- Drawer Scrollable Body -->
-        <div class="drawer-body">
+        <div class="drawer-body" id="drawer-body">
           
           <!-- Cart Items Container -->
           <div id="drawer-items-list" class="drawer-cart-list">
@@ -279,6 +279,7 @@ export function initCheckoutDrawer() {
   const closeBtn = document.getElementById('drawer-close-btn');
   const emptyNotice = document.getElementById('drawer-empty-notice');
   const checkoutFlow = document.getElementById('drawer-checkout-flow');
+  const drawerBody = document.getElementById('drawer-body') || drawer?.querySelector('.drawer-body');
   const footer = document.getElementById('drawer-footer');
   const itemsList = document.getElementById('drawer-items-list');
   const itemCountBadge = document.getElementById('drawer-item-count-badge');
@@ -297,6 +298,43 @@ export function initCheckoutDrawer() {
   const checkoutForm = document.getElementById('stripe-mock-form');
   const submitBtn = document.getElementById('submit-payment-btn');
   const submitBtnText = document.getElementById('submit-btn-text');
+
+  // Auto-hide drawer summary footer on scroll down, smoothly reveal on scroll up
+  let lastScrollTop = 0;
+  let isTicking = false;
+
+  if (drawerBody && footer) {
+    drawerBody.addEventListener(
+      'scroll',
+      () => {
+        if (!isTicking) {
+          window.requestAnimationFrame(() => {
+            const currentScroll = drawerBody.scrollTop;
+            const scrollDelta = currentScroll - lastScrollTop;
+
+            // When near the top, always show footer
+            if (currentScroll <= 15) {
+              footer.classList.remove('is-hidden');
+            } else if (Math.abs(scrollDelta) > 6) {
+              // Scrolling down: hide footer smoothly
+              if (scrollDelta > 0) {
+                footer.classList.add('is-hidden');
+              }
+              // Scrolling up: reveal footer smoothly
+              else {
+                footer.classList.remove('is-hidden');
+              }
+            }
+
+            lastScrollTop = Math.max(0, currentScroll);
+            isTicking = false;
+          });
+          isTicking = true;
+        }
+      },
+      { passive: true }
+    );
+  }
 
   // Close handlers
   if (closeBtn) closeBtn.addEventListener('click', () => cartStore.closeDrawer());
@@ -362,6 +400,8 @@ export function initCheckoutDrawer() {
       if (state.isDrawerOpen) {
         overlay.classList.add('active');
         overlay.setAttribute('aria-hidden', 'false');
+        if (footer) footer.classList.remove('is-hidden');
+        lastScrollTop = 0;
       } else {
         overlay.classList.remove('active');
         overlay.setAttribute('aria-hidden', 'true');
