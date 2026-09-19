@@ -1,5 +1,15 @@
 import { patentsAndCertifications } from '../data/patents.js';
 
+export function formatKpiValue(val) {
+  if (typeof val === 'string' && val.includes('(')) {
+    const match = val.match(/^([^(]+)\s*(\(.+\))$/);
+    if (match) {
+      return `<span class="kpi-val-main">${match[1].trim()}</span><span class="kpi-val-sub">${match[2].trim()}</span>`;
+    }
+  }
+  return `<span class="kpi-val-main">${val}</span>`;
+}
+
 export function renderPatentsSection() {
   const patentsListHtml = patentsAndCertifications.patents
     .map(
@@ -123,60 +133,89 @@ export function renderPatentsSection() {
         <!-- Clinical Stats Counter Strip (2 Full Symmetrical Rows of 5 KPIs) -->
         <div class="clinical-kpi-bar">
           <div class="kpi-block">
-            <div class="kpi-num">${patentsAndCertifications.stats.clinicalYears}</div>
+            <div class="kpi-num">${formatKpiValue(patentsAndCertifications.stats.clinicalYears)}</div>
             <div class="kpi-label">Years of Hospital Trials</div>
           </div>
           <div class="kpi-block">
-            <div class="kpi-num">${patentsAndCertifications.stats.patientsTreated}</div>
+            <div class="kpi-num">${formatKpiValue(patentsAndCertifications.stats.patientsTreated)}</div>
             <div class="kpi-label">Documented Patient Recoveries</div>
           </div>
           <div class="kpi-block">
-            <div class="kpi-num">${patentsAndCertifications.stats.surgeryAvoidanceRate}</div>
+            <div class="kpi-num">${formatKpiValue(patentsAndCertifications.stats.surgeryAvoidanceRate)}</div>
             <div class="kpi-label">Avoided Disc Surgery</div>
           </div>
           <div class="kpi-block">
-            <div class="kpi-num">${patentsAndCertifications.stats.satisfactionRate}</div>
+            <div class="kpi-num">${formatKpiValue(patentsAndCertifications.stats.satisfactionRate)}</div>
             <div class="kpi-label">Patient Recovery Satisfaction</div>
           </div>
           <div class="kpi-block">
-            <div class="kpi-num">${patentsAndCertifications.stats.doctoralDissertations}</div>
+            <div class="kpi-num">${formatKpiValue(patentsAndCertifications.stats.doctoralDissertations)}</div>
             <div class="kpi-label">Doctoral Dissertations Defended</div>
           </div>
           <div class="kpi-block">
-            <div class="kpi-num">${patentsAndCertifications.stats.countriesPatented}</div>
+            <div class="kpi-num">${formatKpiValue(patentsAndCertifications.stats.countriesPatented)}</div>
             <div class="kpi-label">PCT Patent Jurisdictions</div>
           </div>
           <div class="kpi-block">
-            <div class="kpi-num">${patentsAndCertifications.stats.discHeightGain}</div>
+            <div class="kpi-num">${formatKpiValue(patentsAndCertifications.stats.discHeightGain)}</div>
             <div class="kpi-label">Disc Height Rehydration</div>
           </div>
           <div class="kpi-block">
-            <div class="kpi-num">${patentsAndCertifications.stats.trainedSpecialists}</div>
+            <div class="kpi-num">${formatKpiValue(patentsAndCertifications.stats.trainedSpecialists)}</div>
             <div class="kpi-label">Certified Vertebrologists &amp; PTs</div>
           </div>
           <div class="kpi-block">
-            <div class="kpi-num">${patentsAndCertifications.stats.clinicalCenters}</div>
+            <div class="kpi-num">${formatKpiValue(patentsAndCertifications.stats.clinicalCenters)}</div>
             <div class="kpi-label">Global Rehabilitation Centers</div>
           </div>
           <div class="kpi-block">
-            <div class="kpi-num">${patentsAndCertifications.stats.hsaFsaEligibility}</div>
+            <div class="kpi-num">${formatKpiValue(patentsAndCertifications.stats.hsaFsaEligibility)}</div>
             <div class="kpi-label">HSA / FSA Eligible (Code E0941)</div>
           </div>
         </div>
 
 
-        <!-- Official Scanned Document Archives Showcase -->
-        <div class="scanned-docs-wrapper">
+        <!-- Official Scanned Document Archives Showcase & Carousel -->
+        <div class="scanned-docs-wrapper" id="scanned-docs-section">
           <div class="scanned-docs-header">
-            <div>
+            <div class="scanned-docs-heading-group">
               <div class="scanned-docs-pill">Primary Legal Documents</div>
               <h3 class="scanned-docs-title">Official Patent Grants &amp; Ministry of Health Licenses</h3>
+              <div class="scanned-docs-note">Click on any document to inspect full archival scans and official international registries</div>
             </div>
-            <div class="scanned-docs-note">Click on any document to inspect full archival scans and official international registries</div>
+            <div class="scanned-docs-controls" role="toolbar" aria-label="Patent document carousel navigation">
+              <div class="scanned-docs-counter" id="scanned-docs-counter" aria-live="polite">
+                <span class="counter-curr">1–4</span> of <span class="counter-total">6</span>
+              </div>
+              <div class="scanned-nav-arrows">
+                <button type="button" class="scanned-nav-btn scanned-prev-btn" id="scanned-prev-btn" aria-label="Previous patent documents" title="Previous documents">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <button type="button" class="scanned-nav-btn scanned-next-btn" id="scanned-next-btn" aria-label="Next patent documents" title="Next documents">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+              </div>
+            </div>
           </div>
-          <div class="scanned-docs-grid">
-            ${scannedDocsHtml}
+
+          <div class="scanned-carousel-shell">
+            <button type="button" class="scanned-float-arrow scanned-float-prev" id="scanned-float-prev" aria-label="Previous patents">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+
+            <div class="scanned-docs-viewport" id="scanned-docs-viewport" tabindex="0" role="region" aria-label="Official Scanned Patents Documents Carousel">
+              <div class="scanned-docs-track scanned-docs-grid" id="scanned-docs-track">
+                ${scannedDocsHtml}
+              </div>
+            </div>
+
+            <button type="button" class="scanned-float-arrow scanned-float-next" id="scanned-float-next" aria-label="Next patents">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
           </div>
+
+          <!-- Carousel Pagination Indicator Dots -->
+          <div class="scanned-carousel-dots" id="scanned-carousel-dots" role="tablist" aria-label="Patent document slide pages"></div>
         </div>
 
         <!-- Patents Grid -->
@@ -532,5 +571,139 @@ export function initPatentsSection() {
       const targetId = btn.getAttribute('data-patent-open');
       openPatentModal(targetId);
     });
+  });
+
+  // Initialize Scanned Documents Carousel
+  initScannedDocsCarousel();
+}
+
+function initScannedDocsCarousel() {
+  const viewport = document.getElementById('scanned-docs-viewport');
+  const track = document.getElementById('scanned-docs-track');
+  if (!viewport || !track) return;
+
+  const headerPrevBtn = document.getElementById('scanned-prev-btn');
+  const headerNextBtn = document.getElementById('scanned-next-btn');
+  const floatPrevBtn = document.getElementById('scanned-float-prev');
+  const floatNextBtn = document.getElementById('scanned-float-next');
+  const counterEl = document.getElementById('scanned-docs-counter');
+  const dotsContainer = document.getElementById('scanned-carousel-dots');
+
+  const cards = track.querySelectorAll('.patent-doc-card');
+  const totalCards = cards.length;
+  if (!totalCards) return;
+
+  function getCardWidth() {
+    if (cards.length > 0) {
+      const cardRect = cards[0].getBoundingClientRect();
+      if (cardRect.width > 0) return cardRect.width + 20;
+    }
+    return 280;
+  }
+
+  function getVisibleCount() {
+    const vWidth = viewport.clientWidth || 1100;
+    const cWidth = getCardWidth();
+    return Math.max(1, Math.min(totalCards, Math.round(vWidth / cWidth)));
+  }
+
+  function updateCarouselUI() {
+    const scrollLeft = viewport.scrollLeft;
+    const maxScroll = Math.max(0, viewport.scrollWidth - viewport.clientWidth);
+    const cWidth = getCardWidth();
+    const visible = getVisibleCount();
+
+    let firstVisibleIdx = Math.round(scrollLeft / cWidth);
+    if (scrollLeft >= maxScroll - 15) {
+      firstVisibleIdx = Math.max(0, totalCards - visible);
+    }
+    firstVisibleIdx = Math.max(0, Math.min(firstVisibleIdx, totalCards - 1));
+    const lastVisibleIdx = Math.min(totalCards, firstVisibleIdx + visible);
+
+    if (counterEl) {
+      const start = Math.min(firstVisibleIdx + 1, totalCards);
+      const end = Math.min(lastVisibleIdx, totalCards);
+      counterEl.innerHTML = `<span class="counter-curr">${start}–${end}</span> of <span class="counter-total">${totalCards}</span>`;
+    }
+
+    const atStart = scrollLeft <= 5;
+    const atEnd = scrollLeft >= maxScroll - 5;
+
+    [headerPrevBtn, floatPrevBtn].forEach((btn) => {
+      if (btn) {
+        btn.disabled = atStart;
+        btn.setAttribute('aria-disabled', atStart ? 'true' : 'false');
+      }
+    });
+
+    [headerNextBtn, floatNextBtn].forEach((btn) => {
+      if (btn) {
+        btn.disabled = atEnd;
+        btn.setAttribute('aria-disabled', atEnd ? 'true' : 'false');
+      }
+    });
+
+    if (dotsContainer) {
+      const dots = dotsContainer.querySelectorAll('.scanned-carousel-dot');
+      const numPages = Math.max(1, Math.ceil(totalCards / visible));
+      const activePage = Math.min(numPages - 1, Math.round(scrollLeft / (viewport.clientWidth || 1)));
+
+      dots.forEach((dot, idx) => {
+        const isActive = idx === activePage;
+        dot.classList.toggle('is-active', isActive);
+        dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+    }
+  }
+
+  function scrollNext() {
+    const scrollDist = viewport.clientWidth > 500 ? viewport.clientWidth * 0.85 : getCardWidth();
+    viewport.scrollBy({ left: scrollDist, behavior: 'smooth' });
+  }
+
+  function scrollPrev() {
+    const scrollDist = viewport.clientWidth > 500 ? viewport.clientWidth * 0.85 : getCardWidth();
+    viewport.scrollBy({ left: -scrollDist, behavior: 'smooth' });
+  }
+
+  if (headerNextBtn) headerNextBtn.addEventListener('click', scrollNext);
+  if (floatNextBtn) floatNextBtn.addEventListener('click', scrollNext);
+  if (headerPrevBtn) headerPrevBtn.addEventListener('click', scrollPrev);
+  if (floatPrevBtn) floatPrevBtn.addEventListener('click', scrollPrev);
+
+  function renderDots() {
+    if (!dotsContainer) return;
+    dotsContainer.innerHTML = '';
+    const visible = getVisibleCount();
+    const numPages = Math.max(1, Math.ceil(totalCards / visible));
+
+    if (numPages <= 1) {
+      dotsContainer.style.display = 'none';
+      return;
+    }
+    dotsContainer.style.display = 'flex';
+
+    for (let i = 0; i < numPages; i++) {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = `scanned-carousel-dot ${i === 0 ? 'is-active' : ''}`;
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+      dot.setAttribute('aria-label', `Go to patent document page ${i + 1}`);
+      dot.addEventListener('click', () => {
+        const targetScroll = i * (viewport.clientWidth || getCardWidth() * visible);
+        viewport.scrollTo({ left: targetScroll, behavior: 'smooth' });
+      });
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  renderDots();
+  updateCarouselUI();
+
+  viewport.addEventListener('scroll', updateCarouselUI, { passive: true });
+  window.addEventListener('resize', () => {
+    renderDots();
+    updateCarouselUI();
   });
 }

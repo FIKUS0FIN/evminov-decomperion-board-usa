@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { patentsAndCertifications } from '../../src/data/patents.js';
+import { formatKpiValue, renderPatentsSection } from '../../src/components/PatentsSection.js';
 
 describe('Evminov Patents & Clinical Trials Data Integrity', () => {
   it('should contain verified patent registrations', () => {
@@ -46,5 +47,54 @@ describe('Evminov Patents & Clinical Trials Data Integrity', () => {
       expect(doc.registryUrl).toBeDefined();
     });
   });
+
+  it('should format KPI metrics with parentheses into two distinct rows for clean display', () => {
+    const formattedYears = formatKpiValue('30 Years (Since 1996)');
+    expect(formattedYears).toContain('<span class="kpi-val-main">30 Years</span>');
+    expect(formattedYears).toContain('<span class="kpi-val-sub">(Since 1996)</span>');
+
+    const formattedTreated = formatKpiValue('120,000+ (500k+ Global)');
+    expect(formattedTreated).toContain('<span class="kpi-val-main">120,000+</span>');
+    expect(formattedTreated).toContain('<span class="kpi-val-sub">(500k+ Global)</span>');
+
+    const formattedSurgery = formatKpiValue('93.4%');
+    expect(formattedSurgery).toBe('<span class="kpi-val-main">93.4%</span>');
+  });
+
+  it('should render PatentsSection with dual-row KPI structure for clinical years and global reach', () => {
+    const sectionHtml = renderPatentsSection();
+    expect(sectionHtml).toContain('<span class="kpi-val-main">30 Years</span><span class="kpi-val-sub">(Since 1996)</span>');
+    expect(sectionHtml).toContain('<span class="kpi-val-main">120,000+</span><span class="kpi-val-sub">(500k+ Global)</span>');
+  });
+
+  it('should render interactive scanned documents carousel with controls, floating arrows, dots, and ordered items', () => {
+    const html = renderPatentsSection();
+
+    // Verify Carousel Structural Elements
+    expect(html).toContain('id="scanned-docs-section"');
+    expect(html).toContain('scanned-docs-controls');
+    expect(html).toContain('id="scanned-docs-counter"');
+    expect(html).toContain('id="scanned-prev-btn"');
+    expect(html).toContain('id="scanned-next-btn"');
+    expect(html).toContain('id="scanned-float-prev"');
+    expect(html).toContain('id="scanned-float-next"');
+    expect(html).toContain('id="scanned-docs-viewport"');
+    expect(html).toContain('id="scanned-docs-track"');
+    expect(html).toContain('id="scanned-carousel-dots"');
+
+    // Verify all 6 documents are present and correctly ordered
+    const docs = patentsAndCertifications.scannedDocuments;
+    expect(docs.length).toBe(6);
+    expect(docs[0].id).toBe('uspto-cert');
+    expect(docs[1].id).toBe('epo-cert');
+    expect(docs[2].id).toBe('ukr-cert');
+    expect(docs[3].id).toBe('moh-cert');
+    expect(docs[4].id).toBe('china-cert'); // China ZL 99 8 on the left of slide 2
+    expect(docs[5].id).toBe('epo-claim-cert'); // European Patent Claims on the right of slide 2
+
+    expect(html).toContain('ZL 99 8 04071.3 / CN 1292706A');
+    expect(html).toContain('EP 1 038 512 Claims');
+  });
 });
+
 
