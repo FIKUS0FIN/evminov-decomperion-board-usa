@@ -8,6 +8,7 @@ import './styles/portalPage.css';
 import './styles/gallery.css';
 import './styles/centers.css';
 import './styles/globalTrust.css';
+import './styles/pediatricSection.css';
 import './styles/main.css';
 
 import { renderHeader, initHeader } from './components/Header.js';
@@ -21,6 +22,7 @@ import { renderProductCatalog, initProductCatalog } from './components/ProductCa
 import { renderPatentsSection, initPatentsSection } from './components/PatentsSection.js';
 import { renderMountingGuide } from './components/MountingGuide.js';
 import { renderAthleteSection, initAthleteSection } from './components/AthleteSection.js';
+import { renderPediatricFamilySection, initPediatricFamilySection } from './components/PediatricFamilySection.js';
 import { renderOnboardingProgram } from './components/OnboardingProgram.js';
 import { renderVideoProtocols, initVideoProtocols } from './components/VideoProtocols.js';
 import { renderExerciseGallery, initExerciseGallery } from './components/ExerciseGallery.js';
@@ -107,16 +109,17 @@ function renderApp() {
       ${renderFunnelsNav()}
       ${renderVideoProtocols()}
       ${renderComparisonTable()}
-      ${renderUsDistributionSection()}
       ${renderGlobalBrandTrust()}
       ${renderProductCatalog()}
       ${renderPatentsSection()}
       ${renderMountingGuide()}
       ${renderAthleteSection()}
+      ${renderPediatricFamilySection()}
       ${renderExerciseGallery()}
       ${renderOnboardingProgram()}
       ${renderClinicalTrust()}
       ${renderCalculator()}
+      ${renderUsDistributionSection()}
       ${renderReviewsSection()}
       ${renderBlogSection()}
       ${renderFaqSection()}
@@ -139,6 +142,7 @@ function renderApp() {
   initProductCatalog();
   initPatentsSection();
   initAthleteSection();
+  initPediatricFamilySection();
   initExerciseGallery();
   initCalculator();
   initReviewsSection();

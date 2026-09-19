@@ -27,9 +27,24 @@ export function renderClinicalCentersPage() {
     .map(
       (p) => `
       <div class="home-hospital-pillar-card">
-        <div style="font-size: 2.25rem;">${p.icon}</div>
-        <h4 style="font-size: 1.125rem; font-weight: 800; color: var(--color-primary-navy); margin: 0;">${p.title}</h4>
-        <p style="font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.6; margin: 0;">${p.desc}</p>
+        <div class="pillar-card-top">
+          <div class="pillar-icon-box" aria-hidden="true">
+            ${p.iconSvg}
+          </div>
+          <span class="pillar-category-tag">${p.tag}</span>
+        </div>
+        <div class="pillar-card-body">
+          <h4 class="pillar-card-title">${p.title}</h4>
+          <p class="pillar-card-desc">${p.desc}</p>
+        </div>
+        <div class="pillar-card-footer">
+          <span class="pillar-metric-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            ${p.metric}
+          </span>
+        </div>
       </div>
     `
     )

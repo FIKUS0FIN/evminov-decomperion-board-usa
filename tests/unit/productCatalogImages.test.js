@@ -21,19 +21,49 @@ describe('Product Catalog Visual Assets & Explanations', () => {
     expect(galleryUrls).toContain('/images/accessories/standard-pine-board-assembly.png');
   });
 
-  it('compact trainer clearly demonstrates over-the-door installation', () => {
-    const stick = products.find((p) => p.id === 'evminov-stick');
-    expect(stick).toBeDefined();
-    expect(stick.image).toBe('/images/products/board-door-mount-setup.jpg');
+  it('3-piece folding board clearly demonstrates compact travel, trunk and flight portability', () => {
+    const travelBoard = products.find((p) => p.id === 'evminov-folding-3part');
+    expect(travelBoard).toBeDefined();
+    expect(travelBoard.image).toBe('/images/accessories/folding-board-3-sections.png');
 
     // Confirm image file exists on disk
-    const imgPath = path.join(publicDir, stick.image);
+    const imgPath = path.join(publicDir, travelBoard.image);
     expect(fs.existsSync(imgPath)).toBe(true);
 
-    // Verify copy clarifies door mount / no drilling setup
-    expect(stick.subtitle).toContain('door');
-    expect(stick.badge).toContain('Door');
-    expect(stick.includes.some((inc) => inc.includes('door anchor') || inc.includes('over-the-door'))).toBe(true);
+    // Verify copy clarifies travel, car trunk, and airplane transport
+    expect(travelBoard.subtitle.toLowerCase()).toContain('trunk');
+    expect(travelBoard.badge.toLowerCase()).toContain('travel');
+    expect(travelBoard.keyFeature).toContain('багажник');
+    expect(travelBoard.keyFeature).toContain('літаку');
+  });
+
+  it('verifies all 5 official Evminov boards and 3 accessories are defined', () => {
+    const boardIds = [
+      'evminov-standard',
+      'evminov-folding-2part',
+      'evminov-folding-3part',
+      'evminov-wide',
+      'evminov-alder',
+    ];
+    const accessoryIds = [
+      'evminov-stand',
+      'evminov-glisson',
+      'evminov-foot-sleeves',
+    ];
+
+    boardIds.forEach((id) => {
+      const p = products.find((prod) => prod.id === id);
+      expect(p, `Board ${id} should be in catalog`).toBeDefined();
+      expect(p.category).toBe('board');
+      expect(p.ukrName).toBeDefined();
+      expect(p.keyFeature).toBeDefined();
+    });
+
+    accessoryIds.forEach((id) => {
+      const p = products.find((prod) => prod.id === id);
+      expect(p, `Accessory ${id} should be in catalog`).toBeDefined();
+      expect(p.category).toBe('accessory');
+    });
   });
 
   it('padded foot sleeves clearly demonstrate slide-on installation and usage', () => {

@@ -60,20 +60,59 @@ export const usStatesData = [
 export function renderUsDistributionSection() {
   return `
     <section id="us-shipping" class="us-dist-section" aria-label="US Distribution and 50 States Shipping">
-      <div class="container">
+      <div class="calc-container container">
         
-        <!-- Header & US Authority Badge -->
-        <div class="us-dist-header text-center">
-          <div class="badge badge-trust" style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px;">
-            <span>🇺🇸</span>
-            <span>PROVEN US TRACK RECORD: HUNDREDS OF AMERICAN HOMES EQUIPPED • CLINICAL HERITAGE SINCE 1996</span>
+        <!-- Header & US Authority Badge with Balanced Logistics Stats -->
+        <div class="us-dist-header">
+          <div class="us-dist-header-row">
+            <div class="us-dist-header-main">
+              <div class="badge badge-trust" style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px;">
+                <span>🇺🇸</span>
+                <span>PROVEN US TRACK RECORD: HUNDREDS OF AMERICAN HOMES EQUIPPED • CLINICAL HERITAGE SINCE 1996</span>
+              </div>
+              <h2 class="section-title us-dist-title">
+                Direct Shipping to All 50 US States From Our Burbank, CA Hub
+              </h2>
+              <p class="section-subtitle us-dist-desc">
+                Backed by 30 continuous years of clinical spine rehabilitation since 1996. Engineered for American homes, shipped directly from our California distribution warehouse with full insurance, real-time tracking, and certified HSA/FSA medical coverage.
+              </p>
+            </div>
+
+            <!-- US Logistics Quick-Trust Strip (Fills previous empty space with verified metrics) -->
+            <div class="us-dist-header-stats" aria-label="US Shipping Quick Metrics">
+              <div class="us-header-stat-card">
+                <span class="us-header-stat-icon">🚚</span>
+                <div>
+                  <div class="us-header-stat-val">All 50 States</div>
+                  <div class="us-header-stat-lbl">FedEx &amp; UPS Freight Coverage</div>
+                </div>
+              </div>
+
+              <div class="us-header-stat-card">
+                <span class="us-header-stat-icon">⚡</span>
+                <div>
+                  <div class="us-header-stat-val">2–4 Days Transit</div>
+                  <div class="us-header-stat-lbl">Dispatched from Burbank, CA</div>
+                </div>
+              </div>
+
+              <div class="us-header-stat-card">
+                <span class="us-header-stat-icon">🏥</span>
+                <div>
+                  <div class="us-header-stat-val">HSA / FSA 100%</div>
+                  <div class="us-header-stat-lbl">DME Code E0941 Itemized Receipt</div>
+                </div>
+              </div>
+
+              <div class="us-header-stat-card">
+                <span class="us-header-stat-icon">🛡️</span>
+                <div>
+                  <div class="us-header-stat-val">100% Insured</div>
+                  <div class="us-header-stat-lbl">Custom Reinforced Wood Crates</div>
+                </div>
+              </div>
+            </div>
           </div>
-          <h2 class="section-title">
-            Direct Shipping to All 50 US States From Our Burbank, CA Hub
-          </h2>
-          <p class="section-subtitle max-w-700">
-            Backed by 30 continuous years of clinical spine rehabilitation since 1996. Engineered for American homes, shipped directly from our California distribution warehouse with full insurance, real-time tracking, and certified HSA/FSA medical coverage.
-          </p>
         </div>
 
         <!-- 4 Core US Pillar Cards -->

@@ -41,6 +41,11 @@ describe('Calculator & Traction Physics Logic', () => {
     const athlete = recommendIncline('athlete');
     expect(athlete.startAngle).toBe(22);
     expect(athlete.maxAngle).toBe(35);
+
+    const pediatric = recommendIncline('pediatric');
+    expect(pediatric.startAngle).toBe(8);
+    expect(pediatric.maxAngle).toBe(15);
+    expect(pediatric.label).toContain('Pediatric');
   });
 
   it('recommends the Wide Heavy-Duty board for users over 210 lbs or 6\'5"', () => {

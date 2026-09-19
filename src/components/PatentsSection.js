@@ -4,7 +4,7 @@ export function renderPatentsSection() {
   const patentsListHtml = patentsAndCertifications.patents
     .map(
       (pat) => `
-      <div class="patent-card">
+      <div class="patent-card" data-patent-target="${pat.id}" role="button" tabindex="0" aria-label="View ${pat.number} details and official patent scan">
         <div class="patent-card-header">
           <div class="patent-seal-badge">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -31,6 +31,17 @@ export function renderPatentsSection() {
         <p class="patent-significance">
           ${pat.significance}
         </p>
+
+        <div class="patent-card-actions">
+          <button type="button" class="btn-patent-card-doc" data-patent-open="${pat.id}">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            <span>View Patent Scan</span>
+          </button>
+          <a href="${pat.registryUrl}" target="_blank" rel="noopener noreferrer" class="btn-patent-card-registry" onclick="event.stopPropagation()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span>${pat.registryName || 'Official Registry'} ↗</span>
+          </a>
+        </div>
       </div>
     `
     )
@@ -57,21 +68,37 @@ export function renderPatentsSection() {
   const scannedDocsHtml = (patentsAndCertifications.scannedDocuments || [])
     .map(
       (doc) => `
-      <div class="patent-doc-card">
+      <div class="patent-doc-card" data-patent-target="${doc.id}" role="button" tabindex="0" aria-label="Open ${doc.title} (${doc.docNumber}) document archive scan">
         <div class="patent-doc-preview">
           <img src="${doc.image}" alt="${doc.title} - ${doc.docNumber}" loading="lazy" class="patent-doc-img" />
           <div class="patent-doc-overlay">
-            <a href="${doc.image}" target="_blank" rel="noopener noreferrer" class="patent-zoom-btn">
+            <button type="button" class="patent-zoom-btn" data-patent-open="${doc.id}">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-              View Document Scan
-            </a>
+              <span>View Document Scan</span>
+            </button>
           </div>
         </div>
         <div class="patent-doc-body">
-          <span class="patent-doc-badge">${doc.badge}</span>
+          <div class="patent-doc-topline">
+            <span class="patent-doc-badge">${doc.badge}</span>
+            <span class="patent-verified-chip">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Verified
+            </span>
+          </div>
           <div class="patent-doc-num">${doc.docNumber}</div>
           <div class="patent-doc-title">${doc.title}</div>
           <p class="patent-doc-caption">${doc.caption}</p>
+          <div class="patent-doc-actions">
+            <button type="button" class="btn-patent-view-doc" data-patent-open="${doc.id}">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              Inspect Scan
+            </button>
+            <a href="${doc.registryUrl}" target="_blank" rel="noopener noreferrer" class="btn-patent-registry-link" onclick="event.stopPropagation()">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Registry Record ↗
+            </a>
+          </div>
         </div>
       </div>
     `
@@ -93,7 +120,7 @@ export function renderPatentsSection() {
           </p>
         </div>
 
-        <!-- Clinical Stats Counter Strip -->
+        <!-- Clinical Stats Counter Strip (2 Full Symmetrical Rows of 5 KPIs) -->
         <div class="clinical-kpi-bar">
           <div class="kpi-block">
             <div class="kpi-num">${patentsAndCertifications.stats.clinicalYears}</div>
@@ -119,6 +146,22 @@ export function renderPatentsSection() {
             <div class="kpi-num">${patentsAndCertifications.stats.countriesPatented}</div>
             <div class="kpi-label">PCT Patent Jurisdictions</div>
           </div>
+          <div class="kpi-block">
+            <div class="kpi-num">${patentsAndCertifications.stats.discHeightGain}</div>
+            <div class="kpi-label">Disc Height Rehydration</div>
+          </div>
+          <div class="kpi-block">
+            <div class="kpi-num">${patentsAndCertifications.stats.trainedSpecialists}</div>
+            <div class="kpi-label">Certified Vertebrologists &amp; PTs</div>
+          </div>
+          <div class="kpi-block">
+            <div class="kpi-num">${patentsAndCertifications.stats.clinicalCenters}</div>
+            <div class="kpi-label">Global Rehabilitation Centers</div>
+          </div>
+          <div class="kpi-block">
+            <div class="kpi-num">${patentsAndCertifications.stats.hsaFsaEligibility}</div>
+            <div class="kpi-label">HSA / FSA Eligible (Code E0941)</div>
+          </div>
         </div>
 
 
@@ -129,7 +172,7 @@ export function renderPatentsSection() {
               <div class="scanned-docs-pill">Primary Legal Documents</div>
               <h3 class="scanned-docs-title">Official Patent Grants &amp; Ministry of Health Licenses</h3>
             </div>
-            <div class="scanned-docs-note">Scanned from the original archive files of inventor Vyacheslav Evminov</div>
+            <div class="scanned-docs-note">Click on any document to inspect full archival scans and official international registries</div>
           </div>
           <div class="scanned-docs-grid">
             ${scannedDocsHtml}
@@ -172,10 +215,322 @@ export function renderPatentsSection() {
         </div>
 
       </div>
+
+      <!-- Patent Document Lightbox / Modal Viewer -->
+      <div 
+        id="patent-document-modal" 
+        class="patent-modal-backdrop" 
+        role="dialog" 
+        aria-modal="true" 
+        aria-hidden="true"
+      >
+        <div class="patent-modal-dialog">
+          <button type="button" class="patent-modal-close-btn" id="patent-modal-close" aria-label="Close patent document viewer">✕</button>
+
+          <div class="patent-modal-header">
+            <div class="patent-modal-badges">
+              <span class="badge badge-pine" id="patent-modal-badge">United States (USPTO)</span>
+              <span class="badge badge-navy" id="patent-modal-num">US 6,869,387 B2</span>
+              <span class="patent-modal-verified-pill">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Official Certified Archive
+              </span>
+            </div>
+          </div>
+
+          <div class="patent-modal-body-grid">
+            <!-- Media Pane -->
+            <div class="patent-modal-media-pane">
+              <div class="patent-modal-img-container" id="patent-modal-img-container" role="button" tabindex="0" title="Click to toggle image zoom">
+                <img id="patent-modal-img" src="" alt="Patent Document Archive Scan" class="patent-modal-img" />
+                <div class="patent-modal-zoom-hint">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                  <span id="patent-modal-zoom-text">Click to Zoom</span>
+                </div>
+              </div>
+
+              <div class="patent-modal-nav-bar">
+                <button type="button" class="patent-modal-nav-btn" id="patent-modal-prev" aria-label="Previous patent document">
+                  ‹ Previous
+                </button>
+                <span class="patent-modal-nav-counter" id="patent-modal-counter">1 of 6</span>
+                <button type="button" class="patent-modal-nav-btn" id="patent-modal-next" aria-label="Next patent document">
+                  Next ›
+                </button>
+              </div>
+            </div>
+
+            <!-- Info Pane -->
+            <div class="patent-modal-info-pane">
+              <h3 class="patent-modal-title" id="patent-modal-title">Patent Document Title</h3>
+              <p class="patent-modal-caption" id="patent-modal-caption">Official Patent Document Caption</p>
+
+              <div class="patent-modal-meta-table">
+                <div class="patent-modal-meta-row">
+                  <span class="meta-label">Inventor:</span>
+                  <span class="meta-val" id="patent-modal-inventor">Vyacheslav V. Evminov</span>
+                </div>
+                <div class="patent-modal-meta-row">
+                  <span class="meta-label">Patent Authority:</span>
+                  <span class="meta-val" id="patent-modal-office">State Patent Office</span>
+                </div>
+                <div class="patent-modal-meta-row" id="patent-modal-class-row">
+                  <span class="meta-label">Classification:</span>
+                  <span class="meta-val" id="patent-modal-classification">IPC A61H 1/02</span>
+                </div>
+              </div>
+
+              <div class="patent-modal-desc-box">
+                <strong class="desc-box-title">⚖️ Legal Significance &amp; Clinical Validation:</strong>
+                <p id="patent-modal-details" class="desc-box-text"></p>
+              </div>
+
+              <div class="patent-modal-cta-row">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm btn-patent-registry-cta" id="patent-modal-registry-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  <span id="patent-modal-registry-name">Open Registry (Google Patents) ↗</span>
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm btn-patent-scan-link" id="patent-modal-scan-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                  <span>Open Full Scan ↗</span>
+                </a>
+              </div>
+
+              <div class="patent-modal-trust-footnote">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-pine-emerald)" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>Authenticated original from the Evminov Vertebral Center legal archive. Protected worldwide under PCT international intellectual property treaties.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </section>
   `;
 }
 
 export function initPatentsSection() {
-  // Patents Section interactions
+  const scannedDocs = patentsAndCertifications.scannedDocuments || [];
+  if (!scannedDocs.length) return;
+
+  const modal = document.getElementById('patent-document-modal');
+  if (!modal) return;
+
+  const closeBtn = document.getElementById('patent-modal-close');
+  const prevBtn = document.getElementById('patent-modal-prev');
+  const nextBtn = document.getElementById('patent-modal-next');
+  const imgContainer = document.getElementById('patent-modal-img-container');
+  const modalImg = document.getElementById('patent-modal-img');
+  const modalBadge = document.getElementById('patent-modal-badge');
+  const modalNum = document.getElementById('patent-modal-num');
+  const modalTitle = document.getElementById('patent-modal-title');
+  const modalCaption = document.getElementById('patent-modal-caption');
+  const modalInventor = document.getElementById('patent-modal-inventor');
+  const modalOffice = document.getElementById('patent-modal-office');
+  const modalClassification = document.getElementById('patent-modal-classification');
+  const modalDetails = document.getElementById('patent-modal-details');
+  const modalRegistryBtn = document.getElementById('patent-modal-registry-btn');
+  const modalRegistryName = document.getElementById('patent-modal-registry-name');
+  const modalScanLink = document.getElementById('patent-modal-scan-link');
+  const modalCounter = document.getElementById('patent-modal-counter');
+  const zoomText = document.getElementById('patent-modal-zoom-text');
+
+  // Mapping from patent/doc IDs to scannedDocs index
+  const docIndexMap = {
+    'uspto-cert': 0,
+    'epo-cert': 1,
+    'ukr-cert': 2,
+    'moh-cert': 3,
+    'china-cert': 4,
+    'epo-claim-cert': 5,
+    'ua-patent-28849': 2,
+    'ea-patent-003889': 1,
+    'pct-wipo-9943288': 5,
+    'moh-cert-711': 3
+  };
+
+  let currentDocIndex = 0;
+  let isZoomed = false;
+
+  function updateModalDocument(index) {
+    if (index < 0 || index >= scannedDocs.length) return;
+    currentDocIndex = index;
+    const doc = scannedDocs[index];
+
+    // Reset zoom state on slide change
+    isZoomed = false;
+    if (imgContainer) imgContainer.classList.remove('is-zoomed');
+    if (zoomText) zoomText.textContent = 'Click to Zoom';
+
+    if (modalImg) {
+      modalImg.src = doc.image;
+      modalImg.alt = `${doc.title} - ${doc.docNumber}`;
+    }
+    if (modalBadge) modalBadge.textContent = doc.badge;
+    if (modalNum) modalNum.textContent = doc.docNumber;
+    if (modalTitle) modalTitle.textContent = doc.title;
+    if (modalCaption) modalCaption.textContent = doc.caption;
+    if (modalInventor) modalInventor.textContent = doc.inventor || 'Vyacheslav V. Evminov';
+    if (modalOffice) modalOffice.textContent = doc.office || doc.title;
+    if (modalClassification) {
+      modalClassification.textContent = doc.classification || 'IPC A61H 1/02, A61F 5/04';
+    }
+    if (modalDetails) {
+      modalDetails.textContent = doc.details || doc.caption;
+    }
+    if (modalRegistryBtn) {
+      modalRegistryBtn.href = doc.registryUrl || '#';
+      if (modalRegistryName) {
+        modalRegistryName.textContent = doc.registryName
+          ? `Open ${doc.registryName} ↗`
+          : 'Open Official Registry ↗';
+      }
+    }
+    if (modalScanLink) {
+      modalScanLink.href = doc.image;
+    }
+    if (modalCounter) {
+      modalCounter.textContent = `${index + 1} of ${scannedDocs.length}`;
+    }
+  }
+
+  function openPatentModal(id) {
+    const targetIdx = typeof docIndexMap[id] === 'number' ? docIndexMap[id] : 0;
+    updateModalDocument(targetIdx);
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    document.body.style.overflow = 'hidden';
+
+    // Focus close button for accessibility
+    setTimeout(() => {
+      if (closeBtn) closeBtn.focus();
+    }, 50);
+  }
+
+  function closePatentModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    document.body.style.overflow = '';
+    isZoomed = false;
+    if (imgContainer) imgContainer.classList.remove('is-zoomed');
+  }
+
+  // Toggle Zoom on modal image
+  function toggleZoom() {
+    isZoomed = !isZoomed;
+    if (imgContainer) {
+      imgContainer.classList.toggle('is-zoomed', isZoomed);
+    }
+    if (zoomText) {
+      zoomText.textContent = isZoomed ? 'Click to Reset' : 'Click to Zoom';
+    }
+  }
+
+  if (imgContainer) {
+    imgContainer.addEventListener('click', toggleZoom);
+    imgContainer.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleZoom();
+      }
+    });
+  }
+
+  // Previous and Next document navigation
+  if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const prevIdx = (currentDocIndex - 1 + scannedDocs.length) % scannedDocs.length;
+      updateModalDocument(prevIdx);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const nextIdx = (currentDocIndex + 1) % scannedDocs.length;
+      updateModalDocument(nextIdx);
+    });
+  }
+
+  // Close handlers
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closePatentModal);
+  }
+
+  modal.addEventListener('click', (e) => {
+    // If clicked on backdrop outside of the dialog container
+    if (e.target === modal) {
+      closePatentModal();
+    }
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (!modal.classList.contains('is-open')) return;
+
+    if (e.key === 'Escape') {
+      closePatentModal();
+    } else if (e.key === 'ArrowLeft') {
+      const prevIdx = (currentDocIndex - 1 + scannedDocs.length) % scannedDocs.length;
+      updateModalDocument(prevIdx);
+    } else if (e.key === 'ArrowRight') {
+      const nextIdx = (currentDocIndex + 1) % scannedDocs.length;
+      updateModalDocument(nextIdx);
+    }
+  });
+
+  // Attach click & enter listeners to all clickable patent doc cards
+  const docCards = document.querySelectorAll('.patent-doc-card');
+  docCards.forEach((card) => {
+    const docId = card.getAttribute('data-patent-target');
+    const handleCardClick = (e) => {
+      // Ignore if user clicked directly on an external registry link
+      if (e.target.closest('a')) return;
+      openPatentModal(docId);
+    };
+
+    card.addEventListener('click', handleCardClick);
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        if (!e.target.closest('a')) {
+          e.preventDefault();
+          openPatentModal(docId);
+        }
+      }
+    });
+  });
+
+  // Attach click & enter listeners to all clickable patent cards in patents-grid
+  const patentCards = document.querySelectorAll('.patent-card');
+  patentCards.forEach((card) => {
+    const patentId = card.getAttribute('data-patent-target');
+    const handleCardClick = (e) => {
+      if (e.target.closest('a')) return;
+      openPatentModal(patentId);
+    };
+
+    card.addEventListener('click', handleCardClick);
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        if (!e.target.closest('a')) {
+          e.preventDefault();
+          openPatentModal(patentId);
+        }
+      }
+    });
+  });
+
+  // Explicit action buttons with data-patent-open
+  const openButtons = document.querySelectorAll('[data-patent-open]');
+  openButtons.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const targetId = btn.getAttribute('data-patent-open');
+      openPatentModal(targetId);
+    });
+  });
 }

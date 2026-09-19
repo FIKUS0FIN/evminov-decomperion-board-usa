@@ -66,14 +66,15 @@
 }
 
 /* Left Controls Panel: Compact & Ergonomic */
+/* Left Controls Panel: Compact & Ergonomic */
 .calc-controls {
   background: var(--color-bg-light);
   border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-xl);
-  padding: 20px 24px;
+  padding: 20px 22px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 16px;
   box-shadow: var(--shadow-sm);
 }
@@ -111,7 +112,46 @@
   box-shadow: var(--shadow-xs);
 }
 
-/* Condition Pills: Sleek 2x2 Grid */
+/* Spinal Focus Box: Medical Protocol Panel */
+.spinal-focus-box {
+  background: linear-gradient(145deg, #FFFFFF 0%, #F0FDF4 100%);
+  border: 1px solid rgba(5, 150, 105, 0.22);
+  border-radius: var(--radius-lg);
+  padding: 13px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.spinal-focus-box::after {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.calc-focus-tag {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #065F46;
+  background: #D1FAE5;
+  border: 1px solid rgba(5, 150, 105, 0.3);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+/* Condition Pills: Sleek 2x2 Grid with Clinical Badges */
 .condition-pills {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -120,31 +160,163 @@
 
 .condition-btn {
   background: var(--color-surface-white);
-  border: 1px solid var(--color-border-subtle);
+  border: 1px solid #E2E8F0;
   border-radius: var(--radius-md);
   color: var(--color-text-main);
-  padding: 8px 12px;
-  font-size: 0.8125rem;
-  font-weight: 700;
+  padding: 8px 10px;
   text-align: left;
   transition: all var(--transition-fast);
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 9px;
   cursor: pointer;
-  box-shadow: var(--shadow-xs);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  position: relative;
+  min-height: 48px;
 }
 
 .condition-btn:hover {
   border-color: var(--color-pine-emerald);
   transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(5, 150, 105, 0.1);
 }
 
 .condition-btn.active {
-  background: #ECFDF5;
+  background: #FFFFFF;
   border-color: var(--color-pine-emerald);
   color: #064E3B;
-  box-shadow: 0 0 0 1px var(--color-pine-emerald), 0 2px 6px rgba(5, 150, 105, 0.12);
+  box-shadow: 0 0 0 1.5px var(--color-pine-emerald), 0 4px 12px rgba(5, 150, 105, 0.12);
+}
+
+.condition-icon-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: #F1F5F9;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.condition-btn.active .condition-icon-badge {
+  background: #ECFDF5;
+  box-shadow: 0 1px 3px rgba(5, 150, 105, 0.2);
+}
+
+.condition-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.condition-title {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.condition-btn.active .condition-title {
+  color: #064E3B;
+}
+
+.condition-sub {
+  font-size: 0.6875rem;
+  color: #64748B;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.condition-btn.active .condition-sub {
+  color: #059669;
+  font-weight: 600;
+}
+
+/* Dynamic Clinical Target Insight Telemetry Panel */
+.focus-clinical-insight {
+  margin-top: 2px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(5, 150, 105, 0.2);
+  border-left: 3px solid var(--color-pine-emerald);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.insight-header-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.insight-target-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.insight-pulsing-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--color-pine-emerald);
+  box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.7);
+  animation: insight-pulse 2s infinite;
+  flex-shrink: 0;
+}
+
+@keyframes insight-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(5, 150, 105, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(5, 150, 105, 0);
+  }
+}
+
+.insight-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.insight-angle-range {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: #059669;
+  background: #ECFDF5;
+  padding: 1px 7px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.insight-desc {
+  font-size: 0.75rem;
+  color: #475569;
+  line-height: 1.35;
+  margin: 0;
 }
 
 /* Biometrics Dual-Column Subgrid */

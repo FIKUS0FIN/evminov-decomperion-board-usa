@@ -71,4 +71,21 @@ export const exerciseProtocols = [
     videoThumbnail: '/images/authentic/exercise-prone-extension.jpg',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
   },
+  {
+    id: 'pediatric-dance-protocol',
+    title: 'Pediatric Scoliosis & "Lying-Down Dancing" (Танці Лежачи)',
+    target: 'Kids & Teens (Ages 3–15), Scoliosis & Natural Growth',
+    angle: '8° – 12° Gentle Incline',
+    duration: '5 – 10 Minutes',
+    badge: 'Habit & Growth (+5–7 cm)',
+    description: 'Gamified rhythmic spinal micro-exercises to upbeat music. Guarantees 100% bilateral symmetry, prevents juvenile scoliosis, and unlocks natural growth height without boring medical gymnastics.',
+    steps: [
+      'Grasp carriage handles at a gentle 8°–12° incline while lying supine on the resonant pine board.',
+      'Play upbeat rhythmic music to turn the session into an emotionally engaging dance routine.',
+      'Perform synchronized bilateral pelvic micro-tilts and alternating leg extensions ("танці лежачи").',
+      'Maintain strict left-right symmetry for 5–10 minutes 1–2 times daily as part of morning/evening routine.',
+    ],
+    videoThumbnail: '/images/gallery/youth-paired-traction.jpg',
+    videoUrl: 'https://www.youtube.com/embed/GDLVNWynWF0',
+  },
 ];

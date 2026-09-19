@@ -119,23 +119,35 @@ export const homeHospitalConcept = {
   pillars: [
     {
       icon: '⏱️',
+      tag: 'Biomechanical Osmosis',
+      metric: '3.8x Osmotic Absorption',
       title: 'Daily 10–15 Min Micro-Doses',
-      desc: 'Intervertebral discs have no direct bloodstream. They require regular osmotic fluid exchange. Daily 15-minute home micro-sessions yield 3.8x greater disc restoration than sporadic weekly clinic visits.'
+      desc: 'Intervertebral discs have no direct bloodstream, requiring rhythmic osmotic fluid imbibition. Daily short home micro-sessions yield 3.8x greater disc restoration than sporadic weekly clinic visits.',
+      iconSvg: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M10 2h4"/><path d="M12 2v3"/></svg>`
     },
     {
       icon: '⚡',
+      tag: 'Zero Friction Access',
+      metric: 'Immediate AM/PM Therapy',
       title: 'Zero Transit or Weather Friction',
-      desc: 'No appointments, traffic jams, icy roads, or clinic waiting rooms. Decompression is available immediately upon morning waking or evening before sleep.'
+      desc: 'No appointments, traffic jams, icy roads, or clinic waiting rooms. Decompression is available immediately upon morning waking or in the evening directly before sleep.',
+      iconSvg: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/><circle cx="12" cy="7" r="1.5" fill="currentColor"/></svg>`
     },
     {
       icon: '👨‍👩‍👧‍👦',
+      tag: 'Household Ergonomics',
+      metric: '5-Sec Shift (Ages 6–90+)',
       title: 'Multi-Generational Family Station',
-      desc: 'The quick-adjust carriage shifts in 5 seconds to calibrate for adolescent scoliosis correction (ages 6+), athlete regeneration, desk-worker stiffness, or grandparent osteochondrosis.'
+      desc: 'The quick-adjust carriage shifts in 5 seconds to calibrate for adolescent scoliosis correction (ages 6+), athlete regeneration, desk-worker stiffness, or grandparent osteochondrosis.',
+      iconSvg: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`
     },
     {
       icon: '💰',
+      tag: 'Economic Amortization',
+      metric: '100% Payback in 3 Weeks',
       title: 'Complete Financial Break-Even',
-      desc: 'With US chiropractic and PT co-pays averaging $75–$150 per session ($3,000–$6,000/year), a single Evminov board pays for itself in 3 weeks and protects your household for decades.'
+      desc: 'With US chiropractic and PT co-pays averaging $75–$150 per session ($3,000–$6,000/year), a single Evminov board pays for itself in 3 weeks and protects your household for decades.',
+      iconSvg: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>`
     }
   ]
 };

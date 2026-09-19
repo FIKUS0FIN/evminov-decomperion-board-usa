@@ -228,33 +228,51 @@ export function initVideoProtocols() {
   const audioIcon = document.getElementById('video-audio-icon');
   const audioLabel = document.getElementById('video-audio-label');
   const volumePill = document.getElementById('video-volume-pill');
+  const iframe = document.getElementById('featured-video-player');
 
   if (!videoContainer) return;
 
   let ytPlayer = null;
   let isPlayerReady = false;
   let isPlaying = false;
-  let userManuallyMuted = false;
-  let hasAutoUnmuted = false;
+  let isSoundEnabled = false; // Starts muted so browser doesn't block autoplay
 
-  function updateAudioBadge(volumePercent, isMuted) {
+  function sendIframeCommand(func, args = []) {
+    if (iframe && iframe.contentWindow) {
+      try {
+        iframe.contentWindow.postMessage(
+          JSON.stringify({ event: 'command', func, args }),
+          '*'
+        );
+      } catch (e) {}
+    }
+  }
+
+  function updateAudioBadge(volumePercent, isMuted, triggerAnim = false) {
     if (!audioToggle) return;
     if (isMuted || volumePercent === 0) {
       audioToggle.classList.add('is-muted');
       if (audioIcon) audioIcon.textContent = '🔇';
-      if (audioLabel) audioLabel.textContent = isMuted ? 'Muted • Tap for sound' : 'Faded out';
+      if (audioLabel) audioLabel.textContent = 'Muted • Tap for sound';
       if (volumePill) volumePill.textContent = '0%';
     } else {
       audioToggle.classList.remove('is-muted');
       if (audioIcon) audioIcon.textContent = '🔊';
-      if (audioLabel) audioLabel.textContent = 'Sound Active • Auto-fades on scroll';
+      if (audioLabel) audioLabel.textContent = `Sound Active • ${volumePercent}%`;
       if (volumePill) volumePill.textContent = `${volumePercent}%`;
+    }
+
+    if (triggerAnim) {
+      audioToggle.classList.remove('sound-activated');
+      void audioToggle.offsetWidth; // force DOM reflow
+      audioToggle.classList.add('sound-activated');
+      setTimeout(() => {
+        audioToggle.classList.remove('sound-activated');
+      }, 700);
     }
   }
 
   function handleVideoScroll() {
-    if (!ytPlayer || !isPlayerReady) return;
-
     const rect = videoContainer.getBoundingClientRect();
     const windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
@@ -264,9 +282,12 @@ export function initVideoProtocols() {
     if (!inViewport) {
       if (isPlaying) {
         try {
-          ytPlayer.pauseVideo();
-          isPlaying = false;
+          if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
+            ytPlayer.pauseVideo();
+          }
         } catch (e) {}
+        sendIframeCommand('pauseVideo');
+        isPlaying = false;
       }
       return;
     }
@@ -274,78 +295,87 @@ export function initVideoProtocols() {
     // Video is in viewport!
     if (!isPlaying) {
       try {
-        ytPlayer.playVideo();
-        isPlaying = true;
+        if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
+          ytPlayer.playVideo();
+        }
       } catch (e) {}
+      sendIframeCommand('playVideo');
+      isPlaying = true;
     }
 
-    // Compute volume based on scroll:
-    // When video is centered in view, volume is 100%.
-    // As user scrolls down past the video (rect.top becomes negative),
-    // volume gradually fades out proportionally to the remaining visible portion.
+    // If user has not enabled sound, stay muted
+    if (!isSoundEnabled) {
+      updateAudioBadge(0, true);
+      return;
+    }
+
+    // If user has tapped sound on:
+    // Keep volume at 100% while video is in main view.
+    // If it's scrolling almost completely off-screen (> 80% out of view), fade smoothly.
+    const visibleHeight = Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0);
+    const visibleRatio = Math.max(0, Math.min(1, visibleHeight / rect.height));
+
     let volume = 100;
-
-    if (rect.top < 0) {
-      // Top of video is moving off top of screen
-      const remainingHeight = Math.max(0, rect.bottom);
-      const ratio = remainingHeight / rect.height; // 1.0 down to 0.0
-      volume = Math.round(Math.max(0, Math.min(100, ratio * 100)));
-    } else if (rect.bottom > windowHeight) {
-      // Bottom of video is coming in from bottom of screen
-      const visibleFromBottom = Math.max(0, windowHeight - rect.top);
-      const ratio = visibleFromBottom / rect.height; // 0.0 up to 1.0
-      volume = Math.round(Math.max(0, Math.min(100, ratio * 100)));
-    } else {
-      volume = 100;
+    if (visibleRatio < 0.2) {
+      volume = Math.round((visibleRatio / 0.2) * 100);
     }
 
-    if (!userManuallyMuted) {
-      try {
-        if (typeof ytPlayer.setVolume === 'function') {
-          ytPlayer.setVolume(volume);
-        }
-        if (typeof ytPlayer.isMuted === 'function' && ytPlayer.isMuted() && volume > 0 && hasAutoUnmuted) {
-          ytPlayer.unMute();
-        }
-      } catch (e) {}
-    }
+    try {
+      if (ytPlayer && typeof ytPlayer.setVolume === 'function') {
+        ytPlayer.setVolume(volume);
+      }
+    } catch (e) {}
+    sendIframeCommand('setVolume', [volume]);
 
-    const isMutedNow = userManuallyMuted || (typeof ytPlayer.isMuted === 'function' && ytPlayer.isMuted());
-    updateAudioBadge(volume, isMutedNow);
+    updateAudioBadge(volume, volume === 0);
   }
 
   // Audio Toggle Button Click
   if (audioToggle) {
-    audioToggle.addEventListener('click', () => {
-      if (!ytPlayer || !isPlayerReady) return;
+    audioToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      isSoundEnabled = !isSoundEnabled;
 
-      hasAutoUnmuted = true;
-      try {
-        const currentlyMuted = typeof ytPlayer.isMuted === 'function' && ytPlayer.isMuted();
-        if (currentlyMuted || userManuallyMuted) {
-          ytPlayer.unMute();
-          userManuallyMuted = false;
-          handleVideoScroll();
-        } else {
-          ytPlayer.mute();
-          userManuallyMuted = true;
-          updateAudioBadge(0, true);
-        }
-      } catch (e) {}
+      if (isSoundEnabled) {
+        // UNMUTE TO 100%
+        try {
+          if (ytPlayer) {
+            if (typeof ytPlayer.unMute === 'function') ytPlayer.unMute();
+            if (typeof ytPlayer.setVolume === 'function') ytPlayer.setVolume(100);
+            if (typeof ytPlayer.playVideo === 'function') ytPlayer.playVideo();
+          }
+        } catch (e) {}
+
+        sendIframeCommand('unMute');
+        sendIframeCommand('setVolume', [100]);
+        sendIframeCommand('playVideo');
+
+        // Immediately update UI to 100% with animation to display it was changed
+        updateAudioBadge(100, false, true);
+      } else {
+        // MUTE TO 0%
+        try {
+          if (ytPlayer) {
+            if (typeof ytPlayer.mute === 'function') ytPlayer.mute();
+            if (typeof ytPlayer.setVolume === 'function') ytPlayer.setVolume(0);
+          }
+        } catch (e) {}
+
+        sendIframeCommand('mute');
+        sendIframeCommand('setVolume', [0]);
+
+        // Immediately update UI to 0% with feedback animation
+        updateAudioBadge(0, true, true);
+      }
     });
   }
 
   // Automatically enable sound on first user gesture anywhere if video is in view
   function onFirstUserGesture() {
-    hasAutoUnmuted = true;
-    if (ytPlayer && isPlayerReady && !userManuallyMuted) {
+    if (ytPlayer && isPlayerReady && isSoundEnabled) {
       try {
-        const rect = videoContainer.getBoundingClientRect();
-        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-        if (rect.bottom > 0 && rect.top < windowHeight) {
-          ytPlayer.unMute();
-          handleVideoScroll();
-        }
+        ytPlayer.unMute();
+        ytPlayer.setVolume(100);
       } catch (e) {}
     }
     window.removeEventListener('pointerdown', onFirstUserGesture);
@@ -395,10 +425,17 @@ export function initVideoProtocols() {
         events: {
           onReady: (event) => {
             isPlayerReady = true;
-            // Start muted so browser autoplay policies never block playback on scroll
-            try {
-              event.target.mute();
-            } catch (e) {}
+            if (isSoundEnabled) {
+              try {
+                event.target.unMute();
+                event.target.setVolume(100);
+              } catch (e) {}
+            } else {
+              try {
+                event.target.mute();
+                event.target.setVolume(0);
+              } catch (e) {}
+            }
             handleVideoScroll();
           },
           onStateChange: (event) => {

@@ -12,7 +12,7 @@ import { patentsAndCertifications } from '../../src/data/patents.js';
 describe('1996 Clinical Foundation & 30-Year Continuous Success Verification', () => {
   it('should verify Header announcement and navigation prominently state 1996 and 30-year legacy', () => {
     const headerHtml = renderHeader();
-    expect(headerHtml).toContain('ESTABLISHED 1996:');
+    expect(headerHtml).toContain('ESTABLISHED 1996');
     expect(headerHtml).toContain('30 Years of Clinical Vertebrology');
     expect(headerHtml).toContain('500,000+ Patients Healed');
     expect(headerHtml).toContain('Continuous Clinical Practice Since 1996');

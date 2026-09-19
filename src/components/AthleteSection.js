@@ -24,6 +24,8 @@ export const athleteDisciplines = [
     recommendedText: 'View Wide Heavy-Duty Board',
     image: '/images/authentic/exercise-reverse-traction.jpg',
     imageAlt: 'Athletic reverse traction on Evminov board',
+    imagePosition: 'right 35%',
+    badgePosition: 'left',
     quote: 'Olympic lifters and powerlifters lose up to 15–20 mm of standing height over a heavy training session due to cumulative disc compression.'
   },
   {
@@ -44,8 +46,10 @@ export const athleteDisciplines = [
     ],
     recommendedLink: '#product-evminov-standard',
     recommendedText: 'View Standard Pine Board',
-    image: '/images/authentic/exercise-seated-incline.jpg',
+    image: '/images/authentic/exercise-seated-decompression.jpg',
     imageAlt: 'Low-angle lumbo-pelvic decompression for runners',
+    imagePosition: 'left center',
+    badgePosition: 'right',
     quote: 'Marathoners recover baseline spinal height and running cadence 40% faster when decompressing within 30 minutes of long training runs.'
   },
   {
@@ -66,8 +70,10 @@ export const athleteDisciplines = [
     ],
     recommendedLink: '#product-evminov-standard',
     recommendedText: 'Explore Resonant Boards',
-    image: '/images/authentic/exercise-thoracic-arch.jpg',
+    image: '/images/authentic/exercise-incline-stretch.jpg',
     imageAlt: 'Rotational decompression and thoracic mobility on Evminov board',
+    imagePosition: 'center 40%',
+    badgePosition: 'right',
     quote: 'PGA touring pros and tennis athletes use inclined traction to untwist the spine and prevent unilateral facet syndrome.'
   },
   {
@@ -88,8 +94,10 @@ export const athleteDisciplines = [
     ],
     recommendedLink: '#product-glisson-loop',
     recommendedText: 'View Glisson Neck Loop System',
-    image: '/images/authentic/glisson-loop-traction.jpg',
+    image: '/images/authentic/evminov-glisson-loop-cervical.jpg',
     imageAlt: 'Glisson cervical loop traction on Evminov board',
+    imagePosition: 'center 35%',
+    badgePosition: 'left',
     quote: 'Combat athletes require cervical unloading without the stroke/eye-pressure danger of hanging upside down from gravity boots.'
   },
   {
@@ -112,6 +120,8 @@ export const athleteDisciplines = [
     recommendedText: 'Calculate Desk Worker Angle',
     image: '/images/authentic/exercise-reverse-traction.jpg',
     imageAlt: 'Desk worker spinal decompression on Evminov board',
+    imagePosition: 'right 35%',
+    badgePosition: 'left',
     quote: 'More Americans suffer debilitating back pain from sitting at a computer than from heavy manual labor. 10 minutes of daily pine board decompression is the modern antidote.'
   }
 ];
@@ -203,22 +213,23 @@ export function renderAthleteSection() {
 
           <!-- Media Visual Column -->
           <div class="athlete-media-col" style="position: relative;">
-            <div style="position: relative; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-xl); border: 1px solid var(--color-border-subtle);">
+            <div class="athlete-media-card" style="position: relative; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-xl); border: 1px solid var(--color-border-subtle); background: #F8FAFC;">
               <img 
                 src="${d.image}" 
                 alt="${d.imageAlt}" 
                 loading="lazy"
-                style="width: 100%; height: 420px; object-fit: cover; display: block;"
+                class="athlete-media-img"
+                style="width: 100%; height: 440px; object-fit: cover; object-position: ${d.imagePosition || 'right 35%'}; display: block;"
               />
-              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0) 100%); padding: 24px 20px 16px;">
+              <div class="athlete-quote-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(15, 23, 42, 0.88) 0%, rgba(15, 23, 42, 0.45) 60%, rgba(15, 23, 42, 0) 100%); padding: 24px 20px 16px; z-index: 1;">
                 <div style="font-size: 0.8125rem; font-style: italic; color: #E2E8F0; line-height: 1.5;">
                   "${d.quote}"
                 </div>
               </div>
             </div>
 
-            <!-- Floating Proof Pill -->
-            <div style="position: absolute; top: 16px; right: 16px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); padding: 10px 16px; border-radius: var(--radius-md); border: 1.5px solid var(--color-pine-border); box-shadow: var(--shadow-md);">
+            <!-- Floating Proof Pill (positioned according to discipline to preserve full face visibility) -->
+            <div class="athlete-proof-badge" style="position: absolute; top: 16px; ${d.badgePosition === 'right' ? 'right: 16px;' : 'left: 16px;'} background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); padding: 10px 16px; border-radius: var(--radius-md); border: 1.5px solid var(--color-pine-border); box-shadow: var(--shadow-md); z-index: 2;">
               <div style="font-family: var(--font-mono); font-size: 1.15rem; font-weight: 800; color: var(--color-pine-emerald);">
                 +2.4 mm Disc Height
               </div>

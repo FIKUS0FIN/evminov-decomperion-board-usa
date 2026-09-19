@@ -1,12 +1,14 @@
 import { cartStore } from '../utils/cartStore.js';
 import { authStore } from '../utils/authStore.js';
+import { renderEvminovLogo } from './EvminovLogo.js';
 
 export function renderHeader() {
   const headerHtml = `
     <!-- Top Announcement Bar -->
     <aside class="announcement-bar" aria-label="Announcement">
       <div class="announcement-item">
-        <span style="font-weight: 800; color: #34D399; letter-spacing: 0.04em;">ESTABLISHED 1996:</span>
+        <span style="font-weight: 800; color: #34D399; letter-spacing: 0.04em; white-space: nowrap;">ESTABLISHED 1996</span>
+        <span style="color: rgba(255, 255, 255, 0.4); margin: 0 2px;">•</span>
         <span>30 Years of Clinical Vertebrology • 500,000+ Patients Healed • Fast 50-State US &amp; Global Shipping</span>
       </div>
       <div class="announcement-item desktop-only">
@@ -22,29 +24,7 @@ export function renderHeader() {
     <header class="site-header" id="site-header">
       <div class="header-inner">
         <a href="#" class="site-logo" aria-label="Evminov Spine Med Home">
-          <svg width="32" height="32" viewBox="0 0 100 100" fill="none" aria-hidden="true">
-            <circle cx="50" cy="10" r="6" fill="currentColor"/>
-            <rect x="46.5" y="16" width="7" height="3" rx="1.5" fill="currentColor"/>
-            <line x1="50" y1="19" x2="50" y2="95" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
-            <path d="M47 20 C38 12, 26 4, 8 4 C5 8, 8 12, 14 13 C7 16, 9 21, 17 21 C10 25, 14 30, 23 29 C17 33, 22 37, 32 35 C28 38, 36 40, 46 36 C47 30, 47 24, 47 20 Z" 
-                  fill="#ECFDF5" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/>
-            <path d="M14 13 C24 16, 36 18, 47 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-            <path d="M17 21 C26 23, 36 24, 47 23" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-            <path d="M23 29 C30 30, 38 30, 47 29" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-            <path d="M53 20 C58 12, 72 4, 92 4 C95 8, 92 12, 86 13 C93 16, 91 21, 83 21 C90 25, 86 30, 77 29 C83 33, 78 37, 68 35 C72 38, 64 40, 54 36 C53 30, 53 24, 53 20 Z" 
-                  fill="#ECFDF5" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/>
-            <path d="M86 13 C76 16, 64 18, 53 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-            <path d="M83 21 C74 23, 64 24, 53 23" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-            <path d="M77 29 C70 30, 62 30, 53 29" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-            <path d="M47 23 C44 19, 38 20, 36 24 C36 28, 42 31, 47 27 Z" fill="currentColor"/>
-            <circle cx="41" cy="22.5" r="1.4" fill="#FFFFFF"/>
-            <path d="M41 28 C28 34, 20 44, 24 55 C28 66, 72 62, 72 73 C72 82, 40 80, 42 88 C43 92, 50 94, 50 94" 
-                  fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M53 23 C56 19, 62 20, 64 24 C64 28, 58 31, 53 27 Z" fill="currentColor"/>
-            <circle cx="59" cy="22.5" r="1.4" fill="#FFFFFF"/>
-            <path d="M59 28 C72 34, 80 44, 76 55 C72 66, 28 62, 28 73 C28 82, 60 80, 58 88 C57 92, 50 94, 50 94" 
-                  fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+          ${renderEvminovLogo({ size: 36 })}
           <div class="logo-text-stack">
             <span class="logo-title">Evminov</span>
             <span class="logo-subtitle">Spine <span class="logo-med-tag">Med</span></span>
@@ -53,13 +33,13 @@ export function renderHeader() {
 
         <nav class="site-nav" aria-label="Primary Navigation">
           <a href="#comparison" class="nav-link">Why Not Inversion?</a>
-          <a href="#us-shipping" class="nav-link">50 US States</a>
           <a href="#global-trust" class="nav-link">Worldwide Brand</a>
           <a href="#catalog" class="nav-link">Boards & Pricing</a>
           <a href="#exercise-gallery" class="nav-link">Protocols</a>
           <a href="#centers" class="nav-link" style="color: var(--color-pine-emerald); font-weight: 700;">Since 1996 Clinic &amp; Heritage</a>
           <a href="#patents" class="nav-link">Patents & Trials</a>
           <a href="#athletes" class="nav-link">For Athletes</a>
+          <a href="#pediatric-family" class="nav-link">Kids &amp; Family</a>
           <a href="#reviews" class="nav-link">Reviews</a>
           <a href="#faq" class="nav-link">FAQ</a>
         </nav>
@@ -270,6 +250,22 @@ export function renderHeader() {
               <div class="nav-item-content">
                 <div class="nav-item-title">Prescription Incline Angle Calibrator</div>
                 <div class="nav-item-sub">Custom angle formula for L4-S1, thoracic, and neck traction</div>
+              </div>
+              <span class="nav-item-arrow">→</span>
+            </a>
+
+            <a href="#pediatric-family" class="mobile-nav-item">
+              <span class="nav-item-icon-svg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </span>
+              <div class="nav-item-content">
+                <div class="nav-item-title">Kids &amp; Family "Spine Toothbrush"</div>
+                <div class="nav-item-sub">Pediatric scoliosis, lying-down dance &amp; daily habit</div>
               </div>
               <span class="nav-item-arrow">→</span>
             </a>

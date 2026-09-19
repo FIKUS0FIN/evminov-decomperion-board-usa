@@ -32,28 +32,65 @@ export function renderCalculator() {
           <div class="calc-controls">
             
             <!-- 1. Spinal Pathology / Goal (Compact 2x2 Grid) -->
-            <div class="calc-group">
-              <span class="calc-label">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 14.14 14.14"/></svg>
-                1. Spinal Focus Area:
-              </span>
+            <!-- 1. Spinal Pathology & Clinical Protocol Target -->
+            <div class="calc-group spinal-focus-box">
+              <div class="calc-label-row">
+                <span class="calc-label">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 14.14 14.14"/></svg>
+                  1. Spinal Focus Area:
+                </span>
+                <span class="calc-focus-tag" id="calc-focus-tag">L4-S1 Target</span>
+              </div>
               <div class="condition-pills" id="calc-condition-pills">
                 <button type="button" class="condition-btn active" data-condition="hernia">
-                  <span>⚡</span>
-                  <span>Herniated Disc</span>
+                  <span class="condition-icon-badge">⚡</span>
+                  <div class="condition-text">
+                    <span class="condition-title">Herniated Disc</span>
+                    <span class="condition-sub">L4-S1 • Disc Bulge</span>
+                  </div>
                 </button>
                 <button type="button" class="condition-btn" data-condition="sciatica">
-                  <span>🦵</span>
-                  <span>Sciatica Relief</span>
+                  <span class="condition-icon-badge">🦵</span>
+                  <div class="condition-text">
+                    <span class="condition-title">Sciatica Relief</span>
+                    <span class="condition-sub">Pinched Nerve Root</span>
+                  </div>
                 </button>
                 <button type="button" class="condition-btn" data-condition="athlete">
-                  <span>🏋️</span>
-                  <span>Athletic Reset</span>
+                  <span class="condition-icon-badge">🏋️</span>
+                  <div class="condition-text">
+                    <span class="condition-title">Athletic Reset</span>
+                    <span class="condition-sub">Axial Load Recovery</span>
+                  </div>
                 </button>
                 <button type="button" class="condition-btn" data-condition="posture">
-                  <span>💻</span>
-                  <span>Posture / WFH</span>
+                  <span class="condition-icon-badge">💻</span>
+                  <div class="condition-text">
+                    <span class="condition-title">Posture / WFH</span>
+                    <span class="condition-sub">Thoracic & Neck Reset</span>
+                  </div>
                 </button>
+                <button type="button" class="condition-btn" data-condition="pediatric">
+                  <span class="condition-icon-badge">🧸</span>
+                  <div class="condition-text">
+                    <span class="condition-title">Kids &amp; Scoliosis</span>
+                    <span class="condition-sub">Ages 3–15 • Growth &amp; Dance</span>
+                  </div>
+                </button>
+              </div>
+
+              <!-- Live Clinical Target Insight Telemetry Panel -->
+              <div class="focus-clinical-insight" id="focus-clinical-insight">
+                <div class="insight-header-line">
+                  <div class="insight-target-badge">
+                    <span class="insight-pulsing-dot"></span>
+                    <span class="insight-label" id="focus-insight-label">Acute Herniated / Bulging Disc (L4-S1)</span>
+                  </div>
+                  <span class="insight-angle-range" id="focus-insight-angle">Protocol: 12°–22°</span>
+                </div>
+                <p class="insight-desc" id="focus-insight-desc">
+                  Gentle traction to widen intervertebral space without triggering protective muscle spasms.
+                </p>
               </div>
             </div>
 
@@ -245,6 +282,11 @@ export function initCalculator() {
   const recDesc = document.getElementById('rec-desc');
   const recPrice = document.getElementById('rec-price');
   const addToCartBtn = document.getElementById('calc-add-to-cart-btn');
+
+  const focusTag = document.getElementById('calc-focus-tag');
+  const focusInsightLabel = document.getElementById('focus-insight-label');
+  const focusInsightAngle = document.getElementById('focus-insight-angle');
+  const focusInsightDesc = document.getElementById('focus-insight-desc');
   
   let currentCondition = 'hernia';
   let recommendedModelId = 'evminov-standard';
@@ -298,6 +340,18 @@ export function initCalculator() {
 
     const conditionData = recommendIncline(currentCondition);
     metricTime.textContent = `${conditionData.durationMin} min`;
+    if (focusInsightLabel) focusInsightLabel.textContent = conditionData.label;
+    if (focusInsightAngle) focusInsightAngle.textContent = `Protocol: ${conditionData.startAngle}°–${conditionData.maxAngle}°`;
+    if (focusInsightDesc) focusInsightDesc.textContent = conditionData.description;
+    if (focusTag) {
+      const tagMap = {
+        hernia: 'L4-S1 Target',
+        sciatica: 'Sciatic Nerve',
+        athlete: 'Axial Decompression',
+        posture: 'Thoracic Alignment',
+      };
+      focusTag.textContent = tagMap[currentCondition] || 'Clinical Target';
+    }
 
     // Compute board model recommendation
     const modelRec = recommendBoardModel(weightLbs, heightInches);

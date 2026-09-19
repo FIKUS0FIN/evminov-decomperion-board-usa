@@ -91,17 +91,18 @@
   max-width: 1560px;
   width: 100%;
   margin: 0 auto;
-  padding: 12px 24px;
+  padding: 10px clamp(12px, 1.8vw, 28px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: clamp(10px, 1.2vw, 24px);
+  box-sizing: border-box;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1600px) {
   .header-inner {
-    padding: 12px 40px;
-    gap: 32px;
+    padding: 12px 36px;
+    gap: 28px;
   }
 }
 
@@ -153,23 +154,50 @@
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: clamp(8px, 1.1vw, 20px);
   flex-shrink: 1;
 }
 
 .nav-link {
-  font-size: 0.875rem;
+  font-size: clamp(0.75rem, 0.82vw, 0.875rem);
   font-weight: 600;
   color: var(--color-text-muted);
   white-space: nowrap;
   transition: color var(--transition-fast);
+  padding: 4px 2px;
 }
 
 .nav-link:hover {
   color: var(--color-pine-emerald);
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1340px) {
+  .header-inner {
+    padding: 10px 16px;
+    gap: 12px;
+  }
+  .site-nav {
+    gap: 9px;
+  }
+  .nav-link {
+    font-size: 0.77rem;
+    letter-spacing: -0.015em;
+  }
+  .header-actions {
+    gap: 6px;
+  }
+  .cart-trigger-btn,
+  .portal-trigger-btn {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+  }
+  .header-quiz-cta {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 1140px) {
   .site-nav {
     display: none;
   }
@@ -251,7 +279,7 @@
   box-shadow: var(--shadow-xs);
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1140px) {
   .mobile-menu-btn {
     display: inline-flex;
   }
@@ -1061,9 +1089,12 @@ body.nav-drawer-open {
   font-family: var(--font-mono);
   font-size: 0.6875rem;
   font-weight: 700;
-  padding: 5px 9px;
+  padding: 4px 10px;
   border-radius: var(--radius-full);
   box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+  flex-shrink: 0;
+  white-space: nowrap;
+  letter-spacing: 0.03em;
 }
 
 /* Slide Caption Bar at bottom of viewport */
@@ -1076,7 +1107,16 @@ body.nav-drawer-open {
   background: linear-gradient(to top, rgba(11, 19, 43, 0.92) 0%, rgba(11, 19, 43, 0.5) 65%, transparent 100%);
   color: #FFFFFF;
   z-index: 5;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
   pointer-events: none;
+}
+
+.hero-slide-caption-content {
+  flex: 1;
+  min-width: 0;
 }
 
 .hero-slide-caption-title {
@@ -1337,6 +1377,12 @@ body.nav-drawer-open {
 
   .hero-slide-caption-bar {
     padding: 24px 12px 10px;
+    gap: 8px;
+  }
+
+  .hero-slide-counter {
+    font-size: 0.625rem;
+    padding: 3px 8px;
   }
 
   .hero-slide-caption-title {
@@ -1855,6 +1901,324 @@ body.nav-drawer-open {
   color: var(--color-pine-emerald);
   flex-shrink: 0;
   margin-top: 2px;
+}
+
+/* Ukrainian Title on Product Card */
+.product-card-ukr-title {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-pine-emerald);
+  margin-top: 2px;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+/* Key Differentiator Callout Box */
+.product-distinction-box {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(6, 78, 59, 0.05) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-left: 3.5px solid var(--color-pine-emerald);
+  border-radius: var(--radius-md, 8px);
+  padding: 10px 12px;
+  margin: 4px 0 2px;
+}
+
+.distinction-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--color-primary-navy);
+  font-weight: 700;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.distinction-icon {
+  font-size: 0.875rem;
+  line-height: 1;
+}
+
+.distinction-text {
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: #1E293B;
+  margin: 0;
+}
+
+/* Specs Full Column spanning */
+.product-specs-grid .spec-full-col {
+  grid-column: 1 / -1;
+  background: rgba(241, 245, 249, 0.6);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+/* Model Differentiation Guide Box */
+.board-comparison-guide-box {
+  background: linear-gradient(145deg, #0A192F 0%, #0F2E2A 100%);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  border-radius: var(--radius-xl, 16px);
+  padding: 32px;
+  margin-bottom: 36px;
+  box-shadow: 0 16px 36px -8px rgba(10, 25, 47, 0.25);
+  color: #F8FAFC;
+  position: relative;
+  overflow: hidden;
+}
+
+.board-comparison-guide-box::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.guide-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.guide-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #6EE7B7;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.guide-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 2.4vw, 1.625rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+}
+
+.guide-subtitle {
+  font-size: 0.9375rem;
+  color: #94A3B8;
+  margin: 0;
+  max-width: 680px;
+  line-height: 1.5;
+}
+
+.guide-calc-link {
+  flex-shrink: 0;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  transition: all var(--transition-fast);
+}
+
+.guide-calc-link:hover {
+  background: var(--color-pine-emerald);
+  border-color: var(--color-pine-emerald);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* Guide 5-Cards Grid */
+.guide-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 1200px) {
+  .guide-cards-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .guide-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.guide-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg, 12px);
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+  backdrop-filter: blur(8px);
+}
+
+.guide-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #34D399;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.4);
+}
+
+.guide-card-icon {
+  font-size: 1.625rem;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.guide-card-badge {
+  align-self: flex-start;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(16, 185, 129, 0.25);
+  color: #6EE7B7;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.guide-card-name {
+  font-size: 0.9375rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 2px;
+  line-height: 1.3;
+}
+
+.guide-card-en {
+  font-size: 0.75rem;
+  color: #94A3B8;
+  margin-bottom: 10px;
+}
+
+.guide-card-text {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: #CBD5E1;
+  margin: 0 0 14px;
+  flex: 1;
+}
+
+.guide-card-text strong {
+  color: #F1F5F9;
+}
+
+.guide-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 10px;
+  font-size: 0.75rem;
+  color: #94A3B8;
+}
+
+.guide-foot-price {
+  font-size: 0.9375rem;
+  font-weight: 800;
+  color: #34D399;
+}
+
+/* Catalog Filter Bar */
+.catalog-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.catalog-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--color-surface-white);
+  border: 1.5px solid var(--color-border-subtle);
+  border-radius: 9999px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-xs);
+}
+
+.catalog-filter-btn:hover {
+  border-color: var(--color-pine-emerald);
+  color: var(--color-primary-navy);
+  transform: translateY(-1px);
+}
+
+.catalog-filter-btn.active {
+  background: var(--color-primary-navy);
+  border-color: var(--color-primary-navy);
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(10, 25, 47, 0.2);
+}
+
+.catalog-filter-btn .filter-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.08);
+  color: inherit;
+}
+
+.catalog-filter-btn.active .filter-count {
+  background: var(--color-pine-emerald);
+  color: #FFFFFF;
+}
+
+/* Card Highlight Pulse on Guide Click */
+@keyframes cardTargetPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.8), var(--shadow-xl);
+    border-color: #10B981;
+    transform: translateY(-6px);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0.3), var(--shadow-xl);
+    border-color: #10B981;
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0), var(--shadow-md);
+    border-color: var(--color-border-subtle);
+    transform: translateY(0);
+  }
+}
+
+.highlight-pulse {
+  animation: cardTargetPulse 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Reviews Grid */
@@ -2518,38 +2882,70 @@ body.nav-drawer-open {
   border-top: 1px solid var(--color-border-subtle);
 }
 
-/* Clinical KPI Counter Strip */
+/* Clinical KPI Counter Strip (2 Symmetrical Full Rows) */
 .clinical-kpi-bar {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: 16px;
   margin: 40px 0;
   background: var(--color-bg-light);
   border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-xl);
-  padding: 24px;
+  padding: 24px 20px;
+}
+
+@media (max-width: 1024px) {
+  .clinical-kpi-bar {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    padding: 20px 16px;
+  }
+}
+
+@media (max-width: 540px) {
+  .clinical-kpi-bar {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
 }
 
 .kpi-block {
   text-align: center;
-  padding: 12px;
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-surface-white);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.kpi-block:hover {
+  transform: translateY(-2px);
+  border-color: rgba(5, 150, 105, 0.35);
+  box-shadow: 0 6px 16px rgba(5, 150, 105, 0.07);
 }
 
 .kpi-num {
   font-family: var(--font-mono);
-  font-size: 2.25rem;
+  font-size: clamp(1.2rem, 1.55vw, 1.75rem);
   font-weight: 800;
   color: var(--color-pine-emerald);
-  line-height: 1.1;
+  line-height: 1.15;
   margin-bottom: 6px;
+  word-break: break-word;
 }
 
 .kpi-label {
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--color-text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
+  line-height: 1.35;
 }
 
 /* Scanned Documents Showcase */
@@ -2612,13 +3008,21 @@ body.nav-drawer-open {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+  cursor: pointer;
+  position: relative;
+  outline: none;
 }
 
 .patent-doc-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
   border-color: var(--color-pine-border);
+}
+
+.patent-doc-card:focus-visible {
+  outline: 2px solid var(--color-pine-emerald);
+  outline-offset: 2px;
 }
 
 .patent-doc-preview {
@@ -2646,7 +3050,7 @@ body.nav-drawer-open {
 .patent-doc-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(11, 19, 43, 0.45);
+  background: rgba(11, 19, 43, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2662,13 +3066,14 @@ body.nav-drawer-open {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.96);
   color: var(--color-primary-navy);
   font-size: 0.8125rem;
   font-weight: 700;
   padding: 8px 14px;
   border-radius: var(--radius-full);
-  text-decoration: none;
+  border: none;
+  cursor: pointer;
   box-shadow: var(--shadow-md);
   transition: background 0.2s ease, transform 0.2s ease;
 }
@@ -2679,16 +3084,22 @@ body.nav-drawer-open {
 }
 
 .patent-doc-body {
-  padding: 16px;
+  padding: 18px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   flex: 1;
+}
+
+.patent-doc-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
 }
 
 .patent-doc-badge {
   display: inline-block;
-  align-self: flex-start;
   font-size: 0.6875rem;
   font-weight: 700;
   color: var(--color-pine-emerald);
@@ -2697,6 +3108,15 @@ body.nav-drawer-open {
   padding: 2px 8px;
   border-radius: var(--radius-sm);
   text-transform: uppercase;
+}
+
+.patent-verified-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--color-pine-emerald);
 }
 
 .patent-doc-num {
@@ -2718,7 +3138,53 @@ body.nav-drawer-open {
   color: var(--color-text-muted);
   line-height: 1.45;
   margin: 0;
+}
+
+.patent-doc-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
   margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.btn-patent-view-doc {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #EFF6FF;
+  color: #1D4ED8;
+  border: 1px solid #BFDBFE;
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-patent-view-doc:hover {
+  background: #DBEAFE;
+  color: #1E40AF;
+  border-color: #93C5FD;
+}
+
+.btn-patent-registry-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-pine-emerald);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.btn-patent-registry-link:hover {
+  color: #047857;
+  text-decoration: underline;
 }
 
 /* Patents Grid */
@@ -2728,7 +3194,6 @@ body.nav-drawer-open {
   gap: 24px;
   margin-bottom: 48px;
 }
-
 
 .patent-card {
   background: var(--color-surface-white);
@@ -2741,6 +3206,8 @@ body.nav-drawer-open {
   transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
+  cursor: pointer;
+  outline: none;
 }
 
 .patent-card::before {
@@ -2757,6 +3224,11 @@ body.nav-drawer-open {
   transform: translateY(-4px);
   box-shadow: var(--shadow-xl);
   border-color: var(--color-pine-border);
+}
+
+.patent-card:focus-visible {
+  outline: 2px solid var(--color-pine-emerald);
+  outline-offset: 2px;
 }
 
 .patent-card-header {
@@ -2820,6 +3292,354 @@ body.nav-drawer-open {
   color: var(--color-text-main);
   line-height: 1.55;
   margin-top: auto;
+  margin-bottom: 18px;
+}
+
+.patent-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-top: 14px;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.btn-patent-card-doc {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #F0FDF4;
+  color: var(--color-pine-emerald);
+  border: 1px solid var(--color-pine-border);
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-patent-card-doc:hover {
+  background: var(--color-pine-emerald);
+  color: #ffffff;
+}
+
+.btn-patent-card-registry {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  color: var(--color-primary-navy);
+  border: 1px solid var(--color-border-subtle);
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-patent-card-registry:hover {
+  background: var(--color-bg-light);
+  color: var(--color-pine-emerald);
+  border-color: var(--color-pine-border);
+}
+
+/* Patent Document Lightbox Modal */
+.patent-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(10, 17, 40, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.patent-modal-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.patent-modal-dialog {
+  position: relative;
+  background: #ffffff;
+  border-radius: 18px;
+  max-width: 1020px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  animation: modalScaleIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.patent-modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.08);
+  border: none;
+  font-size: 1.2rem;
+  color: var(--color-primary-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.patent-modal-close-btn:hover {
+  background: rgba(15, 23, 42, 0.15);
+  transform: scale(1.05);
+}
+
+.patent-modal-header {
+  padding: 20px 24px 14px;
+  border-bottom: 1px solid var(--color-border-subtle);
+  background: #FAFAFA;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+.patent-modal-badges {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.patent-modal-verified-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-pine-emerald);
+  background: #ECFDF5;
+  border: 1px solid var(--color-pine-border);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.patent-modal-body-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  flex: 1;
+}
+
+@media (max-width: 860px) {
+  .patent-modal-body-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.patent-modal-media-pane {
+  background: #0B132B;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.patent-modal-img-container {
+  position: relative;
+  flex: 1;
+  min-height: 380px;
+  max-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-in;
+  overflow: auto;
+  padding: 16px;
+  background: radial-gradient(circle at center, #1E293B 0%, #0B132B 100%);
+}
+
+.patent-modal-img-container.is-zoomed {
+  cursor: zoom-out;
+}
+
+.patent-modal-img {
+  max-width: 100%;
+  max-height: 480px;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.patent-modal-img-container.is-zoomed .patent-modal-img {
+  max-width: none;
+  max-height: none;
+  transform: scale(1.6);
+  transform-origin: center top;
+}
+
+.patent-modal-zoom-hint {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(15, 23, 42, 0.75);
+  color: #F8FAFC;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+}
+
+.patent-modal-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: rgba(11, 19, 43, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.patent-modal-nav-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.patent-modal-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.patent-modal-nav-counter {
+  color: #94A3B8;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.patent-modal-info-pane {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: #FFFFFF;
+}
+
+.patent-modal-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.patent-modal-caption {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.patent-modal-meta-table {
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.patent-modal-meta-row {
+  display: flex;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+
+.patent-modal-meta-row .meta-label {
+  width: 120px;
+  flex-shrink: 0;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+}
+
+.patent-modal-meta-row .meta-val {
+  color: var(--color-text-main);
+}
+
+.patent-modal-desc-box {
+  background: #F8FAFC;
+  border-left: 3px solid var(--color-pine-emerald);
+  padding: 12px 14px;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.desc-box-title {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--color-primary-navy);
+  margin-bottom: 4px;
+}
+
+.desc-box-text {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.patent-modal-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.btn-patent-registry-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.btn-patent-scan-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+
+.patent-modal-trust-footnote {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+  padding-top: 10px;
+  border-top: 1px solid var(--color-border-subtle);
 }
 
 /* Clinical Trials Box */

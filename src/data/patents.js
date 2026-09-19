@@ -12,6 +12,10 @@ export const patentsAndCertifications = {
     satisfactionRate: '98.2%',
     doctoralDissertations: '7',
     countriesPatented: '18',
+    discHeightGain: '+2.6 mm',
+    trainedSpecialists: '2,500+',
+    clinicalCenters: '120+',
+    hsaFsaEligibility: '100%',
   },
   patents: [
     {
@@ -22,9 +26,12 @@ export const patentsAndCertifications = {
       office: 'Ukrainian State Patent Agency (Ukrpatent / UKRNOVI)',
       classification: 'IPC A61H 1/02, A63B 21/00',
       status: 'Granted & Active',
-      significance: 'Covers the resonant inclined flex-board construction and adjustable carriage handle mechanism allowing calibrated fractional bodyweight traction.'
+      significance: 'Covers the resonant inclined flex-board construction and adjustable carriage handle mechanism allowing calibrated fractional bodyweight traction.',
+      image: '/images/patents/ukraine-patent-original.png',
+      registryUrl: 'https://patents.google.com/patent/WO1999043288A1/en',
+      registryName: 'Google Patents / WIPO',
+      badge: 'Ukraine (Ukrpatent)'
     },
-
     {
       id: 'ea-patent-003889',
       number: 'Eurasian Patent № 003889B1',
@@ -33,7 +40,11 @@ export const patentsAndCertifications = {
       office: 'Eurasian Patent Organization (EAPO)',
       classification: 'IPC A61H 1/02, A61F 5/04',
       status: 'Granted & Active',
-      significance: 'Protects the low-angle spinal unloading protocol combined with synchronous small-amplitude kinetic muscle contractions.'
+      significance: 'Protects the low-angle spinal unloading protocol combined with synchronous small-amplitude kinetic muscle contractions.',
+      image: '/images/patents/european-patent-epo.png',
+      registryUrl: 'https://patents.google.com/patent/EA003889B1/en',
+      registryName: 'Google Patents / EAPO',
+      badge: 'Eurasian Patent (EAPO)'
     },
     {
       id: 'pct-wipo-9943288',
@@ -43,7 +54,11 @@ export const patentsAndCertifications = {
       office: 'World Intellectual Property Organization (WIPO / PCT)',
       classification: 'International Patent Classification A61H 1/00',
       status: 'Published & International Filing',
-      significance: 'International protection base covering 18 PCT member states across the European Union and North America.'
+      significance: 'International protection base covering 18 PCT member states across the European Union and North America.',
+      image: '/images/patents/european-patent-claim.png',
+      registryUrl: 'https://patents.google.com/patent/WO1999043288A1/en',
+      registryName: 'Google Patents / WIPO',
+      badge: 'WIPO / PCT International'
     },
     {
       id: 'moh-cert-711',
@@ -53,7 +68,11 @@ export const patentsAndCertifications = {
       office: 'Ministry of Health of Ukraine (State Administration of Medical Products)',
       classification: 'Orthopedic Rehabilitation Equipment Class',
       status: 'Certified Medical Equipment',
-      significance: 'Mandated for hospital physical therapy departments, sports rehabilitation clinics, and military vertebral restoration units.'
+      significance: 'Mandated for hospital physical therapy departments, sports rehabilitation clinics, and military vertebral restoration units.',
+      image: '/images/patents/moh-medical-license.png',
+      registryUrl: '/images/patents/moh-medical-license.png',
+      registryName: 'Ministry of Health Registry',
+      badge: 'State Medical Approval'
     }
   ],
   clinicalTrials: [
@@ -100,7 +119,12 @@ export const patentsAndCertifications = {
       docNumber: 'US 6,869,387 B2',
       badge: 'United States (USPTO)',
       image: '/images/patents/us-patent-official.png',
-      caption: 'Official US Patent Grant issued by the United States Patent and Trademark Office.'
+      caption: 'Official US Patent Grant issued by the United States Patent and Trademark Office.',
+      registryUrl: 'https://patents.google.com/patent/US6869387B2/en',
+      registryName: 'USPTO / Google Patents',
+      inventor: 'Vyacheslav V. Evminov',
+      office: 'United States Patent and Trademark Office (Alexandria, VA)',
+      details: 'Covers the resonant inclined traction board, adjustable mobile carriage, and safe low-angle paraspinal kinetic rehabilitation method.'
     },
     {
       id: 'epo-cert',
@@ -108,7 +132,12 @@ export const patentsAndCertifications = {
       docNumber: 'EP 1 038 512 B1',
       badge: 'European Union (EPO)',
       image: '/images/patents/european-patent-epo.png',
-      caption: 'Granted European Patent specification covering Germany, France, Italy, and UK.'
+      caption: 'Granted European Patent specification covering Germany, France, Italy, and UK.',
+      registryUrl: 'https://patents.google.com/patent/EP1038512B1/en',
+      registryName: 'European Patent Register / Espacenet',
+      inventor: 'Vyacheslav V. Evminov',
+      office: 'European Patent Office (Munich & The Hague)',
+      details: 'European patent validation granting exclusive legal priority across major European healthcare and rehabilitation markets.'
     },
     {
       id: 'ukr-cert',
@@ -116,7 +145,12 @@ export const patentsAndCertifications = {
       docNumber: 'UA Patent № 27976',
       badge: 'State Patent (Ukraine)',
       image: '/images/patents/ukraine-patent-original.png',
-      caption: 'Primary inventor patent awarded to V. V. Evminov for inclined decompression traction.'
+      caption: 'Primary inventor patent awarded to V. V. Evminov for inclined decompression traction.',
+      registryUrl: 'https://patents.google.com/patent/WO1999043288A1/en',
+      registryName: 'Ukrpatent / WIPO Registry',
+      inventor: 'Vyacheslav V. Evminov',
+      office: 'Ukrainian State Patent Agency (UKRNOVI / Ukrpatent)',
+      details: 'The original breakthrough invention certificate protecting the flexible multi-laminated wood flexure mechanism and Glisson cervical traction.'
     },
     {
       id: 'moh-cert',
@@ -124,7 +158,38 @@ export const patentsAndCertifications = {
       docNumber: 'Certificate № 711/2002',
       badge: 'Medical Device Certificate',
       image: '/images/patents/moh-medical-license.png',
-      caption: 'Approved and certified as Class I medical therapeutic equipment by the Ministry of Health.'
+      caption: 'Approved and certified as Class I medical therapeutic equipment by the Ministry of Health.',
+      registryUrl: '/images/patents/moh-medical-license.png',
+      registryName: 'Ministry of Health Archive',
+      inventor: 'Evminov Vertebral Health Center',
+      office: 'Ministry of Health of Ukraine (State Administration of Medical Products)',
+      details: 'Official state clinical registration authorizing deployment in hospital neurology and spinal orthopedic wards.'
+    },
+    {
+      id: 'china-cert',
+      title: 'State Intellectual Property Office (SIPO)',
+      docNumber: 'ZL 99 8 04071.3 / CN 1292706A',
+      badge: 'China (SIPO / CNIPA)',
+      image: '/images/patents/china-patent-sipo.png',
+      caption: 'National patent certificate granted by the Chinese Intellectual Property Office.',
+      registryUrl: 'https://patents.google.com/patent/CN1292706A/en',
+      registryName: 'CNIPA / Google Patents',
+      inventor: 'Vyacheslav V. Evminov',
+      office: 'National Intellectual Property Administration (CNIPA / SIPO)',
+      details: 'Granted national patent publication in Asia protecting the biomechanical spinal decompression mechanism.'
+    },
+    {
+      id: 'epo-claim-cert',
+      title: 'European Patent Claims & Biomechanical Specifications',
+      docNumber: 'EP 1 038 512 Claims',
+      badge: 'EPO Specification',
+      image: '/images/patents/european-patent-claim.png',
+      caption: 'Official patent claims establishing mechanical spinal decompression under variable incline angles.',
+      registryUrl: 'https://patents.google.com/patent/EP1038512B1/en#claims',
+      registryName: 'Espacenet Specifications',
+      inventor: 'Vyacheslav V. Evminov',
+      office: 'European Patent Office (EPO)',
+      details: 'Detailed legal patent claims verifying the traction parameters, resonant flex board properties, and calibrated carriage grip.'
     }
   ]
 };

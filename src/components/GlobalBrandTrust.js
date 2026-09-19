@@ -17,7 +17,7 @@ export const globalDestinations = [
 export function renderGlobalBrandTrust() {
   return `
     <section id="global-trust" class="global-trust-section" aria-label="Worldwide Brand Trust and International Logistics">
-      <div class="container">
+      <div class="calc-container container">
         
         <!-- Header -->
         <div class="global-trust-header text-center">

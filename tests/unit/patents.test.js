@@ -28,4 +28,23 @@ describe('Evminov Patents & Clinical Trials Data Integrity', () => {
     expect(us.cptBillingCode).toContain('97012');
     expect(us.usWarehouse).toContain('Burbank, CA');
   });
+
+  it('should provide clickable registry URLs and high-res images for all patents and scanned documents', () => {
+    expect(patentsAndCertifications.scannedDocuments.length).toBeGreaterThanOrEqual(4);
+
+    patentsAndCertifications.patents.forEach((pat) => {
+      expect(pat.registryUrl).toBeDefined();
+      expect(pat.image).toBeDefined();
+      expect(pat.image).toMatch(/^\/images\/patents\//);
+    });
+
+    patentsAndCertifications.scannedDocuments.forEach((doc) => {
+      expect(doc.id).toBeDefined();
+      expect(doc.title).toBeDefined();
+      expect(doc.docNumber).toBeDefined();
+      expect(doc.image).toMatch(/^\/images\/patents\//);
+      expect(doc.registryUrl).toBeDefined();
+    });
+  });
 });
+

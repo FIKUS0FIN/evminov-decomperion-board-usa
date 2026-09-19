@@ -92,6 +92,15 @@ export function recommendIncline(condition) {
         description: 'Reverses compressive disc shrinkage from heavy axial loads and releases tight lats/erectors.',
         durationMin: 15,
       };
+    case 'pediatric':
+    case 'scoliosis':
+      return {
+        startAngle: 8,
+        maxAngle: 15,
+        label: 'Pediatric Posture, Scoliosis & Growth (Ages 3–15)',
+        description: 'Gentle unweighting of epiphyseal growth plates with 100% bilateral symmetry and rhythmic music ("танці лежачи").',
+        durationMin: 8,
+      };
     case 'posture':
     default:
       return {

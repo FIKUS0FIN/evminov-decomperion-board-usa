@@ -1,0 +1,657 @@
+/* Styles for Pediatric Scoliosis, Family Spinal Hygiene & "Spine Toothbrush" Section */
+
+.pediatric-section {
+  padding: 80px 0;
+  background: linear-gradient(180deg, #F8FAFC 0%, #EFF6FF 50%, #F8FAFC 100%);
+  border-top: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.pediatric-header {
+  max-width: 840px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.pediatric-main-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.pediatric-ukr-subtitle {
+  font-size: clamp(0.875rem, 1.6vw, 1.0625rem);
+  font-weight: 700;
+  color: var(--color-pine-emerald);
+  margin-bottom: 14px;
+}
+
+.pediatric-header-desc {
+  font-size: clamp(0.9375rem, 1.6vw, 1.0625rem);
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  margin: 0 auto;
+}
+
+/* Tabs Bar */
+.pediatric-tabs-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+@media (max-width: 1024px) {
+  .pediatric-tabs-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .pediatric-tabs-bar {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pediatric-tab-btn {
+  background: var(--color-surface-white);
+  border: 1.5px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg, 12px);
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-xs);
+  position: relative;
+}
+
+.pediatric-tab-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-pine-emerald);
+  box-shadow: var(--shadow-sm);
+}
+
+.pediatric-tab-btn.active {
+  background: linear-gradient(145deg, #0A192F 0%, #064E3B 100%);
+  border-color: var(--color-pine-emerald);
+  color: #FFFFFF;
+  box-shadow: 0 10px 25px -5px rgba(6, 78, 59, 0.35);
+}
+
+.pediatric-tab-icon {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.pediatric-tab-title {
+  font-family: var(--font-heading);
+  font-size: 0.9375rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+
+.pediatric-tab-btn.active .pediatric-tab-title {
+  color: #FFFFFF;
+}
+
+.pediatric-tab-sub {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  line-height: 1.25;
+}
+
+.pediatric-tab-btn.active .pediatric-tab-sub {
+  color: #6EE7B7;
+}
+
+/* Panel Display States */
+.pediatric-panel {
+  display: none;
+  animation: fadeInPanel 0.35s ease forwards;
+}
+
+.pediatric-panel.active {
+  display: block;
+}
+
+@keyframes fadeInPanel {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 2-Column Grid Inside Panel */
+.pediatric-grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 960px) {
+  .pediatric-grid-2col {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Glass Cards */
+.pediatric-card-glass {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl, 16px);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-eyebrow-pill {
+  display: inline-flex;
+  align-self: flex-start;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--color-pine-emerald);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  margin-bottom: 12px;
+}
+
+.card-heading-lg {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  line-height: 1.3;
+  margin: 0 0 12px;
+}
+
+.card-text-body {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-text-main);
+  margin: 0 0 18px;
+}
+
+/* Analogy Matrix Box */
+.analogy-matrix-box {
+  background: #F1F5F9;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg, 12px);
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.analogy-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  .analogy-row {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.analogy-side {
+  flex: 1;
+  padding: 10px;
+}
+
+.analogy-side.highlight {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: var(--radius-md, 8px);
+}
+
+.analogy-divider {
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: #94A3B8;
+  padding: 6px 12px;
+  background: #E2E8F0;
+  border-radius: 50%;
+  line-height: 1;
+}
+
+.analogy-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.analogy-desc {
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: #334155;
+}
+
+/* Quote Callout Warning */
+.quote-callout-warning {
+  display: flex;
+  gap: 14px;
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  border-left: 4px solid #EF4444;
+  border-radius: var(--radius-md, 8px);
+  padding: 14px 16px;
+  margin-top: auto;
+}
+
+.callout-icon {
+  font-size: 1.375rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.callout-text {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: #991B1B;
+}
+
+/* Cost Comparison Visual */
+.cost-comparison-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.cost-bar-item {
+  background: #F8FAFC;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md, 10px);
+  padding: 14px 16px;
+}
+
+.cost-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  margin-bottom: 8px;
+}
+
+.text-danger {
+  color: #DC2626;
+  font-size: 0.9375rem;
+}
+
+.text-emerald {
+  color: #059669;
+  font-size: 1.0625rem;
+}
+
+.cost-bar-track {
+  height: 10px;
+  background: #E2E8F0;
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.cost-bar-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.6s ease;
+}
+
+.fill-danger {
+  background: #EF4444;
+}
+
+.fill-emerald {
+  background: linear-gradient(90deg, #10B981, #059669);
+}
+
+.cost-bar-caption {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: #64748B;
+}
+
+.economics-takeaway-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: var(--radius-md, 10px);
+  padding: 12px 14px;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: #064E3B;
+  margin-top: auto;
+}
+
+.takeaway-emoji {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+/* Dance Features List */
+.dance-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dance-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--color-text-main);
+  background: #F8FAFC;
+  padding: 10px 12px;
+  border-radius: var(--radius-md, 8px);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.feature-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pediatric-showcase-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: var(--radius-lg, 12px);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.image-showcase-caption {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-top: 6px;
+  font-style: italic;
+}
+
+/* 13-Point Plan Grid */
+.plan-steps-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .plan-steps-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.plan-step-box {
+  background: #F8FAFC;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md, 8px);
+  padding: 10px 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--color-text-main);
+}
+
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: var(--color-primary-navy);
+  color: #FFFFFF;
+  border-radius: 50%;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Professions Grid */
+.professions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+@media (max-width: 1024px) {
+  .professions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .professions-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.profession-card {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg, 12px);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-xs);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.profession-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-pine-emerald);
+  box-shadow: var(--shadow-sm);
+}
+
+.profession-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.profession-title {
+  font-size: 1.0625rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  margin: 0 0 10px;
+  line-height: 1.3;
+}
+
+.profession-problem {
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: #64748B;
+  margin-bottom: 10px;
+}
+
+.profession-solution {
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: #065F46;
+  background: rgba(16, 185, 129, 0.08);
+  padding: 8px 10px;
+  border-radius: 6px;
+  margin-top: auto;
+}
+
+/* Luxury Quote Cards */
+.quote-card-luxury {
+  background: linear-gradient(145deg, #0A192F 0%, #112240 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg, 12px);
+  padding: 22px;
+  color: #FFFFFF;
+  position: relative;
+}
+
+.quote-mark {
+  font-family: Georgia, serif;
+  font-size: 3rem;
+  color: #34D399;
+  line-height: 0.8;
+  margin-bottom: 4px;
+}
+
+.quote-text-content {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #F1F5F9;
+  margin: 0 0 12px;
+  font-style: italic;
+}
+
+.quote-author-line {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 8px;
+  margin-bottom: 12px;
+}
+
+.author-name {
+  font-weight: 800;
+  font-size: 0.875rem;
+  color: #34D399;
+}
+
+.author-title {
+  font-size: 0.75rem;
+  color: #94A3B8;
+}
+
+.quote-explanation {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: #CBD5E1;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 10px 12px;
+  border-radius: 6px;
+}
+
+/* Biomech Flow Steps */
+.biomech-flow-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.biomech-step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #F8FAFC;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md, 8px);
+  padding: 12px 14px;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--color-text-main);
+}
+
+.biomech-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: var(--color-pine-emerald);
+  color: #FFFFFF;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Bottom CTA Banner */
+.pediatric-bottom-cta-banner {
+  background: linear-gradient(135deg, #0A192F 0%, #064E3B 100%);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: var(--radius-xl, 16px);
+  padding: 36px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  margin-top: 48px;
+  color: #FFFFFF;
+  box-shadow: 0 20px 40px -10px rgba(6, 78, 59, 0.3);
+}
+
+@media (max-width: 960px) {
+  .pediatric-bottom-cta-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 28px 20px;
+  }
+}
+
+.cta-banner-badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #6EE7B7;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.cta-banner-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 8px;
+}
+
+.cta-banner-text {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: #CBD5E1;
+  max-width: 620px;
+  margin: 0;
+}
+
+.cta-banner-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) and (max-width: 960px) {
+  .cta-banner-buttons {
+    flex-direction: row;
+  }
+}

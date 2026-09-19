@@ -146,12 +146,14 @@ export function renderHero() {
                     
                     <div class="hero-slide-badge">
                       <span class="hero-slide-tag">${slide.tag}</span>
-                      <span class="hero-slide-counter">${idx + 1} / ${HERO_GALLERY_SLIDES.length}</span>
                     </div>
 
                     <div class="hero-slide-caption-bar">
-                      <div class="hero-slide-caption-title">${slide.title}</div>
-                      <div class="hero-slide-caption-sub">${slide.caption}</div>
+                      <div class="hero-slide-caption-content">
+                        <div class="hero-slide-caption-title">${slide.title}</div>
+                        <div class="hero-slide-caption-sub">${slide.caption}</div>
+                      </div>
+                      <span class="hero-slide-counter">${idx + 1} / ${HERO_GALLERY_SLIDES.length}</span>
                     </div>
                   </div>
                 `).join('')}

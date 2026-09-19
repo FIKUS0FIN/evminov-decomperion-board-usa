@@ -4,7 +4,7 @@ export function renderReviewsSection() {
   const reviewsHtml = reviews
     .map(
       (rev) => `
-      <div class="review-card" data-condition="${rev.conditionTag}">
+      <div class="review-card" data-condition="${rev.conditionTag} ${rev.category || ''}">
         <div style="display: flex; justify-content: space-between; align-items: flex-start;">
           <div>
             <div style="display: flex; align-items: center; gap: 8px;">
@@ -97,7 +97,7 @@ export function initReviewsSection() {
 
       reviewCards.forEach((card) => {
         const condition = card.getAttribute('data-condition') || '';
-        if (filter === 'all' || condition.includes(filter)) {
+        if (filter === 'all' || condition.toLowerCase().includes(filter.toLowerCase())) {
           card.style.display = 'flex';
         } else {
           card.style.display = 'none';

@@ -1,4 +1,13 @@
-/* Component Styles: Buttons, Badges, Cards, Comparison Matrix, Video Modal */
+/* Standard Layout Containers */
+.container,
+.calc-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+}
 
 /* Badges */
 .badge {
