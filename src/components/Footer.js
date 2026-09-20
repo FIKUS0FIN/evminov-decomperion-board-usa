@@ -35,8 +35,6 @@ export function renderFooter() {
               <a href="#product-evminov-wide">Wide Heavy-Duty Board</a>
               <a href="#product-evminov-alder">Select Alder Wood Edition</a>
               <a href="#product-evminov-stand">Demountable Renter Stand</a>
-              <a href="#product-evminov-glisson">Glisson Neck Harness</a>
-              <a href="#product-evminov-foot-sleeves">Carriage Foot Attachments</a>
               <a href="#us-shipping" style="color: #38BDF8; font-weight: 600;">🇺🇸 50 US States Delivery</a>
               <a href="#global-trust" style="color: #34D399; font-weight: 600;">🌍 Worldwide Brand &amp; Shipping</a>
             </div>

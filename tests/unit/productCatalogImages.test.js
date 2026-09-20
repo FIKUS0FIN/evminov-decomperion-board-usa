@@ -37,7 +37,8 @@ describe('Product Catalog Visual Assets & Explanations', () => {
     expect(travelBoard.keyFeature.toLowerCase()).toContain('travel');
   });
 
-  it('verifies all 5 official Evminov boards and 3 accessories are defined', () => {
+  it('verifies all 5 official Evminov boards and the freestanding stand form the clean 6-item catalog (3 in row 1, 3 in row 2)', () => {
+    expect(products.length).toBe(6);
     const boardIds = [
       'evminov-standard',
       'evminov-folding-2part',
@@ -47,8 +48,6 @@ describe('Product Catalog Visual Assets & Explanations', () => {
     ];
     const accessoryIds = [
       'evminov-stand',
-      'evminov-glisson',
-      'evminov-foot-sleeves',
     ];
 
     boardIds.forEach((id) => {
@@ -66,24 +65,12 @@ describe('Product Catalog Visual Assets & Explanations', () => {
     });
   });
 
-  it('padded foot sleeves clearly demonstrate slide-on installation and usage', () => {
-    const sleeves = products.find((p) => p.id === 'evminov-foot-sleeves');
-    expect(sleeves).toBeDefined();
-    expect(sleeves.image).toBe('/images/products/carriage-foot-sleeves-studio.jpg');
-
-    // Confirm image file exists on disk
-    const imgPath = path.join(publicDir, sleeves.image);
-    expect(fs.existsSync(imgPath)).toBe(true);
-
-    // Check gallery includes authentic studio pair, hand grip, and reverse traction
-    const galleryUrls = sleeves.galleryImages.map((g) => g.url);
-    expect(galleryUrls).toContain('/images/products/carriage-foot-sleeves-studio.jpg');
-    expect(galleryUrls).toContain('/images/authentic/hero-carriage-traction-detail.jpg');
-    expect(galleryUrls).toContain('/images/authentic/exercise-reverse-traction.jpg');
-
-    // Verify copy clarifies slide-on fit and ankle/foot cushioning
-    expect(sleeves.subtitle).toContain('slide');
-    expect(sleeves.subtitle).toContain('ankles');
+  it('verifies that every board set includes the Patented Glisson Loop for cervical decompression', () => {
+    const boards = products.filter((p) => p.category === 'board');
+    boards.forEach((b) => {
+      const hasGlisson = b.includes.some((inc) => inc.toLowerCase().includes('glisson'));
+      expect(hasGlisson, `Board ${b.id} must include Glisson Loop`).toBe(true);
+    });
   });
 
   it('verifies all product images and gallery images exist on disk', () => {

@@ -3,6 +3,10 @@ import { formatUSD, formatKlarna } from '../utils/formatters.js';
 import { cartStore } from '../utils/cartStore.js';
 
 export function renderProductCatalog() {
+  const totalCount = products.length;
+  const boardsCount = products.filter((p) => p.category === 'board').length;
+  const accessoryCount = products.filter((p) => p.category === 'accessory').length;
+
   const cardsHtml = products
     .map((product) => {
       const isBoard = product.category === 'board';
@@ -344,17 +348,19 @@ export function renderProductCatalog() {
         <!-- Catalog Category Filter Bar -->
         <div class="catalog-filter-bar">
           <button type="button" class="catalog-filter-btn active" data-filter="all">
-            <span>🌟 All Products</span>
-            <span class="filter-count">8</span>
+            <span>🌟 All Systems</span>
+            <span class="filter-count">${totalCount}</span>
           </button>
           <button type="button" class="catalog-filter-btn" data-filter="board">
-            <span><img src="/images/authentic/evminov-official-logo.png" alt="" class="inline-brand-crest" width="16" height="16" /> Evminov Decompression Boards</span>
-            <span class="filter-count">5</span>
+            <span><img src="/images/authentic/evminov-official-logo.png" alt="" class="inline-brand-crest" width="16" height="16" /> Decompression Boards</span>
+            <span class="filter-count">${boardsCount}</span>
           </button>
+          ${accessoryCount > 0 ? `
           <button type="button" class="catalog-filter-btn" data-filter="accessory">
-            <span>🔩 Stands &amp; Accessories</span>
-            <span class="filter-count">3</span>
+            <span>🔩 Renter Ladder Stand</span>
+            <span class="filter-count">${accessoryCount}</span>
           </button>
+          ` : ''}
         </div>
 
         <div class="products-grid" id="products-grid">
