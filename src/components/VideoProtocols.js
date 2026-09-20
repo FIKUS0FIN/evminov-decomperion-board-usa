@@ -282,7 +282,7 @@ export function initVideoProtocols() {
   let ytPlayer = null;
   let isPlayerReady = false;
   let isPlaying = false;
-  let isSoundEnabled = false; // Starts muted so browser doesn't block autoplay
+  let isSoundEnabled = true; // Default 100% sound active
 
   function sendIframeCommand(func, args = []) {
     if (iframe && iframe.contentWindow) {
@@ -344,9 +344,17 @@ export function initVideoProtocols() {
       try {
         if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
           ytPlayer.playVideo();
+          if (isSoundEnabled) {
+            if (typeof ytPlayer.unMute === 'function') ytPlayer.unMute();
+            if (typeof ytPlayer.setVolume === 'function') ytPlayer.setVolume(100);
+          }
         }
       } catch (e) {}
       sendIframeCommand('playVideo');
+      if (isSoundEnabled) {
+        sendIframeCommand('unMute');
+        sendIframeCommand('setVolume', [100]);
+      }
       isPlaying = true;
     }
 
@@ -419,18 +427,27 @@ export function initVideoProtocols() {
 
   // Automatically enable sound on first user gesture anywhere if video is in view
   function onFirstUserGesture() {
-    if (ytPlayer && isPlayerReady && isSoundEnabled) {
+    if (isSoundEnabled) {
       try {
-        ytPlayer.unMute();
-        ytPlayer.setVolume(100);
+        if (ytPlayer) {
+          if (typeof ytPlayer.unMute === 'function') ytPlayer.unMute();
+          if (typeof ytPlayer.setVolume === 'function') ytPlayer.setVolume(100);
+        }
       } catch (e) {}
+      sendIframeCommand('unMute');
+      sendIframeCommand('setVolume', [100]);
     }
     window.removeEventListener('pointerdown', onFirstUserGesture);
     window.removeEventListener('keydown', onFirstUserGesture);
+    window.removeEventListener('scroll', onFirstUserGesture);
   }
 
   window.addEventListener('pointerdown', onFirstUserGesture, { passive: true, once: true });
   window.addEventListener('keydown', onFirstUserGesture, { passive: true, once: true });
+  window.addEventListener('scroll', onFirstUserGesture, { passive: true, once: true });
+
+  // Initial badge update to 100% sound active
+  updateAudioBadge(100, false);
 
   // Throttled scroll listener
   let ticking = false;

@@ -767,7 +767,7 @@
 /* Floating Audio Control & Scroll-Fade Indicator Badge */
 .video-audio-control-badge {
   position: absolute;
-  top: 14px;
+  top: 58px;
   right: 14px;
   z-index: 10;
   display: inline-flex;
@@ -838,7 +838,7 @@
 
 @media (max-width: 640px) {
   .video-audio-control-badge {
-    top: 10px;
+    top: 50px;
     right: 10px;
     padding: 5px 9px;
     font-size: 0.6875rem;

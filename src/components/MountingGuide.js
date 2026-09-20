@@ -133,9 +133,9 @@ export function renderMountingGuide() {
                   aria-label="Toggle assembly video sound"
                   title="Sound automatically fades as you scroll away. Tap to toggle mute."
                 >
-                  <span class="audio-icon" id="assembly-audio-icon">🔇</span>
-                  <span class="audio-label" id="assembly-audio-label">Muted • Tap for sound</span>
-                  <span class="audio-volume-pill" id="assembly-volume-pill">0%</span>
+                  <span class="audio-icon" id="assembly-audio-icon">🔊</span>
+                  <span class="audio-label" id="assembly-audio-label">Sound Active • Auto-fades on scroll</span>
+                  <span class="audio-volume-pill" id="assembly-volume-pill">100%</span>
                 </button>
               </div>
 
@@ -297,7 +297,7 @@ export function initMountingGuide() {
   let ytPlayer = null;
   let isPlayerReady = false;
   let isPlaying = false;
-  let isSoundEnabled = false; // Starts muted so browser allows autoplay
+  let isSoundEnabled = true; // Starts with sound active at 100%
 
   function sendIframeCommand(func, args = []) {
     if (iframe && iframe.contentWindow) {
@@ -359,9 +359,17 @@ export function initMountingGuide() {
       try {
         if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
           ytPlayer.playVideo();
+          if (isSoundEnabled) {
+            if (typeof ytPlayer.unMute === 'function') ytPlayer.unMute();
+            if (typeof ytPlayer.setVolume === 'function') ytPlayer.setVolume(100);
+          }
         }
       } catch (e) {}
       sendIframeCommand('playVideo');
+      if (isSoundEnabled) {
+        sendIframeCommand('unMute');
+        sendIframeCommand('setVolume', [100]);
+      }
       isPlaying = true;
     }
 
@@ -427,6 +435,30 @@ export function initMountingGuide() {
       }
     });
   }
+
+  // Automatically enable sound on first user gesture anywhere if video is in view
+  function onFirstUserGesture() {
+    if (isSoundEnabled) {
+      try {
+        if (ytPlayer) {
+          if (typeof ytPlayer.unMute === 'function') ytPlayer.unMute();
+          if (typeof ytPlayer.setVolume === 'function') ytPlayer.setVolume(100);
+        }
+      } catch (e) {}
+      sendIframeCommand('unMute');
+      sendIframeCommand('setVolume', [100]);
+    }
+    window.removeEventListener('pointerdown', onFirstUserGesture);
+    window.removeEventListener('keydown', onFirstUserGesture);
+    window.removeEventListener('scroll', onFirstUserGesture);
+  }
+
+  window.addEventListener('pointerdown', onFirstUserGesture, { passive: true, once: true });
+  window.addEventListener('keydown', onFirstUserGesture, { passive: true, once: true });
+  window.addEventListener('scroll', onFirstUserGesture, { passive: true, once: true });
+
+  // Initial badge update to 100% sound active
+  updateAudioBadge(100, false);
 
   // Interactive Chapter Clicks
   const chapterItems = document.querySelectorAll('.assembly-chapter-item');
