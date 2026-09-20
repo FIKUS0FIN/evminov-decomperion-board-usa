@@ -212,10 +212,10 @@ export const products = [
       '60-Day Risk-Free Home Trial & 10-Year Craftsmanship Warranty',
     ],
     finishes: ['Natural Ukrainian Alder (Warm Amber)', 'Royal Cognac Alder (Dark Hue)'],
-    image: '/images/products/board-dark-walnut-finish.jpg',
+    image: '/images/products/board-studio-woodgrain.jpg',
     galleryImages: [
-      { url: '/images/products/board-dark-walnut-finish.jpg', label: 'Alder Amber Finish' },
       { url: '/images/products/board-studio-woodgrain.jpg', label: 'Silky Alder Grain' },
+      { url: '/images/products/board-dark-walnut-finish.jpg', label: 'Alder Amber Finish' },
       { url: '/images/authentic/evminov-board-profile.jpg', label: 'Artisan Profile' },
       { url: '/images/authentic/hero-reverse-decompression.jpg', label: 'Lightweight Handling' },
       { url: '/images/authentic/evminov-pine-wood-detail.jpg', label: 'Handcrafted Timber Detail' }
