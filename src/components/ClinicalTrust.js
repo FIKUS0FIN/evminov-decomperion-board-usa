@@ -109,9 +109,9 @@ export function renderClinicalTrust() {
                 <img 
                   src="/images/authentic/vyacheslav-evminov-founder.jpg" 
                   alt="Vyacheslav Evminov, Master of Sports &amp; Founder of the Evminov Vertebral Center in Kyiv" 
-                  style="width: 100%; height: 260px; object-fit: cover; object-position: center 25%; display: block;"
+                  style="width: 100%; height: 340px; object-fit: cover; object-position: center top; display: block;"
                 />
-                <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11, 19, 43, 0.35) 0%, transparent 45%, rgba(11, 19, 43, 0.5) 100%); pointer-events: none;"></div>
+                <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11, 19, 43, 0.22) 0%, transparent 40%, rgba(11, 19, 43, 0.55) 100%); pointer-events: none;"></div>
                 
                 <span class="badge badge-gold" style="position: absolute; top: 12px; left: 12px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); background: rgba(217, 119, 6, 0.88); color: #FFFFFF; font-weight: 700; font-size: 0.75rem; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
                   Founder &amp; Method Creator
