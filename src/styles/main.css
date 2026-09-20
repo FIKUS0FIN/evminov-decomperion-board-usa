@@ -2255,25 +2255,30 @@ body.nav-drawer-open {
   flex: 1;
 }
 
-/* Consistent Vertical Alignment Across Board Cards in Catalog Grid */
+/* Consistent Vertical Alignment Across Cards in Catalog Grid */
 @media (min-width: 768px) {
-  .product-card-board .product-card-title {
+  .product-card-board .product-card-title,
+  #product-evminov-stand .product-card-title {
     min-height: 5.15rem;
   }
 
-  .product-card-board .product-card-desc {
+  .product-card-board .product-card-desc,
+  #product-evminov-stand .product-card-desc {
     min-height: 5.65rem;
   }
 
-  .product-card-board .product-distinction-box {
+  .product-card-board .product-distinction-box,
+  #product-evminov-stand .product-distinction-box {
     min-height: 144px;
   }
 
-  .product-card-board .product-price-box {
+  .product-card-board .product-price-box,
+  #product-evminov-stand .product-price-box {
     min-height: 90px;
   }
 
-  .product-card-board .product-specs-grid {
+  .product-card-board .product-specs-grid,
+  #product-evminov-stand .product-specs-grid {
     min-height: 172px;
   }
 }

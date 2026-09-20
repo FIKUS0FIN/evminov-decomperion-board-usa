@@ -119,7 +119,7 @@ export function renderProductCatalog() {
                 <span class="product-rating-text">
                   ${product.rating} (${product.reviewsCount} reviews)
                 </span>
-                ${isBoard ? '<span class="badge badge-cyan" style="font-size: 0.6875rem; padding: 2px 8px; margin-left: auto;">Patented Board</span>' : ''}
+                ${isBoard ? '<span class="badge badge-cyan" style="font-size: 0.6875rem; padding: 2px 8px; margin-left: auto;">Patented Board</span>' : (product.id === 'evminov-stand' ? '<span class="badge badge-pine" style="font-size: 0.6875rem; padding: 2px 8px; margin-left: auto;">Freestanding Stand</span>' : '')}
               </div>
               <h3 class="product-card-title">${product.name}</h3>
               <p class="product-card-desc">${product.subtitle}</p>
