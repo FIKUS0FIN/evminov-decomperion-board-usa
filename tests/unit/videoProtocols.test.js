@@ -26,6 +26,24 @@ describe('Video Protocols & Embed Verification (YouTube Error 153 Fix & Autoplay
     expect(html).toContain('Sound Active • Auto-fades on scroll');
   });
 
+  it('should render clinical video player with official logo, trust strip, and clinical methodology emblems', () => {
+    const html = renderVideoProtocols();
+
+    // Clinical authorization header strip with official logo
+    expect(html).toContain('/images/authentic/evminov-official-logo.png');
+    expect(html).toContain('Official Clinical Methodology');
+    expect(html).toContain('Kyiv Vertebral Center Clinical Guide');
+    expect(html).toContain('Methodology Certified');
+
+    // Clinical execution emblems
+    expect(html).toContain('Fractional Traction');
+    expect(html).toContain('8°–20° Calibrated Incline');
+    expect(html).toContain('Osmotic Diffusion');
+    expect(html).toContain('Micro-Amplitude Motion');
+    expect(html).toContain('Deep Core Corset');
+    expect(html).toContain('Multifidus Paraspinal Tone');
+  });
+
   it('should ensure all other video embeds across MountingGuide and RehabilitationCentersPage have fixed referrerpolicy and embed domain', () => {
     const mountingHtml = renderMountingGuide();
     expect(mountingHtml).toContain('https://www.youtube.com/embed/fP-biAHusGs');

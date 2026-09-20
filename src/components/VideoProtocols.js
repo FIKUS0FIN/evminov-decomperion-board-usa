@@ -67,31 +67,83 @@ export function renderVideoProtocols() {
         <div class="cinematic-video-section" style="margin-bottom: 48px; padding: 40px; background: #0B132B; border-radius: var(--radius-xl); color: #FFFFFF; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 25px 50px -12px rgba(11, 19, 43, 0.4);">
           <div class="cinematic-video-grid">
             
-            <!-- Video Column (55% Half-Screen Player) with Scroll-Driven Autoplay & Audio Fade -->
-            <div class="video-frame-container" id="featured-video-container">
-              <iframe 
-                id="featured-video-player"
-                src="https://www.youtube.com/embed/GDLVNWynWF0?enablejsapi=1&playsinline=1&rel=0&modestbranding=1" 
-                title="Official Clinical Exercise Set on Evminov Spine Decompression Board" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-                loading="lazy"
-              ></iframe>
-              <div class="video-glow-effect"></div>
+            <!-- Video Column (55% Half-Screen Player) with Trust Strip & Clinical Principles Emblems -->
+            <div class="assembly-video-column">
+              <!-- Top Trust Strip: Official Kyiv Clinical Methodology Header -->
+              <div class="assembly-video-header-strip">
+                <div class="assembly-brand-group">
+                  <img 
+                    src="/images/authentic/evminov-official-logo.png" 
+                    alt="Official Evminov Spine Center Kyiv Seal" 
+                    class="assembly-factory-logo"
+                  />
+                  <div class="assembly-factory-text">
+                    <span class="assembly-factory-kicker">Official Clinical Methodology</span>
+                    <strong class="assembly-factory-title">Kyiv Vertebral Center Clinical Guide</strong>
+                  </div>
+                </div>
+                <div class="assembly-cert-badge">
+                  <span class="assembly-cert-dot"></span>
+                  <span>Methodology Certified</span>
+                </div>
+              </div>
 
-              <!-- Interactive Floating Sound & Autoplay Indicator / Toggle -->
-              <button 
-                type="button" 
-                class="video-audio-control-badge" 
-                id="video-audio-toggle" 
-                aria-label="Toggle video sound"
-                title="Sound automatically fades as you scroll away. Tap to toggle mute."
-              >
-                <span class="audio-icon" id="video-audio-icon">🔊</span>
-                <span class="audio-label" id="video-audio-label">Sound Active • Auto-fades on scroll</span>
-                <span class="audio-volume-pill" id="video-volume-pill">100%</span>
-              </button>
+              <!-- Main Video Frame with Floating Sound Toggle -->
+              <div class="video-frame-container" id="featured-video-container">
+                <iframe 
+                  id="featured-video-player"
+                  src="https://www.youtube.com/embed/GDLVNWynWF0?enablejsapi=1&playsinline=1&rel=0&modestbranding=1" 
+                  title="Official Clinical Exercise Set on Evminov Spine Decompression Board" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                  loading="lazy"
+                ></iframe>
+                <div class="video-glow-effect"></div>
+
+                <!-- Interactive Floating Sound & Autoplay Indicator / Toggle -->
+                <button 
+                  type="button" 
+                  class="video-audio-control-badge" 
+                  id="video-audio-toggle" 
+                  aria-label="Toggle video sound"
+                  title="Sound automatically fades as you scroll away. Tap to toggle mute."
+                >
+                  <span class="audio-icon" id="video-audio-icon">🔊</span>
+                  <span class="audio-label" id="video-audio-label">Sound Active • Auto-fades on scroll</span>
+                  <span class="audio-volume-pill" id="video-volume-pill">100%</span>
+                </button>
+              </div>
+
+              <!-- Bottom Clinical Execution Emblems / Method Principles -->
+              <div class="assembly-spec-emblems">
+                <div class="assembly-spec-card">
+                  <div class="assembly-spec-icon-row">
+                    <span class="assembly-spec-icon">📐</span>
+                    <span class="assembly-spec-tag tag-cyan">Fractional Traction</span>
+                  </div>
+                  <strong class="assembly-spec-title">8°–20° Calibrated Incline</strong>
+                  <p class="assembly-spec-desc">Unloads up to 70% axial bodyweight gravity, widening narrowed intervertebral foramina.</p>
+                </div>
+
+                <div class="assembly-spec-card">
+                  <div class="assembly-spec-icon-row">
+                    <span class="assembly-spec-icon">🌊</span>
+                    <span class="assembly-spec-tag tag-emerald">Osmotic Diffusion</span>
+                  </div>
+                  <strong class="assembly-spec-title">Micro-Amplitude Motion</strong>
+                  <p class="assembly-spec-desc">Rhythmic short-stroke kinematics pump nutrient-rich synovial fluid into dehydrated discs.</p>
+                </div>
+
+                <div class="assembly-spec-card">
+                  <div class="assembly-spec-icon-row">
+                    <span class="assembly-spec-icon">🛡️</span>
+                    <span class="assembly-spec-tag tag-amber">Deep Core Corset</span>
+                  </div>
+                  <strong class="assembly-spec-title">Multifidus Paraspinal Tone</strong>
+                  <p class="assembly-spec-desc">Strengthens deep intervertebral rotators and stabilizing ligaments without compressive load.</p>
+                </div>
+              </div>
             </div>
 
             <!-- Narrative & Protocol Phases Column (45%) -->
