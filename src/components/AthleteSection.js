@@ -287,16 +287,16 @@ export function renderAthleteSection() {
 
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 20px;">
             
-            <!-- Column 1: Pullup Bar -->
-            <div style="background: #FFFFFF; border: 1px solid #FECACA; border-radius: var(--radius-lg); padding: 22px; position: relative;">
+            <!-- Column 1: Evminov Board -->
+            <div style="background: #FFFFFF; border: 2px solid var(--color-pine-emerald); border-radius: var(--radius-lg); padding: 22px; position: relative; box-shadow: var(--shadow-sm);">
               <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
-                <span style="font-weight: 800; color: #DC2626; font-size: 1.0625rem;">Hanging from Pullup Bar</span>
-                <span style="color: #DC2626; font-size: 1.25rem;">✕</span>
+                <span style="font-weight: 800; color: var(--color-pine-emerald); font-size: 1.0625rem;">Evminov Inclined Flex Board</span>
+                <span style="color: var(--color-pine-emerald); font-size: 1.25rem;">✓</span>
               </div>
-              <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.6;">
-                <li style="margin-bottom: 8px;">• <strong>Isometric Guarding:</strong> Grip effort forces lats, shoulders, and abs to fire contractually.</li>
-                <li style="margin-bottom: 8px;">• <strong>Paraspinal Lock:</strong> Deep multifidus muscles clench shut, preventing lower lumbar release.</li>
-                <li>• <strong>Fatigue Limit:</strong> Grip fails after 60 seconds before discs can create osmotic vacuum.</li>
+              <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.875rem; color: var(--color-text-main); line-height: 1.6;">
+                <li style="margin-bottom: 8px;">• <strong>Zero Grip Fatigue:</strong> Body is supported at 8° to 35°, allowing total paraspinal release.</li>
+                <li style="margin-bottom: 8px;">• <strong>Fractional Traction:</strong> Pure 40–60 lbs axial pull without head pressure or ankle trauma.</li>
+                <li>• <strong>Dynamic Pine Spring:</strong> Carpathian timber deflects to match natural spinal curvature.</li>
               </ul>
             </div>
 
@@ -313,16 +313,16 @@ export function renderAthleteSection() {
               </ul>
             </div>
 
-            <!-- Column 3: Evminov Board -->
-            <div style="background: #FFFFFF; border: 2px solid var(--color-pine-emerald); border-radius: var(--radius-lg); padding: 22px; position: relative; box-shadow: var(--shadow-sm);">
+            <!-- Column 3: Pullup Bar -->
+            <div style="background: #FFFFFF; border: 1px solid #FECACA; border-radius: var(--radius-lg); padding: 22px; position: relative;">
               <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
-                <span style="font-weight: 800; color: var(--color-pine-emerald); font-size: 1.0625rem;">Evminov Inclined Flex Board</span>
-                <span style="color: var(--color-pine-emerald); font-size: 1.25rem;">✓</span>
+                <span style="font-weight: 800; color: #DC2626; font-size: 1.0625rem;">Hanging from Pullup Bar</span>
+                <span style="color: #DC2626; font-size: 1.25rem;">✕</span>
               </div>
-              <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.875rem; color: var(--color-text-main); line-height: 1.6;">
-                <li style="margin-bottom: 8px;">• <strong>Zero Grip Fatigue:</strong> Body is supported at 8° to 35°, allowing total paraspinal release.</li>
-                <li style="margin-bottom: 8px;">• <strong>Fractional Traction:</strong> Pure 40–60 lbs axial pull without head pressure or ankle trauma.</li>
-                <li>• <strong>Dynamic Pine Spring:</strong> Carpathian timber deflects to match natural spinal curvature.</li>
+              <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.6;">
+                <li style="margin-bottom: 8px;">• <strong>Isometric Guarding:</strong> Grip effort forces lats, shoulders, and abs to fire contractually.</li>
+                <li style="margin-bottom: 8px;">• <strong>Paraspinal Lock:</strong> Deep multifidus muscles clench shut, preventing lower lumbar release.</li>
+                <li>• <strong>Fatigue Limit:</strong> Grip fails after 60 seconds before discs can create osmotic vacuum.</li>
               </ul>
             </div>
 
