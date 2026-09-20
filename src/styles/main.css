@@ -2059,6 +2059,7 @@ body.nav-drawer-open {
 .product-price-box {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 4px;
   padding: 12px 16px;
   background: var(--color-bg-secondary);
@@ -2178,6 +2179,8 @@ body.nav-drawer-open {
   border-radius: var(--radius-md, 8px);
   padding: 10px 12px;
   margin: 4px 0 2px;
+  display: flex;
+  flex-direction: column;
 }
 
 .distinction-tag-row {
@@ -2202,6 +2205,30 @@ body.nav-drawer-open {
   line-height: 1.45;
   color: #1E293B;
   margin: 0;
+  flex: 1;
+}
+
+/* Consistent Vertical Alignment Across Board Cards in Catalog Grid */
+@media (min-width: 768px) {
+  .product-card-board .product-card-title {
+    min-height: 5.15rem;
+  }
+
+  .product-card-board .product-card-desc {
+    min-height: 5.65rem;
+  }
+
+  .product-card-board .product-distinction-box {
+    min-height: 144px;
+  }
+
+  .product-card-board .product-price-box {
+    min-height: 90px;
+  }
+
+  .product-card-board .product-specs-grid {
+    min-height: 172px;
+  }
 }
 
 /* Specs Full Column spanning */

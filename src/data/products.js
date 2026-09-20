@@ -102,7 +102,7 @@ export const products = [
     ukrName: 'Складаний (розбірний) Профілактор з 3-х частин',
     badge: 'Car Trunk & Airline Ready • 3-Piece Travel',
     subtitle: 'The most compact mobile board in the Evminov family. Engineered to pack down effortlessly into any car trunk, SUV cargo bay, or aircraft luggage travel bag.',
-    keyFeature: 'Ultra-compact mobile design (~31" folded segments). Easily packs into vehicle trunks, SUVs, or luggage bags for air travel. Ideal for frequent travelers, vacation homes, and mobile physical therapists.',
+    keyFeature: 'Ultra-compact mobile design (~31" folded segments). Packs effortlessly into car trunks, SUVs, or luggage bags for air travel. Ideal for frequent travelers, vacation homes, and mobile physical therapists.',
     basePrice: 495,
     fastPrice: 635,
     rating: 4.9,
