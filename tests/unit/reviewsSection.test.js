@@ -47,8 +47,9 @@ describe('Reviews 2-Row Carousel & Controls Verification', () => {
     const mainCss = fs.readFileSync(mainCssPath, 'utf8');
 
     expect(mainCss).toContain('.reviews-carousel-track');
+    expect(mainCss).toContain('.reviews-carousel-page');
+    expect(mainCss).toContain('grid-template-columns: repeat(3, minmax(0, 1fr))');
     expect(mainCss).toContain('grid-template-rows: repeat(2, minmax(280px, 1fr))');
-    expect(mainCss).toContain('grid-auto-flow: column');
     expect(mainCss).toContain('.reviews-carousel-viewport');
     expect(mainCss).toContain('scroll-snap-type: x mandatory');
     expect(mainCss).toContain('.reviews-float-arrow');

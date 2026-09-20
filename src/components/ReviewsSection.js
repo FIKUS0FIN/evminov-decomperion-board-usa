@@ -1,45 +1,59 @@
 import { reviews } from '../data/reviews.js';
 
-export function renderReviewsSection() {
-  const reviewsHtml = reviews
-    .map(
-      (rev) => `
-      <div class="review-card" data-condition="${rev.conditionTag} ${rev.category || ''}" data-id="${rev.id}">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <div>
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <span class="star-rating">★★★★★</span>
-              <span class="badge badge-pine" style="font-size: 0.6875rem; padding: 2px 8px;">
-                ${rev.badge || 'Verified Purchase'}
-              </span>
-            </div>
-            <h4 style="font-size: 1.0625rem; font-weight: 800; color: var(--color-primary-navy); margin-top: 8px; line-height: 1.3;">
-              "${rev.title}"
-            </h4>
+export function renderReviewCard(rev) {
+  return `
+    <div class="review-card" data-condition="${rev.conditionTag} ${rev.category || ''}" data-id="${rev.id}">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="star-rating">★★★★★</span>
+            <span class="badge badge-pine" style="font-size: 0.6875rem; padding: 2px 8px;">
+              ${rev.badge || 'Verified Purchase'}
+            </span>
           </div>
-        </div>
-
-        <p style="font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.6; flex: 1;">
-          ${rev.content}
-        </p>
-
-        <div style="display: flex; justify-content: space-between; align-items: flex-end; padding-top: 12px; border-top: 1px solid var(--color-border-subtle); margin-top: auto;">
-          <div>
-            <div style="font-weight: 800; font-size: 0.875rem; color: var(--color-text-main);">
-              ${rev.author}
-            </div>
-            <div style="font-size: 0.75rem; color: var(--color-text-muted);">
-              ${rev.role} • ${rev.location}
-            </div>
-          </div>
-          <span class="badge badge-cyan" style="font-size: 0.6875rem;">
-            ${rev.conditionTag}
-          </span>
+          <h4 style="font-size: 1.0625rem; font-weight: 800; color: var(--color-primary-navy); margin-top: 8px; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+            "${rev.title}"
+          </h4>
         </div>
       </div>
-    `
-    )
-    .join('');
+
+      <p style="font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.6; flex: 1; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+        ${rev.content}
+      </p>
+
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; padding-top: 12px; border-top: 1px solid var(--color-border-subtle); margin-top: auto;">
+        <div>
+          <div style="font-weight: 800; font-size: 0.875rem; color: var(--color-text-main);">
+            ${rev.author}
+          </div>
+          <div style="font-size: 0.75rem; color: var(--color-text-muted);">
+            ${rev.role} • ${rev.location}
+          </div>
+        </div>
+        <span class="badge badge-cyan" style="font-size: 0.6875rem;">
+          ${rev.conditionTag}
+        </span>
+      </div>
+    </div>
+  `;
+}
+
+export function renderReviewPages(list, pageSize = 6) {
+  const pagesCount = Math.max(1, Math.ceil(list.length / pageSize));
+  let html = '';
+  for (let p = 0; p < pagesCount; p++) {
+    const chunk = list.slice(p * pageSize, (p + 1) * pageSize);
+    html += `
+      <div class="reviews-carousel-page" data-page="${p}">
+        ${chunk.map((rev) => renderReviewCard(rev)).join('')}
+      </div>
+    `;
+  }
+  return html;
+}
+
+export function renderReviewsSection() {
+  const reviewsPagesHtml = renderReviewPages(reviews, 6);
 
   return `
     <section class="catalog-section" id="reviews" style="background: var(--color-surface-white);">
@@ -56,7 +70,7 @@ export function renderReviewsSection() {
           </p>
         </div>
 
-        <!-- 2-Row Interactive Carousel Component -->
+        <!-- 2-Row Interactive Carousel Component (6 Cards Per View: 3 per row × 2 rows) -->
         <div class="reviews-carousel-wrapper" id="reviews-carousel-section">
           
           <!-- Controls Toolbar: Filters & Dropdown on Left, Counter & Prev/Next on Right -->
@@ -116,7 +130,7 @@ export function renderReviewsSection() {
 
             <div class="reviews-carousel-viewport" id="reviews-carousel-viewport" tabindex="0" role="region" aria-label="Patient and Athlete Reviews Carousel">
               <div class="reviews-carousel-track" id="reviews-carousel-track">
-                ${reviewsHtml}
+                ${reviewsPagesHtml}
               </div>
             </div>
 
@@ -149,53 +163,39 @@ export function initReviewsSection() {
   const dotsContainer = document.getElementById('reviews-carousel-dots');
   const filterButtons = document.querySelectorAll('#reviews-filter-bar button');
   const categoryDropdown = document.getElementById('reviews-category-dropdown');
-  const reviewCards = document.querySelectorAll('#reviews-carousel-track .review-card');
 
   if (!viewport || !track) return;
 
-  function getCardsPerView() {
-    const width = viewport.clientWidth || (typeof window !== 'undefined' && window.innerWidth) || 1200;
-    if (width >= 1024) return 6; // 3 columns * 2 rows
-    if (width >= 640) return 4;  // 2 columns * 2 rows
-    return 2;                    // 1 column * 2 rows
-  }
+  const PAGE_SIZE = 6;
+  let currentFilter = 'all';
+  let filteredReviews = [...reviews];
+  let currentPage = 0;
+  let totalPages = Math.max(1, Math.ceil(filteredReviews.length / PAGE_SIZE));
 
-  function getVisibleCards() {
-    return Array.from(reviewCards).filter((card) => card.style.display !== 'none');
-  }
-
-  function updateCarouselUI() {
-    const visibleCards = getVisibleCards();
-    const cardsPerView = getCardsPerView();
-    const totalPages = Math.max(1, Math.ceil(visibleCards.length / cardsPerView));
-    const scrollLeft = viewport.scrollLeft || 0;
-    const clientWidth = viewport.clientWidth || 1;
-    const currentPage = Math.min(totalPages - 1, Math.max(0, Math.round(scrollLeft / clientWidth)));
-
+  function updateUI() {
     // Update counter
     if (counterCurr && counterTotal) {
-      if (visibleCards.length === 0) {
+      if (filteredReviews.length === 0) {
         counterCurr.textContent = '0';
         counterTotal.textContent = '0';
       } else {
-        const start = currentPage * cardsPerView + 1;
-        const end = Math.min(visibleCards.length, (currentPage + 1) * cardsPerView);
+        const start = currentPage * PAGE_SIZE + 1;
+        const end = Math.min(filteredReviews.length, (currentPage + 1) * PAGE_SIZE);
         counterCurr.textContent = `${start}–${end}`;
-        counterTotal.textContent = `${visibleCards.length}`;
+        counterTotal.textContent = `${filteredReviews.length}`;
       }
     }
 
-    // Update navigation button disabled states
-    const maxScroll = track.scrollWidth - viewport.clientWidth - 6;
-    const canScrollPrev = scrollLeft > 10;
-    const canScrollNext = scrollLeft < maxScroll && totalPages > 1;
+    // Button states
+    const canPrev = currentPage > 0;
+    const canNext = currentPage < totalPages - 1;
 
-    if (prevBtn) prevBtn.disabled = !canScrollPrev;
-    if (nextBtn) nextBtn.disabled = !canScrollNext;
-    if (floatPrev) floatPrev.disabled = !canScrollPrev;
-    if (floatNext) floatNext.disabled = !canScrollNext;
+    if (prevBtn) prevBtn.disabled = !canPrev;
+    if (nextBtn) nextBtn.disabled = !canNext;
+    if (floatPrev) floatPrev.disabled = !canPrev;
+    if (floatNext) floatNext.disabled = !canNext;
 
-    // Render / update dots
+    // Dots
     if (dotsContainer) {
       if (totalPages <= 1) {
         dotsContainer.innerHTML = '';
@@ -212,90 +212,91 @@ export function initReviewsSection() {
         dotsContainer.querySelectorAll('.reviews-carousel-dot').forEach((dot) => {
           dot.addEventListener('click', () => {
             const page = parseInt(dot.getAttribute('data-page'), 10) || 0;
-            viewport.scrollTo({ left: page * viewport.clientWidth, behavior: 'smooth' });
+            goToPage(page);
           });
         });
       }
     }
   }
 
+  function goToPage(pageIdx) {
+    if (pageIdx < 0 || pageIdx >= totalPages) return;
+    currentPage = pageIdx;
+    viewport.scrollTo({
+      left: currentPage * viewport.clientWidth,
+      behavior: 'smooth',
+    });
+    updateUI();
+  }
+
   function applyFilter(filter) {
-    // Sync button active states
+    currentFilter = filter;
+
     filterButtons.forEach((btn) => {
-      if (btn.getAttribute('data-filter') === filter) {
-        btn.classList.add('active');
-      } else {
-        btn.classList.remove('active');
-      }
+      btn.classList.toggle('active', btn.getAttribute('data-filter') === filter);
     });
 
-    // Sync dropdown value
     if (categoryDropdown) {
       categoryDropdown.value = filter;
     }
 
-    // Toggle card visibility
-    reviewCards.forEach((card) => {
-      const condition = card.getAttribute('data-condition') || '';
-      if (filter === 'all' || condition.toLowerCase().includes(filter.toLowerCase())) {
-        card.style.display = 'flex';
-      } else {
-        card.style.display = 'none';
-      }
-    });
+    if (filter === 'all') {
+      filteredReviews = [...reviews];
+    } else {
+      filteredReviews = reviews.filter((rev) => {
+        const match = `${rev.conditionTag} ${rev.category || ''}`.toLowerCase();
+        return match.includes(filter.toLowerCase());
+      });
+    }
 
-    // Reset scroll to beginning
+    totalPages = Math.max(1, Math.ceil(filteredReviews.length / PAGE_SIZE));
+    currentPage = 0;
+
+    if (filteredReviews.length === 0) {
+      track.innerHTML = `
+        <div class="reviews-carousel-page" data-page="0" style="display: flex; align-items: center; justify-content: center; min-height: 280px; width: 100%;">
+          <div style="text-align: center; color: var(--color-text-muted); padding: 40px;">
+            <p style="font-weight: 700; font-size: 1.125rem; margin-bottom: 8px;">No reviews found for this category.</p>
+            <p style="font-size: 0.875rem;">Try selecting "All Reviews" to explore all patient experiences.</p>
+          </div>
+        </div>
+      `;
+    } else {
+      track.innerHTML = renderReviewPages(filteredReviews, PAGE_SIZE);
+    }
+
     viewport.scrollLeft = 0;
-
-    // Update UI after layout recalculation
-    setTimeout(updateCarouselUI, 40);
+    updateUI();
   }
 
-  // Filter button clicks
+  // Filter events
   filterButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const filter = btn.getAttribute('data-filter');
-      applyFilter(filter);
-    });
+    btn.addEventListener('click', () => applyFilter(btn.getAttribute('data-filter')));
   });
 
-  // Category dropdown change
   if (categoryDropdown) {
-    categoryDropdown.addEventListener('change', (e) => {
-      applyFilter(e.target.value);
-    });
+    categoryDropdown.addEventListener('change', (e) => applyFilter(e.target.value));
   }
 
-  // Next / Prev button clicks
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      viewport.scrollBy({ left: viewport.clientWidth * 0.95, behavior: 'smooth' });
-    });
-  }
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      viewport.scrollBy({ left: -viewport.clientWidth * 0.95, behavior: 'smooth' });
-    });
-  }
-  if (floatNext) {
-    floatNext.addEventListener('click', () => {
-      viewport.scrollBy({ left: viewport.clientWidth * 0.95, behavior: 'smooth' });
-    });
-  }
-  if (floatPrev) {
-    floatPrev.addEventListener('click', () => {
-      viewport.scrollBy({ left: -viewport.clientWidth * 0.95, behavior: 'smooth' });
-    });
-  }
+  // Navigation events
+  if (nextBtn) nextBtn.addEventListener('click', () => goToPage(currentPage + 1));
+  if (prevBtn) prevBtn.addEventListener('click', () => goToPage(currentPage - 1));
+  if (floatNext) floatNext.addEventListener('click', () => goToPage(currentPage + 1));
+  if (floatPrev) floatPrev.addEventListener('click', () => goToPage(currentPage - 1));
 
-  // Scroll listener with RAF throttle
+  // Scroll listener with RAF
   let scrollTicking = false;
   viewport.addEventListener(
     'scroll',
     () => {
       if (!scrollTicking) {
         window.requestAnimationFrame(() => {
-          updateCarouselUI();
+          const clientWidth = viewport.clientWidth || 1;
+          const pageIdx = Math.round(viewport.scrollLeft / clientWidth);
+          if (pageIdx !== currentPage && pageIdx >= 0 && pageIdx < totalPages) {
+            currentPage = pageIdx;
+            updateUI();
+          }
           scrollTicking = false;
         });
         scrollTicking = true;
@@ -304,8 +305,17 @@ export function initReviewsSection() {
     { passive: true }
   );
 
-  window.addEventListener('resize', updateCarouselUI, { passive: true });
+  window.addEventListener(
+    'resize',
+    () => {
+      viewport.scrollTo({
+        left: currentPage * viewport.clientWidth,
+        behavior: 'auto',
+      });
+      updateUI();
+    },
+    { passive: true }
+  );
 
-  // Initial calculation
-  setTimeout(updateCarouselUI, 100);
+  updateUI();
 }

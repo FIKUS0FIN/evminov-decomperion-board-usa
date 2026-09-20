@@ -97,8 +97,9 @@ describe('Clinical Guides & Research Articles 2-Row Carousel Gallery & Controls'
     const mainCss = fs.readFileSync(mainCssPath, 'utf8');
 
     expect(mainCss).toContain('.blog-carousel-track');
-    expect(mainCss).toContain('grid-template-rows: repeat(2, minmax(380px, 1fr))');
-    expect(mainCss).toContain('grid-auto-flow: column');
+    expect(mainCss).toContain('.blog-carousel-page');
+    expect(mainCss).toContain('grid-template-columns: repeat(3, minmax(0, 1fr))');
+    expect(mainCss).toContain('grid-template-rows: repeat(2, minmax(340px, 1fr))');
     expect(mainCss).toContain('.blog-carousel-viewport');
     expect(mainCss).toContain('scroll-snap-type: x mandatory');
     expect(mainCss).toContain('.blog-float-arrow');

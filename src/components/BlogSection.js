@@ -1,49 +1,62 @@
 import { blogPosts } from '../data/blogPosts.js';
 
-export function renderBlogSection() {
-  const articlesHtml = blogPosts
-    .map(
-      (post) => `
-      <article class="blog-article-card card" data-category="${post.category}" data-id="${post.id}">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-          <span class="badge badge-cyan" style="font-size: 0.75rem;">${post.category}</span>
-          <span style="font-size: 0.8125rem; color: var(--color-text-muted);">${post.readTime}</span>
-        </div>
+export function renderBlogCard(post) {
+  return `
+    <article class="blog-article-card card" data-category="${post.category}" data-id="${post.id}">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <span class="badge badge-cyan" style="font-size: 0.75rem;">${post.category}</span>
+        <span style="font-size: 0.8125rem; color: var(--color-text-muted);">${post.readTime}</span>
+      </div>
 
-        <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--color-primary-navy); line-height: 1.35;">
-          ${post.title}
-        </h3>
+      <h3 style="font-size: 1.125rem; font-weight: 800; color: var(--color-primary-navy); line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+        ${post.title}
+      </h3>
 
-        <p style="font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.6; flex: 1;">
-          ${post.excerpt}
-        </p>
+      <p style="font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.5; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+        ${post.excerpt}
+      </p>
 
-        <!-- PAA Preview Box -->
-        ${
-          post.paa && post.paa.length > 0
-            ? `
-          <div style="background: var(--color-bg-light); border-radius: var(--radius-md); padding: 12px; font-size: 0.8125rem; border-left: 3px solid var(--color-traction-cyan);">
-            <div style="font-weight: 700; color: var(--color-primary-navy); margin-bottom: 4px;">
-              ❓ Common Question: ${post.paa[0].q}
-            </div>
-            <div style="color: var(--color-text-muted); line-height: 1.4;">
-              ${post.paa[0].a}
-            </div>
+      ${
+        post.paa && post.paa.length > 0
+          ? `
+        <div style="background: var(--color-bg-light); border-radius: var(--radius-md); padding: 10px; font-size: 0.8125rem; border-left: 3px solid var(--color-traction-cyan); margin: 4px 0;">
+          <div style="font-weight: 700; color: var(--color-primary-navy); margin-bottom: 2px;">
+            ❓ Common Question: ${post.paa[0].q}
           </div>
-        `
-            : ''
-        }
-
-        <div style="margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border-subtle); display: flex; justify-content: space-between; align-items: center;">
-          <span style="font-size: 0.8125rem; color: var(--color-text-muted);">${post.date}</span>
-          <button type="button" class="btn btn-secondary btn-sm read-article-btn" data-article-id="${post.id}">
-            Read Clinical Guide →
-          </button>
+          <div style="color: var(--color-text-muted); line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+            ${post.paa[0].a}
+          </div>
         </div>
-      </article>
-    `
-    )
-    .join('');
+      `
+          : ''
+      }
+
+      <div style="margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border-subtle); display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-size: 0.8125rem; color: var(--color-text-muted);">${post.date}</span>
+        <button type="button" class="btn btn-secondary btn-sm read-article-btn" data-article-id="${post.id}">
+          Read Clinical Guide →
+        </button>
+      </div>
+    </article>
+  `;
+}
+
+export function renderBlogPages(list, pageSize = 6) {
+  const pagesCount = Math.max(1, Math.ceil(list.length / pageSize));
+  let html = '';
+  for (let p = 0; p < pagesCount; p++) {
+    const chunk = list.slice(p * pageSize, (p + 1) * pageSize);
+    html += `
+      <div class="blog-carousel-page" data-page="${p}">
+        ${chunk.map((post) => renderBlogCard(post)).join('')}
+      </div>
+    `;
+  }
+  return html;
+}
+
+export function renderBlogSection() {
+  const initialPagesHtml = renderBlogPages(blogPosts, 6);
 
   return `
     <section class="catalog-section" id="blog" style="background: var(--color-bg-light); border-top: 1px solid var(--color-border-subtle);">
@@ -57,7 +70,7 @@ export function renderBlogSection() {
           </p>
         </div>
 
-        <!-- 2-Row Interactive Carousel Component -->
+        <!-- 2-Row Interactive Carousel Component (6 Articles Per View: 3 per row × 2 rows) -->
         <div class="blog-carousel-wrapper" id="blog-carousel-section">
           
           <!-- Controls Toolbar: Filters & Dropdown on Left, Counter & Prev/Next on Right -->
@@ -122,7 +135,7 @@ export function renderBlogSection() {
 
             <div class="blog-carousel-viewport" id="blog-carousel-viewport" tabindex="0" role="region" aria-label="Clinical Guides and Research Articles Carousel">
               <div class="blog-carousel-track" id="blog-carousel-track">
-                ${articlesHtml}
+                ${initialPagesHtml}
               </div>
             </div>
 
@@ -170,52 +183,49 @@ export function initBlogSection() {
   const modalBody = document.getElementById('article-modal-body');
   const ctaBtn = document.getElementById('article-modal-cta');
 
-  document.querySelectorAll('.read-article-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const id = btn.getAttribute('data-article-id');
-      const post = blogPosts.find((p) => p.id === id);
-      if (post && modal && modalBody) {
-        modalCategory.textContent = post.category;
-        modalBody.innerHTML = `
-          <h2 style="font-size: 1.75rem; font-weight: 800; color: var(--color-primary-navy); margin-bottom: 12px; line-height: 1.25;">
-            ${post.title}
-          </h2>
-          <div style="font-size: 0.875rem; color: var(--color-text-muted); margin-bottom: 24px;">
-            Published: ${post.date} • ${post.readTime}
-          </div>
-          <div class="article-inner-html">
-            ${post.content}
-          </div>
-          ${
-            post.paa && post.paa.length > 0
-              ? `
-            <div style="margin-top: 30px; padding: 20px; background: var(--color-bg-light); border-radius: var(--radius-lg); border: 1px solid var(--color-border-subtle);">
-              <h4 style="font-size: 1.125rem; font-weight: 800; color: var(--color-primary-navy); margin-bottom: 12px;">
-                Frequently Asked Questions (PAA)
-              </h4>
-              ${post.paa
-                .map(
-                  (item) => `
-                <div style="margin-bottom: 12px;">
-                  <div style="font-weight: 700; font-size: 0.9375rem; color: var(--color-primary-navy); margin-bottom: 4px;">
-                    Q: ${item.q}
-                  </div>
-                  <div style="font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.5;">
-                    ${item.a}
-                  </div>
+  function openArticleModal(id) {
+    const post = blogPosts.find((p) => p.id === id);
+    if (post && modal && modalBody) {
+      if (modalCategory) modalCategory.textContent = post.category;
+      modalBody.innerHTML = `
+        <h2 style="font-size: 1.75rem; font-weight: 800; color: var(--color-primary-navy); margin-bottom: 12px; line-height: 1.25;">
+          ${post.title}
+        </h2>
+        <div style="font-size: 0.875rem; color: var(--color-text-muted); margin-bottom: 24px;">
+          Published: ${post.date} • ${post.readTime}
+        </div>
+        <div class="article-inner-html">
+          ${post.content}
+        </div>
+        ${
+          post.paa && post.paa.length > 0
+            ? `
+          <div style="margin-top: 30px; padding: 20px; background: var(--color-bg-light); border-radius: var(--radius-lg); border: 1px solid var(--color-border-subtle);">
+            <h4 style="font-size: 1.125rem; font-weight: 800; color: var(--color-primary-navy); margin-bottom: 12px;">
+              Frequently Asked Questions (PAA)
+            </h4>
+            ${post.paa
+              .map(
+                (item) => `
+              <div style="margin-bottom: 12px;">
+                <div style="font-weight: 700; font-size: 0.9375rem; color: var(--color-primary-navy); margin-bottom: 4px;">
+                  Q: ${item.q}
                 </div>
-              `
-                )
-                .join('')}
-            </div>
-          `
-              : ''
-          }
-        `;
-        modal.classList.add('active');
-      }
-    });
-  });
+                <div style="font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.5;">
+                  ${item.a}
+                </div>
+              </div>
+            `
+              )
+              .join('')}
+          </div>
+        `
+            : ''
+        }
+      `;
+      modal.classList.add('active');
+    }
+  }
 
   if (closeBtn && modal) {
     closeBtn.addEventListener('click', () => modal.classList.remove('active'));
@@ -240,53 +250,48 @@ export function initBlogSection() {
   const dotsContainer = document.getElementById('blog-carousel-dots');
   const filterButtons = document.querySelectorAll('#blog-filter-bar button');
   const categoryDropdown = document.getElementById('blog-category-dropdown');
-  const articleCards = document.querySelectorAll('#blog-carousel-track .blog-article-card');
 
   if (!viewport || !track) return;
 
-  function getCardsPerView() {
-    const width = viewport.clientWidth || (typeof window !== 'undefined' && window.innerWidth) || 1200;
-    if (width >= 1024) return 6; // 3 columns * 2 rows
-    if (width >= 640) return 4;  // 2 columns * 2 rows
-    return 2;                    // 1 column * 2 rows
-  }
+  // Event delegation on track for reading articles
+  track.addEventListener('click', (e) => {
+    const readBtn = e.target.closest('.read-article-btn');
+    if (readBtn) {
+      const articleId = readBtn.getAttribute('data-article-id');
+      openArticleModal(articleId);
+    }
+  });
 
-  function getVisibleCards() {
-    return Array.from(articleCards).filter((card) => card.style.display !== 'none');
-  }
+  const PAGE_SIZE = 6;
+  let currentFilter = 'all';
+  let filteredPosts = [...blogPosts];
+  let currentPage = 0;
+  let totalPages = Math.max(1, Math.ceil(filteredPosts.length / PAGE_SIZE));
 
-  function updateCarouselUI() {
-    const visibleCards = getVisibleCards();
-    const cardsPerView = getCardsPerView();
-    const totalPages = Math.max(1, Math.ceil(visibleCards.length / cardsPerView));
-    const scrollLeft = viewport.scrollLeft || 0;
-    const clientWidth = viewport.clientWidth || 1;
-    const currentPage = Math.min(totalPages - 1, Math.max(0, Math.round(scrollLeft / clientWidth)));
-
+  function updateUI() {
     // Update counter
     if (counterCurr && counterTotal) {
-      if (visibleCards.length === 0) {
+      if (filteredPosts.length === 0) {
         counterCurr.textContent = '0';
         counterTotal.textContent = '0';
       } else {
-        const start = currentPage * cardsPerView + 1;
-        const end = Math.min(visibleCards.length, (currentPage + 1) * cardsPerView);
+        const start = currentPage * PAGE_SIZE + 1;
+        const end = Math.min(filteredPosts.length, (currentPage + 1) * PAGE_SIZE);
         counterCurr.textContent = `${start}–${end}`;
-        counterTotal.textContent = `${visibleCards.length}`;
+        counterTotal.textContent = `${filteredPosts.length}`;
       }
     }
 
-    // Update navigation button disabled states
-    const maxScroll = track.scrollWidth - viewport.clientWidth - 6;
-    const canScrollPrev = scrollLeft > 10;
-    const canScrollNext = scrollLeft < maxScroll && totalPages > 1;
+    // Button states
+    const canPrev = currentPage > 0;
+    const canNext = currentPage < totalPages - 1;
 
-    if (prevBtn) prevBtn.disabled = !canScrollPrev;
-    if (nextBtn) nextBtn.disabled = !canScrollNext;
-    if (floatPrev) floatPrev.disabled = !canScrollPrev;
-    if (floatNext) floatNext.disabled = !canScrollNext;
+    if (prevBtn) prevBtn.disabled = !canPrev;
+    if (nextBtn) nextBtn.disabled = !canNext;
+    if (floatPrev) floatPrev.disabled = !canPrev;
+    if (floatNext) floatNext.disabled = !canNext;
 
-    // Render / update dots
+    // Dots
     if (dotsContainer) {
       if (totalPages <= 1) {
         dotsContainer.innerHTML = '';
@@ -303,90 +308,91 @@ export function initBlogSection() {
         dotsContainer.querySelectorAll('.blog-carousel-dot').forEach((dot) => {
           dot.addEventListener('click', () => {
             const page = parseInt(dot.getAttribute('data-page'), 10) || 0;
-            viewport.scrollTo({ left: page * viewport.clientWidth, behavior: 'smooth' });
+            goToPage(page);
           });
         });
       }
     }
   }
 
+  function goToPage(pageIdx) {
+    if (pageIdx < 0 || pageIdx >= totalPages) return;
+    currentPage = pageIdx;
+    viewport.scrollTo({
+      left: currentPage * viewport.clientWidth,
+      behavior: 'smooth',
+    });
+    updateUI();
+  }
+
   function applyFilter(filter) {
-    // Sync button active states
+    currentFilter = filter;
+
     filterButtons.forEach((btn) => {
-      if (btn.getAttribute('data-filter') === filter) {
-        btn.classList.add('active');
-      } else {
-        btn.classList.remove('active');
-      }
+      btn.classList.toggle('active', btn.getAttribute('data-filter') === filter);
     });
 
-    // Sync dropdown value
     if (categoryDropdown) {
       categoryDropdown.value = filter;
     }
 
-    // Toggle card visibility
-    articleCards.forEach((card) => {
-      const cat = card.getAttribute('data-category') || '';
-      if (filter === 'all' || cat.toLowerCase().includes(filter.toLowerCase())) {
-        card.style.display = 'flex';
-      } else {
-        card.style.display = 'none';
-      }
-    });
+    if (filter === 'all') {
+      filteredPosts = [...blogPosts];
+    } else {
+      filteredPosts = blogPosts.filter((post) => {
+        const match = `${post.category} ${post.title} ${post.slug}`.toLowerCase();
+        return match.includes(filter.toLowerCase());
+      });
+    }
 
-    // Reset scroll to beginning
+    totalPages = Math.max(1, Math.ceil(filteredPosts.length / PAGE_SIZE));
+    currentPage = 0;
+
+    if (filteredPosts.length === 0) {
+      track.innerHTML = `
+        <div class="blog-carousel-page" data-page="0" style="display: flex; align-items: center; justify-content: center; min-height: 280px; width: 100%;">
+          <div style="text-align: center; color: var(--color-text-muted); padding: 40px;">
+            <p style="font-weight: 700; font-size: 1.125rem; margin-bottom: 8px;">No guides found for this topic.</p>
+            <p style="font-size: 0.875rem;">Try selecting "All Guides" to explore all clinical research.</p>
+          </div>
+        </div>
+      `;
+    } else {
+      track.innerHTML = renderBlogPages(filteredPosts, PAGE_SIZE);
+    }
+
     viewport.scrollLeft = 0;
-
-    // Update UI after layout recalculation
-    setTimeout(updateCarouselUI, 40);
+    updateUI();
   }
 
-  // Filter button clicks
+  // Filter events
   filterButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const filter = btn.getAttribute('data-filter');
-      applyFilter(filter);
-    });
+    btn.addEventListener('click', () => applyFilter(btn.getAttribute('data-filter')));
   });
 
-  // Category dropdown change
   if (categoryDropdown) {
-    categoryDropdown.addEventListener('change', (e) => {
-      applyFilter(e.target.value);
-    });
+    categoryDropdown.addEventListener('change', (e) => applyFilter(e.target.value));
   }
 
-  // Next / Prev button clicks
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      viewport.scrollBy({ left: viewport.clientWidth * 0.95, behavior: 'smooth' });
-    });
-  }
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      viewport.scrollBy({ left: -viewport.clientWidth * 0.95, behavior: 'smooth' });
-    });
-  }
-  if (floatNext) {
-    floatNext.addEventListener('click', () => {
-      viewport.scrollBy({ left: viewport.clientWidth * 0.95, behavior: 'smooth' });
-    });
-  }
-  if (floatPrev) {
-    floatPrev.addEventListener('click', () => {
-      viewport.scrollBy({ left: -viewport.clientWidth * 0.95, behavior: 'smooth' });
-    });
-  }
+  // Navigation events
+  if (nextBtn) nextBtn.addEventListener('click', () => goToPage(currentPage + 1));
+  if (prevBtn) prevBtn.addEventListener('click', () => goToPage(currentPage - 1));
+  if (floatNext) floatNext.addEventListener('click', () => goToPage(currentPage + 1));
+  if (floatPrev) floatPrev.addEventListener('click', () => goToPage(currentPage - 1));
 
-  // Scroll listener with RAF throttle
+  // Scroll listener with RAF
   let scrollTicking = false;
   viewport.addEventListener(
     'scroll',
     () => {
       if (!scrollTicking) {
         window.requestAnimationFrame(() => {
-          updateCarouselUI();
+          const clientWidth = viewport.clientWidth || 1;
+          const pageIdx = Math.round(viewport.scrollLeft / clientWidth);
+          if (pageIdx !== currentPage && pageIdx >= 0 && pageIdx < totalPages) {
+            currentPage = pageIdx;
+            updateUI();
+          }
           scrollTicking = false;
         });
         scrollTicking = true;
@@ -395,8 +401,17 @@ export function initBlogSection() {
     { passive: true }
   );
 
-  window.addEventListener('resize', updateCarouselUI, { passive: true });
+  window.addEventListener(
+    'resize',
+    () => {
+      viewport.scrollTo({
+        left: currentPage * viewport.clientWidth,
+        behavior: 'auto',
+      });
+      updateUI();
+    },
+    { passive: true }
+  );
 
-  // Initial calculation
-  setTimeout(updateCarouselUI, 100);
+  updateUI();
 }
