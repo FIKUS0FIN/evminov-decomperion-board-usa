@@ -91,8 +91,8 @@ describe('Evminov Patents & Clinical Trials Data Integrity', () => {
     expect(docs[1].id).toBe('epo-cert');
     expect(docs[2].id).toBe('ukr-cert');
     expect(docs[3].id).toBe('moh-cert');
-    expect(docs[4].id).toBe('china-cert'); // China ZL 99 8 on the left of slide 2
-    expect(docs[5].id).toBe('epo-claim-cert'); // European Patent Claims on the right of slide 2
+    expect(docs[4].id).toBe('epo-claim-cert'); // European Patent Claims on the left of slide 2
+    expect(docs[5].id).toBe('china-cert'); // China ZL 99 8 on the right of slide 2 (last element)
 
     expect(html).toContain('ZL 99 8 04071.3 / CN 1292706A');
     expect(html).toContain('EP 1 038 512 Claims');

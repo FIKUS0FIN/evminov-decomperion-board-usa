@@ -184,20 +184,6 @@ export const patentsAndCertifications = {
       details: 'Official state clinical registration authorizing deployment in hospital physical therapy departments, spine surgery clinics, sports rehabilitation centers, and military vertebral restoration units.'
     },
     {
-      id: 'china-cert',
-      title: 'State Intellectual Property Office (SIPO)',
-      docNumber: 'ZL 99 8 04071.3 / CN 1292706A',
-      badge: 'China (SIPO / CNIPA)',
-      image: '/images/patents/china-patent-sipo.png',
-      caption: 'National patent certificate granted by the Chinese Intellectual Property Office.',
-      registryUrl: 'https://patents.google.com/patent/CN1292706A/en',
-      registryName: 'CNIPA / Google Patents',
-      inventor: 'Vyacheslav V. Evminov',
-      office: 'National Intellectual Property Administration (CNIPA / SIPO)',
-      classification: 'IPC A61H 1/00, A61F 5/04',
-      details: 'Granted national patent publication in Asia protecting the biomechanical spinal decompression apparatus and inclined planar rehabilitation method.'
-    },
-    {
       id: 'epo-claim-cert',
       title: 'European Patent Claims & Biomechanical Specifications',
       docNumber: 'EP 1 038 512 Claims',
@@ -210,6 +196,20 @@ export const patentsAndCertifications = {
       office: 'European Patent Office (EPO)',
       classification: 'IPC A61H 1/00, A61H 1/02 (WIPO WO 1999/043288)',
       details: 'Detailed legal patent claims verifying the traction parameters, resonant flex board properties, and calibrated carriage grip, establishing international protection base across 18 PCT member states across the European Union and North America.'
+    },
+    {
+      id: 'china-cert',
+      title: 'State Intellectual Property Office (SIPO)',
+      docNumber: 'ZL 99 8 04071.3 / CN 1292706A',
+      badge: 'China (SIPO / CNIPA)',
+      image: '/images/patents/china-patent-sipo.png',
+      caption: 'National patent certificate granted by the Chinese Intellectual Property Office.',
+      registryUrl: 'https://patents.google.com/patent/CN1292706A/en',
+      registryName: 'CNIPA / Google Patents',
+      inventor: 'Vyacheslav V. Evminov',
+      office: 'National Intellectual Property Administration (CNIPA / SIPO)',
+      classification: 'IPC A61H 1/00, A61F 5/04',
+      details: 'Granted national patent publication in Asia protecting the biomechanical spinal decompression apparatus and inclined planar rehabilitation method.'
     }
   ]
 };

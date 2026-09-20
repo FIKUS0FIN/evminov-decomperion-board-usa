@@ -328,11 +328,11 @@ export function initPatentsSection() {
     'epo-cert': 1,
     'ukr-cert': 2,
     'moh-cert': 3,
-    'china-cert': 4,
-    'epo-claim-cert': 5,
+    'epo-claim-cert': 4,
+    'china-cert': 5,
     'ua-patent-28849': 2,
     'ea-patent-003889': 1,
-    'pct-wipo-9943288': 5,
+    'pct-wipo-9943288': 4,
     'moh-cert-711': 3
   };
 
