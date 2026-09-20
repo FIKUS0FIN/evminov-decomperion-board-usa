@@ -115,7 +115,7 @@ describe('Video Protocols & Embed Verification (YouTube Error 153 Fix & Autoplay
     expect(html).toContain('Glisson Loop Cervical Traction');
     expect(html).toContain('Post-Workout Spinal Restoration (After Deadlifts & Squats)');
     expect(html).toContain('Thoracic Extension & Kyphosis Correction');
-    expect(html).toContain('Pediatric Scoliosis & "Lying-Down Dancing" (Танці Лежачи)');
+    expect(html).toContain('Pediatric Scoliosis & "Lying-Down Dancing"');
   });
 
   it('should include single-row carousel styling and scroll-snap in main.css', () => {

@@ -5,7 +5,7 @@
 export const exerciseProtocols = [
   {
     id: 'pediatric-dance-protocol',
-    title: 'Pediatric Scoliosis & "Lying-Down Dancing" (Танці Лежачи)',
+    title: 'Pediatric Scoliosis & "Lying-Down Dancing"',
     target: 'Kids & Teens (Ages 3–15), Scoliosis & Natural Growth',
     angle: '8° – 12° Gentle Incline',
     duration: '5 – 10 Minutes',
