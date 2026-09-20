@@ -17,7 +17,9 @@ describe('Evminov Patents & Clinical Trials Data Integrity', () => {
   });
 
   it('should include documented clinical trials with high surgery avoidance', () => {
-    expect(patentsAndCertifications.clinicalTrials.length).toBeGreaterThanOrEqual(3);
+    expect(patentsAndCertifications.clinicalTrials.length).toBe(6);
+    expect(patentsAndCertifications.clinicalTrials.some(t => t.institution.includes('Sports Medicine'))).toBe(true);
+    expect(patentsAndCertifications.clinicalTrials.some(t => t.institution.includes('Pediatric Vertebrology'))).toBe(true);
     expect(patentsAndCertifications.stats.surgeryAvoidanceRate).toMatch(/93/);
     expect(patentsAndCertifications.stats.patientsTreated).toContain('120,000');
   });

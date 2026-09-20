@@ -42,15 +42,16 @@ describe('Pediatric Scoliosis, Family Spinal Hygiene & "Spine Toothbrush" Compon
     expect(html).toContain('~$150 – $200 / yr');
   });
 
-  it('should feature Lying-Down Dancing, 13-point pedagogical plan, and 5-7 cm growth potential', () => {
+  it('should feature Lying-Down Dancing, 13-point pedagogical plan, and 2-3 inches growth potential', () => {
     const html = renderPediatricFamilySection();
 
     expect(html).toContain('Lying-Down Dancing');
     expect(html).toContain('Танці Лежачи');
     expect(html).toContain('Ages 3–15');
-    expect(html).toContain('+5 to +7 cm');
+    expect(html).toContain('+2 to +3 Inches');
     expect(html).toContain('13-Point Plan for Children &amp; Parents');
     expect(html).toContain('/images/gallery/youth-paired-traction.jpg');
+    expect(html).toContain('/videos/pediatric-lying-down-dance.mp4');
   });
 
   it('should include workplace ergonomics and historical medical quotes (Hippocrates & Masso)', () => {

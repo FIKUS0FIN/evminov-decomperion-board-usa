@@ -24,7 +24,7 @@ describe('Evminov Rehabilitation Centers & Founder Heritage Data Integrity', () 
     expect(militaryProgram.motto).toContain('Знімаємо броню з хребта');
     expect(militaryProgram.challenges.length).toBeGreaterThanOrEqual(3);
     expect(militaryProgram.solutionSteps.length).toBeGreaterThanOrEqual(3);
-    expect(militaryProgram.stats.gearWeight).toContain('30–45 kg');
+    expect(militaryProgram.stats.gearWeight).toContain('70–100 lbs');
   });
 
   it('should document the Home Hospital concept and pillars', () => {

@@ -6,7 +6,6 @@ export function renderProductCatalog() {
   const cardsHtml = products
     .map((product) => {
       const isBoard = product.category === 'board';
-      const hasFastOption = Boolean(product.fastPrice);
 
       const includesHtml = product.includes
         .map(
@@ -30,34 +29,87 @@ export function renderProductCatalog() {
       return `
         <article class="product-card ${isBoard ? 'product-card-board' : 'product-card-accessory'}" id="product-${product.id}" data-product-id="${product.id}" data-category="${product.category || 'board'}">
           
-          <div class="product-card-img-wrap">
-            <img src="${product.image}" alt="${product.name}" class="product-card-img" id="product-img-${product.id}" loading="lazy" />
-            <span class="badge badge-pine product-card-badge">${product.badge}</span>
-          </div>
+          <!-- Interactive Product Image Carousel & Gallery Widget -->
+          <div class="product-gallery-widget" id="gallery-${product.id}" data-product-id="${product.id}">
+            <div class="product-carousel-viewport">
+              <img 
+                src="${product.image}" 
+                alt="${product.name}" 
+                class="product-card-img" 
+                id="product-img-${product.id}" 
+                loading="lazy" 
+              />
+              <span class="badge badge-pine product-card-badge">${product.badge}</span>
 
-          ${
-            product.galleryImages && product.galleryImages.length > 1
-              ? `
-            <div class="product-thumb-bar" data-product-id="${product.id}">
-              ${product.galleryImages
-                .map(
-                  (g, gIdx) => `
-                <button 
-                  type="button" 
-                  class="product-thumb-pill ${gIdx === 0 ? 'active' : ''}" 
-                  data-img-src="${g.url}"
-                  title="${g.label}"
-                  aria-label="View ${g.label}"
-                >
-                  <img src="${g.url}" alt="${g.label}" />
+              ${
+                product.galleryImages && product.galleryImages.length > 1
+                  ? `
+                <!-- Carousel Navigation Arrows -->
+                <button type="button" class="carousel-nav-btn carousel-prev" aria-label="Previous image of ${product.name}">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                  </svg>
                 </button>
+                <button type="button" class="carousel-nav-btn carousel-next" aria-label="Next image of ${product.name}">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+
+                <!-- Floating Counter Badge -->
+                <span class="carousel-counter-pill" id="counter-${product.id}">
+                  <span class="curr-idx">1</span> / ${product.galleryImages.length}
+                </span>
+
+                <!-- Floating Caption Bar -->
+                <div class="carousel-caption-bar" id="caption-${product.id}">
+                  ${product.galleryImages[0].label}
+                </div>
+
+                <!-- Slide Dots Indicator -->
+                <div class="carousel-dots-row">
+                  ${product.galleryImages
+                    .map(
+                      (_, idx) => `
+                    <button type="button" class="carousel-dot ${idx === 0 ? 'active' : ''}" data-index="${idx}" aria-label="Slide ${idx + 1}"></button>
+                  `
+                    )
+                    .join('')}
+                </div>
               `
-                )
-                .join('')}
+                  : ''
+              }
             </div>
-          `
-              : ''
-          }
+
+            ${
+              product.galleryImages && product.galleryImages.length > 1
+                ? `
+              <!-- Mini Thumbnails Carousel Strip -->
+              <div class="product-thumb-carousel">
+                <div class="product-thumb-track" id="thumb-track-${product.id}">
+                  ${product.galleryImages
+                    .map(
+                      (g, gIdx) => `
+                    <button 
+                      type="button" 
+                      class="product-thumb-btn ${gIdx === 0 ? 'active' : ''}" 
+                      data-index="${gIdx}"
+                      data-img-src="${g.url}"
+                      data-label="${g.label}"
+                      title="${g.label}"
+                      aria-label="View ${g.label}"
+                    >
+                      <img src="${g.url}" alt="${g.label}" loading="lazy" />
+                    </button>
+                  `
+                    )
+                    .join('')}
+                </div>
+              </div>
+            `
+                : ''
+            }
+          </div>
 
           <div class="product-card-body">
             
@@ -70,7 +122,6 @@ export function renderProductCatalog() {
                 ${isBoard ? '<span class="badge badge-cyan" style="font-size: 0.6875rem; padding: 2px 8px; margin-left: auto;">Patented Board</span>' : ''}
               </div>
               <h3 class="product-card-title">${product.name}</h3>
-              ${product.ukrName ? `<div class="product-card-ukr-title">${product.ukrName}</div>` : ''}
               <p class="product-card-desc">${product.subtitle}</p>
             </div>
 
@@ -81,7 +132,7 @@ export function renderProductCatalog() {
               <div class="product-distinction-box">
                 <div class="distinction-tag-row">
                   <span class="distinction-icon">🎯</span>
-                  <strong>Ключова особливість / Key Distinction:</strong>
+                  <strong>Key Distinction:</strong>
                 </div>
                 <p class="distinction-text">${product.keyFeature}</p>
               </div>
@@ -89,7 +140,7 @@ export function renderProductCatalog() {
                 : ''
             }
 
-            <!-- Price & Delivery Selector -->
+            <!-- Price & Delivery Location -->
             <div class="product-price-box">
               <div class="price-main-row">
                 <span class="price-amount" id="price-val-${product.id}">${formatUSD(product.basePrice)}</span>
@@ -98,25 +149,10 @@ export function renderProductCatalog() {
                 </span>
               </div>
 
-              ${
-                hasFastOption
-                  ? `
-                <div style="margin-top: 8px;">
-                  <span class="shipping-origin-label">
-                    Fulfillment Origin:
-                  </span>
-                  <div class="shipping-speed-toggle" data-product-id="${product.id}">
-                    <button type="button" class="speed-toggle-btn active" data-speed="direct-ua" data-price="${product.basePrice}">
-                      Direct Factory (${formatUSD(product.basePrice)})
-                    </button>
-                    <button type="button" class="speed-toggle-btn" data-speed="fast-us" data-price="${product.fastPrice}">
-                      🇺🇸 California Warehouse (${formatUSD(product.fastPrice)})
-                    </button>
-                  </div>
-                </div>
-              `
-                  : ''
-              }
+              <div class="product-shipping-promise">
+                <span class="dispatch-dot-pulse"></span>
+                <span>In Stock • California Warehouse Hub (2–4 Day US Delivery)</span>
+              </div>
             </div>
 
             <!-- Wood / Finish Selector -->
@@ -176,7 +212,7 @@ export function renderProductCatalog() {
           <span class="badge badge-pine" style="margin-bottom: 12px;">Official North American Storefront • Clinically Proven Since 1996</span>
           <h2>Select Your Evminov Spine Decompression System</h2>
           <p>
-            Operating continuously since 1996 with 30 years of medical practice and over 500,000 patients healed worldwide. Handcrafted from resonant multi-layer Carpathian pine and select Ukrainian alder wood with patented elasticity. Choose direct factory delivery or expedited shipping from our California facility.
+            Operating continuously since 1996 with 30 years of medical practice and over 500,000 patients healed worldwide. Handcrafted from resonant multi-layer Carpathian pine and select Ukrainian alder wood with patented elasticity. Dispatched directly from our California warehouse facility with protective export crating to all 50 US states and worldwide.
           </p>
         </div>
 
@@ -184,9 +220,9 @@ export function renderProductCatalog() {
         <div class="board-comparison-guide-box">
           <div class="guide-header-row">
             <div>
-              <div class="guide-pill-badge">Model Differentiation Guide • Гід вибору моделей</div>
+              <div class="guide-pill-badge">Model Differentiation Guide • Quick Selection</div>
               <h3 class="guide-title">How to Choose Your Evminov Board: Key Differences at a Glance</h3>
-              <p class="guide-subtitle">Офіційна лінійка Профілакторів Євмінова — оберіть модель, що ідеально відповідає вашому простору та стилю життя:</p>
+              <p class="guide-subtitle">Official Evminov Spine Prophilactor lineup — choose the model perfectly matched to your living space and lifestyle:</p>
             </div>
             <a href="#calculator" class="btn btn-secondary btn-sm guide-calc-link">
               Calculate Your Angle &amp; Model →
@@ -195,14 +231,14 @@ export function renderProductCatalog() {
 
           <div class="guide-cards-grid">
             
-            <!-- 1. Стандартний цільний -->
+            <!-- 1. Standard Solid Board -->
             <div class="guide-card" data-guide-target="evminov-standard">
-              <div class="guide-card-icon">🌲</div>
+              <div class="guide-card-icon"><img src="/images/authentic/evminov-official-logo.png" alt="Official Evminov" style="width: 28px; height: 28px; object-fit: contain; border-radius: 50%;" /></div>
               <div class="guide-card-badge">1-Piece Solid</div>
-              <h4 class="guide-card-name">Стандартний (цільний)</h4>
-              <div class="guide-card-en">Standard Solid Board</div>
+              <h4 class="guide-card-name">Standard Solid Board</h4>
+              <div class="guide-card-en">1-Piece Monolithic Beam</div>
               <p class="guide-card-text">
-                <strong>Базова нерозбірна модель:</strong> Суцільна балка з відбірної сосни зі світлою або темною панеллю. Максимальна монолітна пружність для стаціонарного домашнього чи клінічного куточка здоров'я.
+                <strong>Base Monolithic Model:</strong> Continuous resonant Carpathian pine beam in natural light or dark stain. Maximum structural resonance and elasticity for a dedicated home or clinical wellness station.
               </p>
               <div class="guide-card-foot">
                 <span>Best for: Permanent Home Setup</span>
@@ -210,14 +246,14 @@ export function renderProductCatalog() {
               </div>
             </div>
 
-            <!-- 2. Складаний з 2-х частин -->
+            <!-- 2. 2-Piece Folding Board -->
             <div class="guide-card" data-guide-target="evminov-folding-2part">
               <div class="guide-card-icon">📦</div>
               <div class="guide-card-badge">2-Piece Folding</div>
-              <h4 class="guide-card-name">Складаний з 2-х частин</h4>
-              <div class="guide-card-en">2-Piece Space Saver</div>
+              <h4 class="guide-card-name">2-Piece Folding Board</h4>
+              <div class="guide-card-en">Quick-Fold Space Saver</div>
               <p class="guide-card-text">
-                <strong>Оптимізований для зберігання:</strong> Розбирається навпіл за 30 секунд. Зручно ховається під ліжко, у шафу або за міжкімнатні двері. Без втрати пружності в робочому стані.
+                <strong>Optimized for Storage:</strong> Disassembles in half in under 30 seconds. Slips easily under a bed, inside a closet, or behind interior doors without compromising structural spring flex when locked.
               </p>
               <div class="guide-card-foot">
                 <span>Best for: Easy Closet / Under-Bed Storage</span>
@@ -225,14 +261,14 @@ export function renderProductCatalog() {
               </div>
             </div>
 
-            <!-- 3. Складаний з 3-х частин -->
+            <!-- 3. 3-Piece Travel Board -->
             <div class="guide-card" data-guide-target="evminov-folding-3part">
               <div class="guide-card-icon">🚗</div>
               <div class="guide-card-badge">3-Piece Travel</div>
-              <h4 class="guide-card-name">Складаний з 3-х частин</h4>
-              <div class="guide-card-en">3-Piece Travel &amp; Trunk</div>
+              <h4 class="guide-card-name">3-Piece Travel Board</h4>
+              <div class="guide-card-en">Ultra-Portable &amp; Trunk-Ready</div>
               <p class="guide-card-text">
-                <strong>Найбільш компактна модель:</strong> Складається у компактні сегменти (~31"). Легко поміщається в багажник будь-якого автомобіля або валізу для перевезення в літаку.
+                <strong>Most Compact Travel Model:</strong> Folds down into ~31" segments. Easily packs into any vehicle trunk, back seat, or airline luggage bag for travelers and mobile physical therapists.
               </p>
               <div class="guide-card-foot">
                 <span>Best for: Travel, Car Trunks &amp; Flights</span>
@@ -240,14 +276,14 @@ export function renderProductCatalog() {
               </div>
             </div>
 
-            <!-- 4. Широка панель -->
+            <!-- 4. Wide Panel Heavy-Duty Board -->
             <div class="guide-card" data-guide-target="evminov-wide">
               <div class="guide-card-icon">🏋️</div>
               <div class="guide-card-badge">Heavy-Duty • 330 lbs</div>
-              <h4 class="guide-card-name">Профілактор з широкою панеллю</h4>
-              <div class="guide-card-en">Wide Panel Heavy-Duty</div>
+              <h4 class="guide-card-name">Wide Panel Heavy-Duty</h4>
+              <div class="guide-card-en">Athletic &amp; Broad Frame Edition</div>
               <p class="guide-card-text">
-                <strong>Для більшої комплекції:</strong> Збільшена на 30% ширина панелі для людей міцної статури, широких плечей та атлетів (до 150 кг / 330 lbs). Також доступний у розбірній версії.
+                <strong>Engineered for Broader Builds:</strong> +30% wider timber panel designed for broad shoulders, larger frames, and athletes (rated up to 330 lbs). Also available in a folding configuration.
               </p>
               <div class="guide-card-foot">
                 <span>Best for: Athletes, Lifters &amp; Broad Builds</span>
@@ -255,14 +291,14 @@ export function renderProductCatalog() {
               </div>
             </div>
 
-            <!-- 5. Преміум Вільха -->
+            <!-- 5. Select Alder Wood Edition -->
             <div class="guide-card" data-guide-target="evminov-alder">
               <div class="guide-card-icon">🪵</div>
               <div class="guide-card-badge">Limited Edition Alder</div>
-              <h4 class="guide-card-name">Профілактор з вільхи</h4>
-              <div class="guide-card-en">Select Alder Wood Edition</div>
+              <h4 class="guide-card-name">Select Alder Wood Edition</h4>
+              <div class="guide-card-en">Artisan Lightweight Luxury</div>
               <p class="guide-card-text">
-                <strong>Лімітована версія з вільхи:</strong> На ~15% легша за соснову (помітно легше піднімати й регулювати кут нахилу) і має шляхетний темніший бурштиновий відтінок деревини.
+                <strong>Limited Artisan Alder Edition:</strong> ~15% lighter than resonant pine (noticeably easier to lift and adjust tilt angles) featuring a refined, darker warm amber-cognac wood grain.
               </p>
               <div class="guide-card-foot">
                 <span>Best for: Lightweight Luxury Aesthetics</span>
@@ -280,7 +316,7 @@ export function renderProductCatalog() {
             <span class="filter-count">8</span>
           </button>
           <button type="button" class="catalog-filter-btn" data-filter="board">
-            <span>🌲 Evminov Decompression Boards</span>
+            <span><img src="/images/authentic/evminov-official-logo.png" alt="" class="inline-brand-crest" width="16" height="16" /> Evminov Decompression Boards</span>
             <span class="filter-count">5</span>
           </button>
           <button type="button" class="catalog-filter-btn" data-filter="accessory">
@@ -304,7 +340,6 @@ export function initProductCatalog() {
   // Initialize selected state for each product
   products.forEach((p) => {
     selectedOptions[p.id] = {
-      shippingSpeed: 'direct-ua',
       finish: p.finishes[0],
     };
   });
@@ -353,30 +388,7 @@ export function initProductCatalog() {
     });
   });
 
-  // Shipping Speed Toggles
-  document.querySelectorAll('.shipping-speed-toggle').forEach((toggleContainer) => {
-    const productId = toggleContainer.getAttribute('data-product-id');
-    const buttons = toggleContainer.querySelectorAll('.speed-toggle-btn');
-    const priceDisplay = document.getElementById(`price-val-${productId}`);
-    const klarnaDisplay = document.getElementById(`klarna-val-${productId}`);
-
-    buttons.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        buttons.forEach((b) => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const speed = btn.getAttribute('data-speed');
-        const price = parseFloat(btn.getAttribute('data-price'));
-
-        if (selectedOptions[productId]) {
-          selectedOptions[productId].shippingSpeed = speed;
-        }
-
-        if (priceDisplay) priceDisplay.textContent = formatUSD(price);
-        if (klarnaDisplay) klarnaDisplay.textContent = formatKlarna(price);
-      });
-    });
-  });
+  // Single standard pricing model fulfilled directly from California warehouse hub
 
   // Finish Selectors
   products.forEach((p) => {
@@ -390,24 +402,146 @@ export function initProductCatalog() {
     }
   });
 
-  // Thumbnail Image Gallery Switcher
-  document.querySelectorAll('.product-thumb-pill').forEach((thumbBtn) => {
-    thumbBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const bar = thumbBtn.closest('.product-thumb-bar');
-      if (!bar) return;
-      const productId = bar.getAttribute('data-product-id');
-      const mainImg = document.getElementById(`product-img-${productId}`);
-      const newSrc = thumbBtn.getAttribute('data-img-src');
+  // Initialize Interactive Product Image Carousels & Galleries
+  document.querySelectorAll('.product-gallery-widget').forEach((widget) => {
+    const productId = widget.getAttribute('data-product-id');
+    const product = products.find((p) => p.id === productId);
+    if (!product || !product.galleryImages || product.galleryImages.length <= 1) return;
 
-      if (mainImg && newSrc) {
-        mainImg.src = newSrc;
-        bar.querySelectorAll('.product-thumb-pill').forEach((b) => {
-          b.classList.remove('active');
-        });
-        thumbBtn.classList.add('active');
+    const mainImg = widget.querySelector(`#product-img-${productId}`);
+    const counterSpan = widget.querySelector(`#counter-${productId} .curr-idx`);
+    const captionBar = widget.querySelector(`#caption-${productId}`);
+    const thumbButtons = widget.querySelectorAll('.product-thumb-btn');
+    const dotButtons = widget.querySelectorAll('.carousel-dot');
+    const prevBtn = widget.querySelector('.carousel-prev');
+    const nextBtn = widget.querySelector('.carousel-next');
+    const viewport = widget.querySelector('.product-carousel-viewport');
+
+    let currentIndex = 0;
+    const total = product.galleryImages.length;
+
+    function goToIndex(newIndex) {
+      if (newIndex < 0) newIndex = total - 1;
+      if (newIndex >= total) newIndex = 0;
+      currentIndex = newIndex;
+
+      const imgData = product.galleryImages[currentIndex];
+      if (!imgData) return;
+
+      // Smooth image switch with subtle fade
+      if (mainImg) {
+        mainImg.style.opacity = '0.35';
+        mainImg.style.transform = 'scale(0.97)';
+        setTimeout(() => {
+          mainImg.src = imgData.url;
+          mainImg.alt = `${product.name} - ${imgData.label}`;
+          mainImg.style.opacity = '1';
+          mainImg.style.transform = 'scale(1)';
+        }, 100);
       }
+
+      // Update counter
+      if (counterSpan) {
+        counterSpan.textContent = currentIndex + 1;
+      }
+
+      // Update caption
+      if (captionBar) {
+        captionBar.textContent = imgData.label;
+      }
+
+      // Update active thumbnail
+      thumbButtons.forEach((btn, idx) => {
+        if (idx === currentIndex) {
+          btn.classList.add('active');
+          btn.scrollIntoView({ behavior: 'smooth', inline: 'nearest', block: 'nearest' });
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      // Update active dot
+      dotButtons.forEach((dot, idx) => {
+        if (idx === currentIndex) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+
+    // Thumbnail clicks
+    thumbButtons.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const idx = parseInt(btn.getAttribute('data-index'), 10);
+        if (!isNaN(idx)) goToIndex(idx);
+      });
     });
+
+    // Dot clicks
+    dotButtons.forEach((dot) => {
+      dot.addEventListener('click', (e) => {
+        e.preventDefault();
+        const idx = parseInt(dot.getAttribute('data-index'), 10);
+        if (!isNaN(idx)) goToIndex(idx);
+      });
+    });
+
+    // Arrow navigation
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        goToIndex(currentIndex - 1);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        goToIndex(currentIndex + 1);
+      });
+    }
+
+    // Touch swipe support on viewport
+    if (viewport) {
+      let touchStartX = 0;
+      let touchStartY = 0;
+
+      viewport.addEventListener(
+        'touchstart',
+        (e) => {
+          if (e.touches && e.touches[0]) {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+          }
+        },
+        { passive: true }
+      );
+
+      viewport.addEventListener(
+        'touchend',
+        (e) => {
+          if (e.changedTouches && e.changedTouches[0]) {
+            const touchEndX = e.changedTouches[0].clientX;
+            const touchEndY = e.changedTouches[0].clientY;
+            const diffX = touchStartX - touchEndX;
+            const diffY = touchStartY - touchEndY;
+
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 35) {
+              if (diffX > 0) {
+                goToIndex(currentIndex + 1);
+              } else {
+                goToIndex(currentIndex - 1);
+              }
+            }
+          }
+        },
+        { passive: true }
+      );
+    }
   });
 
   // Add to Cart Buttons
@@ -417,7 +551,11 @@ export function initProductCatalog() {
       const product = products.find((p) => p.id === productId);
       if (product) {
         const opts = selectedOptions[productId] || {};
-        cartStore.addItem(product, opts);
+        cartStore.addItem(product, {
+          finish: opts.finish || product.finishes[0],
+          price: product.basePrice,
+          shippingLabel: 'California Warehouse (2–4 Day US Delivery)',
+        });
       }
     });
   });

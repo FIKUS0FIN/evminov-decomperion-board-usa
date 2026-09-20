@@ -1116,7 +1116,7 @@ function initWorkspaceListeners() {
           name: 'Evminov Wide Heavy-Duty Board™',
           serialNumber: sn,
           finish: 'Dark Walnut Stain',
-          capacity: 'Up to 330 lbs (150 kg)',
+          capacity: 'Up to 330 lbs',
         });
         refreshWorkspace('products');
       }

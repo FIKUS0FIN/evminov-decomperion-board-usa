@@ -33,8 +33,8 @@ describe('Product Catalog Visual Assets & Explanations', () => {
     // Verify copy clarifies travel, car trunk, and airplane transport
     expect(travelBoard.subtitle.toLowerCase()).toContain('trunk');
     expect(travelBoard.badge.toLowerCase()).toContain('travel');
-    expect(travelBoard.keyFeature).toContain('багажник');
-    expect(travelBoard.keyFeature).toContain('літаку');
+    expect(travelBoard.keyFeature.toLowerCase()).toContain('trunk');
+    expect(travelBoard.keyFeature.toLowerCase()).toContain('travel');
   });
 
   it('verifies all 5 official Evminov boards and 3 accessories are defined', () => {

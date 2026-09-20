@@ -136,7 +136,7 @@ export const exerciseGalleryData = [
     steps: [
       'Lie prone on the board, gripping handles with comfortable elbow flexion.',
       'Bend one knee upward at a right angle.',
-      'Perform micro-lifts of the knee (1-2 cm) without tilting pelvis.',
+      'Perform micro-lifts of the knee (0.5 to 1 inch) without tilting pelvis.',
       'Perform 10 smooth pulses per leg to trigger fluid circulation in lumbar discs.',
     ],
     duration: '6 – 8 Minutes',
@@ -296,7 +296,7 @@ export const exerciseGalleryData = [
     steps: [
       'Take hold of upper carriage handles with relaxed shoulders.',
       'Extend legs straight down the center of the board.',
-      'Take long, deep breaths into the lower abdomen; feel the spine elongate by 0.5 to 1.5 cm.',
+      'Take long, deep breaths into the lower abdomen; feel the spine elongate by up to 0.5 inch.',
       'Perform gentle 5-degree foot flexions to pump fluid through the spinal column.',
     ],
     duration: '10 – 15 Minutes',

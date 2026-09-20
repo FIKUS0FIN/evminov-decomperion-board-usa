@@ -220,10 +220,15 @@ export function renderUsDistributionSection() {
         <div class="us-usecases-section">
           <div class="text-center mb-6">
             <span class="badge badge-cyan" style="margin-bottom: 8px;">CLINICAL USE CASES</span>
-            <h3 class="usecases-title">Engineered For How Americans Work & Live</h3>
-            <p class="section-subtitle max-w-700">
-              Whether you are trapped in an office chair, standing for 10-hour shifts, or squatting heavy in the gym, the Evminov decompression system targets the exact biomechanical source of your pain.
-            </p>
+            <h3 class="usecases-title">Engineered For How Americans Work &amp; Live</h3>
+            <div class="usecases-quote-wrapper">
+              <div class="usecases-quote-badge">
+                <span class="usecases-quote-glyph" aria-hidden="true">“</span>
+                <blockquote class="usecases-quote-text">
+                  “Whether you are trapped in an office chair, standing for 10-hour shifts, or squatting heavy in the gym, the Evminov decompression system targets the exact biomechanical source of your pain.”
+                </blockquote>
+              </div>
+            </div>
           </div>
 
           <div class="usecases-grid">
@@ -322,7 +327,7 @@ export function renderUsDistributionSection() {
                   <strong>The Issue:</strong> 85%–90% of schoolchildren exhibit postural asymmetries; 15%–20% develop early scoliosis from 8-hour classroom sitting and heavy backpacks stunting vertebral growth plates.
                 </div>
                 <div class="usecase-solution">
-                  <strong>The Evminov Relief:</strong> 5–8 minutes of daily playful incline kinesitherapy uncompresses growing vertebrae, corrects lateral curvature, and unlocks 5–7 cm of natural genetic height potential.
+                  <strong>The Evminov Relief:</strong> 5–8 minutes of daily playful incline kinesitherapy uncompresses growing vertebrae, corrects lateral curvature, and unlocks 2–3 inches of natural genetic height potential.
                 </div>
               </div>
               <div class="usecase-badge-pill">✓ Halts Scoliosis & Unlocks Natural Growth Potential</div>
@@ -338,8 +343,12 @@ export function renderUsDistributionSection() {
               <div class="callout-badge">CALIFORNIA FULFILLMENT FACILITY</div>
               <h4 class="callout-title">Evminov Spine Systems LLC (North American HQ)</h4>
               <p class="callout-text">
-                📍 7539 Claybeck Ave, Burbank, CA 91505 • 📞 Customer Care & Spine Support: (818) 555-7746<br>
-                Open Mon–Fri 8:00 AM – 6:00 PM PST. Every board is hand-inspected by our California orthopedic team before dispatch.
+                <span class="callout-detail-line">
+                  <span class="callout-detail-loc">📍 7539 Claybeck Ave, Burbank, CA 91505</span>
+                  <span class="callout-detail-divider">•</span>
+                  <span class="callout-detail-phone">📞 Customer Care &amp; Spine Support: <strong>(818) 555-7746</strong></span>
+                </span>
+                <span class="callout-detail-sub">Open Mon–Fri 8:00 AM – 6:00 PM PST. Every board is hand-inspected by our California orthopedic team before dispatch.</span>
               </p>
             </div>
             <div class="callout-action">

@@ -20,7 +20,7 @@ export function renderGlobalBrandTrust() {
       <div class="calc-container container">
         
         <!-- Header -->
-        <div class="global-trust-header text-center">
+        <div class="global-trust-header">
           <div class="badge badge-trust" style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px;">
             <span>🌍</span>
             <span>CONTINUOUS CLINICAL SPINAL PRACTICE SINCE 1996 • 30 YEARS HELPING PATIENTS RECOVER</span>
@@ -28,9 +28,21 @@ export function renderGlobalBrandTrust() {
           <h2 class="section-title">
             Over 500,000 Patients Rehabilitated Across 40+ Countries Worldwide
           </h2>
-          <p class="section-subtitle max-w-750">
-            Founded in 1996 in Kyiv, Ukraine, the Evminov clinic and decompression system have delivered 30 continuous years of medical success — helping over 500,000 people eliminate chronic back pain, restore disc height, and end the vicious cycle of painkillers, injections, and surgery.
-          </p>
+          <div class="global-trust-lead-wrap">
+            <div class="global-trust-official-badge" title="Official Prophilactor Evminova Seal &amp; Medical Patent Crest">
+              <img 
+                src="/images/authentic/evminov-official-logo.png" 
+                alt="Official Prophilactor Evminova Medical Seal &amp; Crest" 
+                class="global-trust-official-img"
+                width="92" 
+                height="92"
+                loading="lazy"
+              />
+            </div>
+            <p class="section-subtitle global-trust-lead-desc">
+              Founded in 1996 in Kyiv, Ukraine, the Evminov clinic and decompression system have delivered 30 continuous years of medical success — helping over 500,000 people eliminate chronic back pain, restore disc height, and end the vicious cycle of painkillers, injections, and surgery.
+            </p>
+          </div>
         </div>
 
         <!-- 4 Global Proof Stat Counters -->
@@ -111,7 +123,9 @@ export function renderGlobalBrandTrust() {
             <!-- The Evminov Home Decompression Solution -->
             <div class="matrix-column matrix-column-evminov">
               <div class="matrix-col-header">
-                <span class="col-icon">🌲</span>
+                <span class="col-icon col-icon-logo">
+                  <img src="/images/authentic/evminov-official-logo.png" alt="Prophilactor Evminova Official Crest" class="col-icon-img" width="38" height="38" />
+                </span>
                 <h4>The Evminov Home Decompression System</h4>
                 <span class="col-price">$450 one-time lifetime investment</span>
               </div>
@@ -141,44 +155,92 @@ export function renderGlobalBrandTrust() {
         <div class="global-logistics-bar">
           <div class="logistics-grid">
             
-            <div class="logistics-text-block">
-              <span class="badge badge-cyan" style="margin-bottom: 8px;">UNIVERSAL WORLDWIDE LOGISTICS</span>
-              <h4 class="logistics-heading">We Deliver to Any Country on Earth</h4>
-              <p class="logistics-desc">
-                From Tokyo to Toronto, London to Sydney, we dispatch international orders with verified customs clearance, protective export crating, and direct door-to-door delivery.
-              </p>
+            <!-- Column 1: Universal Worldwide Delivery -->
+            <div class="logistics-column">
+              <div class="logistics-col-header">
+                <span class="badge badge-cyan" style="margin-bottom: 10px; display: inline-flex; align-items: center; gap: 6px;">
+                  <span>✈️</span>
+                  <span>UNIVERSAL WORLDWIDE LOGISTICS</span>
+                </span>
+                <h4 class="logistics-heading">We Deliver to Any Country on Earth</h4>
+                <p class="logistics-desc">
+                  From Tokyo to Toronto, London to Sydney, we dispatch international orders with verified customs clearance, protective export crating, and direct door-to-door delivery.
+                </p>
+              </div>
               
-              <div class="global-regions-tags">
+              <div class="global-destinations-grid">
                 ${globalDestinations.map(d => `
-                  <div class="region-tag">
-                    <strong>${d.region}:</strong> ${d.transit}
+                  <div class="global-dest-card">
+                    <div class="dest-card-top">
+                      <span class="dest-region-name">${d.region}</span>
+                      <span class="dest-transit-pill">${d.transit}</span>
+                    </div>
+                    <div class="dest-card-countries" title="${d.countries}">${d.countries}</div>
                   </div>
                 `).join('')}
               </div>
+
+              <div class="logistics-perks-strip">
+                <span class="logistics-perk-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-traction-cyan)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  Priority Air Cargo
+                </span>
+                <span class="logistics-perk-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-traction-cyan)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  Customs Pre-Cleared
+                </span>
+                <span class="logistics-perk-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-traction-cyan)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  Reinforced Export Crating
+                </span>
+              </div>
             </div>
 
-            <div class="payments-trust-block">
-              <h5 class="payments-title">Universal International Payment Acceptance</h5>
-              <p class="payments-desc">
-                We accept all major currencies (USD, EUR, GBP, CAD, AUD, UAH, and more) with 256-bit encrypted checkout:
-              </p>
-              
-              <div class="payment-badges-row">
-                <span class="pay-chip">💳 Visa</span>
-                <span class="pay-chip">💳 MasterCard</span>
-                <span class="pay-chip">💳 American Express</span>
-                <span class="pay-chip">💳 Discover</span>
-                <span class="pay-chip"> Apple Pay</span>
-                <span class="pay-chip">G Google Pay</span>
-                <span class="pay-chip">🅿️ PayPal</span>
-                <span class="pay-chip">⚡ Klarna / Affirm</span>
-                <span class="pay-chip">🏥 HSA / FSA</span>
-                <span class="pay-chip">🏦 Wire Transfer</span>
+            <!-- Column 2: Universal International Payment Acceptance -->
+            <div class="logistics-column payments-column">
+              <div class="logistics-col-header">
+                <span class="badge badge-pine" style="margin-bottom: 10px; display: inline-flex; align-items: center; gap: 6px;">
+                  <span>🔒</span>
+                  <span>BANK-GRADE 256-BIT ENCRYPTION</span>
+                </span>
+                <h4 class="logistics-heading">Universal International Payment Acceptance</h4>
+                <p class="logistics-desc">
+                  We accept all major currencies (USD, EUR, GBP, CAD, AUD, UAH, and more) with 256-bit encrypted checkout:
+                </p>
               </div>
 
-              <div class="international-guarantee">
-                <span>🛡️ 60-Day International Money-Back Guarantee • 10-Year Warranty</span>
+              <div class="payment-groups-container">
+                <div class="payment-group">
+                  <div class="payment-group-label">Credit &amp; Digital Wallets</div>
+                  <div class="payment-badges-row">
+                    <span class="pay-chip">💳 Visa</span>
+                    <span class="pay-chip">💳 MasterCard</span>
+                    <span class="pay-chip">💳 American Express</span>
+                    <span class="pay-chip">💳 Discover</span>
+                    <span class="pay-chip"> Apple Pay</span>
+                    <span class="pay-chip">G Google Pay</span>
+                    <span class="pay-chip">🅿️ PayPal</span>
+                  </div>
+                </div>
+
+                <div class="payment-group">
+                  <div class="payment-group-label">Healthcare &amp; Flexible Financing</div>
+                  <div class="payment-badges-row">
+                    <span class="pay-chip pay-chip-featured">🏥 HSA / FSA Eligible</span>
+                    <span class="pay-chip">⚡ Klarna / Affirm</span>
+                    <span class="pay-chip">🏦 Wire Transfer</span>
+                  </div>
+                </div>
               </div>
+
+              <div class="logistics-guarantee-banner">
+                <div class="guarantee-badge-icon">🛡️</div>
+                <div class="guarantee-content">
+                  <div class="guarantee-title">60-Day International Money-Back Guarantee • 10-Year Warranty</div>
+                  <div class="guarantee-sub">Full hospital-grade clinical protection with certified worldwide warranty coverage.</div>
+                </div>
+              </div>
+
             </div>
 
           </div>

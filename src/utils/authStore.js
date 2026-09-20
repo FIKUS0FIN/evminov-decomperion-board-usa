@@ -33,7 +33,7 @@ const DEMO_USER = {
       status: 'Registered & Active',
       warranty: '10-Year Full Structural Warranty (Expires Sept 2036)',
       finish: 'Natural Carpathian Pine',
-      capacity: '210 lbs (95 kg) • Up to 6\'4"',
+      capacity: '210 lbs • Up to 6\'4"',
       specs: '3-Section folding, 2.4" wall depth, aircraft-grade alloy carriage',
       purchaseDate: 'September 14, 2026',
       registrationStatus: 'Official Evminov Spine Registry',

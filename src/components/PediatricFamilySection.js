@@ -3,7 +3,7 @@
  * Highlights: The "Spine Toothbrush" Metaphor (Зубна щітка для хребта),
  * 80% Childhood Scoliosis Prevention, "Lying-Down Dancing" (Танці лежачи) to music,
  * 13-Point Pediatric Training Plan, 15x Dental Savings Equation,
- * 5-7 cm Natural Growth Elongation, Hippocrates & Masso Clinical Quotes,
+ * 2-3 Inches Natural Growth Elongation, Hippocrates & Masso Clinical Quotes,
  * and Universal Workplace Ergonomics (for anyone with a spine).
  */
 
@@ -78,7 +78,7 @@ export function renderPediatricFamilySection() {
                     </div>
                     <div class="analogy-divider">VS</div>
                     <div class="analogy-side highlight">
-                      <div class="analogy-label">🌲 32 VERTEBRAE DECOMPRESSION</div>
+                      <div class="analogy-label"><img src="/images/authentic/evminov-official-logo.png" alt="" class="inline-brand-crest" width="14" height="14" /> 32 VERTEBRAE DECOMPRESSION</div>
                       <div class="analogy-desc">3–5 micro-traction movements on the inclined pine plane rehydrate intervertebral discs and preserve nerve channels.</div>
                     </div>
                   </div>
@@ -115,7 +115,7 @@ export function renderPediatricFamilySection() {
 
                   <div class="cost-bar-item">
                     <div class="cost-bar-header">
-                      <span>🌲 Evminov Spine Board (20-Year Lifetime Cost)</span>
+                      <span><img src="/images/authentic/evminov-official-logo.png" alt="" class="inline-brand-crest" width="16" height="16" /> Evminov Spine Board (20-Year Lifetime Cost)</span>
                       <strong class="text-emerald">~$7.50 / person / yr</strong>
                     </div>
                     <div class="cost-bar-track">
@@ -138,9 +138,10 @@ export function renderPediatricFamilySection() {
 
           <!-- TAB 2: LYING-DOWN DANCING & 13-POINT PEDIATRIC PROTOCOL -->
           <div class="pediatric-panel" id="panel-dancing" role="tabpanel" aria-labelledby="tab-dancing">
+            <!-- 2-Column Equal-Height Showcase: Left = Method & Photo, Right = Video & Protocol Analysis -->
             <div class="pediatric-grid-2col">
               
-              <!-- Dancing Method Card -->
+              <!-- Left Card: Dancing Method & Visual Photo -->
               <div class="pediatric-card-glass">
                 <div class="card-eyebrow-pill">Gamified Physical Therapy • Танці Лежачи</div>
                 <h3 class="card-heading-lg">"Lying-Down Dancing" to Rhythmic Music (Ages 3–15)</h3>
@@ -164,7 +165,7 @@ export function renderPediatricFamilySection() {
                   <div class="dance-feature-item">
                     <div class="feature-icon">📏</div>
                     <div>
-                      <strong>Natural Growth Potential (+5 to +7 cm / +2–3 inches):</strong> Releasing intradiscal compression allows growing children to reach their full natural genetic height without stunted spinal curve blockages.
+                      <strong>Natural Growth Potential (+2 to +3 Inches):</strong> Releasing intradiscal compression allows growing children to reach their full natural genetic height without stunted spinal curve blockages.
                     </div>
                   </div>
                   <div class="dance-feature-item">
@@ -175,76 +176,120 @@ export function renderPediatricFamilySection() {
                   </div>
                 </div>
 
-                <div class="image-showcase-container" style="margin-top: 20px;">
+                <div class="image-showcase-container">
                   <img src="/images/gallery/youth-paired-traction.jpg" alt="Youth paired spinal decompression on Evminov board" class="pediatric-showcase-img" />
                   <div class="image-showcase-caption">Clinically supervised pediatric traction and posture restoration under low incline angles.</div>
                 </div>
               </div>
 
-              <!-- 13-Point Pedagogical Plan Card -->
+              <!-- Right Card: Live Video Demonstration & Clinic Protocol Analysis -->
               <div class="pediatric-card-glass">
-                <div class="card-eyebrow-pill">Official Methodology • План Занять</div>
-                <h3 class="card-heading-lg">13-Point Plan for Children &amp; Parents</h3>
+                <div class="card-eyebrow-pill">Clinical Video Demonstration • Відео Занять</div>
+                <h3 class="card-heading-lg">Watch "Lying-Down Dancing" in Clinical Practice</h3>
                 <p class="card-text-body">
-                  Developed by the Evminov Spine Center for physical therapists, PE teachers, kindergarten educators, and proactive parents:
+                  Authentic clinical footage documenting Ukrainian pediatric physical therapists guiding children through dynamic micro-movements on the inclined pine plane:
                 </p>
 
-                <div class="plan-steps-grid">
-                  <div class="plan-step-box">
-                    <span class="step-num">1</span>
-                    <div><strong>Starting Age:</strong> Safe for young toddlers starting at 3–4 years old.</div>
+                <div class="dance-features-list">
+                  <div class="dance-feature-item">
+                    <div class="feature-icon">🎬</div>
+                    <div>
+                      <strong>Dynamic Incline Kinematics:</strong> Smooth, low-amplitude oscillating leg and pelvic movements while the upper spine remains safely unloaded.
+                    </div>
                   </div>
-                  <div class="plan-step-box">
-                    <span class="step-num">2</span>
-                    <div><strong>Educator Progression:</strong> Taught by PT specialist, then PE teachers, educators &amp; parents.</div>
+                  <div class="dance-feature-item">
+                    <div class="feature-icon">🛡️</div>
+                    <div>
+                      <strong>Zero-Impact Growth Protection:</strong> 8° to 15° gentle slope eliminates compressive gravity, shielding open vertebral epiphyseal growth plates.
+                    </div>
                   </div>
-                  <div class="plan-step-box">
-                    <span class="step-num">3</span>
-                    <div><strong>Playful Formats:</strong> Game, competition, and musical rhythm ("танці лежачи").</div>
+                  <div class="dance-feature-item">
+                    <div class="feature-icon">🪵</div>
+                    <div>
+                      <strong>Resonant Carpathian Pine:</strong> Multi-layer timber flex absorbs abrupt shocks and acts as an orthopedic spring under developing spines.
+                    </div>
                   </div>
-                  <div class="plan-step-box">
-                    <span class="step-num">4</span>
-                    <div><strong>Frequency:</strong> 1–2 short sessions per day (5–10 minutes max).</div>
+                  <div class="dance-feature-item">
+                    <div class="feature-icon">🧸</div>
+                    <div>
+                      <strong>Joyful Pediatric Compliance:</strong> Upbeat musical rhythm keeps young toddlers and teens smiling and motivated without therapy dread.
+                    </div>
                   </div>
-                  <div class="plan-step-box">
-                    <span class="step-num">5</span>
-                    <div><strong>Exercise Variety:</strong> Targeting cervical, thoracic, and lumbo-sacral spinal segments.</div>
-                  </div>
-                  <div class="plan-step-box">
-                    <span class="step-num">6</span>
-                    <div><strong>Age Calibration:</strong> Effortless micro-movements tailored to body growth stages.</div>
-                  </div>
-                  <div class="plan-step-box">
-                    <span class="step-num">7</span>
-                    <div><strong>Child Engagement:</strong> Duration capped to end BEFORE the child loses interest.</div>
-                  </div>
-                  <div class="plan-step-box">
-                    <span class="step-num">8</span>
-                    <div><strong>Safety Protocol:</strong> Always practiced under adult or educator supervision.</div>
-                  </div>
-                  <div class="plan-step-box">
-                    <span class="step-num">9</span>
-                    <div><strong>Strict Symmetry:</strong> Equal left-right repetitions to prevent scoliotic curves.</div>
-                  </div>
-                  <div class="plan-step-box">
-                    <span class="step-num">10</span>
-                    <div><strong>Parent Co-Training:</strong> Parents workout with kids, modeling lifelong wellness.</div>
-                  </div>
-                  <div class="plan-step-box">
-                    <span class="step-num">11</span>
-                    <div><strong>Smartphone Tracking:</strong> Documenting monthly height, posture, and alignment wins.</div>
-                  </div>
-                  <div class="plan-step-box">
-                    <span class="step-num">12</span>
-                    <div><strong>Exhibition &amp; Fun:</strong> Family show challenges across kids (3–15 yrs) and parents.</div>
-                  </div>
-                  <div class="plan-step-box" style="grid-column: 1 / -1;">
-                    <span class="step-num">13</span>
-                    <div><strong>Junior Team Competitions:</strong> Older students mentor teams of 5–6 younger kids for best posture and core agility results.</div>
-                  </div>
+                </div>
+
+                <div class="video-showcase-container">
+                  <video controls playsinline preload="metadata" class="pediatric-video-player" poster="/images/gallery/youth-paired-traction.jpg">
+                    <source src="/videos/pediatric-lying-down-dance.mp4" type="video/mp4" />
+                    Your browser does not support HTML5 video.
+                  </video>
+                  <div class="image-showcase-caption">Authentic clinical session: Children practicing playful rhythmic "lying-down dance" decompression.</div>
                 </div>
               </div>
 
+            </div>
+
+            <!-- Full-Width Bottom Section: 13-Point Plan for Children & Parents -->
+            <div class="pediatric-card-glass" style="margin-top: 24px;">
+              <div class="card-eyebrow-pill">Official Methodology • План Занять</div>
+              <h3 class="card-heading-lg">13-Point Plan for Children &amp; Parents</h3>
+              <p class="card-text-body">
+                Developed by the Evminov Spine Center for physical therapists, PE teachers, kindergarten educators, and proactive parents:
+              </p>
+
+              <div class="plan-steps-grid">
+                <div class="plan-step-box">
+                  <span class="step-num">1</span>
+                  <div><strong>Starting Age:</strong> Safe for young toddlers starting at 3–4 years old.</div>
+                </div>
+                <div class="plan-step-box">
+                  <span class="step-num">2</span>
+                  <div><strong>Educator Progression:</strong> Taught by PT specialist, then PE teachers, educators &amp; parents.</div>
+                </div>
+                <div class="plan-step-box">
+                  <span class="step-num">3</span>
+                  <div><strong>Playful Formats:</strong> Game, competition, and musical rhythm ("танці лежачи").</div>
+                </div>
+                <div class="plan-step-box">
+                  <span class="step-num">4</span>
+                  <div><strong>Frequency:</strong> 1–2 short sessions per day (5–10 minutes max).</div>
+                </div>
+                <div class="plan-step-box">
+                  <span class="step-num">5</span>
+                  <div><strong>Exercise Variety:</strong> Targeting cervical, thoracic, and lumbo-sacral spinal segments.</div>
+                </div>
+                <div class="plan-step-box">
+                  <span class="step-num">6</span>
+                  <div><strong>Age Calibration:</strong> Effortless micro-movements tailored to body growth stages.</div>
+                </div>
+                <div class="plan-step-box">
+                  <span class="step-num">7</span>
+                  <div><strong>Child Engagement:</strong> Duration capped to end BEFORE the child loses interest.</div>
+                </div>
+                <div class="plan-step-box">
+                  <span class="step-num">8</span>
+                  <div><strong>Safety Protocol:</strong> Always practiced under adult or educator supervision.</div>
+                </div>
+                <div class="plan-step-box">
+                  <span class="step-num">9</span>
+                  <div><strong>Strict Symmetry:</strong> Equal left-right repetitions to prevent scoliotic curves.</div>
+                </div>
+                <div class="plan-step-box">
+                  <span class="step-num">10</span>
+                  <div><strong>Parent Co-Training:</strong> Parents workout with kids, modeling lifelong wellness.</div>
+                </div>
+                <div class="plan-step-box">
+                  <span class="step-num">11</span>
+                  <div><strong>Smartphone Tracking:</strong> Documenting monthly height, posture, and alignment wins.</div>
+                </div>
+                <div class="plan-step-box">
+                  <span class="step-num">12</span>
+                  <div><strong>Exhibition &amp; Fun:</strong> Family show challenges across kids (3–15 yrs) and parents.</div>
+                </div>
+                <div class="plan-step-box plan-step-featured">
+                  <span class="step-num">13</span>
+                  <div><strong>Junior Team Competitions:</strong> Older students mentor teams of 5–6 younger kids for best posture and core agility results.</div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -254,7 +299,7 @@ export function renderPediatricFamilySection() {
               <div class="card-eyebrow-pill">Universal Architecture • Для Всіх, у Кого Є Хребет</div>
               <h3 class="card-heading-lg">One Single Trainer for the Whole Family (Ages 3 to 99)</h3>
               <p class="card-text-body">
-                The Evminov board requires zero special gym space. It occupies just <strong>1.25 m² (2.5m x 0.5m)</strong> on any standard residential wall, weighs only <strong>8–9 kg</strong>, and adjusts its carriage in 10 seconds to fit anyone from a 3-year-old child to a 6'9" athlete (tested up to 330 lbs / 150 kg).
+                The Evminov board requires zero special gym space. It occupies just <strong>13.5 sq ft (8.2 ft × 1.6 ft)</strong> on any standard residential wall, weighs only <strong>19–20 lbs</strong>, and adjusts its carriage in 10 seconds to fit anyone from a 3-year-old child to a 6'9" athlete (tested up to 330 lbs).
               </p>
             </div>
 

@@ -131,6 +131,62 @@
   margin-bottom: 40px;
 }
 
+.global-trust-lead-wrap {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 18px;
+  max-width: 900px;
+}
+
+.global-trust-official-badge {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--color-surface-white);
+  padding: 4px;
+  box-shadow: 0 4px 16px rgba(11, 19, 43, 0.08);
+  border: 1px solid var(--color-border-subtle);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.global-trust-official-badge:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(11, 19, 43, 0.14);
+}
+
+.global-trust-official-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 50%;
+}
+
+.global-trust-lead-desc {
+  font-size: clamp(0.9375rem, 1.6vw, 1.0625rem);
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+@media (max-width: 680px) {
+  .global-trust-lead-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .global-trust-official-badge {
+    width: 80px;
+    height: 80px;
+  }
+}
+
 .max-w-700 {
   max-width: 700px;
   margin-left: auto;
@@ -346,6 +402,70 @@
   margin-bottom: 8px;
 }
 
+/* Quotation Card Effect for Clinical Use Cases */
+.usecases-quote-wrapper {
+  max-width: 780px;
+  margin: 18px auto 32px;
+  padding: 0 12px;
+  position: relative;
+}
+
+.usecases-quote-badge {
+  position: relative;
+  background: linear-gradient(135deg, rgba(240, 249, 255, 0.9) 0%, rgba(248, 250, 252, 0.95) 50%, rgba(236, 253, 245, 0.85) 100%);
+  border: 1px solid rgba(14, 165, 233, 0.22);
+  border-left: 4px solid var(--color-traction-cyan);
+  border-radius: var(--radius-xl);
+  padding: 20px 32px 20px 48px;
+  box-shadow: 0 8px 24px -6px rgba(14, 165, 233, 0.12), 0 2px 8px rgba(11, 19, 43, 0.04);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all var(--transition-fast);
+}
+
+.usecases-quote-badge:hover {
+  border-color: rgba(14, 165, 233, 0.4);
+  box-shadow: 0 12px 30px -6px rgba(14, 165, 233, 0.18), 0 4px 12px rgba(11, 19, 43, 0.06);
+  transform: translateY(-2px);
+}
+
+.usecases-quote-glyph {
+  position: absolute;
+  top: 6px;
+  left: 14px;
+  font-size: 3.5rem;
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1;
+  background: linear-gradient(135deg, #0EA5E9, #10B981);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.65;
+  pointer-events: none;
+  user-select: none;
+}
+
+.usecases-quote-text {
+  margin: 0;
+  padding: 0;
+  font-size: clamp(0.975rem, 1.5vw, 1.075rem);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-primary-navy);
+  line-height: 1.65;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 640px) {
+  .usecases-quote-badge {
+    padding: 16px 20px 16px 36px;
+  }
+  .usecases-quote-glyph {
+    top: 4px;
+    left: 8px;
+    font-size: 2.75rem;
+  }
+}
+
 .usecases-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -513,15 +633,48 @@
 .callout-title {
   font-size: 1.25rem;
   font-weight: 800;
-  color: #fff;
-  margin-bottom: 6px;
+  color: #FFFFFF;
+  margin-bottom: 8px;
 }
 
+.us-distribution-callout .callout-text,
 .callout-text {
-  font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.5;
+  font-size: 0.9rem;
+  color: #F8FAFC !important;
+  line-height: 1.6;
   margin: 0;
+}
+
+.callout-detail-line {
+  display: inline-block;
+  color: #FFFFFF;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.callout-detail-loc {
+  color: #F8FAFC;
+}
+
+.callout-detail-divider {
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0 8px;
+}
+
+.callout-detail-phone {
+  color: #F8FAFC;
+}
+
+.callout-detail-phone strong {
+  color: #38BDF8;
+  font-weight: 700;
+}
+
+.callout-detail-sub {
+  display: block;
+  color: #CBD5E1;
+  font-size: 0.85rem;
+  line-height: 1.5;
 }
 
 /* Global Stats Grid */
@@ -651,6 +804,23 @@
   margin-bottom: 8px;
 }
 
+.col-icon-logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 8px;
+}
+
+.col-icon-img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  display: inline-block;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(11, 19, 43, 0.1);
+  background: #ffffff;
+}
+
 .matrix-col-header h4 {
   font-size: 1.2rem;
   font-weight: 800;
@@ -684,105 +854,235 @@
 }
 
 /* Global Logistics & Payments Bar */
+/* Global Logistics & Payments Bar */
 .global-logistics-bar {
-  background: var(--color-primary-navy);
+  background: radial-gradient(circle at 85% 20%, rgba(14, 165, 233, 0.09) 0%, transparent 45%), 
+              radial-gradient(circle at 15% 80%, rgba(5, 150, 105, 0.09) 0%, transparent 45%), 
+              #0B132B;
   color: #fff;
-  border-radius: var(--radius-lg);
-  padding: 36px;
-  box-shadow: var(--shadow-lg);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  box-shadow: 0 25px 50px -12px rgba(11, 19, 43, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  position: relative;
+  overflow: hidden;
 }
 
 @media (max-width: 640px) {
   .global-logistics-bar {
-    padding: 24px 16px;
+    padding: 28px 18px;
   }
 }
 
 .logistics-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 36px;
-  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: stretch;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 980px) {
   .logistics-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 36px;
   }
 }
 
+.logistics-column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.logistics-col-header {
+  margin-bottom: 18px;
+}
+
 .logistics-heading {
-  font-size: 1.45rem;
+  font-size: clamp(1.25rem, 2vw, 1.45rem);
   font-weight: 800;
   color: #fff;
   margin-bottom: 8px;
+  line-height: 1.3;
 }
 
 .logistics-desc {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.88rem;
+  color: #94A3B8;
   line-height: 1.55;
+  margin: 0;
+}
+
+/* 2-Column Destination Grid */
+.global-destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
   margin-bottom: 16px;
 }
 
-.global-regions-tags {
+@media (max-width: 520px) {
+  .global-destinations-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.global-dest-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
   display: flex;
   flex-direction: column;
+  gap: 4px;
+  transition: all var(--transition-fast);
+}
+
+.global-dest-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(56, 189, 248, 0.35);
+  transform: translateY(-2px);
+}
+
+.dest-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 8px;
 }
 
-.region-tag {
-  font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.85);
-  background: rgba(255, 255, 255, 0.07);
-  padding: 6px 12px;
-  border-radius: var(--radius-sm);
-  border-left: 3px solid var(--color-traction-cyan);
-}
-
-.payments-trust-block {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-md);
-  padding: 24px;
-}
-
-.payments-title {
-  font-size: 1.1rem;
+.dest-region-name {
+  font-size: 0.825rem;
   font-weight: 700;
-  color: #fff;
-  margin-bottom: 8px;
+  color: #FFFFFF;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.payments-desc {
-  font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.75);
-  margin-bottom: 14px;
+.dest-transit-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--font-mono, monospace);
+  color: #38BDF8;
+  background: rgba(14, 165, 233, 0.15);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.dest-card-countries {
+  font-size: 0.72rem;
+  color: #94A3B8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.logistics-perks-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.logistics-perk-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #CBD5E1;
+}
+
+/* Payment Groups */
+.payment-groups-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.payment-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.payment-group-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748B;
 }
 
 .payment-badges-row {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 16px;
 }
 
 .pay-chip {
-  background: rgba(255, 255, 255, 0.12);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
   font-size: 0.78rem;
   font-weight: 600;
-  padding: 5px 10px;
+  padding: 6px 11px;
   border-radius: var(--radius-sm);
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
+  transition: all var(--transition-fast);
 }
 
-.international-guarantee {
-  font-size: 0.82rem;
-  color: var(--color-pine-light);
-  font-weight: 600;
+.pay-chip:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
 }
+
+.pay-chip-featured {
+  background: rgba(5, 150, 105, 0.2);
+  border-color: rgba(52, 211, 153, 0.35);
+  color: #34D399;
+}
+
+.logistics-guarantee-banner {
+  margin-top: auto;
+  background: linear-gradient(135deg, rgba(5, 150, 105, 0.15) 0%, rgba(14, 165, 233, 0.08) 100%);
+  border: 1px solid rgba(52, 211, 153, 0.28);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.guarantee-badge-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.guarantee-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.guarantee-title {
+  font-size: 0.84rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.3;
+}
+
+.guarantee-sub {
+  font-size: 0.74rem;
+  color: #94A3B8;
+  line-height: 1.4;
+}
+

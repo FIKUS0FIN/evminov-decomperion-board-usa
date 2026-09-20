@@ -20,7 +20,7 @@ import { renderUsDistributionSection, initUsDistributionSection } from './compon
 import { renderGlobalBrandTrust, initGlobalBrandTrust } from './components/GlobalBrandTrust.js';
 import { renderProductCatalog, initProductCatalog } from './components/ProductCatalog.js';
 import { renderPatentsSection, initPatentsSection } from './components/PatentsSection.js';
-import { renderMountingGuide } from './components/MountingGuide.js';
+import { renderMountingGuide, initMountingGuide } from './components/MountingGuide.js';
 import { renderAthleteSection, initAthleteSection } from './components/AthleteSection.js';
 import { renderPediatricFamilySection, initPediatricFamilySection } from './components/PediatricFamilySection.js';
 import { renderOnboardingProgram } from './components/OnboardingProgram.js';
@@ -141,6 +141,7 @@ function renderApp() {
   initGlobalBrandTrust();
   initProductCatalog();
   initPatentsSection();
+  initMountingGuide();
   initAthleteSection();
   initPediatricFamilySection();
   initExerciseGallery();

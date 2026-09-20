@@ -72,7 +72,7 @@ export const militaryProgram = {
   title: 'Specialized Rehabilitation for Military Personnel, Tactical Operators & Veterans',
   subtitle: 'Targeted clinical decompression to reverse the debilitating physical toll of heavy tactical armor, blast shockwaves, and combat rucksacks — serving US Armed Forces, Veterans, First Responders & Allied Defense.',
   stats: {
-    gearWeight: '15–25 kg (33–55 lbs) body armor (30–45 kg / 70–100 lbs full combat gear)',
+    gearWeight: '33–55 lbs body armor (70–100 lbs full combat gear)',
     combatArmorLoad: 'Body armor plate carriers, ballistic helmets, ammo rucksacks, SWAT & duty belts',
     rehabilitationSuccess: '96.8% Remission of acute combat & tactical back spasms',
     dailyRequirement: '10–15 Minutes on inclined plane'
@@ -80,7 +80,7 @@ export const militaryProgram = {
   challenges: [
     {
       title: 'Tactical Armor & Heavy Ruck Axial Compression',
-      desc: 'Continuous patrol, tactical movements, and training while wearing 15–25 kg (33–55 lbs) plate carriers and up to 45 kg (100 lbs) in full combat ammo rucksacks creates relentless axial disc compression. Across US Armed Forces, SWAT teams, and frontline troops, this causes accelerated disc dehydration, annular fissures, and premature herniations in personnel under 35.'
+      desc: 'Continuous patrol, tactical movements, and training while wearing 33–55 lbs plate carriers and up to 100 lbs in full combat ammo rucksacks creates relentless axial disc compression. Across US Armed Forces, SWAT teams, and frontline troops, this causes accelerated disc dehydration, annular fissures, and premature herniations in personnel under 35.'
     },
     {
       title: 'Artillery Blast Concussions, Breaching & Vehicle Jarring',
@@ -181,8 +181,8 @@ export const woodCraftsmanshipData = {
     {
       name: 'Resonant Carpathian Pine (Сосна)',
       density: 'Firm Anatomical Elasticity',
-      maxLoad: 'Up to 330 lbs (150 kg)',
-      weight: '~26 lbs (12 kg)',
+      maxLoad: 'Up to 330 lbs',
+      weight: '~26 lbs',
       tone: 'Golden Honey with Distinct Annual Growth Rings',
       bestFor: 'Athletes, heavy spinal traction, tall individuals, and lumbar disc herniations requiring firm, stable support.',
       notes: 'Harvested from high-altitude Carpathian forests, slow-growth pine features tight annual rings providing maximum structural rigidity and long-lasting dynamic spring.'
@@ -190,8 +190,8 @@ export const woodCraftsmanshipData = {
     {
       name: 'Select Ukrainian Alder (Вільха)',
       density: 'Enhanced Spring Deflection & Compliance',
-      maxLoad: 'Up to 220 lbs (100 kg)',
-      weight: '~23 lbs (10.5 kg) — 1.5 kg lighter',
+      maxLoad: 'Up to 220 lbs',
+      weight: '~23 lbs — ~3 lbs lighter',
       tone: 'Warm Cognac / Velvet Amber Tone',
       bestFor: 'Users under 200 lbs, delicate cervical/thoracic protocols, seniors, and home interiors desiring a refined darker wood aesthetic.',
       notes: 'Alder wood possesses higher natural spring elasticity and a fine uniform grain. It cushions micro-movements smoothly and is noticeably lighter for effortless folding.'

@@ -4,7 +4,7 @@ export function renderVideoProtocols() {
   const cardsHtml = exerciseProtocols
     .map(
       (ex) => `
-      <div class="card" style="display: flex; flex-direction: column; overflow: hidden; padding: 0;">
+      <div class="card exercise-protocol-card" style="display: flex; flex-direction: column; overflow: hidden; padding: 0;">
         <div style="position: relative; height: 180px; overflow: hidden; background: #000;">
           <img src="${ex.videoThumbnail}" alt="${ex.title}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.85;" />
           <button 
@@ -166,8 +166,52 @@ export function renderVideoProtocols() {
           </div>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 24px;">
-          ${cardsHtml}
+        <!-- Interactive Exercise Protocols Carousel (Single Row with Smooth Left/Right Navigation) -->
+        <div class="exercise-carousel-wrapper" id="exercise-carousel-section">
+          <div class="exercise-carousel-header">
+            <div class="exercise-carousel-heading-group">
+              <div class="exercise-carousel-badge">
+                <span class="pulse-dot"></span>
+                <span>Clinical Regimens &amp; Prescriptions</span>
+              </div>
+              <h3 class="exercise-carousel-title">Targeted Spinal Protocols &amp; Exercises</h3>
+              <p class="exercise-carousel-subtitle">
+                Engineered angles and durations for disc regeneration, cervical relief, athletic decompression, and juvenile posture.
+              </p>
+            </div>
+            <div class="exercise-carousel-controls" role="toolbar" aria-label="Exercise protocols carousel navigation">
+              <div class="exercise-carousel-counter" id="exercise-carousel-counter" aria-live="polite">
+                <span class="counter-curr">1–4</span> of <span class="counter-total">5</span>
+              </div>
+              <div class="exercise-nav-arrows">
+                <button type="button" class="exercise-nav-btn exercise-prev-btn" id="exercise-prev-btn" aria-label="Previous exercise protocols" title="Previous protocols">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <button type="button" class="exercise-nav-btn exercise-next-btn" id="exercise-next-btn" aria-label="Next exercise protocols" title="Next protocols">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="exercise-carousel-shell">
+            <button type="button" class="exercise-float-arrow exercise-float-prev" id="exercise-float-prev" aria-label="Scroll to previous exercise protocols">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+
+            <div class="exercise-carousel-viewport" id="exercise-carousel-viewport" tabindex="0" role="region" aria-label="Clinical Exercise Protocols Carousel">
+              <div class="exercise-carousel-track" id="exercise-carousel-track">
+                ${cardsHtml}
+              </div>
+            </div>
+
+            <button type="button" class="exercise-float-arrow exercise-float-next" id="exercise-float-next" aria-label="Scroll to next exercise protocols">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+
+          <!-- Carousel Pagination Indicator Dots -->
+          <div class="exercise-carousel-dots" id="exercise-carousel-dots" role="tablist" aria-label="Exercise protocols slide indicators"></div>
         </div>
 
       </div>
@@ -198,6 +242,9 @@ export function renderVideoProtocols() {
 }
 
 export function initVideoProtocols() {
+  // Initialize Interactive Exercise Protocols Carousel
+  initExerciseCarousel();
+
   const modal = document.getElementById('video-modal');
   const closeBtn = document.getElementById('close-video-modal');
   const modalTitle = document.getElementById('video-modal-title');
@@ -452,3 +499,156 @@ export function initVideoProtocols() {
     }
   });
 }
+
+export function initExerciseCarousel() {
+  if (typeof document === 'undefined') return;
+  const viewport = document.getElementById('exercise-carousel-viewport');
+  const track = document.getElementById('exercise-carousel-track');
+  if (!viewport || !track) return;
+
+  const headerPrevBtn = document.getElementById('exercise-prev-btn');
+  const headerNextBtn = document.getElementById('exercise-next-btn');
+  const floatPrevBtn = document.getElementById('exercise-float-prev');
+  const floatNextBtn = document.getElementById('exercise-float-next');
+  const counterEl = document.getElementById('exercise-carousel-counter');
+  const dotsContainer = document.getElementById('exercise-carousel-dots');
+
+  const cards = track.querySelectorAll('.exercise-protocol-card');
+  const totalCards = cards.length;
+  if (!totalCards) return;
+
+  function getCardStep() {
+    if (cards.length > 1) {
+      const firstRect = cards[0].getBoundingClientRect();
+      const secondRect = cards[1].getBoundingClientRect();
+      const diff = secondRect.left - firstRect.left;
+      if (diff > 0) return diff;
+    } else if (cards.length === 1) {
+      const cardRect = cards[0].getBoundingClientRect();
+      if (cardRect.width > 0) return cardRect.width + 24;
+    }
+    return 299;
+  }
+
+  function getVisibleCount() {
+    const vWidth = viewport.clientWidth || 1100;
+    const step = getCardStep();
+    return Math.max(1, Math.min(totalCards, Math.round(vWidth / step)));
+  }
+
+  function updateCarouselUI() {
+    const scrollLeft = viewport.scrollLeft;
+    const maxScroll = Math.max(0, viewport.scrollWidth - viewport.clientWidth);
+    const step = getCardStep();
+    const visible = getVisibleCount();
+
+    let firstVisibleIdx = Math.round(scrollLeft / step);
+    if (scrollLeft >= maxScroll - 15) {
+      firstVisibleIdx = Math.max(0, totalCards - visible);
+    }
+    firstVisibleIdx = Math.max(0, Math.min(firstVisibleIdx, totalCards - 1));
+    const lastVisibleIdx = Math.min(totalCards, firstVisibleIdx + visible);
+
+    if (counterEl) {
+      const start = Math.min(firstVisibleIdx + 1, totalCards);
+      const end = Math.min(lastVisibleIdx, totalCards);
+      counterEl.innerHTML = `<span class="counter-curr">${start}–${end}</span> of <span class="counter-total">${totalCards}</span>`;
+    }
+
+    const atStart = scrollLeft <= 5;
+    const atEnd = scrollLeft >= maxScroll - 5;
+
+    [headerPrevBtn, floatPrevBtn].forEach((btn) => {
+      if (btn) {
+        btn.disabled = atStart;
+        btn.setAttribute('aria-disabled', atStart ? 'true' : 'false');
+      }
+    });
+
+    [headerNextBtn, floatNextBtn].forEach((btn) => {
+      if (btn) {
+        btn.disabled = atEnd;
+        btn.setAttribute('aria-disabled', atEnd ? 'true' : 'false');
+      }
+    });
+
+    if (dotsContainer) {
+      const dots = dotsContainer.querySelectorAll('.exercise-carousel-dot');
+      const numPages = Math.max(1, Math.ceil(totalCards / visible));
+      const activePage = Math.min(
+        numPages - 1,
+        Math.round(scrollLeft / (viewport.clientWidth || 1))
+      );
+
+      dots.forEach((dot, idx) => {
+        const isActive = idx === activePage;
+        dot.classList.toggle('is-active', isActive);
+        dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+    }
+  }
+
+  function scrollNext() {
+    const scrollDist = viewport.clientWidth > 500 ? viewport.clientWidth * 0.85 : getCardStep();
+    viewport.scrollBy({ left: scrollDist, behavior: 'smooth' });
+  }
+
+  function scrollPrev() {
+    const scrollDist = viewport.clientWidth > 500 ? viewport.clientWidth * 0.85 : getCardStep();
+    viewport.scrollBy({ left: -scrollDist, behavior: 'smooth' });
+  }
+
+  if (headerNextBtn) headerNextBtn.addEventListener('click', scrollNext);
+  if (floatNextBtn) floatNextBtn.addEventListener('click', scrollNext);
+  if (headerPrevBtn) headerPrevBtn.addEventListener('click', scrollPrev);
+  if (floatPrevBtn) floatPrevBtn.addEventListener('click', scrollPrev);
+
+  viewport.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      scrollNext();
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      scrollPrev();
+    }
+  });
+
+  function renderDots() {
+    if (!dotsContainer) return;
+    dotsContainer.innerHTML = '';
+    const visible = getVisibleCount();
+    const numPages = Math.max(1, Math.ceil(totalCards / visible));
+
+    if (numPages <= 1) {
+      dotsContainer.style.display = 'none';
+      return;
+    }
+    dotsContainer.style.display = 'flex';
+
+    for (let i = 0; i < numPages; i++) {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = `exercise-carousel-dot ${i === 0 ? 'is-active' : ''}`;
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+      dot.setAttribute('aria-label', `Go to exercise protocols page ${i + 1}`);
+      dot.addEventListener('click', () => {
+        const targetScroll = i === numPages - 1 && numPages > 1
+          ? viewport.scrollWidth - viewport.clientWidth
+          : i * (viewport.clientWidth * 0.85);
+        viewport.scrollTo({ left: targetScroll, behavior: 'smooth' });
+      });
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  renderDots();
+  updateCarouselUI();
+
+  viewport.addEventListener('scroll', updateCarouselUI, { passive: true });
+  window.addEventListener('resize', () => {
+    renderDots();
+    updateCarouselUI();
+  });
+}
+

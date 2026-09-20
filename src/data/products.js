@@ -5,7 +5,7 @@
  */
 
 export const products = [
-  // 1. Стандартний (цільний) Профілактор Євмінова
+  // 1. Standard Solid Evminov Profilactor
   {
     id: 'evminov-standard',
     category: 'board',
@@ -14,18 +14,18 @@ export const products = [
     ukrName: 'Стандартний (цільний) Профілактор Євмінова',
     badge: 'Flagship Original • 1-Piece Solid',
     subtitle: 'Classic one-piece non-folding model. Continuous resonant Carpathian pine beam providing maximum monolithic rigidity for clinical and home rehabilitation.',
-    keyFeature: 'Базова нерозбірна модель. Суцільна дерев\'яна панель зі світлої або темної сосни з максимальним пружним резонансом для стаціонарного домашнього або клінічного монтажу.',
+    keyFeature: 'Base monolithic model. Continuous multi-layer Carpathian pine beam providing maximum spring resonance for dedicated home or clinical wall-mount installation.',
     basePrice: 450, // Direct delivery from Ukraine ($450)
     fastPrice: 595, // Expedited 2-4 day delivery from Burbank, CA warehouse ($595)
     rating: 4.9,
     reviewsCount: 1420,
     specs: {
-      construction: '1-Piece Solid (Цільна нерозбірна балка)',
-      mobility: 'Permanent Home & Clinic Wall Mount (Стаціонарний монтаж)',
-      heightLimit: 'Up to 6\'4" (193 cm)',
-      weightLimit: 'Up to 210 lbs (95 kg)',
+      construction: '1-Piece Solid Monolithic Beam',
+      mobility: 'Permanent Home & Clinic Wall Mount',
+      heightLimit: 'Up to 6\'4"',
+      weightLimit: 'Up to 210 lbs',
       material: 'Multi-layer resonant Carpathian Pine (Light or Dark Pine)',
-      weight: '23–25 lbs (10.5–11.5 kg)',
+      weight: '23–25 lbs',
       inclineRange: '8° to 90° (and -25° reverse traction)',
       foldedDepth: '2.4" slim profile against wall',
     },
@@ -36,7 +36,7 @@ export const products = [
       '30-Day Digital Spine Rehabilitation Video Program & clinical manual',
       '60-Day Risk-Free Home Trial & 10-Year Frame Warranty',
     ],
-    finishes: ['Light Natural Pine (Світла сосна)', 'Dark Stained Pine (Темна сосна)'],
+    finishes: ['Light Natural Pine', 'Dark Stained Pine'],
     image: '/images/authentic/evminov-board-profile.jpg',
     galleryImages: [
       { url: '/images/authentic/evminov-board-profile.jpg', label: 'Full Solid Board' },
@@ -50,7 +50,7 @@ export const products = [
     popular: true,
   },
 
-  // 2. Складаний (розбірний) Профілактор з 2-х частин
+  // 2. 2-Piece Folding Evminov Profilactor
   {
     id: 'evminov-folding-2part',
     category: 'board',
@@ -59,18 +59,18 @@ export const products = [
     ukrName: 'Складаний (розбірний) Профілактор з 2-х частин',
     badge: 'Space Saver • 2-Piece Folding',
     subtitle: 'Optimized for compact apartment storage and quick room-to-room transport. Disassembles into two halves in 30 seconds with precision interlocking steel joints.',
-    keyFeature: 'Оптимізований для зберігання та базового транспортування. Розбирається навпіл за 30 секунд: зручно ховати під ліжко, у шафу або за двері без втрати пружності.',
+    keyFeature: 'Optimized for compact home storage and easy transport. Disassembles in half in 30 seconds: stores conveniently under beds, in closets, or behind doors without losing tensile flex.',
     basePrice: 475,
     fastPrice: 615,
     rating: 4.9,
     reviewsCount: 680,
     specs: {
-      construction: '2-Piece Demountable (Розбірна з 2-х частин)',
-      mobility: 'Compact Closet & Under-Bed Storage (Зберігання під ліжком/у шафі)',
-      heightLimit: 'Up to 6\'4" (193 cm)',
-      weightLimit: 'Up to 220 lbs (100 kg)',
+      construction: '2-Piece Precision Demountable Beam',
+      mobility: 'Compact Closet & Under-Bed Storage',
+      heightLimit: 'Up to 6\'4"',
+      weightLimit: 'Up to 220 lbs',
       material: 'Selected resonant Carpathian Pine with interlocking steel reinforcement',
-      weight: '25 lbs (11.3 kg)',
+      weight: '25 lbs',
       inclineRange: '8° to 90°',
       foldedDepth: 'Stores flat under bed or in closet (~45" half length)',
     },
@@ -81,7 +81,7 @@ export const products = [
       'Quick-release wall mount anchor and safety pins',
       '60-Day Risk-Free Home Trial & 10-Year Warranty',
     ],
-    finishes: ['Light Natural Pine (Світла сосна)', 'Dark Stained Pine (Темна сосна)'],
+    finishes: ['Light Natural Pine', 'Dark Stained Pine'],
     image: '/images/accessories/standard-pine-board-assembly.png',
     galleryImages: [
       { url: '/images/accessories/standard-pine-board-assembly.png', label: '2-Piece Assembly' },
@@ -93,7 +93,7 @@ export const products = [
     popular: false,
   },
 
-  // 3. Складаний (розбірний) Профілактор з 3-х частин
+  // 3. 3-Piece Folding Evminov Profilactor
   {
     id: 'evminov-folding-3part',
     category: 'board',
@@ -102,20 +102,20 @@ export const products = [
     ukrName: 'Складаний (розбірний) Профілактор з 3-х частин',
     badge: 'Car Trunk & Airline Ready • 3-Piece Travel',
     subtitle: 'The most compact mobile board in the Evminov family. Engineered to pack down effortlessly into any car trunk, SUV cargo bay, or aircraft luggage travel bag.',
-    keyFeature: 'Найбільш компактна модель. Поміщається в багажник будь-якого легкового автомобіля або підходить для перевезення в літаку. Ідеальний для подорожей та виїзних терапевтів.',
+    keyFeature: 'Ultra-compact mobile design (~31" folded segments). Easily packs into vehicle trunks, SUVs, or luggage bags for air travel. Ideal for frequent travelers, vacation homes, and mobile physical therapists.',
     basePrice: 495,
     fastPrice: 635,
     rating: 4.9,
     reviewsCount: 890,
     specs: {
-      construction: '3-Piece Demountable (Розбірна з 3-х частин)',
-      mobility: 'Fits Car Trunks & Airline Travel Bags (Багажник авто / Літак)',
-      heightLimit: 'Up to 6\'4" (193 cm)',
-      weightLimit: 'Up to 220 lbs (100 kg)',
+      construction: '3-Piece Ultra-Compact Demountable Beam',
+      mobility: 'Fits Car Trunks & Airline Travel Bags',
+      heightLimit: 'Up to 6\'4"',
+      weightLimit: 'Up to 220 lbs',
       material: 'Resonant Carpathian Pine with dual aircraft alloy couplers',
-      weight: '26 lbs (11.8 kg)',
+      weight: '26 lbs',
       inclineRange: '8° to 90°',
-      foldedDepth: 'Ultra-compact ~31" (79 cm) segment length',
+      foldedDepth: 'Ultra-compact ~31" segment length',
     },
     includes: [
       'Patented Glisson Loop for cervical spine decompression (Value $65)',
@@ -124,7 +124,7 @@ export const products = [
       'Padded travel carry case compatible with car trunks and airline check-in',
       '60-Day Risk-Free Home Trial & 10-Year Warranty',
     ],
-    finishes: ['Light Natural Pine (Світла сосна)', 'Dark Stained Pine (Темна сосна)'],
+    finishes: ['Light Natural Pine', 'Dark Stained Pine'],
     image: '/images/accessories/folding-board-3-sections.png',
     galleryImages: [
       { url: '/images/accessories/folding-board-3-sections.png', label: '3-Piece Folded' },
@@ -137,27 +137,27 @@ export const products = [
     popular: true,
   },
 
-  // 4. Профілактор з широкою панеллю
+  // 4. Wide Panel Evminov Profilactor
   {
     id: 'evminov-wide',
     category: 'board',
     boardType: 'wide',
     name: 'Wide Panel Evminov Profilactor (Heavy-Duty & Athletes)',
     ukrName: 'Профілактор з широкою панеллю (Heavy-Duty)',
-    badge: 'Heavy-Duty • Broad Build (Up to 330 lbs / 150 kg)',
+    badge: 'Heavy-Duty • Broad Build (Up to 330 lbs)',
     subtitle: 'Reinforced heavy-duty board engineered specifically for individuals of larger build, broader shoulders, and athletes. Also available in folding configuration.',
-    keyFeature: 'Розроблений для людей більшої комплекції, широких плечей та атлетів (до 150 кг / 330 lbs). Збільшена на 30% ширина дерев\'яної панелі та посилена каретка. Може бути цільним або розбірним.',
+    keyFeature: 'Engineered for larger body builds, broad shoulders, and athletes (rated up to 330 lbs). Features a 30% wider timber panel and heavy-duty reinforced carriage.',
     basePrice: 500,
     fastPrice: 635,
     rating: 4.9,
     reviewsCount: 520,
     specs: {
-      construction: 'Extra-Wide Timber Panel (Широка панель • Цільна або розбірна)',
-      mobility: 'Heavy-Duty Wall Mount or Stand (Для міцної статури до 150 кг)',
-      heightLimit: 'Up to 6\'9" (206 cm)',
-      weightLimit: 'Up to 330 lbs (150 kg)',
+      construction: 'Extra-Wide Timber Panel (Solid or Demountable)',
+      mobility: 'Heavy-Duty Wall Mount or Stand (Rated up to 330 lbs)',
+      heightLimit: 'Up to 6\'9"',
+      weightLimit: 'Up to 330 lbs',
       material: 'Reinforced high-tensile multi-layer Carpathian pine core',
-      weight: '30 lbs (13.6 kg)',
+      weight: '30 lbs',
       inclineRange: '8° to 90°',
       foldedDepth: '2.8" heavy-duty wall profile',
     },
@@ -168,7 +168,7 @@ export const products = [
       'Athletic Spine Restoration Protocol for Deadlifts, Squats & Heavy Training',
       '60-Day Risk-Free Home Trial & 10-Year Frame Warranty',
     ],
-    finishes: ['Light Natural Pine (Світла сосна)', 'Dark Stained Pine (Темна сосна)', 'Gym Stealth Black'],
+    finishes: ['Light Natural Pine', 'Dark Stained Pine', 'Gym Stealth Black'],
     image: '/images/products/board-studio-incline.jpg',
     galleryImages: [
       { url: '/images/products/board-studio-incline.jpg', label: 'Wide Board Platform' },
@@ -180,7 +180,7 @@ export const products = [
     popular: false,
   },
 
-  // 5. Профілактор з вільхи
+  // 5. Select Alder Wood Evminov Profilactor
   {
     id: 'evminov-alder',
     category: 'board',
@@ -188,19 +188,19 @@ export const products = [
     name: 'Select Alder Wood Evminov Profilactor (Limited Edition)',
     ukrName: 'Профілактор з вільхи (Преміум Вільха)',
     badge: 'Limited Edition • Lightweight Alder Wood',
-    subtitle: 'Exclusive limited version handcrafted from cured Ukrainian Alder wood (вільха). Noticeably lighter in weight than pine with a richer, darker warm-amber hue.',
-    keyFeature: 'Лімітована версія з вільхи. Дещо легша за соснову (~15% менша вага), тому її помітно легше піднімати й регулювати кут нахилу, та має шляхетний темніший бурштиновий відтінок.',
+    subtitle: 'Exclusive limited version handcrafted from cured Ukrainian Alder wood. Noticeably lighter in weight than pine with a richer, darker warm-amber hue.',
+    keyFeature: 'Limited edition cured Alder wood. Approximately 15% lighter than pine for effortless angle adjustment, featuring a silky grain and distinguished warm amber hue.',
     basePrice: 525,
     fastPrice: 665,
     rating: 5.0,
     reviewsCount: 340,
     specs: {
-      construction: 'Solid Artisan Cured Alder Wood (Цільна добірна вільха)',
-      mobility: 'Lightweight Handling (Полегшена вага, легке регулювання кута)',
-      heightLimit: 'Up to 6\'4" (193 cm)',
-      weightLimit: 'Up to 220 lbs (100 kg)',
-      material: 'Rare cured Ukrainian Alder (Вільха) — naturally lightweight & silky grain',
-      weight: '19–21 lbs (8.8–9.5 kg) • ~15% lighter than pine',
+      construction: 'Solid Artisan Cured Alder Wood',
+      mobility: 'Lightweight Handling & Easy Angle Adjustment',
+      heightLimit: 'Up to 6\'4"',
+      weightLimit: 'Up to 220 lbs',
+      material: 'Rare cured Ukrainian Alder wood — naturally lightweight & silky grain',
+      weight: '19–21 lbs • ~15% lighter than pine',
       inclineRange: '8° to 90° (and -25° reverse traction)',
       foldedDepth: '2.4" slim wall profile',
     },
@@ -211,7 +211,7 @@ export const products = [
       'VIP Concierge Onboarding & 1-on-1 Certified Kinesiotherapist Video Session',
       '60-Day Risk-Free Home Trial & 10-Year Craftsmanship Warranty',
     ],
-    finishes: ['Natural Ukrainian Alder (Warm Amber / Вільха)', 'Royal Cognac Alder (Темна Вільха)'],
+    finishes: ['Natural Ukrainian Alder (Warm Amber)', 'Royal Cognac Alder (Dark Hue)'],
     image: '/images/products/board-dark-walnut-finish.jpg',
     galleryImages: [
       { url: '/images/products/board-dark-walnut-finish.jpg', label: 'Alder Amber Finish' },
@@ -223,7 +223,7 @@ export const products = [
     popular: false,
   },
 
-  // 6. Demountable Free-Standing Ladder Stand (Сторонній / Супутній аксесуар — залишаємо без змін)
+  // 6. Demountable Free-Standing Ladder Stand
   {
     id: 'evminov-stand',
     category: 'accessory',
@@ -231,18 +231,18 @@ export const products = [
     ukrName: 'Демонтована стійка-драбина для Профілактора',
     badge: 'For Renters • No Wall Holes Needed',
     subtitle: 'Sturdy freestanding timber stand. Allows full incline adjustment without drilling your drywall.',
-    keyFeature: 'Автономна дерев\'яна стійка для квартир та орендованого житла. Дозволяє займатися на будь-якому куті без свердління стін.',
+    keyFeature: 'Freestanding timber ladder stand for apartments and rental homes. Enables full incline adjustment without drilling into walls.',
     basePrice: 275,
     fastPrice: 345,
     rating: 4.9,
     reviewsCount: 220,
     specs: {
-      construction: 'Freestanding Ladder (Автономна стійка)',
-      mobility: 'Tool-Free 3-Minute Disassembly (Швидкий демонтаж)',
+      construction: 'Freestanding Timber Ladder',
+      mobility: 'Tool-Free 3-Minute Disassembly',
       heightLimit: 'Compatible with all Evminov boards',
       weightLimit: 'Rated for up to 350 lbs user weight',
       material: 'Solid kiln-dried beech wood & powder-coated steel',
-      weight: '24 lbs (11 kg)',
+      weight: '24 lbs',
       inclineRange: 'Full 8° to 90° incline range on ladder rungs',
       foldedDepth: 'Takes less than 3.5 sq ft of floor area',
     },
@@ -260,7 +260,7 @@ export const products = [
     popular: false,
   },
 
-  // 7. Patented Glisson Loop Cervical Traction System (Аксесуар — залишаємо без змін)
+  // 7. Patented Glisson Loop Cervical Traction System
   {
     id: 'evminov-glisson',
     category: 'accessory',
@@ -268,18 +268,18 @@ export const products = [
     ukrName: 'Петля Глісона для шийного відділу',
     badge: 'Neck & Cervical Relief',
     subtitle: 'Anatomical padded cervical traction collar for neck stiffness, migraine relief, and C1-C7 disc decompression.',
-    keyFeature: 'Анатомічний шийний комір для декомпресії хребців C1–C7, зняття спазмів шиї та мігреней. Входить у комплект до всіх дощок.',
+    keyFeature: 'Anatomical padded cervical traction collar for C1–C7 disc decompression, relieving neck spasms and tension headaches. Included with all board sets.',
     basePrice: 65,
     fastPrice: 85,
     rating: 4.9,
     reviewsCount: 590,
     specs: {
-      construction: 'Anatomical Padded Collar (Анатомічний комір)',
-      mobility: 'Pocket-Sized & Lightweight (Кишеньковий розмір)',
+      construction: 'Anatomical Padded Cervical Collar',
+      mobility: 'Pocket-Sized & Ultra-Lightweight',
       heightLimit: 'Universal adjustable fit',
       weightLimit: 'Rated for 150 lbs tensile load',
       material: 'Breathable medical-grade cotton with memory foam lining',
-      weight: '1.2 lbs (0.5 kg)',
+      weight: '1.2 lbs',
       inclineRange: 'Attaches directly to Evminov carriage or door frame',
       foldedDepth: 'Pocket-sized',
     },
@@ -297,7 +297,7 @@ export const products = [
     popular: false,
   },
 
-  // 8. Padded Foot Sleeves for Carriage Handles (Аксесуар — залишаємо без змін)
+  // 8. Padded Foot Sleeves for Carriage Handles
   {
     id: 'evminov-foot-sleeves',
     category: 'accessory',
@@ -305,18 +305,18 @@ export const products = [
     ukrName: 'М\'які накладки для ніг на ручки каретки',
     badge: 'Inversion & Reverse Traction Cushion',
     subtitle: 'Ergonomic high-density foam sleeves that slide directly over carriage handles in seconds. Cushions feet, shins, and ankles for pain-free inverted hanging and reverse spine decompression.',
-    keyFeature: 'Ергономічні неопренові муфти для комфортного зависання догори ногами та декомпресії попереку без тиску на гомілки.',
+    keyFeature: 'Ergonomic high-density foam sleeves for comfortable inverted hanging and reverse lumbar decompression without shin or ankle pressure.',
     basePrice: 39,
     fastPrice: 49,
     rating: 4.9,
     reviewsCount: 280,
     specs: {
-      construction: 'Slide-On Ergonomic Sleeves (Швидке надягання за 5 сек)',
-      mobility: 'Cylindrical Pair (Легко переносити)',
+      construction: 'Slide-On Ergonomic Foam Sleeves (5-Sec Setup)',
+      mobility: 'Contoured Cylindrical Pair (Portable)',
       heightLimit: 'Universal fit for all Evminov carriage models',
       weightLimit: 'Rated for up to 330 lbs tensile load',
       material: 'Closed-cell high-density neoprene foam with tear-resistant grip',
-      weight: '0.8 lbs (0.35 kg) per pair',
+      weight: '0.8 lbs per pair',
       inclineRange: 'Slide on / slide off in 5 seconds without tools',
       foldedDepth: 'Ergonomic contoured cylinder pair',
     },

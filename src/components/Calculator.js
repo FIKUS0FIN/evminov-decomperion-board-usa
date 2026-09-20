@@ -3,8 +3,7 @@ import {
   recommendIncline, 
   recommendBoardModel, 
   formatUSD, 
-  inchesToFeet,
-  lbsToKg
+  inchesToFeet
 } from '../utils/formatters.js';
 import { products } from '../data/products.js';
 import { cartStore } from '../utils/cartStore.js';
@@ -299,8 +298,8 @@ export function initCalculator() {
     const angle = parseInt(angleSlider.value, 10);
 
     // Update displays
-    weightDisplay.textContent = `${weightLbs} lbs (${lbsToKg(weightLbs)} kg)`;
-    heightDisplay.textContent = `${inchesToFeet(heightInches)} (${Math.round(heightInches * 2.54)} cm)`;
+    weightDisplay.textContent = `${weightLbs} lbs`;
+    heightDisplay.textContent = `${inchesToFeet(heightInches)}`;
     angleDisplay.textContent = `${angle}° Incline`;
     stageAngleTag.textContent = `Angle: ${angle}° Incline`;
 
@@ -412,7 +411,9 @@ export function initCalculator() {
       const product = products.find((p) => p.id === recommendedModelId) || products[0];
       cartStore.addItem(product, {
         finish: 'Natural Nordic Pine',
+        price: product.basePrice,
         shippingSpeed: 'fast-us',
+        shippingLabel: 'California Warehouse (2–4 Day US Delivery)',
       });
     });
   }

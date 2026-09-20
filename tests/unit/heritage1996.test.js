@@ -45,6 +45,8 @@ describe('1996 Clinical Foundation & 30-Year Continuous Success Verification', (
     expect(globalHtml).toContain('CONTINUOUS CLINICAL SPINAL PRACTICE SINCE 1996 • 30 YEARS HELPING PATIENTS RECOVER');
     expect(globalHtml).toContain('Founded in 1996 in Kyiv, Ukraine, the Evminov clinic and decompression system have delivered 30 continuous years');
     expect(globalHtml).toContain('Continuously operating and helping patients heal since 1996');
+    expect(globalHtml).toContain('/images/authentic/evminov-official-logo.png');
+    expect(globalHtml).toContain('global-trust-official-badge');
   });
 
   it('should verify ProductCatalog and Footer emphasize 1996 medical heritage', () => {
@@ -80,5 +82,14 @@ describe('1996 Clinical Foundation & 30-Year Continuous Success Verification', (
     expect(heroHtml).toContain('hero-trust-stars');
     expect(heroHtml).toContain('4.9 / 5.0');
     expect(heroHtml).toContain('2,400+ Verified US Cases');
+  });
+
+  it('should verify US Use Cases subtitle is rendered inside stylized quotation card', () => {
+    const usHtml = renderUsDistributionSection();
+    expect(usHtml).toContain('usecases-quote-wrapper');
+    expect(usHtml).toContain('usecases-quote-badge');
+    expect(usHtml).toContain('usecases-quote-glyph');
+    expect(usHtml).toContain('usecases-quote-text');
+    expect(usHtml).toContain('“Whether you are trapped in an office chair');
   });
 });

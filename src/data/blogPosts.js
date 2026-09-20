@@ -46,7 +46,7 @@ export const blogPosts = [
             <tr>
               <th>Feature</th>
               <th>❌ Inversion Tables</th>
-              <th>🌲 Evminov Spine Board</th>
+              <th><img src="/images/authentic/evminov-official-logo.png" alt="" class="inline-brand-crest" width="18" height="18" /> Evminov Spine Board</th>
             </tr>
           </thead>
           <tbody>
@@ -303,7 +303,7 @@ export const blogPosts = [
     excerpt: 'Sitting for 8+ hours puts 200% more compressive load on your lumbar spine than standing. Here is how modern tech workers use daily micro-traction to reverse desk slouch and tech-neck in under 10 minutes.',
     content: `
       <h2>The Biomechanical Price of 8 Hours in an Ergonomic Chair</h2>
-      <p>Modern desk workers sit an average of 9.3 hours per day. Even in the most expensive $1,500 ergonomic task chairs, static seated posture forces your pelvis into a posterior tilt, flattens your natural lumbar lordosis, and multiplies intradiscal pressure from 100 kg (standing) to <strong>over 185–200 kg (slouched sitting)</strong>.</p>
+      <p>Modern desk workers sit an average of 9.3 hours per day. Even in the most expensive $1,500 ergonomic task chairs, static seated posture forces your pelvis into a posterior tilt, flattens your natural lumbar lordosis, and multiplies intradiscal pressure from 220 lbs (standing) to <strong>over 400–440 lbs (slouched sitting)</strong>.</p>
       <p>Simultaneously, staring at computer screens pulls the human head forward by 2 to 3 inches. Because the head weighs roughly 10–12 lbs in a neutral position, every inch of forward head posture adds an additional 10 lbs of gravitational leverage on the cervical vertebrae. At a typical 45-degree desk hunch, your cervical spine must support <strong>49 lbs of continuous shearing force</strong>.</p>
 
       <h2>The Symptoms of "Desk Slouch Syndrome"</h2>
@@ -444,7 +444,7 @@ export const blogPosts = [
       <ul>
         <li><strong>Average Annual Dental Hygiene:</strong> Toothpaste, brushes, and floss cost approximately $40–$60 per person annually ($120–$180/year for a family of three).</li>
         <li><strong>Family Spine Hygiene (Evminov System):</strong> A single handcrafted Evminov board ($450) engineered from multi-layer resonant Carpathian pine has a documented lifespan exceeding 20 years. For a typical family of three, the cost is: <code>$450 ÷ 3 family members ÷ 20 years = $7.50 per person per year</code> (under 3 cents per day). That is <strong>10 to 15 times cheaper</strong> than basic dental hygiene products!</li>
-        <li><strong>Ultra-Compact Household Ergonomics:</strong> Taking up only 1.25 m² of floor area (2.5 m × 0.5 m) and weighing just 8.5 kg, the board sets up or folds away in 10 to 15 seconds. It adjusts effortlessly to accommodate every family member from young children (ages 3–4+) to grandparents over 85.</li>
+        <li><strong>Ultra-Compact Household Ergonomics:</strong> Taking up only 13.5 sq ft of floor area (8.2 ft × 1.6 ft) and weighing just 19 lbs, the board sets up or folds away in 10 to 15 seconds. It adjusts effortlessly to accommodate every family member from young children (ages 3–4+) to grandparents over 85.</li>
         <li><strong>Reactive Medical Spine Care:</strong> A single lumbar MRI costs $1,200 to $2,500; an epidural cortisone injection costs $1,800; and a lumbar microdiscectomy or fusion routinely exceeds <strong>$60,000 to $110,000</strong> with a 20% to 40% failed back surgery syndrome (FBSS) recurrence rate.</li>
       </ul>
 
@@ -534,7 +534,7 @@ export const blogPosts = [
             <tr>
               <th>Comparison Factor</th>
               <th>🏥 Traditional Clinic / Massage Care</th>
-              <th>🌲 Evminov Home Decompression</th>
+              <th><img src="/images/authentic/evminov-official-logo.png" alt="" class="inline-brand-crest" width="18" height="18" /> Evminov Home Decompression</th>
             </tr>
           </thead>
           <tbody>
@@ -589,7 +589,7 @@ export const blogPosts = [
     slug: 'pediatric-scoliosis-prevention-kids-posture-spine',
     title: 'Children & The Modern Spine: Why 85% of Kids Develop Posture Disorders and How 5-Minute Daily Incline Traction Halts Scoliosis Progression',
     metaTitle: 'Pediatric Posture & Scoliosis Prevention | Evminov Spine Systems',
-    metaDesc: 'Over 85% of school children have posture disorders or developing scoliosis. Discover how 5-minute daily inclined kinesitherapy halts curvature and unlocks 5–7 cm of natural growth potential.',
+    metaDesc: 'Over 85% of school children have posture disorders or developing scoliosis. Discover how 5-minute daily inclined kinesitherapy halts curvature and unlocks 2 to 2.8 inches of natural growth potential.',
     readTime: '10 min read',
     date: 'September 2026',
     author: {
@@ -599,7 +599,7 @@ export const blogPosts = [
     },
     category: 'Pediatric Spine Health',
     wordCount: 1950,
-    excerpt: 'School screenings reveal that 85% to 90% of children develop postural asymmetries and up to 20% develop early structural scoliosis. Discover why low-angle inclined decompression uncompresses growing vertebrae, corrects curvature, and unlocks 5–7 cm of suppressed natural height potential.',
+    excerpt: 'School screenings reveal that 85% to 90% of children develop postural asymmetries and up to 20% develop early structural scoliosis. Discover why low-angle inclined decompression uncompresses growing vertebrae, corrects curvature, and unlocks 2 to 2.8 inches of suppressed natural height potential.',
     content: `
       <h2>The School-Age Posture Epidemic: 85%–90% Screening Abnormalities</h2>
       <p>Modern pediatric health is facing an unprecedented, silent emergency: spinal deformities in developing children. Standard physical screenings conducted in elementary and secondary schools reveal that <strong>85% to 90% of children already suffer from functional posture disorders</strong> (such as scapular asymmetry, uneven shoulders, rounded thoracic kyphosis, or severe anterior pelvic tilt). Even more alarming, <strong>15% to 20% of these students have actively progressing Stage 1 or Stage 2 scoliosis</strong>.</p>
@@ -627,8 +627,8 @@ export const blogPosts = [
         <li><strong>Diffusion-Fed Disc Hydration:</strong> Intervertebral discs are avascular and rely on osmotic imbibition. Unweighting the spine creates a gentle vacuum effect, drawing oxygen and nutrients into growing cartilage.</li>
       </ol>
 
-      <h2>Unlocking 5–7 cm (2 to 2.8 Inches) of Natural Genetic Height Potential</h2>
-      <p>One of the most profound documented benefits of consistent inclined decompression in children and teenagers is its impact on vertical growth. Over 25 years of longitudinal tracking at the Evminov Center in Kyiv demonstrated that children who regularly trained on the inclined plane achieved an additional <strong>5 to 7 cm (2 to 2.8 inches) of natural upright height</strong> compared to sedentary control cohorts.</p>
+      <h2>Unlocking 2 to 2.8 Inches of Natural Genetic Height Potential</h2>
+      <p>One of the most profound documented benefits of consistent inclined decompression in children and teenagers is its impact on vertical growth. Over 25 years of longitudinal tracking at the Evminov Center in Kyiv demonstrated that children who regularly trained on the inclined plane achieved an additional <strong>2 to 2.8 inches of natural upright height</strong> compared to sedentary control cohorts.</p>
       
       <p>This is not an unnatural stretching of bones. Rather, it is the <em>full realization of the child's natural genetic growth potential</em>. When compressive slumping and disc dehydration are systematically reversed on a daily basis, intervertebral disc spaces achieve their full anatomical thickness, and spinal curves remain tall, buoyant, and aligned.</p>
 
@@ -672,9 +672,9 @@ export const blogPosts = [
       </ul>
 
       <h2>Family Economics: Protecting an Entire Household for $7.50/Year</h2>
-      <p>A single Evminov board is completely universal. The precision-engineered carriage adjusts in 10 seconds to fit heights from 3'2" (100 cm) up to 6'9" (206 cm) and supports up to 330 lbs. The same equipment used by a 7-year-old for scoliosis prevention is used by their parents for desk-neck relief and their grandparents for lumbar decompression.</p>
+      <p>A single Evminov board is completely universal. The precision-engineered carriage adjusts in 10 seconds to fit heights from 3'2" up to 6'9" and supports up to 330 lbs. The same equipment used by a 7-year-old for scoliosis prevention is used by their parents for desk-neck relief and their grandparents for lumbar decompression.</p>
       
-      <p>Taking up only 1.25 m² (2.5 m × 0.5 m) and folding flat against the wall in 15 seconds, a single $450 board with a 20-year operational lifespan costs a family of three just <strong>$7.50 per person per year</strong>. Investing in your child's spinal foundation today prevents thousands of dollars in emergency MRIs, orthopedic braces, and spinal surgery down the road.</p>
+      <p>Taking up only 13.5 sq ft (8.2 ft × 1.6 ft) and folding flat against the wall in 15 seconds, a single $450 board with a 20-year operational lifespan costs a family of three just <strong>$7.50 per person per year</strong>. Investing in your child's spinal foundation today prevents thousands of dollars in emergency MRIs, orthopedic braces, and spinal surgery down the road.</p>
     `,
     paa: [
       {
@@ -687,7 +687,7 @@ export const blogPosts = [
       },
       {
         q: 'Can regular spinal decompression really increase a teenager’s height?',
-        a: 'Yes. Clinical data from the Evminov Vertebral Center documents that adolescents performing regular unloaded kinesitherapy gain an additional 5 to 7 cm (2 to 2.8 inches) of natural height by unlocking growth plates and preventing postural disc compression.'
+        a: 'Yes. Clinical data from the Evminov Vertebral Center documents that adolescents performing regular unloaded kinesitherapy gain an additional 2 to 2.8 inches of natural height by unlocking growth plates and preventing postural disc compression.'
       },
       {
         q: 'How long should a child spend on the decompression board each day?',

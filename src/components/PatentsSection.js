@@ -11,52 +11,6 @@ export function formatKpiValue(val) {
 }
 
 export function renderPatentsSection() {
-  const patentsListHtml = patentsAndCertifications.patents
-    .map(
-      (pat) => `
-      <div class="patent-card" data-patent-target="${pat.id}" role="button" tabindex="0" aria-label="View ${pat.number} details and official patent scan">
-        <div class="patent-card-header">
-          <div class="patent-seal-badge">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <span>Verified Patent</span>
-          </div>
-          <span class="patent-status-tag">${pat.status}</span>
-        </div>
-
-        <div class="patent-num">${pat.number}</div>
-        <h3 class="patent-title">${pat.title}</h3>
-        
-        <div class="patent-meta-grid">
-          <div>
-            <strong>Inventor:</strong> ${pat.inventor}
-          </div>
-          <div>
-            <strong>Patent Office:</strong> ${pat.office}
-          </div>
-          <div>
-            <strong>Classification:</strong> ${pat.classification}
-          </div>
-        </div>
-
-        <p class="patent-significance">
-          ${pat.significance}
-        </p>
-
-        <div class="patent-card-actions">
-          <button type="button" class="btn-patent-card-doc" data-patent-open="${pat.id}">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-            <span>View Patent Scan</span>
-          </button>
-          <a href="${pat.registryUrl}" target="_blank" rel="noopener noreferrer" class="btn-patent-card-registry" onclick="event.stopPropagation()">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            <span>${pat.registryName || 'Official Registry'} ↗</span>
-          </a>
-        </div>
-      </div>
-    `
-    )
-    .join('');
-
   const trialsListHtml = patentsAndCertifications.clinicalTrials
     .map(
       (trial) => `
@@ -121,7 +75,7 @@ export function renderPatentsSection() {
         
         <div class="section-header">
           <div class="clinical-pill-badge">
-            <span class="pill-dot"></span>
+            <img src="/images/authentic/evminov-official-logo.png" alt="" class="inline-brand-crest" width="16" height="16" />
             <span>Intellectual Property & Clinical Evidence</span>
           </div>
           <h2 class="clinical-heading">${patentsAndCertifications.headline}</h2>
@@ -217,12 +171,6 @@ export function renderPatentsSection() {
           <!-- Carousel Pagination Indicator Dots -->
           <div class="scanned-carousel-dots" id="scanned-carousel-dots" role="tablist" aria-label="Patent document slide pages"></div>
         </div>
-
-        <!-- Patents Grid -->
-        <div class="patents-grid">
-          ${patentsListHtml}
-        </div>
-
 
         <!-- Clinical Trials & Hospital Validation Grid -->
         <div class="clinical-trials-wrapper">
@@ -538,26 +486,6 @@ export function initPatentsSection() {
         if (!e.target.closest('a')) {
           e.preventDefault();
           openPatentModal(docId);
-        }
-      }
-    });
-  });
-
-  // Attach click & enter listeners to all clickable patent cards in patents-grid
-  const patentCards = document.querySelectorAll('.patent-card');
-  patentCards.forEach((card) => {
-    const patentId = card.getAttribute('data-patent-target');
-    const handleCardClick = (e) => {
-      if (e.target.closest('a')) return;
-      openPatentModal(patentId);
-    };
-
-    card.addEventListener('click', handleCardClick);
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        if (!e.target.closest('a')) {
-          e.preventDefault();
-          openPatentModal(patentId);
         }
       }
     });

@@ -45,7 +45,7 @@ describe('Pillar SEO Articles & Clinical Guides Data Integrity', () => {
     expect(pediatricPost).toBeDefined();
     expect(pediatricPost.category).toBe('Pediatric Spine Health');
     expect(pediatricPost.content).toContain('Hueter-Volkmann Law');
-    expect(pediatricPost.content).toContain('5 to 7 cm');
+    expect(pediatricPost.content).toContain('2 to 2.8 inches');
     expect(pediatricPost.content).toContain('Hippocrates');
     expect(pediatricPost.content).toContain('Angelo Mosso');
     expect(pediatricPost.content).toContain('32 Teeth vs. 32 Vertebrae');
@@ -58,6 +58,58 @@ describe('Pillar SEO Articles & Clinical Guides Data Integrity', () => {
     expect(toothbrushPost.content).toContain('Hippocrates');
     expect(toothbrushPost.content).toContain('Angelo Mosso');
     expect(toothbrushPost.content).toContain('32 Teeth vs. 32 Vertebrae');
-    expect(toothbrushPost.content).toContain('1.25 m²');
+    expect(toothbrushPost.content).toContain('13.5 sq ft');
   });
 });
+
+describe('Clinical Guides & Research Articles 2-Row Carousel Gallery & Controls', () => {
+  it('should render all articles inside the 2-row carousel track with controls and floating side arrows', async () => {
+    const { renderBlogSection } = await import('../../src/components/BlogSection.js');
+    const html = renderBlogSection();
+
+    expect(html).toContain('id="blog-carousel-section"');
+    expect(html).toContain('id="blog-carousel-viewport"');
+    expect(html).toContain('id="blog-carousel-track"');
+
+    // Verify all articles are rendered in carousel track
+    blogPosts.forEach((post) => {
+      expect(html).toContain(post.title);
+      expect(html).toContain(`data-article-id="${post.id}"`);
+    });
+
+    // Verify controls bar elements
+    expect(html).toContain('id="blog-filter-bar"');
+    expect(html).toContain('id="blog-category-dropdown"');
+    expect(html).toContain('id="blog-carousel-counter"');
+    expect(html).toContain('id="blog-counter-curr"');
+    expect(html).toContain('id="blog-counter-total"');
+    expect(html).toContain('id="blog-prev-btn"');
+    expect(html).toContain('id="blog-next-btn"');
+    expect(html).toContain('id="blog-float-prev"');
+    expect(html).toContain('id="blog-float-next"');
+    expect(html).toContain('id="blog-carousel-dots"');
+  });
+
+  it('should include 2-row grid styles and horizontal scroll-snap in main.css', async () => {
+    const fs = await import('fs');
+    const path = await import('path');
+    const mainCssPath = path.resolve(process.cwd(), 'src/styles/main.css');
+    const mainCss = fs.readFileSync(mainCssPath, 'utf8');
+
+    expect(mainCss).toContain('.blog-carousel-track');
+    expect(mainCss).toContain('grid-template-rows: repeat(2, minmax(380px, 1fr))');
+    expect(mainCss).toContain('grid-auto-flow: column');
+    expect(mainCss).toContain('.blog-carousel-viewport');
+    expect(mainCss).toContain('scroll-snap-type: x mandatory');
+    expect(mainCss).toContain('.blog-float-arrow');
+    expect(mainCss).toContain('.blog-carousel-dots');
+  });
+
+  it('should gracefully handle initBlogSection when DOM elements are absent in non-browser env', async () => {
+    const { initBlogSection } = await import('../../src/components/BlogSection.js');
+    expect(() => {
+      initBlogSection();
+    }).not.toThrow();
+  });
+});
+

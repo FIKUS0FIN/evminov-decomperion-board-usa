@@ -50,7 +50,7 @@ export function renderComparisonTable() {
           <div class="comp-side-header">
             <span class="comp-side-brand-tag winner-tag">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              🌲 Evminov Spine Board
+              <img src="/images/authentic/evminov-official-logo.png" alt="" class="inline-brand-crest" width="16" height="16" /> Evminov Spine Board
             </span>
             <span class="comp-status-pill pill-winner">Clinical Choice</span>
           </div>
@@ -139,7 +139,7 @@ export function renderComparisonTable() {
             <thead>
               <tr>
                 <th class="col-metric-th" style="width: 25%;">Feature & Safety Factor</th>
-                <th class="col-evminov" style="width: 28%;">🌲 Evminov Spine Board</th>
+                <th class="col-evminov" style="width: 28%;"><img src="/images/authentic/evminov-official-logo.png" alt="" class="inline-brand-crest" width="18" height="18" /> Evminov Spine Board</th>
                 <th class="col-inversion-th" style="width: 24%;">❌ Teeter Inversion Table</th>
                 <th class="col-surgery-th" style="width: 23%;">⚠️ Spinal Surgery ($60k+)</th>
               </tr>

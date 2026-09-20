@@ -72,8 +72,31 @@
   --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+@media (min-width: 1600px) {
+  :root {
+    --container-max: 1320px;
+  }
+}
+
 @media (max-width: 640px) {
   :root {
     --container-padding: 16px;
+  }
+}
+
+/* ==========================================================================
+   Desktop Resolution 125% Proportional Scaling
+   Scales typography, containers, images, and layout by 125% on desktop displays
+   (e.g., MacBook Retina, iMac, 1080p/1440p/4K monitors) to match native 125% zoom.
+   ========================================================================== */
+@media (min-width: 1200px) {
+  html {
+    zoom: 1.25;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1199px) {
+  html {
+    zoom: 1.1;
   }
 }

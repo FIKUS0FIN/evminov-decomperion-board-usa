@@ -57,8 +57,10 @@ class CartStore {
 
   addItem(product, options = {}) {
     const finish = options.finish || 'Natural Pine';
-    const shippingSpeed = options.shippingSpeed || 'fast-us'; // 'fast-us' ($595) or 'direct-ua' ($450)
-    const effectivePrice = shippingSpeed === 'fast-us' && product.fastPrice ? product.fastPrice : product.basePrice;
+    const shippingSpeed = options.shippingSpeed || 'fast-us'; // 'fast-us' or 'direct-ua'
+    const effectivePrice = options.price !== undefined
+      ? options.price
+      : (shippingSpeed === 'fast-us' && product.fastPrice ? product.fastPrice : product.basePrice);
     
     const cartItemId = `${product.id}-${finish}-${shippingSpeed}`;
     const existingIndex = this.items.findIndex((item) => item.cartItemId === cartItemId);
@@ -76,7 +78,7 @@ class CartStore {
         image: product.image,
         finish,
         shippingSpeed,
-        shippingLabel: shippingSpeed === 'fast-us' ? 'Fast 2-4 Day (Burbank, CA)' : 'Direct 2-3 Wk (Ukraine)',
+        shippingLabel: options.shippingLabel || (shippingSpeed === 'fast-us' ? 'Fast 2-4 Day (Burbank, CA)' : 'Direct 2-3 Wk (Ukraine)'),
         quantity: 1,
       });
     }

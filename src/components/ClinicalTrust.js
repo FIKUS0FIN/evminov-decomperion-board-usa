@@ -53,13 +53,13 @@ export function renderClinicalTrust() {
             <div style="background: var(--color-surface-white); border: 1.5px solid var(--color-pine-border); border-radius: var(--radius-lg); padding: 18px; margin-bottom: 16px;">
               <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; flex-wrap: wrap;">
                 <span class="badge badge-cyan" style="font-size: 0.7rem; padding: 2px 8px;">Pediatric &amp; Family Ergonomics</span>
-                <span style="font-size: 0.75rem; color: var(--color-pine-emerald); font-weight: 700;">Ages 4 to 85+ • 1.25 m² Footprint</span>
+                <span style="font-size: 0.75rem; color: var(--color-pine-emerald); font-weight: 700;">Ages 4 to 85+ • 13.5 Sq Ft Footprint</span>
               </div>
               <div style="font-size: 0.9375rem; font-weight: 800; color: var(--color-primary-navy); margin-bottom: 6px;">
-                Youth Scoliosis Prevention &amp; Natural Growth Unlock (+5–7 cm)
+                Youth Scoliosis Prevention &amp; Natural Growth Unlock (+2–3 Inches)
               </div>
               <p style="font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 10px;">
-                With 85%–90% of school-age children exhibiting postural asymmetry, a 5-minute daily playful routine de-rotates growing vertebrae, halts early scoliosis, and uncompresses epiphyseal growth plates to unlock up to 5–7 cm of natural genetic height.
+                With 85%–90% of school-age children exhibiting postural asymmetry, a 5-minute daily playful routine de-rotates growing vertebrae, halts early scoliosis, and uncompresses epiphyseal growth plates to unlock up to 2–3 inches of natural genetic height.
               </p>
               <div style="background: rgba(16, 185, 129, 0.06); border-left: 3px solid var(--color-pine-emerald); padding: 8px 12px; border-radius: var(--radius-sm); font-size: 0.75rem; color: var(--color-primary-navy); font-style: italic;">
                 "Physical exercise can replace many medications, but no medication can replace physical exercise." — Angelo Mosso, Italian Physiologist
@@ -125,7 +125,7 @@ export function renderClinicalTrust() {
         <!-- The 3 Clinical Stages of Recovery Section (from evminov.com methodology) -->
         <div style="margin-top: 60px; padding-top: 48px; border-top: 1px solid var(--color-border-subtle);">
           <div style="text-align: center; max-width: 680px; margin: 0 auto 36px;">
-            <span class="badge badge-pine" style="margin-bottom: 10px;">Clinical Methodology • Три Етапи Відновлення</span>
+            <span class="badge badge-pine" style="margin-bottom: 10px;">Clinical Methodology • Three Recovery Stages</span>
             <h3 style="font-size: 1.85rem; font-weight: 800; color: var(--color-primary-navy);">
               The Three Progressive Stages of Spinal Healing
             </h3>
@@ -145,7 +145,7 @@ export function renderClinicalTrust() {
                 Restorative &amp; Pain Relief
               </h4>
               <div style="font-size: 0.8125rem; color: #059669; font-weight: 700;">
-                Релаксаційно-відновлювальний етап
+                Stage 1: Restorative Decompression
               </div>
               <p style="font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.6; margin: 0;">
                 Gentle fractional gravitational traction decompresses nerve roots and relieves reflex muscle spasms. Negative intradiscal pressure triggers an osmotic pump, drawing fluid and nutrients back into dehydrated discs.
@@ -161,7 +161,7 @@ export function renderClinicalTrust() {
                 Paraspinal Muscular Corset
               </h4>
               <div style="font-size: 0.8125rem; color: #0284C7; font-weight: 700;">
-                Зміцнювальний етап
+                Stage 2: Core Strengthening &amp; Stabilization
               </div>
               <p style="font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.6; margin: 0;">
                 Under safe traction, patients perform low-amplitude micro-movement kinesitherapy to isolate and strengthen the deep short paraspinal rotatores and multifidus muscles, locking in newly regained intervertebral height.
@@ -177,7 +177,7 @@ export function renderClinicalTrust() {
                 Lifelong Prevention &amp; Habit
               </h4>
               <div style="font-size: 0.8125rem; color: #D97706; font-weight: 700;">
-                Підтримуючий етап
+                Stage 3: Lifetime Maintenance &amp; Prevention
               </div>
               <p style="font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.6; margin: 0;">
                 A simple 5–10 minute daily habit replaces costly chiropractor sessions, counteracts the compressive strain of prolonged desk work and driving, and eliminates future relapse risk.

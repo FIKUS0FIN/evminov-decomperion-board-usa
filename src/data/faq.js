@@ -29,7 +29,7 @@ export const faqList = [
   },
   {
     question: 'What if I am taller than 6\'4" or weigh more than 210 lbs?',
-    answer: 'For taller individuals (up to 6\'9" / 206 cm) and heavier athletes (up to 330 lbs / 150 kg), we engineered the Evminov Wide Heavy-Duty Board. It features a broader pine deck, high-tensile alloy carriage rails, and extra-wide padded handgrips for maximum comfort and stability.',
+    answer: 'For taller individuals (up to 6\'9") and heavier athletes (up to 330 lbs), we engineered the Evminov Wide Heavy-Duty Board. It features a broader pine deck, high-tensile alloy carriage rails, and extra-wide padded handgrips for maximum comfort and stability.',
   },
   {
     question: 'What is included with the patented Glisson Loop?',
@@ -41,7 +41,7 @@ export const faqList = [
   },
   {
     question: 'Are there any medical contraindications for using the Evminov board?',
-    answer: 'Yes, clinical transparency is fundamental. Absolute contraindications include: acute fever (>37.5°C / 99.5°F), acute unhealed spinal fractures (within 4 months), spinal cord tumors or metastatic bone lesions, active internal hemorrhages or aortic aneurysms, recent stroke/myocardial infarction (within 6 months), and acute cauda equina syndrome requiring emergency neurosurgery. Temporary contraindications include unmanaged hypertensive crisis, acute renal colic, and pregnancy (which requires specialized low-angle obstetrical protocols). Always consult your physician if you have severe acute pathology.',
+    answer: 'Yes, clinical transparency is fundamental. Absolute contraindications include: acute fever (>99.5°F), acute unhealed spinal fractures (within 4 months), spinal cord tumors or metastatic bone lesions, active internal hemorrhages or aortic aneurysms, recent stroke/myocardial infarction (within 6 months), and acute cauda equina syndrome requiring emergency neurosurgery. Temporary contraindications include unmanaged hypertensive crisis, acute renal colic, and pregnancy (which requires specialized low-angle obstetrical protocols). Always consult your physician if you have severe acute pathology.',
   },
   {
     question: 'How does spinal decompression on the Evminov board relieve psychosomatic stress and anxiety?',
@@ -73,11 +73,11 @@ export const faqList = [
   },
   {
     question: 'What is the difference between Carpathian Resonant Pine and Select Alder Wood (Вільха)?',
-    answer: 'Both timbers are harvested from sustainably managed Ukrainian forests and kiln-dried to anatomical specifications. Resonant Carpathian Pine features dense slow-growth annual rings, offering maximum structural rigidity and load capacity (up to 330 lbs / 150 kg) with a golden honey grain — ideal for athletes and deep traction. Select Ukrainian Alder (Вільха) is 2.5 lbs (1.1 kg) lighter with a warm cognac hue, offering higher spring deflection and flexibility — optimal for users under 200 lbs, seniors, and sensitive cervical routines.',
+    answer: 'Both timbers are harvested from sustainably managed Ukrainian forests and kiln-dried to anatomical specifications. Resonant Carpathian Pine features dense slow-growth annual rings, offering maximum structural rigidity and load capacity (up to 330 lbs) with a golden honey grain — ideal for athletes and deep traction. Select Ukrainian Alder (Вільха) is 2.5 lbs lighter with a warm cognac hue, offering higher spring deflection and flexibility — optimal for users under 200 lbs, seniors, and sensitive cervical routines.',
   },
   {
     question: 'Can children and teenagers use the Evminov board for scoliosis prevention and posture correction?',
-    answer: 'Yes! Children as young as 3 to 4 years of age can safely begin acclimation under adult supervision. With 85% to 90% of school-age children developing postural misalignment from heavy backpacks and screens, and up to 20% developing scoliosis, daily 5-to-8 minute sessions on a low incline (6°–12°) uncompress epiphyseal growth plates. Exercising to rhythmic music creates a playful habit that corrects asymmetrical spinal torque, halts scoliosis progression, and can unlock an additional 5 to 7 cm (2 to 2.8 inches) of natural genetic height potential.',
+    answer: 'Yes! Children as young as 3 to 4 years of age can safely begin acclimation under adult supervision. With 85% to 90% of school-age children developing postural misalignment from heavy backpacks and screens, and up to 20% developing scoliosis, daily 5-to-8 minute sessions on a low incline (6°–12°) uncompress epiphyseal growth plates. Exercising to rhythmic music creates a playful habit that corrects asymmetrical spinal torque, halts scoliosis progression, and can unlock an additional 2 to 2.8 inches of natural genetic height potential.',
   },
   {
     question: 'Why is daily spine decompression compared to dental hygiene, and what are the family economics?',

