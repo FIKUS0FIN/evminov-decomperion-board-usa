@@ -90,7 +90,7 @@ export function renderExerciseGallery() {
         <div class="section-header" style="text-align: center; max-width: 820px; margin: 0 auto;">
           <span class="badge badge-pine" style="margin-bottom: 12px;">Authentic Clinical Exercise Library</span>
           <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; color: var(--color-primary-navy); line-height: 1.25;">
-            The Evminov Method in Action: 21 Prescribed Protocols
+            The Evminov Method in Action: 20 Prescribed Protocols
           </h2>
           <p style="font-size: 1.05rem; color: var(--color-text-muted); margin-top: 12px; line-height: 1.6;">
             Direct from official clinical archives: photographic demonstrations of low-incline decompression, deep short-muscle activation, and family posture restoration on the genuine resonant pine board.

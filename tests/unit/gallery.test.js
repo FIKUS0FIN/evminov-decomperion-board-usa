@@ -5,8 +5,8 @@ import { exerciseGalleryData, biomechanicsPrinciples } from '../../src/data/gall
 import { renderExerciseGallery } from '../../src/components/ExerciseGallery.js';
 
 describe('Clinical Exercise Gallery & Biomechanics', () => {
-  it('should contain all 21 prescribed protocols', () => {
-    expect(exerciseGalleryData.length).toBe(21);
+  it('should contain all 20 prescribed protocols', () => {
+    expect(exerciseGalleryData.length).toBe(20);
   });
 
   it('should have valid fields and existing image files for every protocol', () => {

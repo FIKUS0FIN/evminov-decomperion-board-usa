@@ -322,26 +322,7 @@ export const exerciseGalleryData = [
     duration: '5 – 8 Minutes',
     benefit: 'Relieves chronic migraines & neck stiffness',
   },
-  {
-    id: 'incline-rotation-mobility',
-    title: 'Gentle Incline Rotational Mobility',
-    category: 'lumbar',
-    categoryLabel: 'Lumbar & Disc Relief',
-    zone: 'Thoracolumbar Junction & Obliques',
-    angle: '10° – 15° Incline',
-    image: '/images/gallery/incline-rotation-mobility.jpg',
-    thumbAspect: '4 / 3',
-    mechanism: 'Micro-rotations (under 5 degrees) while under traction lubricate facet joints without tearing annulus fibrosus fibers.',
-    description: 'Rotating the spine on flat ground can worsen disc herniations. Under low-incline traction on the Evminov board, gentle micro-rotation restores spinal fluidity safely.',
-    steps: [
-      'Lie face up with arms holding carriage handles.',
-      'Bend knees together, keeping feet in contact with board.',
-      'Slowly tilt knees 5 to 10 degrees to the left; pause for 2 seconds.',
-      'Return to center and tilt 5 to 10 degrees to the right.',
-    ],
-    duration: '6 – 8 Minutes',
-    benefit: 'Increases spinal flexibility safely',
-  },
+
   {
     id: 'thoracic-opening-stretch',
     title: 'Thoracic Heart-Opening & Rib Mobility',
