@@ -4,7 +4,7 @@ export function renderOnboardingProgram() {
       <div class="calc-container">
         
         <div class="section-header">
-          <span class="badge badge-pine" style="margin-bottom: 12px;">Included Free With Every Board ($199 Value)</span>
+          <span class="badge badge-pine" style="margin-bottom: 12px;">Included Free With Every Board</span>
           <h2>The 30-Day Guided Spine Rehabilitation Protocol</h2>
           <p>
             You are never left alone. Follow our clinically structured, progressive daily video routine developed by the Evminov Vertebral Health Center.
