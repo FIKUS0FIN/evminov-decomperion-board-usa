@@ -40,13 +40,6 @@ export function renderClinicalTrust() {
                 </div>
                 <div style="font-size: 0.75rem; color: var(--color-text-muted); font-weight: 600;">Avoided Surgery</div>
               </div>
-
-              <div style="background: var(--color-surface-white); padding: 16px; border-radius: var(--radius-md); border: 1px solid var(--color-border-subtle); text-align: center;">
-                <div style="font-family: var(--font-mono); font-size: 1.75rem; font-weight: 800; color: #D97706;">
-                  7
-                </div>
-                <div style="font-size: 0.75rem; color: var(--color-text-muted); font-weight: 600;">Doctoral Dissertations</div>
-              </div>
             </div>
 
             <!-- Youth Posture & Multi-Generational Family Ergonomics -->
