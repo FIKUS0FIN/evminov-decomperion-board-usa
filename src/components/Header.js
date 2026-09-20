@@ -31,18 +31,45 @@ export function renderHeader() {
           </div>
         </a>
 
-        <nav class="site-nav" aria-label="Primary Navigation">
-          <a href="#comparison" class="nav-link nav-link-compact-hide">Why Not Inversion?</a>
-          <a href="#global-trust" class="nav-link nav-link-compact-hide">Worldwide Brand</a>
-          <a href="#catalog" class="nav-link">Boards & Pricing</a>
-          <a href="#exercise-gallery" class="nav-link">Protocols</a>
-          <a href="#centers" class="nav-link" style="color: var(--color-pine-emerald); font-weight: 700;">Since 1996 Clinic &amp; Heritage</a>
-          <a href="#patents" class="nav-link">Patents & Trials</a>
-          <a href="#athletes" class="nav-link nav-link-compact-hide">For Athletes</a>
-          <a href="#pediatric-family" class="nav-link nav-link-compact-hide">Kids &amp; Family</a>
-          <a href="#reviews" class="nav-link">Reviews</a>
-          <a href="#faq" class="nav-link">FAQ</a>
-        </nav>
+        <!-- Scalable Horizontal Navigation Bar with Left & Right Chevrons ("Птички") -->
+        <div class="header-nav-container">
+          <button 
+            type="button" 
+            class="header-nav-scroll-btn nav-scroll-prev" 
+            id="header-nav-prev" 
+            aria-label="Scroll navigation left"
+            title="Scroll navigation left"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <nav class="site-nav" id="site-nav-scroller" aria-label="Primary Navigation">
+            <a href="#comparison" class="nav-link">Why Not Inversion?</a>
+            <a href="#global-trust" class="nav-link">Worldwide Brand</a>
+            <a href="#catalog" class="nav-link">Boards &amp; Pricing</a>
+            <a href="#exercise-gallery" class="nav-link">Protocols</a>
+            <a href="#centers" class="nav-link nav-link-highlight">Since 1996 Clinic &amp; Heritage</a>
+            <a href="#patents" class="nav-link">Patents &amp; Trials</a>
+            <a href="#athletes" class="nav-link">For Athletes</a>
+            <a href="#pediatric-family" class="nav-link">Kids &amp; Family</a>
+            <a href="#reviews" class="nav-link">Reviews</a>
+            <a href="#faq" class="nav-link">FAQ</a>
+          </nav>
+
+          <button 
+            type="button" 
+            class="header-nav-scroll-btn nav-scroll-next" 
+            id="header-nav-next" 
+            aria-label="Scroll navigation right"
+            title="Scroll navigation right"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
 
         <div class="header-actions">
           <!-- Patient Account / Customer Portal Trigger -->
@@ -549,6 +576,59 @@ export function initHeader() {
       }
     });
   });
+
+  // Header Nav Horizontal Scroll Controls ("Птички" - Scalable Nav Chevrons)
+  const navScroller = document.getElementById('site-nav-scroller');
+  const navPrevBtn = document.getElementById('header-nav-prev');
+  const navNextBtn = document.getElementById('header-nav-next');
+
+  function updateNavScrollButtons() {
+    if (!navScroller || !navPrevBtn || !navNextBtn) return;
+    const scrollLeft = navScroller.scrollLeft;
+    const maxScroll = Math.max(0, navScroller.scrollWidth - navScroller.clientWidth);
+
+    // If all items fit without overflowing, hide both buttons
+    if (maxScroll <= 2) {
+      navPrevBtn.classList.remove('is-visible');
+      navNextBtn.classList.remove('is-visible');
+      navPrevBtn.disabled = true;
+      navNextBtn.disabled = true;
+      return;
+    }
+
+    if (scrollLeft > 4) {
+      navPrevBtn.classList.add('is-visible');
+      navPrevBtn.disabled = false;
+    } else {
+      navPrevBtn.classList.remove('is-visible');
+      navPrevBtn.disabled = true;
+    }
+
+    if (scrollLeft < maxScroll - 4) {
+      navNextBtn.classList.add('is-visible');
+      navNextBtn.disabled = false;
+    } else {
+      navNextBtn.classList.remove('is-visible');
+      navNextBtn.disabled = true;
+    }
+  }
+
+  if (navScroller && navPrevBtn && navNextBtn) {
+    navPrevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navScroller.scrollBy({ left: -220, behavior: 'smooth' });
+    });
+    navNextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navScroller.scrollBy({ left: 220, behavior: 'smooth' });
+    });
+
+    navScroller.addEventListener('scroll', updateNavScrollButtons, { passive: true });
+    window.addEventListener('resize', updateNavScrollButtons, { passive: true });
+
+    // Initial check
+    setTimeout(updateNavScrollButtons, 50);
+  }
 
   // Smart Headroom & Reading Progress Bar (UX/UI Designer Skill)
   const headerEl = document.getElementById('site-header');

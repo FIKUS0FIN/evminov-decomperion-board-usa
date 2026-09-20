@@ -27,4 +27,18 @@ describe('Header UX & Smart Headroom Architecture', () => {
     expect(mainCss).toContain('.header-scroll-progress-bar');
     expect(mainCss).toContain('transform: translateY(-100%)');
   });
+
+  it('renders scalable navigation bar with left and right chevron scroll buttons and scroller', () => {
+    const html = renderHeader();
+    expect(html).toContain('class="header-nav-container"');
+    expect(html).toContain('id="header-nav-prev"');
+    expect(html).toContain('id="header-nav-next"');
+    expect(html).toContain('id="site-nav-scroller"');
+
+    const mainCssPath = path.resolve(process.cwd(), 'src/styles/main.css');
+    const mainCss = fs.readFileSync(mainCssPath, 'utf8');
+    expect(mainCss).toContain('.header-nav-container');
+    expect(mainCss).toContain('.header-nav-scroll-btn');
+    expect(mainCss).toContain('.header-nav-scroll-btn.is-visible');
+  });
 });
