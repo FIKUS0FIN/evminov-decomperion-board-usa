@@ -231,7 +231,7 @@ export function renderMountingGuide() {
         <div style="margin-top: 48px; background: var(--color-bg-light); border-radius: var(--radius-xl); padding: 32px; border: 1px solid var(--color-border-subtle);">
           <div style="text-align: center; max-width: 680px; margin: 0 auto 28px;">
             <span class="badge badge-pine" style="margin-bottom: 8px;">Authentic Ukrainian Craftsmanship</span>
-            <h3 style="font-size: 1.5rem; font-weight: 800; color: var(--color-primary-navy);">Patented Carpathian Pine &amp; Aircraft-Alloy Mechanism</h3>
+            <h3 style="font-size: 1.5rem; font-weight: 800; color: var(--color-primary-navy);">Patented Multi-Layer Carpathian Pine Construction &amp; Aircraft-Alloy Mechanism</h3>
             <p style="font-size: 0.9375rem; color: var(--color-text-muted);">
               Unlike plastic inversion tables, each Evminov board is hand-crafted from resonant multi-layer Carpathian pine providing anatomical spring flex that absorbs shock and gently pumps spinal discs.
             </p>
