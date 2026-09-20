@@ -124,19 +124,6 @@ export function renderMountingGuide() {
                   loading="lazy"
                 ></iframe>
                 <div class="video-glow-effect"></div>
-
-                <!-- Interactive Floating Sound & Autoplay Indicator / Toggle -->
-                <button 
-                  type="button" 
-                  class="video-audio-control-badge" 
-                  id="assembly-audio-toggle" 
-                  aria-label="Toggle assembly video sound"
-                  title="Sound automatically fades as you scroll away. Tap to toggle mute."
-                >
-                  <span class="audio-icon" id="assembly-audio-icon">🔊</span>
-                  <span class="audio-label" id="assembly-audio-label">Sound Active • Auto-fades on scroll</span>
-                  <span class="audio-volume-pill" id="assembly-volume-pill">100%</span>
-                </button>
               </div>
 
               <!-- Bottom Technical Emblems / Specs Grid (Fills Dark Space) -->

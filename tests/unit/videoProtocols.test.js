@@ -16,14 +16,11 @@ describe('Video Protocols & Embed Verification (YouTube Error 153 Fix & Autoplay
     expect(html).not.toContain('youtube-nocookie.com');
   });
 
-  it('should render interactive floating sound toggle badge and volume pill', () => {
+  it('should not render redundant floating sound toggle badge to avoid obstructing native YouTube player controls', () => {
     const html = renderVideoProtocols();
 
-    expect(html).toContain('id="video-audio-toggle"');
-    expect(html).toContain('id="video-audio-icon"');
-    expect(html).toContain('id="video-audio-label"');
-    expect(html).toContain('id="video-volume-pill"');
-    expect(html).toContain('Sound Active • Auto-fades on scroll');
+    expect(html).not.toContain('id="video-audio-toggle"');
+    expect(html).not.toContain('Sound Active • Auto-fades on scroll');
   });
 
   it('should render clinical video player with official logo, trust strip, and clinical methodology emblems', () => {
@@ -71,11 +68,8 @@ describe('Video Protocols & Embed Verification (YouTube Error 153 Fix & Autoplay
     expect(html).toContain('id="assembly-video-player"');
     expect(html).toContain('src="https://www.youtube.com/embed/fP-biAHusGs?enablejsapi=1&playsinline=1&rel=0&modestbranding=1"');
 
-    // Audio toggle badge
-    expect(html).toContain('id="assembly-audio-toggle"');
-    expect(html).toContain('id="assembly-audio-icon"');
-    expect(html).toContain('id="assembly-audio-label"');
-    expect(html).toContain('id="assembly-volume-pill"');
+    // Audio toggle badge removed to allow clean native YouTube player controls
+    expect(html).not.toContain('id="assembly-audio-toggle"');
 
     // Technical specification emblems
     expect(html).toContain('Dovetail Interlock');

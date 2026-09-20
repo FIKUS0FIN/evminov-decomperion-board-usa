@@ -100,19 +100,6 @@ export function renderVideoProtocols() {
                   loading="lazy"
                 ></iframe>
                 <div class="video-glow-effect"></div>
-
-                <!-- Interactive Floating Sound & Autoplay Indicator / Toggle -->
-                <button 
-                  type="button" 
-                  class="video-audio-control-badge" 
-                  id="video-audio-toggle" 
-                  aria-label="Toggle video sound"
-                  title="Sound automatically fades as you scroll away. Tap to toggle mute."
-                >
-                  <span class="audio-icon" id="video-audio-icon">🔊</span>
-                  <span class="audio-label" id="video-audio-label">Sound Active • Auto-fades on scroll</span>
-                  <span class="audio-volume-pill" id="video-volume-pill">100%</span>
-                </button>
               </div>
 
               <!-- Bottom Clinical Execution Emblems / Method Principles -->
