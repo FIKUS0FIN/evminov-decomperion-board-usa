@@ -81,6 +81,17 @@ describe('Global Brand Authority, US 50-State Distribution & AI SEO Suite', () =
       expect(html).toContain('Hospital-grade spine decompression at home on resonant Carpathian pine');
       expect(html).toContain('50 US States from Burbank, CA and 40+ countries worldwide');
       
+      // Open Graph & Social Preview Cards
+      expect(html).toContain('property="og:image" content="https://evminov-decompression-board-usa.apex-root.com/images/social/evminov-social-preview.jpg"');
+      expect(html).toContain('name="twitter:image" content="https://evminov-decompression-board-usa.apex-root.com/images/social/evminov-social-preview.jpg"');
+      expect(html).toContain('property="og:image:width" content="1200"');
+      expect(html).toContain('property="og:image:height" content="630"');
+      expect(html).not.toContain('images.unsplash.com');
+
+      // Verify physical image assets exist
+      const socialPreviewPath = path.join(rootDir, 'public/images/social/evminov-social-preview.jpg');
+      expect(fs.existsSync(socialPreviewPath)).toBe(true);
+
       // Parse JSON-LD Schema
       const scriptMatch = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
       expect(scriptMatch).not.toBeNull();
@@ -95,6 +106,7 @@ describe('Global Brand Authority, US 50-State Distribution & AI SEO Suite', () =
       const org = graph.find(item => item['@type'] === 'Organization');
       expect(org).toBeDefined();
       expect(org.name).toBe('Evminov Spine Systems LLC');
+      expect(org.logo).toContain('/images/authentic/evminov-official-logo.png');
       expect(org.areaServed).toContain('US');
       expect(org.areaServed).toContain('Worldwide');
       expect(org.currenciesAccepted).toContain('USD');
@@ -116,6 +128,7 @@ describe('Global Brand Authority, US 50-State Distribution & AI SEO Suite', () =
       // Product schema
       const product = graph.find(item => item['@type'] === 'Product');
       expect(product).toBeDefined();
+      expect(product.image).toContain('/images/social/evminov-social-preview.jpg');
       expect(product.offers.price).toBe('450.00');
       expect(product.offers.shippingDetails.length).toBeGreaterThanOrEqual(2);
       expect(product.aggregateRating.ratingValue).toBe('4.9');
