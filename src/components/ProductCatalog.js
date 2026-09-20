@@ -233,8 +233,15 @@ export function renderProductCatalog() {
             
             <!-- 1. Standard Solid Board -->
             <div class="guide-card" data-guide-target="evminov-standard">
-              <div class="guide-card-icon"><img src="/images/authentic/evminov-official-logo.png" alt="Official Evminov" style="width: 28px; height: 28px; object-fit: contain; border-radius: 50%;" /></div>
-              <div class="guide-card-badge">1-Piece Solid</div>
+              <div class="guide-card-icon guide-icon-emerald" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="7" y="2" width="10" height="20" rx="2"></rect>
+                  <line x1="12" y1="6" x2="12" y2="18"></line>
+                  <line x1="9.5" y1="10" x2="14.5" y2="10"></line>
+                  <line x1="9.5" y1="14" x2="14.5" y2="14"></line>
+                </svg>
+              </div>
+              <div class="guide-card-badge guide-badge-emerald">1-Piece Solid</div>
               <h4 class="guide-card-name">Standard Solid Board</h4>
               <div class="guide-card-en">1-Piece Monolithic Beam</div>
               <p class="guide-card-text">
@@ -248,8 +255,15 @@ export function renderProductCatalog() {
 
             <!-- 2. 2-Piece Folding Board -->
             <div class="guide-card" data-guide-target="evminov-folding-2part">
-              <div class="guide-card-icon">📦</div>
-              <div class="guide-card-badge">2-Piece Folding</div>
+              <div class="guide-card-icon guide-icon-cyan" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="6" y="2" width="12" height="8" rx="1.5"></rect>
+                  <rect x="6" y="14" width="12" height="8" rx="1.5"></rect>
+                  <polyline points="9 10 12 12 15 10"></polyline>
+                  <polyline points="9 14 12 12 15 14"></polyline>
+                </svg>
+              </div>
+              <div class="guide-card-badge guide-badge-cyan">2-Piece Folding</div>
               <h4 class="guide-card-name">2-Piece Folding Board</h4>
               <div class="guide-card-en">Quick-Fold Space Saver</div>
               <p class="guide-card-text">
@@ -263,8 +277,15 @@ export function renderProductCatalog() {
 
             <!-- 3. 3-Piece Travel Board -->
             <div class="guide-card" data-guide-target="evminov-folding-3part">
-              <div class="guide-card-icon">🚗</div>
-              <div class="guide-card-badge">3-Piece Travel</div>
+              <div class="guide-card-icon guide-icon-indigo" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="6" width="18" height="15" rx="2"></rect>
+                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                  <line x1="3" y1="12" x2="21" y2="12"></line>
+                  <line x1="12" y1="12" x2="12" y2="16"></line>
+                </svg>
+              </div>
+              <div class="guide-card-badge guide-badge-indigo">3-Piece Travel</div>
               <h4 class="guide-card-name">3-Piece Travel Board</h4>
               <div class="guide-card-en">Ultra-Portable &amp; Trunk-Ready</div>
               <p class="guide-card-text">
@@ -278,8 +299,14 @@ export function renderProductCatalog() {
 
             <!-- 4. Wide Panel Heavy-Duty Board -->
             <div class="guide-card" data-guide-target="evminov-wide">
-              <div class="guide-card-icon">🏋️</div>
-              <div class="guide-card-badge">Heavy-Duty • 330 lbs</div>
+              <div class="guide-card-icon guide-icon-amber" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <polyline points="9 11 12 8 15 11"></polyline>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                </svg>
+              </div>
+              <div class="guide-card-badge guide-badge-amber">Heavy-Duty • 330 lbs</div>
               <h4 class="guide-card-name">Wide Panel Heavy-Duty</h4>
               <div class="guide-card-en">Athletic &amp; Broad Frame Edition</div>
               <p class="guide-card-text">
@@ -293,8 +320,13 @@ export function renderProductCatalog() {
 
             <!-- 5. Select Alder Wood Edition -->
             <div class="guide-card" data-guide-target="evminov-alder">
-              <div class="guide-card-icon">🪵</div>
-              <div class="guide-card-badge">Limited Edition Alder</div>
+              <div class="guide-card-icon guide-icon-cognac" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                </svg>
+              </div>
+              <div class="guide-card-badge guide-badge-cognac">Limited Edition Alder</div>
               <h4 class="guide-card-name">Select Alder Wood Edition</h4>
               <div class="guide-card-en">Artisan Lightweight Luxury</div>
               <p class="guide-card-text">
