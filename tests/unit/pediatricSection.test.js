@@ -7,7 +7,7 @@ describe('Pediatric Scoliosis, Family Spinal Hygiene & "Spine Toothbrush" Compon
     expect(html).toContain('id="pediatric-family"');
     expect(html).toContain('aria-label="Pediatric Posture, Scoliosis & Family Spinal Hygiene"');
     expect(html).toContain('The "Spine Toothbrush" Method');
-    expect(html).toContain('Зубна щітка для хребта');
+    expect(html).toContain('The "Spine Toothbrush" Methodology');
     expect(html).toContain('Over 80% of children develop posture disorders');
   });
 
@@ -33,7 +33,7 @@ describe('Pediatric Scoliosis, Family Spinal Hygiene & "Spine Toothbrush" Compon
     // 32 Teeth vs 32 Vertebrae
     expect(html).toContain('32 TEETH HYGIENE');
     expect(html).toContain('32 VERTEBRAE DECOMPRESSION');
-    expect(html).toContain('Зуби можна поміняти, а хребет — ні');
+    expect(html).toContain('You Can Replace Broken Teeth, but You Can Never Replace Your Spine');
 
     // Economics
     expect(html).toContain('15x Cheaper Than Toothpaste');
@@ -46,7 +46,7 @@ describe('Pediatric Scoliosis, Family Spinal Hygiene & "Spine Toothbrush" Compon
     const html = renderPediatricFamilySection();
 
     expect(html).toContain('Lying-Down Dancing');
-    expect(html).toContain('Танці Лежачи');
+    expect(html).toContain('Lying-Down Dance Method');
     expect(html).toContain('Ages 3–15');
     expect(html).toContain('+2 to +3 Inches');
     expect(html).toContain('13-Point Plan for Children &amp; Parents');
@@ -65,9 +65,9 @@ describe('Pediatric Scoliosis, Family Spinal Hygiene & "Spine Toothbrush" Compon
 
     // Quotes
     expect(html).toContain('Hippocrates');
-    expect(html).toContain('вешалка для всех болезней');
+    expect(html).toContain('A diseased spine is a coat hanger for all illnesses');
     expect(html).toContain('Angelo Mosso');
-    expect(html).toContain('Фізичні вправи можуть замінити безліч ліків');
+    expect(html).toContain('Physical exercises can replace many medicines');
   });
 
   it('should be safe to call initPediatricFamilySection in Node / headless environments without throwing', () => {

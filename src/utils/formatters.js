@@ -98,7 +98,7 @@ export function recommendIncline(condition) {
         startAngle: 8,
         maxAngle: 15,
         label: 'Pediatric Posture, Scoliosis & Growth (Ages 3–15)',
-        description: 'Gentle unweighting of epiphyseal growth plates with 100% bilateral symmetry and rhythmic music ("танці лежачи").',
+        description: 'Gentle unweighting of epiphyseal growth plates with 100% bilateral symmetry and rhythmic music ("lying-down dancing").',
         durationMin: 8,
       };
     case 'posture':

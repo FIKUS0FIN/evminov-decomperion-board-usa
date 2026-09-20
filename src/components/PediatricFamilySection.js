@@ -22,7 +22,7 @@ export function renderPediatricFamilySection() {
             The "Spine Toothbrush" Method: Pediatric Posture, Scoliosis &amp; Lifelong Family Care
           </h2>
           <div class="pediatric-ukr-subtitle">
-            Методика «Зубна щітка для хребта»: Здоров'я дітей, профілактика сколіозу та щоденна гігієна хребта всієї родини
+            The "Spine Toothbrush" Methodology: Pediatric Health, Scoliosis Prevention &amp; Daily Family Spinal Hygiene
           </div>
           <p class="pediatric-header-desc">
             Over 80% of children develop posture disorders or scoliotic deformities from sedentary schooling and smartphone screens. The patented Evminov Method introduces the world's first <strong>"Toothbrush for the 32 Vertebrae"</strong> — turning clinical spinal decompression into an effortless, joyful 5-to-10 minute daily family ritual that prevents surgery and preserves youthful spinal mobility for life.
@@ -39,7 +39,7 @@ export function renderPediatricFamilySection() {
 
           <button type="button" class="pediatric-tab-btn" data-tab="dancing" role="tab" aria-selected="false" id="tab-dancing">
             <span class="pediatric-tab-icon">🎵</span>
-            <span class="pediatric-tab-title">Lying-Down Dance (Танці Лежачи)</span>
+            <span class="pediatric-tab-title">Lying-Down Dance Method</span>
             <span class="pediatric-tab-sub">Ages 3–15 • 13-Point Plan</span>
           </button>
 
@@ -64,7 +64,7 @@ export function renderPediatricFamilySection() {
             <div class="pediatric-grid-2col">
               
               <div class="pediatric-card-glass">
-                <div class="card-eyebrow-pill">Core Concept • Суть Концепції</div>
+                <div class="card-eyebrow-pill">Core Concept • Biomechanical Foundation</div>
                 <h3 class="card-heading-lg">Why Your Spine Needs a "Toothbrush" Every Single Day</h3>
                 <p class="card-text-body">
                   Just as you brush your 32 teeth morning and night to prevent bacterial decay, your <strong>32–33 vertebrae</strong> require 5–10 minutes of daily axial decompression to reverse gravitational crushing and disc dehydration.
@@ -87,15 +87,15 @@ export function renderPediatricFamilySection() {
                 <div class="quote-callout-warning">
                   <div class="callout-icon">⚠️</div>
                   <div class="callout-text">
-                    <strong>«Зуби можна поміняти, а хребет — ні!»</strong><br/>
-                    <em>You can replace broken teeth with dental implants, but medicine can NEVER replace a crushed vertebra, herniated disc, or compressed spinal cord. Your spine is the irreplaceable highway of life.</em>
+                    <strong>"You Can Replace Broken Teeth, but You Can Never Replace Your Spine!"</strong><br/>
+                    <em>You can replace damaged teeth with modern dental implants, but medicine can NEVER replace a crushed vertebra, herniated disc, or compressed spinal cord. Your spine is the irreplaceable highway of life.</em>
                   </div>
                 </div>
               </div>
 
               <!-- Economics Card -->
               <div class="pediatric-card-glass">
-                <div class="card-eyebrow-pill">Family Economics • Формула Ціни</div>
+                <div class="card-eyebrow-pill">Family Economics • Value Formula</div>
                 <h3 class="card-heading-lg">15x Cheaper Than Toothpaste &amp; Dental Care</h3>
                 <p class="card-text-body">
                   Taking care of your family's spinal foundation is vastly more affordable than routine dental supplies — with zero recurring pharmacy co-pays.
@@ -143,7 +143,7 @@ export function renderPediatricFamilySection() {
               
               <!-- Left Card: Dancing Method & Visual Photo -->
               <div class="pediatric-card-glass">
-                <div class="card-eyebrow-pill">Gamified Physical Therapy • Танці Лежачи</div>
+                <div class="card-eyebrow-pill">Gamified Physical Therapy • Lying-Down Dance</div>
                 <h3 class="card-heading-lg">"Lying-Down Dancing" to Rhythmic Music (Ages 3–15)</h3>
                 <p class="card-text-body">
                   Traditional medical gymnastics fail with children because they are boring, clinical, and feel like punishment. The Evminov Method replaces dread with <strong>joyful emotional excitement</strong>:
@@ -184,7 +184,7 @@ export function renderPediatricFamilySection() {
 
               <!-- Right Card: Live Video Demonstration & Clinic Protocol Analysis -->
               <div class="pediatric-card-glass">
-                <div class="card-eyebrow-pill">Clinical Video Demonstration • Відео Занять</div>
+                <div class="card-eyebrow-pill">Clinical Video Demonstration • Guided Sessions</div>
                 <h3 class="card-heading-lg">Watch "Lying-Down Dancing" in Clinical Practice</h3>
                 <p class="card-text-body">
                   Authentic clinical footage documenting Ukrainian pediatric physical therapists guiding children through dynamic micro-movements on the inclined pine plane:
@@ -230,7 +230,7 @@ export function renderPediatricFamilySection() {
 
             <!-- Full-Width Bottom Section: 13-Point Plan for Children & Parents -->
             <div class="pediatric-card-glass" style="margin-top: 24px;">
-              <div class="card-eyebrow-pill">Official Methodology • План Занять</div>
+              <div class="card-eyebrow-pill">Official Methodology • 13-Point Plan</div>
               <h3 class="card-heading-lg">13-Point Plan for Children &amp; Parents</h3>
               <p class="card-text-body">
                 Developed by the Evminov Spine Center for physical therapists, PE teachers, kindergarten educators, and proactive parents:
@@ -247,7 +247,7 @@ export function renderPediatricFamilySection() {
                 </div>
                 <div class="plan-step-box">
                   <span class="step-num">3</span>
-                  <div><strong>Playful Formats:</strong> Game, competition, and musical rhythm ("танці лежачи").</div>
+                  <div><strong>Playful Formats:</strong> Games, playful competitions, and musical rhythm ("lying-down dancing").</div>
                 </div>
                 <div class="plan-step-box">
                   <span class="step-num">4</span>
@@ -296,7 +296,7 @@ export function renderPediatricFamilySection() {
           <!-- TAB 3: OCCUPATIONAL ERGONOMICS FOR ANYONE WITH A SPINE -->
           <div class="pediatric-panel" id="panel-workplace" role="tabpanel" aria-labelledby="tab-workplace">
             <div class="pediatric-card-glass" style="margin-bottom: 24px;">
-              <div class="card-eyebrow-pill">Universal Architecture • Для Всіх, у Кого Є Хребет</div>
+              <div class="card-eyebrow-pill">Universal Architecture • For Anyone With a Spine</div>
               <h3 class="card-heading-lg">One Single Trainer for the Whole Family (Ages 3 to 99)</h3>
               <p class="card-text-body">
                 The Evminov board requires zero special gym space. It occupies just <strong>13.5 sq ft (8.2 ft × 1.6 ft)</strong> on any standard residential wall, weighs only <strong>19–20 lbs</strong>, and adjusts its carriage in 10 seconds to fit anyone from a 3-year-old child to a 6'9" athlete (tested up to 330 lbs).
@@ -342,13 +342,12 @@ export function renderPediatricFamilySection() {
               
               <!-- Historical Medical Wisdom Card -->
               <div class="pediatric-card-glass">
-                <div class="card-eyebrow-pill">Medical Heritage • Клінічна Мудрість</div>
+                <div class="card-eyebrow-pill">Medical Heritage • Clinical Wisdom</div>
                 <h3 class="card-heading-lg">Timeless Principles of Spinal Medicine</h3>
                 
                 <div class="quote-card-luxury">
                   <div class="quote-mark">“</div>
                   <blockquote class="quote-text-content">
-                    «Больной позвоночник — это вешалка для всех болезней.»<br/>
                     <strong>"A diseased spine is a coat hanger for all illnesses."</strong>
                   </blockquote>
                   <div class="quote-author-line">
@@ -363,7 +362,6 @@ export function renderPediatricFamilySection() {
                 <div class="quote-card-luxury" style="margin-top: 20px;">
                   <div class="quote-mark">“</div>
                   <blockquote class="quote-text-content">
-                    «Фізичні вправи можуть замінити безліч ліків, але жодні ліки не замінять фізичних вправ.»<br/>
                     <strong>"Physical exercises can replace many medicines, but no medicine can replace physical exercise."</strong>
                   </blockquote>
                   <div class="quote-author-line">
@@ -378,7 +376,7 @@ export function renderPediatricFamilySection() {
 
               <!-- Biomechanics & Osmotic Nutrition Card -->
               <div class="pediatric-card-glass">
-                <div class="card-eyebrow-pill">Cellular Biomechanics • Дифузне Живлення Дисків</div>
+                <div class="card-eyebrow-pill">Cellular Biomechanics • Osmotic Disc Nutrition</div>
                 <h3 class="card-heading-lg">The Physiological Secret of the Evminov Method</h3>
                 <p class="card-text-body">
                   Why does simple resting or general fitness fail to cure spinal pathology, while the Evminov inclined plane succeeds in over 90% of clinical cases?
@@ -388,19 +386,19 @@ export function renderPediatricFamilySection() {
                   <div class="biomech-step-item">
                     <div class="biomech-icon">1</div>
                     <div>
-                      <strong>Axial Unloading (Зниження тиску):</strong> On the inclined pine board, gravity generates fractional bodyweight traction. Intradiscal pressure drops from +150 mmHg down to negative vacuum (-100 to -150 mmHg).
+                      <strong>Axial Unloading (Pressure Relief):</strong> On the inclined pine board, gravity generates fractional bodyweight traction. Intradiscal pressure drops from +150 mmHg down to negative vacuum (-100 to -150 mmHg).
                     </div>
                   </div>
                   <div class="biomech-step-item">
                     <div class="biomech-icon">2</div>
                     <div>
-                      <strong>Deep Short Muscle Activation (Короткі м'язи спини):</strong> Gentle rhythmic contractions engage the intrinsic intervertebral muscles that are never reached during standard standing gym workouts.
+                      <strong>Deep Short Muscle Activation (Deep Intrinsic Muscles):</strong> Gentle rhythmic contractions engage the intrinsic intervertebral muscles that are never reached during standard standing gym workouts.
                     </div>
                   </div>
                   <div class="biomech-step-item">
                     <div class="biomech-icon">3</div>
                     <div>
-                      <strong>Intercellular Osmotic Diffusion (Дифузне живлення):</strong> Because adult discs lack direct blood vessels, this muscle pumping in an unloaded vacuum draws rich interstitial fluid, glucose, and oxygen directly into dehydrated cartilaginous structures.
+                      <strong>Intercellular Osmotic Diffusion (Nutrient Fluid Exchange):</strong> Because adult discs lack direct blood vessels, this muscle pumping in an unloaded vacuum draws rich interstitial fluid, glucose, and oxygen directly into dehydrated cartilaginous structures.
                     </div>
                   </div>
                   <div class="biomech-step-item">

@@ -15,7 +15,7 @@ export const exerciseProtocols = [
     steps: [
       'Grasp carriage handles at a gentle 8°–12° incline while lying supine on the resonant pine board.',
       'Play upbeat rhythmic music to turn the session into an emotionally engaging dance routine.',
-      'Perform synchronized bilateral pelvic micro-tilts and alternating leg extensions ("танці лежачи").',
+      'Perform synchronized bilateral pelvic micro-tilts and alternating leg extensions ("lying-down dancing").',
       'Maintain strict left-right symmetry for 5–10 minutes 1–2 times daily as part of morning/evening routine.',
     ],
     videoThumbnail: '/images/gallery/youth-paired-traction.jpg',
