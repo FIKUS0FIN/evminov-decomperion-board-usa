@@ -205,30 +205,36 @@ export function renderGlobalBrandTrust() {
                 </span>
                 <h4 class="logistics-heading">Universal International Payment Acceptance</h4>
                 <p class="logistics-desc">
-                  We accept all major currencies (USD, EUR, GBP, CAD, AUD, UAH, and more) with 256-bit encrypted checkout:
+                  We accept all major currencies (USD, EUR, GBP, CAD, AUD, UAH) with 256-bit encrypted checkout:
                 </p>
               </div>
 
-              <div class="payment-groups-container">
-                <div class="payment-group">
-                  <div class="payment-group-label">Credit &amp; Digital Wallets</div>
-                  <div class="payment-badges-row">
-                    <span class="pay-chip">💳 Visa</span>
-                    <span class="pay-chip">💳 MasterCard</span>
-                    <span class="pay-chip">💳 American Express</span>
-                    <span class="pay-chip">💳 Discover</span>
-                    <span class="pay-chip"> Apple Pay</span>
-                    <span class="pay-chip">G Google Pay</span>
-                    <span class="pay-chip">🅿️ PayPal</span>
+              <div class="payment-cards-stack">
+                <div class="payment-vault-card">
+                  <div class="vault-card-header">
+                    <span class="vault-card-title">Credit &amp; Digital Wallets</span>
+                    <span class="vault-card-badge">Instant • Zero Fee</span>
+                  </div>
+                  <div class="payment-compact-chips">
+                    <span class="pay-chip-compact">💳 Visa</span>
+                    <span class="pay-chip-compact">💳 MasterCard</span>
+                    <span class="pay-chip-compact">💳 American Express</span>
+                    <span class="pay-chip-compact">💳 Discover</span>
+                    <span class="pay-chip-compact"> Apple Pay</span>
+                    <span class="pay-chip-compact">G Google Pay</span>
+                    <span class="pay-chip-compact">🅿️ PayPal</span>
                   </div>
                 </div>
 
-                <div class="payment-group">
-                  <div class="payment-group-label">Healthcare &amp; Flexible Financing</div>
-                  <div class="payment-badges-row">
-                    <span class="pay-chip pay-chip-featured">🏥 HSA / FSA Eligible</span>
-                    <span class="pay-chip">⚡ Klarna / Affirm</span>
-                    <span class="pay-chip">🏦 Wire Transfer</span>
+                <div class="payment-vault-card">
+                  <div class="vault-card-header">
+                    <span class="vault-card-title">Healthcare &amp; Flexible Financing</span>
+                    <span class="vault-card-badge vault-badge-amber">Pre-Tax &amp; Split</span>
+                  </div>
+                  <div class="payment-compact-chips">
+                    <span class="pay-chip-compact pay-chip-hsa">🏥 HSA / FSA Eligible</span>
+                    <span class="pay-chip-compact">⚡ Klarna / Affirm</span>
+                    <span class="pay-chip-compact">🏦 Wire Transfer</span>
                   </div>
                 </div>
               </div>

@@ -861,7 +861,7 @@
               #0B132B;
   color: #fff;
   border-radius: var(--radius-xl);
-  padding: 40px;
+  padding: 30px 34px;
   box-shadow: 0 25px 50px -12px rgba(11, 19, 43, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.12);
   position: relative;
@@ -870,14 +870,14 @@
 
 @media (max-width: 640px) {
   .global-logistics-bar {
-    padding: 28px 18px;
+    padding: 22px 16px;
   }
 }
 
 .logistics-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 30px;
   align-items: stretch;
 }
 
@@ -997,58 +997,107 @@
   color: #CBD5E1;
 }
 
-/* Payment Groups */
-.payment-groups-container {
+/* Compact Payment Vault Cards & Streamlined Layout */
+.payment-cards-stack {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-bottom: 20px;
+  gap: 8px;
+  margin-bottom: 12px;
 }
 
-.payment-group {
+.payment-vault-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
   display: flex;
   flex-direction: column;
   gap: 6px;
-}
-
-.payment-group-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #64748B;
-}
-
-.payment-badges-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.pay-chip {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #FFFFFF;
-  font-size: 0.78rem;
-  font-weight: 600;
-  padding: 6px 11px;
-  border-radius: var(--radius-sm);
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
   transition: all var(--transition-fast);
 }
 
-.pay-chip:hover {
+.payment-vault-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(52, 211, 153, 0.35);
+}
+
+.vault-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.vault-card-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.02em;
+}
+
+.vault-card-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  font-family: var(--font-mono, monospace);
+  color: #34D399;
+  background: rgba(5, 150, 105, 0.18);
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.vault-card-badge.vault-badge-amber {
+  color: #FBBF24;
+  background: rgba(245, 158, 11, 0.18);
+}
+
+.payment-compact-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+}
+
+.pay-chip-compact {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  line-height: 1.3;
+  transition: all var(--transition-fast);
+}
+
+.pay-chip-compact:hover {
   background: rgba(255, 255, 255, 0.14);
   border-color: rgba(255, 255, 255, 0.25);
   transform: translateY(-1px);
 }
 
-.pay-chip-featured {
-  background: rgba(5, 150, 105, 0.2);
-  border-color: rgba(52, 211, 153, 0.35);
+.pay-chip-compact.pay-chip-hsa {
+  background: rgba(5, 150, 105, 0.22);
+  border-color: rgba(52, 211, 153, 0.4);
   color: #34D399;
+  font-weight: 700;
+}
+
+/* Fallback legacy pay-chip support */
+.pay-chip {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 9px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .logistics-guarantee-banner {
@@ -1056,14 +1105,14 @@
   background: linear-gradient(135deg, rgba(5, 150, 105, 0.15) 0%, rgba(14, 165, 233, 0.08) 100%);
   border: 1px solid rgba(52, 211, 153, 0.28);
   border-radius: var(--radius-md);
-  padding: 14px 18px;
+  padding: 10px 14px;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
 .guarantee-badge-icon {
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   flex-shrink: 0;
 }
 
@@ -1074,15 +1123,15 @@
 }
 
 .guarantee-title {
-  font-size: 0.84rem;
-  font-weight: 800;
+  font-size: 0.8rem;
+  font-weight: 700;
   color: #FFFFFF;
   line-height: 1.3;
 }
 
 .guarantee-sub {
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   color: #94A3B8;
-  line-height: 1.4;
+  line-height: 1.35;
 }
 
