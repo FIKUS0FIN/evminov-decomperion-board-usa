@@ -40,12 +40,12 @@ export const HERO_GALLERY_SLIDES = [
     tag: 'Glisson Neck Loop',
   },
   {
-    id: 'wood-craft',
+    id: 'portable-travel',
     image: '/images/products/board-natural-pine-finish.jpg',
     thumb: '/images/products/board-natural-pine-finish.jpg',
-    title: 'Resonant Carpathian Pine Craftsmanship',
-    caption: 'Hand-selected resonant pine layered for high tensile elasticity, dynamic arching, and 450 lb tested strength.',
-    tag: 'Resonant Pine Finish',
+    title: 'Portable & Travel-Ready: Easy to Carry & Fly Anywhere',
+    caption: 'Durable travel carry bag with ergonomic strap. Lightweight, compact, and airport-ready — easy to carry, fly with anywhere, or pack in your car trunk.',
+    tag: 'Portable & Travel-Ready',
   },
 ];
 
