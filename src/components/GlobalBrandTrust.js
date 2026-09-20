@@ -223,16 +223,6 @@ export function renderGlobalBrandTrust() {
                     <span class="pay-chip-compact"> Apple Pay</span>
                     <span class="pay-chip-compact">G Google Pay</span>
                     <span class="pay-chip-compact">🅿️ PayPal</span>
-                  </div>
-                </div>
-
-                <div class="payment-vault-card">
-                  <div class="vault-card-header">
-                    <span class="vault-card-title">Healthcare &amp; Flexible Financing</span>
-                    <span class="vault-card-badge vault-badge-amber">Pre-Tax &amp; Split</span>
-                  </div>
-                  <div class="payment-compact-chips">
-                    <span class="pay-chip-compact pay-chip-hsa">🏥 HSA / FSA Eligible</span>
                     <span class="pay-chip-compact">⚡ Klarna / Affirm</span>
                     <span class="pay-chip-compact">🏦 Wire Transfer</span>
                   </div>

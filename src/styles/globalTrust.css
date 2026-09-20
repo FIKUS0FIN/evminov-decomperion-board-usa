@@ -861,7 +861,7 @@
               #0B132B;
   color: #fff;
   border-radius: var(--radius-xl);
-  padding: 30px 34px;
+  padding: 22px 28px;
   box-shadow: 0 25px 50px -12px rgba(11, 19, 43, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.12);
   position: relative;
@@ -870,21 +870,21 @@
 
 @media (max-width: 640px) {
   .global-logistics-bar {
-    padding: 22px 16px;
+    padding: 18px 14px;
   }
 }
 
 .logistics-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  gap: 26px;
   align-items: stretch;
 }
 
 @media (max-width: 980px) {
   .logistics-grid {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 24px;
   }
 }
 
@@ -895,21 +895,21 @@
 }
 
 .logistics-col-header {
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
 
 .logistics-heading {
-  font-size: clamp(1.25rem, 2vw, 1.45rem);
+  font-size: clamp(1.18rem, 1.8vw, 1.35rem);
   font-weight: 800;
   color: #fff;
-  margin-bottom: 8px;
-  line-height: 1.3;
+  margin-bottom: 6px;
+  line-height: 1.25;
 }
 
 .logistics-desc {
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   color: #94A3B8;
-  line-height: 1.55;
+  line-height: 1.45;
   margin: 0;
 }
 
@@ -917,8 +917,8 @@
 .global-destinations-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  margin-bottom: 16px;
+  gap: 8px;
+  margin-bottom: 12px;
 }
 
 @media (max-width: 520px) {
@@ -931,10 +931,10 @@
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-md);
-  padding: 10px 14px;
+  padding: 7px 11px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
   transition: all var(--transition-fast);
 }
 
@@ -982,9 +982,9 @@
 .logistics-perks-strip {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 12px;
   margin-top: auto;
-  padding-top: 14px;
+  padding-top: 10px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -1002,17 +1002,17 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .payment-vault-card {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-md);
-  padding: 8px 12px;
+  padding: 10px 14px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   transition: all var(--transition-fast);
 }
 
@@ -1105,10 +1105,10 @@
   background: linear-gradient(135deg, rgba(5, 150, 105, 0.15) 0%, rgba(14, 165, 233, 0.08) 100%);
   border: 1px solid rgba(52, 211, 153, 0.28);
   border-radius: var(--radius-md);
-  padding: 10px 14px;
+  padding: 8px 12px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .guarantee-badge-icon {
