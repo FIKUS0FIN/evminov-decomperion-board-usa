@@ -24,7 +24,7 @@ export const athleteDisciplines = [
     recommendedText: 'View Wide Heavy-Duty Board',
     image: '/images/authentic/exercise-reverse-traction.jpg',
     imageAlt: 'Athletic reverse traction on Evminov board',
-    imagePosition: 'right 35%',
+    imagePosition: 'center 45%',
     badgePosition: 'left',
     quote: 'Olympic lifters and powerlifters lose up to 15–20 mm of standing height over a heavy training session due to cumulative disc compression.'
   },
@@ -48,7 +48,7 @@ export const athleteDisciplines = [
     recommendedText: 'View Standard Pine Board',
     image: '/images/authentic/exercise-seated-decompression.jpg',
     imageAlt: 'Low-angle lumbo-pelvic decompression for runners',
-    imagePosition: 'left center',
+    imagePosition: 'center 45%',
     badgePosition: 'right',
     quote: 'Marathoners recover baseline spinal height and running cadence 40% faster when decompressing within 30 minutes of long training runs.'
   },
@@ -96,7 +96,7 @@ export const athleteDisciplines = [
     recommendedText: 'View Glisson Neck Loop System',
     image: '/images/authentic/evminov-glisson-loop-cervical.jpg',
     imageAlt: 'Glisson cervical loop traction on Evminov board',
-    imagePosition: 'center 35%',
+    imagePosition: 'center 28%',
     badgePosition: 'left',
     quote: 'Combat athletes require cervical unloading without the stroke/eye-pressure danger of hanging upside down from gravity boots.'
   },
@@ -120,7 +120,7 @@ export const athleteDisciplines = [
     recommendedText: 'Calculate Desk Worker Angle',
     image: '/images/authentic/exercise-reverse-traction.jpg',
     imageAlt: 'Desk worker spinal decompression on Evminov board',
-    imagePosition: 'right 35%',
+    imagePosition: 'center 45%',
     badgePosition: 'left',
     quote: 'More Americans suffer debilitating back pain from sitting at a computer than from heavy manual labor. 10 minutes of daily pine board decompression is the modern antidote.'
   }
@@ -219,7 +219,7 @@ export function renderAthleteSection() {
                 alt="${d.imageAlt}" 
                 loading="lazy"
                 class="athlete-media-img"
-                style="width: 100%; height: 440px; object-fit: cover; object-position: ${d.imagePosition || 'right 35%'}; display: block;"
+                style="width: 100%; aspect-ratio: 4 / 3; max-height: 440px; object-fit: cover; object-position: ${d.imagePosition || 'center 45%'}; display: block;"
               />
               <div class="athlete-quote-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(15, 23, 42, 0.88) 0%, rgba(15, 23, 42, 0.45) 60%, rgba(15, 23, 42, 0) 100%); padding: 24px 20px 16px; z-index: 1;">
                 <div style="font-size: 0.8125rem; font-style: italic; color: #E2E8F0; line-height: 1.5;">
