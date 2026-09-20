@@ -24,7 +24,7 @@
 
 .badge-pine {
   background: var(--color-pine-surface);
-  color: var(--color-pine-emerald);
+  color: #047857;
   border: 1px solid var(--color-pine-border);
 }
 

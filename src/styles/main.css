@@ -4747,19 +4747,20 @@ body.nav-drawer-open {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--color-pine-emerald);
-  background: var(--color-pine-light);
-  padding: 5px 12px;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  padding: 6px 14px;
   border-radius: var(--radius-full);
   margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(4, 120, 87, 0.25);
 }
 
 .exercise-carousel-badge .pulse-dot {
   width: 7px;
   height: 7px;
-  background: var(--color-pine-emerald);
+  background: #34D399;
   border-radius: 50%;
-  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.2);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35);
 }
 
 .exercise-carousel-title {
