@@ -69,15 +69,16 @@ describe('Product Catalog Visual Assets & Explanations', () => {
   it('padded foot sleeves clearly demonstrate slide-on installation and usage', () => {
     const sleeves = products.find((p) => p.id === 'evminov-foot-sleeves');
     expect(sleeves).toBeDefined();
-    expect(sleeves.image).toBe('/images/products/carriage-foot-sleeves-installation.jpg');
+    expect(sleeves.image).toBe('/images/products/carriage-foot-sleeves-studio.jpg');
 
     // Confirm image file exists on disk
     const imgPath = path.join(publicDir, sleeves.image);
     expect(fs.existsSync(imgPath)).toBe(true);
 
-    // Check gallery includes in-use feet hooked in and reverse traction
+    // Check gallery includes authentic studio pair, hand grip, and reverse traction
     const galleryUrls = sleeves.galleryImages.map((g) => g.url);
-    expect(galleryUrls).toContain('/images/products/carriage-foot-sleeves-inversion.jpg');
+    expect(galleryUrls).toContain('/images/products/carriage-foot-sleeves-studio.jpg');
+    expect(galleryUrls).toContain('/images/authentic/hero-carriage-traction-detail.jpg');
     expect(galleryUrls).toContain('/images/authentic/exercise-reverse-traction.jpg');
 
     // Verify copy clarifies slide-on fit and ankle/foot cushioning

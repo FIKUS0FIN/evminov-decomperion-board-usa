@@ -4,8 +4,8 @@ import path from 'path';
 import { CLINICAL_PATHWAYS, renderFunnelsNav, initFunnelsNav } from '../../src/components/FunnelsNav.js';
 
 describe('Clinical Pathways Navigation Component', () => {
-  it('should have 6 structured clinical pathways with valid attributes', () => {
-    expect(CLINICAL_PATHWAYS.length).toBe(6);
+  it('should have 12 structured clinical pathways with valid attributes', () => {
+    expect(CLINICAL_PATHWAYS.length).toBe(12);
 
     CLINICAL_PATHWAYS.forEach((item) => {
       expect(item.id).toBeTruthy();
@@ -40,23 +40,35 @@ describe('Clinical Pathways Navigation Component', () => {
     expect(rendered).not.toContain('📚');
   });
 
-  it('should render all 6 pathway cards with correct target links and IDs', () => {
+  it('should render all 12 pathway cards with correct target links and IDs', () => {
     const html = renderFunnelsNav();
 
     expect(html).toContain('id="clinical-solutions-nav"');
     expect(html).toContain('CLINICAL PATHWAYS');
     expect(html).toContain('Explore by Condition &amp; Need');
+    expect(html).toContain('12 Evidence-Based Pathways');
     expect(html).toContain('funnel-btn-comparison');
     expect(html).toContain('funnel-btn-hernia');
+    expect(html).toContain('funnel-btn-sciatica');
+    expect(html).toContain('funnel-btn-pediatric');
+    expect(html).toContain('funnel-btn-cervical');
     expect(html).toContain('funnel-btn-athletes');
+    expect(html).toContain('funnel-btn-posture');
     expect(html).toContain('funnel-btn-mounting');
     expect(html).toContain('funnel-btn-recovery');
+    expect(html).toContain('funnel-btn-centers');
+    expect(html).toContain('funnel-btn-patents');
     expect(html).toContain('funnel-btn-studies');
     expect(html).toContain('href="#comparison"');
     expect(html).toContain('href="#calculator"');
+    expect(html).toContain('href="#pediatric-family"');
+    expect(html).toContain('href="#videos"');
     expect(html).toContain('href="#athletes"');
+    expect(html).toContain('href="#gallery"');
     expect(html).toContain('href="#mounting"');
     expect(html).toContain('href="#onboarding"');
+    expect(html).toContain('href="#centers"');
+    expect(html).toContain('href="#patents"');
     expect(html).toContain('href="#blog"');
   });
 

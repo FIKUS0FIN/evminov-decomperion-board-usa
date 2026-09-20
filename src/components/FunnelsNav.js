@@ -29,6 +29,47 @@ export const CLINICAL_PATHWAYS = [
     </svg>`,
   },
   {
+    id: 'sciatica',
+    target: '#calculator',
+    btnId: 'funnel-btn-sciatica',
+    title: 'Sciatica & Nerve Root',
+    subtitle: 'L4–S1 nerve decompression',
+    tag: 'Sciatica Relief',
+    accent: 'amber',
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+    </svg>`,
+  },
+  {
+    id: 'pediatric',
+    target: '#pediatric-family',
+    btnId: 'funnel-btn-pediatric',
+    title: 'Kids & Scoliosis Care',
+    subtitle: 'Ages 3–15 posture & growth',
+    tag: 'Kids & Teens',
+    accent: 'teal',
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="7" r="4"/>
+      <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
+      <path d="M12 11v4"/>
+    </svg>`,
+  },
+  {
+    id: 'cervical',
+    target: '#videos',
+    btnId: 'funnel-btn-cervical',
+    title: 'Cervical Neck Traction',
+    subtitle: 'Glisson loop decompression',
+    tag: 'Neck & Cervical',
+    accent: 'blue',
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 2v3"/>
+      <circle cx="12" cy="9" r="3.5"/>
+      <path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/>
+      <path d="M9 13h6"/>
+    </svg>`,
+  },
+  {
     id: 'athletes',
     target: '#athletes',
     btnId: 'funnel-btn-athletes',
@@ -42,6 +83,20 @@ export const CLINICAL_PATHWAYS = [
       <rect x="17" y="6" width="3" height="12" rx="1"/>
       <line x1="1" y1="9" x2="1" y2="15"/>
       <line x1="23" y1="9" x2="23" y2="15"/>
+    </svg>`,
+  },
+  {
+    id: 'posture',
+    target: '#gallery',
+    btnId: 'funnel-btn-posture',
+    title: 'Desk Worker Posture',
+    subtitle: 'Thoracic & forward-head relief',
+    tag: 'WFH & Posture',
+    accent: 'indigo',
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="2" y="3" width="20" height="14" rx="2"/>
+      <line x1="8" y1="21" x2="16" y2="21"/>
+      <line x1="12" y1="17" x2="12" y2="21"/>
     </svg>`,
   },
   {
@@ -78,6 +133,35 @@ export const CLINICAL_PATHWAYS = [
     </svg>`,
   },
   {
+    id: 'centers',
+    target: '#centers',
+    btnId: 'funnel-btn-centers',
+    title: 'Kyiv Flagship Centers',
+    subtitle: '30-yr clinic & 500k+ healed',
+    tag: 'Official Clinic',
+    accent: 'teal',
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M3 21h18"/>
+      <path d="M5 21V7l7-4 7 4v14"/>
+      <path d="M9 18h6"/>
+      <path d="M10 11h4"/>
+      <path d="M12 9v4"/>
+    </svg>`,
+  },
+  {
+    id: 'patents',
+    target: '#patents',
+    btnId: 'funnel-btn-patents',
+    title: 'Patents & Certifications',
+    subtitle: 'MOH approved • 6 global patents',
+    tag: 'Medical Patents',
+    accent: 'emerald',
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="8" r="6"/>
+      <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+    </svg>`,
+  },
+  {
     id: 'studies',
     target: '#blog',
     btnId: 'funnel-btn-studies',
@@ -109,7 +193,7 @@ export function renderFunnelsNav() {
               <h2 class="funnels-section-heading">Explore by Condition &amp; Need</h2>
             </div>
             <div class="funnels-header-meta">
-              <span class="funnels-meta-badge">6 Evidence-Based Pathways</span>
+              <span class="funnels-meta-badge">${CLINICAL_PATHWAYS.length} Evidence-Based Pathways</span>
             </div>
           </div>
 
