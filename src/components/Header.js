@@ -32,14 +32,14 @@ export function renderHeader() {
         </a>
 
         <nav class="site-nav" aria-label="Primary Navigation">
-          <a href="#comparison" class="nav-link">Why Not Inversion?</a>
-          <a href="#global-trust" class="nav-link">Worldwide Brand</a>
+          <a href="#comparison" class="nav-link nav-link-compact-hide">Why Not Inversion?</a>
+          <a href="#global-trust" class="nav-link nav-link-compact-hide">Worldwide Brand</a>
           <a href="#catalog" class="nav-link">Boards & Pricing</a>
           <a href="#exercise-gallery" class="nav-link">Protocols</a>
           <a href="#centers" class="nav-link" style="color: var(--color-pine-emerald); font-weight: 700;">Since 1996 Clinic &amp; Heritage</a>
           <a href="#patents" class="nav-link">Patents & Trials</a>
-          <a href="#athletes" class="nav-link">For Athletes</a>
-          <a href="#pediatric-family" class="nav-link">Kids &amp; Family</a>
+          <a href="#athletes" class="nav-link nav-link-compact-hide">For Athletes</a>
+          <a href="#pediatric-family" class="nav-link nav-link-compact-hide">Kids &amp; Family</a>
           <a href="#reviews" class="nav-link">Reviews</a>
           <a href="#faq" class="nav-link">FAQ</a>
         </nav>

@@ -4,13 +4,16 @@
 .announcement-bar {
   background: var(--color-primary-navy);
   color: #FFFFFF;
-  padding: 8px 16px;
-  font-size: 0.8125rem;
+  padding: 8px clamp(12px, 1.8vw, 24px);
+  font-size: clamp(0.72rem, 0.76vw, 0.8125rem);
   font-weight: 600;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
 }
 
 .announcement-item {
@@ -19,7 +22,7 @@
   gap: 8px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1180px) {
   .announcement-bar {
     justify-content: center;
     text-align: center;
@@ -91,25 +94,25 @@
   max-width: 1560px;
   width: 100%;
   margin: 0 auto;
-  padding: 10px clamp(12px, 1.8vw, 28px);
+  padding: 8px clamp(10px, 1.4vw, 24px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: clamp(10px, 1.2vw, 24px);
+  gap: clamp(8px, 1vw, 20px);
   box-sizing: border-box;
 }
 
 @media (min-width: 1600px) {
   .header-inner {
-    padding: 12px 36px;
-    gap: 28px;
+    padding: 10px 32px;
+    gap: 24px;
   }
 }
 
 .site-logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   text-decoration: none;
   flex-shrink: 0;
 }
@@ -154,76 +157,30 @@
 .site-nav {
   display: flex;
   align-items: center;
-  gap: clamp(8px, 1.1vw, 20px);
+  justify-content: center;
+  gap: clamp(5px, 0.75vw, 15px);
   flex-shrink: 1;
+  min-width: 0;
 }
 
 .nav-link {
-  font-size: clamp(0.75rem, 0.82vw, 0.875rem);
+  font-size: clamp(0.72rem, 0.76vw, 0.83rem);
   font-weight: 600;
   color: var(--color-text-muted);
   white-space: nowrap;
   transition: color var(--transition-fast);
-  padding: 4px 2px;
+  padding: 4px clamp(2px, 0.3vw, 5px);
+  letter-spacing: -0.015em;
 }
 
 .nav-link:hover {
   color: var(--color-pine-emerald);
 }
 
-@media (max-width: 1340px) {
-  .header-inner {
-    padding: 10px 16px;
-    gap: 12px;
-  }
-  .site-nav {
-    gap: 9px;
-  }
-  .nav-link {
-    font-size: 0.77rem;
-    letter-spacing: -0.015em;
-  }
-  .header-actions {
-    gap: 6px;
-  }
-  .cart-trigger-btn,
-  .portal-trigger-btn {
-    padding: 6px 10px;
-    font-size: 0.75rem;
-  }
-  .header-quiz-cta {
-    padding: 6px 12px;
-    font-size: 0.75rem;
-  }
-}
-
-@media (max-width: 1160px) {
-  .header-inner {
-    padding: 8px 12px;
-    gap: 8px;
-  }
-  .site-nav {
-    gap: 6px;
-  }
-  .nav-link {
-    font-size: 0.73rem;
-    padding: 4px 1px;
-  }
-  .header-quiz-cta {
-    display: none;
-  }
-}
-
-@media (max-width: 992px) {
-  .site-nav {
-    display: none;
-  }
-}
-
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   flex-shrink: 0;
 }
 
@@ -232,8 +189,8 @@
   background: var(--color-bg-secondary);
   border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-full);
-  padding: 7px 15px;
-  display: flex;
+  padding: 6px 14px;
+  display: inline-flex;
   align-items: center;
   gap: 7px;
   font-weight: 700;
@@ -241,6 +198,7 @@
   color: var(--color-primary-navy);
   transition: all var(--transition-fast);
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .cart-trigger-btn:hover {
@@ -251,14 +209,65 @@
 
 .header-quiz-cta {
   display: none;
-  padding: 7px 14px;
+  padding: 6px 12px;
   font-size: 0.8125rem;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
-@media (min-width: 640px) {
+/* Only display Find My Angle on wide desktop displays where width >= 1440px */
+@media (min-width: 1440px) {
   .header-quiz-cta {
     display: inline-flex;
+  }
+}
+
+/* Seamless Header Scaling & Responsive Visibility */
+@media (max-width: 1380px) {
+  .portal-trigger-btn #header-user-status {
+    display: none;
+  }
+  .portal-trigger-btn {
+    padding: 6px;
+    width: 36px;
+    height: 36px;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  .site-nav {
+    gap: clamp(4px, 0.65vw, 9px);
+  }
+  .nav-link {
+    font-size: 0.74rem;
+    padding: 4px 2px;
+  }
+  .header-actions {
+    gap: 6px;
+  }
+}
+
+@media (max-width: 1260px) {
+  .site-nav .nav-link-compact-hide {
+    display: none !important;
+  }
+  .site-nav {
+    gap: 10px;
+  }
+  .nav-link {
+    font-size: 0.78rem;
+    padding: 4px 5px;
+  }
+}
+
+@media (max-width: 1060px) {
+  .site-nav {
+    display: none !important;
+  }
+  .mobile-menu-btn {
+    display: inline-flex !important;
+  }
+  .header-quiz-cta {
+    display: none !important;
   }
 }
 
@@ -296,7 +305,7 @@
   box-shadow: var(--shadow-xs);
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1060px) {
   .mobile-menu-btn {
     display: inline-flex;
   }
