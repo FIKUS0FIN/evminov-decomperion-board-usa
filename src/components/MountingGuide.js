@@ -239,10 +239,10 @@ export function renderMountingGuide() {
 
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 20px;">
             <div style="background: var(--color-surface-white); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-border-subtle); box-shadow: var(--shadow-sm);">
-              <img src="/images/products/board-natural-pine-finish.jpg" alt="Natural Carpathian Pine Wood Grain" style="width: 100%; height: 200px; object-fit: cover;" />
+              <img src="/images/products/board-natural-pine-finish.jpg" alt="Evminov Portable Travel Carry Bag" style="width: 100%; height: 200px; object-fit: cover;" />
               <div style="padding: 16px;">
-                <h4 style="font-size: 1rem; font-weight: 700; color: var(--color-primary-navy); margin-bottom: 4px;">Resonant Anatomical Pine</h4>
-                <p style="font-size: 0.8125rem; color: var(--color-text-muted); margin: 0;">Multi-layered grain structure calibrated for natural flex during therapeutic exercises.</p>
+                <h4 style="font-size: 1rem; font-weight: 700; color: var(--color-primary-navy); margin-bottom: 4px;">Lightweight Travel &amp; Airport-Ready</h4>
+                <p style="font-size: 0.8125rem; color: var(--color-text-muted); margin: 0;">Compact travel case engineered for flights, airports, and car trunks — lightweight flexibility to take spine decompression anywhere.</p>
               </div>
             </div>
 
