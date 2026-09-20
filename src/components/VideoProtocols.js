@@ -25,15 +25,22 @@ export function renderVideoProtocols() {
         </div>
 
         <div style="padding: 20px; display: flex; flex-direction: column; flex: 1; gap: 10px;">
-          <div style="font-size: 0.75rem; font-weight: 700; color: var(--color-traction-cyan); text-transform: uppercase;">
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--color-traction-cyan); text-transform: uppercase; letter-spacing: 0.04em;">
             ${ex.target}
           </div>
           <h3 style="font-size: 1.125rem; font-weight: 800; color: var(--color-primary-navy); line-height: 1.3;">
             ${ex.title}
           </h3>
-          <p style="font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.5;">
+          <p style="font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.55;">
             ${ex.description}
           </p>
+
+          ${ex.clinicalFocus ? `
+            <div style="padding: 8px 10px; background: #ECFDF5; border-left: 3px solid #059669; border-radius: 4px; font-size: 0.75rem; color: #064E3B; font-weight: 600; line-height: 1.4;">
+              <span style="font-weight: 800; color: #047857; text-transform: uppercase; font-size: 0.6875rem; letter-spacing: 0.06em; display: block; margin-bottom: 2px;">Clinical Focus</span>
+              ${ex.clinicalFocus}
+            </div>
+          ` : ''}
 
           <ol style="margin-top: auto; padding-top: 10px; border-top: 1px solid var(--color-border-subtle); display: flex; flex-direction: column; gap: 6px; font-size: 0.8125rem; color: var(--color-text-main);">
             ${ex.steps.map((step, i) => `<li><strong>${i + 1}.</strong> ${step}</li>`).join('')}
