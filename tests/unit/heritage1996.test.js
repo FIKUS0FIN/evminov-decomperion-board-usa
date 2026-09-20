@@ -38,6 +38,10 @@ describe('1996 Clinical Foundation & 30-Year Continuous Success Verification', (
     expect(clinicalHtml).toContain('500,000+ home users worldwide');
     expect(clinicalHtml).toContain('30 Yrs');
     expect(clinicalHtml).toContain('Since 1996 Practice');
+    expect(clinicalHtml).toContain('/images/authentic/vyacheslav-evminov-founder.jpg');
+    expect(clinicalHtml).toContain('/images/authentic/clinic-rehab-center-1.jpg');
+    expect(clinicalHtml).toContain('Founder &amp; Method Creator');
+    expect(clinicalHtml).toContain('Spinal health is not achieved through passive hanging');
   });
 
   it('should verify GlobalBrandTrust highlights 30 years continuous practice since 1996', () => {

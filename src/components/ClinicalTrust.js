@@ -102,19 +102,51 @@ export function renderClinicalTrust() {
 
           </div>
 
-          <div>
-            <div style="position: relative; background: var(--color-surface-white); padding: 20px; border-radius: var(--radius-xl); box-shadow: var(--shadow-xl); border: 1px solid var(--color-border-subtle);">
-              <img 
-                src="/images/authentic/clinic-rehab-center-1.jpg" 
-                alt="Official Evminov Spine Rehabilitation Center in Kyiv, Ukraine" 
-                style="width: 100%; height: 420px; object-fit: cover; border-radius: var(--radius-lg);"
-              />
-              <div style="position: absolute; bottom: 34px; left: 34px; right: 34px; background: rgba(11, 19, 43, 0.92); backdrop-filter: blur(8px); padding: 16px 20px; border-radius: var(--radius-md); border: 1px solid rgba(255, 255, 255, 0.2); color: #FFFFFF;">
-                <p style="font-style: italic; font-size: 0.9375rem; line-height: 1.5;">
-                  "Spinal health is not achieved through passive hanging or violent cracking. It requires gentle traction to create space, followed by micro-movements to feed the discs."
-                </p>
-                <div style="font-weight: 700; font-size: 0.8125rem; color: var(--color-pine-light); margin-top: 8px;">
-                  — Vyacheslav Evminov, Master of Sports & Method Creator
+          <div class="clinical-photos-column" style="display: flex; flex-direction: column; gap: 20px;">
+            <!-- Top Photo: Founder Vyacheslav Evminov & Patient Family in Kyiv Center -->
+            <div style="position: relative; background: var(--color-surface-white); padding: 14px; border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); border: 1px solid var(--color-border-subtle); overflow: hidden;">
+              <div style="position: relative; overflow: hidden; border-radius: var(--radius-lg);">
+                <img 
+                  src="/images/authentic/vyacheslav-evminov-founder.jpg" 
+                  alt="Vyacheslav Evminov, Master of Sports &amp; Founder of the Evminov Vertebral Center in Kyiv" 
+                  style="width: 100%; height: 260px; object-fit: cover; object-position: center 25%; display: block;"
+                />
+                <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11, 19, 43, 0.35) 0%, transparent 45%, rgba(11, 19, 43, 0.5) 100%); pointer-events: none;"></div>
+                
+                <span class="badge badge-gold" style="position: absolute; top: 12px; left: 12px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); background: rgba(217, 119, 6, 0.88); color: #FFFFFF; font-weight: 700; font-size: 0.75rem; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+                  Founder &amp; Method Creator
+                </span>
+                <span style="position: absolute; top: 12px; right: 12px; font-size: 0.72rem; font-weight: 700; color: #FFFFFF; background: rgba(11, 19, 43, 0.55); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); padding: 3px 9px; border-radius: var(--radius-full); border: 1px solid rgba(255,255,255,0.25);">
+                  Kyiv Center • 1996
+                </span>
+                <div style="position: absolute; bottom: 12px; left: 14px; right: 14px; color: #FFFFFF; text-shadow: 0 1px 3px rgba(0,0,0,0.8);">
+                  <strong style="font-size: 0.875rem; display: block; font-weight: 800;">Vyacheslav V. Evminov</strong>
+                  <span style="font-size: 0.75rem; color: #E2E8F0; opacity: 0.95;">Honored Coach of Ukraine &amp; Pioneer of Kinetic Spine Traction</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Photo: Clinic Incline Traction Session with Transparent Quote Overlay -->
+            <div style="position: relative; background: var(--color-surface-white); padding: 14px; border-radius: var(--radius-xl); box-shadow: var(--shadow-xl); border: 1px solid var(--color-border-subtle); overflow: hidden;">
+              <div style="position: relative; overflow: hidden; border-radius: var(--radius-lg);">
+                <img 
+                  src="/images/authentic/clinic-rehab-center-1.jpg" 
+                  alt="Official Evminov Spine Rehabilitation Center in Kyiv, Ukraine" 
+                  style="width: 100%; height: 320px; object-fit: cover; object-position: center; display: block;"
+                />
+                
+                <span class="badge badge-pine" style="position: absolute; top: 12px; left: 12px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); background: rgba(16, 185, 129, 0.85); color: #FFFFFF; font-weight: 700; font-size: 0.75rem; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 2px 8px rgba(0,0,0,0.2); z-index: 2;">
+                  Active Vertebral Decompression
+                </span>
+
+                <!-- Translucent / Transparent Glassmorphic Quote Overlay (No heavy dark background) -->
+                <div style="position: absolute; bottom: 14px; left: 14px; right: 14px; background: rgba(11, 19, 43, 0.38); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); padding: 14px 18px; border-radius: var(--radius-md); border: 1px solid rgba(255, 255, 255, 0.25); color: #FFFFFF; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); z-index: 2;">
+                  <p style="font-style: italic; font-size: 0.875rem; line-height: 1.5; margin: 0; color: #F8FAFC; text-shadow: 0 1px 3px rgba(0,0,0,0.7);">
+                    "Spinal health is not achieved through passive hanging or violent cracking. It requires gentle traction to create space, followed by micro-movements to feed the discs."
+                  </p>
+                  <div style="font-weight: 700; font-size: 0.775rem; color: #6EE7B7; margin-top: 6px; text-shadow: 0 1px 2px rgba(0,0,0,0.6);">
+                    — Vyacheslav Evminov, Master of Sports &amp; Method Creator
+                  </div>
                 </div>
               </div>
             </div>
