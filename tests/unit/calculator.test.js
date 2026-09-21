@@ -73,4 +73,21 @@ describe('Calculator & Traction Physics Logic', () => {
     expect(inchesToFeet(71)).toBe('5\'11"');
     expect(inchesToFeet(72)).toBe('6\'0"');
   });
+
+  it('renders calculator with radiogroup and cross-browser accessibility roles', async () => {
+    const { renderCalculator } = await import('../../src/components/Calculator.js');
+    const html = renderCalculator();
+    expect(html).toContain('role="radiogroup"');
+    expect(html).toContain('role="radio"');
+    expect(html).toContain('data-condition="hernia"');
+    expect(html).toContain('data-condition="sciatica"');
+    expect(html).toContain('data-condition="athlete"');
+    expect(html).toContain('data-condition="posture"');
+    expect(html).toContain('data-condition="pediatric"');
+    expect(html).toContain('id="weight-slider"');
+    expect(html).toContain('id="height-slider"');
+    expect(html).toContain('id="angle-slider"');
+    expect(html).toContain('calc-visualizer');
+  });
 });
+

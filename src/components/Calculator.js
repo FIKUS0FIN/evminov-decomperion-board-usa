@@ -40,36 +40,36 @@ export function renderCalculator() {
                 </span>
                 <span class="calc-focus-tag" id="calc-focus-tag">L4-S1 Target</span>
               </div>
-              <div class="condition-pills" id="calc-condition-pills">
-                <button type="button" class="condition-btn active" data-condition="hernia">
+              <div class="condition-pills" id="calc-condition-pills" role="radiogroup" aria-label="Select Spinal Focus Area">
+                <button type="button" class="condition-btn active" data-condition="hernia" role="radio" aria-checked="true">
                   <span class="condition-icon-badge">⚡</span>
                   <div class="condition-text">
                     <span class="condition-title">Herniated Disc</span>
                     <span class="condition-sub">L4-S1 • Disc Bulge</span>
                   </div>
                 </button>
-                <button type="button" class="condition-btn" data-condition="sciatica">
+                <button type="button" class="condition-btn" data-condition="sciatica" role="radio" aria-checked="false">
                   <span class="condition-icon-badge">🦵</span>
                   <div class="condition-text">
                     <span class="condition-title">Sciatica Relief</span>
                     <span class="condition-sub">Pinched Nerve Root</span>
                   </div>
                 </button>
-                <button type="button" class="condition-btn" data-condition="athlete">
+                <button type="button" class="condition-btn" data-condition="athlete" role="radio" aria-checked="false">
                   <span class="condition-icon-badge">🏋️</span>
                   <div class="condition-text">
                     <span class="condition-title">Athletic Reset</span>
                     <span class="condition-sub">Axial Load Recovery</span>
                   </div>
                 </button>
-                <button type="button" class="condition-btn" data-condition="posture">
+                <button type="button" class="condition-btn" data-condition="posture" role="radio" aria-checked="false">
                   <span class="condition-icon-badge">💻</span>
                   <div class="condition-text">
                     <span class="condition-title">Posture / WFH</span>
                     <span class="condition-sub">Thoracic & Neck Reset</span>
                   </div>
                 </button>
-                <button type="button" class="condition-btn" data-condition="pediatric">
+                <button type="button" class="condition-btn" data-condition="pediatric" role="radio" aria-checked="false">
                   <span class="condition-icon-badge">🧸</span>
                   <div class="condition-text">
                     <span class="condition-title">Kids &amp; Scoliosis</span>
@@ -348,6 +348,7 @@ export function initCalculator() {
         sciatica: 'Sciatic Nerve',
         athlete: 'Axial Decompression',
         posture: 'Thoracic Alignment',
+        pediatric: 'Pediatric Growth & Scoliosis',
       };
       focusTag.textContent = tagMap[currentCondition] || 'Clinical Target';
     }
@@ -372,10 +373,12 @@ export function initCalculator() {
     });
   }
 
-  // Event Listeners for Sliders
-  if (weightSlider) weightSlider.addEventListener('input', update);
-  if (heightSlider) heightSlider.addEventListener('input', update);
-  if (angleSlider) angleSlider.addEventListener('input', update);
+  // Cross-Browser Event Listeners for Sliders (listening to both 'input' and 'change' for Chrome/Safari/Firefox mobile compatibility)
+  ['input', 'change'].forEach((eventType) => {
+    if (weightSlider) weightSlider.addEventListener(eventType, update);
+    if (heightSlider) heightSlider.addEventListener(eventType, update);
+    if (angleSlider) angleSlider.addEventListener(eventType, update);
+  });
 
   // Quick Angle Preset Chips
   document.querySelectorAll('.angle-preset-chip').forEach((chip) => {
@@ -392,8 +395,12 @@ export function initCalculator() {
   const conditionPills = document.querySelectorAll('#calc-condition-pills .condition-btn');
   conditionPills.forEach((btn) => {
     btn.addEventListener('click', () => {
-      conditionPills.forEach((b) => b.classList.remove('active'));
+      conditionPills.forEach((b) => {
+        b.classList.remove('active');
+        b.setAttribute('aria-checked', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-checked', 'true');
       currentCondition = btn.getAttribute('data-condition') || 'hernia';
 
       // Set angle slider to recommended start angle for that condition
