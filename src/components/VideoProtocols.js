@@ -64,7 +64,7 @@ export function renderVideoProtocols() {
         </div>
 
         <!-- Featured Official YouTube Clinical Protocol (Half-Screen Showcase) -->
-        <div class="cinematic-video-section" style="margin-bottom: 48px; padding: 40px; background: #0B132B; border-radius: var(--radius-xl); color: #FFFFFF; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 25px 50px -12px rgba(11, 19, 43, 0.4);">
+        <div class="cinematic-video-section">
           <div class="cinematic-video-grid">
             
             <!-- Video Column (55% Half-Screen Player) with Trust Strip & Clinical Principles Emblems -->

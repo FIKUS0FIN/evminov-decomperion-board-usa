@@ -710,10 +710,31 @@
    ========================================================================== */
 
 .cinematic-video-section {
-  padding: 60px 0;
-  border-top: 1px solid var(--color-border-subtle);
+  margin-bottom: 48px;
+  padding: 36px;
+  background: #0B132B;
+  border-radius: var(--radius-xl);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(11, 19, 43, 0.4);
   position: relative;
   overflow: hidden;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .cinematic-video-section {
+    padding: 18px 14px;
+    border-radius: var(--radius-lg);
+    margin-bottom: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cinematic-video-section {
+    padding: 12px 10px;
+    border-radius: var(--radius-md);
+  }
 }
 
 .cinematic-video-grid {

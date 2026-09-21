@@ -1109,11 +1109,30 @@ body.nav-drawer-open {
   }
 }
 
+@media (max-width: 640px) {
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .hero-cta-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 .hero-trust-bullets {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
   margin-top: 16px;
+}
+
+@media (max-width: 540px) {
+  .hero-trust-bullets {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
 }
 
 .trust-bullet-item {
@@ -3646,6 +3665,22 @@ body.nav-drawer-open {
 @media (max-width: 768px) {
   .mobile-sticky-bar {
     display: flex;
+    padding: 10px 16px;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+  }
+  body {
+    padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (max-width: 360px) {
+  .mobile-sticky-bar {
+    padding: 8px 10px;
+    padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+  }
+  .mobile-sticky-bar .btn {
+    padding: 8px 12px;
+    font-size: 0.78rem;
   }
 }
 
@@ -5261,6 +5296,211 @@ body.nav-drawer-open {
   display: inline-block;
   margin-right: 5px;
   border-radius: 50%;
+}
+
+/* ==========================================================================
+   Mobile Landscape & Short Viewport Height Optimization (@media (orientation: landscape) and (max-height: 520px))
+   Prevents vertical crowding, overlapping fixed bars, and distorted layouts on mobile phones rotated horizontally.
+   ========================================================================== */
+@media (orientation: landscape) and (max-height: 520px) {
+  /* Hide fixed mobile buy bar in landscape to reclaim vertical screen estate */
+  .mobile-sticky-bar {
+    display: none !important;
+  }
+  body {
+    padding-bottom: 0 !important;
+  }
+
+  /* Compact Sticky Header in Landscape */
+  .site-header {
+    top: 0;
+  }
+  .announcement-bar {
+    padding: 3px 12px;
+    font-size: 0.6875rem;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+  }
+  .announcement-bar .desktop-only {
+    display: none !important;
+  }
+  .header-inner {
+    padding: 4px 12px;
+    gap: 4px 8px;
+  }
+  .site-logo svg {
+    width: 24px;
+    height: 24px;
+  }
+  .logo-title {
+    font-size: 0.95rem;
+  }
+  .logo-subtitle {
+    font-size: 0.5625rem;
+  }
+  .portal-trigger-btn {
+    height: 28px;
+    padding: 3px 8px;
+    font-size: 0.72rem;
+    gap: 4px;
+  }
+  .cart-trigger-btn {
+    height: 28px;
+    padding: 3px 8px;
+    font-size: 0.72rem;
+    gap: 4px;
+  }
+  .mobile-menu-btn {
+    width: 28px;
+    height: 28px;
+    padding: 5px;
+  }
+  .header-nav-container {
+    margin-top: 2px;
+    padding-top: 2px;
+  }
+  .nav-link {
+    font-size: 0.72rem;
+    padding: 2px 6px;
+  }
+  .header-nav-scroll-btn {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Hero Section Landscape Scaling */
+  .hero-section {
+    padding: 18px 0 28px;
+  }
+  .hero-grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 20px;
+    text-align: left;
+    align-items: center;
+  }
+  .hero-content {
+    gap: 10px;
+  }
+  .hero-trust-banner-card {
+    padding: 6px 10px;
+    margin: 0;
+  }
+  .hero-title {
+    font-size: clamp(1.25rem, 3.5vw, 1.6rem);
+    line-height: 1.2;
+  }
+  .hero-subtitle {
+    font-size: 0.8125rem;
+    line-height: 1.45;
+  }
+  .hero-cta-group {
+    flex-direction: row;
+    gap: 8px;
+    margin-top: 4px;
+    justify-content: flex-start;
+  }
+  .hero-cta-group .btn {
+    width: auto;
+    padding: 8px 14px;
+    font-size: 0.8125rem;
+  }
+  .hero-trust-bullets {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .trust-bullet-item {
+    font-size: 0.75rem;
+    gap: 6px;
+  }
+  .hero-media-card {
+    padding: 8px;
+  }
+  .hero-carousel-viewport {
+    height: 220px;
+  }
+  .hero-slide-caption-bar {
+    padding: 16px 10px 8px;
+  }
+  .hero-slide-caption-title {
+    font-size: 0.75rem;
+  }
+  .hero-slide-caption-sub {
+    font-size: 0.65rem;
+  }
+  .hero-thumb-btn {
+    flex: 0 0 62px;
+    padding: 2px;
+  }
+  .hero-thumb-img {
+    height: 36px;
+  }
+
+  /* Compact Section Paddings in Landscape */
+  .catalog-section,
+  .patents-section,
+  .pediatric-section {
+    padding: 32px 0;
+  }
+  .section-header {
+    margin-bottom: 24px;
+  }
+  .section-header h2 {
+    font-size: 1.35rem;
+    margin-bottom: 6px;
+  }
+  .section-header p {
+    font-size: 0.85rem;
+  }
+
+  /* Video Protocol Showcase in Landscape */
+  .cinematic-video-section {
+    padding: 20px 16px;
+    margin-bottom: 24px;
+  }
+  .cinematic-video-grid {
+    gap: 20px;
+  }
+  .video-frame-container {
+    max-height: 65vh;
+  }
+
+  /* Calibrator in Landscape */
+  .calc-container {
+    padding: 0 16px;
+  }
+  .calc-controls {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+  .condition-pills {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+  .condition-btn {
+    min-height: 42px;
+    padding: 6px 8px;
+  }
+
+  /* Modal Landscape Scrollability */
+  .modal-overlay {
+    align-items: flex-start;
+    padding: 8px;
+    overflow-y: auto;
+  }
+  .modal-content {
+    max-height: 94vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .modal-close-btn {
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
 }
 
 
