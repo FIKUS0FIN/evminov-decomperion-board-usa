@@ -660,8 +660,12 @@ export function initHeader() {
       headerEl.classList.remove('header-scrolled');
     }
 
-    // Prevent hiding if mobile navigation drawer or modal is open
-    if (document.body.classList.contains('nav-drawer-open') || document.body.classList.contains('modal-open')) {
+    // Prevent hiding if mobile navigation drawer, modal, or cart drawer is open
+    if (
+      document.body.classList.contains('nav-drawer-open') || 
+      document.body.classList.contains('modal-open') ||
+      document.body.classList.contains('cart-drawer-open')
+    ) {
       headerEl.classList.remove('header-hidden');
       lastScrollY = currentScrollY;
       ticking = false;

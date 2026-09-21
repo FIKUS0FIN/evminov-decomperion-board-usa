@@ -299,43 +299,6 @@ export function initCheckoutDrawer() {
   const submitBtn = document.getElementById('submit-payment-btn');
   const submitBtnText = document.getElementById('submit-btn-text');
 
-  // Auto-hide drawer summary footer on scroll down, smoothly reveal on scroll up
-  let lastScrollTop = 0;
-  let isTicking = false;
-
-  if (drawerBody && footer) {
-    drawerBody.addEventListener(
-      'scroll',
-      () => {
-        if (!isTicking) {
-          window.requestAnimationFrame(() => {
-            const currentScroll = drawerBody.scrollTop;
-            const scrollDelta = currentScroll - lastScrollTop;
-
-            // When near the top, always show footer
-            if (currentScroll <= 15) {
-              footer.classList.remove('is-hidden');
-            } else if (Math.abs(scrollDelta) > 6) {
-              // Scrolling down: hide footer smoothly
-              if (scrollDelta > 0) {
-                footer.classList.add('is-hidden');
-              }
-              // Scrolling up: reveal footer smoothly
-              else {
-                footer.classList.remove('is-hidden');
-              }
-            }
-
-            lastScrollTop = Math.max(0, currentScroll);
-            isTicking = false;
-          });
-          isTicking = true;
-        }
-      },
-      { passive: true }
-    );
-  }
-
   // Close handlers
   if (closeBtn) closeBtn.addEventListener('click', () => cartStore.closeDrawer());
   if (overlay) {
@@ -400,11 +363,11 @@ export function initCheckoutDrawer() {
       if (state.isDrawerOpen) {
         overlay.classList.add('active');
         overlay.setAttribute('aria-hidden', 'false');
-        if (footer) footer.classList.remove('is-hidden');
-        lastScrollTop = 0;
+        document.body.classList.add('cart-drawer-open');
       } else {
         overlay.classList.remove('active');
         overlay.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('cart-drawer-open');
       }
     }
 
@@ -496,6 +459,7 @@ export function initCheckoutDrawer() {
       }
 
       setTimeout(() => {
+        const currentState = cartStore.getState();
         const orderId = generateOrderId();
         const upsTracking = generateUPSTracking();
         const deliveryDate = getEstimatedDeliveryDate();
@@ -503,8 +467,8 @@ export function initCheckoutDrawer() {
           orderId,
           upsTracking,
           deliveryDate,
-          items: state.items,
-          total: state.subtotal,
+          items: currentState.items,
+          total: currentState.subtotal,
           customerEmail: document.getElementById('checkout-email').value,
           customerName: document.getElementById('checkout-name').value,
         };
@@ -536,6 +500,7 @@ export function initCheckoutDrawer() {
       btn.addEventListener('click', () => {
         btn.innerHTML = '<span>Processing Touch ID / Wallet...</span>';
         setTimeout(() => {
+          const currentState = cartStore.getState();
           const orderId = generateOrderId();
           const upsTracking = generateUPSTracking();
           const deliveryDate = getEstimatedDeliveryDate();
@@ -543,8 +508,8 @@ export function initCheckoutDrawer() {
             orderId,
             upsTracking,
             deliveryDate,
-            items: state.items,
-            total: state.subtotal,
+            items: currentState.items,
+            total: currentState.subtotal,
             customerEmail: 'apple.pay.user@icloud.com',
             customerName: 'Apple Wallet Customer',
           };

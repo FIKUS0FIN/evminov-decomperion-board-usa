@@ -846,7 +846,8 @@
   line-height: 1.4;
 }
 
-body.nav-drawer-open {
+body.nav-drawer-open,
+body.cart-drawer-open {
   overflow: hidden !important;
   touch-action: none;
 }
