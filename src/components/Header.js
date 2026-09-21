@@ -84,8 +84,8 @@ export function renderHeader() {
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
               <circle cx="12" cy="7" r="4"></circle>
             </svg>
-            <span class="desktop-only" id="header-user-status" style="font-size: 0.8125rem; font-weight: 700;">
-              Sign In
+            <span id="header-user-status" class="portal-btn-label">
+              Patient Portal
             </span>
           </button>
 
@@ -729,7 +729,7 @@ export function initHeader() {
         userStatusSpan.textContent = `${state.user.name.split(' ')[0]}'s Portal`;
         if (portalBtn) portalBtn.classList.add('logged-in');
       } else {
-        userStatusSpan.textContent = 'Sign In';
+        userStatusSpan.textContent = 'Patient Portal';
         if (portalBtn) portalBtn.classList.remove('logged-in');
       }
     }

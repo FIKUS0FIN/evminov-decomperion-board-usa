@@ -41,4 +41,33 @@ describe('Header UX & Smart Headroom Architecture', () => {
     expect(mainCss).toContain('.header-nav-scroll-btn');
     expect(mainCss).toContain('.header-nav-scroll-btn.is-visible');
   });
+
+  it('renders Patient Portal pill button with user icon and label across all viewports', () => {
+    const html = renderHeader();
+    expect(html).toContain('class="portal-trigger-btn"');
+    expect(html).toContain('id="portal-trigger-btn"');
+    expect(html).toContain('id="header-user-status"');
+    expect(html).toContain('Patient Portal');
+
+    const mainCssPath = path.resolve(process.cwd(), 'src/styles/main.css');
+    const mainCss = fs.readFileSync(mainCssPath, 'utf8');
+    expect(mainCss).toContain('.portal-trigger-btn');
+    expect(mainCss).toContain('.portal-btn-label');
+    // Ensure portal-trigger-btn is not reduced to a circular icon button hiding text
+    expect(mainCss).not.toContain('.portal-trigger-btn #header-user-status {\n    display: none;');
+  });
+
+  it('keeps navigation and announcement paragraphs visible on tablet and mobile viewports', () => {
+    const html = renderHeader();
+    expect(html).toContain('announcement-bar');
+    expect(html).toContain('30 Years of Clinical Vertebrology');
+    expect(html).toContain('Continuous Clinical Practice Since 1996');
+
+    const mainCssPath = path.resolve(process.cwd(), 'src/styles/main.css');
+    const mainCss = fs.readFileSync(mainCssPath, 'utf8');
+    // Ensure header-nav-container is visible on max-width 1060px
+    expect(mainCss).toContain('.header-nav-container {\n    order: 3;\n    width: 100%;\n    flex: 1 1 100%;\n    display: flex !important;');
+    // Ensure desktop-only announcement item is displayed on mobile
+    expect(mainCss).toContain('.announcement-bar .desktop-only {\n    display: flex;');
+  });
 });

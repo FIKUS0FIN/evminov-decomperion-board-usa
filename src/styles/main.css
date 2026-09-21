@@ -24,11 +24,15 @@
 
 @media (max-width: 1180px) {
   .announcement-bar {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     text-align: center;
     padding: 6px 12px;
-    font-size: 0.75rem;
-    line-height: 1.35;
+    font-size: 0.72rem;
+    line-height: 1.4;
+    gap: 3px;
   }
   .announcement-item {
     justify-content: center;
@@ -37,7 +41,9 @@
     gap: 4px 6px;
   }
   .announcement-bar .desktop-only {
-    display: none;
+    display: flex;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.6875rem;
   }
 }
 
@@ -291,24 +297,52 @@
 
 /* Seamless Header Scaling & Responsive Visibility */
 @media (max-width: 1380px) {
-  .portal-trigger-btn #header-user-status {
-    display: none;
-  }
   .portal-trigger-btn {
-    padding: 6px;
-    width: 36px;
-    height: 36px;
-    justify-content: center;
-    border-radius: 50%;
+    padding: 6px 12px;
+    font-size: 0.78rem;
   }
   .header-actions {
     gap: 6px;
   }
 }
 
+/* Tablet & Mobile Header Navigation Visibility (Keep Scroller & Chevrons Visible) */
 @media (max-width: 1060px) {
+  .header-inner {
+    flex-wrap: wrap;
+    padding: 8px 14px 6px 14px;
+    gap: 6px 8px;
+  }
+  .site-logo {
+    order: 1;
+    flex-shrink: 0;
+  }
+  .header-actions {
+    order: 2;
+    margin-left: auto;
+    flex-shrink: 0;
+    gap: 6px;
+  }
   .header-nav-container {
-    display: none !important;
+    order: 3;
+    width: 100%;
+    flex: 1 1 100%;
+    display: flex !important;
+    align-items: center;
+    margin: 4px 0 0 0;
+    padding-top: 5px;
+    border-top: 1px solid rgba(226, 232, 240, 0.7);
+    position: relative;
+    min-width: 0;
+  }
+  .site-nav {
+    gap: 6px;
+    padding: 2px 2px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav-link {
+    font-size: 0.75rem;
+    padding: 4px 8px;
   }
   .mobile-menu-btn {
     display: inline-flex !important;
@@ -410,34 +444,46 @@
     gap: 6px;
   }
   .portal-trigger-btn {
-    padding: 6px 10px;
-    font-size: 0.75rem;
+    padding: 5px 9px;
+    font-size: 0.72rem;
     gap: 4px;
+    height: 32px;
   }
   .cart-trigger-btn {
-    padding: 6px 10px;
-    font-size: 0.75rem;
-    gap: 5px;
+    padding: 5px 9px;
+    font-size: 0.72rem;
+    gap: 4px;
+    height: 32px;
   }
   .mobile-menu-btn {
-    width: 36px;
-    height: 36px;
-    padding: 7px;
+    width: 32px;
+    height: 32px;
+    padding: 6px;
   }
 }
 
 @media (max-width: 380px) {
-  .portal-trigger-btn span {
-    display: none;
+  .header-inner {
+    padding: 6px 8px;
+    gap: 4px;
   }
   .portal-trigger-btn {
-    padding: 6px 8px;
-  }
-  .cart-trigger-btn span:not(.cart-count-badge) {
-    display: none;
+    padding: 4px 7px;
+    font-size: 0.6875rem;
+    gap: 3px;
+    height: 30px;
   }
   .cart-trigger-btn {
-    padding: 6px 8px;
+    padding: 4px 7px;
+    font-size: 0.6875rem;
+    gap: 3px;
+    height: 30px;
+  }
+  .cart-count-badge {
+    min-width: 17px;
+    height: 17px;
+    font-size: 0.6875rem;
+    padding: 0 4px;
   }
 }
 
@@ -3707,19 +3753,33 @@ body.nav-drawer-open {
 .portal-trigger-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
   background: var(--color-surface-white);
   border: 1.5px solid var(--color-border-subtle);
   border-radius: var(--radius-full);
-  padding: 7px 14px;
+  padding: 6px 14px;
   color: var(--color-primary-navy);
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.8125rem;
   cursor: pointer;
   transition: all var(--transition-fast);
-  box-shadow: var(--shadow-xs);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   white-space: nowrap;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.portal-trigger-btn svg {
+  flex-shrink: 0;
+  color: var(--color-pine-emerald);
+  transition: transform var(--transition-fast);
+}
+
+.portal-btn-label {
+  display: inline-block;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
 }
 
 .portal-trigger-btn:hover {
@@ -3727,6 +3787,10 @@ body.nav-drawer-open {
   box-shadow: 0 0 14px rgba(16, 185, 129, 0.25);
   transform: translateY(-1px);
   color: var(--color-pine-emerald);
+}
+
+.portal-trigger-btn:hover svg {
+  transform: scale(1.08);
 }
 
 .portal-trigger-btn.logged-in {
