@@ -33,9 +33,9 @@ export function renderBlogCard(post) {
 
       <div style="margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border-subtle); display: flex; justify-content: space-between; align-items: center;">
         <span style="font-size: 0.8125rem; color: var(--color-text-muted);">${post.date}</span>
-        <button type="button" class="btn btn-secondary btn-sm read-article-btn" data-article-id="${post.id}">
+        <a href="/blog/${post.slug}" class="btn btn-secondary btn-sm read-article-btn" data-article-id="${post.id}" data-slug="${post.slug}">
           Read Clinical Guide →
-        </button>
+        </a>
       </div>
     </article>
   `;
@@ -257,7 +257,20 @@ export function initBlogSection() {
   track.addEventListener('click', (e) => {
     const readBtn = e.target.closest('.read-article-btn');
     if (readBtn) {
+      e.preventDefault();
+      const slug = readBtn.getAttribute('data-slug');
+      if (slug) {
+        window.history.pushState(null, '', `/blog/${slug}`);
+        window.dispatchEvent(new PopStateEvent('popstate'));
+        return;
+      }
       const articleId = readBtn.getAttribute('data-article-id');
+      const found = blogPosts.find((p) => p.id === articleId);
+      if (found && found.slug) {
+        window.history.pushState(null, '', `/blog/${found.slug}`);
+        window.dispatchEvent(new PopStateEvent('popstate'));
+        return;
+      }
       openArticleModal(articleId);
     }
   });

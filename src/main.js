@@ -9,6 +9,7 @@ import './styles/gallery.css';
 import './styles/centers.css';
 import './styles/globalTrust.css';
 import './styles/pediatricSection.css';
+import './styles/blogArticle.css';
 import './styles/main.css';
 
 import { renderHeader, initHeader } from './components/Header.js';
@@ -37,6 +38,8 @@ import { renderCustomerPortalModal, initCustomerPortal } from './components/Cust
 import { renderMobileStickyBar } from './components/MobileStickyBar.js';
 import { renderPatientPortalPage, initPatientPortalPage } from './components/PortalPage.js';
 import { renderClinicalCentersPage, initClinicalCentersPage } from './components/RehabilitationCentersPage.js';
+import { renderBlogArticlePage, initBlogArticlePage } from './components/BlogArticlePage.js';
+import { blogPosts } from './data/blogPosts.js';
 
 // Prevent browser automatic scroll restoration so the page always starts from the top
 if (typeof window !== 'undefined' && 'scrollRestoration' in window.history) {
@@ -53,7 +56,13 @@ function renderApp() {
   const pathname = window.location.pathname || '';
   const isPortalRoute = hash === '#portal' || hash.startsWith('#portal?') || pathname === '/portal';
   const isCentersRoute = hash === '#centers' || hash === '#clinic' || hash.startsWith('#centers?') || pathname === '/centers';
-  const targetRoute = isPortalRoute ? 'portal' : isCentersRoute ? 'centers' : 'storefront';
+  
+  const blogMatch = pathname.match(/^\/blog\/([^/?#]+)/) || hash.match(/^#blog\/([^/?#]+)/);
+  const isBlogRoute = Boolean(blogMatch);
+  const blogSlug = blogMatch ? blogMatch[1] : null;
+  const currentBlogPost = blogSlug ? blogPosts.find((p) => p.slug === blogSlug || p.id === blogSlug) : null;
+
+  const targetRoute = isPortalRoute ? 'portal' : isCentersRoute ? 'centers' : (isBlogRoute && currentBlogPost) ? `blog-${currentBlogPost.id}` : 'storefront';
 
   if (currentRenderedRoute === targetRoute && targetRoute === 'storefront') {
     if (hash && hash !== '#' && hash !== '') {
@@ -98,6 +107,31 @@ function renderApp() {
     initCheckoutDrawer();
     initOrderConfirmationModal();
     initCustomerPortal();
+    return;
+  }
+
+  if (isBlogRoute && currentBlogPost) {
+    // Render Dedicated Clinical Evidence Article Page (Spoke in Hub & Spoke architecture)
+    app.innerHTML = `
+      ${renderHeader()}
+      <main id="main-content">
+        ${renderBlogArticlePage(currentBlogPost)}
+      </main>
+      ${renderFooter()}
+      ${renderCheckoutDrawer()}
+      ${renderOrderConfirmationModal()}
+      ${renderCustomerPortalModal()}
+      ${renderMobileStickyBar()}
+    `;
+    initHeader();
+    initBlogArticlePage(currentBlogPost);
+    initCheckoutDrawer();
+    initOrderConfirmationModal();
+    initCustomerPortal();
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    if (currentBlogPost.metaTitle) {
+      document.title = currentBlogPost.metaTitle;
+    }
     return;
   }
 
@@ -157,7 +191,7 @@ function renderApp() {
   window.scrollTo({ top: 0, behavior: 'instant' });
 
   // Clean any stale in-page section hash (e.g. #catalog) from URL on initial load so reload always starts at the beginning
-  if (hash && !isPortalRoute && !isCentersRoute) {
+  if (hash && !isPortalRoute && !isCentersRoute && !isBlogRoute) {
     if (window.history && window.history.replaceState) {
       window.history.replaceState(null, '', window.location.pathname + window.location.search);
     }

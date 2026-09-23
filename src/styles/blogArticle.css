@@ -1,0 +1,540 @@
+/* ==========================================================================
+   Clinical Blog Article Page Styles (Hub & Spoke Architecture)
+   ========================================================================== */
+
+.article-page-wrap {
+  background: var(--color-bg-light);
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+/* Breadcrumbs Bar */
+.article-breadcrumbs-bar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding: 14px 0;
+  position: sticky;
+  top: 70px;
+  z-index: 40;
+}
+
+.article-breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.article-breadcrumbs a {
+  color: var(--color-primary-navy);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.article-breadcrumbs a:hover {
+  color: var(--color-traction-cyan);
+}
+
+.article-breadcrumbs .breadcrumb-separator {
+  color: var(--color-border-subtle);
+}
+
+.article-breadcrumbs .breadcrumb-current {
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 320px;
+}
+
+/* Article Hero Header */
+.article-header {
+  background: #ffffff;
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding: 48px 0 36px;
+}
+
+.article-header-container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.article-meta-top {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.85rem, 3.8vw, 2.75rem);
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  line-height: 1.25;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.article-excerpt-box {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%);
+  border-left: 4px solid var(--color-traction-cyan);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--color-primary-navy);
+  font-weight: 500;
+  margin-bottom: 28px;
+}
+
+/* Author & Reviewer Card */
+.article-author-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: var(--color-bg-light);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.author-avatar-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-navy-surface);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.author-info {
+  flex: 1;
+}
+
+.author-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-primary-navy);
+  margin-bottom: 2px;
+}
+
+.author-credentials {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+.clinical-badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ecfdf5;
+  color: #047857;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid #a7f3d0;
+  white-space: nowrap;
+}
+
+/* Article Body Content */
+.article-body-container {
+  max-width: 860px;
+  margin: 40px auto 0;
+  padding: 0 var(--container-padding);
+}
+
+.article-content {
+  background: #ffffff;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border-subtle);
+  padding: 44px;
+  box-shadow: var(--shadow-sm);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--color-primary-navy);
+}
+
+.article-content h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  margin: 40px 0 18px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  border-bottom: 2px solid var(--color-bg-light);
+  padding-bottom: 10px;
+}
+
+.article-content h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  margin: 28px 0 12px;
+  line-height: 1.4;
+}
+
+.article-content p {
+  margin-bottom: 20px;
+  color: #334155;
+}
+
+.article-content ul,
+.article-content ol {
+  margin: 16px 0 24px 24px;
+  color: #334155;
+}
+
+.article-content li {
+  margin-bottom: 10px;
+  line-height: 1.65;
+}
+
+.article-content strong {
+  color: var(--color-primary-navy);
+  font-weight: 700;
+}
+
+/* Comparison Tables inside Articles */
+.article-content .comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 28px 0;
+  font-size: 0.9375rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.article-content .comparison-table th {
+  background: var(--color-primary-navy);
+  color: #ffffff;
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 700;
+}
+
+.article-content .comparison-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--color-border-subtle);
+  color: #334155;
+}
+
+.article-content .comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+.article-content .comparison-table tr:nth-child(even) td {
+  background: #f8fafc;
+}
+
+/* Clinical Callout Blocks */
+.article-callout {
+  background: #fffbeb;
+  border-left: 4px solid #f59e0b;
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin: 28px 0;
+}
+
+.article-callout-danger {
+  background: #fef2f2;
+  border-left: 4px solid #ef4444;
+}
+
+.article-callout-title {
+  font-weight: 800;
+  font-size: 1rem;
+  color: #92400e;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.article-callout-danger .article-callout-title {
+  color: #991b1b;
+}
+
+/* Embedded High-Converting Product CTA Card */
+.article-product-cta {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #ffffff;
+  border-radius: var(--radius-xl);
+  padding: 36px;
+  margin: 44px 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.article-product-cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.article-product-cta h3 {
+  color: #ffffff !important;
+  font-size: 1.5rem !important;
+  margin-top: 0 !important;
+  border-bottom: none !important;
+}
+
+.article-product-cta p {
+  color: #94a3b8 !important;
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+}
+
+.cta-benefits-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 28px;
+  list-style: none !important;
+  padding: 0 !important;
+}
+
+.cta-benefits-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: #e2e8f0;
+  margin-bottom: 0 !important;
+}
+
+.cta-action-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.cta-price-tag {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #38bdf8;
+  font-family: var(--font-heading);
+}
+
+.cta-price-sub {
+  font-size: 0.8125rem;
+  color: #94a3b8;
+  display: block;
+}
+
+/* PAA FAQ Section inside article */
+.article-paa-section {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 2px solid var(--color-bg-light);
+}
+
+.article-paa-card {
+  background: #f8fafc;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-subtle);
+  padding: 20px;
+  margin-bottom: 16px;
+  transition: all var(--transition-fast);
+}
+
+.article-paa-card:hover {
+  border-color: var(--color-traction-cyan);
+  background: #ffffff;
+}
+
+.paa-question {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-primary-navy);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.paa-answer {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #475569;
+  margin-bottom: 0;
+}
+
+/* Related Guides Section (Spoke-to-Spoke Mesh) */
+.related-guides-section {
+  max-width: 860px;
+  margin: 48px auto 0;
+  padding: 0 var(--container-padding);
+}
+
+.related-guides-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.related-guides-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.related-guide-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-subtle);
+  padding: 20px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.related-guide-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-traction-cyan);
+}
+
+.related-guide-cat {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-traction-cyan);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.related-guide-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  line-height: 1.4;
+  margin-bottom: 12px;
+  flex: 1;
+}
+
+.related-guide-footer {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .article-header {
+    padding: 32px 0 24px;
+  }
+  .article-content {
+    padding: 24px 18px;
+  }
+  .article-product-cta {
+    padding: 24px 18px;
+  }
+  .cta-action-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cta-action-row .btn {
+    width: 100%;
+  }
+}
+
+/* Medical Disclaimer & Clinical References (E-E-A-T Quality Signals) */
+.article-medical-disclaimer {
+  margin: 32px 0 24px;
+  padding: 20px 24px;
+  background: rgba(245, 158, 11, 0.08);
+  border-left: 4px solid #f59e0b;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.article-medical-disclaimer-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: #b45309;
+  margin-bottom: 6px;
+  font-size: 0.9375rem;
+}
+
+.article-references-box {
+  margin: 32px 0 20px;
+  padding: 24px;
+  background: #f8fafc;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 8px;
+}
+
+.article-references-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.article-references-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.article-references-list li {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  padding-left: 18px;
+  position: relative;
+}
+
+.article-references-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-pine-emerald);
+  font-weight: bold;
+}
+

@@ -9,7 +9,7 @@ export const blogPosts = [
     slug: 'inversion-table-dangers-and-safe-alternatives',
     title: 'Inversion Tables vs. Controlled Spinal Decompression: Why Hanging Upside Down Carries Hidden Risks',
     metaTitle: 'Inversion Table Dangers & Safe Alternatives | Evminov Spine Systems',
-    metaDesc: 'Are inversion tables safe? Learn the clinical dangers of 90° hanging (stroke risk, intraocular eye pressure, ankle trauma) and why spine doctors recommend inclined traction boards.',
+    metaDesc: 'Are inversion tables safe? Learn the clinical dangers of 90° hanging (stroke risk, intraocular eye pressure, ankle trauma) and why spine doctors recommend inclined traction.',
     readTime: '9 min read',
     date: 'September 2026',
     author: {
@@ -19,6 +19,27 @@ export const blogPosts = [
     },
     category: 'Inversion Alternative',
     wordCount: 1650,
+    keywords: [
+      'inversion table alternative',
+      'is inversion table safe',
+      'teeter inversion table alternative',
+      'inversion table stroke risk',
+      'eye pressure inversion table',
+      'inversion table complications',
+      'inversion table side effects',
+      'safe back decompression at home',
+      'inversion table glaucoma danger',
+      'hanging upside down back pain risks',
+      'low angle spinal traction bench',
+      'Evminov vs Teeter',
+      'inversion table vs spine decompression board',
+      'best alternative to inversion table',
+      'spinal traction bench vs inversion table',
+      'inversion table alternatives for seniors',
+      'back stretcher without hanging upside down',
+      'teeter hang ups alternative',
+      'inversion table contraindications'
+    ],
     excerpt: 'Hanging upside down at 90 degrees can trigger acute intraocular pressure spikes, vascular head surges, and ankle joint strain. Discover why inclined plane traction on resonant pine is the safer, doctor-recommended alternative.',
     content: `
       <h2>The Gravity Paradox: When Decompression Becomes Dangerous</h2>
@@ -115,6 +136,25 @@ export const blogPosts = [
     },
     category: 'Herniated Disc Relief',
     wordCount: 1950,
+    keywords: [
+      'how to decompress L4 L5 at home',
+      'herniated disc traction device',
+      'L4 L5 disc bulge exercises',
+      'avoid spinal fusion herniated disc',
+      'lumbar decompression machine at home',
+      'negative intradiscal pressure',
+      'disc imbibition rehydration',
+      'conservative herniated disc recovery',
+      'home traction bench for disc bulge',
+      'non surgical disc protrusion relief',
+      'herniated disc home treatment',
+      'L4 L5 disc herniation recovery without surgery',
+      'L5 S1 disc bulge treatment at home',
+      'best device for herniated disc L4 L5',
+      'spinal decompression therapy at home for disc herniation',
+      'how to heal a herniated disc naturally',
+      'sciatica and herniated disc equipment'
+    ],
     excerpt: 'Over 93% of lumbar disc herniations can be healed without surgical fusion or discectomy. Learn how calibrated inclined traction creates negative intradiscal pressure to retract protrusions and restore disc height.',
     content: `
       <h2>The Biomechanical Anatomy of an L4-L5 / L5-S1 Disc Herniation</h2>
@@ -178,7 +218,7 @@ export const blogPosts = [
     slug: 'the-lifters-guide-to-spinal-decompression',
     title: 'The Lifter’s Guide: Reversing Spinal Compression After Heavy Barbell Deadlifts, Squats, and Overhead Presses',
     metaTitle: 'Deadlift Spinal Decompression for Lifters & Athletes | Evminov',
-    metaDesc: 'Heavy barbell squats and deadlifts compress intervertebral discs by up to 18%. Discover how strength athletes use the Evminov board post-workout to restore disc height and prevent disc herniations.',
+    metaDesc: 'Heavy barbell squats and deadlifts compress discs by 15mm. See how strength athletes use the Evminov board post-workout to restore disc height and prevent herniations.',
     readTime: '8 min read',
     date: 'August 2026',
     author: {
@@ -188,6 +228,24 @@ export const blogPosts = [
     },
     category: 'Athletic Recovery',
     wordCount: 1550,
+    keywords: [
+      'spine decompression for athletes',
+      'lower back recovery after deadlifts',
+      'spinal traction after heavy squats',
+      'axial loading spine recovery',
+      'powerlifting back decompression',
+      'CrossFit spine recovery',
+      'lumbar disc maintenance for lifters',
+      'gym home decompression board',
+      'athletic spine health equipment',
+      'deadlift lower back recovery',
+      'how to decompress spine after heavy deadlifts',
+      'barbell squat spinal compression relief',
+      'weightlifting back decompression equipment',
+      'post workout spine decompression',
+      'spinal decompression for powerlifting',
+      'relieve lower back stiffness after gym'
+    ],
     excerpt: 'Deadlifting 400+ lbs subjects your lumbar spine to thousands of pounds of compressive axial force. Here is how powerlifters, Olympic lifters, and CrossFit athletes decompress their discs within 10 minutes post-training.',
     content: `
       <h2>The Magnitude of Axial Compression in Strength Sports</h2>
@@ -236,7 +294,7 @@ export const blogPosts = [
     slug: 'sciatica-relief-exercises-home-equipment',
     title: 'Sciatica Relief at Home: How Controlled Traction Frees the Pinched Sciatic Nerve & Prevents Recurrence',
     metaTitle: 'Sciatica Home Relief & Traction Protocol | Evminov Spine Systems',
-    metaDesc: 'Discover the mechanical root cause of sciatica and how rhythmic gentle decompression on the Evminov board relieves shooting leg pain, burning, and numbness without drugs.',
+    metaDesc: 'Discover the mechanical root cause of sciatica and how gentle inclined decompression on the Evminov board relieves shooting leg pain and numbness without drugs.',
     readTime: '9 min read',
     date: 'August 2026',
     author: {
@@ -246,6 +304,24 @@ export const blogPosts = [
     },
     category: 'Sciatica Relief',
     wordCount: 1680,
+    keywords: [
+      'sciatica relief equipment',
+      'pinched nerve lower back stretcher',
+      'sciatica pain relief at home',
+      'sciatic nerve root decompression',
+      'lumbar spine traction device',
+      'piriformis syndrome decompression',
+      'radiating leg pain relief exercises',
+      'home traction board for sciatica',
+      'instant pinched nerve decompression',
+      'sciatica relief at home',
+      'sciatic nerve decompression device',
+      'best equipment for sciatica nerve pain',
+      'how to decompress sciatic nerve at home',
+      'pinched nerve in lower back stretcher machine',
+      'piriformis syndrome home traction',
+      'shooting leg pain relief equipment'
+    ],
     excerpt: 'Shooting pain, burning, and tingling radiating down the buttock into the calf are symptoms of sciatic nerve root compression. Discover how creating 2 mm of intervertebral space takes mechanical pressure off the nerve sheath.',
     content: `
       <h2>The Anatomy of the Pinched Sciatic Nerve</h2>
@@ -300,6 +376,23 @@ export const blogPosts = [
     },
     category: 'WFH Posture',
     wordCount: 1480,
+    keywords: [
+      'desk worker back pain solution',
+      'computer neck hump correction device',
+      'remote worker posture alignment',
+      'tech neck cervical traction',
+      'forward head posture exercises',
+      'daily spine hygiene routine',
+      'ergonomic posture board home office',
+      'Glisson loop neck stretch at home',
+      'desk worker lower back pain relief',
+      'how to decompress spine after sitting all day',
+      'ergonomic spine traction for home office',
+      'tech neck relief device at home',
+      'glisson loop neck traction for desk workers',
+      'forward head posture correction device',
+      'home office back pain equipment'
+    ],
     excerpt: 'Sitting for 8+ hours puts 200% more compressive load on your lumbar spine than standing. Here is how modern tech workers use daily micro-traction to reverse desk slouch and tech-neck in under 10 minutes.',
     content: `
       <h2>The Biomechanical Price of 8 Hours in an Ergonomic Chair</h2>
@@ -345,7 +438,7 @@ export const blogPosts = [
     slug: 'toothbrush-for-the-spine-daily-disc-hygiene',
     title: 'The "Toothbrush for the Spine": Why 6,000 Clinical Studies Prove Only Daily Unloaded Kinetic Therapy Restores Discs',
     metaTitle: 'Toothbrush for the Spine: Daily Disc Hygiene & JAMA Review | Evminov',
-    metaDesc: 'Discover why 6,000 clinical studies reviewed in JAMA prove only unloaded kinetic movement restores discs, and how a 10-minute daily spine hygiene habit prevents back surgery.',
+    metaDesc: 'Discover why 6,000 studies in JAMA prove only unloaded kinetic movement restores discs, and how a daily 10-minute spine hygiene habit prevents spinal surgery.',
     readTime: '10 min read',
     date: 'September 2026',
     author: {
@@ -355,6 +448,23 @@ export const blogPosts = [
     },
     category: 'Preventive Spine Hygiene',
     wordCount: 1820,
+    keywords: [
+      'toothbrush for the spine',
+      'daily disc hygiene concept',
+      'Vyacheslav Evminov methodology',
+      'spinal disc fluid exchange',
+      'preventive back care routine',
+      'daily posture alignment trainer',
+      'morning spine decompression routine',
+      'natural disc lubrication exercises',
+      'spinal disc imbibition rehydration',
+      'daily spinal hygiene exercises',
+      'evminov method clinical trials',
+      'unloaded kinetic therapy for back pain',
+      'preventive back care equipment at home',
+      'jama meta analysis back pain exercise',
+      'how to keep spine healthy daily'
+    ],
     excerpt: 'We spend $100 a year brushing our teeth for 2 minutes to prevent cavities, yet back pain costs America $300 billion annually. Discover the "toothbrush for the spine" philosophy and why a landmark JAMA review proves only unloaded movement can rehydrate compressed discs.',
     content: `
       <h2>The Dental Hygiene Paradox: How We Solved Cavities But Lost Our Spines</h2>
@@ -481,7 +591,7 @@ export const blogPosts = [
     slug: 'spine-decompression-at-home-complete-clinical-guide',
     title: 'Spine Decompression at Home: The Complete Clinical Guide to Reversing Herniated Discs, Sciatica, and Occupational Back Strain Without Surgery or Medications',
     metaTitle: 'Spine Decompression at Home: Clinical Guide | Evminov',
-    metaDesc: 'Evidence-based guide to non-surgical spine decompression at home. How calibrated pine traction heals L4-S1 disc herniations, sciatica, desk posture strain, and standing fatigue.',
+    metaDesc: 'Evidence-based guide to home spine decompression. Learn how calibrated pine traction heals L4-S1 disc herniations, sciatica, and occupational lower back fatigue.',
     readTime: '12 min read',
     date: 'September 2026',
     author: {
@@ -491,6 +601,24 @@ export const blogPosts = [
     },
     category: 'Spine Decompression',
     wordCount: 2250,
+    keywords: [
+      'spinal decompression at home',
+      'home back decompression machine',
+      'spine traction bench',
+      'non surgical spinal decompression cost',
+      'decompression table vs board',
+      'lumbar traction angle calculation',
+      'home spine stretcher FDA registered',
+      'daily mechanical traction protocol',
+      'spinal decompression therapy at home',
+      'home spinal decompression table',
+      'best home spinal decompression device',
+      'lumbar traction device for home use',
+      'non surgical spinal decompression at home',
+      'orthopedic spine stretcher board',
+      'back decompression machine reviews',
+      'evminov spine board clinical guide'
+    ],
     excerpt: 'Over 500,000 patients globally have healed chronic back pain, sciatica, and disc herniations without pharmaceuticals or surgery. Discover how calibrated inclined spine decompression restores disc height and saves 200+ hours and $3,500/year.',
     content: `
       <h2>The Global Epidemic of Axial Spinal Compression</h2>
@@ -589,7 +717,7 @@ export const blogPosts = [
     slug: 'pediatric-scoliosis-prevention-kids-posture-spine',
     title: 'Children & The Modern Spine: Why 85% of Kids Develop Posture Disorders and How 5-Minute Daily Incline Traction Halts Scoliosis Progression',
     metaTitle: 'Pediatric Posture & Scoliosis Prevention | Evminov Spine Systems',
-    metaDesc: 'Over 85% of school children have posture disorders or developing scoliosis. Discover how 5-minute daily inclined kinesitherapy halts curvature and unlocks 2 to 2.8 inches of natural growth potential.',
+    metaDesc: 'Over 85% of kids have posture issues or scoliosis. See how 5-minute daily incline traction halts curvature progression and unlocks natural genetic height potential.',
     readTime: '10 min read',
     date: 'September 2026',
     author: {
@@ -599,6 +727,22 @@ export const blogPosts = [
     },
     category: 'Pediatric Spine Health',
     wordCount: 1950,
+    keywords: [
+      'pediatric scoliosis exercises at home',
+      'kids posture correction equipment',
+      'prevent juvenile scoliosis progression',
+      'non surgical scoliosis treatment for teens',
+      'adolescent back curvature exercises',
+      'family spine health board',
+      'pediatric spinal decompression',
+      'scoliosis correction board at home',
+      'pediatric posture correction equipment',
+      'exercises to prevent scoliosis in children',
+      'non surgical scoliosis treatment at home',
+      'adolescent spine alignment board',
+      'Hueter-Volkmann law scoliosis',
+      'teen posture corrector equipment'
+    ],
     excerpt: 'School screenings reveal that 85% to 90% of children develop postural asymmetries and up to 20% develop early structural scoliosis. Discover why low-angle inclined decompression uncompresses growing vertebrae, corrects curvature, and unlocks 2 to 2.8 inches of suppressed natural height potential.',
     content: `
       <h2>The School-Age Posture Epidemic: 85%–90% Screening Abnormalities</h2>

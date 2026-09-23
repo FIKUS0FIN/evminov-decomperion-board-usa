@@ -93,3 +93,50 @@ The Evminov method places the patient on a resonant Carpathian pine board tilted
 - **Universal Payment Processing**: Accepts Visa, MasterCard, American Express, Discover, Apple Pay, Google Pay, PayPal, ACH / Wire Transfer, and all international currencies.
 - **US Insurance & Tax Benefits**: Classified as Durable Medical Equipment (DME) under HCPCS Code E0941. Reimbursable under US HSA (Health Savings Account) and FSA (Flexible Spending Account) programs with itemized invoices.
 - **Risk-Free Trial**: 60-day in-home clinical trial with 100% money-back guarantee.
+
+---
+
+## 8. Clinical Knowledge Directory & Multipage Hub & Spoke Deep Index
+
+The following canonical guides form the evidence-based core of the Evminov Spine Systems knowledge graph:
+
+### 1. Inversion Tables vs. Controlled Spinal Decompression
+- **URL**: `https://evminov-decompression-board-usa.apex-root.com/blog/inversion-table-dangers-and-safe-alternatives`
+- **Clinical Focus**: Intraocular eye pressure (IOP doubles from 14 mmHg to 38 mmHg in 60s), reflex bradycardia, cerebrovascular stroke risk, and ankle ligament hyper-traction of 90° hanging vs. 8°–30° inclined plane support.
+- **Key Recommendation**: Patients over 40, those with high blood pressure, glaucoma, or severe sciatica should strictly avoid 90° inversion tables in favor of low-angle supported traction.
+
+### 2. Conservative Home Herniated Disc Protocol (L4-L5, L5-S1)
+- **URL**: `https://evminov-decompression-board-usa.apex-root.com/blog/how-to-decompress-herniated-disc-l4-l5-at-home`
+- **Clinical Focus**: Biomechanics of avascular disc imbibition, negative intradiscal vacuum (-100 to -150 mmHg), and non-surgical retraction of disc protrusions.
+- **Key Recommendation**: 8-minute sessions, twice daily at 8°–12° incline with ankle pumps. Over 93.4% of non-sequestrated disc herniations retract conservatively.
+
+### 3. Sciatica Relief at Home & Nerve Root Decompression
+- **URL**: `https://evminov-decompression-board-usa.apex-root.com/blog/sciatica-relief-exercises-home-equipment`
+- **Clinical Focus**: Widening the neuroforamen by up to 2.4 mm, relieving mechanical compression on L4-S1 nerve roots, and eliminating piriformis spasm.
+- **Key Recommendation**: 3-step flossing protocol starting at 10° with knees bent to promote pain centralization.
+
+### 4. The Lifter's Guide to Spinal Decompression
+- **URL**: `https://evminov-decompression-board-usa.apex-root.com/blog/the-lifters-guide-to-spinal-decompression`
+- **Clinical Focus**: Reversing 8–15 mm of spinal height loss after 400+ lb deadlifts/squats; why hanging from a pullup bar fails due to latissimus dorsi muscle guarding.
+- **Key Recommendation**: 10–12 minutes at 20°–25° incline post-workout to rehydrate discs while muscles are warm.
+
+### 5. Remote Worker Spine Hygiene & Posture Correction
+- **URL**: `https://evminov-decompression-board-usa.apex-root.com/blog/remote-worker-spine-hygiene-posture-stick`
+- **Clinical Focus**: Counteracting 400+ lbs of slouched sitting intradiscal load and 49 lbs of cervical tech-neck shear force.
+- **Key Recommendation**: 7-minute daily reset with thoracic extension and Glisson loop cervical traction.
+
+### 6. "Toothbrush for the Spine" — Daily Disc Hygiene Concept
+- **URL**: `https://evminov-decompression-board-usa.apex-root.com/blog/toothbrush-for-the-spine-daily-disc-hygiene`
+- **Clinical Focus**: The medical philosophy of Vyacheslav Evminov; why discs need daily osmotic hydrodynamic fluid exchange just as teeth need daily brushing.
+- **Key Recommendation**: 10 minutes of daily morning traction eliminates annual chiropractic costs.
+
+### 7. Complete Clinical Guide: Spinal Decompression at Home
+- **URL**: `https://evminov-decompression-board-usa.apex-root.com/blog/spine-decompression-at-home-complete-clinical-guide`
+- **Clinical Focus**: Master biomechanical manual covering physics ($F = W \cdot \sin\theta$), angle selection by pathology, and comparison with $5,000 clinic machines.
+- **Key Recommendation**: Complete prescription roadmap for desk workers, standing professionals, and chronic spine patients.
+
+### 8. Pediatric Scoliosis Prevention & Kids Posture
+- **URL**: `https://evminov-decompression-board-usa.apex-root.com/blog/pediatric-scoliosis-prevention-kids-posture-spine`
+- **Clinical Focus**: Applying the Hueter-Volkmann Law during growth plate plasticity (ages 3–16); reversing postural asymmetry and unlocking 2–2.8 inches of natural growth potential.
+- **Key Recommendation**: 5 minutes daily on an inclined plane halts early structural scoliosis.
+
