@@ -1,12 +1,20 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeAll } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
+import { execSync } from 'node:child_process';
 import { blogPosts } from '../../src/data/blogPosts.js';
 import { renderBlogArticlePage } from '../../src/components/BlogArticlePage.js';
 
 describe('Multipage Hub & Spoke SEO Architecture & SSG Suite', () => {
   const rootDir = path.resolve(__dirname, '../../');
   const distDir = path.join(rootDir, 'dist');
+
+  beforeAll(() => {
+    const centersFile = path.join(distDir, 'centers/index.html');
+    if (!fs.existsSync(centersFile)) {
+      execSync('npm run build', { cwd: rootDir, stdio: 'pipe' });
+    }
+  });
 
   describe('1. Data Integrity & SEO Content Specifications', () => {
     it('should have exactly 8 evidence-based clinical articles with complete metadata', () => {
