@@ -13,7 +13,7 @@ import {
   formatUSD,
 } from "@/lib/physics";
 import { SITE_CONFIG } from "@/lib/site-config";
-import { sendGTMEvent } from "@/lib/gtm";
+import { getAttributionSummary, sendGTMEvent } from "@/lib/gtm";
 
 export function OrderWizard({ lang }: { lang: Locale }) {
   const t = getDictionary(lang).orderUi;
@@ -132,6 +132,10 @@ export function OrderWizard({ lang }: { lang: Locale }) {
       return;
     }
     setSubmitting(true);
+    const attr = getAttributionSummary();
+    const combinedNotes = [notes.trim(), attr ? `Attribution: ${attr}` : ""]
+      .filter(Boolean)
+      .join(" | ");
     try {
       const res = await fetch("/api/submit-order", {
         method: "POST",
@@ -150,7 +154,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
           phone: phone.trim(),
           stateOrCountry,
           address: address.trim(),
-          notes: notes.trim(),
+          notes: combinedNotes,
           lang,
         }),
       });

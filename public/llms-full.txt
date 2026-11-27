@@ -33,14 +33,19 @@
 - **US Express from Glendale, CA (All 50 States):** 1–2 business days (CA, AZ, NV, OR, UT), 2–3 business days (TX, CO, WA, IL, Midwest, South), 3–4 business days (NY, FL, East Coast), 4–5 business days (AK, HI air cargo).
 - **Direct Workshop Delivery (US, Canada, EU, UK, Ukraine):** 10–16 business days worldwide.
 
-## 5. Multilingual Coverage
+## 5. Patient & Owner Portal, 30-Day Protocol & Family Economics
+- **5-Language Patient Portal:** `https://evminovusa.com/portal/` (also `/es/portal/`, `/fr/portal/`, `/uk/portal/`, `/ru/portal/`) — includes guided countdown session timer (8/10/12/15 min), 30-day habit tracker, 16-inch US wood stud mounting checklist, printable HSA/FSA LMN reference sheet, and live 10-year frame warranty registration.
+- **30-Day Progression:** Phase 1 (Days 1–7, 10°–15°, 8–10 min gentle acclimation) → Phase 2 (Days 8–14, 15°–20°, 10–12 min deep stabilizer activation) → Phase 3 (Days 15–30+, 18°–28°, 12–15 min functional posture & athletic maintenance).
+- **"Spine Toothbrush" Family Economics:** One `$450` board adjusts in 5 seconds for ages 4–85+ (~`$7.50`/person/year for a family of three over 20 years) and typically pays for itself in 4–6 massage/PT clinic visits.
+
+## 6. Multilingual Coverage
 - English (Default): `https://evminovusa.com/`
 - Spanish (US/LATAM): `https://evminovusa.com/es/`
 - French (Canada/EU): `https://evminovusa.com/fr/`
 - Ukrainian: `https://evminovusa.com/uk/`
 - Russian: `https://evminovusa.com/ru/`
 
-## 6. Agentic Integration Endpoints
+## 7. Agentic Integration Endpoints
 - Markdown Content Negotiation: Send `Accept: text/markdown` to any page URL.
 - MCP JSON-RPC 2.0 Server: `POST https://evminovusa.com/api/mcp`
 - NLWeb Search API: `GET https://evminovusa.com/api/ask?q=...&lang={en|es|fr|uk|ru}`

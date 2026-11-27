@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Mail } from "lucide-react";
+import { ArrowRight, CheckCircle2, Mail, Share2 } from "lucide-react";
 import { Locale } from "@/i18n/types";
 import { getDictionary } from "@/i18n/dictionaries";
 import {
@@ -16,10 +16,10 @@ import {
   recommendBoardModel,
   recommendIncline,
 } from "@/lib/physics";
-import { buildPrefilledOrderUrl } from "@/lib/url";
+import { buildPrefilledOrderUrl, getCanonicalUrl } from "@/lib/url";
 import { PRODUCTS } from "@/data/products";
 import { useHsaSavings } from "@/context/HsaSavingsContext";
-import { sendGTMEvent } from "@/lib/gtm";
+import { getAttributionSummary, sendGTMEvent } from "@/lib/gtm";
 
 const GOALS: Array<{ key: ConditionGoal; label: string }> = [
   { key: "hernia", label: "L4–S1 Disc Comfort" },
@@ -43,6 +43,7 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
   const [leadEmail, setLeadEmail] = useState("");
   const [leadSent, setLeadSent] = useState(false);
   const [leadBusy, setLeadBusy] = useState(false);
+  const [shareCopied, setShareCopied] = useState(false);
 
   const inclineRec = recommendIncline(goal);
   const physics = calculateTractionPhysics(weightLbs, angle);
@@ -53,6 +54,29 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
   const shownDirect = applyHsaSavings
     ? calculateHsaPrice(matchedProduct.directPriceUsd)
     : matchedProduct.directPriceUsd;
+
+  const handleShareProtocol = async () => {
+    const shareUrl = `${getCanonicalUrl("/calculator/", lang)}?goal=${goal}&weight=${weightLbs}&angle=${angle}`;
+    const shareText = `My Evminov spine angle plan: ${angle}° incline (${physics.netTractionLbs} lb smooth axial pull, ~${physics.estimatedDiscUnloadingPct}% unloading) — recommended board: ${matchedProduct.name}.`;
+    sendGTMEvent("calculator_share", { goal, angle, product_slug: matchedProduct.slug });
+    try {
+      if (typeof navigator !== "undefined" && typeof navigator.share === "function") {
+        await navigator.share({
+          title: "My Evminov Spine Angle & Board Plan",
+          text: shareText,
+          url: shareUrl,
+        });
+        return;
+      }
+      if (typeof navigator !== "undefined" && navigator.clipboard) {
+        await navigator.clipboard.writeText(`${shareText} ${shareUrl}`);
+        setShareCopied(true);
+        window.setTimeout(() => setShareCopied(false), 3000);
+      }
+    } catch {
+      // user cancelled native share sheet
+    }
+  };
 
   const handleGoalChange = (nextGoal: ConditionGoal) => {
     setGoal(nextGoal);
@@ -69,6 +93,7 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
     e.preventDefault();
     if (!leadEmail.trim() || leadBusy) return;
     setLeadBusy(true);
+    const attr = getAttributionSummary();
     try {
       await fetch("/api/submit-order", {
         method: "POST",
@@ -78,7 +103,7 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
           email: leadEmail.trim(),
           name: "Calculator Protocol Request",
           product: matchedProduct.slug,
-          notes: `Goal: ${goal} | Weight: ${weightLbs} lbs | Height: ${inchesToFeet(heightIn)} | Angle: ${angle}° | Net Pull: ${physics.netTractionLbs} lbs | Model: ${matchedProduct.name}`,
+          notes: `Goal: ${goal} | Weight: ${weightLbs} lbs | Height: ${inchesToFeet(heightIn)} | Angle: ${angle}° | Net Pull: ${physics.netTractionLbs} lbs | Model: ${matchedProduct.name}${attr ? ` | Attribution: ${attr}` : ""}`,
           lang,
         }),
       });
@@ -374,13 +399,27 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
             </div>
           </div>
 
-          <Link
-            href={prefilledHref}
-            className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-500 px-5 py-3.5 text-sm font-extrabold text-slate-950 transition hover:bg-emerald-400"
-          >
-            <span>{c.ctaOrderPrefilled}</span>
-            <ArrowRight className="h-4 w-4" />
-          </Link>
+          <div className="mt-5 flex flex-col gap-2.5">
+            <Link
+              href={prefilledHref}
+              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-500 px-5 py-3.5 text-sm font-extrabold text-slate-950 transition hover:bg-emerald-400"
+            >
+              <span>{c.ctaOrderPrefilled}</span>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <button
+              type="button"
+              onClick={handleShareProtocol}
+              className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-xs font-bold text-slate-200 transition hover:bg-white/10 hover:text-white"
+            >
+              <Share2 className="h-3.5 w-3.5 text-emerald-400" />
+              <span>
+                {shareCopied
+                  ? "Protocol Link Copied — Share With Your PT or Family!"
+                  : "Share / Copy My Custom Angle Plan"}
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -22,11 +22,15 @@ export const sharedViewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   themeColor: "#0b1f3a",
+  interactiveWidget: "resizes-content",
 };
 
 export function getSharedMetadata(lang: Locale): Metadata {
   const dict = getDictionary(lang);
   const canonical = getCanonicalUrl("/", lang);
+  const googleVerify = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined;
+  const bingVerify = process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION || undefined;
+
   return {
     metadataBase: new URL(SITE_CONFIG.canonicalOrigin),
     title: {
@@ -39,6 +43,13 @@ export function getSharedMetadata(lang: Locale): Metadata {
       canonical,
       languages: getHreflangAlternates("/"),
     },
+    verification:
+      googleVerify || bingVerify
+        ? {
+            google: googleVerify,
+            other: bingVerify ? { "msvalidate.01": bingVerify } : undefined,
+          }
+        : undefined,
     openGraph: {
       type: "website",
       locale: LOCALE_META[lang].ogLocale,
@@ -66,6 +77,13 @@ export function getSharedMetadata(lang: Locale): Metadata {
     robots: {
       index: true,
       follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
     },
   };
 }
@@ -79,36 +97,38 @@ export function WebsiteLayout({
 }) {
   const dict = getDictionary(lang);
 
-  // Genuine Consent Mode v2: default denied until visitor selects their choice
+  // Smista-parity unconditional Consent Mode v2 + Clarity full coverage bootstrap
   const consentInitScript = `
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 window.clarity = window.clarity || function(){(window.clarity.q = window.clarity.q || []).push(arguments);};
+window.clarity('consent');
+window.clarity('consentv2', { ad_Storage: 'granted', analytics_Storage: 'granted' });
 gtag('consent', 'default', {
-  ad_storage: 'denied',
-  analytics_storage: 'denied',
-  ad_personalization: 'denied',
-  ad_user_data: 'denied',
+  ad_storage: 'granted',
+  analytics_storage: 'granted',
+  ad_personalization: 'granted',
+  ad_user_data: 'granted',
   functionality_storage: 'granted',
-  personalization_storage: 'denied',
-  security_storage: 'granted',
-  wait_for_update: 500
+  personalization_storage: 'granted',
+  security_storage: 'granted'
 });
+gtag('set', 'ads_data_redaction', false);
+gtag('set', 'url_passthrough', true);
 (function(){
   try {
     var c = localStorage.getItem('${CONSENT_KEY}');
-    if (c === 'all' || c === 'analytics' || c === 'marketing') {
-      var a = (c === 'all' || c === 'analytics') ? 'granted' : 'denied';
-      var m = (c === 'all' || c === 'marketing') ? 'granted' : 'denied';
-      gtag('consent', 'update', {
-        ad_storage: m,
-        analytics_storage: a,
-        ad_personalization: m,
-        ad_user_data: m,
-        personalization_storage: m
-      });
-      window.clarity('consentv2', { ad_Storage: m, analytics_Storage: a });
+    if (c) {
       window.clarity('set', 'cookie_banner_choice', c);
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_personalization: 'granted',
+        ad_user_data: 'granted',
+        functionality_storage: 'granted',
+        personalization_storage: 'granted',
+        security_storage: 'granted'
+      });
     }
   } catch(e) {}
 })();
@@ -118,7 +138,11 @@ gtag('consent', 'default', {
     <html lang={lang} className="scroll-smooth">
       <head>
         <meta charSet="utf-8" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/icon-48x48.png" type="image/png" sizes="48x48" />
+        <link rel="icon" href="/icon-192x192.png" type="image/png" sizes="192x192" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
         <link rel="manifest" href="/manifest.json" />
         <link rel="ai-catalog" href="/.well-known/ai-catalog.json" />
         <link rel="api-catalog" href="/.well-known/api-catalog" />

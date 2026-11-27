@@ -24,7 +24,7 @@ import { PatentsLightboxSection } from "@/components/sections/PatentsLightboxSec
 import { ExerciseGallerySection } from "@/components/sections/ExerciseGallerySection";
 import { InteractiveUsDeliverySection } from "@/components/sections/InteractiveUsDeliverySection";
 import { OwnerScenariosAndReviewsSection } from "@/components/sections/OwnerScenariosAndReviewsSection";
-import { FaqJsonLd, VideoObjectJsonLd } from "@/components/seo/JsonLd";
+import { FaqJsonLd, HomepageRichSchemas, VideoObjectJsonLd } from "@/components/seo/JsonLd";
 
 export function HomePageContent({ lang }: { lang: Locale }) {
   const dict = getDictionary(lang);
@@ -33,6 +33,7 @@ export function HomePageContent({ lang }: { lang: Locale }) {
 
   return (
     <>
+      <HomepageRichSchemas lang={lang} />
       <FaqJsonLd
         faqs={GLOBAL_FAQS.map((f) => ({ q: f.question, a: f.answer }))}
       />

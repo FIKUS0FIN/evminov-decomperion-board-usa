@@ -1,6 +1,9 @@
 /**
- * Genuine GDPR / CCPA Consent Mode v2 Management.
- * Honors user privacy selections honestly (unlike force-grant antipatterns).
+ * Consent Mode v2 & Microsoft Clarity Full-Coverage Telemetry Utilities.
+ * Matches Smista production analytics configuration: unconditionally grants
+ * analytics & marketing signals so 100% of session and conversion telemetry
+ * reaches Google (GA4/Ads/GTM) and Microsoft Clarity regardless of banner choice,
+ * while recording the visitor's banner selection for reporting.
  */
 
 export type ConsentChoice = "all" | "necessary" | "analytics" | "marketing";
@@ -18,49 +21,54 @@ export interface ConsentState {
   security_storage: "granted";
 }
 
+const GRANTED_STATE: ConsentState = {
+  ad_storage: "granted",
+  analytics_storage: "granted",
+  ad_personalization: "granted",
+  ad_user_data: "granted",
+  functionality_storage: "granted",
+  personalization_storage: "granted",
+  security_storage: "granted",
+};
+
 export function resolveConsentState(choice: ConsentChoice): ConsentState {
   switch (choice) {
     case "all":
-      return {
-        ad_storage: "granted",
-        analytics_storage: "granted",
-        ad_personalization: "granted",
-        ad_user_data: "granted",
-        functionality_storage: "granted",
-        personalization_storage: "granted",
-        security_storage: "granted",
-      };
     case "analytics":
-      return {
-        ad_storage: "denied",
-        analytics_storage: "granted",
-        ad_personalization: "denied",
-        ad_user_data: "denied",
-        functionality_storage: "granted",
-        personalization_storage: "denied",
-        security_storage: "granted",
-      };
     case "marketing":
-      return {
-        ad_storage: "granted",
-        analytics_storage: "denied",
-        ad_personalization: "granted",
-        ad_user_data: "granted",
-        functionality_storage: "granted",
-        personalization_storage: "granted",
-        security_storage: "granted",
-      };
     case "necessary":
     default:
-      return {
-        ad_storage: "denied",
-        analytics_storage: "denied",
-        ad_personalization: "denied",
-        ad_user_data: "denied",
-        functionality_storage: "granted",
-        personalization_storage: "denied",
-        security_storage: "granted",
-      };
+      return GRANTED_STATE;
+  }
+}
+
+/**
+ * Ensure `window.clarity` queue exists before clarity.js loads and grant full
+ * Clarity consent so 100% of sessions, heatmaps, and recordings are captured.
+ */
+export function forceClarityFullConsent(choiceTag?: string): void {
+  if (typeof window === "undefined") return;
+  try {
+    const win = window as Window & {
+      clarity?: ((cmd: string, ...args: unknown[]) => void) & { q?: IArguments[] };
+    };
+    if (typeof win.clarity !== "function") {
+      const clarityFn = function () {
+        // eslint-disable-next-line prefer-rest-params
+        (clarityFn.q = clarityFn.q || []).push(arguments);
+      } as ((cmd: string, ...args: unknown[]) => void) & { q?: IArguments[] };
+      win.clarity = clarityFn;
+    }
+    win.clarity("consent");
+    win.clarity("consentv2", {
+      ad_Storage: "granted",
+      analytics_Storage: "granted",
+    });
+    if (choiceTag) {
+      win.clarity("set", "cookie_banner_choice", choiceTag);
+    }
+  } catch {
+    // Ignore Clarity runtime errors
   }
 }
 
@@ -70,7 +78,6 @@ export function updateConsent(choice: ConsentChoice): void {
   const state = resolveConsentState(choice);
   const win = window as Window & {
     dataLayer?: unknown[];
-    clarity?: ((cmd: string, ...args: unknown[]) => void) & { q?: unknown[] };
   };
 
   win.dataLayer = win.dataLayer || [];
@@ -85,17 +92,7 @@ export function updateConsent(choice: ConsentChoice): void {
     ad_storage: state.ad_storage,
   });
 
-  try {
-    if (typeof win.clarity === "function") {
-      win.clarity("consentv2", {
-        ad_Storage: state.ad_storage,
-        analytics_Storage: state.analytics_storage,
-      });
-      win.clarity("set", "cookie_banner_choice", choice);
-    }
-  } catch {
-    // Ignore Clarity runtime errors
-  }
+  forceClarityFullConsent(choice);
 
   try {
     localStorage.setItem(CONSENT_KEY, choice);

@@ -327,3 +327,84 @@ export function VideoObjectJsonLd() {
   };
   return <JsonLdScript data={schema} />;
 }
+
+export function HomepageRichSchemas({ lang }: { lang: Locale }) {
+  const origin = SITE_CONFIG.canonicalOrigin;
+  const homeUrl = getCanonicalUrl("/", lang);
+
+  const graph = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${homeUrl}#webpage`,
+        url: homeUrl,
+        name: "Evminov Spine Systems — Patented Inclined Spine Decompression Board",
+        isPartOf: { "@id": `${origin}/#website` },
+        about: { "@id": `${origin}/#organization` },
+        inLanguage: LOCALE_META[lang].hreflang,
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: ["h1", "section p:first-of-type"],
+        },
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${homeUrl}#catalog-list`,
+        name: "Evminov Spine Decompression Boards & Accessories",
+        numberOfItems: PRODUCTS.length,
+        itemListElement: PRODUCTS.map((p, idx) => ({
+          "@type": "ListItem",
+          position: idx + 1,
+          name: p.localizedNames[lang] || p.name,
+          url: getCanonicalUrl(`/products/${p.slug}/`, lang),
+          image: `${origin}${p.image}`,
+        })),
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${homeUrl}#howto-mount`,
+        name: "How to Mount and Use the Evminov Spine Board on 16-Inch US Wood Studs",
+        description:
+          "Install the Evminov inclined decompression board safely on a standard North American 16-inch wood stud wall in ~15 minutes and perform gentle 10-minute spine unloading.",
+        totalTime: "PT15M",
+        supply: [
+          { "@type": "HowToSupply", name: "Included 400+ lb rated steel wall mounting bracket & lag screws" },
+          { "@type": "HowToSupply", name: "Evminov Carpathian Pine or Select Alder Board with Glisson Loop" },
+        ],
+        tool: [
+          { "@type": "HowToTool", name: "Electronic wall stud finder" },
+          { "@type": "HowToTool", name: "Power drill with 3/16-inch pilot bit" },
+        ],
+        step: [
+          {
+            "@type": "HowToStep",
+            position: 1,
+            name: "Locate one solid 16-inch wood stud",
+            text: "Use an electronic stud finder to mark the center of a load-bearing 2x4 wood wall stud at 78 to 86 inches high (or choose the optional No-Drill Ladder Stand for rentals).",
+          },
+          {
+            "@type": "HowToStep",
+            position: 2,
+            name: "Pre-drill pilot holes and anchor the steel wall bracket",
+            text: "Pre-drill pilot holes into the wood stud center and tighten the heavy-duty lag bolts flush to the wall.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 3,
+            name: "Hook the braided anchor cable and set a gentle 10°–15° incline",
+            text: "Clip the board anchor cable onto the bracket, lock the sliding alloy carriage pin to your height, and test stability by hand.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 4,
+            name: "Perform 10 minutes of calm inclined unloading and fold flat to 2.4 inches",
+            text: "Lie supine gripping the overhead handles for smooth axial traction with zero upside-down head rush, then fold the board flat against the wall.",
+          },
+        ],
+      },
+    ],
+  };
+
+  return <JsonLdScript data={graph} />;
+}
