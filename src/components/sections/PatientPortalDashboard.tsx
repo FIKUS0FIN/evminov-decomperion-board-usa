@@ -99,7 +99,7 @@ const DEFAULT_PORTAL_STATE: PortalSavedState = {
 };
 
 function subscribePortalStore(callback: () => void) {
-  if (typeof window === "undefined") return () => {};
+  if (typeof window === "undefined") return () => { };
   const onStorage = (e: StorageEvent) => {
     if (!e.key || e.key === STORAGE_KEY) callback();
   };
@@ -499,9 +499,8 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
           productName: selectedProduct.name,
           finish: warrantyFinish,
           stateOrCountry: warrantyState,
-          notes: `10-Year Structural Frame Warranty Registration | Order/Serial Ref: ${
-            finalOrder || "Pending Verification"
-          }`,
+          notes: `10-Year Structural Frame Warranty Registration | Order/Serial Ref: ${finalOrder || "Pending Verification"
+            }`,
           lang,
         }),
       });
@@ -538,1216 +537,1259 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
   const featuredExercises = getLocalizedExercises(lang).slice(0, 6);
 
   if (authLoading) {
-    return (
-      <div className="mx-auto max-w-2xl px-4 py-20 text-center">
-        <div className="rounded-3xl border border-slate-200 bg-white p-10 text-sm font-semibold text-slate-600 shadow-sm">
-          {authCopy.loadingSession}
-        </div>
-      </div>
-    );
-  }
-
-  if (!user) {
-    return (
-      <div className="bg-slate-50/70 px-4 py-14">
-        <AuthCard
-          lang={lang}
-          context="portal"
-          returnTo={getLocalizedHref("/portal/", lang)}
-          googleOAuthEnabled={googleOAuthEnabled}
-          onAuthenticated={(authedUser) => setUser(authedUser)}
-        />
-      </div>
-    );
-  }
-
-  return (
-    <div className="bg-slate-50/70 pb-20">
-      {/* Authenticated Account Bar */}
-      <div className="no-print border-b border-slate-200 bg-white">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-3 text-xs">
-          <div className="flex items-center gap-2 text-slate-700">
-            <span className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
-            <span>{authCopy.signedInAs}:</span>
-            <strong className="text-slate-950">{user.name || user.email}</strong>
-            <span className="hidden text-slate-500 sm:inline">({user.email})</span>
+    if (authLoading || !user) {
+      return (
+        <div className="mx-auto max-w-2xl px-4 py-20 text-center">
+          <div className="rounded-3xl border border-slate-200 bg-white p-10 text-sm font-semibold text-slate-600 shadow-sm">
+            {authCopy.loadingSession}
           </div>
-          <div className="flex items-center gap-2">
-            {user.role === "admin" && (
-              <Link
-                href="/admin/"
-                className="inline-flex items-center gap-1.5 rounded-xl bg-amber-100 px-3 py-1.5 font-extrabold text-amber-950 transition hover:bg-amber-200"
-              >
-                <ShieldCheck className="h-3.5 w-3.5" />
-                <span>{authCopy.adminPanelBtn}</span>
-              </Link>
-            )}
-            <button
-              type="button"
-              onClick={() => void logout()}
-              className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-50 px-3 py-1.5 font-bold text-slate-700 transition hover:bg-slate-100"
-            >
-              <LogOut className="h-3.5 w-3.5" />
-              <span>{authCopy.signOut}</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Live Orders & Status Panel */}
-      <section className="no-print mx-auto max-w-7xl px-4 pt-6">
-        <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div>
-              <h2 className="flex items-center gap-2 font-display text-lg font-black text-slate-950">
-                <Package className="h-5 w-5 text-teal-700" />
-                <span>{authCopy.myOrdersHeading}</span>
-              </h2>
-              <p className="mt-0.5 text-xs text-slate-500">{authCopy.myOrdersSub}</p>
-            </div>
-            <Link
-              href={getLocalizedHref("/order/", lang)}
-              className="rounded-xl bg-teal-700 px-4 py-2 text-xs font-extrabold text-white transition hover:bg-teal-800"
-            >
-              {authCopy.placeFirstOrder}
-            </Link>
-          </div>
-
-          {ordersLoading ? (
-            <p className="mt-4 text-xs text-slate-500">{authCopy.loadingSession}</p>
-          ) : myOrders.length === 0 ? (
-            <p className="mt-4 rounded-2xl bg-slate-50 p-4 text-xs text-slate-600">
-              {authCopy.noOrdersYet}
-            </p>
-          ) : (
-            <div className="mt-4 grid gap-3 md:grid-cols-2">
-              {myOrders.map((ord) => (
-                <div
-                  key={ord.id}
-                  className="rounded-2xl border border-slate-200 bg-slate-50/70 p-4 text-xs"
-                >
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="font-mono font-extrabold text-slate-950">
-                      {ord.order_ref}
-                    </span>
-                    <span className="rounded-full bg-teal-100 px-2.5 py-0.5 font-extrabold text-teal-900">
-                      {authCopy.statuses[ord.status] || ord.status}
-                    </span>
+          <div className="bg-slate-50/70 pb-20">
+            <section className="no-print border-b border-slate-200 bg-gradient-to-br from-[#0B1628] via-[#0B1F3A] to-[#0E2949] text-white">
+              <div className="mx-auto max-w-7xl px-4 py-10 md:py-14">
+                <div className="grid items-center gap-8 lg:grid-cols-12">
+                  <div className="lg:col-span-7">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-emerald-300">
+                      <Sparkles className="h-3.5 w-3.5" />
+                      <span>{copy.badge}</span>
+                    </div>
+                    <h1 className="mt-4 font-display text-3xl font-black tracking-tight text-white sm:text-4xl md:text-5xl">
+                      {copy.h1}
+                    </h1>
+                    <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-300 sm:text-base">
+                      {copy.subtitle}
+                    </p>
+                    <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold text-slate-200">
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
+                        {ui.heroPills[0]}
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-sky-400" />
+                        {ui.heroPills[1]}
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-amber-300" />
+                        {ui.heroPills[2]}
+                      </span>
+                    </div>
                   </div>
-                  <p className="mt-1.5 font-bold text-slate-900">
-                    {ord.product_name} {ord.finish ? `• ${ord.finish}` : ""}
-                  </p>
-                  <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-slate-600">
-                    {ord.total_usd > 0 && (
-                      <span>
-                        {authCopy.totalLabel}: <strong>${ord.total_usd} USD</strong>
-                      </span>
-                    )}
-                    {ord.tracking_number && (
-                      <span>
-                        {authCopy.trackingLabel}:{" "}
-                        <strong className="font-mono text-slate-900">
-                          {ord.tracking_number}
-                        </strong>
-                      </span>
+                  <div className="lg:col-span-5">
+                    {authLoading ? (
+                      <div className="rounded-3xl border border-white/15 bg-white/10 p-10 text-center text-sm font-semibold text-slate-200 backdrop-blur-md">
+                        {authCopy.loadingSession}
+                      </div>
+                    ) : (
+                      <AuthCard
+                        lang={lang}
+                        context="portal"
+                        returnTo={getLocalizedHref("/portal/", lang)}
+                        googleOAuthEnabled={googleOAuthEnabled}
+                        onAuthenticated={(authedUser) => setUser(authedUser)}
+                      />
                     )}
                   </div>
                 </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* Clinical Navy Hero + Inline Owner Access Card */}
-      <section className="no-print border-b border-slate-200 bg-gradient-to-br from-[#0B1628] via-[#0B1F3A] to-[#0E2949] text-white">
-        <div className="mx-auto max-w-7xl px-4 py-10 md:py-14">
-          <div className="grid items-center gap-8 lg:grid-cols-12">
-            {/* Left Identity & Value Proposition */}
-            <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-emerald-300">
-                <Sparkles className="h-3.5 w-3.5" />
-                <span>{copy.badge}</span>
               </div>
+            </section>
+          </div>
+          );
+  }
 
-              <h1 className="mt-4 font-display text-3xl font-black tracking-tight text-white sm:text-4xl md:text-5xl">
-                {copy.h1}
-              </h1>
+          if (!user) {
+    return (
+          <div className="bg-slate-50/70 px-4 py-14">
+            <AuthCard
+              lang={lang}
+              context="portal"
+              returnTo={getLocalizedHref("/portal/", lang)}
+              googleOAuthEnabled={googleOAuthEnabled}
+              onAuthenticated={(authedUser) => setUser(authedUser)}
+            />
+          </div>
+          );
+  }
 
-              <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-300 sm:text-base">
-                {copy.subtitle}
-              </p>
-
-              <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold text-slate-200">
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
-                  {ui.heroPills[0]}
-                </span>
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-sky-400" />
-                  {ui.heroPills[1]}
-                </span>
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-amber-300" />
-                  {ui.heroPills[2]}
-                </span>
+          return (
+          <div className="bg-slate-50/70 pb-20">
+            {/* Authenticated Account Bar */}
+            <div className="no-print border-b border-slate-200 bg-white">
+              <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-3 text-xs">
+                <div className="flex items-center gap-2 text-slate-700">
+                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
+                  <span>{authCopy.signedInAs}:</span>
+                  <strong className="text-slate-950">{user.name || user.email}</strong>
+                  <span className="hidden text-slate-500 sm:inline">({user.email})</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  {user.role === "admin" && (
+                    <Link
+                      href="/admin/"
+                      className="inline-flex items-center gap-1.5 rounded-xl bg-amber-100 px-3 py-1.5 font-extrabold text-amber-950 transition hover:bg-amber-200"
+                    >
+                      <ShieldCheck className="h-3.5 w-3.5" />
+                      <span>{authCopy.adminPanelBtn}</span>
+                    </Link>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => void logout()}
+                    className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-50 px-3 py-1.5 font-bold text-slate-700 transition hover:bg-slate-100"
+                  >
+                    <LogOut className="h-3.5 w-3.5" />
+                    <span>{authCopy.signOut}</span>
+                  </button>
+                </div>
               </div>
             </div>
 
-            {/* Right Owner Personalization Card */}
-            <div className="lg:col-span-5">
-              <div className="rounded-3xl border border-white/15 bg-white/[0.06] p-6 backdrop-blur-md">
-                {isOwnerLinked ? (
-                  <div className="space-y-4">
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="flex items-center gap-3">
-                        <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-500/20 text-emerald-300">
-                          <UserCheck className="h-5 w-5" />
-                        </span>
-                        <div>
-                          <p className="text-xs font-bold uppercase tracking-wider text-emerald-300">
-                            {copy.signedInAs}
-                          </p>
-                          <p className="text-base font-extrabold text-white">
-                            {savedState.ownerName || ui.defaultOwnerName}
-                          </p>
+            {/* Live Orders & Status Panel */}
+            <section className="no-print mx-auto max-w-7xl px-4 pt-6">
+              <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div>
+                    <h2 className="flex items-center gap-2 font-display text-lg font-black text-slate-950">
+                      <Package className="h-5 w-5 text-teal-700" />
+                      <span>{authCopy.myOrdersHeading}</span>
+                    </h2>
+                    <p className="mt-0.5 text-xs text-slate-500">{authCopy.myOrdersSub}</p>
+                  </div>
+                  <Link
+                    href={getLocalizedHref("/order/", lang)}
+                    className="rounded-xl bg-teal-700 px-4 py-2 text-xs font-extrabold text-white transition hover:bg-teal-800"
+                  >
+                    {authCopy.placeFirstOrder}
+                  </Link>
+                </div>
+
+                {ordersLoading ? (
+                  <p className="mt-4 text-xs text-slate-500">{authCopy.loadingSession}</p>
+                ) : myOrders.length === 0 ? (
+                  <p className="mt-4 rounded-2xl bg-slate-50 p-4 text-xs text-slate-600">
+                    {authCopy.noOrdersYet}
+                  </p>
+                ) : (
+                  <div className="mt-4 grid gap-3 md:grid-cols-2">
+                    {myOrders.map((ord) => (
+                      <div
+                        key={ord.id}
+                        className="rounded-2xl border border-slate-200 bg-slate-50/70 p-4 text-xs"
+                      >
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="font-mono font-extrabold text-slate-950">
+                            {ord.order_ref}
+                          </span>
+                          <span className="rounded-full bg-teal-100 px-2.5 py-0.5 font-extrabold text-teal-900">
+                            {authCopy.statuses[ord.status] || ord.status}
+                          </span>
+                        </div>
+                        <p className="mt-1.5 font-bold text-slate-900">
+                          {ord.product_name} {ord.finish ? `• ${ord.finish}` : ""}
+                        </p>
+                        <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-slate-600">
+                          {ord.total_usd > 0 && (
+                            <span>
+                              {authCopy.totalLabel}: <strong>${ord.total_usd} USD</strong>
+                            </span>
+                          )}
+                          {ord.tracking_number && (
+                            <span>
+                              {authCopy.trackingLabel}:{" "}
+                              <strong className="font-mono text-slate-900">
+                                {ord.tracking_number}
+                              </strong>
+                            </span>
+                          )}
                         </div>
                       </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </section>
+
+            {/* Clinical Navy Hero + Inline Owner Access Card */}
+            <section className="no-print border-b border-slate-200 bg-gradient-to-br from-[#0B1628] via-[#0B1F3A] to-[#0E2949] text-white">
+              <div className="mx-auto max-w-7xl px-4 py-10 md:py-14">
+                <div className="grid items-center gap-8 lg:grid-cols-12">
+                  {/* Left Identity & Value Proposition */}
+                  <div className="lg:col-span-7">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-emerald-300">
+                      <Sparkles className="h-3.5 w-3.5" />
+                      <span>{copy.badge}</span>
+                    </div>
+
+                    <h1 className="mt-4 font-display text-3xl font-black tracking-tight text-white sm:text-4xl md:text-5xl">
+                      {copy.h1}
+                    </h1>
+
+                    <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-300 sm:text-base">
+                      {copy.subtitle}
+                    </p>
+
+                    <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold text-slate-200">
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
+                        {ui.heroPills[0]}
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-sky-400" />
+                        {ui.heroPills[1]}
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-amber-300" />
+                        {ui.heroPills[2]}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Right Owner Personalization Card */}
+                  <div className="lg:col-span-5">
+                    <div className="rounded-3xl border border-white/15 bg-white/[0.06] p-6 backdrop-blur-md">
+                      {isOwnerLinked ? (
+                        <div className="space-y-4">
+                          <div className="flex items-start justify-between gap-3">
+                            <div className="flex items-center gap-3">
+                              <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-500/20 text-emerald-300">
+                                <UserCheck className="h-5 w-5" />
+                              </span>
+                              <div>
+                                <p className="text-xs font-bold uppercase tracking-wider text-emerald-300">
+                                  {copy.signedInAs}
+                                </p>
+                                <p className="text-base font-extrabold text-white">
+                                  {savedState.ownerName || ui.defaultOwnerName}
+                                </p>
+                              </div>
+                            </div>
+                            <button
+                              type="button"
+                              onClick={handleClearOwnerProfile}
+                              className="rounded-lg border border-white/15 px-2.5 py-1 text-xs font-semibold text-slate-300 transition hover:bg-white/10 hover:text-white"
+                            >
+                              {copy.signOut}
+                            </button>
+                          </div>
+
+                          <div className="grid grid-cols-2 gap-3 rounded-2xl border border-white/10 bg-black/20 p-3.5 text-xs">
+                            <div>
+                              <p className="text-slate-400">{ui.orderRefLabel}</p>
+                              <p className="mt-0.5 font-mono font-bold text-white">
+                                {savedState.orderRef || "EV-OWNER"}
+                              </p>
+                            </div>
+                            <div>
+                              <p className="text-slate-400">{ui.registeredEmailLabel}</p>
+                              <p className="mt-0.5 truncate font-semibold text-white">
+                                {savedState.ownerEmail || ui.previewModeValue}
+                              </p>
+                            </div>
+                          </div>
+
+                          <p className="text-xs text-slate-300">{ui.localSyncNote}</p>
+                        </div>
+                      ) : (
+                        <form onSubmit={handleSaveOwnerProfile} className="space-y-3">
+                          <div className="flex items-center justify-between">
+                            <h2 className="font-display text-base font-extrabold text-white">
+                              {copy.ownerCardTitle}
+                            </h2>
+                            <span className="rounded-full bg-emerald-500/20 px-2.5 py-0.5 text-[10px] font-bold text-emerald-300">
+                              {ui.previewBadge}
+                            </span>
+                          </div>
+                          <p className="text-xs leading-relaxed text-slate-300">
+                            {copy.ownerCardDesc}
+                          </p>
+
+                          <div className="grid gap-2.5 sm:grid-cols-2">
+                            <input
+                              type="text"
+                              value={nameInput}
+                              onChange={(e) => setNameInput(e.target.value)}
+                              placeholder={ui.namePlaceholder}
+                              aria-label={ui.namePlaceholder}
+                              className="w-full rounded-xl border border-white/15 bg-white/10 px-3.5 py-2 text-xs text-white placeholder:text-slate-400 focus:border-emerald-400 focus:outline-none"
+                            />
+                            <input
+                              type="text"
+                              value={orderInput}
+                              onChange={(e) => setOrderInput(e.target.value)}
+                              placeholder={ui.orderPlaceholder}
+                              aria-label={ui.orderRefLabel}
+                              className="w-full rounded-xl border border-white/15 bg-white/10 px-3.5 py-2 text-xs text-white placeholder:text-slate-400 focus:border-emerald-400 focus:outline-none"
+                            />
+                          </div>
+                          <input
+                            type="email"
+                            value={emailInput}
+                            onChange={(e) => setEmailInput(e.target.value)}
+                            placeholder={ui.emailPlaceholder}
+                            aria-label={ui.registeredEmailLabel}
+                            className="w-full rounded-xl border border-white/15 bg-white/10 px-3.5 py-2 text-xs text-white placeholder:text-slate-400 focus:border-emerald-400 focus:outline-none"
+                          />
+
+                          {profileNotice && (
+                            <p className="text-xs font-medium text-emerald-300">
+                              {profileNotice}
+                            </p>
+                          )}
+
+                          <button
+                            type="submit"
+                            className="w-full rounded-xl bg-emerald-500 px-4 py-2.5 text-xs font-extrabold text-slate-950 transition hover:bg-emerald-400"
+                          >
+                            {copy.activateBtn}
+                          </button>
+                        </form>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Sticky Sub-Navigation Tab Bar */}
+            <div className="no-print sticky top-[62px] z-30 border-b border-slate-200 bg-white/95 backdrop-blur-md">
+              <div className="mx-auto max-w-7xl px-4">
+                <div
+                  role="tablist"
+                  aria-label={ui.tablistAria}
+                  className="no-scrollbar flex items-center gap-1.5 overflow-x-auto py-3"
+                >
+                  {tabItems.map((tab) => {
+                    const Icon = tab.icon;
+                    const active = activeTab === tab.id;
+                    return (
+                      <button
+                        key={tab.id}
+                        type="button"
+                        role="tab"
+                        aria-selected={active}
+                        onClick={() => setActiveTab(tab.id)}
+                        className={`inline-flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-xs font-bold transition sm:text-sm ${active
+                            ? "bg-[#0B1F3A] text-white shadow-sm"
+                            : "bg-slate-100/80 text-slate-600 hover:bg-slate-200/70 hover:text-slate-950"
+                          }`}
+                      >
+                        <Icon
+                          className={`h-4 w-4 ${active ? "text-emerald-400" : "text-slate-500"}`}
+                        />
+                        <span>{tab.label}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            {/* Main Workspace Panels */}
+            <div className="mx-auto max-w-7xl px-4 pt-8">
+              {/* TAB 1: OVERVIEW & 30-DAY PLAN */}
+              {activeTab === "overview" && (
+                <div className="space-y-8">
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
+                      <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                        {ui.kpiAngleLabel}
+                      </p>
+                      <p className="mt-2 font-display text-3xl font-black text-[#0B1F3A]">
+                        {angle}°
+                      </p>
+                      <p className="mt-1 text-xs font-semibold text-emerald-700">
+                        ~{physics.netTractionLbs} {ui.kpiAngleSubSuffix}
+                      </p>
+                    </div>
+
+                    <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
+                      <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                        {ui.kpiConsistencyLabel}
+                      </p>
+                      <p className="mt-2 font-display text-3xl font-black text-emerald-700">
+                        {completedCount} / 30
+                      </p>
+                      <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100">
+                        <div
+                          className="h-full rounded-full bg-emerald-500 transition-all"
+                          style={{ width: `${progressPct}%` }}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
+                      <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                        {ui.kpiMountLabel}
+                      </p>
+                      <p className="mt-2 font-display text-3xl font-black text-[#0B1F3A]">
+                        {savedState.mountChecklist.length} / {ui.mountSteps.length}
+                      </p>
                       <button
                         type="button"
-                        onClick={handleClearOwnerProfile}
-                        className="rounded-lg border border-white/15 px-2.5 py-1 text-xs font-semibold text-slate-300 transition hover:bg-white/10 hover:text-white"
+                        onClick={() => setActiveTab("documents")}
+                        className="mt-1 text-xs font-bold text-teal-700 hover:underline"
                       >
-                        {copy.signOut}
+                        {ui.kpiMountLink}
                       </button>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-3 rounded-2xl border border-white/10 bg-black/20 p-3.5 text-xs">
-                      <div>
-                        <p className="text-slate-400">{ui.orderRefLabel}</p>
-                        <p className="mt-0.5 font-mono font-bold text-white">
-                          {savedState.orderRef || "EV-OWNER"}
-                        </p>
-                      </div>
-                      <div>
-                        <p className="text-slate-400">{ui.registeredEmailLabel}</p>
-                        <p className="mt-0.5 truncate font-semibold text-white">
-                          {savedState.ownerEmail || ui.previewModeValue}
-                        </p>
-                      </div>
-                    </div>
-
-                    <p className="text-xs text-slate-300">{ui.localSyncNote}</p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSaveOwnerProfile} className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <h2 className="font-display text-base font-extrabold text-white">
-                        {copy.ownerCardTitle}
-                      </h2>
-                      <span className="rounded-full bg-emerald-500/20 px-2.5 py-0.5 text-[10px] font-bold text-emerald-300">
-                        {ui.previewBadge}
-                      </span>
-                    </div>
-                    <p className="text-xs leading-relaxed text-slate-300">
-                      {copy.ownerCardDesc}
-                    </p>
-
-                    <div className="grid gap-2.5 sm:grid-cols-2">
-                      <input
-                        type="text"
-                        value={nameInput}
-                        onChange={(e) => setNameInput(e.target.value)}
-                        placeholder={ui.namePlaceholder}
-                        aria-label={ui.namePlaceholder}
-                        className="w-full rounded-xl border border-white/15 bg-white/10 px-3.5 py-2 text-xs text-white placeholder:text-slate-400 focus:border-emerald-400 focus:outline-none"
-                      />
-                      <input
-                        type="text"
-                        value={orderInput}
-                        onChange={(e) => setOrderInput(e.target.value)}
-                        placeholder={ui.orderPlaceholder}
-                        aria-label={ui.orderRefLabel}
-                        className="w-full rounded-xl border border-white/15 bg-white/10 px-3.5 py-2 text-xs text-white placeholder:text-slate-400 focus:border-emerald-400 focus:outline-none"
-                      />
-                    </div>
-                    <input
-                      type="email"
-                      value={emailInput}
-                      onChange={(e) => setEmailInput(e.target.value)}
-                      placeholder={ui.emailPlaceholder}
-                      aria-label={ui.registeredEmailLabel}
-                      className="w-full rounded-xl border border-white/15 bg-white/10 px-3.5 py-2 text-xs text-white placeholder:text-slate-400 focus:border-emerald-400 focus:outline-none"
-                    />
-
-                    {profileNotice && (
-                      <p className="text-xs font-medium text-emerald-300">
-                        {profileNotice}
+                    <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
+                      <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                        {ui.kpiWarrantyLabel}
                       </p>
-                    )}
-
-                    <button
-                      type="submit"
-                      className="w-full rounded-xl bg-emerald-500 px-4 py-2.5 text-xs font-extrabold text-slate-950 transition hover:bg-emerald-400"
-                    >
-                      {copy.activateBtn}
-                    </button>
-                  </form>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Sticky Sub-Navigation Tab Bar */}
-      <div className="no-print sticky top-[62px] z-30 border-b border-slate-200 bg-white/95 backdrop-blur-md">
-        <div className="mx-auto max-w-7xl px-4">
-          <div
-            role="tablist"
-            aria-label={ui.tablistAria}
-            className="no-scrollbar flex items-center gap-1.5 overflow-x-auto py-3"
-          >
-            {tabItems.map((tab) => {
-              const Icon = tab.icon;
-              const active = activeTab === tab.id;
-              return (
-                <button
-                  key={tab.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={active}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`inline-flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-xs font-bold transition sm:text-sm ${
-                    active
-                      ? "bg-[#0B1F3A] text-white shadow-sm"
-                      : "bg-slate-100/80 text-slate-600 hover:bg-slate-200/70 hover:text-slate-950"
-                  }`}
-                >
-                  <Icon
-                    className={`h-4 w-4 ${active ? "text-emerald-400" : "text-slate-500"}`}
-                  />
-                  <span>{tab.label}</span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-
-      {/* Main Workspace Panels */}
-      <div className="mx-auto max-w-7xl px-4 pt-8">
-        {/* TAB 1: OVERVIEW & 30-DAY PLAN */}
-        {activeTab === "overview" && (
-          <div className="space-y-8">
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
-                <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                  {ui.kpiAngleLabel}
-                </p>
-                <p className="mt-2 font-display text-3xl font-black text-[#0B1F3A]">
-                  {angle}°
-                </p>
-                <p className="mt-1 text-xs font-semibold text-emerald-700">
-                  ~{physics.netTractionLbs} {ui.kpiAngleSubSuffix}
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
-                <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                  {ui.kpiConsistencyLabel}
-                </p>
-                <p className="mt-2 font-display text-3xl font-black text-emerald-700">
-                  {completedCount} / 30
-                </p>
-                <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100">
-                  <div
-                    className="h-full rounded-full bg-emerald-500 transition-all"
-                    style={{ width: `${progressPct}%` }}
-                  />
-                </div>
-              </div>
-
-              <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
-                <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                  {ui.kpiMountLabel}
-                </p>
-                <p className="mt-2 font-display text-3xl font-black text-[#0B1F3A]">
-                  {savedState.mountChecklist.length} / {ui.mountSteps.length}
-                </p>
-                <button
-                  type="button"
-                  onClick={() => setActiveTab("documents")}
-                  className="mt-1 text-xs font-bold text-teal-700 hover:underline"
-                >
-                  {ui.kpiMountLink}
-                </button>
-              </div>
-
-              <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
-                <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                  {ui.kpiWarrantyLabel}
-                </p>
-                <p className="mt-2 font-display text-3xl font-black text-[#0B1F3A]">
-                  {ui.kpiWarrantyVal}
-                </p>
-                <button
-                  type="button"
-                  onClick={() => setActiveTab("warranty")}
-                  className="mt-1 text-xs font-bold text-teal-700 hover:underline"
-                >
-                  {ui.kpiWarrantyLink}
-                </button>
-              </div>
-            </div>
-
-            {/* Interactive 30-Day Habit Tracker */}
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
-              <div className="flex flex-wrap items-center justify-between gap-4">
-                <div>
-                  <span className="text-xs font-extrabold uppercase tracking-wider text-teal-700">
-                    {ui.trackerEyebrow}
-                  </span>
-                  <h2 className="mt-1 font-display text-2xl font-black text-slate-950">
-                    {ui.trackerHeading}
-                  </h2>
-                  <p className="mt-1 text-sm text-slate-600">{ui.trackerSub}</p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setActiveTab("routine")}
-                  className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-emerald-700"
-                >
-                  <Play className="h-4 w-4 fill-current" />
-                  {ui.startTimerBtn}
-                </button>
-              </div>
-
-              <div className="mt-6 grid gap-3 md:grid-cols-3">
-                <div className="rounded-2xl border border-emerald-200 bg-emerald-50/60 p-4">
-                  <p className="text-xs font-extrabold uppercase text-emerald-800">
-                    {ui.phases[0].badge}
-                  </p>
-                  <p className="mt-1 text-xs text-slate-700">{ui.phases[0].text}</p>
-                </div>
-                <div className="rounded-2xl border border-sky-200 bg-sky-50/60 p-4">
-                  <p className="text-xs font-extrabold uppercase text-sky-900">
-                    {ui.phases[1].badge}
-                  </p>
-                  <p className="mt-1 text-xs text-slate-700">{ui.phases[1].text}</p>
-                </div>
-                <div className="rounded-2xl border border-indigo-200 bg-indigo-50/60 p-4">
-                  <p className="text-xs font-extrabold uppercase text-indigo-900">
-                    {ui.phases[2].badge}
-                  </p>
-                  <p className="mt-1 text-xs text-slate-700">{ui.phases[2].text}</p>
-                </div>
-              </div>
-
-              <div className="mt-6 grid grid-cols-5 gap-2.5 sm:grid-cols-6 md:grid-cols-10">
-                {Array.from({ length: 30 }, (_, idx) => idx + 1).map((day) => {
-                  const done = savedState.completedDays.includes(day);
-                  return (
-                    <button
-                      key={day}
-                      type="button"
-                      onClick={() => toggleDay(day)}
-                      aria-pressed={done}
-                      className={`flex flex-col items-center justify-center rounded-2xl border py-3 text-xs font-bold transition ${
-                        done
-                          ? "border-emerald-600 bg-emerald-600 text-white shadow-sm"
-                          : "border-slate-200 bg-slate-50 text-slate-700 hover:border-teal-500 hover:bg-white"
-                      }`}
-                    >
-                      <span className="text-[10px] opacity-80">{ui.dayWord}</span>
-                      <span className="text-base font-black">{day}</span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Quick Links Grid */}
-            <div className="grid gap-4 md:grid-cols-3">
-              <Link
-                href={getLocalizedHref("/calculator/", lang)}
-                className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-teal-600 hover:shadow-md"
-              >
-                <Sliders className="h-6 w-6 text-teal-700" />
-                <h3 className="mt-3 font-display text-base font-extrabold text-slate-950">
-                  {ui.quickLinks[0].title}
-                </h3>
-                <p className="mt-1 text-xs text-slate-600">
-                  {ui.quickLinks[0].desc}
-                </p>
-              </Link>
-              <Link
-                href={getLocalizedHref("/welcome/", lang)}
-                className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-teal-600 hover:shadow-md"
-              >
-                <BookOpen className="h-6 w-6 text-emerald-700" />
-                <h3 className="mt-3 font-display text-base font-extrabold text-slate-950">
-                  {ui.quickLinks[1].title}
-                </h3>
-                <p className="mt-1 text-xs text-slate-600">
-                  {ui.quickLinks[1].desc}
-                </p>
-              </Link>
-              <Link
-                href={getLocalizedHref(
-                  "/order/?product=free-standing-stand&step=2#order-form",
-                  lang
-                )}
-                className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-teal-600 hover:shadow-md"
-              >
-                <Wrench className="h-6 w-6 text-amber-600" />
-                <h3 className="mt-3 font-display text-base font-extrabold text-slate-950">
-                  {ui.quickLinks[2].title}
-                </h3>
-                <p className="mt-1 text-xs text-slate-600">
-                  {ui.quickLinks[2].desc}
-                </p>
-              </Link>
-            </div>
-          </div>
-        )}
-
-        {/* TAB 2: SESSION TIMER & GUIDED ROUTINE */}
-        {activeTab === "routine" && (
-          <div className="space-y-8">
-            <div className="grid gap-6 lg:grid-cols-12">
-              <div className="rounded-3xl border border-slate-200 bg-[#0B1F3A] p-6 text-white shadow-lg lg:col-span-5 md:p-8">
-                <p className="text-xs font-extrabold uppercase tracking-wider text-emerald-400">
-                  {ui.timerEyebrow}
-                </p>
-                <h2 className="mt-1 font-display text-2xl font-black">
-                  {ui.timerHeading}
-                </h2>
-                <p className="mt-1 text-xs text-slate-300">
-                  {ui.timerSubPre} {angle}°, {ui.timerSubPost}
-                </p>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {[8, 10, 12, 15].map((min) => (
-                    <button
-                      key={min}
-                      type="button"
-                      onClick={() => selectTimerPreset(min)}
-                      className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition ${
-                        presetMinutes === min
-                          ? "bg-emerald-500 text-slate-950"
-                          : "bg-white/10 text-slate-200 hover:bg-white/20"
-                      }`}
-                    >
-                      {min} {ui.minUnit}
-                    </button>
-                  ))}
-                </div>
-
-                <div className="my-7 flex items-center justify-center rounded-3xl border border-white/10 bg-black/30 py-8">
-                  <span className="font-mono text-6xl font-black tracking-tight text-white">
-                    {mm}:{ss}
-                  </span>
-                </div>
-
-                {sessionCompletedBanner && (
-                  <div className="mb-4 rounded-2xl border border-emerald-400/40 bg-emerald-500/20 p-3.5 text-xs text-emerald-100">
-                    <p className="font-bold">{ui.sessionCompleteMsg}</p>
-                    <button
-                      type="button"
-                      onClick={markNextDayComplete}
-                      className="mt-2 rounded-lg bg-emerald-400 px-3 py-1.5 text-xs font-extrabold text-slate-950 hover:bg-emerald-300"
-                    >
-                      {ui.logNextDayBtn}
-                    </button>
-                  </div>
-                )}
-
-                <div className="flex items-center gap-3">
-                  <button
-                    type="button"
-                    onClick={() => setTimerRunning((prev) => !prev)}
-                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl bg-emerald-500 px-5 py-3 text-sm font-extrabold text-slate-950 transition hover:bg-emerald-400"
-                  >
-                    {timerRunning ? (
-                      <>
-                        <Pause className="h-4 w-4" /> {ui.pauseBtn}
-                      </>
-                    ) : (
-                      <>
-                        <Play className="h-4 w-4 fill-current" />{" "}
-                        {secondsLeft === presetMinutes * 60
-                          ? ui.startSessionBtn
-                          : ui.resumeBtn}
-                      </>
-                    )}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => selectTimerPreset(presetMinutes)}
-                    aria-label={ui.resetAria}
-                    className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/15 bg-white/10 text-white transition hover:bg-white/20"
-                  >
-                    <RotateCcw className="h-4 w-4" />
-                  </button>
-                </div>
-              </div>
-
-              <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm lg:col-span-7 md:p-8">
-                <p className="text-xs font-extrabold uppercase tracking-wider text-teal-700">
-                  {ui.flowEyebrow}
-                </p>
-                <h2 className="mt-1 font-display text-2xl font-black text-slate-950">
-                  {ui.flowHeading}
-                </h2>
-
-                <div className="mt-6 space-y-4">
-                  {ui.flowSteps.map((st, idx) => (
-                    <div
-                      key={st.title}
-                      className="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50/70 p-4"
-                    >
-                      <span
-                        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-sm font-black text-white ${
-                          idx === 0
-                            ? "bg-teal-700"
-                            : idx === 1
-                            ? "bg-emerald-600"
-                            : "bg-[#0B1F3A]"
-                        }`}
+                      <p className="mt-2 font-display text-3xl font-black text-[#0B1F3A]">
+                        {ui.kpiWarrantyVal}
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => setActiveTab("warranty")}
+                        className="mt-1 text-xs font-bold text-teal-700 hover:underline"
                       >
-                        {idx + 1}
-                      </span>
+                        {ui.kpiWarrantyLink}
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Interactive 30-Day Habit Tracker */}
+                  <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+                    <div className="flex flex-wrap items-center justify-between gap-4">
                       <div>
-                        <h3 className="text-sm font-extrabold text-slate-950">
-                          {st.title}
-                        </h3>
-                        <p className="mt-1 text-xs leading-relaxed text-slate-600">
-                          {st.desc}
+                        <span className="text-xs font-extrabold uppercase tracking-wider text-teal-700">
+                          {ui.trackerEyebrow}
+                        </span>
+                        <h2 className="mt-1 font-display text-2xl font-black text-slate-950">
+                          {ui.trackerHeading}
+                        </h2>
+                        <p className="mt-1 text-sm text-slate-600">{ui.trackerSub}</p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setActiveTab("routine")}
+                        className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-emerald-700"
+                      >
+                        <Play className="h-4 w-4 fill-current" />
+                        {ui.startTimerBtn}
+                      </button>
+                    </div>
+
+                    <div className="mt-6 grid gap-3 md:grid-cols-3">
+                      <div className="rounded-2xl border border-emerald-200 bg-emerald-50/60 p-4">
+                        <p className="text-xs font-extrabold uppercase text-emerald-800">
+                          {ui.phases[0].badge}
                         </p>
+                        <p className="mt-1 text-xs text-slate-700">{ui.phases[0].text}</p>
+                      </div>
+                      <div className="rounded-2xl border border-sky-200 bg-sky-50/60 p-4">
+                        <p className="text-xs font-extrabold uppercase text-sky-900">
+                          {ui.phases[1].badge}
+                        </p>
+                        <p className="mt-1 text-xs text-slate-700">{ui.phases[1].text}</p>
+                      </div>
+                      <div className="rounded-2xl border border-indigo-200 bg-indigo-50/60 p-4">
+                        <p className="text-xs font-extrabold uppercase text-indigo-900">
+                          {ui.phases[2].badge}
+                        </p>
+                        <p className="mt-1 text-xs text-slate-700">{ui.phases[2].text}</p>
                       </div>
                     </div>
-                  ))}
-                </div>
-              </div>
-            </div>
 
-            <div className="grid gap-6 md:grid-cols-2">
-              <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
-                <h3 className="mb-3 font-display text-lg font-extrabold text-slate-950">
-                  {ui.video1Heading}
-                </h3>
-                <LiteYouTube
-                  videoId={SITE_CONFIG.videos.methodDemo.id}
-                  title={ui.video1Heading}
-                  thumbnail={SITE_CONFIG.videos.methodDemo.thumbnail}
-                />
-              </div>
-              <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
-                <h3 className="mb-3 font-display text-lg font-extrabold text-slate-950">
-                  {ui.video2Heading}
-                </h3>
-                <LiteYouTube
-                  videoId={SITE_CONFIG.videos.wallMounting.id}
-                  title={ui.video2Heading}
-                  thumbnail={SITE_CONFIG.videos.wallMounting.thumbnail}
-                />
-              </div>
-            </div>
-
-            <div>
-              <h2 className="font-display text-2xl font-black text-slate-950">
-                {ui.libraryHeading}
-              </h2>
-              <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                {featuredExercises.map((ex) => (
-                  <article
-                    key={ex.id}
-                    className="flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-xs"
-                  >
-                    <div className="flex items-center justify-between gap-2 text-[11px] font-bold uppercase text-teal-700">
-                      <span>{ex.categoryLabel}</span>
-                      <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-emerald-800">
-                        {ex.angle} • {ex.duration}
-                      </span>
+                    <div className="mt-6 grid grid-cols-5 gap-2.5 sm:grid-cols-6 md:grid-cols-10">
+                      {Array.from({ length: 30 }, (_, idx) => idx + 1).map((day) => {
+                        const done = savedState.completedDays.includes(day);
+                        return (
+                          <button
+                            key={day}
+                            type="button"
+                            onClick={() => toggleDay(day)}
+                            aria-pressed={done}
+                            className={`flex flex-col items-center justify-center rounded-2xl border py-3 text-xs font-bold transition ${done
+                                ? "border-emerald-600 bg-emerald-600 text-white shadow-sm"
+                                : "border-slate-200 bg-slate-50 text-slate-700 hover:border-teal-500 hover:bg-white"
+                              }`}
+                          >
+                            <span className="text-[10px] opacity-80">{ui.dayWord}</span>
+                            <span className="text-base font-black">{day}</span>
+                          </button>
+                        );
+                      })}
                     </div>
-                    <h3 className="mt-2 font-display text-base font-extrabold text-slate-950">
-                      {ex.title}
-                    </h3>
-                    <p className="mt-1.5 text-xs leading-relaxed text-slate-600">
-                      {ex.description}
-                    </p>
-                    <ol className="mt-3 space-y-1 border-t border-slate-100 pt-3 text-xs text-slate-700">
-                      {ex.steps.map((step, i) => (
-                        <li key={step} className="flex gap-2">
-                          <span className="font-bold text-teal-700">{i + 1}.</span>
-                          <span>{step}</span>
-                        </li>
+                  </div>
+
+                  {/* Quick Links Grid */}
+                  <div className="grid gap-4 md:grid-cols-3">
+                    <Link
+                      href={getLocalizedHref("/calculator/", lang)}
+                      className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-teal-600 hover:shadow-md"
+                    >
+                      <Sliders className="h-6 w-6 text-teal-700" />
+                      <h3 className="mt-3 font-display text-base font-extrabold text-slate-950">
+                        {ui.quickLinks[0].title}
+                      </h3>
+                      <p className="mt-1 text-xs text-slate-600">
+                        {ui.quickLinks[0].desc}
+                      </p>
+                    </Link>
+                    <Link
+                      href={getLocalizedHref("/welcome/", lang)}
+                      className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-teal-600 hover:shadow-md"
+                    >
+                      <BookOpen className="h-6 w-6 text-emerald-700" />
+                      <h3 className="mt-3 font-display text-base font-extrabold text-slate-950">
+                        {ui.quickLinks[1].title}
+                      </h3>
+                      <p className="mt-1 text-xs text-slate-600">
+                        {ui.quickLinks[1].desc}
+                      </p>
+                    </Link>
+                    <Link
+                      href={getLocalizedHref(
+                        "/order/?product=free-standing-stand&step=2#order-form",
+                        lang
+                      )}
+                      className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-teal-600 hover:shadow-md"
+                    >
+                      <Wrench className="h-6 w-6 text-amber-600" />
+                      <h3 className="mt-3 font-display text-base font-extrabold text-slate-950">
+                        {ui.quickLinks[2].title}
+                      </h3>
+                      <p className="mt-1 text-xs text-slate-600">
+                        {ui.quickLinks[2].desc}
+                      </p>
+                    </Link>
+                  </div>
+                </div>
+              )}
+
+              {/* TAB 2: SESSION TIMER & GUIDED ROUTINE */}
+              {activeTab === "routine" && (
+                <div className="space-y-8">
+                  <div className="grid gap-6 lg:grid-cols-12">
+                    <div className="rounded-3xl border border-slate-200 bg-[#0B1F3A] p-6 text-white shadow-lg lg:col-span-5 md:p-8">
+                      <p className="text-xs font-extrabold uppercase tracking-wider text-emerald-400">
+                        {ui.timerEyebrow}
+                      </p>
+                      <h2 className="mt-1 font-display text-2xl font-black">
+                        {ui.timerHeading}
+                      </h2>
+                      <p className="mt-1 text-xs text-slate-300">
+                        {ui.timerSubPre} {angle}°, {ui.timerSubPost}
+                      </p>
+
+                      <div className="mt-5 flex flex-wrap gap-2">
+                        {[8, 10, 12, 15].map((min) => (
+                          <button
+                            key={min}
+                            type="button"
+                            onClick={() => selectTimerPreset(min)}
+                            className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition ${presetMinutes === min
+                                ? "bg-emerald-500 text-slate-950"
+                                : "bg-white/10 text-slate-200 hover:bg-white/20"
+                              }`}
+                          >
+                            {min} {ui.minUnit}
+                          </button>
+                        ))}
+                      </div>
+
+                      <div className="my-7 flex items-center justify-center rounded-3xl border border-white/10 bg-black/30 py-8">
+                        <span className="font-mono text-6xl font-black tracking-tight text-white">
+                          {mm}:{ss}
+                        </span>
+                      </div>
+
+                      {sessionCompletedBanner && (
+                        <div className="mb-4 rounded-2xl border border-emerald-400/40 bg-emerald-500/20 p-3.5 text-xs text-emerald-100">
+                          <p className="font-bold">{ui.sessionCompleteMsg}</p>
+                          <button
+                            type="button"
+                            onClick={markNextDayComplete}
+                            className="mt-2 rounded-lg bg-emerald-400 px-3 py-1.5 text-xs font-extrabold text-slate-950 hover:bg-emerald-300"
+                          >
+                            {ui.logNextDayBtn}
+                          </button>
+                        </div>
+                      )}
+
+                      <div className="flex items-center gap-3">
+                        <button
+                          type="button"
+                          onClick={() => setTimerRunning((prev) => !prev)}
+                          className="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl bg-emerald-500 px-5 py-3 text-sm font-extrabold text-slate-950 transition hover:bg-emerald-400"
+                        >
+                          {timerRunning ? (
+                            <>
+                              <Pause className="h-4 w-4" /> {ui.pauseBtn}
+                            </>
+                          ) : (
+                            <>
+                              <Play className="h-4 w-4 fill-current" />{" "}
+                              {secondsLeft === presetMinutes * 60
+                                ? ui.startSessionBtn
+                                : ui.resumeBtn}
+                            </>
+                          )}
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => selectTimerPreset(presetMinutes)}
+                          aria-label={ui.resetAria}
+                          className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/15 bg-white/10 text-white transition hover:bg-white/20"
+                        >
+                          <RotateCcw className="h-4 w-4" />
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm lg:col-span-7 md:p-8">
+                      <p className="text-xs font-extrabold uppercase tracking-wider text-teal-700">
+                        {ui.flowEyebrow}
+                      </p>
+                      <h2 className="mt-1 font-display text-2xl font-black text-slate-950">
+                        {ui.flowHeading}
+                      </h2>
+
+                      <div className="mt-6 space-y-4">
+                        {ui.flowSteps.map((st, idx) => (
+                          <div
+                            key={st.title}
+                            className="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50/70 p-4"
+                          >
+                            <span
+                              className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-sm font-black text-white ${idx === 0
+                                  ? "bg-teal-700"
+                                  : idx === 1
+                                    ? "bg-emerald-600"
+                                    : "bg-[#0B1F3A]"
+                                }`}
+                            >
+                              {idx + 1}
+                            </span>
+                            <div>
+                              <h3 className="text-sm font-extrabold text-slate-950">
+                                {st.title}
+                              </h3>
+                              <p className="mt-1 text-xs leading-relaxed text-slate-600">
+                                {st.desc}
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid gap-6 md:grid-cols-2">
+                    <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+                      <h3 className="mb-3 font-display text-lg font-extrabold text-slate-950">
+                        {ui.video1Heading}
+                      </h3>
+                      <LiteYouTube
+                        videoId={SITE_CONFIG.videos.methodDemo.id}
+                        title={ui.video1Heading}
+                        thumbnail={SITE_CONFIG.videos.methodDemo.thumbnail}
+                      />
+                    </div>
+                    <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+                      <h3 className="mb-3 font-display text-lg font-extrabold text-slate-950">
+                        {ui.video2Heading}
+                      </h3>
+                      <LiteYouTube
+                        videoId={SITE_CONFIG.videos.wallMounting.id}
+                        title={ui.video2Heading}
+                        thumbnail={SITE_CONFIG.videos.wallMounting.thumbnail}
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <h2 className="font-display text-2xl font-black text-slate-950">
+                      {ui.libraryHeading}
+                    </h2>
+                    <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                      {featuredExercises.map((ex) => (
+                        <article
+                          key={ex.id}
+                          className="flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-xs"
+                        >
+                          <div className="flex items-center justify-between gap-2 text-[11px] font-bold uppercase text-teal-700">
+                            <span>{ex.categoryLabel}</span>
+                            <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-emerald-800">
+                              {ex.angle} • {ex.duration}
+                            </span>
+                          </div>
+                          <h3 className="mt-2 font-display text-base font-extrabold text-slate-950">
+                            {ex.title}
+                          </h3>
+                          <p className="mt-1.5 text-xs leading-relaxed text-slate-600">
+                            {ex.description}
+                          </p>
+                          <ol className="mt-3 space-y-1 border-t border-slate-100 pt-3 text-xs text-slate-700">
+                            {ex.steps.map((step, i) => (
+                              <li key={step} className="flex gap-2">
+                                <span className="font-bold text-teal-700">{i + 1}.</span>
+                                <span>{step}</span>
+                              </li>
+                            ))}
+                          </ol>
+                        </article>
                       ))}
-                    </ol>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* TAB 3: BIOMETRICS & COMFORT LOG */}
-        {activeTab === "biometrics" && (
-          <div className="grid gap-6 lg:grid-cols-12">
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm lg:col-span-6 md:p-8">
-              <p className="text-xs font-extrabold uppercase tracking-wider text-teal-700">
-                {ui.bioEyebrow}
-              </p>
-              <h2 className="mt-1 font-display text-2xl font-black text-slate-950">
-                {ui.bioHeading}
-              </h2>
-
-              <div className="mt-5 flex flex-wrap gap-2">
-                {GOAL_KEYS.map((goalKey) => (
-                  <button
-                    key={goalKey}
-                    type="button"
-                    onClick={() => {
-                      setGoal(goalKey);
-                      setAngle(recommendIncline(goalKey).startAngle);
-                    }}
-                    className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition ${
-                      goal === goalKey
-                        ? "bg-[#0B1F3A] text-white"
-                        : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-                    }`}
-                  >
-                    {calcCopy.goals[goalKey]}
-                  </button>
-                ))}
-              </div>
-
-              <div className="mt-6 space-y-5">
-                <div>
-                  <div className="flex justify-between text-xs font-bold text-slate-700">
-                    <span>{ui.weightLabel}</span>
-                    <span>
-                      {weightLbs} {calcCopy.lbsUnit} ({lbsToKg(weightLbs)}{" "}
-                      {calcCopy.kgUnit})
-                    </span>
-                  </div>
-                  <input
-                    type="range"
-                    min={90}
-                    max={330}
-                    value={weightLbs}
-                    onChange={(e) => setWeightLbs(Number(e.target.value))}
-                    aria-label={ui.weightLabel}
-                    className="mt-2 w-full accent-teal-700"
-                  />
-                </div>
-
-                <div>
-                  <div className="flex justify-between text-xs font-bold text-slate-700">
-                    <span>{ui.heightLabel}</span>
-                    <span>{inchesToFeet(heightIn)}</span>
-                  </div>
-                  <input
-                    type="range"
-                    min={58}
-                    max={81}
-                    value={heightIn}
-                    onChange={(e) => setHeightIn(Number(e.target.value))}
-                    aria-label={ui.heightLabel}
-                    className="mt-2 w-full accent-teal-700"
-                  />
-                </div>
-
-                <div>
-                  <div className="flex justify-between text-xs font-bold text-slate-700">
-                    <span>{ui.angleLabel}</span>
-                    <span className="text-emerald-700">
-                      {angle}° ({ui.recommendedWord}: {inclineRec.startAngle}°–
-                      {inclineRec.maxAngle}°)
-                    </span>
-                  </div>
-                  <input
-                    type="range"
-                    min={8}
-                    max={35}
-                    value={angle}
-                    onChange={(e) => setAngle(Number(e.target.value))}
-                    aria-label={ui.angleLabel}
-                    className="mt-2 w-full accent-emerald-600"
-                  />
-                </div>
-              </div>
-
-              <div className="mt-6 grid grid-cols-3 gap-3 rounded-2xl bg-slate-950 p-4 text-center text-white">
-                <div>
-                  <p className="text-[11px] text-slate-400">{ui.netPullLabel}</p>
-                  <p className="mt-1 text-xl font-black text-emerald-400">
-                    {physics.netTractionLbs} {calcCopy.pullUnit}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-[11px] text-slate-400">{ui.pctBwLabel}</p>
-                  <p className="mt-1 text-xl font-black text-sky-400">
-                    {physics.percentBodyWeight}%
-                  </p>
-                </div>
-                <div>
-                  <p className="text-[11px] text-slate-400">{ui.estUnloadLabel}</p>
-                  <p className="mt-1 text-xl font-black text-white">
-                    ~{physics.estimatedDiscUnloadingPct}%
-                  </p>
-                </div>
-              </div>
-
-              <p className="mt-4 text-xs text-slate-600">
-                <strong className="text-slate-900">{ui.matchedBoardLabel}</strong>{" "}
-                {matchedProdLocalized.name} —{" "}
-                {getLocalizedBoardRecReason(boardRec.slug, lang)}
-              </p>
-            </div>
-
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm lg:col-span-6 md:p-8">
-              <p className="text-xs font-extrabold uppercase tracking-wider text-teal-700">
-                {ui.logEyebrow}
-              </p>
-              <h2 className="mt-1 font-display text-2xl font-black text-slate-950">
-                {ui.logHeading}
-              </h2>
-
-              <form onSubmit={handleAddComfortLog} className="mt-5 space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="rounded-2xl border border-slate-200 p-3.5">
-                    <div className="flex justify-between text-xs font-bold text-slate-700">
-                      <span>{ui.beforeLabel}</span>
-                      <span className="text-amber-600">{beforeScore} / 10</span>
                     </div>
-                    <input
-                      type="range"
-                      min={1}
-                      max={10}
-                      value={beforeScore}
-                      onChange={(e) => setBeforeScore(Number(e.target.value))}
-                      aria-label={ui.beforeLabel}
-                      className="mt-2 w-full accent-amber-500"
-                    />
                   </div>
-                  <div className="rounded-2xl border border-slate-200 p-3.5">
-                    <div className="flex justify-between text-xs font-bold text-slate-700">
-                      <span>{ui.afterLabel}</span>
-                      <span className="text-emerald-600">{afterScore} / 10</span>
+                </div>
+              )}
+
+              {/* TAB 3: BIOMETRICS & COMFORT LOG */}
+              {activeTab === "biometrics" && (
+                <div className="grid gap-6 lg:grid-cols-12">
+                  <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm lg:col-span-6 md:p-8">
+                    <p className="text-xs font-extrabold uppercase tracking-wider text-teal-700">
+                      {ui.bioEyebrow}
+                    </p>
+                    <h2 className="mt-1 font-display text-2xl font-black text-slate-950">
+                      {ui.bioHeading}
+                    </h2>
+
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {GOAL_KEYS.map((goalKey) => (
+                        <button
+                          key={goalKey}
+                          type="button"
+                          onClick={() => {
+                            setGoal(goalKey);
+                            setAngle(recommendIncline(goalKey).startAngle);
+                          }}
+                          className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition ${goal === goalKey
+                              ? "bg-[#0B1F3A] text-white"
+                              : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                            }`}
+                        >
+                          {calcCopy.goals[goalKey]}
+                        </button>
+                      ))}
                     </div>
-                    <input
-                      type="range"
-                      min={1}
-                      max={10}
-                      value={afterScore}
-                      onChange={(e) => setAfterScore(Number(e.target.value))}
-                      aria-label={ui.afterLabel}
-                      className="mt-2 w-full accent-emerald-600"
-                    />
-                  </div>
-                </div>
 
-                <input
-                  type="text"
-                  value={comfortNote}
-                  onChange={(e) => setComfortNote(e.target.value)}
-                  placeholder={ui.notePlaceholder}
-                  aria-label={ui.notePlaceholder}
-                  className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:border-teal-600 focus:outline-none"
-                />
-
-                <button
-                  type="submit"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#0B1F3A] px-4 py-2.5 text-sm font-bold text-white transition hover:bg-teal-800"
-                >
-                  <Activity className="h-4 w-4 text-emerald-400" />
-                  {ui.saveEntryBtn}
-                </button>
-              </form>
-
-              <div className="mt-6 space-y-2.5">
-                {savedState.comfortLog.map((entry) => (
-                  <div
-                    key={entry.id}
-                    className="rounded-2xl border border-slate-200 bg-slate-50/80 p-3.5 text-xs"
-                  >
-                    <div className="flex flex-wrap items-center justify-between gap-2 font-bold text-slate-900">
-                      <span>
-                        {entry.dateLabel} • {entry.angle}° • {entry.minutes}{" "}
-                        {ui.minUnit}
-                      </span>
-                      <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-emerald-800">
-                        {ui.tensionWord}: {entry.beforeScore} → {entry.afterScore}
-                      </span>
-                    </div>
-                    <p className="mt-1 text-slate-600">{entry.note}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* TAB 4: HSA/FSA PRINTABLE KIT, 16" STUD MOUNTING & SAFETY */}
-        {activeTab === "documents" && (
-          <div className="space-y-8">
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
-              <div className="flex flex-wrap items-start justify-between gap-4 border-b border-slate-200 pb-6">
-                <div>
-                  <EvminovBrandLockup size={34} />
-                  <p className="mt-2 text-xs font-semibold text-slate-500">
-                    {SITE_CONFIG.address.full} • {SITE_CONFIG.phoneDisplay} •{" "}
-                    {SITE_CONFIG.supportEmail}
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => window.print()}
-                  className="no-print inline-flex items-center gap-2 rounded-full bg-[#0B1F3A] px-5 py-2.5 text-xs font-bold text-white transition hover:bg-teal-800"
-                >
-                  <Printer className="h-4 w-4 text-emerald-400" />
-                  {ui.printBtn}
-                </button>
-              </div>
-
-              <div className="mt-6">
-                <h2 className="font-display text-xl font-black text-slate-950">
-                  {ui.hsaHeading}
-                </h2>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                  {ui.hsaNote}
-                </p>
-
-                <div className="mt-5 grid gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-5 text-xs sm:grid-cols-2">
-                  <div>
-                    <p className="font-bold uppercase text-slate-500">
-                      {ui.ownerFieldLabel}
-                    </p>
-                    <p className="mt-0.5 text-sm font-extrabold text-slate-950">
-                      {savedState.ownerName || "____________________________"}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="font-bold uppercase text-slate-500">
-                      {ui.orderFieldLabel}
-                    </p>
-                    <p className="mt-0.5 font-mono text-sm font-extrabold text-slate-950">
-                      {savedState.orderRef || "____________________________"}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="font-bold uppercase text-slate-500">
-                      {ui.classFieldLabel}
-                    </p>
-                    <p className="mt-0.5 font-semibold text-slate-900">
-                      {SITE_CONFIG.compliance.classification}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="font-bold uppercase text-slate-500">
-                      {ui.patentFieldLabel}
-                    </p>
-                    <p className="mt-0.5 font-semibold text-slate-900">
-                      {SITE_CONFIG.compliance.patentsSummary}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="mt-5 rounded-2xl border border-sky-200 bg-sky-50/70 p-4 text-xs leading-relaxed text-slate-700">
-                  <p className="font-extrabold text-sky-950">
-                    {ui.hsaStepsTitle}
-                  </p>
-                  <ol className="mt-2 list-decimal space-y-1 pl-4">
-                    {ui.hsaSteps.map((step) => (
-                      <li key={step}>{step}</li>
-                    ))}
-                  </ol>
-                </div>
-              </div>
-            </div>
-
-            <div className="no-print rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
-              <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-teal-700">
-                <ClipboardCheck className="h-4 w-4" />
-                <span>{ui.mountEyebrow}</span>
-              </div>
-              <h2 className="mt-1 font-display text-2xl font-black text-slate-950">
-                {ui.mountHeading}
-              </h2>
-
-              <div className="mt-5 space-y-3">
-                {ui.mountSteps.map((step) => {
-                  const checked = savedState.mountChecklist.includes(step.id);
-                  return (
-                    <label
-                      key={step.id}
-                      className={`flex cursor-pointer items-start gap-3.5 rounded-2xl border p-4 transition ${
-                        checked
-                          ? "border-emerald-300 bg-emerald-50/60"
-                          : "border-slate-200 bg-white hover:border-slate-300"
-                      }`}
-                    >
-                      <input
-                        type="checkbox"
-                        checked={checked}
-                        onChange={() => toggleMountStep(step.id)}
-                        className="mt-1 h-4 w-4 rounded accent-emerald-600"
-                      />
+                    <div className="mt-6 space-y-5">
                       <div>
-                        <p className="text-sm font-extrabold text-slate-950">
-                          {step.title}
-                        </p>
-                        <p className="mt-1 text-xs leading-relaxed text-slate-600">
-                          {step.detail}
+                        <div className="flex justify-between text-xs font-bold text-slate-700">
+                          <span>{ui.weightLabel}</span>
+                          <span>
+                            {weightLbs} {calcCopy.lbsUnit} ({lbsToKg(weightLbs)}{" "}
+                            {calcCopy.kgUnit})
+                          </span>
+                        </div>
+                        <input
+                          type="range"
+                          min={90}
+                          max={330}
+                          value={weightLbs}
+                          onChange={(e) => setWeightLbs(Number(e.target.value))}
+                          aria-label={ui.weightLabel}
+                          className="mt-2 w-full accent-teal-700"
+                        />
+                      </div>
+
+                      <div>
+                        <div className="flex justify-between text-xs font-bold text-slate-700">
+                          <span>{ui.heightLabel}</span>
+                          <span>{inchesToFeet(heightIn)}</span>
+                        </div>
+                        <input
+                          type="range"
+                          min={58}
+                          max={81}
+                          value={heightIn}
+                          onChange={(e) => setHeightIn(Number(e.target.value))}
+                          aria-label={ui.heightLabel}
+                          className="mt-2 w-full accent-teal-700"
+                        />
+                      </div>
+
+                      <div>
+                        <div className="flex justify-between text-xs font-bold text-slate-700">
+                          <span>{ui.angleLabel}</span>
+                          <span className="text-emerald-700">
+                            {angle}° ({ui.recommendedWord}: {inclineRec.startAngle}°–
+                            {inclineRec.maxAngle}°)
+                          </span>
+                        </div>
+                        <input
+                          type="range"
+                          min={8}
+                          max={35}
+                          value={angle}
+                          onChange={(e) => setAngle(Number(e.target.value))}
+                          aria-label={ui.angleLabel}
+                          className="mt-2 w-full accent-emerald-600"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="mt-6 grid grid-cols-3 gap-3 rounded-2xl bg-slate-950 p-4 text-center text-white">
+                      <div>
+                        <p className="text-[11px] text-slate-400">{ui.netPullLabel}</p>
+                        <p className="mt-1 text-xl font-black text-emerald-400">
+                          {physics.netTractionLbs} {calcCopy.pullUnit}
                         </p>
                       </div>
-                    </label>
-                  );
-                })}
-              </div>
-            </div>
-
-            <div className="rounded-3xl border border-amber-200 bg-amber-50/60 p-6 md:p-8">
-              <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-amber-800">
-                <ShieldAlert className="h-4 w-4" />
-                <span>{ui.safetyEyebrow}</span>
-              </div>
-              <h2 className="mt-1 font-display text-xl font-black text-slate-950">
-                {ui.safetyHeading}
-              </h2>
-
-              <div className="mt-4 grid gap-6 text-xs text-slate-700 md:grid-cols-2">
-                <div>
-                  <p className="font-extrabold text-slate-950">
-                    {ui.doNotUseLabel}
-                  </p>
-                  <ul className="mt-2 list-disc space-y-1.5 pl-4">
-                    {contra.absolute.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <p className="font-extrabold text-slate-950">
-                    {ui.clearanceLabel}
-                  </p>
-                  <ul className="mt-2 list-disc space-y-1.5 pl-4">
-                    {contra.precautions.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                  <p className="mt-4 font-extrabold text-slate-950">
-                    {ui.dailyChecksLabel}
-                  </p>
-                  <ul className="mt-2 list-disc space-y-1.5 pl-4">
-                    {contra.safetyRules.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* TAB 5: 10-YEAR WARRANTY REGISTRATION & GLENDALE SUPPORT */}
-        {activeTab === "warranty" && (
-          <div className="grid gap-6 lg:grid-cols-12">
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm lg:col-span-7 md:p-8">
-              <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-extrabold text-emerald-800">
-                <Award className="h-3.5 w-3.5" />
-                <span>{ui.warrantyBadge}</span>
-              </div>
-              <h2 className="mt-3 font-display text-2xl font-black text-slate-950">
-                {ui.warrantyHeading}
-              </h2>
-              <p className="mt-1 text-sm text-slate-600">{ui.warrantySub}</p>
-
-              {warrantyRefResult ? (
-                <div className="mt-6 rounded-2xl border border-emerald-300 bg-emerald-50 p-6">
-                  <CheckCircle2 className="h-8 w-8 text-emerald-600" />
-                  <h3 className="mt-3 font-display text-lg font-black text-emerald-950">
-                    {ui.warrantySuccessTitle}
-                  </h3>
-                  <p className="mt-1 text-sm text-emerald-900">
-                    {ui.warrantySuccessRef}{" "}
-                    <strong className="font-mono">{warrantyRefResult}</strong>
-                  </p>
-                  <p className="mt-2 text-xs text-emerald-800">
-                    {ui.warrantySuccessNote}
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleRegisterWarranty} className="mt-6 space-y-4">
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700">
-                        {ui.modelLabel}
-                      </label>
-                      <select
-                        value={warrantyModel}
-                        onChange={(e) => setWarrantyModel(e.target.value)}
-                        className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm focus:border-teal-600 focus:outline-none"
-                      >
-                        {PRODUCTS.map((p) => (
-                          <option key={p.slug} value={p.slug}>
-                            {getLocalizedProduct(p, lang).name}
-                          </option>
-                        ))}
-                      </select>
+                      <div>
+                        <p className="text-[11px] text-slate-400">{ui.pctBwLabel}</p>
+                        <p className="mt-1 text-xl font-black text-sky-400">
+                          {physics.percentBodyWeight}%
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-[11px] text-slate-400">{ui.estUnloadLabel}</p>
+                        <p className="mt-1 text-xl font-black text-white">
+                          ~{physics.estimatedDiscUnloadingPct}%
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700">
-                        {ui.finishLabel}
-                      </label>
-                      <select
-                        value={warrantyFinish}
-                        onChange={(e) => setWarrantyFinish(e.target.value)}
-                        className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm focus:border-teal-600 focus:outline-none"
-                      >
-                        {ui.finishOptions.map((opt) => (
-                          <option key={opt.value} value={opt.value}>
-                            {opt.label}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
 
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700">
-                        {ui.fullNameLabel}
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        value={warrantyName || savedState.ownerName}
-                        onChange={(e) => setWarrantyName(e.target.value)}
-                        placeholder={ui.namePlaceholder}
-                        className="mt-1 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:border-teal-600 focus:outline-none"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700">
-                        {ui.emailFieldLabel}
-                      </label>
-                      <input
-                        type="email"
-                        required
-                        value={warrantyEmail || savedState.ownerEmail}
-                        onChange={(e) => setWarrantyEmail(e.target.value)}
-                        placeholder={ui.emailPlaceholder}
-                        className="mt-1 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:border-teal-600 focus:outline-none"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700">
-                        {ui.orderSerialLabel}
-                      </label>
-                      <input
-                        type="text"
-                        value={warrantyOrderRef || savedState.orderRef}
-                        onChange={(e) => setWarrantyOrderRef(e.target.value)}
-                        placeholder={ui.orderPlaceholder}
-                        className="mt-1 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:border-teal-600 focus:outline-none"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700">
-                        {ui.stateCountryLabel}
-                      </label>
-                      <input
-                        type="text"
-                        value={warrantyState}
-                        onChange={(e) => setWarrantyState(e.target.value)}
-                        placeholder="California, USA"
-                        className="mt-1 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:border-teal-600 focus:outline-none"
-                      />
-                    </div>
-                  </div>
-
-                  {warrantyError && (
-                    <p className="rounded-xl bg-red-50 px-3.5 py-2 text-xs font-semibold text-red-700">
-                      {warrantyError}
+                    <p className="mt-4 text-xs text-slate-600">
+                      <strong className="text-slate-900">{ui.matchedBoardLabel}</strong>{" "}
+                      {matchedProdLocalized.name} —{" "}
+                      {getLocalizedBoardRecReason(boardRec.slug, lang)}
                     </p>
-                  )}
+                  </div>
 
-                  <button
-                    type="submit"
-                    disabled={warrantyBusy}
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-sm font-extrabold text-white transition hover:bg-emerald-700 disabled:opacity-60"
-                  >
-                    <ShieldCheck className="h-4 w-4" />
-                    {warrantyBusy ? ui.registeringBtn : ui.activateWarrantyBtn}
-                  </button>
-                </form>
+                  <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm lg:col-span-6 md:p-8">
+                    <p className="text-xs font-extrabold uppercase tracking-wider text-teal-700">
+                      {ui.logEyebrow}
+                    </p>
+                    <h2 className="mt-1 font-display text-2xl font-black text-slate-950">
+                      {ui.logHeading}
+                    </h2>
+
+                    <form onSubmit={handleAddComfortLog} className="mt-5 space-y-4">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="rounded-2xl border border-slate-200 p-3.5">
+                          <div className="flex justify-between text-xs font-bold text-slate-700">
+                            <span>{ui.beforeLabel}</span>
+                            <span className="text-amber-600">{beforeScore} / 10</span>
+                          </div>
+                          <input
+                            type="range"
+                            min={1}
+                            max={10}
+                            value={beforeScore}
+                            onChange={(e) => setBeforeScore(Number(e.target.value))}
+                            aria-label={ui.beforeLabel}
+                            className="mt-2 w-full accent-amber-500"
+                          />
+                        </div>
+                        <div className="rounded-2xl border border-slate-200 p-3.5">
+                          <div className="flex justify-between text-xs font-bold text-slate-700">
+                            <span>{ui.afterLabel}</span>
+                            <span className="text-emerald-600">{afterScore} / 10</span>
+                          </div>
+                          <input
+                            type="range"
+                            min={1}
+                            max={10}
+                            value={afterScore}
+                            onChange={(e) => setAfterScore(Number(e.target.value))}
+                            aria-label={ui.afterLabel}
+                            className="mt-2 w-full accent-emerald-600"
+                          />
+                        </div>
+                      </div>
+
+                      <input
+                        type="text"
+                        value={comfortNote}
+                        onChange={(e) => setComfortNote(e.target.value)}
+                        placeholder={ui.notePlaceholder}
+                        aria-label={ui.notePlaceholder}
+                        className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:border-teal-600 focus:outline-none"
+                      />
+
+                      <button
+                        type="submit"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#0B1F3A] px-4 py-2.5 text-sm font-bold text-white transition hover:bg-teal-800"
+                      >
+                        <Activity className="h-4 w-4 text-emerald-400" />
+                        {ui.saveEntryBtn}
+                      </button>
+                    </form>
+
+                    <div className="mt-6 space-y-2.5">
+                      {savedState.comfortLog.map((entry) => (
+                        <div
+                          key={entry.id}
+                          className="rounded-2xl border border-slate-200 bg-slate-50/80 p-3.5 text-xs"
+                        >
+                          <div className="flex flex-wrap items-center justify-between gap-2 font-bold text-slate-900">
+                            <span>
+                              {entry.dateLabel} • {entry.angle}° • {entry.minutes}{" "}
+                              {ui.minUnit}
+                            </span>
+                            <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-emerald-800">
+                              {ui.tensionWord}: {entry.beforeScore} → {entry.afterScore}
+                            </span>
+                          </div>
+                          <p className="mt-1 text-slate-600">{entry.note}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* TAB 4: HSA/FSA PRINTABLE KIT, 16" STUD MOUNTING & SAFETY */}
+              {activeTab === "documents" && (
+                <div className="space-y-8">
+                  <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+                    <div className="flex flex-wrap items-start justify-between gap-4 border-b border-slate-200 pb-6">
+                      <div>
+                        <EvminovBrandLockup size={34} />
+                        <p className="mt-2 text-xs font-semibold text-slate-500">
+                          {SITE_CONFIG.address.full} • {SITE_CONFIG.phoneDisplay} •{" "}
+                          {SITE_CONFIG.supportEmail}
+                        </p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => window.print()}
+                        className="no-print inline-flex items-center gap-2 rounded-full bg-[#0B1F3A] px-5 py-2.5 text-xs font-bold text-white transition hover:bg-teal-800"
+                      >
+                        <Printer className="h-4 w-4 text-emerald-400" />
+                        {ui.printBtn}
+                      </button>
+                    </div>
+
+                    <div className="mt-6">
+                      <h2 className="font-display text-xl font-black text-slate-950">
+                        {ui.hsaHeading}
+                      </h2>
+                      <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                        {ui.hsaNote}
+                      </p>
+
+                      <div className="mt-5 grid gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-5 text-xs sm:grid-cols-2">
+                        <div>
+                          <p className="font-bold uppercase text-slate-500">
+                            {ui.ownerFieldLabel}
+                          </p>
+                          <p className="mt-0.5 text-sm font-extrabold text-slate-950">
+                            {savedState.ownerName || "____________________________"}
+                          </p>
+                        </div>
+                        <div>
+                          <p className="font-bold uppercase text-slate-500">
+                            {ui.orderFieldLabel}
+                          </p>
+                          <p className="mt-0.5 font-mono text-sm font-extrabold text-slate-950">
+                            {savedState.orderRef || "____________________________"}
+                          </p>
+                        </div>
+                        <div>
+                          <p className="font-bold uppercase text-slate-500">
+                            {ui.classFieldLabel}
+                          </p>
+                          <p className="mt-0.5 font-semibold text-slate-900">
+                            {SITE_CONFIG.compliance.classification}
+                          </p>
+                        </div>
+                        <div>
+                          <p className="font-bold uppercase text-slate-500">
+                            {ui.patentFieldLabel}
+                          </p>
+                          <p className="mt-0.5 font-semibold text-slate-900">
+                            {SITE_CONFIG.compliance.patentsSummary}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="mt-5 rounded-2xl border border-sky-200 bg-sky-50/70 p-4 text-xs leading-relaxed text-slate-700">
+                        <p className="font-extrabold text-sky-950">
+                          {ui.hsaStepsTitle}
+                        </p>
+                        <ol className="mt-2 list-decimal space-y-1 pl-4">
+                          {ui.hsaSteps.map((step) => (
+                            <li key={step}>{step}</li>
+                          ))}
+                        </ol>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="no-print rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+                    <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-teal-700">
+                      <ClipboardCheck className="h-4 w-4" />
+                      <span>{ui.mountEyebrow}</span>
+                    </div>
+                    <h2 className="mt-1 font-display text-2xl font-black text-slate-950">
+                      {ui.mountHeading}
+                    </h2>
+
+                    <div className="mt-5 space-y-3">
+                      {ui.mountSteps.map((step) => {
+                        const checked = savedState.mountChecklist.includes(step.id);
+                        return (
+                          <label
+                            key={step.id}
+                            className={`flex cursor-pointer items-start gap-3.5 rounded-2xl border p-4 transition ${checked
+                                ? "border-emerald-300 bg-emerald-50/60"
+                                : "border-slate-200 bg-white hover:border-slate-300"
+                              }`}
+                          >
+                            <input
+                              type="checkbox"
+                              checked={checked}
+                              onChange={() => toggleMountStep(step.id)}
+                              className="mt-1 h-4 w-4 rounded accent-emerald-600"
+                            />
+                            <div>
+                              <p className="text-sm font-extrabold text-slate-950">
+                                {step.title}
+                              </p>
+                              <p className="mt-1 text-xs leading-relaxed text-slate-600">
+                                {step.detail}
+                              </p>
+                            </div>
+                          </label>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  <div className="rounded-3xl border border-amber-200 bg-amber-50/60 p-6 md:p-8">
+                    <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-amber-800">
+                      <ShieldAlert className="h-4 w-4" />
+                      <span>{ui.safetyEyebrow}</span>
+                    </div>
+                    <h2 className="mt-1 font-display text-xl font-black text-slate-950">
+                      {ui.safetyHeading}
+                    </h2>
+
+                    <div className="mt-4 grid gap-6 text-xs text-slate-700 md:grid-cols-2">
+                      <div>
+                        <p className="font-extrabold text-slate-950">
+                          {ui.doNotUseLabel}
+                        </p>
+                        <ul className="mt-2 list-disc space-y-1.5 pl-4">
+                          {contra.absolute.map((item) => (
+                            <li key={item}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="font-extrabold text-slate-950">
+                          {ui.clearanceLabel}
+                        </p>
+                        <ul className="mt-2 list-disc space-y-1.5 pl-4">
+                          {contra.precautions.map((item) => (
+                            <li key={item}>{item}</li>
+                          ))}
+                        </ul>
+                        <p className="mt-4 font-extrabold text-slate-950">
+                          {ui.dailyChecksLabel}
+                        </p>
+                        <ul className="mt-2 list-disc space-y-1.5 pl-4">
+                          {contra.safetyRules.map((item) => (
+                            <li key={item}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* TAB 5: 10-YEAR WARRANTY REGISTRATION & GLENDALE SUPPORT */}
+              {activeTab === "warranty" && (
+                <div className="grid gap-6 lg:grid-cols-12">
+                  <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm lg:col-span-7 md:p-8">
+                    <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-extrabold text-emerald-800">
+                      <Award className="h-3.5 w-3.5" />
+                      <span>{ui.warrantyBadge}</span>
+                    </div>
+                    <h2 className="mt-3 font-display text-2xl font-black text-slate-950">
+                      {ui.warrantyHeading}
+                    </h2>
+                    <p className="mt-1 text-sm text-slate-600">{ui.warrantySub}</p>
+
+                    {warrantyRefResult ? (
+                      <div className="mt-6 rounded-2xl border border-emerald-300 bg-emerald-50 p-6">
+                        <CheckCircle2 className="h-8 w-8 text-emerald-600" />
+                        <h3 className="mt-3 font-display text-lg font-black text-emerald-950">
+                          {ui.warrantySuccessTitle}
+                        </h3>
+                        <p className="mt-1 text-sm text-emerald-900">
+                          {ui.warrantySuccessRef}{" "}
+                          <strong className="font-mono">{warrantyRefResult}</strong>
+                        </p>
+                        <p className="mt-2 text-xs text-emerald-800">
+                          {ui.warrantySuccessNote}
+                        </p>
+                      </div>
+                    ) : (
+                      <form onSubmit={handleRegisterWarranty} className="mt-6 space-y-4">
+                        <div className="grid gap-4 sm:grid-cols-2">
+                          <div>
+                            <label className="block text-xs font-bold text-slate-700">
+                              {ui.modelLabel}
+                            </label>
+                            <select
+                              value={warrantyModel}
+                              onChange={(e) => setWarrantyModel(e.target.value)}
+                              className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm focus:border-teal-600 focus:outline-none"
+                            >
+                              {PRODUCTS.map((p) => (
+                                <option key={p.slug} value={p.slug}>
+                                  {getLocalizedProduct(p, lang).name}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+                          <div>
+                            <label className="block text-xs font-bold text-slate-700">
+                              {ui.finishLabel}
+                            </label>
+                            <select
+                              value={warrantyFinish}
+                              onChange={(e) => setWarrantyFinish(e.target.value)}
+                              className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm focus:border-teal-600 focus:outline-none"
+                            >
+                              {ui.finishOptions.map((opt) => (
+                                <option key={opt.value} value={opt.value}>
+                                  {opt.label}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+                        </div>
+
+                        <div className="grid gap-4 sm:grid-cols-2">
+                          <div>
+                            <label className="block text-xs font-bold text-slate-700">
+                              {ui.fullNameLabel}
+                            </label>
+                            <input
+                              type="text"
+                              required
+                              value={warrantyName || savedState.ownerName}
+                              onChange={(e) => setWarrantyName(e.target.value)}
+                              placeholder={ui.namePlaceholder}
+                              className="mt-1 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:border-teal-600 focus:outline-none"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-xs font-bold text-slate-700">
+                              {ui.emailFieldLabel}
+                            </label>
+                            <input
+                              type="email"
+                              required
+                              value={warrantyEmail || savedState.ownerEmail}
+                              onChange={(e) => setWarrantyEmail(e.target.value)}
+                              placeholder={ui.emailPlaceholder}
+                              className="mt-1 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:border-teal-600 focus:outline-none"
+                            />
+                          </div>
+                        </div>
+
+                        <div className="grid gap-4 sm:grid-cols-2">
+                          <div>
+                            <label className="block text-xs font-bold text-slate-700">
+                              {ui.orderSerialLabel}
+                            </label>
+                            <input
+                              type="text"
+                              value={warrantyOrderRef || savedState.orderRef}
+                              onChange={(e) => setWarrantyOrderRef(e.target.value)}
+                              placeholder={ui.orderPlaceholder}
+                              className="mt-1 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:border-teal-600 focus:outline-none"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-xs font-bold text-slate-700">
+                              {ui.stateCountryLabel}
+                            </label>
+                            <input
+                              type="text"
+                              value={warrantyState}
+                              onChange={(e) => setWarrantyState(e.target.value)}
+                              placeholder="California, USA"
+                              className="mt-1 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:border-teal-600 focus:outline-none"
+                            />
+                          </div>
+                        </div>
+
+                        {warrantyError && (
+                          <p className="rounded-xl bg-red-50 px-3.5 py-2 text-xs font-semibold text-red-700">
+                            {warrantyError}
+                          </p>
+                        )}
+
+                        <button
+                          type="submit"
+                          disabled={warrantyBusy}
+                          className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-sm font-extrabold text-white transition hover:bg-emerald-700 disabled:opacity-60"
+                        >
+                          <ShieldCheck className="h-4 w-4" />
+                          {warrantyBusy ? ui.registeringBtn : ui.activateWarrantyBtn}
+                        </button>
+                      </form>
+                    )}
+                  </div>
+
+                  <div className="space-y-4 lg:col-span-5">
+                    <div className="rounded-3xl border border-slate-200 bg-[#0B1F3A] p-6 text-white shadow-sm md:p-8">
+                      <p className="text-xs font-extrabold uppercase tracking-wider text-emerald-400">
+                        {ui.supportEyebrow}
+                      </p>
+                      <h3 className="mt-2 font-display text-xl font-black">
+                        {ui.supportHeading}
+                      </h3>
+                      <p className="mt-2 text-xs leading-relaxed text-slate-300">
+                        {ui.supportSub}
+                      </p>
+
+                      <div className="mt-5 space-y-3 text-sm">
+                        <a
+                          href={SITE_CONFIG.phoneHref}
+                          onClick={() =>
+                            sendGTMEvent("click_phone", { location: "patient_portal" })
+                          }
+                          className="flex items-center gap-3 rounded-2xl border border-white/15 bg-white/10 px-4 py-3 font-bold text-white transition hover:bg-white/15"
+                        >
+                          <Phone className="h-4 w-4 text-emerald-400" />
+                          <span>{SITE_CONFIG.phoneDisplay}</span>
+                        </a>
+                        <a
+                          href={`mailto:${SITE_CONFIG.supportEmail}`}
+                          className="flex items-center gap-3 rounded-2xl border border-white/15 bg-white/10 px-4 py-3 font-semibold text-white transition hover:bg-white/15"
+                        >
+                          <Mail className="h-4 w-4 text-sky-400" />
+                          <span>{SITE_CONFIG.supportEmail}</span>
+                        </a>
+                      </div>
+
+                      <div className="mt-5 space-y-1 border-t border-white/10 pt-4 text-xs text-slate-300">
+                        <p>
+                          <strong className="text-white">{ui.addressWord}</strong>{" "}
+                          {SITE_CONFIG.address.full}
+                        </p>
+                        <p>
+                          <strong className="text-white">{ui.hoursWord}</strong>{" "}
+                          {SITE_CONFIG.hours}
+                        </p>
+                        <p>
+                          <strong className="text-white">{ui.languagesWord}</strong>{" "}
+                          English, Español, Français, Українська, Русский
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="rounded-2xl border border-slate-200 bg-white p-5 text-xs leading-relaxed text-slate-600">
+                      <strong className="text-slate-900">
+                        {ui.wellnessNoticeBold}
+                      </strong>{" "}
+                      {SITE_CONFIG.compliance.classification}. {ui.wellnessNoticeText}
+                    </div>
+                  </div>
+                </div>
               )}
             </div>
-
-            <div className="space-y-4 lg:col-span-5">
-              <div className="rounded-3xl border border-slate-200 bg-[#0B1F3A] p-6 text-white shadow-sm md:p-8">
-                <p className="text-xs font-extrabold uppercase tracking-wider text-emerald-400">
-                  {ui.supportEyebrow}
-                </p>
-                <h3 className="mt-2 font-display text-xl font-black">
-                  {ui.supportHeading}
-                </h3>
-                <p className="mt-2 text-xs leading-relaxed text-slate-300">
-                  {ui.supportSub}
-                </p>
-
-                <div className="mt-5 space-y-3 text-sm">
-                  <a
-                    href={SITE_CONFIG.phoneHref}
-                    onClick={() =>
-                      sendGTMEvent("click_phone", { location: "patient_portal" })
-                    }
-                    className="flex items-center gap-3 rounded-2xl border border-white/15 bg-white/10 px-4 py-3 font-bold text-white transition hover:bg-white/15"
-                  >
-                    <Phone className="h-4 w-4 text-emerald-400" />
-                    <span>{SITE_CONFIG.phoneDisplay}</span>
-                  </a>
-                  <a
-                    href={`mailto:${SITE_CONFIG.supportEmail}`}
-                    className="flex items-center gap-3 rounded-2xl border border-white/15 bg-white/10 px-4 py-3 font-semibold text-white transition hover:bg-white/15"
-                  >
-                    <Mail className="h-4 w-4 text-sky-400" />
-                    <span>{SITE_CONFIG.supportEmail}</span>
-                  </a>
-                </div>
-
-                <div className="mt-5 space-y-1 border-t border-white/10 pt-4 text-xs text-slate-300">
-                  <p>
-                    <strong className="text-white">{ui.addressWord}</strong>{" "}
-                    {SITE_CONFIG.address.full}
-                  </p>
-                  <p>
-                    <strong className="text-white">{ui.hoursWord}</strong>{" "}
-                    {SITE_CONFIG.hours}
-                  </p>
-                  <p>
-                    <strong className="text-white">{ui.languagesWord}</strong>{" "}
-                    English, Español, Français, Українська, Русский
-                  </p>
-                </div>
-              </div>
-
-              <div className="rounded-2xl border border-slate-200 bg-white p-5 text-xs leading-relaxed text-slate-600">
-                <strong className="text-slate-900">
-                  {ui.wellnessNoticeBold}
-                </strong>{" "}
-                {SITE_CONFIG.compliance.classification}. {ui.wellnessNoticeText}
-              </div>
-            </div>
           </div>
-        )}
-      </div>
-    </div>
-  );
+          );
 }
