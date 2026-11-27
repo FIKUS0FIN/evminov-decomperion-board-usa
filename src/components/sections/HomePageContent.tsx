@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, ShieldCheck, Truck, Award } from "lucide-react";
+import { ArrowRight, Award, CheckCircle2, ShieldCheck } from "lucide-react";
 import { Locale } from "@/i18n/types";
 import { getDictionary } from "@/i18n/dictionaries";
 import { SITE_CONFIG } from "@/lib/site-config";
@@ -8,25 +8,28 @@ import { HOME_COMPARISON_MATRIX, COMPARISONS } from "@/data/comparisons";
 import { CONDITIONS } from "@/data/conditions";
 import { GUIDES } from "@/data/guides";
 import { GLOBAL_FAQS } from "@/data/faq";
-import { PATENTS } from "@/data/heritage";
-import { US_STATES } from "@/data/us-states";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import { LiteYouTube } from "@/components/ui/LiteYouTube";
+import { HeroShowcaseGallery } from "@/components/sections/HeroShowcaseGallery";
+import { ClinicalPathwaysNav } from "@/components/sections/ClinicalPathwaysNav";
 import { BiomechanicalCalculator } from "@/components/sections/BiomechanicalCalculator";
+import { InversionVisualComparison } from "@/components/sections/InversionVisualComparison";
 import { ProductCatalogSection } from "@/components/sections/ProductCatalogSection";
+import { GlobalHeritageRoiSection } from "@/components/sections/GlobalHeritageRoiSection";
+import { AthleteAndDeskSection } from "@/components/sections/AthleteAndDeskSection";
+import { PediatricFamilySection } from "@/components/sections/PediatricFamilySection";
+import { FounderAndOnboardingSection } from "@/components/sections/FounderAndOnboardingSection";
+import { MountingAndCraftsmanshipSection } from "@/components/sections/MountingAndCraftsmanshipSection";
+import { PatentsLightboxSection } from "@/components/sections/PatentsLightboxSection";
 import { ExerciseGallerySection } from "@/components/sections/ExerciseGallerySection";
+import { InteractiveUsDeliverySection } from "@/components/sections/InteractiveUsDeliverySection";
+import { OwnerScenariosAndReviewsSection } from "@/components/sections/OwnerScenariosAndReviewsSection";
 import { FaqJsonLd, VideoObjectJsonLd } from "@/components/seo/JsonLd";
 
 export function HomePageContent({ lang }: { lang: Locale }) {
   const dict = getDictionary(lang);
   const h = dict.hero;
   const s = dict.sections;
-
-  const topStates = US_STATES.filter((st) =>
-    ["CA", "TX", "FL", "NY", "WA", "IL", "CO", "AZ", "NC", "MA", "VA", "GA"].includes(
-      st.code
-    )
-  );
 
   return (
     <>
@@ -35,16 +38,16 @@ export function HomePageContent({ lang }: { lang: Locale }) {
       />
       <VideoObjectJsonLd />
 
-      {/* 1. HERO (Pre-rendered Static HTML + Priority LCP Image) */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950 text-white">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 md:py-20 lg:grid-cols-12">
-          <div className="lg:col-span-7">
+      {/* 1. HERO (Pre-rendered Static HTML + Interactive 6-Photo Gallery) */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#0B1628] via-[#0B1F3A] to-[#0D3B46] text-white">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 md:py-16 lg:grid-cols-12">
+          <div className="lg:col-span-6">
             <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3.5 py-1.5 text-xs font-bold text-emerald-300">
               <Award className="h-3.5 w-3.5" />
               <span>{h.badge}</span>
             </span>
 
-            <h1 className="mt-5 font-display text-4xl font-black leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+            <h1 className="mt-5 font-display text-4xl font-black leading-tight tracking-tight sm:text-5xl">
               {h.title}{" "}
               <span className="text-emerald-400">{h.titleHighlight}</span>
             </h1>
@@ -80,7 +83,7 @@ export function HomePageContent({ lang }: { lang: Locale }) {
 
             <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-slate-300">
               <span>
-                {h.startingFrom} <strong className="text-white text-sm">$450</strong>
+                {h.startingFrom} <strong className="text-sm text-white">$450</strong>
               </span>
               <span>
                 {h.hsaSavedNote}: <strong className="text-emerald-300">~$315</strong>
@@ -91,45 +94,19 @@ export function HomePageContent({ lang }: { lang: Locale }) {
             </div>
           </div>
 
-          <div className="lg:col-span-5">
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-white/15 bg-slate-900 shadow-2xl">
-              <OptimizedImage
-                src="/images/authentic/hero-full-device-traction.jpg"
-                alt="Evminov Spine Decompression Board controlled inclined traction"
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 42vw"
-                className="object-cover"
-              />
-            </div>
-            <div className="mt-3 grid grid-cols-3 gap-2.5">
-              {[
-                { src: "/images/authentic/evminov-board-profile.jpg", alt: "Carpathian pine board profile" },
-                { src: "/images/products/board-mounting-bracket.jpg", alt: "16 inch US wood stud wall mount" },
-                { src: "/images/accessories/renter-stand-setup.jpg", alt: "No-drill apartment ladder stand" },
-              ].map((thumb) => (
-                <div
-                  key={thumb.src}
-                  className="relative aspect-[4/3] overflow-hidden rounded-xl border border-white/15"
-                >
-                  <OptimizedImage
-                    src={thumb.src}
-                    alt={thumb.alt}
-                    fill
-                    sizes="150px"
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-            </div>
+          <div className="lg:col-span-6">
+            <HeroShowcaseGallery />
           </div>
         </div>
       </section>
 
-      {/* 2. PRODUCT CATALOG (With Global HSA/FSA ~30% Toggle) */}
+      {/* 2. RESTORED 8-CARD CLINICAL PATHWAYS ROUTER */}
+      <ClinicalPathwaysNav lang={lang} />
+
+      {/* 3. PRODUCT CATALOG + FINISH SWATCHES + AT-A-GLANCE TABLE + BOX CONTENTS */}
       <ProductCatalogSection lang={lang} />
 
-      {/* 3. BIOMECHANICAL CALCULATOR (Promoted from section #14 to #3!) */}
+      {/* 4. BIOMECHANICAL CALCULATOR WITH LIVE ROTATING TILT-BOARD SVG */}
       <section id="calculator" className="bg-slate-50 py-16">
         <div className="mx-auto max-w-7xl px-4">
           <div className="max-w-3xl">
@@ -144,7 +121,7 @@ export function HomePageContent({ lang }: { lang: Locale }) {
         </div>
       </section>
 
-      {/* 4. COMPARISON MATRIX + LINKS TO ALL 5 VERSUS PAGES */}
+      {/* 5. WHY NOT INVERSION? VISUAL ANATOMY + COMPARISON MATRIX + 5 VERSUS LINKS */}
       <section id="compare" className="mx-auto max-w-7xl px-4 py-16">
         <div className="max-w-3xl">
           <h2 className="font-display text-3xl font-black tracking-tight text-slate-950 md:text-4xl">
@@ -153,9 +130,11 @@ export function HomePageContent({ lang }: { lang: Locale }) {
           <p className="mt-3 text-base text-slate-600">{s.compareSubtitle}</p>
         </div>
 
+        <InversionVisualComparison />
+
         <div className="mt-8 overflow-x-auto rounded-3xl border border-slate-200 shadow-sm">
           <table className="w-full min-w-[640px] border-collapse text-left text-sm">
-            <thead className="bg-slate-950 text-white">
+            <thead className="bg-[#0B1F3A] text-white">
               <tr>
                 <th className="p-4 font-bold">Factor</th>
                 <th className="p-4 font-bold text-emerald-400">Evminov Spine Board</th>
@@ -192,8 +171,23 @@ export function HomePageContent({ lang }: { lang: Locale }) {
         </div>
       </section>
 
-      {/* 5. PROBLEM-AWARE SPINE GOALS HUB */}
-      <section className="bg-slate-950 py-16 text-white">
+      {/* 6. RESTORED GLOBAL HERITAGE (30 YRS, 40+ COUNTRIES) + INTERACTIVE CLINIC ROI CALCULATOR */}
+      <GlobalHeritageRoiSection lang={lang} />
+
+      {/* 7. RESTORED ATHLETES, DESK WORKERS, NURSES & TACTICAL SECTION (WITH 12 REAL PHOTOS) */}
+      <AthleteAndDeskSection lang={lang} />
+
+      {/* 8. RESTORED "SPINE TOOTHBRUSH" KIDS & FAMILY POSTURE STATION + 13-POINT PLAN */}
+      <PediatricFamilySection lang={lang} />
+
+      {/* 9. RESTORED FOUNDER STORY (VYACHESLAV EVMINOV), KYIV CENTER PHOTOS & 30-DAY ONBOARDING */}
+      <FounderAndOnboardingSection lang={lang} />
+
+      {/* 10. RESTORED 16" US STUD MOUNTING VS. NO-DRILL STAND + PINE/ALLOY CRAFTSMANSHIP GALLERY */}
+      <MountingAndCraftsmanshipSection lang={lang} />
+
+      {/* 11. PROBLEM-AWARE SPINE GOALS HUB (8 SEO CONDITION SILOS) */}
+      <section className="bg-[#0B1628] py-16 text-white">
         <div className="mx-auto max-w-7xl px-4">
           <div className="max-w-3xl">
             <h2 className="font-display text-3xl font-black tracking-tight md:text-4xl">
@@ -226,8 +220,8 @@ export function HomePageContent({ lang }: { lang: Locale }) {
         </div>
       </section>
 
-      {/* 6. REAL OFFICIAL VIDEOS (LiteYouTube Click Facades — Zero Rickrolls!) */}
-      <section className="mx-auto max-w-7xl px-4 py-16">
+      {/* 12. REAL OFFICIAL VIDEOS (LiteYouTube Click Facades) */}
+      <section id="videos" className="mx-auto max-w-7xl px-4 py-16">
         <div className="max-w-3xl">
           <h2 className="font-display text-3xl font-black tracking-tight text-slate-950 md:text-4xl">
             {s.videosTitle}
@@ -248,8 +242,8 @@ export function HomePageContent({ lang }: { lang: Locale }) {
         </div>
       </section>
 
-      {/* 7. 20 AUTHENTIC EXERCISE PROTOCOLS */}
-      <section className="bg-slate-50 py-16">
+      {/* 13. 20 AUTHENTIC EXERCISE PROTOCOLS */}
+      <section id="gallery" className="bg-slate-50 py-16">
         <div className="mx-auto max-w-7xl px-4">
           <div className="max-w-3xl">
             <h2 className="font-display text-3xl font-black tracking-tight text-slate-950 md:text-4xl">
@@ -263,172 +257,105 @@ export function HomePageContent({ lang }: { lang: Locale }) {
         </div>
       </section>
 
-      {/* 8. PATENTS & 30-YEAR HERITAGE */}
-      <section className="mx-auto max-w-7xl px-4 py-16">
-        <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-          <div className="max-w-3xl">
-            <h2 className="font-display text-3xl font-black tracking-tight text-slate-950 md:text-4xl">
-              {s.patentsTitle}
-            </h2>
-            <p className="mt-3 text-base text-slate-600">{s.patentsSubtitle}</p>
-          </div>
-          <Link
-            href={getLocalizedHref("/centers/", lang)}
-            className="inline-flex items-center gap-1.5 text-sm font-bold text-teal-700 hover:underline"
-          >
-            <span>Explore Full Heritage &amp; Centers</span>
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {PATENTS.map((doc) => (
-            <div
-              key={doc.id}
-              className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
-            >
-              <div className="relative h-24 w-20 shrink-0 overflow-hidden rounded-lg border border-slate-200 bg-slate-50">
-                <OptimizedImage
-                  src={doc.image}
-                  alt={doc.title}
-                  fill
-                  sizes="80px"
-                  className="object-cover"
-                />
-              </div>
-              <div className="min-w-0">
-                <span className="text-[11px] font-bold uppercase text-teal-700">
-                  {doc.badge}
-                </span>
-                <h3 className="mt-0.5 text-sm font-extrabold text-slate-950">
-                  {doc.docNumber}
-                </h3>
-                <p className="mt-1 text-xs leading-relaxed text-slate-600">
-                  {doc.caption}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* 14. RESTORED INTERACTIVE PATENT SCAN LIGHTBOX & REGISTRY LINKS */}
+      <PatentsLightboxSection
+        lang={lang}
+        title={s.patentsTitle}
+        subtitle={s.patentsSubtitle}
+      />
 
-      {/* 9. 50-STATE US SHIPPING HUB PREVIEW */}
+      {/* 15. RESTORED INTERACTIVE 50-STATE US SHIPPING ESTIMATOR */}
+      <InteractiveUsDeliverySection
+        lang={lang}
+        title={s.shippingTitle}
+        subtitle={s.shippingSubtitle}
+      />
+
+      {/* 16. COMPLIANT REAL OWNER SCENARIOS & VERIFIED REVIEW HUB */}
+      <OwnerScenariosAndReviewsSection lang={lang} />
+
+      {/* 17. KNOWLEDGE GUIDES */}
       <section className="bg-slate-50 py-16">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
             <div className="max-w-3xl">
               <h2 className="font-display text-3xl font-black tracking-tight text-slate-950 md:text-4xl">
-                {s.shippingTitle}
+                {s.guidesTitle}
               </h2>
-              <p className="mt-3 text-base text-slate-600">{s.shippingSubtitle}</p>
+              <p className="mt-3 text-base text-slate-600">{s.guidesSubtitle}</p>
             </div>
             <Link
-              href={getLocalizedHref("/shipping/", lang)}
+              href={getLocalizedHref("/guides/", lang)}
               className="inline-flex items-center gap-1.5 text-sm font-bold text-teal-700 hover:underline"
             >
-              <Truck className="h-4 w-4" />
-              <span>All 50 US States &amp; Global Rates</span>
+              <span>All Clinical Guides</span>
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
-          <div className="mt-6 grid gap-3 sm:grid-cols-3 lg:grid-cols-6">
-            {topStates.map((st) => (
-              <Link
-                key={st.code}
-                href={`/shipping/${st.slug}/`}
-                className="rounded-2xl border border-slate-200 bg-white p-3.5 text-left shadow-sm transition hover:border-teal-600"
+
+          <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {GUIDES.slice(0, 4).map((g) => (
+              <article
+                key={g.slug}
+                className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg"
               >
-                <p className="text-sm font-bold text-slate-950">{st.name}</p>
-                <p className="mt-0.5 text-xs font-semibold text-teal-700">
-                  {st.expressDays}
-                </p>
-                <p className="mt-0.5 text-[11px] text-slate-500">{st.carrier}</p>
-              </Link>
+                <div className="relative aspect-[16/10] w-full bg-slate-100">
+                  <OptimizedImage
+                    src={g.heroImage}
+                    alt={g.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 25vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-5">
+                  <span className="text-[11px] font-bold uppercase text-teal-700">
+                    {g.category} • {g.readTime}
+                  </span>
+                  <h3 className="mt-1.5 font-display text-base font-bold text-slate-950 line-clamp-2">
+                    <Link
+                      href={getLocalizedHref(`/guides/${g.slug}/`, lang)}
+                      className="hover:text-teal-700"
+                    >
+                      {g.title}
+                    </Link>
+                  </h3>
+                  <p className="mt-2 flex-1 text-xs leading-relaxed text-slate-600 line-clamp-3">
+                    {g.excerpt}
+                  </p>
+                </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 10. KNOWLEDGE GUIDES */}
-      <section className="mx-auto max-w-7xl px-4 py-16">
-        <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-          <div className="max-w-3xl">
-            <h2 className="font-display text-3xl font-black tracking-tight text-slate-950 md:text-4xl">
-              {s.guidesTitle}
-            </h2>
-            <p className="mt-3 text-base text-slate-600">{s.guidesSubtitle}</p>
-          </div>
-          <Link
-            href={getLocalizedHref("/guides/", lang)}
-            className="inline-flex items-center gap-1.5 text-sm font-bold text-teal-700 hover:underline"
-          >
-            <span>All Clinical Guides</span>
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
+      {/* 18. EXPANDED 15-QUESTION LONG-TAIL FAQ */}
+      <section id="faq" className="mx-auto max-w-4xl px-4 py-16">
+        <h2 className="font-display text-3xl font-black tracking-tight text-slate-950 md:text-4xl">
+          {s.faqTitle}
+        </h2>
+        <p className="mt-3 text-base text-slate-600">{s.faqSubtitle}</p>
 
-        <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {GUIDES.slice(0, 4).map((g) => (
-            <article
-              key={g.slug}
-              className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg"
+        <div className="mt-8 space-y-3">
+          {GLOBAL_FAQS.map((item) => (
+            <details
+              key={item.question}
+              className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-xs"
             >
-              <div className="relative aspect-[16/10] w-full bg-slate-100">
-                <OptimizedImage
-                  src={g.heroImage}
-                  alt={g.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 25vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex flex-1 flex-col p-5">
-                <span className="text-[11px] font-bold uppercase text-teal-700">
-                  {g.category} • {g.readTime}
-                </span>
-                <h3 className="mt-1.5 font-display text-base font-bold text-slate-950 line-clamp-2">
-                  <Link
-                    href={getLocalizedHref(`/guides/${g.slug}/`, lang)}
-                    className="hover:text-teal-700"
-                  >
-                    {g.title}
-                  </Link>
-                </h3>
-                <p className="mt-2 flex-1 text-xs leading-relaxed text-slate-600 line-clamp-3">
-                  {g.excerpt}
-                </p>
-              </div>
-            </article>
+              <summary className="cursor-pointer list-none font-display text-base font-bold text-slate-950">
+                {item.question}
+              </summary>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                {item.answer}
+              </p>
+            </details>
           ))}
         </div>
       </section>
 
-      {/* 11. FAQ */}
-      <section id="faq" className="bg-slate-50 py-16">
-        <div className="mx-auto max-w-4xl px-4">
-          <h2 className="font-display text-3xl font-black tracking-tight text-slate-950 md:text-4xl">
-            {s.faqTitle}
-          </h2>
-          <p className="mt-3 text-base text-slate-600">{s.faqSubtitle}</p>
-
-          <div className="mt-8 space-y-3">
-            {GLOBAL_FAQS.map((item) => (
-              <details
-                key={item.question}
-                className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
-              >
-                <summary className="cursor-pointer list-none font-display text-base font-bold text-slate-950">
-                  {item.question}
-                </summary>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                  {item.answer}
-                </p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 12. FINAL CTA */}
-      <section className="bg-gradient-to-r from-teal-800 to-slate-950 py-16 text-white">
+      {/* 19. FINAL CTA */}
+      <section className="bg-gradient-to-r from-[#023373] via-teal-800 to-[#0B1628] py-16 text-white">
         <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-6 px-4 text-center md:flex-row md:text-left">
           <div className="max-w-2xl">
             <h2 className="font-display text-3xl font-black">{s.finalCtaTitle}</h2>

@@ -237,7 +237,7 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
           </div>
         </div>
 
-        {/* Live Physics Output */}
+        {/* Live Physics Output + Interactive Rotating Board SVG */}
         <div className="flex flex-col justify-between rounded-2xl bg-slate-950 p-6 text-white lg:col-span-5">
           <div>
             <p className="text-xs font-bold uppercase tracking-wider text-emerald-400">
@@ -247,7 +247,94 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
               {inclineRec.description}
             </p>
 
-            <div className="mt-5 grid grid-cols-3 gap-2.5">
+            {/* Dynamic Live-Tilting Evminov Board SVG Diagram */}
+            <div className="mt-4 overflow-hidden rounded-2xl border border-white/10 bg-[#071426] p-3">
+              <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                <span>Live Incline Geometry</span>
+                <span className="text-emerald-400">
+                  {angle}° • Head Upright (Zero Blood Rush)
+                </span>
+              </div>
+              <svg
+                viewBox="0 0 320 130"
+                className="mt-1.5 h-28 w-full"
+                role="img"
+                aria-label={`Evminov board tilted at ${angle} degrees producing ${physics.netTractionLbs} pounds of smooth axial traction`}
+              >
+                {/* Wall Stud & Floor Grid */}
+                <rect x="274" y="10" width="14" height="106" rx="3" fill="#1E3A5F" />
+                <line x1="20" y1="116" x2="296" y2="116" stroke="#334155" strokeWidth="2" />
+                {/* Wall Anchor Hook */}
+                <circle cx="274" cy="30" r="4" fill="#34D399" />
+
+                {/* Rotating Carpathian Pine Plank anchored near floor left-pivot */}
+                <g
+                  transform={`translate(46, 112) rotate(${-angle})`}
+                  style={{ transition: "transform 220ms ease-out" }}
+                >
+                  {/* Braided Steel Cable */}
+                  <line
+                    x1="210"
+                    y1="-4"
+                    x2="232"
+                    y2="-24"
+                    stroke="#38BDF8"
+                    strokeWidth="1.5"
+                    strokeDasharray="3 2"
+                  />
+                  {/* Carpathian Pine Flex Deck */}
+                  <rect
+                    x="0"
+                    y="-8"
+                    width="225"
+                    height="9"
+                    rx="4"
+                    fill="#D9A362"
+                    stroke="#FDE68A"
+                    strokeWidth="1"
+                  />
+                  {/* Sliding Alloy Carriage */}
+                  <rect x="172" y="-14" width="24" height="7" rx="2" fill="#34D399" />
+                  {/* Upright Head / Body Silhouette Indicator */}
+                  <circle cx="164" cy="-19" r="6" fill="#E2E8F0" />
+                  <line
+                    x1="156"
+                    y1="-15"
+                    x2="70"
+                    y2="-15"
+                    stroke="#E2E8F0"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                  />
+                  {/* Smooth Axial Unloading Force Arrow */}
+                  <line
+                    x1="138"
+                    y1="-25"
+                    x2="78"
+                    y2="-25"
+                    stroke="#34D399"
+                    strokeWidth="2"
+                  />
+                  <polygon points="72,-25 81,-29 81,-21" fill="#34D399" />
+                </g>
+
+                {/* Angle Arc Label */}
+                <path
+                  d="M 88 116 A 42 42 0 0 0 82 96"
+                  fill="none"
+                  stroke="#F59E0B"
+                  strokeWidth="1.5"
+                />
+                <text x="94" y="109" fill="#FBBF24" fontSize="11" fontWeight="700">
+                  {angle}°
+                </text>
+                <text x="16" y="24" fill="#94A3B8" fontSize="10" fontWeight="600">
+                  Smooth Pull: {physics.netTractionLbs} lb
+                </text>
+              </svg>
+            </div>
+
+            <div className="mt-4 grid grid-cols-3 gap-2.5">
               <div className="rounded-xl bg-white/10 p-3 text-center">
                 <p className="text-xl font-extrabold text-emerald-400">
                   {physics.netTractionLbs} lb
