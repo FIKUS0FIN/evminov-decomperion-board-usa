@@ -408,3 +408,30 @@ export function HomepageRichSchemas({ lang }: { lang: Locale }) {
 
   return <JsonLdScript data={graph} />;
 }
+
+export function CalculatorWebAppJsonLd({ lang }: { lang: Locale }) {
+  const origin = SITE_CONFIG.canonicalOrigin;
+  const calcUrl = getCanonicalUrl("/calculator/", lang);
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "@id": `${calcUrl}#webapp`,
+    name: "Evminov Biomechanical Spine Angle & Board Sizing Calculator",
+    url: calcUrl,
+    applicationCategory: "HealthApplication",
+    operatingSystem: "Any (Web Browser)",
+    inLanguage: LOCALE_META[lang].hreflang,
+    isAccessibleForFree: true,
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    description:
+      "Free interactive inclined-plane spine physics calculator estimating axial traction force, gentle starting incline angle (8°–35°), and optimal Evminov Carpathian pine board sizing.",
+    publisher: { "@id": `${origin}/#organization` },
+  };
+
+  return <JsonLdScript data={schema} />;
+}

@@ -183,6 +183,10 @@ async function runStaticAudit() {
     "robots.txt",
     "sitemap.xml",
     "rss.xml",
+    "merchant-feed.xml",
+    "favicon.ico",
+    "apple-touch-icon.png",
+    "icon-192x192.png",
     `${INDEXNOW_KEY}.txt`,
     "llms.txt",
     "llms-full.txt",
@@ -216,6 +220,9 @@ async function runStaticAudit() {
     recordError("Sitemap", `Expected at least 180 canonical URLs in out/sitemap.xml, found ${urls.length}`);
   }
 
+  const seenTitles = new Map();
+  const validRoutes = new Set(urls.map((u) => new URL(u).pathname));
+
   for (const url of urls) {
     if (url.includes("#")) {
       recordError("Sitemap", `Invalid hash fragment URL in sitemap.xml: ${url}`);
@@ -233,9 +240,44 @@ async function runStaticAudit() {
     }
     const html = fs.readFileSync(htmlPath, "utf8");
     auditHtml(html, url, parsed.pathname);
+
+    // Check unique titles across all pages
+    const titleMatch = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+    const pageTitle = titleMatch ? titleMatch[1].trim() : "";
+    if (pageTitle) {
+      if (seenTitles.has(pageTitle)) {
+        recordError(
+          parsed.pathname,
+          `Duplicate <title> "${pageTitle}" also used on ${seenTitles.get(pageTitle)}`
+        );
+      } else {
+        seenTitles.set(pageTitle, parsed.pathname);
+      }
+    }
+
+    // Check internal <a href="/..."> links resolve to a real route or file in out/
+    const hrefRegex = /<a\b[^>]*\bhref=["'](\/[^"'#?]*)/gi;
+    let hrefMatch;
+    while ((hrefMatch = hrefRegex.exec(html)) !== null) {
+      const targetPath = hrefMatch[1];
+      if (
+        targetPath === "/" ||
+        targetPath.startsWith("/api/") ||
+        targetPath.startsWith("/.well-known/") ||
+        validRoutes.has(targetPath) ||
+        validRoutes.has(`${targetPath}/`)
+      ) {
+        continue;
+      }
+      const asFile = path.join(OUT_DIR, targetPath.replace(/^\/+/, ""));
+      const asIndex = path.join(OUT_DIR, targetPath.replace(/^\/+|\/+$/g, ""), "index.html");
+      if (!fs.existsSync(asFile) && !fs.existsSync(asIndex)) {
+        recordError(parsed.pathname, `Broken internal link href="${targetPath}"`);
+      }
+    }
   }
 
-  console.log(`✅ Audited ${urls.length} generated static HTML pages across 5 locales + 50 US states.`);
+  console.log(`✅ Audited ${urls.length} generated static HTML pages (unique titles + zero broken internal links) across 5 locales + 50 US states.`);
 }
 
 async function runLiveAudit(baseUrl) {

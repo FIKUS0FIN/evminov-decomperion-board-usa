@@ -81,7 +81,7 @@ export function ClinicalPathwaysNav({ lang }: { lang: Locale }) {
       icon: Users,
     },
     {
-      href: getLocalizedHref("/conditions/cervical-neck-pain/", lang),
+      href: getLocalizedHref("/conditions/cervical-neck-traction/", lang),
       title: "Cervical Neck Traction",
       subtitle: "Free Glisson Loop at 8°–12°",
       tag: "Neck & C1–C7",

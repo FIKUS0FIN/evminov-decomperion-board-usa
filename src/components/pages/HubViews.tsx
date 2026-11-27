@@ -15,6 +15,7 @@ import { ProductCatalogSection } from "@/components/sections/ProductCatalogSecti
 import { BiomechanicalCalculator } from "@/components/sections/BiomechanicalCalculator";
 import { OrderWizard } from "@/components/sections/OrderWizard";
 import { WelcomeReviewHub } from "@/components/sections/WelcomeReviewHub";
+import { CalculatorWebAppJsonLd } from "@/components/seo/JsonLd";
 
 export function ProductsHubView({ lang }: { lang: Locale }) {
   return (
@@ -348,6 +349,7 @@ export function CalculatorPageView({ lang }: { lang: Locale }) {
   const s = getDictionary(lang).sections;
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
+      <CalculatorWebAppJsonLd lang={lang} />
       <h1 className="font-display text-4xl font-black tracking-tight text-slate-950">
         {s.calculatorTitle}
       </h1>

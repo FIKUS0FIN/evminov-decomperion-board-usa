@@ -6,6 +6,7 @@ import { PRODUCTS } from "@/data/products";
 import { COMPARISONS } from "@/data/comparisons";
 import { CONDITIONS } from "@/data/conditions";
 import { GUIDES } from "@/data/guides";
+import { PATENTS } from "@/data/heritage";
 import { US_STATES } from "@/data/us-states";
 
 export const dynamic = "force-static";
@@ -22,15 +23,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const origin = SITE_CONFIG.canonicalOrigin;
   const now = new Date();
 
+  const homeImages = [
+    "/images/authentic/hero-full-device-traction.jpg",
+    "/images/authentic/evminov-board-profile.jpg",
+    "/images/authentic/hero-carriage-traction-detail.jpg",
+    "/images/authentic/hero-reverse-decompression.jpg",
+    "/images/authentic/vyacheslav-evminov-founder.jpg",
+    "/images/products/glisson-loop-studio.jpg",
+    "/images/products/board-mounting-bracket.jpg",
+    "/images/craftsmanship/workshop-wood-selection.jpg",
+    "/images/gallery/youth-paired-traction.jpg",
+    "/images/gallery/family-home-lifestyle.jpg",
+    "/images/authentic/exercise-reverse-traction.jpg",
+    "/images/centers/kyiv-center-room.png",
+  ].map((p) => `${origin}${p}`);
+
+  const centerImages = [
+    "/images/authentic/vyacheslav-evminov-founder.jpg",
+    "/images/authentic/clinic-rehab-center-1.jpg",
+    "/images/authentic/clinic-rehab-center-2.jpg",
+    ...PATENTS.map((d) => d.image),
+  ].map((p) => `${origin}${p}`);
+
   const multilingualRoutes: RouteSpec[] = [
     {
       path: "/",
       priority: 1.0,
       changeFrequency: "weekly",
-      images: [
-        `${origin}/images/authentic/hero-full-device-traction.jpg`,
-        `${origin}/images/authentic/evminov-board-profile.jpg`,
-      ],
+      images: homeImages,
     },
     { path: "/products/", priority: 0.95, changeFrequency: "weekly" },
     { path: "/calculator/", priority: 0.9, changeFrequency: "monthly" },
@@ -39,7 +59,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/conditions/", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guides/", priority: 0.9, changeFrequency: "weekly" },
     { path: "/shipping/", priority: 0.85, changeFrequency: "monthly" },
-    { path: "/centers/", priority: 0.85, changeFrequency: "monthly" },
+    {
+      path: "/centers/",
+      priority: 0.85,
+      changeFrequency: "monthly",
+      images: centerImages,
+    },
     { path: "/portal/", priority: 0.75, changeFrequency: "monthly" },
     { path: "/welcome/", priority: 0.6, changeFrequency: "monthly" },
     { path: "/privacy/", priority: 0.3, changeFrequency: "yearly" },
@@ -50,7 +75,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       path: `/products/${p.slug}/`,
       priority: 0.9,
       changeFrequency: "weekly" as const,
-      images: [`${origin}${p.image}`],
+      images: Array.from(
+        new Set([`${origin}${p.image}`, ...p.galleryImages.map((g) => `${origin}${g.url}`)])
+      ),
     })),
     ...COMPARISONS.map((c) => ({
       path: `/compare/${c.slug}/`,

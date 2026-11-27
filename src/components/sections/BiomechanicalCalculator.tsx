@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Mail, Share2 } from "lucide-react";
 import { Locale } from "@/i18n/types";
@@ -44,6 +44,33 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
   const [leadSent, setLeadSent] = useState(false);
   const [leadBusy, setLeadBusy] = useState(false);
   const [shareCopied, setShareCopied] = useState(false);
+
+  // Hydrate shared calculator deep links (?goal=sciatica&weight=210&angle=18)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const rafId = window.requestAnimationFrame(() => {
+      const qs = new URLSearchParams(window.location.search);
+      const qGoal = qs.get("goal");
+      if (
+        qGoal === "hernia" ||
+        qGoal === "sciatica" ||
+        qGoal === "posture" ||
+        qGoal === "athlete" ||
+        qGoal === "pediatric"
+      ) {
+        setGoal(qGoal);
+      }
+      const qWeight = Number(qs.get("weight"));
+      if (Number.isFinite(qWeight) && qWeight >= 65 && qWeight <= 330) {
+        setWeightLbs(qWeight);
+      }
+      const qAngle = Number(qs.get("angle"));
+      if (Number.isFinite(qAngle) && qAngle >= 8 && qAngle <= 35) {
+        setAngle(qAngle);
+      }
+    });
+    return () => window.cancelAnimationFrame(rafId);
+  }, []);
 
   const inclineRec = recommendIncline(goal);
   const physics = calculateTractionPhysics(weightLbs, angle);

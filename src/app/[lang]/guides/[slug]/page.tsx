@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Locale, NON_DEFAULT_LOCALES } from "@/i18n/types";
 import { getAllGuideSlugs, getGuideBySlug } from "@/data/guides";
+import { getLocalizedGuideMeta } from "@/i18n/content-meta";
 import { buildPageMetadata } from "@/lib/page-metadata";
 import { GuideDetailView } from "@/components/pages/GuideDetailView";
 
@@ -21,11 +22,15 @@ export async function generateMetadata({
   const { lang, slug } = await params;
   const guide = getGuideBySlug(slug);
   if (!guide) return {};
+  const meta = getLocalizedGuideMeta(guide.slug, lang, {
+    title: guide.metaTitle,
+    description: guide.metaDescription,
+  });
   return buildPageMetadata({
     path: `/guides/${guide.slug}/`,
     lang,
-    title: guide.metaTitle,
-    description: guide.metaDescription,
+    title: meta.title,
+    description: meta.description,
     image: guide.heroImage,
   });
 }

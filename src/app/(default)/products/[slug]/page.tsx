@@ -24,6 +24,7 @@ export async function generateMetadata({
     title: `${product.name} — $${product.directPriceUsd}`,
     description: product.subtitle,
     image: product.image,
+    productPriceUsd: product.directPriceUsd,
   });
 }
 

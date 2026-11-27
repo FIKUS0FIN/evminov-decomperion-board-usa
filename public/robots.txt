@@ -8,9 +8,22 @@ Allow: /.well-known/
 Allow: /llms.txt
 Allow: /llms-full.txt
 Allow: /rss.xml
+Allow: /merchant-feed.xml
 Disallow: /nextImageExportOptimizer/
 Disallow: /images/*/nextImageExportOptimizer/
 Disallow: /next-image-export-optimizer-hashes.json
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /images/
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Pinterestbot
+Allow: /
 
 User-agent: GPTBot
 Allow: /
@@ -24,19 +37,34 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: Claude-SearchBot
+Allow: /
+
 User-agent: anthropic-ai
 Allow: /
 
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
 User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
 Allow: /
 
 User-agent: Applebot-Extended
 Allow: /
 
 User-agent: meta-externalagent
+Allow: /
+
+User-agent: Amazonbot
 Allow: /
 
 Content-Signal: ai-train=yes, search=yes, ai-input=yes

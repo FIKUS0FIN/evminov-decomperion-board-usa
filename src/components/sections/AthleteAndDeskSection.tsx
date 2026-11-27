@@ -106,7 +106,7 @@ const AUDIENCE_TABS: AudienceTab[] = [
       "One compact station covers cervical, thoracic, and lumbar conditioning for the whole household.",
     ],
     ctaLabel: "Explore Cervical Neck Care",
-    ctaPath: "/conditions/cervical-neck-pain/",
+    ctaPath: "/conditions/cervical-neck-traction/",
   },
 ];
 

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Locale, NON_DEFAULT_LOCALES } from "@/i18n/types";
 import { getAllConditionSlugs, getConditionBySlug } from "@/data/conditions";
+import { getLocalizedConditionMeta } from "@/i18n/content-meta";
 import { buildPageMetadata } from "@/lib/page-metadata";
 import { ConditionDetailView } from "@/components/pages/ConditionDetailView";
 
@@ -21,11 +22,15 @@ export async function generateMetadata({
   const { lang, slug } = await params;
   const condition = getConditionBySlug(slug);
   if (!condition) return {};
+  const meta = getLocalizedConditionMeta(condition.slug, lang, {
+    title: condition.metaTitle,
+    description: condition.metaDescription,
+  });
   return buildPageMetadata({
     path: `/conditions/${condition.slug}/`,
     lang,
-    title: condition.metaTitle,
-    description: condition.metaDescription,
+    title: meta.title,
+    description: meta.description,
     image: condition.heroImage,
   });
 }

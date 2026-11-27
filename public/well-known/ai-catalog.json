@@ -10,7 +10,10 @@
     "acp": "https://evminovusa.com/api/acp/checkout_sessions",
     "openapi": "https://evminovusa.com/openapi.json",
     "llms": "https://evminovusa.com/llms.txt",
-    "llmsFull": "https://evminovusa.com/llms-full.txt"
+    "llmsFull": "https://evminovusa.com/llms-full.txt",
+    "merchantFeed": "https://evminovusa.com/merchant-feed.xml",
+    "patientPortal": "https://evminovusa.com/portal/",
+    "calculator": "https://evminovusa.com/calculator/"
   },
   "representativeQueries": [
     "What is the safest alternative to a Teeter inversion table?",
