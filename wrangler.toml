@@ -1,7 +1,9 @@
 name = "evminov-decompression-board-usa"
-pages_build_output_dir = "out"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = "out"
 
-[ai]
-binding = "AI"
+[[d1_databases]]
+binding = "DB"
+database_name = "evminov-usa-db"
+database_id = "0dd2ee9e-cbcd-42eb-b2ba-5310274a8127"
