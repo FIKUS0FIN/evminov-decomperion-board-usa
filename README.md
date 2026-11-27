@@ -102,7 +102,7 @@ flowchart TD
     TwentyCRM --> WarehouseUS
     WarehouseUS --> PatientCare
 ```
-
+ 
 ### Деталі компонентів:
 1. **Сучасний E-Commerce Storefront (Next.js / Vite):**
    * Миттєве завантаження (< 0.8s LCP), ідеальна мобільна оптимізація.
