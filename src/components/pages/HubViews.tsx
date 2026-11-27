@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import Link from "next/link";
-import { ArrowRight, MapPin, Phone, Mail, ShieldAlert } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Locale } from "@/i18n/types";
 import { getDictionary } from "@/i18n/dictionaries";
 import { SITE_CONFIG } from "@/lib/site-config";
@@ -9,13 +9,14 @@ import { COMPARISONS } from "@/data/comparisons";
 import { CONDITIONS } from "@/data/conditions";
 import { GUIDES } from "@/data/guides";
 import { US_STATES } from "@/data/us-states";
-import { CENTERS, CONTRAINDICATIONS, FOUNDER_STORY, PATENTS } from "@/data/heritage";
+import { CONTRAINDICATIONS } from "@/data/heritage";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import { ProductCatalogSection } from "@/components/sections/ProductCatalogSection";
 import { BiomechanicalCalculator } from "@/components/sections/BiomechanicalCalculator";
 import { OrderWizard } from "@/components/sections/OrderWizard";
 import { WelcomeReviewHub } from "@/components/sections/WelcomeReviewHub";
 import { CalculatorWebAppJsonLd } from "@/components/seo/JsonLd";
+import { CentersHeritagePage } from "@/components/pages/CentersHeritagePage";
 
 export function ProductsHubView({ lang }: { lang: Locale }) {
   return (
@@ -198,151 +199,7 @@ export function ShippingHubView({ lang }: { lang: Locale }) {
 }
 
 export function CentersHeritageView({ lang }: { lang: Locale }) {
-  return (
-    <div className="mx-auto max-w-6xl px-4 py-12 space-y-14">
-      <section>
-        <span className="inline-block rounded-full bg-teal-50 px-3.5 py-1 text-xs font-bold text-teal-800">
-          Est. 1996 • 30 Years of Evminov Methodology
-        </span>
-        <h1 className="mt-3 font-display text-4xl font-black tracking-tight text-slate-950">
-          {FOUNDER_STORY.name} &amp; Global Evminov Centers
-        </h1>
-        <div className="mt-6 grid gap-8 md:grid-cols-12 items-center">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-slate-200 md:col-span-5">
-            <OptimizedImage
-              src="/images/authentic/vyacheslav-evminov-founder.jpg"
-              alt="Vyacheslav Evminov inventor of the Evminov Spine Board"
-              fill
-              priority
-              sizes="(max-width: 768px) 100vw, 42vw"
-              className="object-cover"
-            />
-          </div>
-          <div className="md:col-span-7 space-y-4">
-            <blockquote className="rounded-2xl border-l-4 border-teal-700 bg-slate-50 p-5 text-base italic text-slate-800">
-              &ldquo;{FOUNDER_STORY.quote}&rdquo;
-            </blockquote>
-            <p className="text-base leading-relaxed text-slate-700">
-              {FOUNDER_STORY.summary}
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-8 grid gap-4 md:grid-cols-5">
-          {FOUNDER_STORY.timeline.map((t) => (
-            <div key={t.year} className="rounded-2xl border border-slate-200 bg-white p-4">
-              <p className="text-xs font-black text-teal-700">{t.year}</p>
-              <h2 className="mt-1 text-sm font-bold text-slate-950">{t.title}</h2>
-              <p className="mt-1 text-xs text-slate-600">{t.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section>
-        <h2 className="font-display text-2xl font-black text-slate-950">
-          Global Centers &amp; Operations Network
-        </h2>
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
-          {CENTERS.map((center) => (
-            <div
-              key={center.id}
-              className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"
-            >
-              <div className="relative aspect-[16/9] w-full bg-slate-100">
-                <OptimizedImage
-                  src={center.image}
-                  alt={center.name}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <span className="text-xs font-bold uppercase text-teal-700">
-                  {center.city}
-                </span>
-                <h3 className="mt-1 font-display text-xl font-black text-slate-950">
-                  {center.name}
-                </h3>
-                <p className="mt-2 flex items-start gap-2 text-xs text-slate-600">
-                  <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-teal-700" />
-                  <span>{center.address}</span>
-                </p>
-                <div className="mt-2 flex flex-wrap gap-3 text-xs text-slate-700">
-                  {center.phones.map((ph) => (
-                    <span key={ph} className="inline-flex items-center gap-1 font-semibold">
-                      <Phone className="h-3.5 w-3.5 text-teal-700" />
-                      {ph}
-                    </span>
-                  ))}
-                  <span className="inline-flex items-center gap-1">
-                    <Mail className="h-3.5 w-3.5 text-teal-700" />
-                    {center.email}
-                  </span>
-                </div>
-                <ul className="mt-4 list-disc space-y-1 pl-5 text-xs text-slate-600">
-                  {center.features.map((feat) => (
-                    <li key={feat}>{feat}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section>
-        <h2 className="font-display text-2xl font-black text-slate-950">
-          Verified International Patents
-        </h2>
-        <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {PATENTS.map((doc) => (
-            <div key={doc.id} className="rounded-2xl border border-slate-200 bg-white p-5">
-              <p className="text-xs font-bold text-teal-700">{doc.badge}</p>
-              <p className="mt-1 font-display text-base font-black text-slate-950">
-                {doc.docNumber}
-              </p>
-              <p className="mt-1 text-xs text-slate-600">{doc.caption}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="rounded-3xl border border-amber-200 bg-amber-50/70 p-6 md:p-8">
-        <h2 className="flex items-center gap-2 font-display text-2xl font-black text-slate-950">
-          <ShieldAlert className="h-6 w-6 text-amber-700" />
-          <span>Safety Screening &amp; Contraindications</span>
-        </h2>
-        <div className="mt-4 grid gap-6 md:grid-cols-2 text-sm text-slate-800">
-          <div>
-            <h3 className="font-bold text-slate-950">Do Not Use Without Physician Clearance If:</h3>
-            <ul className="mt-2 list-disc space-y-1 pl-5 text-xs">
-              {CONTRAINDICATIONS.absolute.map((c) => (
-                <li key={c}>{c}</li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-bold text-slate-950">Essential Session Safety Rules:</h3>
-            <ul className="mt-2 list-disc space-y-1 pl-5 text-xs">
-              {CONTRAINDICATIONS.safetyRules.map((r) => (
-                <li key={r}>{r}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        <div className="mt-6">
-          <Link
-            href={getLocalizedHref("/order/", lang)}
-            className="inline-flex items-center gap-2 rounded-xl bg-slate-950 px-5 py-3 text-xs font-bold text-white"
-          >
-            Configure Your Evminov Board <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-      </section>
-    </div>
-  );
+  return <CentersHeritagePage lang={lang} />;
 }
 
 export function CalculatorPageView({ lang }: { lang: Locale }) {
