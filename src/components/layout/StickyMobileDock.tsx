@@ -14,9 +14,15 @@ export function StickyMobileDock({ lang }: { lang: Locale }) {
   return (
     <nav
       aria-label="Mobile quick actions"
-      className="fixed bottom-0 left-0 right-0 z-40 border-t border-slate-200 bg-white/95 px-2 py-2 shadow-2xl backdrop-blur md:hidden"
+      className="fixed bottom-0 left-0 right-0 z-40 border-t border-slate-200 bg-white/96 shadow-[0_-6px_24px_rgba(11,31,58,0.10)] backdrop-blur-xl md:hidden"
     >
-      <div className="grid grid-cols-4 gap-1.5">
+      <div className="flex items-center justify-between border-b border-slate-100 bg-slate-50/90 px-3 py-1 text-[11px]">
+        <span className="font-extrabold text-[#0B1F3A]">
+          From $450 <span className="font-semibold text-emerald-700">(or 4× $112.50)</span>
+        </span>
+        <span className="font-semibold text-slate-500">60-Day Trial • US Express</span>
+      </div>
+      <div className="grid grid-cols-4 gap-1.5 px-2 py-1.5">
         <button
           type="button"
           onClick={() => {

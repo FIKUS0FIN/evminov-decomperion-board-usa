@@ -118,6 +118,7 @@ export function Header({ lang }: { lang: Locale }) {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const { applyHsaSavings, toggleHsaSavings } = useHsaSavings();
 
@@ -181,6 +182,7 @@ export function Header({ lang }: { lang: Locale }) {
       if (raf) return;
       raf = window.requestAnimationFrame(() => {
         raf = 0;
+        setIsScrolled(window.scrollY > 24);
         const docHeight =
           document.documentElement.scrollHeight - window.innerHeight;
         if (docHeight > 0) {
@@ -270,8 +272,14 @@ export function Header({ lang }: { lang: Locale }) {
         </div>
       </aside>
 
-      {/* Main White Sticky Header (faithful Evminov SPINE MED design + chevron scroller + Patient Portal pill) */}
-      <header className="sticky top-0 z-40 border-b border-slate-200/90 bg-white/95 shadow-[0_1px_12px_rgba(11,31,58,0.05)] backdrop-blur-md">
+      {/* Main White Sticky Header (pinned top-0 with scrolled glass elevation & emerald glow) */}
+      <header
+        className={`sticky top-0 z-50 border-b backdrop-blur-xl transition-all duration-200 ${
+          isScrolled
+            ? "border-emerald-500/25 bg-white/95 shadow-[0_6px_24px_-4px_rgba(11,19,43,0.12),0_1px_4px_rgba(16,185,129,0.08)]"
+            : "border-slate-200/90 bg-white/95 shadow-[0_1px_12px_rgba(11,31,58,0.05)]"
+        }`}
+      >
         <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-3 px-4 py-2.5">
           {/* Official Evminov Monogram + Wordmark */}
           <Link
