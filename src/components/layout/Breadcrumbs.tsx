@@ -6,6 +6,7 @@ import { ChevronRight, Home } from "lucide-react";
 import { Locale, NON_DEFAULT_LOCALES } from "@/i18n/types";
 import { getCanonicalUrl, getLocalizedHref } from "@/lib/url";
 import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import { BREADCRUMB_COPY } from "@/i18n/locales/chrome";
 
 const SEGMENT_LABELS: Record<string, Record<Locale, string>> = {
   products: { en: "Boards", es: "Tablas", fr: "Planches", uk: "Дошки", ru: "Доски" },
@@ -45,7 +46,7 @@ export function Breadcrumbs({ lang }: { lang: Locale }) {
 
   const homeHref = getLocalizedHref("/", lang);
   const crumbs = [
-    { name: "Home", href: homeHref, url: getCanonicalUrl("/", lang) },
+    { name: BREADCRUMB_COPY[lang].home, href: homeHref, url: getCanonicalUrl("/", lang) },
   ];
 
   let acc = "";
@@ -63,7 +64,7 @@ export function Breadcrumbs({ lang }: { lang: Locale }) {
     <div className="border-b border-slate-100 bg-slate-50/70">
       <BreadcrumbJsonLd items={crumbs.map((c) => ({ name: c.name, url: c.url }))} />
       <nav
-        aria-label="Breadcrumb"
+        aria-label={BREADCRUMB_COPY[lang].navAria}
         className="mx-auto flex max-w-7xl items-center gap-1.5 overflow-x-auto px-4 py-2.5 text-xs text-slate-600"
       >
         {crumbs.map((crumb, idx) => {

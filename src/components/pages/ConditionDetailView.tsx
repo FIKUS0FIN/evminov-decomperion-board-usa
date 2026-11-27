@@ -3,19 +3,27 @@ import { ArrowRight, AlertTriangle } from "lucide-react";
 import { Locale } from "@/i18n/types";
 import { ConditionPageData, CONDITIONS } from "@/data/conditions";
 import { getProductBySlug } from "@/data/products";
+import { getLocalizedCondition } from "@/i18n/locales/conditions-i18n";
+import { getSiloUi } from "@/i18n/locales/silo-ui";
+import { getLocalizedProduct } from "@/i18n/locales/catalog";
 import { buildPrefilledOrderUrl, getLocalizedHref } from "@/lib/url";
 import { formatUSD } from "@/lib/physics";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import { FaqJsonLd } from "@/components/seo/JsonLd";
 
 export function ConditionDetailView({
-  condition,
+  condition: rawCondition,
   lang,
 }: {
   condition: ConditionPageData;
   lang: Locale;
 }) {
+  const condition = getLocalizedCondition(rawCondition, lang);
+  const ui = getSiloUi(lang);
   const recProduct = getProductBySlug(condition.recommendedProductSlug);
+  const recLocalized = recProduct
+    ? getLocalizedProduct(recProduct, lang)
+    : undefined;
 
   return (
     <>
@@ -35,7 +43,7 @@ export function ConditionDetailView({
         <div className="mt-7 grid gap-3 sm:grid-cols-3">
           <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
             <p className="text-xs font-bold uppercase text-slate-500">
-              Suggested Angle
+              {ui.condition.suggestedAngle}
             </p>
             <p className="mt-1 text-lg font-black text-teal-800">
               {condition.recommendedAngle}
@@ -43,7 +51,7 @@ export function ConditionDetailView({
           </div>
           <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
             <p className="text-xs font-bold uppercase text-slate-500">
-              Daily Session
+              {ui.condition.dailySession}
             </p>
             <p className="mt-1 text-lg font-black text-slate-950">
               {condition.dailyDuration}
@@ -51,7 +59,7 @@ export function ConditionDetailView({
           </div>
           <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
             <p className="text-xs font-bold uppercase text-slate-500">
-              Focus Area
+              {ui.condition.focusArea}
             </p>
             <p className="mt-1 text-lg font-black text-slate-950">
               {condition.targetZone}
@@ -59,7 +67,7 @@ export function ConditionDetailView({
           </div>
         </div>
 
-        <div className="mt-8 relative aspect-[16/9] w-full overflow-hidden rounded-3xl border border-slate-200">
+        <div className="relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-3xl border border-slate-200">
           <OptimizedImage
             src={condition.heroImage}
             alt={condition.title}
@@ -73,7 +81,7 @@ export function ConditionDetailView({
         {/* Biomechanical Mechanisms */}
         <section className="mt-10">
           <h2 className="font-display text-2xl font-black text-slate-950">
-            How Controlled Inclined Unloading Helps
+            {ui.condition.howItWorksHeading}
           </h2>
           <div className="mt-4 grid gap-4 md:grid-cols-2">
             {condition.mechanisms.map((m) => (
@@ -95,7 +103,7 @@ export function ConditionDetailView({
         {/* Routine Progression */}
         <section className="mt-10">
           <h2 className="font-display text-2xl font-black text-slate-950">
-            Progressive Home Routine
+            {ui.condition.starterRoutineHeading}
           </h2>
           <div className="mt-4 space-y-3">
             {condition.routineSteps.map((step) => (
@@ -104,7 +112,9 @@ export function ConditionDetailView({
                 className="flex flex-col justify-between gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:flex-row sm:items-center"
               >
                 <div>
-                  <p className="text-sm font-black text-slate-950">{step.phase}</p>
+                  <p className="text-sm font-black text-slate-950">
+                    {step.phase}
+                  </p>
                   <p className="mt-1 text-sm text-slate-700">{step.action}</p>
                 </div>
                 <span className="shrink-0 self-start rounded-xl bg-slate-950 px-3.5 py-1.5 text-xs font-bold text-emerald-400 sm:self-center">
@@ -122,17 +132,18 @@ export function ConditionDetailView({
         </div>
 
         {/* CTA */}
-        {recProduct && (
+        {recProduct && recLocalized && (
           <div className="mt-10 flex flex-col justify-between gap-5 rounded-3xl bg-slate-950 p-7 text-white md:flex-row md:items-center">
             <div>
               <p className="text-xs font-bold uppercase text-emerald-400">
-                Best-Match Evminov Board
+                {ui.condition.recommendedBoardLabel}
               </p>
               <h2 className="mt-1 font-display text-2xl font-black">
-                {recProduct.localizedNames[lang] || recProduct.name}
+                {recLocalized.name}
               </h2>
               <p className="mt-1 text-sm text-slate-300">
-                From {formatUSD(recProduct.directPriceUsd)} • HSA/FSA Itemized Receipt • 60-Day Home Trial
+                {ui.common.fromLabel} {formatUSD(recProduct.directPriceUsd)} •{" "}
+                {ui.common.hsaFsaReceiptBadge} • {ui.common.homeTrialBadge}
               </p>
             </div>
             <div className="flex flex-wrap gap-2.5">
@@ -140,7 +151,7 @@ export function ConditionDetailView({
                 href={getLocalizedHref("/calculator/", lang)}
                 className="rounded-xl border border-white/25 px-4 py-3 text-xs font-bold text-white hover:bg-white/10"
               >
-                Calculate Exact Angle
+                {ui.common.calculateExactAngle}
               </Link>
               <Link
                 href={buildPrefilledOrderUrl({
@@ -151,7 +162,7 @@ export function ConditionDetailView({
                 })}
                 className="inline-flex items-center gap-2 rounded-xl bg-emerald-400 px-5 py-3 text-xs font-black text-slate-950 hover:bg-emerald-300"
               >
-                <span>Order Board</span>
+                <span>{ui.common.orderBoard}</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
@@ -162,7 +173,7 @@ export function ConditionDetailView({
         {condition.faqs.length > 0 && (
           <section className="mt-12">
             <h2 className="font-display text-2xl font-black text-slate-950">
-              Questions &amp; Answers
+              {ui.condition.qaHeading}
             </h2>
             <div className="mt-4 space-y-3">
               {condition.faqs.map((f) => (
@@ -174,7 +185,9 @@ export function ConditionDetailView({
                   <summary className="cursor-pointer font-bold text-slate-950">
                     {f.q}
                   </summary>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{f.a}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                    {f.a}
+                  </p>
                 </details>
               ))}
             </div>
@@ -183,18 +196,21 @@ export function ConditionDetailView({
 
         <div className="mt-12 border-t border-slate-200 pt-8">
           <p className="text-xs font-bold uppercase text-slate-500">
-            Other Spine Goals
+            {ui.condition.otherSpineGoals}
           </p>
           <div className="mt-3 flex flex-wrap gap-2">
-            {CONDITIONS.filter((c) => c.slug !== condition.slug).map((c) => (
-              <Link
-                key={c.slug}
-                href={getLocalizedHref(`/conditions/${c.slug}/`, lang)}
-                className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-bold text-slate-800 hover:border-teal-600"
-              >
-                {c.shortTitle}
-              </Link>
-            ))}
+            {CONDITIONS.filter((c) => c.slug !== condition.slug).map((raw) => {
+              const c = getLocalizedCondition(raw, lang);
+              return (
+                <Link
+                  key={c.slug}
+                  href={getLocalizedHref(`/conditions/${c.slug}/`, lang)}
+                  className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-bold text-slate-800 hover:border-teal-600"
+                >
+                  {c.shortTitle}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </article>

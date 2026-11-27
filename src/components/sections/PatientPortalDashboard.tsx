@@ -25,6 +25,16 @@ import {
   Wrench,
 } from "lucide-react";
 import { Locale } from "@/i18n/types";
+import {
+  LOCALIZED_CONTRAINDICATIONS,
+  PORTAL_UI_COPY,
+} from "@/i18n/locales/portal";
+import {
+  CALCULATOR_COPY,
+  getLocalizedBoardRecReason,
+  getLocalizedProduct,
+} from "@/i18n/locales/catalog";
+import { getLocalizedExercises } from "@/i18n/locales/faq-and-exercises";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { getLocalizedHref } from "@/lib/url";
 import {
@@ -36,7 +46,6 @@ import {
   recommendIncline,
 } from "@/lib/physics";
 import { PRODUCTS } from "@/data/products";
-import { CONTRAINDICATIONS, EXERCISE_PROTOCOLS } from "@/data/heritage";
 import { EvminovBrandLockup } from "@/components/brand/EvminovLogo";
 import { LiteYouTube } from "@/components/ui/LiteYouTube";
 import { sendGTMEvent } from "@/lib/gtm";
@@ -74,12 +83,12 @@ const DEFAULT_PORTAL_STATE: PortalSavedState = {
   comfortLog: [
     {
       id: "starter-1",
-      dateLabel: "Starter Baseline",
+      dateLabel: "12° • 10 min",
       angle: 12,
       minutes: 10,
       beforeScore: 6,
       afterScore: 3,
-      note: "Gentle evening lumbar unloading at 12 degrees followed by 2-minute side-roll rest.",
+      note: "12° • 10 min",
     },
   ],
 };
@@ -230,43 +239,20 @@ const PORTAL_COPY: Record<Locale, PortalCopy> = {
   },
 };
 
-const MOUNT_STEPS = [
-  {
-    id: "stud-finder",
-    title: "Locate solid 16-inch on-center wood wall stud (or concrete/brick anchor wall)",
-    detail:
-      "Never anchor the upper load bracket into hollow drywall alone. Use an electronic stud finder to verify the center of a load-bearing 2×4 wood stud, or use the optional No-Drill Free-Standing Ladder Stand for rental apartments.",
-  },
-  {
-    id: "height-mark",
-    title: "Measure 78\"–86\" vertical mounting height with 8 ft ceiling clearance",
-    detail:
-      "Mark two vertical mounting points along the stud center. Ensure at least 7.5 ft of clear floor space extending out from the wall for comfortable 10°–30° inclines.",
-  },
-  {
-    id: "lag-bolts",
-    title: "Pre-drill pilot holes and torque steel lag bolts securely",
-    detail:
-      "Pre-drill 1/8\"–3/16\" pilot holes into the wood stud so the timber does not split, then tighten the heavy-duty top bracket flush against the wall.",
-  },
-  {
-    id: "cable-check",
-    title: "Test braided steel anchor cable, quick-pin lock, and gliding carriage",
-    detail:
-      "Clip the braided cable onto the upper anchor hook, lock the height carriage pin cleanly through the board frame, and apply firm downward hand pressure before lying down.",
-  },
-];
-
-const GOALS: Array<{ key: ConditionGoal; label: string }> = [
-  { key: "hernia", label: "L4–S1 Disc Comfort" },
-  { key: "sciatica", label: "Sciatica Mobility" },
-  { key: "posture", label: "Desk & Tech-Neck" },
-  { key: "athlete", label: "Athlete Recovery" },
-  { key: "pediatric", label: "Youth & Family" },
+const GOAL_KEYS: ConditionGoal[] = [
+  "hernia",
+  "sciatica",
+  "posture",
+  "athlete",
+  "pediatric",
 ];
 
 export function PatientPortalDashboard({ lang }: { lang: Locale }) {
   const copy = PORTAL_COPY[lang];
+  const ui = PORTAL_UI_COPY[lang];
+  const calcCopy = CALCULATOR_COPY[lang];
+  const contra = LOCALIZED_CONTRAINDICATIONS[lang];
+
   const rawStored = useSyncExternalStore(
     subscribePortalStore,
     getPortalSnapshot,
@@ -299,19 +285,16 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
 
   const [activeTab, setActiveTab] = useState<PortalTab>("overview");
 
-  // Owner Access form fields
   const [nameInput, setNameInput] = useState("");
   const [emailInput, setEmailInput] = useState("");
   const [orderInput, setOrderInput] = useState("");
   const [profileNotice, setProfileNotice] = useState<string | null>(null);
 
-  // Session Timer state
   const [presetMinutes, setPresetMinutes] = useState(10);
   const [secondsLeft, setSecondsLeft] = useState(600);
   const [timerRunning, setTimerRunning] = useState(false);
   const [sessionCompletedBanner, setSessionCompletedBanner] = useState(false);
 
-  // Spine Biometrics & Comfort Log state
   const [goal, setGoal] = useState<ConditionGoal>("hernia");
   const [weightLbs, setWeightLbs] = useState(175);
   const [heightIn, setHeightIn] = useState(70);
@@ -320,7 +303,6 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
   const [afterScore, setAfterScore] = useState(3);
   const [comfortNote, setComfortNote] = useState("");
 
-  // Warranty Registration form state
   const [warrantyModel, setWarrantyModel] = useState(PRODUCTS[0].slug);
   const [warrantyFinish, setWarrantyFinish] = useState("Light Natural Pine");
   const [warrantyName, setWarrantyName] = useState("");
@@ -334,6 +316,9 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
   const physics = calculateTractionPhysics(weightLbs, angle);
   const inclineRec = recommendIncline(goal);
   const boardRec = recommendBoardModel(weightLbs, heightIn, false);
+  const matchedProd =
+    PRODUCTS.find((p) => p.slug === boardRec.slug) || PRODUCTS[0];
+  const matchedProdLocalized = getLocalizedProduct(matchedProd, lang);
 
   const isOwnerLinked = Boolean(savedState.ownerEmail || savedState.orderRef);
   const completedCount = savedState.completedDays.length;
@@ -367,12 +352,12 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
     const trimmedOrder = orderInput.trim().toUpperCase();
     const trimmedName = nameInput.trim();
     if (!trimmedEmail && !trimmedOrder) {
-      setProfileNotice("Enter your email or Evminov order reference (e.g. EV-8492A1).");
+      setProfileNotice(ui.profileMissingMsg);
       return;
     }
     const nextState: PortalSavedState = {
       ...savedState,
-      ownerName: trimmedName || savedState.ownerName || "Evminov Board Owner",
+      ownerName: trimmedName || savedState.ownerName || ui.defaultOwnerName,
       ownerEmail: trimmedEmail || savedState.ownerEmail,
       orderRef: trimmedOrder || savedState.orderRef || "OWNER-VERIFIED",
     };
@@ -380,7 +365,7 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
     setWarrantyName(nextState.ownerName);
     setWarrantyEmail(nextState.ownerEmail);
     setWarrantyOrderRef(nextState.orderRef);
-    setProfileNotice("Workspace personalized. Your HSA/FSA sheet and warranty form are pre-filled.");
+    setProfileNotice(ui.profileSavedMsg);
     sendGTMEvent("portal_profile_activated", { has_order_ref: Boolean(trimmedOrder) });
   };
 
@@ -428,7 +413,7 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
 
   const handleAddComfortLog = (e: React.FormEvent) => {
     e.preventDefault();
-    const dateLabel = new Date().toLocaleDateString("en-US", {
+    const dateLabel = new Date().toLocaleDateString(lang, {
       month: "short",
       day: "numeric",
     });
@@ -439,9 +424,7 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
       minutes: presetMinutes,
       beforeScore,
       afterScore,
-      note:
-        comfortNote.trim() ||
-        `Completed ${presetMinutes}-min gentle unloading at ${angle}° incline.`,
+      note: comfortNote.trim() || ui.defaultLogNote(presetMinutes, angle),
     };
     writePortalState({
       ...savedState,
@@ -458,7 +441,7 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
     const finalOrder = (warrantyOrderRef || savedState.orderRef).trim();
 
     if (!finalEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(finalEmail)) {
-      setWarrantyError("Please enter a valid email address for your warranty certificate.");
+      setWarrantyError(ui.warrantyInvalidEmail);
       return;
     }
 
@@ -473,7 +456,7 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           mode: "warranty_registration",
-          name: finalName || "Evminov Board Owner",
+          name: finalName || ui.defaultOwnerName,
           email: finalEmail,
           product: selectedProduct.slug,
           productName: selectedProduct.name,
@@ -485,17 +468,19 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
           lang,
         }),
       });
-      const json = (await res.json()) as { ok?: boolean; orderRef?: string; error?: string };
+      const json = (await res.json()) as {
+        ok?: boolean;
+        orderRef?: string;
+        error?: string;
+      };
       if (!res.ok || !json.ok) {
-        throw new Error(json.error || "Unable to register warranty right now.");
+        throw new Error(json.error || ui.warrantyErrorFallback);
       }
       setWarrantyRefResult(json.orderRef || "EV-WARRANTY-OK");
       sendGTMEvent("warranty_registered", { product_slug: selectedProduct.slug });
     } catch (err) {
       setWarrantyError(
-        err instanceof Error
-          ? err.message
-          : "Network error — please email support@evminovusa.com or call +1 (747) 306-0140."
+        err instanceof Error ? err.message : ui.warrantyNetError
       );
     } finally {
       setWarrantyBusy(false);
@@ -513,7 +498,7 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
     { id: "warranty", label: copy.tabs.warranty, icon: ShieldCheck },
   ];
 
-  const featuredExercises = EXERCISE_PROTOCOLS.slice(0, 6);
+  const featuredExercises = getLocalizedExercises(lang).slice(0, 6);
 
   return (
     <div className="bg-slate-50/70 pb-20">
@@ -539,15 +524,15 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
               <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold text-slate-200">
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5">
                   <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
-                  30-Day Habit Tracker
+                  {ui.heroPills[0]}
                 </span>
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5">
                   <CheckCircle2 className="h-3.5 w-3.5 text-sky-400" />
-                  Guided Decompression Timer
+                  {ui.heroPills[1]}
                 </span>
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5">
                   <CheckCircle2 className="h-3.5 w-3.5 text-amber-300" />
-                  Printable HSA/FSA LMN Kit
+                  {ui.heroPills[2]}
                 </span>
               </div>
             </div>
@@ -567,7 +552,7 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                             {copy.signedInAs}
                           </p>
                           <p className="text-base font-extrabold text-white">
-                            {savedState.ownerName || "Evminov Board Owner"}
+                            {savedState.ownerName || ui.defaultOwnerName}
                           </p>
                         </div>
                       </div>
@@ -582,22 +567,20 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
 
                     <div className="grid grid-cols-2 gap-3 rounded-2xl border border-white/10 bg-black/20 p-3.5 text-xs">
                       <div>
-                        <p className="text-slate-400">Order Reference</p>
+                        <p className="text-slate-400">{ui.orderRefLabel}</p>
                         <p className="mt-0.5 font-mono font-bold text-white">
                           {savedState.orderRef || "EV-OWNER"}
                         </p>
                       </div>
                       <div>
-                        <p className="text-slate-400">Registered Email</p>
+                        <p className="text-slate-400">{ui.registeredEmailLabel}</p>
                         <p className="mt-0.5 truncate font-semibold text-white">
-                          {savedState.ownerEmail || "Preview Mode"}
+                          {savedState.ownerEmail || ui.previewModeValue}
                         </p>
                       </div>
                     </div>
 
-                    <p className="text-xs text-slate-300">
-                      Your name and order reference are synced locally to this browser for quick HSA/FSA printing and 10-year warranty registration.
-                    </p>
+                    <p className="text-xs text-slate-300">{ui.localSyncNote}</p>
                   </div>
                 ) : (
                   <form onSubmit={handleSaveOwnerProfile} className="space-y-3">
@@ -606,7 +589,7 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                         {copy.ownerCardTitle}
                       </h2>
                       <span className="rounded-full bg-emerald-500/20 px-2.5 py-0.5 text-[10px] font-bold text-emerald-300">
-                        Interactive Preview Active
+                        {ui.previewBadge}
                       </span>
                     </div>
                     <p className="text-xs leading-relaxed text-slate-300">
@@ -618,16 +601,16 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                         type="text"
                         value={nameInput}
                         onChange={(e) => setNameInput(e.target.value)}
-                        placeholder="Full Name"
-                        aria-label="Owner Full Name"
+                        placeholder={ui.namePlaceholder}
+                        aria-label={ui.namePlaceholder}
                         className="w-full rounded-xl border border-white/15 bg-white/10 px-3.5 py-2 text-xs text-white placeholder:text-slate-400 focus:border-emerald-400 focus:outline-none"
                       />
                       <input
                         type="text"
                         value={orderInput}
                         onChange={(e) => setOrderInput(e.target.value)}
-                        placeholder="Order Ref (e.g. EV-8492A1)"
-                        aria-label="Order Reference"
+                        placeholder={ui.orderPlaceholder}
+                        aria-label={ui.orderRefLabel}
                         className="w-full rounded-xl border border-white/15 bg-white/10 px-3.5 py-2 text-xs text-white placeholder:text-slate-400 focus:border-emerald-400 focus:outline-none"
                       />
                     </div>
@@ -635,13 +618,15 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                       type="email"
                       value={emailInput}
                       onChange={(e) => setEmailInput(e.target.value)}
-                      placeholder="owner@email.com"
-                      aria-label="Owner Email"
+                      placeholder={ui.emailPlaceholder}
+                      aria-label={ui.registeredEmailLabel}
                       className="w-full rounded-xl border border-white/15 bg-white/10 px-3.5 py-2 text-xs text-white placeholder:text-slate-400 focus:border-emerald-400 focus:outline-none"
                     />
 
                     {profileNotice && (
-                      <p className="text-xs font-medium text-emerald-300">{profileNotice}</p>
+                      <p className="text-xs font-medium text-emerald-300">
+                        {profileNotice}
+                      </p>
                     )}
 
                     <button
@@ -663,7 +648,7 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
         <div className="mx-auto max-w-7xl px-4">
           <div
             role="tablist"
-            aria-label="Patient Portal Workspace Sections"
+            aria-label={ui.tablistAria}
             className="no-scrollbar flex items-center gap-1.5 overflow-x-auto py-3"
           >
             {tabItems.map((tab) => {
@@ -682,7 +667,9 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                       : "bg-slate-100/80 text-slate-600 hover:bg-slate-200/70 hover:text-slate-950"
                   }`}
                 >
-                  <Icon className={`h-4 w-4 ${active ? "text-emerald-400" : "text-slate-500"}`} />
+                  <Icon
+                    className={`h-4 w-4 ${active ? "text-emerald-400" : "text-slate-500"}`}
+                  />
                   <span>{tab.label}</span>
                 </button>
               );
@@ -696,23 +683,22 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
         {/* TAB 1: OVERVIEW & 30-DAY PLAN */}
         {activeTab === "overview" && (
           <div className="space-y-8">
-            {/* Top 4 Clinical Telemetry Cards */}
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
                 <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                  Target Starting Angle
+                  {ui.kpiAngleLabel}
                 </p>
                 <p className="mt-2 font-display text-3xl font-black text-[#0B1F3A]">
                   {angle}°
                 </p>
-                <p className="mt-1 text-xs text-emerald-700 font-semibold">
-                  ~{physics.netTractionLbs} lbs smooth axial pull
+                <p className="mt-1 text-xs font-semibold text-emerald-700">
+                  ~{physics.netTractionLbs} {ui.kpiAngleSubSuffix}
                 </p>
               </div>
 
               <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
                 <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                  30-Day Consistency
+                  {ui.kpiConsistencyLabel}
                 </p>
                 <p className="mt-2 font-display text-3xl font-black text-emerald-700">
                   {completedCount} / 30
@@ -727,33 +713,33 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
 
               <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
                 <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                  Wall Mount Readiness
+                  {ui.kpiMountLabel}
                 </p>
                 <p className="mt-2 font-display text-3xl font-black text-[#0B1F3A]">
-                  {savedState.mountChecklist.length} / {MOUNT_STEPS.length}
+                  {savedState.mountChecklist.length} / {ui.mountSteps.length}
                 </p>
                 <button
                   type="button"
                   onClick={() => setActiveTab("documents")}
                   className="mt-1 text-xs font-bold text-teal-700 hover:underline"
                 >
-                  Open 16&quot; Stud Checklist →
+                  {ui.kpiMountLink}
                 </button>
               </div>
 
               <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
                 <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                  Structural Protection
+                  {ui.kpiWarrantyLabel}
                 </p>
                 <p className="mt-2 font-display text-3xl font-black text-[#0B1F3A]">
-                  10 Years
+                  {ui.kpiWarrantyVal}
                 </p>
                 <button
                   type="button"
                   onClick={() => setActiveTab("warranty")}
                   className="mt-1 text-xs font-bold text-teal-700 hover:underline"
                 >
-                  Register Frame Warranty →
+                  {ui.kpiWarrantyLink}
                 </button>
               </div>
             </div>
@@ -763,14 +749,12 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <div>
                   <span className="text-xs font-extrabold uppercase tracking-wider text-teal-700">
-                    Progressive Spine Adaptation
+                    {ui.trackerEyebrow}
                   </span>
                   <h2 className="mt-1 font-display text-2xl font-black text-slate-950">
-                    30-Day Guided Decompression Tracker
+                    {ui.trackerHeading}
                   </h2>
-                  <p className="mt-1 text-sm text-slate-600">
-                    Click any day to check off your 10-minute session. Saved privately in your browser.
-                  </p>
+                  <p className="mt-1 text-sm text-slate-600">{ui.trackerSub}</p>
                 </div>
                 <button
                   type="button"
@@ -778,39 +762,31 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                   className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-emerald-700"
                 >
                   <Play className="h-4 w-4 fill-current" />
-                  Start Today&apos;s Session Timer
+                  {ui.startTimerBtn}
                 </button>
               </div>
 
-              {/* 3 Phase Badges */}
               <div className="mt-6 grid gap-3 md:grid-cols-3">
                 <div className="rounded-2xl border border-emerald-200 bg-emerald-50/60 p-4">
                   <p className="text-xs font-extrabold uppercase text-emerald-800">
-                    Days 1–10 • Phase 1: Adaptation
+                    {ui.phases[0].badge}
                   </p>
-                  <p className="mt-1 text-xs text-slate-700">
-                    Gentle <strong>10°–15°</strong> incline, 8–10 minutes daily. Focus on calm breathing and relaxing deep lumbar muscles.
-                  </p>
+                  <p className="mt-1 text-xs text-slate-700">{ui.phases[0].text}</p>
                 </div>
                 <div className="rounded-2xl border border-sky-200 bg-sky-50/60 p-4">
                   <p className="text-xs font-extrabold uppercase text-sky-900">
-                    Days 11–20 • Phase 2: Stabilization
+                    {ui.phases[1].badge}
                   </p>
-                  <p className="mt-1 text-xs text-slate-700">
-                    Moderate <strong>15°–20°</strong> incline, 10–12 minutes. Add small-amplitude alternating heel slides and pelvic tilts.
-                  </p>
+                  <p className="mt-1 text-xs text-slate-700">{ui.phases[1].text}</p>
                 </div>
                 <div className="rounded-2xl border border-indigo-200 bg-indigo-50/60 p-4">
                   <p className="text-xs font-extrabold uppercase text-indigo-900">
-                    Days 21–30 • Phase 3: Active Conditioning
+                    {ui.phases[2].badge}
                   </p>
-                  <p className="mt-1 text-xs text-slate-700">
-                    Custom <strong>18°–25°</strong> incline, 12–15 minutes. Combine spine unloading with unloaded core &amp; posture maintenance.
-                  </p>
+                  <p className="mt-1 text-xs text-slate-700">{ui.phases[2].text}</p>
                 </div>
               </div>
 
-              {/* 30-Day Grid */}
               <div className="mt-6 grid grid-cols-5 gap-2.5 sm:grid-cols-6 md:grid-cols-10">
                 {Array.from({ length: 30 }, (_, idx) => idx + 1).map((day) => {
                   const done = savedState.completedDays.includes(day);
@@ -826,7 +802,7 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                           : "border-slate-200 bg-slate-50 text-slate-700 hover:border-teal-500 hover:bg-white"
                       }`}
                     >
-                      <span className="text-[10px] opacity-80">Day</span>
+                      <span className="text-[10px] opacity-80">{ui.dayWord}</span>
                       <span className="text-base font-black">{day}</span>
                     </button>
                   );
@@ -842,10 +818,10 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
               >
                 <Sliders className="h-6 w-6 text-teal-700" />
                 <h3 className="mt-3 font-display text-base font-extrabold text-slate-950">
-                  Full Biomechanical Calculator
+                  {ui.quickLinks[0].title}
                 </h3>
                 <p className="mt-1 text-xs text-slate-600">
-                  Calculate custom angle, net axial pull, and board sizing for family members.
+                  {ui.quickLinks[0].desc}
                 </p>
               </Link>
               <Link
@@ -854,22 +830,25 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
               >
                 <BookOpen className="h-6 w-6 text-emerald-700" />
                 <h3 className="mt-3 font-display text-base font-extrabold text-slate-950">
-                  Unboxing &amp; Owner Review Hub
+                  {ui.quickLinks[1].title}
                 </h3>
                 <p className="mt-1 text-xs text-slate-600">
-                  Quick QR setup video and verified owner feedback channel.
+                  {ui.quickLinks[1].desc}
                 </p>
               </Link>
               <Link
-                href={getLocalizedHref("/order/?product=free-standing-stand&step=2#order-form", lang)}
+                href={getLocalizedHref(
+                  "/order/?product=free-standing-stand&step=2#order-form",
+                  lang
+                )}
                 className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-teal-600 hover:shadow-md"
               >
                 <Wrench className="h-6 w-6 text-amber-600" />
                 <h3 className="mt-3 font-display text-base font-extrabold text-slate-950">
-                  Add No-Drill Stand or Glisson Loop
+                  {ui.quickLinks[2].title}
                 </h3>
                 <p className="mt-1 text-xs text-slate-600">
-                  Order rental-friendly floor stands or extra accessories directly from Glendale, CA.
+                  {ui.quickLinks[2].desc}
                 </p>
               </Link>
             </div>
@@ -880,19 +859,17 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
         {activeTab === "routine" && (
           <div className="space-y-8">
             <div className="grid gap-6 lg:grid-cols-12">
-              {/* Interactive Countdown Timer */}
               <div className="rounded-3xl border border-slate-200 bg-[#0B1F3A] p-6 text-white shadow-lg lg:col-span-5 md:p-8">
                 <p className="text-xs font-extrabold uppercase tracking-wider text-emerald-400">
-                  Guided Session Timer
+                  {ui.timerEyebrow}
                 </p>
                 <h2 className="mt-1 font-display text-2xl font-black">
-                  Calm Inclined Unloading
+                  {ui.timerHeading}
                 </h2>
                 <p className="mt-1 text-xs text-slate-300">
-                  Choose your target duration, set your board to {angle}°, and breathe slowly.
+                  {ui.timerSubPre} {angle}°, {ui.timerSubPost}
                 </p>
 
-                {/* Duration Presets */}
                 <div className="mt-5 flex flex-wrap gap-2">
                   {[8, 10, 12, 15].map((min) => (
                     <button
@@ -905,12 +882,11 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                           : "bg-white/10 text-slate-200 hover:bg-white/20"
                       }`}
                     >
-                      {min} min
+                      {min} {ui.minUnit}
                     </button>
                   ))}
                 </div>
 
-                {/* Digital Readout */}
                 <div className="my-7 flex items-center justify-center rounded-3xl border border-white/10 bg-black/30 py-8">
                   <span className="font-mono text-6xl font-black tracking-tight text-white">
                     {mm}:{ss}
@@ -919,13 +895,13 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
 
                 {sessionCompletedBanner && (
                   <div className="mb-4 rounded-2xl border border-emerald-400/40 bg-emerald-500/20 p-3.5 text-xs text-emerald-100">
-                    <p className="font-bold">Session complete — roll gently to your side before standing!</p>
+                    <p className="font-bold">{ui.sessionCompleteMsg}</p>
                     <button
                       type="button"
                       onClick={markNextDayComplete}
                       className="mt-2 rounded-lg bg-emerald-400 px-3 py-1.5 text-xs font-extrabold text-slate-950 hover:bg-emerald-300"
                     >
-                      Log Next Day in 30-Day Tracker
+                      {ui.logNextDayBtn}
                     </button>
                   </div>
                 )}
@@ -938,19 +914,21 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                   >
                     {timerRunning ? (
                       <>
-                        <Pause className="h-4 w-4" /> Pause
+                        <Pause className="h-4 w-4" /> {ui.pauseBtn}
                       </>
                     ) : (
                       <>
                         <Play className="h-4 w-4 fill-current" />{" "}
-                        {secondsLeft === presetMinutes * 60 ? "Start Session" : "Resume"}
+                        {secondsLeft === presetMinutes * 60
+                          ? ui.startSessionBtn
+                          : ui.resumeBtn}
                       </>
                     )}
                   </button>
                   <button
                     type="button"
                     onClick={() => selectTimerPreset(presetMinutes)}
-                    aria-label="Reset session timer"
+                    aria-label={ui.resetAria}
                     className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/15 bg-white/10 text-white transition hover:bg-white/20"
                   >
                     <RotateCcw className="h-4 w-4" />
@@ -958,89 +936,71 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                 </div>
               </div>
 
-              {/* 3-Stage Protocol Flow */}
               <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm lg:col-span-7 md:p-8">
                 <p className="text-xs font-extrabold uppercase tracking-wider text-teal-700">
-                  Evminov 3-Phase Method Flow
+                  {ui.flowEyebrow}
                 </p>
                 <h2 className="mt-1 font-display text-2xl font-black text-slate-950">
-                  Every Session Follows Three Gentle Stages
+                  {ui.flowHeading}
                 </h2>
 
                 <div className="mt-6 space-y-4">
-                  <div className="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50/70 p-4">
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-teal-700 text-sm font-black text-white">
-                      1
-                    </span>
-                    <div>
-                      <h3 className="text-sm font-extrabold text-slate-950">
-                        Passive Inclined Unloading (First 2–3 Minutes)
-                      </h3>
-                      <p className="mt-1 text-xs leading-relaxed text-slate-600">
-                        Lie centered along the resonant pine deck holding the overhead carriage handles. Let shoulders drop and take slow 4-second inhales and 6-second exhales.
-                      </p>
+                  {ui.flowSteps.map((st, idx) => (
+                    <div
+                      key={st.title}
+                      className="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50/70 p-4"
+                    >
+                      <span
+                        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-sm font-black text-white ${
+                          idx === 0
+                            ? "bg-teal-700"
+                            : idx === 1
+                            ? "bg-emerald-600"
+                            : "bg-[#0B1F3A]"
+                        }`}
+                      >
+                        {idx + 1}
+                      </span>
+                      <div>
+                        <h3 className="text-sm font-extrabold text-slate-950">
+                          {st.title}
+                        </h3>
+                        <p className="mt-1 text-xs leading-relaxed text-slate-600">
+                          {st.desc}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-
-                  <div className="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50/70 p-4">
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-emerald-600 text-sm font-black text-white">
-                      2
-                    </span>
-                    <div>
-                      <h3 className="text-sm font-extrabold text-slate-950">
-                        Low-Amplitude Micro-Movements (Middle 5–8 Minutes)
-                      </h3>
-                      <p className="mt-1 text-xs leading-relaxed text-slate-600">
-                        Perform slow, pain-free ankle flexes, single-knee glides, or gentle pelvic tilts while keeping vertebrae gently unloaded. Never jerk, bounce, or force range of motion.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50/70 p-4">
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#0B1F3A] text-sm font-black text-white">
-                      3
-                    </span>
-                    <div>
-                      <h3 className="text-sm font-extrabold text-slate-950">
-                        Calm Equalization &amp; Side-Roll Exit (Final 2 Minutes)
-                      </h3>
-                      <p className="mt-1 text-xs leading-relaxed text-slate-600">
-                        Rest calmly at your low incline, bend both knees, roll smoothly onto your side, and rise slowly without twisting the lower back.
-                      </p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
 
-            {/* Official YouTube Video Demonstrations */}
             <div className="grid gap-6 md:grid-cols-2">
               <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
                 <h3 className="mb-3 font-display text-lg font-extrabold text-slate-950">
-                  Official Evminov Method &amp; Exercise Demo
+                  {ui.video1Heading}
                 </h3>
                 <LiteYouTube
                   videoId={SITE_CONFIG.videos.methodDemo.id}
-                  title={SITE_CONFIG.videos.methodDemo.title}
+                  title={ui.video1Heading}
                   thumbnail={SITE_CONFIG.videos.methodDemo.thumbnail}
                 />
               </div>
               <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
                 <h3 className="mb-3 font-display text-lg font-extrabold text-slate-950">
-                  16-Inch US Wood Stud Wall Mounting Guide
+                  {ui.video2Heading}
                 </h3>
                 <LiteYouTube
                   videoId={SITE_CONFIG.videos.wallMounting.id}
-                  title={SITE_CONFIG.videos.wallMounting.title}
+                  title={ui.video2Heading}
                   thumbnail={SITE_CONFIG.videos.wallMounting.thumbnail}
                 />
               </div>
             </div>
 
-            {/* Curated Exercise Protocol Cards */}
             <div>
               <h2 className="font-display text-2xl font-black text-slate-950">
-                Starter Exercise Protocol Library
+                {ui.libraryHeading}
               </h2>
               <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                 {featuredExercises.map((ex) => (
@@ -1078,31 +1038,30 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
         {/* TAB 3: BIOMETRICS & COMFORT LOG */}
         {activeTab === "biometrics" && (
           <div className="grid gap-6 lg:grid-cols-12">
-            {/* Personal Incline Physics */}
             <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm lg:col-span-6 md:p-8">
               <p className="text-xs font-extrabold uppercase tracking-wider text-teal-700">
-                Real-Time Traction Physics
+                {ui.bioEyebrow}
               </p>
               <h2 className="mt-1 font-display text-2xl font-black text-slate-950">
-                Calibrate Your Daily Board Angle
+                {ui.bioHeading}
               </h2>
 
               <div className="mt-5 flex flex-wrap gap-2">
-                {GOALS.map((g) => (
+                {GOAL_KEYS.map((goalKey) => (
                   <button
-                    key={g.key}
+                    key={goalKey}
                     type="button"
                     onClick={() => {
-                      setGoal(g.key);
-                      setAngle(recommendIncline(g.key).startAngle);
+                      setGoal(goalKey);
+                      setAngle(recommendIncline(goalKey).startAngle);
                     }}
                     className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition ${
-                      goal === g.key
+                      goal === goalKey
                         ? "bg-[#0B1F3A] text-white"
                         : "bg-slate-100 text-slate-700 hover:bg-slate-200"
                     }`}
                   >
-                    {g.label}
+                    {calcCopy.goals[goalKey]}
                   </button>
                 ))}
               </div>
@@ -1110,9 +1069,10 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
               <div className="mt-6 space-y-5">
                 <div>
                   <div className="flex justify-between text-xs font-bold text-slate-700">
-                    <span>Body Weight</span>
+                    <span>{ui.weightLabel}</span>
                     <span>
-                      {weightLbs} lbs ({lbsToKg(weightLbs)} kg)
+                      {weightLbs} {calcCopy.lbsUnit} ({lbsToKg(weightLbs)}{" "}
+                      {calcCopy.kgUnit})
                     </span>
                   </div>
                   <input
@@ -1121,14 +1081,14 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                     max={330}
                     value={weightLbs}
                     onChange={(e) => setWeightLbs(Number(e.target.value))}
-                    aria-label="Body Weight in pounds"
+                    aria-label={ui.weightLabel}
                     className="mt-2 w-full accent-teal-700"
                   />
                 </div>
 
                 <div>
                   <div className="flex justify-between text-xs font-bold text-slate-700">
-                    <span>Height</span>
+                    <span>{ui.heightLabel}</span>
                     <span>{inchesToFeet(heightIn)}</span>
                   </div>
                   <input
@@ -1137,16 +1097,17 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                     max={81}
                     value={heightIn}
                     onChange={(e) => setHeightIn(Number(e.target.value))}
-                    aria-label="Height in inches"
+                    aria-label={ui.heightLabel}
                     className="mt-2 w-full accent-teal-700"
                   />
                 </div>
 
                 <div>
                   <div className="flex justify-between text-xs font-bold text-slate-700">
-                    <span>Board Incline Angle</span>
+                    <span>{ui.angleLabel}</span>
                     <span className="text-emerald-700">
-                      {angle}° (Recommended: {inclineRec.startAngle}°–{inclineRec.maxAngle}°)
+                      {angle}° ({ui.recommendedWord}: {inclineRec.startAngle}°–
+                      {inclineRec.maxAngle}°)
                     </span>
                   </div>
                   <input
@@ -1155,7 +1116,7 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                     max={35}
                     value={angle}
                     onChange={(e) => setAngle(Number(e.target.value))}
-                    aria-label="Board incline angle in degrees"
+                    aria-label={ui.angleLabel}
                     className="mt-2 w-full accent-emerald-600"
                   />
                 </div>
@@ -1163,19 +1124,19 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
 
               <div className="mt-6 grid grid-cols-3 gap-3 rounded-2xl bg-slate-950 p-4 text-center text-white">
                 <div>
-                  <p className="text-[11px] text-slate-400">Net Pull</p>
+                  <p className="text-[11px] text-slate-400">{ui.netPullLabel}</p>
                   <p className="mt-1 text-xl font-black text-emerald-400">
-                    {physics.netTractionLbs} lbs
+                    {physics.netTractionLbs} {calcCopy.pullUnit}
                   </p>
                 </div>
                 <div>
-                  <p className="text-[11px] text-slate-400">% Body Weight</p>
+                  <p className="text-[11px] text-slate-400">{ui.pctBwLabel}</p>
                   <p className="mt-1 text-xl font-black text-sky-400">
                     {physics.percentBodyWeight}%
                   </p>
                 </div>
                 <div>
-                  <p className="text-[11px] text-slate-400">Est. Unloading</p>
+                  <p className="text-[11px] text-slate-400">{ui.estUnloadLabel}</p>
                   <p className="mt-1 text-xl font-black text-white">
                     ~{physics.estimatedDiscUnloadingPct}%
                   </p>
@@ -1183,25 +1144,25 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
               </div>
 
               <p className="mt-4 text-xs text-slate-600">
-                <strong className="text-slate-900">Matched Board Size:</strong> {boardRec.modelName} —{" "}
-                {boardRec.reason}
+                <strong className="text-slate-900">{ui.matchedBoardLabel}</strong>{" "}
+                {matchedProdLocalized.name} —{" "}
+                {getLocalizedBoardRecReason(boardRec.slug, lang)}
               </p>
             </div>
 
-            {/* Comfort Check-In Journal */}
             <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm lg:col-span-6 md:p-8">
               <p className="text-xs font-extrabold uppercase tracking-wider text-teal-700">
-                Personal Comfort Log (Local Only)
+                {ui.logEyebrow}
               </p>
               <h2 className="mt-1 font-display text-2xl font-black text-slate-950">
-                Track Stiffness Before &amp; After
+                {ui.logHeading}
               </h2>
 
               <form onSubmit={handleAddComfortLog} className="mt-5 space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="rounded-2xl border border-slate-200 p-3.5">
                     <div className="flex justify-between text-xs font-bold text-slate-700">
-                      <span>Before Session</span>
+                      <span>{ui.beforeLabel}</span>
                       <span className="text-amber-600">{beforeScore} / 10</span>
                     </div>
                     <input
@@ -1210,13 +1171,13 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                       max={10}
                       value={beforeScore}
                       onChange={(e) => setBeforeScore(Number(e.target.value))}
-                      aria-label="Stiffness score before session"
+                      aria-label={ui.beforeLabel}
                       className="mt-2 w-full accent-amber-500"
                     />
                   </div>
                   <div className="rounded-2xl border border-slate-200 p-3.5">
                     <div className="flex justify-between text-xs font-bold text-slate-700">
-                      <span>After Session</span>
+                      <span>{ui.afterLabel}</span>
                       <span className="text-emerald-600">{afterScore} / 10</span>
                     </div>
                     <input
@@ -1225,7 +1186,7 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                       max={10}
                       value={afterScore}
                       onChange={(e) => setAfterScore(Number(e.target.value))}
-                      aria-label="Stiffness score after session"
+                      aria-label={ui.afterLabel}
                       className="mt-2 w-full accent-emerald-600"
                     />
                   </div>
@@ -1235,8 +1196,8 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                   type="text"
                   value={comfortNote}
                   onChange={(e) => setComfortNote(e.target.value)}
-                  placeholder="Optional note (e.g. felt looser after 10 min at 15°)"
-                  aria-label="Session comfort note"
+                  placeholder={ui.notePlaceholder}
+                  aria-label={ui.notePlaceholder}
                   className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:border-teal-600 focus:outline-none"
                 />
 
@@ -1245,7 +1206,7 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                   className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#0B1F3A] px-4 py-2.5 text-sm font-bold text-white transition hover:bg-teal-800"
                 >
                   <Activity className="h-4 w-4 text-emerald-400" />
-                  Save Comfort Entry
+                  {ui.saveEntryBtn}
                 </button>
               </form>
 
@@ -1257,10 +1218,11 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                   >
                     <div className="flex flex-wrap items-center justify-between gap-2 font-bold text-slate-900">
                       <span>
-                        {entry.dateLabel} • {entry.angle}° • {entry.minutes} min
+                        {entry.dateLabel} • {entry.angle}° • {entry.minutes}{" "}
+                        {ui.minUnit}
                       </span>
                       <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-emerald-800">
-                        Tension: {entry.beforeScore} → {entry.afterScore}
+                        {ui.tensionWord}: {entry.beforeScore} → {entry.afterScore}
                       </span>
                     </div>
                     <p className="mt-1 text-slate-600">{entry.note}</p>
@@ -1274,13 +1236,13 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
         {/* TAB 4: HSA/FSA PRINTABLE KIT, 16" STUD MOUNTING & SAFETY */}
         {activeTab === "documents" && (
           <div className="space-y-8">
-            {/* Printable HSA/FSA Reference Sheet */}
             <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
               <div className="flex flex-wrap items-start justify-between gap-4 border-b border-slate-200 pb-6">
                 <div>
                   <EvminovBrandLockup size={34} />
                   <p className="mt-2 text-xs font-semibold text-slate-500">
-                    {SITE_CONFIG.address.full} • {SITE_CONFIG.phoneDisplay} • {SITE_CONFIG.supportEmail}
+                    {SITE_CONFIG.address.full} • {SITE_CONFIG.phoneDisplay} •{" "}
+                    {SITE_CONFIG.supportEmail}
                   </p>
                 </div>
                 <button
@@ -1289,39 +1251,47 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                   className="no-print inline-flex items-center gap-2 rounded-full bg-[#0B1F3A] px-5 py-2.5 text-xs font-bold text-white transition hover:bg-teal-800"
                 >
                   <Printer className="h-4 w-4 text-emerald-400" />
-                  Print / Save PDF Sheet
+                  {ui.printBtn}
                 </button>
               </div>
 
               <div className="mt-6">
                 <h2 className="font-display text-xl font-black text-slate-950">
-                  HSA / FSA Reimbursement &amp; Letter of Medical Necessity (LMN) Reference Guide
+                  {ui.hsaHeading}
                 </h2>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                  {SITE_CONFIG.compliance.hsaFsaNote}
+                  {ui.hsaNote}
                 </p>
 
                 <div className="mt-5 grid gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-5 text-xs sm:grid-cols-2">
                   <div>
-                    <p className="font-bold text-slate-500 uppercase">Owner / Patient Name</p>
+                    <p className="font-bold uppercase text-slate-500">
+                      {ui.ownerFieldLabel}
+                    </p>
                     <p className="mt-0.5 text-sm font-extrabold text-slate-950">
                       {savedState.ownerName || "____________________________"}
                     </p>
                   </div>
                   <div>
-                    <p className="font-bold text-slate-500 uppercase">Evminov Order Reference</p>
+                    <p className="font-bold uppercase text-slate-500">
+                      {ui.orderFieldLabel}
+                    </p>
                     <p className="mt-0.5 font-mono text-sm font-extrabold text-slate-950">
                       {savedState.orderRef || "____________________________"}
                     </p>
                   </div>
                   <div>
-                    <p className="font-bold text-slate-500 uppercase">Equipment Classification</p>
+                    <p className="font-bold uppercase text-slate-500">
+                      {ui.classFieldLabel}
+                    </p>
                     <p className="mt-0.5 font-semibold text-slate-900">
                       {SITE_CONFIG.compliance.classification}
                     </p>
                   </div>
                   <div>
-                    <p className="font-bold text-slate-500 uppercase">International Patent Registry</p>
+                    <p className="font-bold uppercase text-slate-500">
+                      {ui.patentFieldLabel}
+                    </p>
                     <p className="mt-0.5 font-semibold text-slate-900">
                       {SITE_CONFIG.compliance.patentsSummary}
                     </p>
@@ -1330,36 +1300,28 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
 
                 <div className="mt-5 rounded-2xl border border-sky-200 bg-sky-50/70 p-4 text-xs leading-relaxed text-slate-700">
                   <p className="font-extrabold text-sky-950">
-                    3 Steps to Submit to Your HSA / FSA Administrator:
+                    {ui.hsaStepsTitle}
                   </p>
                   <ol className="mt-2 list-decimal space-y-1 pl-4">
-                    <li>
-                      Request a brief Letter of Medical Necessity (LMN) from your physician, chiropractor, or physical therapist stating that inclined home spinal unloading equipment supports your musculoskeletal care plan.
-                    </li>
-                    <li>
-                      Attach your itemized Evminov Spine Systems USA invoice (emailed automatically from{" "}
-                      <strong>{SITE_CONFIG.ordersEmail}</strong> upon order confirmation).
-                    </li>
-                    <li>
-                      Upload both documents to your HSA/FSA plan portal. Eligibility varies by individual benefit administrator.
-                    </li>
+                    {ui.hsaSteps.map((step) => (
+                      <li key={step}>{step}</li>
+                    ))}
                   </ol>
                 </div>
               </div>
             </div>
 
-            {/* Interactive 16" US Wood Stud Mounting Checklist */}
             <div className="no-print rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
               <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-teal-700">
                 <ClipboardCheck className="h-4 w-4" />
-                <span>North American Home Installation</span>
+                <span>{ui.mountEyebrow}</span>
               </div>
               <h2 className="mt-1 font-display text-2xl font-black text-slate-950">
-                16-Inch US Wood Stud Mounting Safety Checklist
+                {ui.mountHeading}
               </h2>
 
               <div className="mt-5 space-y-3">
-                {MOUNT_STEPS.map((step) => {
+                {ui.mountSteps.map((step) => {
                   const checked = savedState.mountChecklist.includes(step.id);
                   return (
                     <label
@@ -1377,8 +1339,12 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                         className="mt-1 h-4 w-4 rounded accent-emerald-600"
                       />
                       <div>
-                        <p className="text-sm font-extrabold text-slate-950">{step.title}</p>
-                        <p className="mt-1 text-xs leading-relaxed text-slate-600">{step.detail}</p>
+                        <p className="text-sm font-extrabold text-slate-950">
+                          {step.title}
+                        </p>
+                        <p className="mt-1 text-xs leading-relaxed text-slate-600">
+                          {step.detail}
+                        </p>
                       </div>
                     </label>
                   );
@@ -1386,35 +1352,40 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
               </div>
             </div>
 
-            {/* Safety & Contraindications Reference */}
             <div className="rounded-3xl border border-amber-200 bg-amber-50/60 p-6 md:p-8">
               <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-amber-800">
                 <ShieldAlert className="h-4 w-4" />
-                <span>Important Safety &amp; Contraindications</span>
+                <span>{ui.safetyEyebrow}</span>
               </div>
               <h2 className="mt-1 font-display text-xl font-black text-slate-950">
-                When to Consult a Physician Before Inclined Training
+                {ui.safetyHeading}
               </h2>
 
-              <div className="mt-4 grid gap-6 md:grid-cols-2 text-xs text-slate-700">
+              <div className="mt-4 grid gap-6 text-xs text-slate-700 md:grid-cols-2">
                 <div>
-                  <p className="font-extrabold text-slate-950">Do Not Use During:</p>
+                  <p className="font-extrabold text-slate-950">
+                    {ui.doNotUseLabel}
+                  </p>
                   <ul className="mt-2 list-disc space-y-1.5 pl-4">
-                    {CONTRAINDICATIONS.absolute.map((item) => (
+                    {contra.absolute.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
                   </ul>
                 </div>
                 <div>
-                  <p className="font-extrabold text-slate-950">Physician Clearance Recommended For:</p>
+                  <p className="font-extrabold text-slate-950">
+                    {ui.clearanceLabel}
+                  </p>
                   <ul className="mt-2 list-disc space-y-1.5 pl-4">
-                    {CONTRAINDICATIONS.precautions.map((item) => (
+                    {contra.precautions.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
                   </ul>
-                  <p className="mt-4 font-extrabold text-slate-950">Daily Equipment Checks:</p>
+                  <p className="mt-4 font-extrabold text-slate-950">
+                    {ui.dailyChecksLabel}
+                  </p>
                   <ul className="mt-2 list-disc space-y-1.5 pl-4">
-                    {CONTRAINDICATIONS.safetyRules.map((item) => (
+                    {contra.safetyRules.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
                   </ul>
@@ -1427,31 +1398,28 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
         {/* TAB 5: 10-YEAR WARRANTY REGISTRATION & GLENDALE SUPPORT */}
         {activeTab === "warranty" && (
           <div className="grid gap-6 lg:grid-cols-12">
-            {/* Live Warranty Registration Form */}
             <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm lg:col-span-7 md:p-8">
               <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-extrabold text-emerald-800">
                 <Award className="h-3.5 w-3.5" />
-                <span>10-Year Structural Frame Guarantee</span>
+                <span>{ui.warrantyBadge}</span>
               </div>
               <h2 className="mt-3 font-display text-2xl font-black text-slate-950">
-                Register Your Evminov Board Warranty
+                {ui.warrantyHeading}
               </h2>
-              <p className="mt-1 text-sm text-slate-600">
-                Protect your Carpathian pine or select alder board with our 10-year structural warranty and priority Glendale, CA parts support.
-              </p>
+              <p className="mt-1 text-sm text-slate-600">{ui.warrantySub}</p>
 
               {warrantyRefResult ? (
                 <div className="mt-6 rounded-2xl border border-emerald-300 bg-emerald-50 p-6">
                   <CheckCircle2 className="h-8 w-8 text-emerald-600" />
                   <h3 className="mt-3 font-display text-lg font-black text-emerald-950">
-                    Warranty Registration Received
+                    {ui.warrantySuccessTitle}
                   </h3>
                   <p className="mt-1 text-sm text-emerald-900">
-                    Confirmation Reference:{" "}
+                    {ui.warrantySuccessRef}{" "}
                     <strong className="font-mono">{warrantyRefResult}</strong>
                   </p>
                   <p className="mt-2 text-xs text-emerald-800">
-                    Our Glendale operations team has logged your 10-year frame warranty and sent confirmation to your email.
+                    {ui.warrantySuccessNote}
                   </p>
                 </div>
               ) : (
@@ -1459,7 +1427,7 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div>
                       <label className="block text-xs font-bold text-slate-700">
-                        Board Model
+                        {ui.modelLabel}
                       </label>
                       <select
                         value={warrantyModel}
@@ -1468,24 +1436,25 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                       >
                         {PRODUCTS.map((p) => (
                           <option key={p.slug} value={p.slug}>
-                            {p.name}
+                            {getLocalizedProduct(p, lang).name}
                           </option>
                         ))}
                       </select>
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-slate-700">
-                        Wood Finish
+                        {ui.finishLabel}
                       </label>
                       <select
                         value={warrantyFinish}
                         onChange={(e) => setWarrantyFinish(e.target.value)}
                         className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm focus:border-teal-600 focus:outline-none"
                       >
-                        <option value="Light Natural Pine">Light Natural Pine</option>
-                        <option value="Dark Walnut Stain">Dark Walnut Stain</option>
-                        <option value="Select Ukrainian Alder">Select Ukrainian Alder</option>
-                        <option value="Free-Standing Stand">Free-Standing Stand</option>
+                        {ui.finishOptions.map((opt) => (
+                          <option key={opt.value} value={opt.value}>
+                            {opt.label}
+                          </option>
+                        ))}
                       </select>
                     </div>
                   </div>
@@ -1493,27 +1462,27 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div>
                       <label className="block text-xs font-bold text-slate-700">
-                        Full Name
+                        {ui.fullNameLabel}
                       </label>
                       <input
                         type="text"
                         required
                         value={warrantyName || savedState.ownerName}
                         onChange={(e) => setWarrantyName(e.target.value)}
-                        placeholder="Jane Doe"
+                        placeholder={ui.namePlaceholder}
                         className="mt-1 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:border-teal-600 focus:outline-none"
                       />
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-slate-700">
-                        Email Address
+                        {ui.emailFieldLabel}
                       </label>
                       <input
                         type="email"
                         required
                         value={warrantyEmail || savedState.ownerEmail}
                         onChange={(e) => setWarrantyEmail(e.target.value)}
-                        placeholder="owner@email.com"
+                        placeholder={ui.emailPlaceholder}
                         className="mt-1 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:border-teal-600 focus:outline-none"
                       />
                     </div>
@@ -1522,19 +1491,19 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div>
                       <label className="block text-xs font-bold text-slate-700">
-                        Order Reference or Serial Number
+                        {ui.orderSerialLabel}
                       </label>
                       <input
                         type="text"
                         value={warrantyOrderRef || savedState.orderRef}
                         onChange={(e) => setWarrantyOrderRef(e.target.value)}
-                        placeholder="e.g. EV-8492A1"
+                        placeholder={ui.orderPlaceholder}
                         className="mt-1 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:border-teal-600 focus:outline-none"
                       />
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-slate-700">
-                        US State / Country
+                        {ui.stateCountryLabel}
                       </label>
                       <input
                         type="text"
@@ -1558,29 +1527,30 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                     className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-sm font-extrabold text-white transition hover:bg-emerald-700 disabled:opacity-60"
                   >
                     <ShieldCheck className="h-4 w-4" />
-                    {warrantyBusy ? "Registering..." : "Activate 10-Year Frame Warranty"}
+                    {warrantyBusy ? ui.registeringBtn : ui.activateWarrantyBtn}
                   </button>
                 </form>
               )}
             </div>
 
-            {/* Glendale CA Direct Support Card */}
             <div className="space-y-4 lg:col-span-5">
               <div className="rounded-3xl border border-slate-200 bg-[#0B1F3A] p-6 text-white shadow-sm md:p-8">
                 <p className="text-xs font-extrabold uppercase tracking-wider text-emerald-400">
-                  Direct North American Support
+                  {ui.supportEyebrow}
                 </p>
                 <h3 className="mt-2 font-display text-xl font-black">
-                  Glendale, California Hub
+                  {ui.supportHeading}
                 </h3>
                 <p className="mt-2 text-xs leading-relaxed text-slate-300">
-                  Questions about 16-inch stud mounting, carriage pin calibration, Glisson Loop sizing, or itemized HSA/FSA receipts? Reach our multilingual team directly.
+                  {ui.supportSub}
                 </p>
 
                 <div className="mt-5 space-y-3 text-sm">
                   <a
                     href={SITE_CONFIG.phoneHref}
-                    onClick={() => sendGTMEvent("click_phone", { location: "patient_portal" })}
+                    onClick={() =>
+                      sendGTMEvent("click_phone", { location: "patient_portal" })
+                    }
                     className="flex items-center gap-3 rounded-2xl border border-white/15 bg-white/10 px-4 py-3 font-bold text-white transition hover:bg-white/15"
                   >
                     <Phone className="h-4 w-4 text-emerald-400" />
@@ -1595,22 +1565,27 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                   </a>
                 </div>
 
-                <div className="mt-5 border-t border-white/10 pt-4 text-xs text-slate-300 space-y-1">
+                <div className="mt-5 space-y-1 border-t border-white/10 pt-4 text-xs text-slate-300">
                   <p>
-                    <strong className="text-white">Address:</strong> {SITE_CONFIG.address.full}
+                    <strong className="text-white">{ui.addressWord}</strong>{" "}
+                    {SITE_CONFIG.address.full}
                   </p>
                   <p>
-                    <strong className="text-white">Hours:</strong> {SITE_CONFIG.hours}
+                    <strong className="text-white">{ui.hoursWord}</strong>{" "}
+                    {SITE_CONFIG.hours}
                   </p>
                   <p>
-                    <strong className="text-white">Languages:</strong> English, Español, Français, Українська, Русский
+                    <strong className="text-white">{ui.languagesWord}</strong>{" "}
+                    English, Español, Français, Українська, Русский
                   </p>
                 </div>
               </div>
 
               <div className="rounded-2xl border border-slate-200 bg-white p-5 text-xs leading-relaxed text-slate-600">
-                <strong className="text-slate-900">General Wellness Notice:</strong>{" "}
-                {SITE_CONFIG.compliance.classification}. This owner portal provides general home fitness, mounting, and biomechanical posture guidance and does not replace individualized advice from a licensed healthcare provider.
+                <strong className="text-slate-900">
+                  {ui.wellnessNoticeBold}
+                </strong>{" "}
+                {SITE_CONFIG.compliance.classification}. {ui.wellnessNoticeText}
               </div>
             </div>
           </div>

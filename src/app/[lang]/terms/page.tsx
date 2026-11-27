@@ -23,6 +23,11 @@ export async function generateMetadata({
   });
 }
 
-export default function LocalizedTermsPage() {
-  return <LegalPageView type="terms" />;
+export default async function LocalizedTermsPage({
+  params,
+}: {
+  params: Promise<{ lang: Locale }>;
+}) {
+  const { lang } = await params;
+  return <LegalPageView type="terms" lang={lang} />;
 }

@@ -2,62 +2,32 @@
 
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, ShieldCheck } from "lucide-react";
+import { Locale } from "@/i18n/types";
+import { HERO_GALLERY_COPY } from "@/i18n/locales/home-part1";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 
-interface HeroSlide {
-  src: string;
-  alt: string;
-  badge: string;
-  caption: string;
-}
+const HERO_IMAGE_SRCS = [
+  "/images/authentic/hero-full-device-traction.jpg",
+  "/images/authentic/evminov-board-profile.jpg",
+  "/images/authentic/hero-carriage-traction-detail.jpg",
+  "/images/authentic/hero-reverse-decompression.jpg",
+  "/images/products/glisson-loop-studio.jpg",
+  "/images/products/board-natural-pine-finish.jpg",
+] as const;
 
-const HERO_SLIDES: HeroSlide[] = [
-  {
-    src: "/images/authentic/hero-full-device-traction.jpg",
-    alt: "Evminov Spine Decompression Board controlled inclined traction in home setup",
-    badge: "15° Controlled Traction",
-    caption: "Gentle axial spine unloading with zero upside-down head rush",
-  },
-  {
-    src: "/images/authentic/evminov-board-profile.jpg",
-    alt: "Handcrafted resonant Carpathian pine Evminov board profile view",
-    badge: "Carpathian Resonant Pine",
-    caption: "Multi-layer flexing wood beam absorbs impact and cushions vertebrae",
-  },
-  {
-    src: "/images/authentic/hero-carriage-traction-detail.jpg",
-    alt: "Close-up of Evminov sliding carriage grip during gentle spinal elongation",
-    badge: "5-Second Height Lock",
-    caption: "Aircraft-alloy sliding carriage adapts to users from 4'0\" to 6'9\"",
-  },
-  {
-    src: "/images/authentic/hero-reverse-decompression.jpg",
-    alt: "Evminov inclined reverse decompression posture for deep lumbar release",
-    badge: "Multi-Angle Versatility",
-    caption: "Supports supine, prone, cervical, and athletic core routines",
-  },
-  {
-    src: "/images/products/glisson-loop-studio.jpg",
-    alt: "Official cotton-padded Glisson Loop cervical neck traction harness included free",
-    badge: "Included Free ($49 Value)",
-    caption: "Soft padded Glisson Loop for gentle 8°–12° neck & tech-neck unloading",
-  },
-  {
-    src: "/images/products/board-natural-pine-finish.jpg",
-    alt: "Natural kiln-dried Carpathian pine woodgrain finish on Evminov decompression board",
-    badge: "Folds to 2.4\" Flat",
-    caption: "Satin water-based finish folds flat against any US wall after use",
-  },
-];
-
-export function HeroShowcaseGallery() {
+export function HeroShowcaseGallery({ lang = "en" }: { lang?: Locale }) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const current = HERO_SLIDES[activeIndex];
+  const copy = HERO_GALLERY_COPY[lang];
+  const slides = HERO_IMAGE_SRCS.map((src, i) => ({
+    src,
+    ...copy.slides[i],
+  }));
+  const current = slides[activeIndex];
 
   const prevSlide = () =>
-    setActiveIndex((prev) => (prev === 0 ? HERO_SLIDES.length - 1 : prev - 1));
+    setActiveIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
   const nextSlide = () =>
-    setActiveIndex((prev) => (prev === HERO_SLIDES.length - 1 ? 0 : prev + 1));
+    setActiveIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
 
   return (
     <div className="space-y-3">
@@ -80,7 +50,7 @@ export function HeroShowcaseGallery() {
             <span>{current.badge}</span>
           </span>
           <span className="rounded-full bg-slate-950/75 px-2.5 py-1 text-[11px] font-bold text-slate-200 backdrop-blur-md">
-            {activeIndex + 1} / {HERO_SLIDES.length}
+            {activeIndex + 1} / {slides.length}
           </span>
         </div>
 
@@ -88,7 +58,7 @@ export function HeroShowcaseGallery() {
         <button
           type="button"
           onClick={prevSlide}
-          aria-label="Previous product photo"
+          aria-label={copy.prevAria}
           className="absolute left-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-slate-950/70 text-white backdrop-blur transition hover:bg-emerald-500 hover:text-slate-950"
         >
           <ChevronLeft className="h-5 w-5" />
@@ -96,7 +66,7 @@ export function HeroShowcaseGallery() {
         <button
           type="button"
           onClick={nextSlide}
-          aria-label="Next product photo"
+          aria-label={copy.nextAria}
           className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-slate-950/70 text-white backdrop-blur transition hover:bg-emerald-500 hover:text-slate-950"
         >
           <ChevronRight className="h-5 w-5" />
@@ -114,9 +84,9 @@ export function HeroShowcaseGallery() {
       <div
         className="grid grid-cols-6 gap-2"
         role="tablist"
-        aria-label="Evminov Board Showcase Photos"
+        aria-label={copy.tablistAria}
       >
-        {HERO_SLIDES.map((slide, idx) => {
+        {slides.map((slide, idx) => {
           const active = idx === activeIndex;
           return (
             <button
@@ -124,7 +94,7 @@ export function HeroShowcaseGallery() {
               type="button"
               role="tab"
               aria-selected={active}
-              aria-label={`View ${slide.badge}`}
+              aria-label={`${copy.viewPrefix} ${slide.badge}`}
               onClick={() => setActiveIndex(idx)}
               className={`relative aspect-[4/3] overflow-hidden rounded-xl border-2 transition ${
                 active

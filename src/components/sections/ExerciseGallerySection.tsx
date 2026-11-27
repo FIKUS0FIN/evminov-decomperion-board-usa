@@ -1,47 +1,48 @@
 "use client";
 
 import { useState } from "react";
-import { EXERCISE_PROTOCOLS, ExerciseProtocolItem } from "@/data/heritage";
+import { Locale } from "@/i18n/types";
+import { ExerciseProtocolItem } from "@/data/heritage";
+import {
+  EXERCISE_GALLERY_UI,
+  getLocalizedExercises,
+} from "@/i18n/locales/faq-and-exercises";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 
 type FilterCategory = "all" | ExerciseProtocolItem["category"];
 
-const FILTERS: Array<{ key: FilterCategory; label: string }> = [
-  { key: "all", label: "All 20 Protocols" },
-  { key: "lumbar", label: "Lumbar Relief" },
-  { key: "cervical", label: "Cervical & Tech-Neck" },
-  { key: "core", label: "Athletic Core" },
-  { key: "family", label: "Family & Youth" },
-];
+const FILTER_KEYS: FilterCategory[] = ["all", "lumbar", "cervical", "core", "family"];
 
-export function ExerciseGallerySection() {
+export function ExerciseGallerySection({ lang = "en" }: { lang?: Locale }) {
   const [filter, setFilter] = useState<FilterCategory>("all");
   const [selected, setSelected] = useState<ExerciseProtocolItem | null>(null);
 
+  const ui = EXERCISE_GALLERY_UI[lang];
+  const allExercises = getLocalizedExercises(lang);
   const visible =
     filter === "all"
-      ? EXERCISE_PROTOCOLS
-      : EXERCISE_PROTOCOLS.filter((item) => item.category === filter);
+      ? allExercises
+      : allExercises.filter((item) => item.category === filter);
 
   return (
     <div>
-      <div className="flex flex-wrap gap-2" role="tablist" aria-label="Exercise categories">
-        {FILTERS.map((f) => {
-          const active = filter === f.key;
+      <div className="flex flex-wrap gap-2" role="tablist" aria-label={ui.tablistAria}>
+        {FILTER_KEYS.map((key) => {
+          const active = filter === key;
           return (
             <button
-              key={f.key}
+              key={key}
               type="button"
               role="tab"
               aria-selected={active}
-              onClick={() => setFilter(f.key)}
+              onClick={() => setFilter(key)}
               className={`rounded-xl px-4 py-2 text-xs font-bold transition ${
                 active
                   ? "bg-slate-950 text-white shadow"
                   : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
               }`}
             >
-              {f.label}
+              {ui.filters[key]}
             </button>
           );
         })}
@@ -71,10 +72,10 @@ export function ExerciseGallerySection() {
               <p className="text-[11px] font-semibold uppercase tracking-wide text-teal-700">
                 {item.categoryLabel}
               </p>
-              <h3 className="mt-1 text-sm font-bold text-slate-950 line-clamp-2">
+              <h3 className="mt-1 line-clamp-2 text-sm font-bold text-slate-950">
                 {item.title}
               </h3>
-              <p className="mt-1 text-xs text-slate-600 line-clamp-2">
+              <p className="mt-1 line-clamp-2 text-xs text-slate-600">
                 {item.benefit}
               </p>
             </div>
@@ -130,7 +131,7 @@ export function ExerciseGallerySection() {
               onClick={() => setSelected(null)}
               className="mt-6 w-full rounded-xl bg-slate-950 py-2.5 text-sm font-bold text-white hover:bg-slate-800"
             >
-              Close Protocol
+              {ui.closeBtn}
             </button>
           </div>
         </div>

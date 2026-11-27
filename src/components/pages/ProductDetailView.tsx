@@ -15,6 +15,11 @@ import { buildPrefilledOrderUrl, getLocalizedHref } from "@/lib/url";
 import { useHsaSavings } from "@/context/HsaSavingsContext";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import { FaqJsonLd, ProductJsonLd } from "@/components/seo/JsonLd";
+import {
+  getLocalizedFinish,
+  getLocalizedProduct,
+  PRODUCT_DETAIL_COPY,
+} from "@/i18n/locales/catalog";
 
 export function ProductDetailView({
   product,
@@ -24,6 +29,8 @@ export function ProductDetailView({
   lang: Locale;
 }) {
   const ui = getDictionary(lang).productUi;
+  const pd = PRODUCT_DETAIL_COPY[lang];
+  const lp = getLocalizedProduct(product, lang);
   const { applyHsaSavings, toggleHsaSavings } = useHsaSavings();
   const [activeImg, setActiveImg] = useState(product.galleryImages[0]?.url || product.image);
   const [selectedFinish, setSelectedFinish] = useState(product.finishes[0]);
@@ -38,7 +45,7 @@ export function ProductDetailView({
   return (
     <>
       <ProductJsonLd product={product} lang={lang} />
-      <FaqJsonLd faqs={product.faqs} />
+      <FaqJsonLd faqs={lp.faqs} />
 
       <div className="mx-auto max-w-7xl px-4 py-10 md:py-14">
         <div className="grid gap-10 lg:grid-cols-12">
@@ -47,7 +54,7 @@ export function ProductDetailView({
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-sm">
               <OptimizedImage
                 src={activeImg}
-                alt={product.localizedNames[lang] || product.name}
+                alt={lp.name}
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -55,7 +62,7 @@ export function ProductDetailView({
               />
             </div>
             <div className="mt-3 grid grid-cols-5 gap-2">
-              {product.galleryImages.map((img) => (
+              {lp.galleryImages.map((img) => (
                 <button
                   key={img.url}
                   type="button"
@@ -82,13 +89,13 @@ export function ProductDetailView({
           {/* Purchase Panel */}
           <div className="lg:col-span-6">
             <span className="inline-block rounded-full bg-teal-50 px-3 py-1 text-xs font-bold text-teal-800">
-              {product.badge}
+              {lp.badge}
             </span>
             <h1 className="mt-3 font-display text-3xl font-black tracking-tight text-slate-950 md:text-4xl">
-              {product.localizedNames[lang] || product.name}
+              {lp.name}
             </h1>
             <p className="mt-3 text-base leading-relaxed text-slate-600">
-              {product.subtitle}
+              {lp.subtitle}
             </p>
 
             {/* Price & HSA Toggle */}
@@ -104,7 +111,7 @@ export function ProductDetailView({
                     )}
                   </p>
                   <p className="mt-1 text-xs text-slate-600">
-                    {ui.klarnaLabel} {formatKlarnaBiWeekly(activePrice)} (0% APR est.)
+                    {ui.klarnaLabel} {formatKlarnaBiWeekly(activePrice)} {pd.klarnaAprSuffix}
                   </p>
                 </div>
                 <button
@@ -116,7 +123,7 @@ export function ProductDetailView({
                       : "border-slate-300 bg-white text-slate-700"
                   }`}
                 >
-                  {applyHsaSavings ? "HSA/FSA -30% Applied" : "Apply ~30% HSA/FSA"}
+                  {applyHsaSavings ? pd.hsaAppliedBtn : pd.hsaApplyBtn}
                 </button>
               </div>
 
@@ -169,7 +176,7 @@ export function ProductDetailView({
                         : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
                     }`}
                   >
-                    {f}
+                    {getLocalizedFinish(f, lang)}
                   </button>
                 ))}
               </div>
@@ -213,7 +220,7 @@ export function ProductDetailView({
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <Truck className="h-4 w-4 text-teal-700" />
-                Ships to all 50 US states, Canada &amp; EU
+                {pd.shipsEverywhere}
               </span>
             </div>
 
@@ -223,7 +230,7 @@ export function ProductDetailView({
                 {ui.whatsIncluded}
               </h2>
               <ul className="mt-3 space-y-2 text-sm text-slate-700">
-                {product.includes.map((inc) => (
+                {lp.includes.map((inc) => (
                   <li key={inc} className="flex items-start gap-2.5">
                     <Check className="mt-0.5 h-4 w-4 shrink-0 text-teal-700" />
                     <span>{inc}</span>
@@ -241,15 +248,15 @@ export function ProductDetailView({
           </h2>
           <dl className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { label: "SKU", val: product.sku },
-              { label: "Construction", val: product.construction },
-              { label: ui.weightLimit, val: `Up to ${product.weightLimitLbs} lbs` },
-              { label: ui.heightLimit, val: product.heightLimitLabel },
-              { label: ui.material, val: product.material },
-              { label: "Board Weight", val: product.boardWeightLabel },
-              { label: ui.inclineRange, val: product.inclineRange },
-              { label: ui.storageProfile, val: product.foldedDepth },
-              { label: "Mounting", val: product.mobility },
+              { label: pd.skuLabel, val: product.sku },
+              { label: pd.constructionLabel, val: lp.construction },
+              { label: ui.weightLimit, val: lp.weightLimitLabel },
+              { label: ui.heightLimit, val: lp.heightLimitLabel },
+              { label: ui.material, val: lp.material },
+              { label: pd.boardWeightLabel, val: lp.boardWeightLabel },
+              { label: ui.inclineRange, val: lp.inclineRange },
+              { label: ui.storageProfile, val: lp.foldedDepth },
+              { label: pd.mountingLabel, val: lp.mobility },
             ].map((spec) => (
               <div key={spec.label} className="rounded-2xl bg-white p-4 shadow-sm">
                 <dt className="text-xs font-bold uppercase text-slate-500">
@@ -264,13 +271,13 @@ export function ProductDetailView({
         </section>
 
         {/* Product FAQs */}
-        {product.faqs.length > 0 && (
+        {lp.faqs.length > 0 && (
           <section className="mt-12">
             <h2 className="font-display text-2xl font-black text-slate-950">
-              Model Questions &amp; Answers
+              {pd.faqsHeading}
             </h2>
             <div className="mt-4 space-y-3">
-              {product.faqs.map((faq) => (
+              {lp.faqs.map((faq) => (
                 <details
                   key={faq.q}
                   open
@@ -291,24 +298,27 @@ export function ProductDetailView({
         {/* Related Models */}
         <section className="mt-14 border-t border-slate-200 pt-10">
           <h2 className="font-display text-2xl font-black text-slate-950">
-            Compare Other Evminov Models
+            {pd.relatedHeading}
           </h2>
           <div className="mt-5 grid gap-5 md:grid-cols-3">
-            {related.map((item) => (
+            {related.map((item) => {
+              const rl = getLocalizedProduct(item, lang);
+              return (
               <Link
                 key={item.slug}
                 href={getLocalizedHref(`/products/${item.slug}/`, lang)}
                 className="rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-teal-600"
               >
-                <p className="text-xs font-bold text-teal-700">{item.badge}</p>
+                <p className="text-xs font-bold text-teal-700">{rl.badge}</p>
                 <p className="mt-1 font-display text-base font-bold text-slate-950">
-                  {item.localizedNames[lang] || item.name}
+                  {rl.name}
                 </p>
                 <p className="mt-2 text-sm font-black text-slate-900">
-                  From {formatUSD(item.directPriceUsd)}
+                  {pd.fromPrefix} {formatUSD(item.directPriceUsd)}
                 </p>
               </Link>
-            ))}
+              );
+            })}
           </div>
         </section>
       </div>

@@ -1,0 +1,919 @@
+import { Locale } from "@/i18n/types";
+
+export interface ContraindicationsCopy {
+  absolute: string[];
+  precautions: string[];
+  safetyRules: string[];
+}
+
+export const LOCALIZED_CONTRAINDICATIONS: Record<Locale, ContraindicationsCopy> = {
+  en: {
+    absolute: [
+      "Acute fever (>99.5°F / 37.5°C) or systemic infection",
+      "Recent unhealed spinal fractures or acute spinal trauma",
+      "Active spinal malignancies or bone metastases",
+      "Active internal hemorrhage or severe aortic/vascular aneurysm",
+      "Recent stroke or myocardial infarction (within 6 months)",
+      "Acute cauda equina symptoms (urgent emergency medical care required)",
+    ],
+    precautions: [
+      "Uncontrolled high blood pressure (stabilize with physician first)",
+      "Pregnancy (consult OB/GYN before any inclined routine)",
+      "Early post-surgical recovery (require surgeon clearance)",
+      "Advanced osteoporosis or severe spinal instability",
+    ],
+    safetyRules: [
+      "Inspect the top anchor cable, bracket, and carriage lock pin before every session.",
+      "Never bounce or jump off the board after unloading — roll gently to the side and stand slowly.",
+      "Rest calmly for 1–2 minutes after each session to let spine pressure equalize.",
+    ],
+  },
+  es: {
+    absolute: [
+      "Fiebre aguda (>37,5 °C) o infección sistémica",
+      "Fracturas vertebrales recientes sin consolidar o trauma espinal agudo",
+      "Tumores espinales activos o metástasis óseas",
+      "Hemorragia interna activa o aneurisma aórtico/vascular grave",
+      "Ictus o infarto de miocardio reciente (últimos 6 meses)",
+      "Síntomas agudos de cola de caballo (requiere urgencia médica inmediata)",
+    ],
+    precautions: [
+      "Hipertensión no controlada (estabilizar primero con su médico)",
+      "Embarazo (consultar al obstetra antes de cualquier rutina inclinada)",
+      "Postoperatorio temprano (requiere alta del cirujano)",
+      "Osteoporosis avanzada o inestabilidad vertebral grave",
+    ],
+    safetyRules: [
+      "Revise el cable superior, el soporte y el pasador del carro antes de cada sesión.",
+      "Nunca salte ni brinque al bajar — gire suavemente de costado y póngase de pie despacio.",
+      "Descanse 1–2 minutos tras cada sesión para estabilizar la presión discal.",
+    ],
+  },
+  fr: {
+    absolute: [
+      "Fièvre aiguë (>37,5 °C) ou infection systémique",
+      "Fractures vertébrales récentes non consolidées ou traumatisme aigu",
+      "Tumeurs rachidiennes actives ou métastases osseuses",
+      "Hémorragie interne active ou anévrisme aortique/vasculaire sévère",
+      "AVC ou infarctus du myocarde récent (moins de 6 mois)",
+      "Syndrome aigu de la queue de cheval (urgence médicale immédiate)",
+    ],
+    precautions: [
+      "Hypertension artérielle non contrôlée (avis médical préalable)",
+      "Grossesse (consulter votre médecin avant toute séance inclinée)",
+      "Récupération post-opératoire précoce (accord du chirurgien requis)",
+      "Ostéoporose avancée ou instabilité vertébrale sévère",
+    ],
+    safetyRules: [
+      "Vérifiez le câble supérieur, l'équerre et la goupille du chariot avant chaque séance.",
+      "Ne sautez jamais de la planche — roulez doucement sur le côté et levez-vous lentement.",
+      "Reposez-vous 1 à 2 minutes après chaque séance pour équilibrer la colonne.",
+    ],
+  },
+  uk: {
+    absolute: [
+      "Гостра температура (>37,5 °C) або системна інфекція",
+      "Свіжі незрощені переломи хребта або гостра спінальна травма",
+      "Активні пухлини хребта або кісткові метастази",
+      "Активна внутрішня кровотеча або виражена аневризма аорти/судин",
+      "Недавній інсульт або інфаркт міокарда (протягом останніх 6 місяців)",
+      "Гострі симптоми синдрому кінського хвоста (потрібна невідкладна медична допомога)",
+    ],
+    precautions: [
+      "Неконтрольований високий артеріальний тиск (спершу стабілізуйте з лікарем)",
+      "Вагітність (проконсультуйтеся з лікарем перед будь-якими вправами під нахилом)",
+      "Ранній післяопераційний період (потрібен дозвіл хірурга)",
+      "Виражений остеопороз або тяжка нестабільність хребта",
+    ],
+    safetyRules: [
+      "Перевіряйте верхній трос, кронштейн та штифт каретки перед кожним заняттям.",
+      "Ніколи не зістрибуйте з дошки після витяжки — плавно поверніться на бік і вставайте повільно.",
+      "Відпочиньте 1–2 хвилини після заняття, щоб тиск у дисках стабілізувався.",
+    ],
+  },
+  ru: {
+    absolute: [
+      "Острая температура (>37,5 °C) или системная инфекция",
+      "Свежие несросшиеся переломы позвоночника или острая травма",
+      "Активные опухоли позвоночника или костные метастазы",
+      "Активное внутреннее кровотечение или выраженная аневризма аорты/сосудов",
+      "Недавний инсульт или инфаркт миокарда (в течение последних 6 месяцев)",
+      "Острые симптомы синдрома конского хвоста (требуется срочная медпомощь)",
+    ],
+    precautions: [
+      "Неконтролируемое высокое давление (сначала стабилизируйте с врачом)",
+      "Беременность (проконсультируйтесь с врачом перед наклонными занятиями)",
+      "Ранний послеоперационный период (требуется разрешение хирурга)",
+      "Выраженный остеопороз или тяжёлая нестабильность позвоночника",
+    ],
+    safetyRules: [
+      "Проверяйте верхний трос, кронштейн и штифт каретки перед каждым занятием.",
+      "Никогда не спрыгивайте с доски после вытяжки — плавно повернитесь на бок и вставайте медленно.",
+      "Отдохните 1–2 минуты после занятия, чтобы давление в дисках стабилизировалось.",
+    ],
+  },
+};
+
+export interface PortalUiCopy {
+  heroPills: [string, string, string];
+  defaultOwnerName: string;
+  orderRefLabel: string;
+  registeredEmailLabel: string;
+  previewModeValue: string;
+  localSyncNote: string;
+  previewBadge: string;
+  namePlaceholder: string;
+  orderPlaceholder: string;
+  emailPlaceholder: string;
+  profileMissingMsg: string;
+  profileSavedMsg: string;
+  tablistAria: string;
+  // Overview tab
+  kpiAngleLabel: string;
+  kpiAngleSubSuffix: string;
+  kpiConsistencyLabel: string;
+  kpiMountLabel: string;
+  kpiMountLink: string;
+  kpiWarrantyLabel: string;
+  kpiWarrantyVal: string;
+  kpiWarrantyLink: string;
+  trackerEyebrow: string;
+  trackerHeading: string;
+  trackerSub: string;
+  startTimerBtn: string;
+  phases: [
+    { badge: string; text: string },
+    { badge: string; text: string },
+    { badge: string; text: string },
+  ];
+  dayWord: string;
+  quickLinks: [
+    { title: string; desc: string },
+    { title: string; desc: string },
+    { title: string; desc: string },
+  ];
+  // Routine tab
+  timerEyebrow: string;
+  timerHeading: string;
+  timerSubPre: string;
+  timerSubPost: string;
+  minUnit: string;
+  sessionCompleteMsg: string;
+  logNextDayBtn: string;
+  pauseBtn: string;
+  startSessionBtn: string;
+  resumeBtn: string;
+  resetAria: string;
+  flowEyebrow: string;
+  flowHeading: string;
+  flowSteps: [
+    { title: string; desc: string },
+    { title: string; desc: string },
+    { title: string; desc: string },
+  ];
+  video1Heading: string;
+  video2Heading: string;
+  libraryHeading: string;
+  // Biometrics tab
+  bioEyebrow: string;
+  bioHeading: string;
+  weightLabel: string;
+  heightLabel: string;
+  angleLabel: string;
+  recommendedWord: string;
+  netPullLabel: string;
+  pctBwLabel: string;
+  estUnloadLabel: string;
+  matchedBoardLabel: string;
+  logEyebrow: string;
+  logHeading: string;
+  beforeLabel: string;
+  afterLabel: string;
+  notePlaceholder: string;
+  saveEntryBtn: string;
+  tensionWord: string;
+  defaultLogNote: (min: number, angle: number) => string;
+  // Documents tab
+  printBtn: string;
+  hsaHeading: string;
+  hsaNote: string;
+  ownerFieldLabel: string;
+  orderFieldLabel: string;
+  classFieldLabel: string;
+  patentFieldLabel: string;
+  hsaStepsTitle: string;
+  hsaSteps: [string, string, string];
+  mountEyebrow: string;
+  mountHeading: string;
+  mountSteps: Array<{ id: string; title: string; detail: string }>;
+  safetyEyebrow: string;
+  safetyHeading: string;
+  doNotUseLabel: string;
+  clearanceLabel: string;
+  dailyChecksLabel: string;
+  // Warranty tab
+  warrantyBadge: string;
+  warrantyHeading: string;
+  warrantySub: string;
+  warrantySuccessTitle: string;
+  warrantySuccessRef: string;
+  warrantySuccessNote: string;
+  warrantyInvalidEmail: string;
+  warrantyErrorFallback: string;
+  warrantyNetError: string;
+  modelLabel: string;
+  finishLabel: string;
+  finishOptions: [
+    { value: string; label: string },
+    { value: string; label: string },
+    { value: string; label: string },
+    { value: string; label: string },
+  ];
+  fullNameLabel: string;
+  emailFieldLabel: string;
+  orderSerialLabel: string;
+  stateCountryLabel: string;
+  registeringBtn: string;
+  activateWarrantyBtn: string;
+  supportEyebrow: string;
+  supportHeading: string;
+  supportSub: string;
+  addressWord: string;
+  hoursWord: string;
+  languagesWord: string;
+  wellnessNoticeBold: string;
+  wellnessNoticeText: string;
+}
+
+export const PORTAL_UI_COPY: Record<Locale, PortalUiCopy> = {
+  en: {
+    heroPills: ["30-Day Habit Tracker", "Guided Decompression Timer", "Printable HSA/FSA LMN Kit"],
+    defaultOwnerName: "Evminov Board Owner",
+    orderRefLabel: "Order Reference",
+    registeredEmailLabel: "Registered Email",
+    previewModeValue: "Preview Mode",
+    localSyncNote: "Your name and order reference are synced locally to this browser for quick HSA/FSA printing and 10-year warranty registration.",
+    previewBadge: "Interactive Preview Active",
+    namePlaceholder: "Full Name",
+    orderPlaceholder: "Order Ref (e.g. EV-8492A1)",
+    emailPlaceholder: "owner@email.com",
+    profileMissingMsg: "Enter your email or Evminov order reference (e.g. EV-8492A1).",
+    profileSavedMsg: "Workspace personalized. Your HSA/FSA sheet and warranty form are pre-filled.",
+    tablistAria: "Patient Portal Workspace Sections",
+    kpiAngleLabel: "Target Starting Angle",
+    kpiAngleSubSuffix: "lbs smooth axial pull",
+    kpiConsistencyLabel: "30-Day Consistency",
+    kpiMountLabel: "Wall Mount Readiness",
+    kpiMountLink: "Open 16\" Stud Checklist →",
+    kpiWarrantyLabel: "Structural Protection",
+    kpiWarrantyVal: "10 Years",
+    kpiWarrantyLink: "Register Frame Warranty →",
+    trackerEyebrow: "Progressive Spine Adaptation",
+    trackerHeading: "30-Day Guided Decompression Tracker",
+    trackerSub: "Click any day to check off your 10-minute session. Saved privately in your browser.",
+    startTimerBtn: "Start Today's Session Timer",
+    phases: [
+      { badge: "Days 1–10 • Phase 1: Adaptation", text: "Gentle 10°–15° incline, 8–10 minutes daily. Focus on calm breathing and relaxing deep lumbar muscles." },
+      { badge: "Days 11–20 • Phase 2: Stabilization", text: "Moderate 15°–20° incline, 10–12 minutes. Add small-amplitude alternating heel slides and pelvic tilts." },
+      { badge: "Days 21–30 • Phase 3: Active Conditioning", text: "Custom 18°–25° incline, 12–15 minutes. Combine spine unloading with unloaded core & posture maintenance." },
+    ],
+    dayWord: "Day",
+    quickLinks: [
+      { title: "Full Biomechanical Calculator", desc: "Calculate custom angle, net axial pull, and board sizing for family members." },
+      { title: "Unboxing & Owner Review Hub", desc: "Quick QR setup video and verified owner feedback channel." },
+      { title: "Add No-Drill Stand or Glisson Loop", desc: "Order rental-friendly floor stands or extra accessories directly from Glendale, CA." },
+    ],
+    timerEyebrow: "Guided Session Timer",
+    timerHeading: "Calm Inclined Unloading",
+    timerSubPre: "Choose your target duration, set your board to",
+    timerSubPost: "and breathe slowly.",
+    minUnit: "min",
+    sessionCompleteMsg: "Session complete — roll gently to your side before standing!",
+    logNextDayBtn: "Log Next Day in 30-Day Tracker",
+    pauseBtn: "Pause",
+    startSessionBtn: "Start Session",
+    resumeBtn: "Resume",
+    resetAria: "Reset session timer",
+    flowEyebrow: "Evminov 3-Phase Method Flow",
+    flowHeading: "Every Session Follows Three Gentle Stages",
+    flowSteps: [
+      { title: "Passive Inclined Unloading (First 2–3 Minutes)", desc: "Lie centered along the resonant pine deck holding the overhead carriage handles. Let shoulders drop and take slow 4-second inhales and 6-second exhales." },
+      { title: "Low-Amplitude Micro-Movements (Middle 5–8 Minutes)", desc: "Perform slow, pain-free ankle flexes, single-knee glides, or gentle pelvic tilts while keeping vertebrae gently unloaded. Never jerk, bounce, or force range of motion." },
+      { title: "Calm Equalization & Side-Roll Exit (Final 2 Minutes)", desc: "Rest calmly at your low incline, bend both knees, roll smoothly onto your side, and rise slowly without twisting the lower back." },
+    ],
+    video1Heading: "Official Evminov Method & Exercise Demo",
+    video2Heading: "16-Inch US Wood Stud Wall Mounting Guide",
+    libraryHeading: "Starter Exercise Protocol Library",
+    bioEyebrow: "Real-Time Traction Physics",
+    bioHeading: "Calibrate Your Daily Board Angle",
+    weightLabel: "Body Weight",
+    heightLabel: "Height",
+    angleLabel: "Board Incline Angle",
+    recommendedWord: "Recommended",
+    netPullLabel: "Net Pull",
+    pctBwLabel: "% Body Weight",
+    estUnloadLabel: "Est. Unloading",
+    matchedBoardLabel: "Matched Board Size:",
+    logEyebrow: "Personal Comfort Log (Local Only)",
+    logHeading: "Track Stiffness Before & After",
+    beforeLabel: "Before Session",
+    afterLabel: "After Session",
+    notePlaceholder: "Optional note (e.g. felt looser after 10 min at 15°)",
+    saveEntryBtn: "Save Comfort Entry",
+    tensionWord: "Tension",
+    defaultLogNote: (min, a) => `Completed ${min}-min gentle unloading at ${a}° incline.`,
+    printBtn: "Print / Save PDF Sheet",
+    hsaHeading: "HSA / FSA Reimbursement & Letter of Medical Necessity (LMN) Reference Guide",
+    hsaNote: "Many US customers save ~25–35% using pre-tax HSA/FSA funds with a physician Letter of Medical Necessity (LMN) and our itemized General Wellness Equipment invoice.",
+    ownerFieldLabel: "Owner / Patient Name",
+    orderFieldLabel: "Evminov Order Reference",
+    classFieldLabel: "Equipment Classification",
+    patentFieldLabel: "International Patent Registry",
+    hsaStepsTitle: "3 Steps to Submit to Your HSA / FSA Administrator:",
+    hsaSteps: [
+      "Request a brief Letter of Medical Necessity (LMN) from your physician, chiropractor, or physical therapist stating that inclined home spinal unloading equipment supports your musculoskeletal care plan.",
+      "Attach your itemized Evminov Spine Systems USA invoice (emailed automatically from orders@evminovusa.com upon order confirmation).",
+      "Upload both documents to your HSA/FSA plan portal. Eligibility varies by individual benefit administrator.",
+    ],
+    mountEyebrow: "North American Home Installation",
+    mountHeading: "16-Inch US Wood Stud Mounting Safety Checklist",
+    mountSteps: [
+      { id: "stud-finder", title: "Locate solid 16-inch on-center wood wall stud (or concrete/brick anchor wall)", detail: "Never anchor the upper load bracket into hollow drywall alone. Use an electronic stud finder to verify the center of a load-bearing 2×4 wood stud, or use the optional No-Drill Free-Standing Ladder Stand for rental apartments." },
+      { id: "height-mark", title: "Measure 78\"–86\" vertical mounting height with 8 ft ceiling clearance", detail: "Mark two vertical mounting points along the stud center. Ensure at least 7.5 ft of clear floor space extending out from the wall for comfortable 10°–30° inclines." },
+      { id: "lag-bolts", title: "Pre-drill pilot holes and torque steel lag bolts securely", detail: "Pre-drill 1/8\"–3/16\" pilot holes into the wood stud so the timber does not split, then tighten the heavy-duty top bracket flush against the wall." },
+      { id: "cable-check", title: "Test braided steel anchor cable, quick-pin lock, and gliding carriage", detail: "Clip the braided cable onto the upper anchor hook, lock the height carriage pin cleanly through the board frame, and apply firm downward hand pressure before lying down." },
+    ],
+    safetyEyebrow: "Important Safety & Contraindications",
+    safetyHeading: "When to Consult a Physician Before Inclined Training",
+    doNotUseLabel: "Do Not Use During:",
+    clearanceLabel: "Physician Clearance Recommended For:",
+    dailyChecksLabel: "Daily Equipment Checks:",
+    warrantyBadge: "10-Year Structural Frame Guarantee",
+    warrantyHeading: "Register Your Evminov Board Warranty",
+    warrantySub: "Protect your Carpathian pine or select alder board with our 10-year structural warranty and priority Glendale, CA parts support.",
+    warrantySuccessTitle: "Warranty Registration Received",
+    warrantySuccessRef: "Confirmation Reference:",
+    warrantySuccessNote: "Our Glendale operations team has logged your 10-year frame warranty and sent confirmation to your email.",
+    warrantyInvalidEmail: "Please enter a valid email address for your warranty certificate.",
+    warrantyErrorFallback: "Unable to register warranty right now.",
+    warrantyNetError: "Network error — please email support@evminovusa.com or call +1 (747) 306-0140.",
+    modelLabel: "Board Model",
+    finishLabel: "Wood Finish",
+    finishOptions: [
+      { value: "Light Natural Pine", label: "Light Natural Pine" },
+      { value: "Dark Walnut Stain", label: "Dark Walnut Stain" },
+      { value: "Select Ukrainian Alder", label: "Select Ukrainian Alder" },
+      { value: "Free-Standing Stand", label: "Free-Standing Stand" },
+    ],
+    fullNameLabel: "Full Name",
+    emailFieldLabel: "Email Address",
+    orderSerialLabel: "Order Reference or Serial Number",
+    stateCountryLabel: "US State / Country",
+    registeringBtn: "Registering...",
+    activateWarrantyBtn: "Activate 10-Year Frame Warranty",
+    supportEyebrow: "Direct North American Support",
+    supportHeading: "Glendale, California Hub",
+    supportSub: "Questions about 16-inch stud mounting, carriage pin calibration, Glisson Loop sizing, or itemized HSA/FSA receipts? Reach our multilingual team directly.",
+    addressWord: "Address:",
+    hoursWord: "Hours:",
+    languagesWord: "Languages:",
+    wellnessNoticeBold: "General Wellness Notice:",
+    wellnessNoticeText: "This owner portal provides general home fitness, mounting, and biomechanical posture guidance and does not replace individualized advice from a licensed healthcare provider.",
+  },
+  es: {
+    heroPills: ["Rastreador 30 Días", "Temporizador Guiado", "Kit Imprimible HSA/FSA"],
+    defaultOwnerName: "Propietario Evminov",
+    orderRefLabel: "Referencia de Pedido",
+    registeredEmailLabel: "Correo Registrado",
+    previewModeValue: "Modo Vista Previa",
+    localSyncNote: "Su nombre y referencia se guardan localmente en este navegador para imprimir su hoja HSA/FSA y registrar la garantía de 10 años.",
+    previewBadge: "Vista Previa Interactiva",
+    namePlaceholder: "Nombre Completo",
+    orderPlaceholder: "Ref. Pedido (ej. EV-8492A1)",
+    emailPlaceholder: "correo@ejemplo.com",
+    profileMissingMsg: "Ingrese su correo o referencia de pedido Evminov (ej. EV-8492A1).",
+    profileSavedMsg: "Espacio personalizado. Su hoja HSA/FSA y formulario de garantía están prellenados.",
+    tablistAria: "Secciones del Portal del Paciente",
+    kpiAngleLabel: "Ángulo Inicial Objetivo",
+    kpiAngleSubSuffix: "lb de tracción suave",
+    kpiConsistencyLabel: "Constancia 30 Días",
+    kpiMountLabel: "Preparación de Montaje",
+    kpiMountLink: "Abrir Lista de Viga 16\" →",
+    kpiWarrantyLabel: "Protección Estructural",
+    kpiWarrantyVal: "10 Años",
+    kpiWarrantyLink: "Registrar Garantía →",
+    trackerEyebrow: "Adaptación Espinal Progresiva",
+    trackerHeading: "Rastreador Guiado de Descompresión 30 Días",
+    trackerSub: "Haga clic en cada día para marcar su sesión de 10 minutos. Guardado en privado en su navegador.",
+    startTimerBtn: "Iniciar Temporizador de Hoy",
+    phases: [
+      { badge: "Días 1–10 • Fase 1: Adaptación", text: "Inclinación suave 10°–15°, 8–10 min diarios. Respiración tranquila y relajación lumbar profunda." },
+      { badge: "Días 11–20 • Fase 2: Estabilización", text: "Inclinación moderada 15°–20°, 10–12 min. Añada deslizamientos de talón y basculaciones pélvicas." },
+      { badge: "Días 21–30 • Fase 3: Acondicionamiento", text: "Inclinación 18°–25°, 12–15 min. Combine descarga con core sin carga y postura diaria." },
+    ],
+    dayWord: "Día",
+    quickLinks: [
+      { title: "Calculadora Biomecánica Completa", desc: "Calcule ángulo, tracción neta y modelo ideal para cada miembro de la familia." },
+      { title: "Portal de Desempaque y Reseñas", desc: "Video QR de instalación y canal de opiniones reales." },
+      { title: "Añadir Soporte Sin Taladro o Petla", desc: "Pida soporte independiente o accesorios desde Glendale, CA." },
+    ],
+    timerEyebrow: "Temporizador de Sesión Guiada",
+    timerHeading: "Descarga Inclinada Tranquila",
+    timerSubPre: "Elija la duración, ajuste su tabla a",
+    timerSubPost: "y respire lentamente.",
+    minUnit: "min",
+    sessionCompleteMsg: "¡Sesión completada — gire suavemente de costado antes de levantarse!",
+    logNextDayBtn: "Registrar Siguiente Día en el Plan",
+    pauseBtn: "Pausar",
+    startSessionBtn: "Iniciar Sesión",
+    resumeBtn: "Reanudar",
+    resetAria: "Reiniciar temporizador",
+    flowEyebrow: "Flujo en 3 Fases Evminov",
+    flowHeading: "Cada Sesión Sigue Tres Etapas Suaves",
+    flowSteps: [
+      { title: "Descarga Pasiva (Primeros 2–3 Minutos)", desc: "Recuéstese centrado sobre el pino sujetando el carro superior. Inhale 4 s y exhale 6 s." },
+      { title: "Micromovimientos Suaves (5–8 Minutos Centrales)", desc: "Flexiones lentas de tobillo, deslizamientos de rodilla o basculación pélvica sin dolor ni rebotes." },
+      { title: "Equilibrio y Salida Lateral (Últimos 2 Minutos)", desc: "Descanse tranquilo, doble rodillas, gire suavemente de costado y levántese sin torcer la espalda." },
+    ],
+    video1Heading: "Demostración Oficial del Método Evminov",
+    video2Heading: "Guía de Montaje en Viga de Madera 16\"",
+    libraryHeading: "Biblioteca de Protocolos Iniciales",
+    bioEyebrow: "Física de Tracción en Tiempo Real",
+    bioHeading: "Calibre Su Ángulo Diario",
+    weightLabel: "Peso Corporal",
+    heightLabel: "Estatura",
+    angleLabel: "Ángulo de Inclinación",
+    recommendedWord: "Recomendado",
+    netPullLabel: "Tracción Neta",
+    pctBwLabel: "% Peso",
+    estUnloadLabel: "Descarga Est.",
+    matchedBoardLabel: "Modelo Recomendado:",
+    logEyebrow: "Diario de Confort (Solo Local)",
+    logHeading: "Registre Rigidez Antes y Después",
+    beforeLabel: "Antes de Sesión",
+    afterLabel: "Después de Sesión",
+    notePlaceholder: "Nota opcional (ej. espalda más suelta tras 10 min a 15°)",
+    saveEntryBtn: "Guardar Registro",
+    tensionWord: "Tensión",
+    defaultLogNote: (min, a) => `Sesión completada: ${min} min de descarga suave a ${a}°.`,
+    printBtn: "Imprimir / Guardar PDF",
+    hsaHeading: "Guía de Reembolso HSA / FSA y Carta de Necesidad Médica (LMN)",
+    hsaNote: "Muchos compradores en EE. UU. ahorran ~25–35% con fondos HSA/FSA presentando una carta LMN y nuestra factura detallada.",
+    ownerFieldLabel: "Nombre del Propietario / Paciente",
+    orderFieldLabel: "Referencia de Pedido Evminov",
+    classFieldLabel: "Clasificación del Equipo",
+    patentFieldLabel: "Registro Internacional de Patentes",
+    hsaStepsTitle: "3 Pasos para Presentar a Su Administrador HSA / FSA:",
+    hsaSteps: [
+      "Solicite una breve Carta de Necesidad Médica (LMN) a su médico, quiropráctico o fisioterapeuta.",
+      "Adjunte su factura detallada de Evminov Spine Systems USA (enviada desde orders@evminovusa.com).",
+      "Suba ambos documentos al portal de su plan HSA/FSA. La elegibilidad depende de cada administrador.",
+    ],
+    mountEyebrow: "Instalación en Hogares de Norteamérica",
+    mountHeading: "Lista de Seguridad para Montaje en Viga de 16\"",
+    mountSteps: [
+      { id: "stud-finder", title: "Localice una viga sólida de madera de 16\" (o pared de hormigón/ladrillo)", detail: "Nunca fije el soporte solo en tablaroca hueca. Use un detector de vigas o el Soporte Independiente Sin Taladro." },
+      { id: "height-mark", title: "Mida 78\"–86\" de altura con techo de al menos 8 pies", detail: "Marque dos puntos en el centro de la viga y asegure ~2,3 m de suelo libre." },
+      { id: "lag-bolts", title: "Perfore guías piloto y apriete los pernos de acero", detail: "Perfore guías de 1/8\"–3/16\" para no agrietar la madera y ajuste el soporte a ras." },
+      { id: "cable-check", title: "Pruebe el cable trenzado, pasador de seguridad y carro", detail: "Enganche el cable, asegure el pasador de altura y pruebe con presión firme antes de recostarse." },
+    ],
+    safetyEyebrow: "Seguridad y Contraindicaciones",
+    safetyHeading: "Cuándo Consultar a Su Médico Antes de Comenzar",
+    doNotUseLabel: "No Utilizar Durante:",
+    clearanceLabel: "Se Recomienda Autorización Médica En:",
+    dailyChecksLabel: "Revisión Diaria del Equipo:",
+    warrantyBadge: "Garantía Estructural de 10 Años",
+    warrantyHeading: "Registre la Garantía de Su Tabla Evminov",
+    warrantySub: "Proteja su tabla de pino o aliso con 10 años de garantía estructural y soporte prioritario desde Glendale, CA.",
+    warrantySuccessTitle: "Registro de Garantía Recibido",
+    warrantySuccessRef: "Referencia de Confirmación:",
+    warrantySuccessNote: "Nuestro equipo en Glendale ha registrado su garantía de 10 años y enviado confirmación a su correo.",
+    warrantyInvalidEmail: "Ingrese un correo válido para su certificado de garantía.",
+    warrantyErrorFallback: "No se pudo registrar la garantía en este momento.",
+    warrantyNetError: "Error de red — escriba a support@evminovusa.com o llame al +1 (747) 306-0140.",
+    modelLabel: "Modelo de Tabla",
+    finishLabel: "Acabado de Madera",
+    finishOptions: [
+      { value: "Light Natural Pine", label: "Pino Natural Claro" },
+      { value: "Dark Walnut Stain", label: "Nogal Oscuro" },
+      { value: "Select Ukrainian Alder", label: "Aliso Ucraniano Selecto" },
+      { value: "Free-Standing Stand", label: "Soporte Independiente" },
+    ],
+    fullNameLabel: "Nombre Completo",
+    emailFieldLabel: "Correo Electrónico",
+    orderSerialLabel: "Referencia de Pedido o Serie",
+    stateCountryLabel: "Estado / País",
+    registeringBtn: "Registrando...",
+    activateWarrantyBtn: "Activar Garantía de 10 Años",
+    supportEyebrow: "Soporte Directo en Norteamérica",
+    supportHeading: "Centro de Glendale, California",
+    supportSub: "¿Dudas sobre montaje en vigas 16\", calibración, Petla Glissona o facturas HSA/FSA? Contáctenos directamente.",
+    addressWord: "Dirección:",
+    hoursWord: "Horario:",
+    languagesWord: "Idiomas:",
+    wellnessNoticeBold: "Aviso de Bienestar General:",
+    wellnessNoticeText: "Este portal ofrece orientación general de postura y montaje doméstico y no sustituye el consejo médico individual.",
+  },
+  fr: {
+    heroPills: ["Suivi 30 Jours", "Minuteur Guidé", "Kit HSA/FSA Imprimable"],
+    defaultOwnerName: "Propriétaire Evminov",
+    orderRefLabel: "Référence Commande",
+    registeredEmailLabel: "E-mail Enregistré",
+    previewModeValue: "Mode Aperçu",
+    localSyncNote: "Votre nom et référence sont enregistrés localement pour imprimer votre dossier HSA/FSA et enregistrer la garantie 10 ans.",
+    previewBadge: "Aperçu Interactif Actif",
+    namePlaceholder: "Nom Complet",
+    orderPlaceholder: "Réf. Commande (ex. EV-8492A1)",
+    emailPlaceholder: "proprietaire@email.com",
+    profileMissingMsg: "Saisissez votre e-mail ou référence de commande Evminov (ex. EV-8492A1).",
+    profileSavedMsg: "Espace personnalisé. Votre fiche HSA/FSA et formulaire de garantie sont pré-remplis.",
+    tablistAria: "Sections du Portail Patient",
+    kpiAngleLabel: "Angle de Départ Cible",
+    kpiAngleSubSuffix: "lb de traction douce",
+    kpiConsistencyLabel: "Régularité 30 Jours",
+    kpiMountLabel: "Préparation Montage",
+    kpiMountLink: "Ouvrir Check-list 16\" →",
+    kpiWarrantyLabel: "Protection Structurelle",
+    kpiWarrantyVal: "10 Ans",
+    kpiWarrantyLink: "Enregistrer la Garantie →",
+    trackerEyebrow: "Adaptation Vertébrale Progressive",
+    trackerHeading: "Suivi Guidé de Décompression sur 30 Jours",
+    trackerSub: "Cliquez sur chaque jour pour valider votre séance de 10 minutes. Sauvegardé localement.",
+    startTimerBtn: "Lancer le Minuteur du Jour",
+    phases: [
+      { badge: "Jours 1–10 • Phase 1 : Adaptation", text: "Inclinaison douce 10°–15°, 8–10 min/jour. Respiration calme et relâchement lombaire." },
+      { badge: "Jours 11–20 • Phase 2 : Stabilisation", text: "Inclinaison 15°–20°, 10–12 min. Glissés de talons alternés et micro-bascules pelviennes." },
+      { badge: "Jours 21–30 • Phase 3 : Conditionnement", text: "Inclinaison 18°–25°, 12–15 min. Décharge + gainage sans compression." },
+    ],
+    dayWord: "Jour",
+    quickLinks: [
+      { title: "Calculateur Biomécanique Complet", desc: "Calculez angle, traction nette et taille pour toute la famille." },
+      { title: "Hub Déballage & Avis Propriétaires", desc: "Vidéo QR de montage et retours vérifiés." },
+      { title: "Ajouter Support Sans Perçage", desc: "Commandez le support libre ou des accessoires depuis Glendale, CA." },
+    ],
+    timerEyebrow: "Minuteur de Séance Guidée",
+    timerHeading: "Décharge Inclinée Calme",
+    timerSubPre: "Choisissez votre durée, réglez la planche à",
+    timerSubPost: "et respirez lentement.",
+    minUnit: "min",
+    sessionCompleteMsg: "Séance terminée — roulez doucement sur le côté avant de vous lever !",
+    logNextDayBtn: "Valider le Jour Suivant",
+    pauseBtn: "Pause",
+    startSessionBtn: "Démarrer",
+    resumeBtn: "Reprendre",
+    resetAria: "Réinitialiser le minuteur",
+    flowEyebrow: "Protocole Evminov en 3 Phases",
+    flowHeading: "Chaque Séance Suit Trois Étapes Douces",
+    flowSteps: [
+      { title: "Décharge Passive (2–3 Premières Minutes)", desc: "Allongez-vous au centre du pin en tenant le chariot. Inspirez 4 s, expirez 6 s." },
+      { title: "Micro-Mouvements Doux (5–8 Minutes)", desc: "Flexions de chevilles, glissés d'un genou ou bascules pelviennes sans douleur." },
+      { title: "Équilibrage & Sortie Latérale (2 Dernières Minutes)", desc: "Reposez-vous, pliez les genoux, roulez sur le côté et levez-vous doucement." },
+    ],
+    video1Heading: "Démonstration Officielle Méthode Evminov",
+    video2Heading: "Guide de Fixation Murale Montant 16\"",
+    libraryHeading: "Bibliothèque de Protocoles Débutant",
+    bioEyebrow: "Physique de Traction en Temps Réel",
+    bioHeading: "Calibrez Votre Angle Quotidien",
+    weightLabel: "Poids Corporel",
+    heightLabel: "Taille",
+    angleLabel: "Angle d'Inclinaison",
+    recommendedWord: "Recommandé",
+    netPullLabel: "Traction Nette",
+    pctBwLabel: "% du Poids",
+    estUnloadLabel: "Décharge Est.",
+    matchedBoardLabel: "Modèle Conseillé :",
+    logEyebrow: "Journal de Confort (Local)",
+    logHeading: "Suivez la Raideur Avant & Après",
+    beforeLabel: "Avant Séance",
+    afterLabel: "Après Séance",
+    notePlaceholder: "Note optionnelle (ex. dos plus souple après 10 min à 15°)",
+    saveEntryBtn: "Enregistrer l'Entrée",
+    tensionWord: "Tension",
+    defaultLogNote: (min, a) => `Séance terminée : ${min} min de décharge douce à ${a}°.`,
+    printBtn: "Imprimer / PDF",
+    hsaHeading: "Guide HSA / FSA & Lettre de Nécessité Médicale (LMN)",
+    hsaNote: "De nombreux acheteurs US économisent ~25–35 % via HSA/FSA avec une lettre LMN et notre facture détaillée.",
+    ownerFieldLabel: "Nom du Propriétaire / Patient",
+    orderFieldLabel: "Référence Commande Evminov",
+    classFieldLabel: "Classification Équipement",
+    patentFieldLabel: "Registre International des Brevets",
+    hsaStepsTitle: "3 Étapes pour Soumettre à Votre Gestionnaire HSA / FSA :",
+    hsaSteps: [
+      "Demandez une courte Lettre de Nécessité Médicale (LMN) à votre médecin, chiropracteur ou kinésithérapeute.",
+      "Joignez votre facture détaillée Evminov Spine Systems USA (envoyée depuis orders@evminovusa.com).",
+      "Téléversez les deux documents sur votre portail HSA/FSA.",
+    ],
+    mountEyebrow: "Installation Domestique",
+    mountHeading: "Check-list Sécurité Fixation Montant Bois 16\"",
+    mountSteps: [
+      { id: "stud-finder", title: "Repérez un montant bois solide 16\" (ou mur béton/brique)", detail: "Ne fixez jamais dans du placo creux seul. Utilisez un détecteur de montants ou le Support Autoportant." },
+      { id: "height-mark", title: "Mesurez 78\"–86\" de hauteur avec plafond 8 pi", detail: "Marquez deux points centrés sur le montant et prévoyez 2,3 m d'espace au sol." },
+      { id: "lag-bolts", title: "Pré-percez et serrez solidement les tire-fonds acier", detail: "Pré-percez 1/8\"–3/16\" pour éviter de fendre le bois puis plaquez l'équerre au mur." },
+      { id: "cable-check", title: "Testez câble tressé, goupille et chariot coulissant", detail: "Clipsez le câble, verrouillez la goupille et testez fermement à la main avant usage." },
+    ],
+    safetyEyebrow: "Sécurité & Contre-indications",
+    safetyHeading: "Quand Consulter un Médecin Avant de Commencer",
+    doNotUseLabel: "Ne Pas Utiliser En Cas De :",
+    clearanceLabel: "Avis Médical Recommandé Pour :",
+    dailyChecksLabel: "Vérifications Quotidiennes :",
+    warrantyBadge: "Garantie Structurelle 10 Ans",
+    warrantyHeading: "Enregistrez Votre Garantie Evminov",
+    warrantySub: "Protégez votre planche en pin ou aulne avec 10 ans de garantie et support prioritaire Glendale, CA.",
+    warrantySuccessTitle: "Enregistrement de Garantie Reçu",
+    warrantySuccessRef: "Référence de Confirmation :",
+    warrantySuccessNote: "Notre équipe de Glendale a enregistré votre garantie 10 ans et envoyé un e-mail de confirmation.",
+    warrantyInvalidEmail: "Veuillez saisir une adresse e-mail valide.",
+    warrantyErrorFallback: "Impossible d'enregistrer la garantie pour le moment.",
+    warrantyNetError: "Erreur réseau — écrivez à support@evminovusa.com ou appelez le +1 (747) 306-0140.",
+    modelLabel: "Modèle de Planche",
+    finishLabel: "Finition Bois",
+    finishOptions: [
+      { value: "Light Natural Pine", label: "Pin Naturel Clair" },
+      { value: "Dark Walnut Stain", label: "Noyer Foncé" },
+      { value: "Select Ukrainian Alder", label: "Aulne Sélectionné" },
+      { value: "Free-Standing Stand", label: "Support Autoportant" },
+    ],
+    fullNameLabel: "Nom Complet",
+    emailFieldLabel: "Adresse E-mail",
+    orderSerialLabel: "Référence Commande ou Série",
+    stateCountryLabel: "État / Pays",
+    registeringBtn: "Enregistrement...",
+    activateWarrantyBtn: "Activer la Garantie 10 Ans",
+    supportEyebrow: "Support Direct Amérique du Nord",
+    supportHeading: "Hub de Glendale, Californie",
+    supportSub: "Questions sur la fixation 16\", le chariot, la boucle de Glisson ou les factures HSA/FSA ? Contactez notre équipe multilingue.",
+    addressWord: "Adresse :",
+    hoursWord: "Horaires :",
+    languagesWord: "Langues :",
+    wellnessNoticeBold: "Notice Bien-être Général :",
+    wellnessNoticeText: "Ce portail fournit des conseils généraux de posture et de montage et ne remplace pas un avis médical personnalisé.",
+  },
+  uk: {
+    heroPills: ["Трекер на 30 Днів", "Керований Таймер", "Пакет HSA/FSA для Друку"],
+    defaultOwnerName: "Власник Дошки Євмінова",
+    orderRefLabel: "Номер Замовлення",
+    registeredEmailLabel: "Email Власника",
+    previewModeValue: "Режим Огляду",
+    localSyncNote: "Ваше ім'я та номер замовлення зберігаються локально в браузері для швидкого друку HSA/FSA та реєстрації 10-річної гарантії.",
+    previewBadge: "Інтерактивний Режим Активний",
+    namePlaceholder: "Повне Ім'я",
+    orderPlaceholder: "Номер (напр. EV-8492A1)",
+    emailPlaceholder: "owner@email.com",
+    profileMissingMsg: "Введіть email або номер замовлення Evminov (напр. EV-8492A1).",
+    profileSavedMsg: "Кабінет персоналізовано. Лист HSA/FSA та форма гарантії заповнені.",
+    tablistAria: "Розділи Кабінету Пацієнта",
+    kpiAngleLabel: "Цільовий Стартовий Кут",
+    kpiAngleSubSuffix: "lb плавної тяги",
+    kpiConsistencyLabel: "Регулярність 30 Днів",
+    kpiMountLabel: "Готовність Монтажу",
+    kpiMountLink: "Чек-лист Стійки 16\" →",
+    kpiWarrantyLabel: "Захист Конструкції",
+    kpiWarrantyVal: "10 Років",
+    kpiWarrantyLink: "Зареєструвати Гарантію →",
+    trackerEyebrow: "Поступова Адаптація Хребта",
+    trackerHeading: "30-Денний Трекер Декомпресії",
+    trackerSub: "Натисніть на будь-який день, щоб відмітити 10-хвилинне заняття. Зберігається локально у вашому браузері.",
+    startTimerBtn: "Запустити Таймер Заняття",
+    phases: [
+      { badge: "Дні 1–10 • Етап 1: Адаптація", text: "М'який нахил 10°–15°, 8–10 хв щодня. Спокійне дихання та розслаблення попереку." },
+      { badge: "Дні 11–20 • Етап 2: Стабілізація", text: "Помірний нахил 15°–20°, 10–12 хв. Почергове ковзання п'ятами та м'які нахили таза." },
+      { badge: "Дні 21–30 • Етап 3: Активне Зміцнення", text: "Кут 18°–25°, 12–15 хв. Поєднання витяжки з укріпленням кору та постави." },
+    ],
+    dayWord: "День",
+    quickLinks: [
+      { title: "Повний Калькулятор Біомеханіки", desc: "Розрахуйте кут, силу тяги та модель дошки для кожного члена родини." },
+      { title: "QR-Хаб Розпакування та Відгуків", desc: "Швидке відео встановлення та реальні відгуки власників." },
+      { title: "Додати Стійку без Свердління", desc: "Замовте підлогову стійку або аксесуари зі складу в Глендейлі, CA." },
+    ],
+    timerEyebrow: "Таймер Керованого Сеансу",
+    timerHeading: "Спокійне Похиле Розвантаження",
+    timerSubPre: "Оберіть тривалість, встановіть дошку під кутом",
+    timerSubPost: "і дихайте спокійно.",
+    minUnit: "хв",
+    sessionCompleteMsg: "Заняття завершено — плавно поверніться на бік перед підйомом!",
+    logNextDayBtn: "Відмітити Наступний День у Трекері",
+    pauseBtn: "Пауза",
+    startSessionBtn: "Почати Сеанс",
+    resumeBtn: "Продовжити",
+    resetAria: "Скинути таймер",
+    flowEyebrow: "3-Етапна Структура Євмінова",
+    flowHeading: "Кожне Заняття Складається з Трьох М'яких Етапів",
+    flowSteps: [
+      { title: "Пасивне Розвантаження (Перші 2–3 Хвилини)", desc: "Ляжте по центру соснової дошки, тримаючись за верхні ручки. Вдих 4 с, видих 6 с." },
+      { title: "Малоамплітудні Мікрорухи (Середні 5–8 Хвилин)", desc: "Повільні рухи стопами, ковзання коліном або нахили таза без болю та ривків." },
+      { title: "Стабілізація та Вихід через Бік (Останні 2 Хвилини)", desc: "Спокійно відпочиньте, зігніть коліна, переверніться на бік і повільно вставайте." },
+    ],
+    video1Heading: "Офіційна Демонстрація Методики та Вправ",
+    video2Heading: "Гайд із Монтажу у Стійку США 16 Дюймів",
+    libraryHeading: "Стартова Бібліотека Протоколів",
+    bioEyebrow: "Фізика Тяги в Реальному Часі",
+    bioHeading: "Відкалібруйте Щоденний Кут Дошки",
+    weightLabel: "Вага Тіла",
+    heightLabel: "Зріст",
+    angleLabel: "Кут Нахилу Дошки",
+    recommendedWord: "Рекомендовано",
+    netPullLabel: "Чиста Тяга",
+    pctBwLabel: "% Ваги Тіла",
+    estUnloadLabel: "Розвантаження",
+    matchedBoardLabel: "Рекомендована Модель:",
+    logEyebrow: "Особистий Щоденник Комфорту (Локально)",
+    logHeading: "Відстежуйте Скутість До та Після",
+    beforeLabel: "До Заняття",
+    afterLabel: "Після Заняття",
+    notePlaceholder: "Нотатка (напр. спина стала легшою після 10 хв на 15°)",
+    saveEntryBtn: "Зберегти Запис",
+    tensionWord: "Напруга",
+    defaultLogNote: (min, a) => `Виконано ${min}-хв м'яке розвантаження під кутом ${a}°.`,
+    printBtn: "Друк / Зберегти PDF",
+    hsaHeading: "Довідник Компенсації HSA / FSA та Листа Медичної Необхідності (LMN)",
+    hsaNote: "Покупці у США часто економлять ~25–35% за рахунок HSA/FSA, подавши лист LMN від лікаря разом із нашим деталізованим інвойсом.",
+    ownerFieldLabel: "Ім'я Власника / Пацієнта",
+    orderFieldLabel: "Номер Замовлення Evminov",
+    classFieldLabel: "Класифікація Обладнання",
+    patentFieldLabel: "Міжнародні Патенти",
+    hsaStepsTitle: "3 Кроки для Подачі Адміністратору HSA / FSA:",
+    hsaSteps: [
+      "Попросіть короткий лист LMN у вашого лікаря, хіропрактика чи фізіотерапевта про доцільність домашньої похилої витяжки.",
+      "Додайте деталізований інвойс Evminov Spine Systems USA (надсилається з orders@evminovusa.com).",
+      "Завантажте обидва документи в портал вашого плану HSA/FSA.",
+    ],
+    mountEyebrow: "Встановлення в Будинках Північної Америки",
+    mountHeading: "Чек-лист Безпеки Монтажу у Стійку 16 Дюймів",
+    mountSteps: [
+      { id: "stud-finder", title: "Знайдіть дерев'яну стійку 16\" (або бетонну/цегляну стіну)", detail: "Ніколи не кріпіть кронштейн у порожній гіпсокартон. Використовуйте детектор стійок або Підлогову Стійку без свердління." },
+      { id: "height-mark", title: "Відміряйте висоту 78\"–86\" (200–220 см) при стелі від 2,4 м", detail: "Позначте 2 точки по центру стійки та забезпечте ~2,3 м вільного простору на підлозі." },
+      { id: "lag-bolts", title: "Просвердліть пілотні отвори та надійно затягніть гвинти-глухарі", detail: "Отвір 3–4 мм запобігає розтріскуванню бруса; притисніть кронштейн впритул до стіни." },
+      { id: "cable-check", title: "Перевірте сталевий трос, штифт фіксації та каретку", detail: "Закріпіть трос на верхньому гаку, зафіксуйте штифт каретки та перевірте натиском руки." },
+    ],
+    safetyEyebrow: "Важлива Безпека та Протипоказання",
+    safetyHeading: "Коли Необхідна Консультація Лікаря",
+    doNotUseLabel: "Не Використовувати При:",
+    clearanceLabel: "Потрібен Дозвіл Лікаря При:",
+    dailyChecksLabel: "Щоденна Перевірка Обладнання:",
+    warrantyBadge: "10-Річна Гарантія на Раму",
+    warrantyHeading: "Зареєструйте Гарантію на Вашу Дошку Євмінова",
+    warrantySub: "Захистіть вашу дошку з сосни або вільхи 10-річною гарантією та пріоритетною підтримкою в Глендейлі, CA.",
+    warrantySuccessTitle: "Реєстрацію Гарантії Отримано",
+    warrantySuccessRef: "Номер Підтвердження:",
+    warrantySuccessNote: "Команда в Глендейлі внесла вашу 10-річну гарантію в реєстр та надіслала підтвердження на email.",
+    warrantyInvalidEmail: "Будь ласка, введіть коректний email для гарантійного сертифіката.",
+    warrantyErrorFallback: "Не вдалося зареєструвати гарантію зараз.",
+    warrantyNetError: "Помилка мережі — напишіть на support@evminovusa.com або зателефонуйте +1 (747) 306-0140.",
+    modelLabel: "Модель Дошки",
+    finishLabel: "Покриття Деревини",
+    finishOptions: [
+      { value: "Light Natural Pine", label: "Світла Натуральна Сосна" },
+      { value: "Dark Walnut Stain", label: "Темний Горіх" },
+      { value: "Select Ukrainian Alder", label: "Добірна Українська Вільха" },
+      { value: "Free-Standing Stand", label: "Підлогова Стійка" },
+    ],
+    fullNameLabel: "Повне Ім'я",
+    emailFieldLabel: "Email Адреса",
+    orderSerialLabel: "Номер Замовлення або Серійний Номер",
+    stateCountryLabel: "Штат США / Країна",
+    registeringBtn: "Реєстрація...",
+    activateWarrantyBtn: "Активувати 10-Річну Гарантію",
+    supportEyebrow: "Пряма Підтримка в США",
+    supportHeading: "Хаб у Глендейлі, Каліфорнія",
+    supportSub: "Питання щодо монтажу у стійку 16\", каретки, Петлі Гліссона чи чеків HSA/FSA? Звертайтеся напряму до нашої багатомовної команди.",
+    addressWord: "Адреса:",
+    hoursWord: "Години:",
+    languagesWord: "Мови:",
+    wellnessNoticeBold: "Застереження:",
+    wellnessNoticeText: "Цей кабінет надає загальні рекомендації з домашнього оздоровлення та монтажу і не замінює індивідуальної консультації лікаря.",
+  },
+  ru: {
+    heroPills: ["Трекер на 30 Дней", "Управляемый Таймер", "Пакет HSA/FSA для Печати"],
+    defaultOwnerName: "Владелец Доски Евминова",
+    orderRefLabel: "Номер Заказа",
+    registeredEmailLabel: "Email Владельца",
+    previewModeValue: "Режим Просмотра",
+    localSyncNote: "Ваше имя и номер заказа сохраняются локально в браузере для печати листа HSA/FSA и регистрации 10-летней гарантии.",
+    previewBadge: "Интерактивный Режим Активен",
+    namePlaceholder: "Полное Имя",
+    orderPlaceholder: "Номер (напр. EV-8492A1)",
+    emailPlaceholder: "owner@email.com",
+    profileMissingMsg: "Введите email или номер заказа Evminov (напр. EV-8492A1).",
+    profileSavedMsg: "Кабинет персонализирован. Лист HSA/FSA и форма гарантии заполнены.",
+    tablistAria: "Разделы Кабинета Пациента",
+    kpiAngleLabel: "Целевой Стартовый Угол",
+    kpiAngleSubSuffix: "lb плавной тяги",
+    kpiConsistencyLabel: "Регулярность 30 Дней",
+    kpiMountLabel: "Готовность Монтажа",
+    kpiMountLink: "Чек-лист Стойки 16\" →",
+    kpiWarrantyLabel: "Защита Конструкции",
+    kpiWarrantyVal: "10 Лет",
+    kpiWarrantyLink: "Зарегистрировать Гарантию →",
+    trackerEyebrow: "Постепенная Адаптация Позвоночника",
+    trackerHeading: "30-Дневный Трекер Декомпрессии",
+    trackerSub: "Нажмите на любой день, чтобы отметить 10-минутное занятие. Сохраняется локально в браузере.",
+    startTimerBtn: "Запустить Таймер Занятия",
+    phases: [
+      { badge: "Дни 1–10 • Этап 1: Адаптация", text: "Мягкий наклон 10°–15°, 8–10 мин ежедневно. Спокойное дыхание и расслабление поясницы." },
+      { badge: "Дни 11–20 • Этап 2: Стабилизация", text: "Умеренный наклон 15°–20°, 10–12 мин. Поочерёдное скольжение пятками и мягкие наклоны таза." },
+      { badge: "Дни 21–30 • Этап 3: Активное Укрепление", text: "Угол 18°–25°, 12–15 мин. Сочетание вытяжки с укреплением кора и осанки." },
+    ],
+    dayWord: "День",
+    quickLinks: [
+      { title: "Полный Калькулятор Биомеханики", desc: "Рассчитайте угол, силу тяги и модель доски для всей семьи." },
+      { title: "QR-Хаб Распаковки и Отзывов", desc: "Быстрое видео установки и реальные отзывы владельцев." },
+      { title: "Добавить Стойку без Сверления", desc: "Закажите напольную стойку или аксессуары со склада в Глендейле, CA." },
+    ],
+    timerEyebrow: "Таймер Управляемого Сеанса",
+    timerHeading: "Спокойная Наклонная Разгрузка",
+    timerSubPre: "Выберите длительность, установите доску под углом",
+    timerSubPost: "и дышите спокойно.",
+    minUnit: "мин",
+    sessionCompleteMsg: "Занятие завершено — плавно повернитесь на бок перед подъёмом!",
+    logNextDayBtn: "Отметить Следующий День в Трекере",
+    pauseBtn: "Пауза",
+    startSessionBtn: "Начать Сеанс",
+    resumeBtn: "Продолжить",
+    resetAria: "Сбросить таймер",
+    flowEyebrow: "3-Этапная Структура Евминова",
+    flowHeading: "Каждое Занятие Состоит из Трёх Мягких Этапов",
+    flowSteps: [
+      { title: "Пассивная Разгрузка (Первые 2–3 Минуты)", desc: "Лягте по центру сосновой доски, держась за верхние рукояти. Вдох 4 с, выдох 6 с." },
+      { title: "Малоамплитудные Микродвижения (5–8 Минут)", desc: "Медленные движения стопами, скольжение коленом или наклоны таза без боли и рывков." },
+      { title: "Стабилизация и Выход через Бок (Последние 2 Минуты)", desc: "Спокойно отдохните, согните колени, перевернитесь на бок и медленно вставайте." },
+    ],
+    video1Heading: "Официальная Демонстрация Методики и Упражнений",
+    video2Heading: "Гайд по Монтажу в Стойку США 16 Дюймов",
+    libraryHeading: "Стартовая Библиотека Протоколов",
+    bioEyebrow: "Физика Тяги в Реальном Времени",
+    bioHeading: "Откалибруйте Ежедневный Угол Доски",
+    weightLabel: "Вес Тела",
+    heightLabel: "Рост",
+    angleLabel: "Угол Наклона Доски",
+    recommendedWord: "Рекомендовано",
+    netPullLabel: "Чистая Тяга",
+    pctBwLabel: "% Веса Тела",
+    estUnloadLabel: "Разгрузка",
+    matchedBoardLabel: "Рекомендованная Модель:",
+    logEyebrow: "Личный Дневник Комфорта (Локально)",
+    logHeading: "Отслеживайте Скованность До и После",
+    beforeLabel: "До Занятия",
+    afterLabel: "После Занятия",
+    notePlaceholder: "Заметка (напр. спина стала легче после 10 мин на 15°)",
+    saveEntryBtn: "Сохранить Запись",
+    tensionWord: "Напряжение",
+    defaultLogNote: (min, a) => `Выполнено ${min}-мин мягкое вытяжение под углом ${a}°.`,
+    printBtn: "Печать / Сохранить PDF",
+    hsaHeading: "Справочник Возмещения HSA / FSA и Письма LMN",
+    hsaNote: "Покупатели в США часто экономят ~25–35% через HSA/FSA, подав письмо LMN от врача вместе с нашим детализированным инвойсом.",
+    ownerFieldLabel: "Имя Владельца / Пациента",
+    orderFieldLabel: "Номер Заказа Evminov",
+    classFieldLabel: "Классификация Оборудования",
+    patentFieldLabel: "Международные Патенты",
+    hsaStepsTitle: "3 Шага для Подачи Администратору HSA / FSA:",
+    hsaSteps: [
+      "Запросите короткое письмо LMN у вашего врача, хиропрактика или физиотерапевта.",
+      "Приложите детализированный инвойс Evminov Spine Systems USA (приходит с orders@evminovusa.com).",
+      "Загрузите оба документа в портал вашего плана HSA/FSA.",
+    ],
+    mountEyebrow: "Установка в Домах Северной Америки",
+    mountHeading: "Чек-лист Безопасности Монтажа в Стойку 16 Дюймов",
+    mountSteps: [
+      { id: "stud-finder", title: "Найдите деревянную стойку 16\" (или бетонную/кирпичную стену)", detail: "Никогда не крепите кронштейн в пустой гипсокартон. Используйте детектор стоек или Напольную Стойку без сверления." },
+      { id: "height-mark", title: "Отмерьте высоту 78\"–86\" (200–220 см) при потолке от 2,4 м", detail: "Отметьте 2 точки по центру стойки и оставьте ~2,3 м свободного пространства." },
+      { id: "lag-bolts", title: "Просверлите пилотные отверстия и надёжно затяните винты-глухари", detail: "Отверстие 3–4 мм предотвращает растрескивание бруса; притяните кронштейн вплотную к стене." },
+      { id: "cable-check", title: "Проверьте стальной трос, штифт фиксации и каретку", detail: "Закрепите трос на верхнем крюке, зафиксируйте штифт и проверьте нажимом руки." },
+    ],
+    safetyEyebrow: "Важная Безопасность и Противопоказания",
+    safetyHeading: "Когда Необходима Консультация Врача",
+    doNotUseLabel: "Не Использовать При:",
+    clearanceLabel: "Нужно Разрешение Врача При:",
+    dailyChecksLabel: "Ежедневная Проверка Оборудования:",
+    warrantyBadge: "10-Летняя Гарантия на Раму",
+    warrantyHeading: "Зарегистрируйте Гарантию на Вашу Доску Евминова",
+    warrantySub: "Защитите вашу доску из сосны или ольхи 10-летней гарантией и приоритетной поддержкой в Глендейле, CA.",
+    warrantySuccessTitle: "Регистрация Гарантии Получена",
+    warrantySuccessRef: "Номер Подтверждения:",
+    warrantySuccessNote: "Команда в Глендейле внесла вашу 10-летнюю гарантию в реестр и отправила подтверждение на email.",
+    warrantyInvalidEmail: "Пожалуйста, введите корректный email для гарантийного сертификата.",
+    warrantyErrorFallback: "Не удалось зарегистрировать гарантию сейчас.",
+    warrantyNetError: "Ошибка сети — напишите на support@evminovusa.com или позвоните +1 (747) 306-0140.",
+    modelLabel: "Модель Доски",
+    finishLabel: "Покрытие Древесины",
+    finishOptions: [
+      { value: "Light Natural Pine", label: "Светлая Натуральная Сосна" },
+      { value: "Dark Walnut Stain", label: "Тёмный Орех" },
+      { value: "Select Ukrainian Alder", label: "Отборная Украинская Ольха" },
+      { value: "Free-Standing Stand", label: "Напольная Стойка" },
+    ],
+    fullNameLabel: "Полное Имя",
+    emailFieldLabel: "Email Адрес",
+    orderSerialLabel: "Номер Заказа или Серийный Номер",
+    stateCountryLabel: "Штат США / Страна",
+    registeringBtn: "Регистрация...",
+    activateWarrantyBtn: "Активировать 10-Летнюю Гарантию",
+    supportEyebrow: "Прямая Поддержка в США",
+    supportHeading: "Хаб в Глендейле, Калифорния",
+    supportSub: "Вопросы по монтажу в стойку 16\", каретке, Петле Глиссона или чекам HSA/FSA? Обращайтесь напрямую в нашу многоязычную команду.",
+    addressWord: "Адрес:",
+    hoursWord: "Часы:",
+    languagesWord: "Языки:",
+    wellnessNoticeBold: "Примечание:",
+    wellnessNoticeText: "Этот кабинет предоставляет общие рекомендации по домашнему оздоровлению и монтажу и не заменяет индивидуальной консультации врача.",
+  },
+};

@@ -4,44 +4,13 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Calculator, Globe2, TrendingDown } from "lucide-react";
 import { Locale } from "@/i18n/types";
+import { GLOBAL_ROI_COPY } from "@/i18n/locales/home-part1";
 import { getLocalizedHref } from "@/lib/url";
 import { formatUSD } from "@/lib/physics";
 import { EvminovLogo } from "@/components/brand/EvminovLogo";
 
-const GLOBAL_REGIONS = [
-  {
-    region: "North America",
-    countries: "United States (All 50 States), Canada, Mexico",
-    transit: "1–4 business days (CA Express)",
-  },
-  {
-    region: "European Union",
-    countries: "France, Germany, Poland, Italy, Spain, Netherlands, Austria, Sweden",
-    transit: "3–7 business days",
-  },
-  {
-    region: "United Kingdom & Ireland",
-    countries: "England, Scotland, Wales, Northern Ireland, Ireland",
-    transit: "5–8 business days",
-  },
-  {
-    region: "Ukraine & Eastern Europe",
-    countries: "Kyiv, Lviv, Odesa, Dnipro & regional partner centers",
-    transit: "2–4 business days",
-  },
-  {
-    region: "Australia & Oceania",
-    countries: "Sydney, Melbourne, Brisbane, Perth, New Zealand",
-    transit: "7–12 business days",
-  },
-  {
-    region: "Middle East & Asia",
-    countries: "UAE, Israel, Japan, South Korea, Singapore",
-    transit: "7–12 business days",
-  },
-];
-
 export function GlobalHeritageRoiSection({ lang }: { lang: Locale }) {
+  const c = GLOBAL_ROI_COPY[lang];
   const [visitsPerWeek, setVisitsPerWeek] = useState(2);
   const [costPerVisit, setCostPerVisit] = useState(95);
 
@@ -49,7 +18,7 @@ export function GlobalHeritageRoiSection({ lang }: { lang: Locale }) {
   const threeYearClinicCost = annualClinicCost * 3;
   const boardOneTimeCost = 450;
   const threeYearSavings = Math.max(0, threeYearClinicCost - boardOneTimeCost);
-  const hoursSavedPerYear = Math.round(visitsPerWeek * 2.2 * 48); // commute + waiting + session
+  const hoursSavedPerYear = Math.round(visitsPerWeek * 2.2 * 48);
   const breakEvenVisits = Math.max(1, Math.ceil(boardOneTimeCost / costPerVisit));
 
   return (
@@ -63,20 +32,18 @@ export function GlobalHeritageRoiSection({ lang }: { lang: Locale }) {
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3.5 py-1 text-xs font-extrabold uppercase tracking-wider text-emerald-800">
               <Globe2 className="h-3.5 w-3.5" />
-              <span>Continuous Spine Methodology Since 1996 • 30 Years Worldwide</span>
+              <span>{c.badge}</span>
             </span>
             <h2 className="mt-3 font-display text-3xl font-black tracking-tight text-slate-950 md:text-4xl">
-              Trusted Across 40+ Countries — Built to Save Thousands vs. Endless Clinic Visits
+              {c.heading}
             </h2>
-            <p className="mt-3 text-base leading-relaxed text-slate-600">
-              Founded in Kyiv in 1996 by honored rowing coach Vyacheslav Evminov, the patented inclined board has supported home spine care, studios, and athletic programs for three decades — replacing recurring commute-heavy appointments with 10 calm minutes at home.
-            </p>
+            <p className="mt-3 text-base leading-relaxed text-slate-600">{c.intro}</p>
           </div>
           <div className="flex shrink-0 items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-xs">
             <EvminovLogo size={46} />
             <div className="text-xs">
-              <p className="font-black text-[#0B1F3A]">EVMINOV ORIGINAL</p>
-              <p className="font-semibold text-emerald-700">Patented Since 1996</p>
+              <p className="font-black text-[#0B1F3A]">{c.emblemTop}</p>
+              <p className="font-semibold text-emerald-700">{c.emblemSub}</p>
             </div>
           </div>
         </div>
@@ -85,34 +52,29 @@ export function GlobalHeritageRoiSection({ lang }: { lang: Locale }) {
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
             <p className="font-display text-4xl font-black text-[#023373]">30+</p>
-            <p className="mt-1 text-sm font-extrabold text-slate-950">Years Since 1996</p>
-            <p className="mt-1 text-xs leading-relaxed text-slate-600">
-              Three decades of continuous spine methodology across studios, sports clubs, and home setups.
-            </p>
+            <p className="mt-1 text-sm font-extrabold text-slate-950">{c.kpi1Title}</p>
+            <p className="mt-1 text-xs leading-relaxed text-slate-600">{c.kpi1Desc}</p>
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
             <p className="font-display text-4xl font-black text-teal-700">40+</p>
-            <p className="mt-1 text-sm font-extrabold text-slate-950">Countries Delivered</p>
-            <p className="mt-1 text-xs leading-relaxed text-slate-600">
-              Glendale, CA express dispatch for all 50 US states plus worldwide tracked delivery.
-            </p>
+            <p className="mt-1 text-sm font-extrabold text-slate-950">{c.kpi2Title}</p>
+            <p className="mt-1 text-xs leading-relaxed text-slate-600">{c.kpi2Desc}</p>
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
             <p className="font-display text-4xl font-black text-emerald-700">
               {hoursSavedPerYear}+
             </p>
-            <p className="mt-1 text-sm font-extrabold text-slate-950">Hours Reclaimed / Year</p>
-            <p className="mt-1 text-xs leading-relaxed text-slate-600">
-              Skip traffic, parking, and waiting rooms with a 10-minute home routine on your schedule.
-            </p>
+            <p className="mt-1 text-sm font-extrabold text-slate-950">{c.kpi3Title}</p>
+            <p className="mt-1 text-xs leading-relaxed text-slate-600">{c.kpi3Desc}</p>
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
             <p className="font-display text-4xl font-black text-amber-600">
               {formatUSD(annualClinicCost)}+
             </p>
-            <p className="mt-1 text-sm font-extrabold text-slate-950">Typical Annual Clinic Spend</p>
+            <p className="mt-1 text-sm font-extrabold text-slate-950">{c.kpi4Title}</p>
             <p className="mt-1 text-xs leading-relaxed text-slate-600">
-              One-time $450 board pays for itself in ~{breakEvenVisits} typical therapy or massage sessions.
+              {c.kpi4DescPrefix}
+              {breakEvenVisits} {c.kpi4DescSuffix}
             </p>
           </div>
         </div>
@@ -122,20 +84,19 @@ export function GlobalHeritageRoiSection({ lang }: { lang: Locale }) {
           <div className="rounded-3xl border border-slate-200 bg-[#0B1F3A] p-6 text-white shadow-xl lg:col-span-7 md:p-8">
             <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-emerald-400">
               <Calculator className="h-4 w-4" />
-              <span>Interactive Time &amp; Cost Freedom Calculator</span>
+              <span>{c.calcBadge}</span>
             </div>
-            <h3 className="mt-2 font-display text-2xl font-black">
-              See How Fast an Evminov Board Pays for Itself
-            </h3>
-            <p className="mt-1 text-xs text-slate-300">
-              Adjust your typical massage, chiropractic, or physical therapy co-pays to compare 3-year costs.
-            </p>
+            <h3 className="mt-2 font-display text-2xl font-black">{c.calcHeading}</h3>
+            <p className="mt-1 text-xs text-slate-300">{c.calcSub}</p>
 
             <div className="mt-6 grid gap-5 sm:grid-cols-2">
               <div>
                 <div className="flex justify-between text-xs font-bold">
-                  <label htmlFor="roi-visits">Clinic Visits / Week</label>
-                  <span className="text-emerald-400">{visitsPerWeek}× / week</span>
+                  <label htmlFor="roi-visits">{c.visitsLabel}</label>
+                  <span className="text-emerald-400">
+                    {visitsPerWeek}
+                    {c.visitsUnit}
+                  </span>
                 </div>
                 <input
                   id="roi-visits"
@@ -150,7 +111,7 @@ export function GlobalHeritageRoiSection({ lang }: { lang: Locale }) {
               </div>
               <div>
                 <div className="flex justify-between text-xs font-bold">
-                  <label htmlFor="roi-copay">Avg. Co-Pay / Session</label>
+                  <label htmlFor="roi-copay">{c.copayLabel}</label>
                   <span className="text-amber-300">{formatUSD(costPerVisit)}</span>
                 </div>
                 <input
@@ -170,7 +131,7 @@ export function GlobalHeritageRoiSection({ lang }: { lang: Locale }) {
             <div className="mt-6 space-y-3 rounded-2xl border border-white/10 bg-black/25 p-4 text-xs">
               <div>
                 <div className="flex justify-between font-bold">
-                  <span className="text-slate-300">3 Years of Recurring Clinic Co-Pays</span>
+                  <span className="text-slate-300">{c.clinicBarLabel}</span>
                   <span className="text-rose-300">{formatUSD(threeYearClinicCost)}</span>
                 </div>
                 <div className="mt-1.5 h-3 w-full overflow-hidden rounded-full bg-white/10">
@@ -179,9 +140,7 @@ export function GlobalHeritageRoiSection({ lang }: { lang: Locale }) {
               </div>
               <div>
                 <div className="flex justify-between font-bold">
-                  <span className="text-emerald-300">
-                    Evminov Board (One-Time • 10-Year Frame Warranty)
-                  </span>
+                  <span className="text-emerald-300">{c.boardBarLabel}</span>
                   <span className="text-emerald-400">$450</span>
                 </div>
                 <div className="mt-1.5 h-3 w-full overflow-hidden rounded-full bg-white/10">
@@ -199,7 +158,7 @@ export function GlobalHeritageRoiSection({ lang }: { lang: Locale }) {
               <div className="flex items-center gap-2.5">
                 <TrendingDown className="h-5 w-5 text-emerald-400" />
                 <div>
-                  <p className="text-[11px] uppercase text-slate-400">Est. 3-Year Savings</p>
+                  <p className="text-[11px] uppercase text-slate-400">{c.savingsLabel}</p>
                   <p className="font-display text-2xl font-black text-emerald-400">
                     {formatUSD(threeYearSavings)}
                   </p>
@@ -209,7 +168,7 @@ export function GlobalHeritageRoiSection({ lang }: { lang: Locale }) {
                 href={getLocalizedHref("/order/", lang)}
                 className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-5 py-3 text-xs font-black text-slate-950 transition hover:bg-emerald-400"
               >
-                <span>Reserve Your Board ($450)</span>
+                <span>{c.ctaReserve}</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
@@ -218,13 +177,13 @@ export function GlobalHeritageRoiSection({ lang }: { lang: Locale }) {
           {/* 6 Global Shipping Regions Card */}
           <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm lg:col-span-5">
             <span className="text-xs font-extrabold uppercase tracking-wider text-teal-700">
-              Worldwide Tracked Logistics
+              {c.logisticsEyebrow}
             </span>
             <h3 className="mt-1 font-display text-xl font-black text-slate-950">
-              Global Delivery Coverage (40+ Countries)
+              {c.logisticsHeading}
             </h3>
             <div className="mt-4 divide-y divide-slate-100">
-              {GLOBAL_REGIONS.map((item) => (
+              {c.regions.map((item) => (
                 <div key={item.region} className="py-2.5">
                   <div className="flex items-center justify-between gap-2 text-xs font-extrabold text-slate-950">
                     <span>{item.region}</span>

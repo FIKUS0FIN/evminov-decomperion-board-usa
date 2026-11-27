@@ -6,6 +6,13 @@ import { ArrowRight, CheckCircle2, Mail, Share2 } from "lucide-react";
 import { Locale } from "@/i18n/types";
 import { getDictionary } from "@/i18n/dictionaries";
 import {
+  buildCalculatorShareText,
+  buildCalculatorSvgAria,
+  CALCULATOR_COPY,
+  getLocalizedBoardRecReason,
+  getLocalizedProduct,
+} from "@/i18n/locales/catalog";
+import {
   calculateHsaPrice,
   calculateTractionPhysics,
   ConditionGoal,
@@ -21,17 +28,18 @@ import { PRODUCTS } from "@/data/products";
 import { useHsaSavings } from "@/context/HsaSavingsContext";
 import { getAttributionSummary, sendGTMEvent } from "@/lib/gtm";
 
-const GOALS: Array<{ key: ConditionGoal; label: string }> = [
-  { key: "hernia", label: "L4–S1 Disc Comfort" },
-  { key: "sciatica", label: "Sciatica & Leg Relief" },
-  { key: "posture", label: "Desk & Tech-Neck" },
-  { key: "athlete", label: "Athlete / Lifter Recovery" },
-  { key: "pediatric", label: "Youth & Family Posture" },
+const GOAL_KEYS: ConditionGoal[] = [
+  "hernia",
+  "sciatica",
+  "posture",
+  "athlete",
+  "pediatric",
 ];
 
 export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
   const dict = getDictionary(lang);
   const c = dict.calculatorUi;
+  const cx = CALCULATOR_COPY[lang];
   const { applyHsaSavings } = useHsaSavings();
 
   const [goal, setGoal] = useState<ConditionGoal>("hernia");
@@ -73,10 +81,12 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
   }, []);
 
   const inclineRec = recommendIncline(goal);
+  const localizedInclineRec = cx.inclineRecs[goal];
   const physics = calculateTractionPhysics(weightLbs, angle);
   const boardRec = recommendBoardModel(weightLbs, heightIn, portable);
   const matchedProduct =
     PRODUCTS.find((p) => p.slug === boardRec.slug) || PRODUCTS[0];
+  const localizedProduct = getLocalizedProduct(matchedProduct, lang);
 
   const shownDirect = applyHsaSavings
     ? calculateHsaPrice(matchedProduct.directPriceUsd)
@@ -84,12 +94,22 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
 
   const handleShareProtocol = async () => {
     const shareUrl = `${getCanonicalUrl("/calculator/", lang)}?goal=${goal}&weight=${weightLbs}&angle=${angle}`;
-    const shareText = `My Evminov spine angle plan: ${angle}° incline (${physics.netTractionLbs} lb smooth axial pull, ~${physics.estimatedDiscUnloadingPct}% unloading) — recommended board: ${matchedProduct.name}.`;
-    sendGTMEvent("calculator_share", { goal, angle, product_slug: matchedProduct.slug });
+    const shareText = buildCalculatorShareText(
+      lang,
+      angle,
+      physics.netTractionLbs,
+      physics.estimatedDiscUnloadingPct,
+      localizedProduct.name
+    );
+    sendGTMEvent("calculator_share", {
+      goal,
+      angle,
+      product_slug: matchedProduct.slug,
+    });
     try {
       if (typeof navigator !== "undefined" && typeof navigator.share === "function") {
         await navigator.share({
-          title: "My Evminov Spine Angle & Board Plan",
+          title: cx.shareTitle,
           text: shareText,
           url: shareUrl,
         });
@@ -164,20 +184,20 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
               {c.goalLabel}
             </p>
             <div className="mt-2.5 flex flex-wrap gap-2">
-              {GOALS.map((g) => {
-                const active = goal === g.key;
+              {GOAL_KEYS.map((goalKey) => {
+                const active = goal === goalKey;
                 return (
                   <button
-                    key={g.key}
+                    key={goalKey}
                     type="button"
-                    onClick={() => handleGoalChange(g.key)}
+                    onClick={() => handleGoalChange(goalKey)}
                     className={`rounded-xl px-3.5 py-2 text-xs font-bold transition ${
                       active
                         ? "bg-slate-950 text-white shadow"
                         : "border border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100"
                     }`}
                   >
-                    {g.label}
+                    {cx.goals[goalKey]}
                   </button>
                 );
               })}
@@ -189,7 +209,7 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
               <div className="flex items-center justify-between text-sm font-semibold text-slate-800">
                 <label htmlFor="calc-weight">{c.weightLabel}</label>
                 <span className="font-mono text-teal-700">
-                  {weightLbs} lbs ({lbsToKg(weightLbs)} kg)
+                  {weightLbs} {cx.lbsUnit} ({lbsToKg(weightLbs)} {cx.kgUnit})
                 </span>
               </div>
               <input
@@ -208,7 +228,7 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
               <div className="flex items-center justify-between text-sm font-semibold text-slate-800">
                 <label htmlFor="calc-height">{c.heightLabel}</label>
                 <span className="font-mono text-teal-700">
-                  {inchesToFeet(heightIn)} ({inchesToCm(heightIn)} cm)
+                  {inchesToFeet(heightIn)} ({inchesToCm(heightIn)} {cx.cmUnit})
                 </span>
               </div>
               <input
@@ -227,8 +247,9 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
           <div>
             <div className="flex items-center justify-between text-sm font-semibold text-slate-800">
               <label htmlFor="calc-angle">{c.angleLabel}</label>
-              <span className="font-mono text-amber-600 font-bold">
-                {angle}° (Safe Window: {inclineRec.startAngle}°–{inclineRec.maxAngle}°)
+              <span className="font-mono font-bold text-amber-600">
+                {angle}° ({cx.safeWindowLabel}: {inclineRec.startAngle}°–
+                {inclineRec.maxAngle}°)
               </span>
             </div>
             <input
@@ -274,7 +295,7 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
                   required
                   value={leadEmail}
                   onChange={(e) => setLeadEmail(e.target.value)}
-                  placeholder={c.emailProtocolPlaceholder}
+                  placeholder={cx.emailPlaceholder}
                   className="flex-1 rounded-xl border border-teal-200 bg-white px-3 py-2 text-sm text-slate-900"
                 />
                 <button
@@ -293,25 +314,29 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
         <div className="flex flex-col justify-between rounded-2xl bg-slate-950 p-6 text-white lg:col-span-5">
           <div>
             <p className="text-xs font-bold uppercase tracking-wider text-emerald-400">
-              {inclineRec.label}
+              {localizedInclineRec.label}
             </p>
             <p className="mt-1.5 text-xs leading-relaxed text-slate-300">
-              {inclineRec.description}
+              {localizedInclineRec.description}
             </p>
 
             {/* Dynamic Live-Tilting Evminov Board SVG Diagram */}
             <div className="mt-4 overflow-hidden rounded-2xl border border-white/10 bg-[#071426] p-3">
               <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                <span>Live Incline Geometry</span>
+                <span>{cx.svgTitle}</span>
                 <span className="text-emerald-400">
-                  {angle}° • Head Upright (Zero Blood Rush)
+                  {angle}° • {cx.svgHeadUpright}
                 </span>
               </div>
               <svg
                 viewBox="0 0 320 130"
                 className="mt-1.5 h-28 w-full"
                 role="img"
-                aria-label={`Evminov board tilted at ${angle} degrees producing ${physics.netTractionLbs} pounds of smooth axial traction`}
+                aria-label={buildCalculatorSvgAria(
+                  lang,
+                  angle,
+                  physics.netTractionLbs
+                )}
               >
                 {/* Wall Stud & Floor Grid */}
                 <rect x="274" y="10" width="14" height="106" rx="3" fill="#1E3A5F" />
@@ -381,7 +406,7 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
                   {angle}°
                 </text>
                 <text x="16" y="24" fill="#94A3B8" fontSize="10" fontWeight="600">
-                  Smooth Pull: {physics.netTractionLbs} lb
+                  {cx.svgSmoothPull}: {physics.netTractionLbs} {cx.pullUnit}
                 </text>
               </svg>
             </div>
@@ -389,7 +414,7 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
             <div className="mt-4 grid grid-cols-3 gap-2.5">
               <div className="rounded-xl bg-white/10 p-3 text-center">
                 <p className="text-xl font-extrabold text-emerald-400">
-                  {physics.netTractionLbs} lb
+                  {physics.netTractionLbs} {cx.pullUnit}
                 </p>
                 <p className="mt-0.5 text-[11px] text-slate-300">{c.netTraction}</p>
               </div>
@@ -412,12 +437,17 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
                 {c.recommendedBoard}
               </p>
               <p className="mt-1 text-base font-bold text-white">
-                {matchedProduct.localizedNames[lang] || matchedProduct.name}
+                {localizedProduct.name}
               </p>
-              <p className="mt-1 text-xs text-slate-300">{boardRec.reason}</p>
+              <p className="mt-1 text-xs text-slate-300">
+                {getLocalizedBoardRecReason(boardRec.slug, lang)}
+              </p>
               <div className="mt-3 flex items-baseline justify-between border-t border-white/10 pt-3">
                 <span className="text-xs text-slate-300">
-                  {c.dailyDuration}: <strong>{inclineRec.durationMin} min</strong>
+                  {c.dailyDuration}:{" "}
+                  <strong>
+                    {inclineRec.durationMin} {cx.minUnit}
+                  </strong>
                 </span>
                 <span className="text-lg font-extrabold text-emerald-400">
                   {formatUSD(shownDirect)}
@@ -440,11 +470,7 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
               className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-xs font-bold text-slate-200 transition hover:bg-white/10 hover:text-white"
             >
               <Share2 className="h-3.5 w-3.5 text-emerald-400" />
-              <span>
-                {shareCopied
-                  ? "Protocol Link Copied — Share With Your PT or Family!"
-                  : "Share / Copy My Custom Angle Plan"}
-              </span>
+              <span>{shareCopied ? cx.shareCopiedBtn : cx.shareBtn}</span>
             </button>
           </div>
         </div>

@@ -1,0 +1,1499 @@
+import { Locale } from "@/i18n/types";
+import { GuideItem } from "@/data/guides";
+
+type GuidePatch = Pick<
+  GuideItem,
+  "title" | "category" | "readTime" | "author" | "excerpt" | "sections" | "faqs"
+>;
+
+const GUIDE_TRANSLATIONS: Record<
+  string,
+  Record<Exclude<Locale, "en">, GuidePatch>
+> = {
+  "inversion-table-dangers-and-safe-alternatives": {
+    es: {
+      title:
+        "Mesas de Inversión vs. Descompresión Inclinada: Por Qué la Tracción de Bajo Ángulo Es Más Segura",
+      category: "Alternativa a Inversión",
+      readTime: "8 min de lectura",
+      author: {
+        name: "Equipo Editorial de Biomecánica Evminov",
+        role: "Investigación en Bienestar Vertebral",
+        credentials: "30 Años de Documentación del Método Evminov (Desde 1996)",
+      },
+      excerpt:
+        "Colgarse boca abajo a 60°–90° dispara la presión ocular y craneal mientras aprieta los tobillos. Conozca la física de la descarga inclinada controlada de 8°–35° en pino resonante.",
+      sections: [
+        {
+          id: "gravity-paradox",
+          heading: "1. La Paradoja de la Gravedad al Colgarse Boca Abajo",
+          paragraphs: [
+            "Durante décadas, las mesas de inversión de acero se vendieron como la herramienta estándar en casa. Sin embargo, la fisiología cardiovascular y ocular humana no está diseñada para colgar cabeza abajo.",
+            "Estudios oftalmológicos muestran aumentos bruscos de la presión intraocular (PIO) durante la inversión completa, mientras el retorno venoso se acumula hacia la cabeza — haciéndola inadecuada para personas con hipertensión, glaucoma, vértigo o presión sinusal.",
+          ],
+        },
+        {
+          id: "ankle-and-support",
+          heading: "2. Sujeción de Tobillos y Falta de Soporte Espinal",
+          paragraphs: [
+            "Las mesas tradicionales bloquean los tobillos y suspenden todo el peso del torso por rodillas y articulaciones sacroilíacas. Muchos usuarios las abandonan simplemente por el dolor en los tobillos.",
+            "Además, colgar sin apoyo continuo en la espalda permite hiperextensión lumbar y desencadena espasmos musculares defensivos.",
+          ],
+        },
+        {
+          id: "low-angle-physics",
+          heading: "3. Física Controlada de Bajo Ángulo (8° a 35°)",
+          paragraphs: [
+            "En la tabla inclinada patentada Evminov (Patente EE. UU. 6,869,387 B2), la cabeza permanece por encima del torso y la columna descansa sobre pino de los Cárpatos resonante. A 18°, un adulto de 82 kg experimenta ~19 kg de descarga axial suave.",
+            "Sin presión cefálica ni pinzas de tobillo, el sistema nervioso relaja la espalda en segundos y permite ejercicios estabilizadores de baja amplitud.",
+          ],
+          bullets: [
+            "Cabeza por encima del corazón — cero enrojecimiento facial ni presión sinusal.",
+            "Sin abrazaderas en tobillos o rodillas — manos cómodas en el carro acolchado.",
+            "La flexión del pino amortigua la zona lumbar y evita la hiperextensión.",
+            "Se pliega a 6 cm contra la pared en lugar de ocupar más de 1,4 m² de suelo.",
+          ],
+        },
+        {
+          id: "who-should-switch",
+          heading: "4. Elegir la Alternativa Correcta para Su Hogar",
+          paragraphs: [
+            "Si busca descompresión diaria constante sin mareos, dolor de tobillos ni una estructura metálica gigante en su sala, la tabla de madera inclinada ofrece control preciso, Petla Glissona cervical incluida y más de 20 años de vida útil.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "¿Es una tabla inclinada más segura que una mesa de inversión Teeter para mayores de 50 años?",
+          a: "Sí en la mayoría de los casos, porque recostarse cabeza arriba a 8°–25° evita picos de presión ocular y craneal y elimina el estrés en tobillos.",
+        },
+        {
+          q: "¿Cuánta fuerza de tracción genera una inclinación de 15° a 20°?",
+          a: "Para un adulto de 77–90 kg, entre 15° y 20° se generan aproximadamente 14 a 25 kg de descarga longitudinal suave.",
+        },
+      ],
+    },
+    fr: {
+      title:
+        "Tables d'Inversion vs Décompression Inclinée : Pourquoi le Faible Angle Est Plus Sûr",
+      category: "Alternative à l'Inversion",
+      readTime: "8 min de lecture",
+      author: {
+        name: "Équipe Éditoriale Biomécanique Evminov",
+        role: "Recherche en Bien-être Vertébral",
+        credentials: "30 Ans d'Archives de la Méthode Evminov (Depuis 1996)",
+      },
+      excerpt:
+        "Se suspendre tête en bas à 60°–90° augmente la pression oculaire et crânienne tout en comprimant les chevilles. Découvrez la physique de la décharge inclinée 8°–35° sur pin résonant.",
+      sections: [
+        {
+          id: "gravity-paradox",
+          heading: "1. Le Paradoxe de la Gravité Tête en Bas",
+          paragraphs: [
+            "Pendant des décennies, les tables d'inversion en acier ont été présentées comme la solution maison par défaut. Pourtant, le système cardiovasculaire et oculaire humain n'est pas adapté à une suspension inversée prolongée.",
+            "Les études ophtalmologiques observent une forte hausse de la pression intraoculaire (PIO) lors de l'inversion, la rendant déconseillée en cas d'hypertension, de glaucome ou de vertiges.",
+          ],
+        },
+        {
+          id: "ankle-and-support",
+          heading: "2. Serrage des Chevilles et Absence de Soutien Dorsal",
+          paragraphs: [
+            "Les tables d'inversion verrouillent les chevilles et suspendent tout le poids par les genoux et le bassin. Beaucoup abandonnent à cause de la gêne aux chevilles.",
+            "Sans contact dorsal continu, la zone lombaire peut partir en hyperextension et déclencher un spasme musculaire réflexe.",
+          ],
+        },
+        {
+          id: "low-angle-physics",
+          heading: "3. Physique Contrôlée à Faible Angle (8° à 35°)",
+          paragraphs: [
+            "Sur la planche brevetée Evminov (Brevet US 6,869,387 B2), la tête reste au-dessus du cœur et la colonne repose sur un pin des Carpates souple. À 18°, un adulte de 82 kg bénéficie d'environ 19 kg de traction axiale douce.",
+            "Sans afflux sanguin ni serrage des chevilles, le dos se relâche en quelques secondes et permet des exercices stabilisateurs actifs.",
+          ],
+          bullets: [
+            "Tête au-dessus du cœur — aucun afflux sanguin ni pression sinusienne.",
+            "Aucun serrage des chevilles — mains posées confortablement sur le chariot.",
+            "Flexibilité naturelle du pin qui protège la courbure lombaire.",
+            "Se replie à 6 cm du mur au lieu d'occuper 1,4 m² au sol.",
+          ],
+        },
+        {
+          id: "who-should-switch",
+          heading: "4. Choisir la Bonne Alternative pour Votre Intérieur",
+          paragraphs: [
+            "Pour une décompression quotidienne sans vertiges ni encombrement métallique, la planche en bois inclinée offre un réglage fin, la boucle de Glisson incluse et plus de 20 ans de durabilité.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "La planche inclinée est-elle plus sûre qu'une table Teeter après 50 ans ?",
+          a: "Oui pour la plupart des adultes : rester tête haute à 8°–25° évite les pics de pression oculaire et crânienne ainsi que la douleur aux chevilles.",
+        },
+        {
+          q: "Quelle force de traction produit un angle de 15° à 20° ?",
+          a: "Pour un adulte de 77 à 90 kg, cela crée environ 14 à 25 kg de décharge longitudinale douce.",
+        },
+      ],
+    },
+    uk: {
+      title:
+        "Інверсійні Столи проти Похилої Декомпресії: Чому Малий Кут Безпечніший",
+      category: "Альтернатива Інверсії",
+      readTime: "8 хв читання",
+      author: {
+        name: "Редакція Біомеханіки Хребта Evminov",
+        role: "Дослідження Вертебрального Здоров'я",
+        credentials: "30 Років Документації Методики Євмінова (з 1996 року)",
+      },
+      excerpt:
+        "Вис головою вниз під 60°–90° різко підвищує очний і внутрішньочерепний тиск та здавлює щиколотки. Розбираємо фізику контрольованої витяжки 8°–35° на резонансній сосні.",
+      sections: [
+        {
+          id: "gravity-paradox",
+          heading: "1. Гравітаційний Парадокс Вису Головою Вниз",
+          paragraphs: [
+            "Десятиліттями сталеві інверсійні столи рекламувалися як головний домашній тренажер для спини. Проте серцево-судинна та очна системи людини не пристосовані до тривалого вису догори ногами.",
+            "Офтальмологічні дослідження фіксують різкий стрибок внутрішньоочного тиску (ВОТ) під час повної інверсії, що робить її небезпечною при гіпертонії, глаукомі, запамороченнях чи тиску в пазухах.",
+          ],
+        },
+        {
+          id: "ankle-and-support",
+          heading: "2. Затискання Щиколоток та Відсутність Опори для Спини",
+          paragraphs: [
+            "Класичні інверсійні столи фіксують щиколотки й підвішують 100% ваги тіла через коліна та крижово-клубові суглоби. Багато людей припиняють заняття саме через біль у щиколотках.",
+            "Крім того, вільне провисання без суцільної опори під спиною провокує перерозгинання попереку й захисний м'язовий спазм.",
+          ],
+        },
+        {
+          id: "low-angle-physics",
+          heading: "3. Контрольована Фізика Малого Кута (8° – 35°)",
+          paragraphs: [
+            "На запатентованій дошці Євмінова (US Patent 6,869,387 B2) голова залишається вище серця, а хребет спирається на пружну карпатську сосну. За формулою похилої площини дорослий вагою 82 кг під кутом 18° отримує ~19 кг плавного осьового розвантаження.",
+            "Без припливу крові до голови та болю в щиколотках нервова система за секунди знімає спазм, дозволяючи виконувати лікувальні малоамплітудні вправи.",
+          ],
+          bullets: [
+            "Голова вище рівня серця — нуль припливу крові та тиску в очах.",
+            "Без затискачів щиколоток — руки комфортно лежать на ручках каретки.",
+            "Пружний прогин сосни підтримує фізіологічний вигин попереку.",
+            "Складається до 6 см уздовж стіни замість 1,4 м² площі підлоги.",
+          ],
+        },
+        {
+          id: "who-should-switch",
+          heading: "4. Як Обрати Надійну Альтернативу для Дому",
+          paragraphs: [
+            "Якщо вам потрібне щоденне розвантаження спини без запаморочення, болю в щиколотках та громіздкої сталевої рами, дерев'яна похила дошка дає точний контроль кута, Петлю Гліссона в комплекті та 20+ років служби.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Чи безпечніша похила дошка за інверсійний стіл Teeter для людей 50+?",
+          a: "Так, у більшості випадків — адже положення головою вгору під кутом 8°–25° виключає стрибки очного й черепного тиску та навантаження на щиколотки.",
+        },
+        {
+          q: "Яку силу тяги створює кут 15°–20°?",
+          a: "Для дорослого вагою 77–90 кг кут 15°–20° створює приблизно 14–25 кг плавного поздовжнього розвантаження.",
+        },
+      ],
+    },
+    ru: {
+      title:
+        "Инверсионные Столы против Наклонной Декомпрессии: Почему Малый Угол Безопаснее",
+      category: "Альтернатива Инверсии",
+      readTime: "8 мин чтения",
+      author: {
+        name: "Редакция Биомеханики Позвоночника Evminov",
+        role: "Исследования Вертебрального Здоровья",
+        credentials: "30 Лет Документации Методики Евминова (с 1996 года)",
+      },
+      excerpt:
+        "Вис головой вниз под 60°–90° резко повышает глазное и черепное давление и сдавливает лодыжки. Разбираем физику контролируемой вытяжки 8°–35° на резонансной сосне.",
+      sections: [
+        {
+          id: "gravity-paradox",
+          heading: "1. Гравитационный Парадокс Виса Головой Вниз",
+          paragraphs: [
+            "Десятилетиями стальные инверсионные столы продавались как главный домашний тренажёр для спины. Однако сердечно-сосудистая и зрительная системы человека не рассчитаны на вис вверх ногами.",
+            "Офтальмологические исследования фиксируют резкий рост внутриглазного давления (ВГД) при полной инверсии, делая её опасной при гипертонии, глаукоме и головокружении.",
+          ],
+        },
+        {
+          id: "ankle-and-support",
+          heading: "2. Зажим Лодыжек и Отсутствие Опоры для Спины",
+          paragraphs: [
+            "Обычные инверсионные столы фиксируют лодыжки и подвешивают 100% веса тела через колени и таз. Многие прекращают занятия именно из-за боли в лодыжках.",
+            "Кроме того, свободное провисание без опоры под спиной провоцирует переразгибание поясницы и защитный мышечный спазм.",
+          ],
+        },
+        {
+          id: "low-angle-physics",
+          heading: "3. Контролируемая Физика Малого Угла (8° – 35°)",
+          paragraphs: [
+            "На запатентованной доске Евминова (US Patent 6,869,387 B2) голова остаётся выше сердца, а позвоночник опирается на упругую карпатскую сосну. При угле 18° взрослый весом 82 кг получает ~19 кг плавной осевой разгрузки.",
+            "Без прилива крови к голове и зажима лодыжек нервная система за секунды снимает спазм, позволяя выполнять стабилизирующие упражнения.",
+          ],
+          bullets: [
+            "Голова выше уровня сердца — ноль прилива крови и давления в глазах.",
+            "Без зажимов лодыжек — руки комфортно лежат на рукоятях каретки.",
+            "Упругий прогиб сосны поддерживает поясничный изгиб.",
+            "Складывается до 6 см вдоль стены вместо 1,4 м² площади пола.",
+          ],
+        },
+        {
+          id: "who-should-switch",
+          heading: "4. Как Выбрать Надёжную Альтернативу для Дома",
+          paragraphs: [
+            "Если нужна ежедневная разгрузка спины без головокружения, боли в лодыжках и громоздкой стальной рамы, деревянная наклонная доска даёт точный контроль угла, Петлю Глиссона в комплекте и 20+ лет службы.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Безопаснее ли наклонная доска, чем инверсионный стол Teeter для людей 50+?",
+          a: "Да, в большинстве случаев — положение головой вверх под углом 8°–25° исключает скачки глазного и черепного давления и нагрузку на лодыжки.",
+        },
+        {
+          q: "Какую силу тяги создаёт угол 15°–20°?",
+          a: "Для взрослого весом 77–90 кг угол 15°–20° создаёт примерно 14–25 кг плавной продольной разгрузки.",
+        },
+      ],
+    },
+  },
+  "how-to-decompress-herniated-disc-l4-l5-at-home": {
+    es: {
+      title:
+        "Guía de Descarga Lumbar en Casa: Biomecánica Discal L4–L5 / L5–S1 y Ángulos Progresivos",
+      category: "Biomecánica Lumbar",
+      readTime: "9 min de lectura",
+      author: {
+        name: "Equipo Editorial de Biomecánica Evminov",
+        role: "Investigación en Bienestar Vertebral",
+        credentials: "30 Años de Documentación del Método Evminov (Desde 1996)",
+      },
+      excerpt:
+        "Comprenda por qué los discos adultos no tienen riego sanguíneo directo, cómo el movimiento suave impulsa la difusión de fluidos y cómo progresar de 8° a 25°.",
+      sections: [
+        {
+          id: "avascular-biology",
+          heading: "1. Por Qué los Discos Lumbares Dependen del Intercambio de Fluidos sin Carga",
+          paragraphs: [
+            "Los segmentos L4–L5 y L5–S1 soportan más del 60% del peso superior al sentarse o levantar cargas. Al ser avasculares, los discos adultos dependen de la difusión osmótica a través de sus placas terminales.",
+            "Al retirar la carga gravitatoria en un plano inclinado y combinarlo con micromovimientos rítmicos, el intercambio osmótico atrae fluido y nutrientes de vuelta al tejido discal.",
+          ],
+        },
+        {
+          id: "three-stage-progression",
+          heading: "2. La Progresión Evminov en 3 Etapas",
+          paragraphs: [
+            "Apresurarse hacia ángulos pronunciados provoca espasmos protectores. La progresión clásica construye tolerancia paso a paso:",
+          ],
+          bullets: [
+            "Etapa 1 — Descarga Suave (Semanas 1–2, 8°–12°): 8 min boca arriba con respiración diafragmática y bombeo de tobillos.",
+            "Etapa 2 — Activación Profunda (Semanas 3–6, 14°–22°): Basculaciones pélvicas suaves y deslizamientos de piernas para despertar el multífido.",
+            "Etapa 3 — Mantenimiento Diario (Continuo, 15°–30°): 10 min una o dos veces al día para contrarrestar la sedestación.",
+          ],
+        },
+        {
+          id: "safety-screening",
+          heading: "3. Señales de Alerta y Contraindicaciones",
+          paragraphs: [
+            "Las tablas de acondicionamiento doméstico son equipos de bienestar general y nunca sustituyen la atención médica ante pie caído, cambios vesicales/intestinales, trauma agudo o dolor irradiado en aumento.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "¿Cuánto tiempo deben empezar los principiantes en la tabla Evminov?",
+          a: "Comience con 6 a 8 minutos a 8°–12° una o dos veces al día, aumentando gradualmente a 10–15 minutos.",
+        },
+      ],
+    },
+    fr: {
+      title:
+        "Guide de Décharge Lombaire à Domicile : Biomécanique Discale L4–L5 / L5–S1",
+      category: "Biomécanique Lombaire",
+      readTime: "9 min de lecture",
+      author: {
+        name: "Équipe Éditoriale Biomécanique Evminov",
+        role: "Recherche en Bien-être Vertébral",
+        credentials: "30 Ans d'Archives de la Méthode Evminov (Depuis 1996)",
+      },
+      excerpt:
+        "Pourquoi les disques adultes sont avasculaires, comment le mouvement en décharge stimule la diffusion hydrique et comment progresser de 8° à 25°.",
+      sections: [
+        {
+          id: "avascular-biology",
+          heading: "1. Pourquoi les Disques Lombaires Dépendent des Échanges Hydriques",
+          paragraphs: [
+            "Les segments L4–L5 et L5–S1 supportent plus de 60 % du poids du haut du corps. Dépourvus de vaisseaux sanguins directs, les disques adultes se nourrissent par imbibition osmotique.",
+            "Lorsque la charge est retirée sur un plan incliné avec des micro-mouvements doux, les fluides et nutriments diffusent de nouveau dans le disque.",
+          ],
+        },
+        {
+          id: "three-stage-progression",
+          heading: "2. La Progression Evminov en 3 Étapes",
+          paragraphs: [
+            "Des angles trop forts trop tôt déclenchent des spasmes défensifs. La progression classique respecte trois phases :",
+          ],
+          bullets: [
+            "Étape 1 — Décharge Douce (Semaines 1–2, 8°–12°) : 8 min sur le dos avec respiration calme et flexions de chevilles.",
+            "Étape 2 — Activation Profonde (Semaines 3–6, 14°–22°) : Bascules pelviennes douces et glissés de jambes pour le multifide.",
+            "Étape 3 — Entretien Quotidien (Continu, 15°–30°) : 10 min 1 à 2×/jour pour compenser la position assise.",
+          ],
+        },
+        {
+          id: "safety-screening",
+          heading: "3. Signaux d'Alerte Médicaux",
+          paragraphs: [
+            "Cet équipement de bien-être ne remplace pas un avis médical urgent en cas de pied tombant, troubles sphinctériens, traumatisme ou douleur irradiante croissante.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Combien de minutes doivent faire les débutants au départ ?",
+          a: "Commencez par 6 à 8 minutes à 8°–12° une ou deux fois par jour, puis augmentez progressivement jusqu'à 10–15 minutes.",
+        },
+      ],
+    },
+    uk: {
+      title:
+        "Домашнє Розвантаження Попереку: Біомеханіка Дисків L4–L5 / L5–S1 та Прогресія Кутів",
+      category: "Біомеханіка Попереку",
+      readTime: "9 хв читання",
+      author: {
+        name: "Редакція Біомеханіки Хребта Evminov",
+        role: "Дослідження Вертебрального Здоров'я",
+        credentials: "30 Років Документації Методики Євмінова (з 1996 року)",
+      },
+      excerpt:
+        "Чому міжхребцеві диски дорослих не мають прямих судин, як м'який рух у розвантаженні запускає дифузію рідини та як безпечно переходити від 8° до 25°.",
+      sections: [
+        {
+          id: "avascular-biology",
+          heading: "1. Чому Поперекові Диски Потребують Розвантаження для Живлення",
+          paragraphs: [
+            "Сегменти L4–L5 та L5–S1 витримують понад 60% ваги верхньої частини тіла. Міжхребцеві диски дорослої людини не мають власних капілярів і живляться шляхом осмотичної дифузії (імбібіції) крізь замикальні пластинки.",
+            "Коли осьове навантаження плавно знімається на похилій площині в поєднанні з ритмічними мікрорухами, рідина та поживні речовини повертаються в тканину диска.",
+          ],
+        },
+        {
+          id: "three-stage-progression",
+          heading: "2. Триетапна Прогресія за Методикою Євмінова",
+          paragraphs: [
+            "Поспіх із великими кутами викликає захисний спазм. Класична методика поступово адаптує спину:",
+          ],
+          bullets: [
+            "Етап 1 — М'яке Розвантаження (Тижні 1–2, 8°–12°): 8 хв на спині з діафрагмальним диханням і рухами стопами.",
+            "Етап 2 — Активація Глибокого Кору (Тижні 3–6, 14°–22°): М'які нахили таза та ковзання ногами для багатороздільних м'язів.",
+            "Етап 3 — Щоденна Профілактика (Постійно, 15°–30°): 10 хв 1–2 рази на день для компенсації сидіння.",
+          ],
+        },
+        {
+          id: "safety-screening",
+          heading: "3. Медичні Червоні Прапорці та Протипоказання",
+          paragraphs: [
+            "Домашні тренажери є обладнанням для загального оздоровлення і не замінюють термінової неврологічної допомоги при слабкості стопи, порушеннях тазових функцій, травмі чи наростаючому болю в нозі.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Скільки хвилин варто займатися новачкам на початку?",
+          a: "Починайте з 6–8 хвилин під кутом 8°–12° один-два рази на день, поступово збільшуючи час до 10–15 хвилин.",
+        },
+      ],
+    },
+    ru: {
+      title:
+        "Домашняя Разгрузка Поясницы: Биомеханика Дисков L4–L5 / L5–S1 и Прогрессия Углов",
+      category: "Биомеханика Поясницы",
+      readTime: "9 мин чтения",
+      author: {
+        name: "Редакция Биомеханики Позвоночника Evminov",
+        role: "Исследования Вертебрального Здоровья",
+        credentials: "30 Лет Документации Методики Евминова (с 1996 года)",
+      },
+      excerpt:
+        "Почему межпозвоночные диски взрослых не имеют прямых сосудов, как мягкое движение в разгрузке запускает диффузию жидкости и как безопасно переходить от 8° к 25°.",
+      sections: [
+        {
+          id: "avascular-biology",
+          heading: "1. Почему Поясничным Дискам Нужна Разгрузка для Питания",
+          paragraphs: [
+            "Сегменты L4–L5 и L5–S1 несут более 60% веса верхней части тела. Межпозвоночные диски взрослого не имеют капилляров и питаются за счёт осмотической диффузии (имбибиции).",
+            "Когда осевая нагрузка плавно снимается на наклонной плоскости в сочетании с ритмичными микродвижениями, жидкость и питательные вещества возвращаются в диск.",
+          ],
+        },
+        {
+          id: "three-stage-progression",
+          heading: "2. Трёхэтапная Прогрессия по Методике Евминова",
+          paragraphs: [
+            "Спешка с большими углами вызывает защитный спазм. Классическая методика адаптирует спину поэтапно:",
+          ],
+          bullets: [
+            "Этап 1 — Мягкая Разгрузка (Недели 1–2, 8°–12°): 8 мин на спине с диафрагмальным дыханием и движениями стоп.",
+            "Этап 2 — Активация Глубокого Кора (Недели 3–6, 14°–22°): Мягкие наклоны таза и скольжения ногами для глубоких мышц.",
+            "Этап 3 — Ежедневная Профилактика (Постоянно, 15°–30°): 10 мин 1–2 раза в день для компенсации сидения.",
+          ],
+        },
+        {
+          id: "safety-screening",
+          heading: "3. Медицинские Красные Флаги и Противопоказания",
+          paragraphs: [
+            "Домашние тренажёры относятся к оздоровительному оборудованию и не заменяют срочную врачебную помощь при слабости стопы, нарушениях тазовых функций, травме или усиливающейся боли в ноге.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Сколько минут стоит заниматься новичкам вначале?",
+          a: "Начинайте с 6–8 минут под углом 8°–12° один-два раза в день, постепенно увеличивая длительность до 10–15 минут.",
+        },
+      ],
+    },
+  },
+  "the-lifters-guide-to-spinal-decompression": {
+    es: {
+      title:
+        "Guía del Levantador: Revertir la Compresión Espinal tras Peso Muerto y Sentadillas Pesadas",
+      category: "Recuperación Atlética",
+      readTime: "7 min de lectura",
+      author: {
+        name: "Equipo de Acondicionamiento Atlético Evminov",
+        role: "Ingeniería de Fuerza y Movilidad",
+        credentials: "Biomecánica Deportiva y Recuperación",
+      },
+      excerpt:
+        "Colgarse en barra fija activa los dorsales y mantiene tensa la espalda baja. Descubra cómo atletas y corredores relajan de verdad los erectores espinales.",
+      sections: [
+        {
+          id: "barbell-compression",
+          heading: "1. Qué Hace la Carga Axial Pesada a Su Columna",
+          paragraphs: [
+            "Las sentadillas pesadas, el peso muerto y el kilometraje de carrera comprimen los discos lumbares. Los estudios de estadiometría muestran pérdidas temporales de 8 a 15 mm de estatura tras sesiones axiales intensas.",
+          ],
+        },
+        {
+          id: "why-pullup-hangs-fail",
+          heading: "2. Por Qué Colgarse en Barra Fija Deja la Espalda Tensa",
+          paragraphs: [
+            "Colgarse exige fuerte agarre y contracción del dorsal ancho, que se inserta directamente en la fascia toracolumbar e impide que la zona lumbar se suelte.",
+            "Apoyado en la tabla Wide Heavy-Duty (hasta 150 kg), los hombros y erectores se desconectan por completo mientras la inclinación de 20°–30° descomprime la columna.",
+          ],
+        },
+        {
+          id: "post-workout-sequence",
+          heading: "3. Secuencia de Recuperación Post-Entreno de 10 Minutos",
+          paragraphs: [
+            "Ejecute este enfriamiento inmediatamente después del entrenamiento de tren inferior:",
+          ],
+          bullets: [
+            "Minutos 1–4 (20°): Descarga supina pasiva con exhalaciones nasales largas.",
+            "Minutos 5–7 (22°–25°): Deslizamientos alternos y estiramiento isquiotibial sin redondear la lumbar.",
+            "Minutos 8–10 (25°): Abdominales inclinados sin compresión y puentes de cadera.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "¿Puede un levantador de 118 kg (260 lb) usar con seguridad la tabla Evminov?",
+          a: "Sí — elija la tabla Wide Panel Heavy-Duty, con núcleo un 30% más ancho y capacidad de hasta 150 kg (330 lb) y 2,06 m.",
+        },
+      ],
+    },
+    fr: {
+      title:
+        "Guide de l'Athlète : Inverser la Compression Vertébrale après Squat et Soulevé de Terre",
+      category: "Récupération Athlétique",
+      readTime: "7 min de lecture",
+      author: {
+        name: "Pôle Conditionnement Athlétique Evminov",
+        role: "Ingénierie Force & Mobilité",
+        credentials: "Biomécanique Sportive & Récupération",
+      },
+      excerpt:
+        "La suspension à la barre fixe contracte les dorsaux et garde les lombaires tendues. Voici comment relâcher complètement vos érecteurs après l'effort.",
+      sections: [
+        {
+          id: "barbell-compression",
+          heading: "1. L'Effet des Charges Lourdes sur Votre Colonne",
+          paragraphs: [
+            "Squats, soulevés de terre et course à pied compriment les disques lombaires. Les études montrent une réduction temporaire de taille de 8 à 15 mm après une séance axiale lourde.",
+          ],
+        },
+        {
+          id: "why-pullup-hangs-fail",
+          heading: "2. Pourquoi la Suspension à une Barre Laisse le Dos Tendu",
+          paragraphs: [
+            "Se suspendre sollicite fortement les avant-bras et les grands dorsaux, qui s'insèrent dans le fascia lombaire et empêchent le relâchement profond.",
+            "Sur la planche Wide Heavy-Duty (jusqu'à 150 kg), le buste est soutenu et vos lombaires se relâchent totalement entre 20° et 30°.",
+          ],
+        },
+        {
+          id: "post-workout-sequence",
+          heading: "3. Routine de Récupération Post-Séance de 10 Minutes",
+          paragraphs: [
+            "Réalisez ce protocole juste après votre séance jambes ou dos :",
+          ],
+          bullets: [
+            "Minutes 1–4 (20°) : Décharge dorsale passive avec expirations nasales longues.",
+            "Minutes 5–7 (22°–25°) : Glissés de jambes et étirements des ischios sans arrondir les lombaires.",
+            "Minutes 8–10 (25°) : Gainage incliné sans compression et ponts de hanches.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Un athlète de 118 kg peut-il utiliser la planche Evminov en sécurité ?",
+          a: "Oui — optez pour la planche Wide Heavy-Duty, conçue jusqu'à 150 kg (330 lb) et 2,06 m.",
+        },
+      ],
+    },
+    uk: {
+      title:
+        "Гайд Атлета: Як Зняти Компресію Хребта після Важкої Станової Тяги та Присідань",
+      category: "Спортивне Відновлення",
+      readTime: "7 хв читання",
+      author: {
+        name: "Відділ Спортивного Відновлення Evminov",
+        role: "Інженерія Сили та Мобільності",
+        credentials: "Спортивна Біомеханіка та Домашній Зал",
+      },
+      excerpt:
+        "Вис на турніку вмикає найширші м'язи й тримає поперек у напрузі. Дізнайтеся, як пауерліфтери, кросфітери та бігуни по-справжньому розслаблюють спину.",
+      sections: [
+        {
+          id: "barbell-compression",
+          heading: "1. Як Важка Штанга Впливає на Міжхребцеві Диски",
+          paragraphs: [
+            "Важкі присідання, станова тяга та великі обсяги бігу створюють багаторазове осьове стиснення. Стадіометрія показує, що атлети тимчасово втрачають 8–15 мм зросту за важке тренування.",
+          ],
+        },
+        {
+          id: "why-pullup-hangs-fail",
+          heading: "2. Чому Вис на Турніку Залишає Поперек Затиснутим",
+          paragraphs: [
+            "Вис на турніку вимагає сильного хвату та напруження найширших м'язів спини, які кріпляться безпосередньо до попереково-грудної фасції та заважають розслабленню.",
+            "На Широкій Посиленій Дошці Євмінова (до 150 кг) плечі й розгиначі спини повністю вимикаються, а кут 20°–30° плавно розвантажує поперек.",
+          ],
+        },
+        {
+          id: "post-workout-sequence",
+          heading: "3. 10-Хвилинний Протокол Відновлення після Тренування",
+          paragraphs: [
+            "Виконуйте цю заминку одразу після тренування ніг або спини:",
+          ],
+          bullets: [
+            "Хвилини 1–4 (20°): Пасивне розвантаження на спині з довгими видихами.",
+            "Хвилини 5–7 (22°–25°): Почергове ковзання ногами та розтяжка стегна без округлення попереку.",
+            "Хвилини 8–10 (25°): Скручування кору без компресії та підйоми таза.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Чи витримає дошка Євмінова пауерліфтера вагою 120 кг?",
+          a: "Так — обирайте Широку Посилену Дошку (Wide Heavy-Duty), розраховану до 150 кг (330 lb) і зросту до 206 см.",
+        },
+      ],
+    },
+    ru: {
+      title:
+        "Гайд Атлета: Как Снять Компрессию Позвоночника после Тяжёлой Становой Тяги и Приседаний",
+      category: "Спортивное Восстановление",
+      readTime: "7 мин чтения",
+      author: {
+        name: "Отдел Спортивного Восстановления Evminov",
+        role: "Инженерия Силы и Мобильности",
+        credentials: "Спортивная Биомеханика и Домашний Зал",
+      },
+      excerpt:
+        "Вис на турнике включает широчайшие мышцы и держит поясницу в напряжении. Узнайте, как пауэрлифтеры, кроссфитеры и бегуны по-настоящему расслабляют спину.",
+      sections: [
+        {
+          id: "barbell-compression",
+          heading: "1. Как Тяжёлая Штанга Влияет на Межпозвоночные Диски",
+          paragraphs: [
+            "Тяжёлые приседания, становая тяга и большие объёмы бега создают многократное осевое сжатие. Стадиометрия показывает временную потерю роста 8–15 мм за тяжёлую тренировку.",
+          ],
+        },
+        {
+          id: "why-pullup-hangs-fail",
+          heading: "2. Почему Вис на Турнике Оставляет Поясницу Зажатой",
+          paragraphs: [
+            "Вис на турнике требует сильного хвата и напряжения широчайших мышц, которые крепятся к пояснично-грудной фасции и мешают полному расслаблению.",
+            "На Широкой Усиленной Доске Евминова (до 150 кг) плечи и разгибатели спины полностью выключаются, а угол 20°–30° плавно разгружает поясницу.",
+          ],
+        },
+        {
+          id: "post-workout-sequence",
+          heading: "3. 10-Минутный Протокол Восстановления после Тренировки",
+          paragraphs: [
+            "Выполняйте эту заминку сразу после тренировки ног или спины:",
+          ],
+          bullets: [
+            "Минуты 1–4 (20°): Пассивная разгрузка на спине с длинными выдохами.",
+            "Минуты 5–7 (22°–25°): Поочерёдное скольжение ногами и растяжка бедра без округления поясницы.",
+            "Минуты 8–10 (25°): Скручивания кора без компрессии и ягодичные мостики.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Выдержит ли доска Евминова пауэрлифтера весом 120 кг?",
+          a: "Да — выбирайте Широкую Усиленную Доску (Wide Heavy-Duty), рассчитанную до 150 кг (330 lb) и роста до 206 см.",
+        },
+      ],
+    },
+  },
+  "sciatica-relief-exercises-home-equipment": {
+    es: {
+      title:
+        "Confort del Nervio Ciático en Casa: Descarga Inclinada Suave y Movilidad Segura",
+      category: "Alivio de Ciática",
+      readTime: "7 min de lectura",
+      author: {
+        name: "Equipo Editorial de Biomecánica Evminov",
+        role: "Investigación en Bienestar Vertebral",
+        credentials: "30 Años de Documentación del Método Evminov (Desde 1996)",
+      },
+      excerpt:
+        "Por qué la descarga suave con rodillas flexionadas a 10°–15° alivia la tensión lumbar y glútea mucho más cómodamente que los estiramientos agresivos.",
+      sections: [
+        {
+          id: "mechanical-compression",
+          heading: "1. Comprender la Tensión Mecánica del Nervio Ciático",
+          paragraphs: [
+            "El nervio ciático nace en las raíces L4–S3 y desciende por el glúteo y la pierna. Estar sentado encorvado, el piriforme tenso y los discos comprimidos agravan la tensión mecánica en este trayecto.",
+          ],
+        },
+        {
+          id: "gentle-bent-knee-sequence",
+          heading: "2. Secuencia Inclinada Suave en 3 Pasos",
+          paragraphs: [
+            "Durante episodios sensibles, estirar bruscamente la pierna recta tira del nervio irritado. Empiece siempre en ángulo bajo:",
+          ],
+          bullets: [
+            "Paso 1 (10°, 4 min): Recuéstese boca arriba con las rodillas suavemente flexionadas.",
+            "Paso 2 (12°–15°, 4 min): Bombeos lentos de tobillo y deslizamientos suaves de una pierna sin dolor.",
+            "Paso 3 (Salida Segura): Descanse 2 min y gire de costado antes de ponerse de pie.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "¿Debo forzar a través de un dolor punzante en la pierna durante los ejercicios?",
+          a: "Nunca. Cada movimiento debe ser aliviador y sin dolor; si el dolor baja más por la pierna, reduzca el ángulo o consulte a un médico.",
+        },
+      ],
+    },
+    fr: {
+      title:
+        "Confort du Nerf Sciatique à Domicile : Décharge Douce et Mobilité Respectueuse",
+      category: "Confort Sciatique",
+      readTime: "7 min de lecture",
+      author: {
+        name: "Équipe Éditoriale Biomécanique Evminov",
+        role: "Recherche en Bien-être Vertébral",
+        credentials: "30 Ans d'Archives de la Méthode Evminov (Depuis 1996)",
+      },
+      excerpt:
+        "Pourquoi la décharge douce genoux fléchis à 10°–15° apaise mieux la tension lombaire et fessière que les étirements intenses.",
+      sections: [
+        {
+          id: "mechanical-compression",
+          heading: "1. Comprendre la Tension Mécanique Sciatique",
+          paragraphs: [
+            "Le nerf sciatique part des racines L4–S3 et descend dans la fesse et la jambe. La position assise prolongée et les disques comprimés accentuent cette tension mécanique.",
+          ],
+        },
+        {
+          id: "gentle-bent-knee-sequence",
+          heading: "2. Séquence Inclinée Douce en 3 Étapes",
+          paragraphs: [
+            "En période sensible, les étirements jambe tendue tirent sur le nerf irrité. Commencez en douceur :",
+          ],
+          bullets: [
+            "Étape 1 (10°, 4 min) : Allongé sur le dos, genoux légèrement pliés.",
+            "Étape 2 (12°–15°, 4 min) : Flexions lentes des chevilles et glissés d'une jambe sans douleur.",
+            "Étape 3 (Sortie Sûre) : Repos 2 min, puis roulez doucement sur le côté pour vous lever.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Dois-je forcer en cas de douleur vive dans la jambe ?",
+          a: "Jamais. Chaque mouvement doit soulager ; si la douleur irradie davantage, baissez l'angle ou consultez un professionnel.",
+        },
+      ],
+    },
+    uk: {
+      title:
+        "Комфорт Сідничного Нерва Вдома: М'яке Похиле Розвантаження та Безпечна Мобільність",
+      category: "Полегшення при Ішіасі",
+      readTime: "7 хв читання",
+      author: {
+        name: "Редакція Біомеханіки Хребта Evminov",
+        role: "Дослідження Вертебрального Здоров'я",
+        credentials: "30 Років Документації Методики Євмінова (з 1996 року)",
+      },
+      excerpt:
+        "Чому м'яке розвантаження зі злегка зігнутими колінами під кутом 10°–15° знімає напругу значно комфортніше за інтенсивну розтяжку.",
+      sections: [
+        {
+          id: "mechanical-compression",
+          heading: "1. Механічна Природа Напруги Сідничного Нерва",
+          paragraphs: [
+            "Сідничний нерв бере початок від корінців L4–S3 і проходить через сідницю вздовж ноги. Тривале сидіння, спазм грушоподібного м'яза та стиснення дисків посилюють механічне подразнення.",
+          ],
+        },
+        {
+          id: "gentle-bent-knee-sequence",
+          heading: "2. 3-Крокова М'яка Програма на Похилій Дошці",
+          paragraphs: [
+            "У період чутливості різка розтяжка прямої ноги тягне подразнений нерв. Починайте максимально делікатно:",
+          ],
+          bullets: [
+            "Крок 1 (10°, 4 хв): Лежання на спині із злегка зігнутими колінами.",
+            "Крок 2 (12°–15°, 4 хв): Повільні рухи стопами та безболісні почергові ковзання ногами.",
+            "Крок 3 (Безпечний Вихід): 2 хв спокою, потім плавний поворот на бік перед підйомом.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Чи можна займатися через різкий прострілюючий біль у нозі?",
+          a: "Ніколи. Кожен рух має приносити полегшення; якщо біль спускається нижче по нозі, зменшіть кут або зверніться до лікаря.",
+        },
+      ],
+    },
+    ru: {
+      title:
+        "Комфорт Седалищного Нерва Дома: Мягкая Наклонная Разгрузка и Безопасная Подвижность",
+      category: "Облегчение при Ишиасе",
+      readTime: "7 мин чтения",
+      author: {
+        name: "Редакция Биомеханики Позвоночника Evminov",
+        role: "Исследования Вертебрального Здоровья",
+        credentials: "30 Лет Документации Методики Евминова (с 1996 года)",
+      },
+      excerpt:
+        "Почему мягкая разгрузка со слегка согнутыми коленями под углом 10°–15° снимает напряжение значительно комфортнее агрессивной растяжки.",
+      sections: [
+        {
+          id: "mechanical-compression",
+          heading: "1. Механическая Природа Напряжения Седалищного Нерва",
+          paragraphs: [
+            "Седалищный нерв берёт начало от корешков L4–S3 и проходит через ягодицу вдоль ноги. Длительное сидение, спазм грушевидной мышцы и компрессия дисков усиливают раздражение.",
+          ],
+        },
+        {
+          id: "gentle-bent-knee-sequence",
+          heading: "2. 3-Шаговая Мягкая Программа на Наклонной Доске",
+          paragraphs: [
+            "В период чувствительности резкая растяжка прямой ноги тянет раздражённый нерв. Начинайте максимально деликатно:",
+          ],
+          bullets: [
+            "Шаг 1 (10°, 4 мин): Лежание на спине со слегка согнутыми коленями.",
+            "Шаг 2 (12°–15°, 4 мин): Медленные движения стопами и безболезненные скольжения ногами.",
+            "Шаг 3 (Безопасный Выход): 2 мин покоя, затем плавный поворот на бок перед подъёмом.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Можно ли заниматься через резкую простреливающую боль в ноге?",
+          a: "Никогда. Каждое движение должно приносить облегчение; если боль спускается ниже по ноге, уменьшите угол или обратитесь к врачу.",
+        },
+      ],
+    },
+  },
+  "remote-worker-spine-hygiene-posture-reset": {
+    es: {
+      title:
+        "Reinicio Espinal de 7 Minutos para Trabajo Remoto: Revierte el Cuello Tecnológico",
+      category: "Ergonomía de Oficina",
+      readTime: "7 min de lectura",
+      author: {
+        name: "Grupo de Ergonomía Evminov",
+        role: "Postura y Movilidad en el Trabajo",
+        credentials: "Especialistas en Higiene Espinal en Casa",
+      },
+      excerpt:
+        "Ni siquiera una silla de $1,500 elimina la compresión gravitatoria. Así reinician su columna los ingenieros y trabajadores remotos en 7 minutos.",
+      sections: [
+        {
+          id: "seated-pressure",
+          heading: "1. El Coste Biomecánico de 9 Horas en una Silla",
+          paragraphs: [
+            "Sentarse encorvado dispara la presión intradiscal lumbar frente a estar de pie, mientras inclinar la cabeza 45° hacia el portátil eleva la carga cervical de 5 kg a casi 22 kg.",
+          ],
+        },
+        {
+          id: "seven-minute-protocol",
+          heading: "2. El Reinicio Diario de 7 Minutos en Oficina en Casa",
+          paragraphs: [
+            "Guarde una tabla Plegable de 2 Piezas en el clóset o detrás de la puerta, o use el Soporte Independiente sin taladrar:",
+          ],
+          bullets: [
+            "Minutos 1–3 (15°): Apertura torácica supina con 10 respiraciones profundas.",
+            "Minutos 4–5 (10°): Tracción cervical suave con la Petla Glissona incluida.",
+            "Minutos 6–7 (16°): Deslizamientos lentos de pierna para alargar el psoas.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "¿Pueden los inquilinos usar la tabla Evminov sin perforar paredes?",
+          a: "¡Sí! Añada el Soporte Independiente Desmontable ($275): cero agujeros y menos de 0,33 m².",
+        },
+      ],
+    },
+    fr: {
+      title:
+        "Le Reset Vertébral de 7 Minutes en Télétravail : Inverser 9 Heures Assis",
+      category: "Ergonomie Bureau",
+      readTime: "7 min de lecture",
+      author: {
+        name: "Groupe Ergonomie Evminov",
+        role: "Posture et Mobilité au Travail",
+        credentials: "Spécialistes Hygiène Vertébrale",
+      },
+      excerpt:
+        "Même un fauteuil ergonomique à 1 500 $ n'annule pas la gravité. Voici comment les télétravailleurs libèrent leur dos en 7 minutes.",
+      sections: [
+        {
+          id: "seated-pressure",
+          heading: "1. Le Coût Biomécanique de 9 Heures Assis",
+          paragraphs: [
+            "La position assise voûtée augmente fortement la pression discale lombaire, tandis qu'une tête penchée à 45° porte la charge cervicale à près de 22 kg.",
+          ],
+        },
+        {
+          id: "seven-minute-protocol",
+          heading: "2. Le Protocole Quotidien de 7 Minutes au Bureau",
+          paragraphs: [
+            "Rangez la planche Pliante 2 Pièces dans un placard ou utilisez le support autoportant sans perçage :",
+          ],
+          bullets: [
+            "Minutes 1–3 (15°) : Ouverture thoracique sur le dos avec 10 grandes respirations.",
+            "Minutes 4–5 (10°) : Traction cervicale douce avec la boucle de Glisson incluse.",
+            "Minutes 6–7 (16°) : Glissés lents d'une jambe pour détendre le psoas.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Les locataires peuvent-ils l'utiliser sans percer les murs ?",
+          a: "Oui ! Le support autoportant démontable (275 $) ne nécessite aucun perçage et occupe moins de 0,33 m².",
+        },
+      ],
+    },
+    uk: {
+      title:
+        "7-Хвилинне Перезавантаження для Віддаленої Роботи: Знімаємо 9 Годин Сидіння",
+      category: "Офісна Ергономіка",
+      readTime: "7 хв читання",
+      author: {
+        name: "Група Ергономіки Evminov",
+        role: "Постава та Мобільність на Робочому Місці",
+        credentials: "Спеціалісти з Гігієни Хребта",
+      },
+      excerpt:
+        "Навіть ергономічне крісло за $1,500 не прибирає гравітаційне стиснення дисків. Як програмісти та офісні працівники перезавантажують спину за 7 хвилин.",
+      sections: [
+        {
+          id: "seated-pressure",
+          heading: "1. Біомеханічна Ціна 9 Годин у Кріслі",
+          paragraphs: [
+            "Згорблене сидіння різко підвищує внутрішньодисковий тиск у попереку, а нахил голови на 45° до ноутбука збільшує навантаження на шию з 5 до майже 22 кг.",
+          ],
+        },
+        {
+          id: "seven-minute-protocol",
+          heading: "2. Щоденне 7-Хвилинне Перезавантаження в Домашньому Офісі",
+          paragraphs: [
+            "Тримайте Складну 2-секційну дошку в шафі чи за дверима, або використовуйте підлогову стійку без свердління:",
+          ],
+          bullets: [
+            "Хвилини 1–3 (15°): Розкриття грудної клітки на спині з 10 глибокими вдихами.",
+            "Хвилини 4–5 (10°): М'яке шийне розвантаження з Петлею Гліссона.",
+            "Хвилини 6–7 (16°): Повільні ковзання ногами для розслаблення попереково-клубового м'яза.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Чи можуть орендарі користуватися дошкою без свердління стін?",
+          a: "Так! Розбірна підлогова стійка ($275) не потребує жодного отвору та займає менше 0,33 м².",
+        },
+      ],
+    },
+    ru: {
+      title:
+        "7-Минутная Перезагрузка для Удалённой Работы: Снимаем 9 Часов Сидения",
+      category: "Офисная Эргономика",
+      readTime: "7 мин чтения",
+      author: {
+        name: "Группа Эргономики Evminov",
+        role: "Осанка и Подвижность на Рабочем Месте",
+        credentials: "Специалисты по Гигиене Позвоночника",
+      },
+      excerpt:
+        "Даже эргономичное кресло за $1,500 не убирает гравитационное сжатие дисков. Как программисты и офисные работники перезагружают спину за 7 минут.",
+      sections: [
+        {
+          id: "seated-pressure",
+          heading: "1. Биомеханическая Цена 9 Часов в Кресле",
+          paragraphs: [
+            "Сгорбленное сидение резко повышает внутридисковое давление в пояснице, а наклон головы на 45° к ноутбуку увеличивает нагрузку на шею с 5 до почти 22 кг.",
+          ],
+        },
+        {
+          id: "seven-minute-protocol",
+          heading: "2. Ежедневная 7-Минутная Перезагрузка в Домашнем Офисе",
+          paragraphs: [
+            "Храните Складную 2-секционную доску в шкафу или за дверью, либо используйте напольную стойку без сверления:",
+          ],
+          bullets: [
+            "Минуты 1–3 (15°): Раскрытие грудной клетки на спине с 10 глубокими вдохами.",
+            "Минуты 4–5 (10°): Мягкая шейная разгрузка с Петлёй Глиссона.",
+            "Минуты 6–7 (16°): Медленные скольжения ногами для расслабления пояснично-подвздошной мышцы.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Могут ли арендаторы пользоваться доской без сверления стен?",
+          a: "Да! Разборная напольная стойка ($275) не требует отверстий и занимает менее 0,33 м².",
+        },
+      ],
+    },
+  },
+  "toothbrush-for-the-spine-daily-disc-hygiene": {
+    es: {
+      title:
+        "El «Cepillo de Dientes para la Columna»: Por Qué 10 Minutos Diarios Superan el Cuidado Reactivo",
+      category: "Higiene Espinal Preventiva",
+      readTime: "8 min de lectura",
+      author: {
+        name: "Equipo Editorial de Biomecánica Evminov",
+        role: "Patrimonio de Bienestar Vertebral",
+        credentials: "Archivo Metodológico de Vyacheslav Evminov (Desde 1996)",
+      },
+      excerpt:
+        "Cepillamos 32 dientes cada día para evitar crisis, pero ignoramos 32 vértebras hasta que duele. Conozca la filosofía preventiva detrás de Evminov.",
+      sections: [
+        {
+          id: "jama-evidence",
+          heading: "1. Qué Revelan las Grandes Revisiones Sistemáticas",
+          paragraphs: [
+            "Una revisión sistemática en JAMA Internal Medicine (Steffens et al., 30,850 participantes) concluyó que el ejercicio estructurado combinado con educación es la intervención más fiable para prevenir episodios recurrentes de dolor lumbar.",
+            "Las guías globales de la OMS 2023 también priorizan el movimiento estructurado no farmacológico frente a soluciones pasivas temporales.",
+          ],
+        },
+        {
+          id: "thirty-two-vertebrae",
+          heading: "2. Economía de la Prevención Diaria de 10 Minutos",
+          paragraphs: [
+            "Vyacheslav Evminov creó el concepto «Higiene Diaria de la Columna» en los años 90. Una tabla artesanal de $450 dura más de 20 años y sirve a toda una familia de tres — unos $7.50 por persona al año.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "¿Cuántos minutos al día bastan para la higiene preventiva de la columna?",
+          a: "Sesiones cortas y constantes de 8 a 12 minutos una o dos veces al día superan a entrenamientos largos esporádicos.",
+        },
+      ],
+    },
+    fr: {
+      title:
+        "La « Brosse à Dents de la Colonne » : Pourquoi 10 Minutes par Jour Battent les Soins Réactifs",
+      category: "Hygiène Vertébrale Préventive",
+      readTime: "8 min de lecture",
+      author: {
+        name: "Équipe Éditoriale Biomécanique Evminov",
+        role: "Patrimoine Bien-être Vertébral",
+        credentials: "Archives Vyacheslav Evminov (Depuis 1996)",
+      },
+      excerpt:
+        "Nous brossons 32 dents chaque jour mais ignorons 32 vertèbres jusqu'à la douleur. Découvrez la philosophie préventive de la méthode Evminov.",
+      sections: [
+        {
+          id: "jama-evidence",
+          heading: "1. Ce Que Révèlent les Grandes Études Systématiques",
+          paragraphs: [
+            "Une méta-analyse publiée dans JAMA Internal Medicine (Steffens et al., 30 850 participants) montre que l'exercice structuré associé à l'éducation est le moyen le plus fiable de prévenir les récidives lombaires.",
+            "Les recommandations 2023 de l'OMS privilégient également le mouvement actif non pharmacologique.",
+          ],
+        },
+        {
+          id: "thirty-two-vertebrae",
+          heading: "2. L'Économie de 10 Minutes de Prévention Quotidienne",
+          paragraphs: [
+            "Une planche artisanale à 450 $ dure plus de 20 ans et s'adapte à une famille de trois personnes — soit environ 7,50 $ par personne et par an.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Combien de minutes par jour suffisent en prévention ?",
+          a: "Des séances régulières de 8 à 12 minutes une à deux fois par jour surpassent les longues séances occasionnelles.",
+        },
+      ],
+    },
+    uk: {
+      title:
+        "«Зубна Щітка для Хребта»: Чому 10 Хвилин Щодня Перемагають Реактивне Лікування",
+      category: "Профілактична Гігієна Хребта",
+      readTime: "8 хв читання",
+      author: {
+        name: "Редакція Біомеханіки Хребта Evminov",
+        role: "Спадщина Вертебрального Здоров'я",
+        credentials: "Архів Методики В'ячеслава Євмінова (з 1996 року)",
+      },
+      excerpt:
+        "Ми чистимо 32 зуби щодня, щоб уникнути проблем, але ігноруємо 32 хребці до появи болю. Філософія щоденної профілактики за Євміновим.",
+      sections: [
+        {
+          id: "jama-evidence",
+          heading: "1. Що Показують Світові Систематичні Огляди",
+          paragraphs: [
+            "Метааналіз у JAMA Internal Medicine (Steffens et al., 30 850 учасників) підтвердив, що регулярні структуровані вправи в поєднанні з навчанням є найнадійнішим способом запобігання повторним епізодам болю в попереку.",
+            "Глобальні рекомендації ВООЗ 2023 року також ставлять активний немедикаментозний рух на перше місце.",
+          ],
+        },
+        {
+          id: "thirty-two-vertebrae",
+          heading: "2. Економіка Щоденної 10-Хвилинної Профілактики",
+          paragraphs: [
+            "В'ячеслав Євмінов запровадив принцип «Щоденної Гігієни Хребта» у 1990-х. Одна дошка за $450 служить понад 20 років і підходить для родини з трьох осіб — близько $7,50 на людину на рік.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Скільки хвилин на день достатньо для профілактичної гігієни хребта?",
+          a: "Регулярні короткі сеанси по 8–12 хвилин 1–2 рази на день ефективніші за рідкісні довгі тренування.",
+        },
+      ],
+    },
+    ru: {
+      title:
+        "«Зубная Щётка для Позвоночника»: Почему 10 Минут Ежедневно Побеждают Реактивное Лечение",
+      category: "Профилактическая Гигиена Позвоночника",
+      readTime: "8 мин чтения",
+      author: {
+        name: "Редакция Биомеханики Позвоночника Evminov",
+        role: "Наследие Вертебрального Здоровья",
+        credentials: "Архив Методики Вячеслава Евминова (с 1996 года)",
+      },
+      excerpt:
+        "Мы чистим 32 зуба каждый день, чтобы избежать проблем, но игнорируем 32 позвонка до появления боли. Философия ежедневной профилактики по Евминову.",
+      sections: [
+        {
+          id: "jama-evidence",
+          heading: "1. Что Показывают Мировые Систематические Обзоры",
+          paragraphs: [
+            "Метаанализ в JAMA Internal Medicine (Steffens et al., 30 850 участников) подтвердил, что регулярные структурированные упражнения с обучением — самый надёжный способ профилактики повторных болей в пояснице.",
+            "Глобальные рекомендации ВОЗ 2023 года также ставят активное немедикаментозное движение на первое место.",
+          ],
+        },
+        {
+          id: "thirty-two-vertebrae",
+          heading: "2. Экономика Ежедневной 10-Минутной Профилактики",
+          paragraphs: [
+            "Вячеслав Евминов ввёл принцип «Ежедневной Гигиены Позвоночника» в 1990-х. Одна доска за $450 служит более 20 лет и подходит для семьи из трёх человек — около $7,50 на человека в год.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Сколько минут в день достаточно для профилактической гигиены позвоночника?",
+          a: "Регулярные короткие сеансы по 8–12 минут 1–2 раза в день эффективнее редких длинных тренировок.",
+        },
+      ],
+    },
+  },
+  "spine-decompression-at-home-complete-clinical-guide": {
+    es: {
+      title:
+        "Guía Completa de Compra y Montaje en Casa (Vigas EE. UU. 16\", HSA/FSA y Modelos)",
+      category: "Guía de Compra",
+      readTime: "10 min de lectura",
+      author: {
+        name: "Equipo de Operaciones y Tallas Evminov USA",
+        role: "Logística y Soporte en Glendale, California",
+        credentials: "Especialistas en Instalación EE. UU. y HSA/FSA",
+      },
+      excerpt:
+        "Todo lo que necesita saber antes de pedir: elección entre Pino, Aliso o Ancha, montaje en viga de 16\", soporte para inquilinos y facturas HSA/FSA.",
+      sections: [
+        {
+          id: "choosing-your-model",
+          heading: "1. Elegir Entre los 5 Modelos de Tabla Evminov",
+          paragraphs: [
+            "Elegir la tabla adecuada depende de tres factores: su estatura/peso, su espacio disponible y si planea transportarla.",
+          ],
+          bullets: [
+            "Pino Sólido Estándar ($450 directo / $595 CA Express): Ideal para pared permanente hasta 1,93 m y 95 kg.",
+            "Plegable 2 Piezas ($475 / $615): Se divide en dos mitades en 30 segundos para clóset o bajo cama (hasta 100 kg).",
+            "Viaje 3 Piezas ($495 / $635): Cabe en bolsa de 79 cm con correa para puerta (hasta 100 kg).",
+            "Ancha Heavy-Duty ($500 / $635): +30% anchura reforzada hasta 150 kg y 2,06 m.",
+            "Aliso Selecto ($525 / $665): ~15% más ligera (8,6–9,5 kg) para ajuste sin esfuerzo.",
+          ],
+        },
+        {
+          id: "us-wall-mounting",
+          heading: "2. Instalación en Vigas Estándar de 16\" (O Soporte Sin Taladro)",
+          paragraphs: [
+            "El montaje toma ~15 minutos: localice una sola viga de madera con un detector, perfore dos guías y fije el soporte incluido. Cuando no la use, queda plana a 6 cm de la pared.",
+            "¿Alquila apartamento? Añada el Soporte Desmontable Independiente ($275) sin agujeros en la pared.",
+          ],
+        },
+        {
+          id: "hsa-fsa-step-by-step",
+          heading: "3. Uso de Fondos HSA / FSA Antes de Impuestos (~30% Ahorro)",
+          paragraphs: [
+            "Muchos compradores en EE. UU. ahorran 25%–35% con HSA/FSA solicitando una breve Carta de Necesidad Médica (LMN) y presentando nuestra factura detallada.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "¿Qué tan rápido envía Evminov USA desde California?",
+          a: "Los pedidos CA Express salen de Glendale, CA por UPS/FedEx asegurado en 1–2 días hábiles Costa Oeste, 2–3 Centro/Sur y 3–4 Costa Este.",
+        },
+      ],
+    },
+    fr: {
+      title:
+        "Guide Complet d'Achat et d'Installation à Domicile (Montants 16\", HSA/FSA & Modèles)",
+      category: "Guide d'Achat",
+      readTime: "10 min de lecture",
+      author: {
+        name: "Équipe Opérations & Conseil Evminov USA",
+        role: "Expédition & Support Glendale, Californie",
+        credentials: "Spécialistes Installation & HSA/FSA",
+      },
+      excerpt:
+        "Choisir entre Pin, Aulne ou Large, fixer sur montant bois 16\", opter pour le support sans perçage et utiliser vos factures HSA/FSA.",
+      sections: [
+        {
+          id: "choosing-your-model",
+          heading: "1. Choisir Parmi les 5 Modèles Evminov",
+          paragraphs: [
+            "Le choix repose sur trois critères simples : taille/poids, espace disponible et besoin de portabilité.",
+          ],
+          bullets: [
+            "Pin Massif Standard (450 $ / 595 $ CA Express) : Fixation murale idéale jusqu'à 1,93 m et 95 kg.",
+            "Pliante 2 Pièces (475 $ / 615 $) : Se sépare en deux en 30 s pour placard ou sous-lit (100 kg).",
+            "Voyage 3 Pièces (495 $ / 635 $) : Sac 79 cm avec sangle de porte (100 kg).",
+            "Large Heavy-Duty (500 $ / 635 $) : +30 % de largeur renforcée jusqu'à 150 kg et 2,06 m.",
+            "Aulne Sélectionné (525 $ / 665 $) : ~15 % plus légère (8,6–9,5 kg) pour une manipulation facile.",
+          ],
+        },
+        {
+          id: "us-wall-mounting",
+          heading: "2. Fixation Murale sur Montant 16\" (Ou Support Sans Perçage)",
+          paragraphs: [
+            "L'installation prend ~15 minutes sur un seul montant bois. Repliée, la planche ne dépasse que de 6 cm.",
+            "Locataire ? Ajoutez le support autoportant démontable (275 $) sans aucun trou.",
+          ],
+        },
+        {
+          id: "hsa-fsa-step-by-step",
+          heading: "3. Utiliser les Fonds HSA / FSA (~30 % d'Économie)",
+          paragraphs: [
+            "Demandez une courte Lettre de Nécessité Médicale (LMN) à votre praticien et soumettez notre facture détaillée à votre gestionnaire HSA/FSA.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Quels sont les délais depuis l'entrepôt de Californie ?",
+          a: "Expédition UPS/FedEx assurée depuis Glendale, CA en 1–2 jours ouvrés Côte Ouest, 2–3 Centre/Sud et 3–4 Côte Est.",
+        },
+      ],
+    },
+    uk: {
+      title:
+        "Повний Гайд Покупця та Встановлення Вдома (Стійки США 16\", HSA/FSA та Моделі)",
+      category: "Гайд Покупця",
+      readTime: "10 хв читання",
+      author: {
+        name: "Команда Операцій та Підбору Evminov USA",
+        role: "Логістика та Підтримка, Глендейл, Каліфорнія",
+        credentials: "Спеціалісти з Монтажу в США та HSA/FSA",
+      },
+      excerpt:
+        "Усе перед замовленням: вибір між Сосною, Вільхою та Широкою моделлю, монтаж у дерев'яну стійку 16\", стійка для орендарів та чеки HSA/FSA.",
+      sections: [
+        {
+          id: "choosing-your-model",
+          heading: "1. Як Обрати Серед 5 Моделей Дошки Євмінова",
+          paragraphs: [
+            "Вибір залежить від трьох параметрів: ваш зріст і вага, площа житла та потреба в перевезенні.",
+          ],
+          bullets: [
+            "Стандартна Сосна ($450 напряму / $595 CA Express): Найкраща для стіни до 193 см і 95 кг.",
+            "Складна 2-Секційна ($475 / $615): Розкладається за 30 секунд для шафи або під ліжко (до 100 кг).",
+            "Дорожня 3-Секційна ($495 / $635): Сумка 79 см із дверним кріпленням (до 100 кг).",
+            "Широка Посилена ($500 / $635): На 30% ширша, до 150 кг і 206 см.",
+            "Добірна Вільха ($525 / $665): На ~15% легша (8,6–9,5 кг) для легкого регулювання.",
+          ],
+        },
+        {
+          id: "us-wall-mounting",
+          heading: "2. Монтаж у Стандартну Стійку США 16\" (Або Стійка без Свердління)",
+          paragraphs: [
+            "Монтаж займає ~15 хвилин: знайдіть одну дерев'яну стійку детектором, просвердліть 2 отвори та закріпіть кронштейн із комплекту. У складеному стані дошка займає лише 6 см від стіни.",
+            "Орендуєте житло? Додайте Розбірну Підлогову Стійку ($275) — нуль отворів у стінах.",
+          ],
+        },
+        {
+          id: "hsa-fsa-step-by-step",
+          heading: "3. Використання Коштів HSA / FSA (~30% Економії)",
+          paragraphs: [
+            "Покупці в США можуть заощадити 25%–35% за рахунок HSA/FSA: візьміть короткий лист LMN у лікаря чи фізіотерапевта та подайте наш деталізований інвойс.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Як швидко доставляє склад Evminov USA з Каліфорнії?",
+          a: "Застрахована доставка UPS/FedEx із Глендейла, CA: 1–2 робочі дні Західне узбережжя, 2–3 Центр/Південь, 3–4 Східне узбережжя.",
+        },
+      ],
+    },
+    ru: {
+      title:
+        "Полный Гайд Покупателя и Установки Дома (Стойки США 16\", HSA/FSA и Модели)",
+      category: "Гайд Покупателя",
+      readTime: "10 мин чтения",
+      author: {
+        name: "Команда Операций и Подбора Evminov USA",
+        role: "Логистика и Поддержка, Глендейл, Калифорния",
+        credentials: "Специалисты по Монтажу в США и HSA/FSA",
+      },
+      excerpt:
+        "Всё перед заказом: выбор между Сосной, Ольхой и Широкой моделью, монтаж в деревянную стойку 16\", стойка для арендаторов и чеки HSA/FSA.",
+      sections: [
+        {
+          id: "choosing-your-model",
+          heading: "1. Как Выбрать Среди 5 Моделей Доски Евминова",
+          paragraphs: [
+            "Выбор зависит от трёх параметров: ваш рост и вес, площадь жилья и необходимость перевозки.",
+          ],
+          bullets: [
+            "Стандартная Сосна ($450 напрямую / $595 CA Express): Лучшая для стены до 193 см и 95 кг.",
+            "Складная 2-Секционная ($475 / $615): Разбирается за 30 секунд для шкафа или под кровать (до 100 кг).",
+            "Дорожная 3-Секционная ($495 / $635): Сумка 79 см с дверным креплением (до 100 кг).",
+            "Широкая Усиленная ($500 / $635): На 30% шире, до 150 кг и 206 см.",
+            "Отборная Ольха ($525 / $665): На ~15% легче (8,6–9,5 кг) для лёгкой регулировки.",
+          ],
+        },
+        {
+          id: "us-wall-mounting",
+          heading: "2. Монтаж в Стандартную Стойку США 16\" (Или Стойка без Сверления)",
+          paragraphs: [
+            "Монтаж занимает ~15 минут: найдите одну деревянную стойку детектором, просверлите 2 отверстия и закрепите кронштейн. В сложенном виде доска занимает всего 6 см от стены.",
+            "Арендуете жильё? Добавьте Разборную Напольную Стойку ($275) — ноль отверстий в стенах.",
+          ],
+        },
+        {
+          id: "hsa-fsa-step-by-step",
+          heading: "3. Использование Средств HSA / FSA (~30% Экономии)",
+          paragraphs: [
+            "Покупатели в США экономят 25%–35% через HSA/FSA: возьмите короткое письмо LMN у врача и подайте наш детализированный инвойс.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Как быстро доставляет склад Evminov USA из Калифорнии?",
+          a: "Застрахованная доставка UPS/FedEx из Глендейла, CA: 1–2 рабочих дня Западное побережье, 2–3 Центр/Юг, 3–4 Восточное побережье.",
+        },
+      ],
+    },
+  },
+  "pediatric-scoliosis-prevention-kids-posture-spine": {
+    es: {
+      title:
+        "Guía de Postura Juvenil y Familiar: Contrarrestar Mochilas y Pantallas en 5 Minutos",
+      category: "Postura Familiar y Juvenil",
+      readTime: "7 min de lectura",
+      author: {
+        name: "Equipo de Postura Familiar Evminov",
+        role: "Ergonomía Juvenil y Movimiento Simétrico",
+        credentials: "Archivo Histórico Evminov (Desde 1996)",
+      },
+      excerpt:
+        "Cómo un plano de madera simétrico y rutinas de 5 minutos con música ayudan a niños y adolescentes a crear hábitos posturales saludables.",
+      sections: [
+        {
+          id: "modern-school-posture",
+          heading: "1. Mochilas, Pupitres y Encorvamiento ante Pantallas",
+          paragraphs: [
+            "Los escolares pasan 6–8 horas sentados seguidas de horas frente a pantallas cargando mochilas pesadas, lo que genera asimetría muscular y hombros caídos.",
+          ],
+        },
+        {
+          id: "playful-symmetry-routine",
+          heading: "2. Hacer Divertida la Postura Diaria (5–8 Minutos con Música)",
+          paragraphs: [
+            "El enfoque juvenil Evminov mantiene sesiones breves, rítmicas y supervisadas a ángulos suaves de 6°–12°:",
+          ],
+          bullets: [
+            "Supervise siempre a los niños y mantenga ángulos suaves (6°–12°).",
+            "Mantenga cada movimiento estrictamente bilateral y simétrico.",
+            "Use música alegre 5 minutos después de la tarea escolar.",
+            "Consulte a un ortopedista pediátrico ante cualquier sospecha de escoliosis estructural.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "¿Puede una misma tabla servir para un niño de 9 años y un padre de 1,88 m?",
+          a: "Sí. El carro deslizante se ajusta en 5 segundos a lo largo de toda la tabla para toda la familia.",
+        },
+      ],
+    },
+    fr: {
+      title:
+        "Guide Posture Enfants & Famille : Contrer Cartables et Écrans en 5 Minutes",
+      category: "Posture Famille & Jeunes",
+      readTime: "7 min de lecture",
+      author: {
+        name: "Équipe Posture Familiale Evminov",
+        role: "Ergonomie Jeunes & Mouvement Symétrique",
+        credentials: "Archives Evminov (Depuis 1996)",
+      },
+      excerpt:
+        "Comment un plan en bois symétrique et 5 minutes en musique aident enfants et ados à adopter de bonnes habitudes posturales.",
+      sections: [
+        {
+          id: "modern-school-posture",
+          heading: "1. Cartables, Bureaux et Posture sur Smartphone",
+          paragraphs: [
+            "Les élèves passent 6 à 8 heures assis puis sur écrans avec des cartables lourds, installant rapidement dos rond et épaules asymétriques.",
+          ],
+        },
+        {
+          id: "playful-symmetry-routine",
+          heading: "2. Rendre la Posture Ludique (5–8 Minutes en Musique)",
+          paragraphs: [
+            "L'approche jeunesse Evminov privilégie des séances courtes et supervisées à 6°–12° :",
+          ],
+          bullets: [
+            "Surveillez toujours les enfants à des angles très doux (6°–12°).",
+            "Gardez des mouvements strictement bilatéraux.",
+            "Mettez de la musique 5 minutes après les devoirs.",
+            "Consultez un orthopédiste pédiatrique en cas de suspicion de scoliose.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Une même planche convient-elle à un enfant de 9 ans et un parent d'1,88 m ?",
+          a: "Oui. Le chariot coulissant s'ajuste en 5 secondes pour toute la famille.",
+        },
+      ],
+    },
+    uk: {
+      title:
+        "Гайд із Дитячої та Сімейної Постави: Протидія Рюкзакам і Гаджетам за 5 Хвилин",
+      category: "Сімейна та Дитяча Постава",
+      readTime: "7 хв читання",
+      author: {
+        name: "Команда Сімейної Постави Evminov",
+        role: "Дитяча Ергономіка та Симетричний Рух",
+        credentials: "Архів Спадщини Євмінова (з 1996 року)",
+      },
+      excerpt:
+        "Як рівна симетрична площина та 5-хвилинні заняття під музику допомагають дітям і підліткам сформувати звичку тримати спину рівно.",
+      sections: [
+        {
+          id: "modern-school-posture",
+          heading: "1. Рюкзаки, Парти та Сутулість над Смартфонами",
+          paragraphs: [
+            "Школярі проводять 6–8 годин за партою, а потім години над телефонами з важкими рюкзаками, що швидко закріплює асиметрію м'язів та сутулість.",
+          ],
+        },
+        {
+          id: "playful-symmetry-routine",
+          heading: "2. Як Зробити Щоденну Поставу Грою (5–8 Хвилин під Музику)",
+          paragraphs: [
+            "Дитячий підхід Євмінова — це короткі, ритмічні заняття під наглядом батьків під кутом 6°–12°:",
+          ],
+          bullets: [
+            "Завжди контролюйте заняття дітей на ультрам'якому куті (6°–12°).",
+            "Усі вправи виконуються строго симетрично на обидва боки.",
+            "Вмикайте веселу музику на 5 хвилин після уроків.",
+            "При підозрі на структурний сколіоз зверніться до дитячого ортопеда.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Чи підійде одна дошка для 9-річної дитини та батька зростом 188 см?",
+          a: "Так. Рухома каретка переставляється за 5 секунд під будь-який зріст членів родини.",
+        },
+      ],
+    },
+    ru: {
+      title:
+        "Гайд по Детской и Семейной Осанке: Противодействие Рюкзакам и Гаджетам за 5 Минут",
+      category: "Семейная и Детская Осанка",
+      readTime: "7 мин чтения",
+      author: {
+        name: "Команда Семейной Осанки Evminov",
+        role: "Детская Эргономика и Симметричное Движение",
+        credentials: "Архив Наследия Евминова (с 1996 года)",
+      },
+      excerpt:
+        "Как ровная симметричная плоскость и 5-минутные занятия под музыку помогают детям и подросткам сформировать привычку держать спину ровно.",
+      sections: [
+        {
+          id: "modern-school-posture",
+          heading: "1. Рюкзаки, Парты и Сутулость над Смартфонами",
+          paragraphs: [
+            "Школьники проводят 6–8 часов за партой, а затем часы над телефонами с тяжёлыми рюкзаками, что быстро закрепляет асимметрию мышц и сутулость.",
+          ],
+        },
+        {
+          id: "playful-symmetry-routine",
+          heading: "2. Как Сделать Ежедневную Осанку Игрой (5–8 Минут под Музыку)",
+          paragraphs: [
+            "Детский подход Евминова — это короткие ритмичные занятия под присмотром родителей под углом 6°–12°:",
+          ],
+          bullets: [
+            "Всегда контролируйте занятия детей на ультрамягком угле (6°–12°).",
+            "Все упражнения выполняются строго симметрично на обе стороны.",
+            "Включайте весёлую музыку на 5 минут после уроков.",
+            "При подозрении на структурный сколиоз обратитесь к детскому ортопеду.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Подойдёт ли одна доска для 9-летнего ребёнка и отца ростом 188 см?",
+          a: "Да. Подвижная каретка переставляется за 5 секунд под любой рост членов семьи.",
+        },
+      ],
+    },
+  },
+};
+
+export function getLocalizedGuide(guide: GuideItem, lang: Locale): GuideItem {
+  if (lang === "en") return guide;
+  const patch = GUIDE_TRANSLATIONS[guide.slug]?.[lang];
+  if (!patch) return guide;
+  return {
+    ...guide,
+    ...patch,
+  };
+}

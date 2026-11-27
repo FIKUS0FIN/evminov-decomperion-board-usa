@@ -5,6 +5,13 @@ import { useSearchParams } from "next/navigation";
 import { CheckCircle2, Mic, MicOff, ShieldCheck, Truck } from "lucide-react";
 import { Locale } from "@/i18n/types";
 import { getDictionary } from "@/i18n/dictionaries";
+import {
+  formatWeightLimit,
+  getLocalizedFinish,
+  getLocalizedProduct,
+  ORDER_WIZARD_COPY,
+} from "@/i18n/locales/catalog";
+import { localizeTransitDays } from "@/i18n/locales/chrome";
 import { PRODUCTS } from "@/data/products";
 import { US_STATES } from "@/data/us-states";
 import {
@@ -17,6 +24,7 @@ import { getAttributionSummary, sendGTMEvent } from "@/lib/gtm";
 
 export function OrderWizard({ lang }: { lang: Locale }) {
   const t = getDictionary(lang).orderUi;
+  const ow = ORDER_WIZARD_COPY[lang];
   const searchParams = useSearchParams();
 
   const initialSlug = (() => {
@@ -55,8 +63,8 @@ export function OrderWizard({ lang }: { lang: Locale }) {
     const angle = searchParams.get("angle");
     const goal = searchParams.get("goal");
     if (!angle && !goal) return "";
-    return `Calculator profile: ${goal ? `goal=${goal}` : ""}${
-      angle ? ` starting angle=${angle}°` : ""
+    return `${ow.calcPrefillPrefix}: ${goal ? `${ow.calcGoalWord}=${goal}` : ""}${
+      angle ? ` ${ow.calcAngleWord}=${angle}°` : ""
     }`.trim();
   });
 
@@ -68,6 +76,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
 
   const selectedProduct =
     PRODUCTS.find((p) => p.slug === productSlug) || PRODUCTS[0];
+  const localizedSelected = getLocalizedProduct(selectedProduct, lang);
   const standItem = PRODUCTS.find((p) => p.slug === "free-standing-stand");
 
   const boardPrice =
@@ -120,7 +129,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
       recorder.start();
       setRecording(true);
     } catch {
-      setErrorMsg("Microphone permission denied or unavailable on this browser.");
+      setErrorMsg(ow.micError);
     }
   };
 
@@ -128,7 +137,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
     e.preventDefault();
     setErrorMsg("");
     if (!name.trim() || !email.trim()) {
-      setErrorMsg("Please enter your name and email address.");
+      setErrorMsg(ow.validationNameEmail);
       return;
     }
     setSubmitting(true);
@@ -165,7 +174,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
         error?: string;
       };
       if (!res.ok || !data.ok) {
-        throw new Error(data.error || "Unable to submit reservation.");
+        throw new Error(data.error || ow.submitErrorFallback);
       }
       sendGTMEvent("order_reservation_submit", {
         product_slug: selectedProduct.slug,
@@ -180,7 +189,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
       setOrderRef(data.orderRef || "EV-CONFIRMED");
     } catch (err) {
       const msg =
-        err instanceof Error ? err.message : "Could not submit order request.";
+        err instanceof Error ? err.message : ow.submitErrorCatch;
       setErrorMsg(msg);
       sendGTMEvent("order_reservation_error", { error_message: msg });
     } finally {
@@ -196,19 +205,22 @@ export function OrderWizard({ lang }: { lang: Locale }) {
           {t.successTitle}
         </h2>
         <p className="mt-2 text-sm leading-relaxed text-slate-700">
-          {t.successBody}
+          {ow.successBody}
         </p>
         <div className="mt-5 inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2 text-sm font-bold text-slate-900 shadow-sm">
-          <span>{t.orderRef}:</span>
+          <span>{ow.orderRef}:</span>
           <span className="font-mono text-teal-700">{orderRef}</span>
         </div>
         <p className="mt-4 text-xs text-slate-600">
-          Need faster assistance? Call{" "}
+          {ow.needFasterHelp}{" "}
           <a href={SITE_CONFIG.phoneHref} className="font-bold underline">
             {SITE_CONFIG.phoneDisplay}
           </a>{" "}
-          or email{" "}
-          <a href={`mailto:${SITE_CONFIG.supportEmail}`} className="font-bold underline">
+          {ow.orEmail}{" "}
+          <a
+            href={`mailto:${SITE_CONFIG.supportEmail}`}
+            className="font-bold underline"
+          >
             {SITE_CONFIG.supportEmail}
           </a>
           .
@@ -235,7 +247,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                   active
                     ? "bg-slate-950 text-white"
                     : done
-                    ? "bg-emerald-50 text-emerald-900 border border-emerald-200"
+                    ? "border border-emerald-200 bg-emerald-50 text-emerald-900"
                     : "bg-slate-100 text-slate-600"
                 }`}
               >
@@ -253,6 +265,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                 <div className="mt-3 grid gap-3 sm:grid-cols-2">
                   {PRODUCTS.map((p) => {
                     const active = p.slug === productSlug;
+                    const lp = getLocalizedProduct(p, lang);
                     return (
                       <button
                         key={p.slug}
@@ -268,14 +281,15 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                         }`}
                       >
                         <p className="text-sm font-bold text-slate-950">
-                          {p.localizedNames[lang] || p.name}
+                          {lp.name}
                         </p>
                         <p className="mt-1 text-xs text-slate-600">
-                          {p.heightLimitLabel} • Up to {p.weightLimitLbs} lbs
+                          {lp.heightLimitLabel} •{" "}
+                          {formatWeightLimit(p.weightLimitLbs, lang)}
                         </p>
                         <p className="mt-2 text-sm font-extrabold text-teal-800">
-                          {formatUSD(p.directPriceUsd)} Direct •{" "}
-                          {formatUSD(p.expressPriceUsd)} CA Express
+                          {formatUSD(p.directPriceUsd)} {ow.directShort} •{" "}
+                          {formatUSD(p.expressPriceUsd)} {ow.caExpressShort}
                         </p>
                       </button>
                     );
@@ -297,7 +311,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                           : "border border-slate-200 bg-slate-50 text-slate-700"
                       }`}
                     >
-                      {f}
+                      {getLocalizedFinish(f, lang)}
                     </button>
                   ))}
                 </div>
@@ -316,7 +330,9 @@ export function OrderWizard({ lang }: { lang: Locale }) {
           {step === 2 && (
             <div className="space-y-5">
               <div>
-                <p className="text-sm font-bold text-slate-900">{t.selectShipping}</p>
+                <p className="text-sm font-bold text-slate-900">
+                  {t.selectShipping}
+                </p>
                 <div className="mt-3 grid gap-3">
                   <label
                     className={`flex cursor-pointer items-start justify-between gap-4 rounded-2xl border p-4 ${
@@ -335,9 +351,11 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                       />
                       <div>
                         <p className="text-sm font-bold text-slate-950">
-                          {t.shippingExpress}
+                          {ow.shippingExpress}
                         </p>
-                        <p className="text-xs text-slate-600">{t.shippingExpressDesc}</p>
+                        <p className="text-xs text-slate-600">
+                          {ow.shippingExpressDesc}
+                        </p>
                       </div>
                     </div>
                     <span className="font-extrabold text-slate-950">
@@ -362,9 +380,11 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                       />
                       <div>
                         <p className="text-sm font-bold text-slate-950">
-                          {t.shippingDirect}
+                          {ow.shippingDirect}
                         </p>
-                        <p className="text-xs text-slate-600">{t.shippingDirectDesc}</p>
+                        <p className="text-xs text-slate-600">
+                          {ow.shippingDirectDesc}
+                        </p>
                       </div>
                     </div>
                     <span className="font-extrabold text-slate-950">
@@ -384,9 +404,11 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                   />
                   <div>
                     <p className="text-sm font-bold text-slate-900">
-                      {t.addFreeStand}
+                      {ow.addFreeStand}
                     </p>
-                    <p className="text-xs text-slate-600">{t.addFreeStandDesc}</p>
+                    <p className="text-xs text-slate-600">
+                      {ow.addFreeStandDesc}
+                    </p>
                   </div>
                 </label>
               )}
@@ -399,7 +421,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                   className="mt-1 h-4 w-4 accent-emerald-700"
                 />
                 <span className="text-xs font-semibold text-emerald-950">
-                  {t.hsaCheckbox}
+                  {ow.hsaCheckbox}
                 </span>
               </label>
 
@@ -425,7 +447,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
           {step === 3 && (
             <div className="space-y-4">
               <div className="rounded-xl border border-amber-200 bg-amber-50 p-3.5 text-xs leading-relaxed text-amber-950">
-                {t.stripeNotice}
+                {ow.stripeNotice}
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
@@ -464,7 +486,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                     type="tel"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    placeholder="+1 (555) 000-0000"
+                    placeholder={ow.phonePlaceholder}
                     className="mt-1 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm"
                   />
                 </div>
@@ -477,19 +499,20 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                     onChange={(e) => setStateOrCountry(e.target.value)}
                     className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm"
                   >
-                    <optgroup label="United States (All 50 States)">
+                    <optgroup label={ow.usStatesOptgroup}>
                       {US_STATES.map((st) => (
                         <option key={st.code} value={`${st.name} (${st.code})`}>
-                          {st.name} ({st.code}) — {st.expressDays}
+                          {st.name} ({st.code}) —{" "}
+                          {localizeTransitDays(st.expressDays, lang)}
                         </option>
                       ))}
                     </optgroup>
-                    <optgroup label="International Delivery">
-                      <option value="Canada">Canada (CAD / USD)</option>
-                      <option value="European Union">European Union (EUR)</option>
-                      <option value="United Kingdom">United Kingdom</option>
-                      <option value="Ukraine">Ukraine</option>
-                      <option value="Other International">Other Country (40+ Shipped)</option>
+                    <optgroup label={ow.intlOptgroup}>
+                      <option value="Canada">{ow.intlCanada}</option>
+                      <option value="European Union">{ow.intlEu}</option>
+                      <option value="United Kingdom">{ow.intlUk}</option>
+                      <option value="Ukraine">{ow.intlUkraine}</option>
+                      <option value="Other International">{ow.intlOther}</option>
                     </optgroup>
                   </select>
                 </div>
@@ -569,15 +592,15 @@ export function OrderWizard({ lang }: { lang: Locale }) {
         <h2 className="font-display text-lg font-extrabold">{t.summaryTitle}</h2>
         <div className="mt-4 space-y-3 border-b border-white/10 pb-4 text-sm">
           <div className="flex justify-between gap-2">
-            <span className="text-slate-300">
-              {selectedProduct.localizedNames[lang] || selectedProduct.name}
-            </span>
+            <span className="text-slate-300">{localizedSelected.name}</span>
             <span className="font-bold">{formatUSD(boardPrice)}</span>
           </div>
-          <p className="text-xs text-slate-400">Finish: {finish}</p>
+          <p className="text-xs text-slate-400">
+            {ow.finishLabel}: {getLocalizedFinish(finish, lang)}
+          </p>
           {standPrice > 0 && (
             <div className="flex justify-between gap-2">
-              <span className="text-slate-300">Free-Standing Ladder Stand</span>
+              <span className="text-slate-300">{ow.standItemLabel}</span>
               <span className="font-bold">{formatUSD(standPrice)}</span>
             </div>
           )}
@@ -591,22 +614,22 @@ export function OrderWizard({ lang }: { lang: Locale }) {
             </span>
           </div>
           <div className="flex items-baseline justify-between text-xs text-emerald-400">
-            <span>{t.estimatedHsaLabel}</span>
+            <span>{ow.estimatedHsaLabel}</span>
             <span className="font-bold">~{formatUSD(estimatedHsaNet)}</span>
           </div>
           <p className="text-[11px] text-slate-400">
-            Est. 4× bi-weekly installments: {formatKlarnaBiWeekly(totalUsd)}
+            {ow.klarnaInstallments}: {formatKlarnaBiWeekly(totalUsd)}
           </p>
         </div>
 
         <ul className="mt-6 space-y-2 border-t border-white/10 pt-5 text-xs text-slate-300">
           <li className="flex items-center gap-2">
             <ShieldCheck className="h-4 w-4 text-emerald-400" />
-            <span>60-Day Home Trial &amp; 10-Year Frame Warranty</span>
+            <span>{ow.trialWarrantyLine}</span>
           </li>
           <li className="flex items-center gap-2">
             <Truck className="h-4 w-4 text-emerald-400" />
-            <span>Insured UPS / FedEx Tracking</span>
+            <span>{ow.trackingLine}</span>
           </li>
         </ul>
       </aside>

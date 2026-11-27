@@ -23,6 +23,11 @@ export async function generateMetadata({
   });
 }
 
-export default function LocalizedWellnessDisclaimerPage() {
-  return <LegalPageView type="wellness-disclaimer" />;
+export default async function LocalizedWellnessDisclaimerPage({
+  params,
+}: {
+  params: Promise<{ lang: Locale }>;
+}) {
+  const { lang } = await params;
+  return <LegalPageView type="wellness-disclaimer" lang={lang} />;
 }

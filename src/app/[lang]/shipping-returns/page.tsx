@@ -23,6 +23,11 @@ export async function generateMetadata({
   });
 }
 
-export default function LocalizedShippingReturnsPage() {
-  return <LegalPageView type="shipping-returns" />;
+export default async function LocalizedShippingReturnsPage({
+  params,
+}: {
+  params: Promise<{ lang: Locale }>;
+}) {
+  const { lang } = await params;
+  return <LegalPageView type="shipping-returns" lang={lang} />;
 }

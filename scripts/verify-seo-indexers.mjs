@@ -255,6 +255,31 @@ async function runStaticAudit() {
       }
     }
 
+    // Check automated i18n Cyrillic coverage on /uk/ and /ru/ static pages
+    if (
+      (parsed.pathname.startsWith("/uk/") || parsed.pathname.startsWith("/ru/")) &&
+      !parsed.pathname.includes("/shipping/")
+    ) {
+      const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
+      const visibleSource = (mainMatch ? mainMatch[1] : html)
+        .replace(/<script[\s\S]*?<\/script>/gi, " ")
+        .replace(/<style[\s\S]*?<\/style>/gi, " ")
+        .replace(/<svg[\s\S]*?<\/svg>/gi, " ")
+        .replace(/<[^>]+>/g, " ");
+      const cyrillicChars = (visibleSource.match(/[А-Яа-яЁёІіЇїЄєҐґ]/g) || []).length;
+      const latinChars = (visibleSource.match(/[A-Za-z]/g) || []).length;
+      const totalLetters = cyrillicChars + latinChars;
+      if (totalLetters > 200) {
+        const ratio = cyrillicChars / totalLetters;
+        if (ratio < 0.6) {
+          recordError(
+            parsed.pathname,
+            `Low Cyrillic translation coverage (${Math.round(ratio * 100)}% < 60% threshold — possible untranslated English block)`
+          );
+        }
+      }
+    }
+
     // Check internal <a href="/..."> links resolve to a real route or file in out/
     const hrefRegex = /<a\b[^>]*\bhref=["'](\/[^"'#?]*)/gi;
     let hrefMatch;

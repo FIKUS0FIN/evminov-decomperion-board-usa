@@ -23,67 +23,25 @@ import { SITE_CONFIG } from "@/lib/site-config";
 import { PRODUCTS } from "@/data/products";
 import { openCookieSettings } from "@/lib/consent";
 import { EvminovBrandLockup } from "@/components/brand/EvminovLogo";
+import { FOOTER_CONTENT } from "@/i18n/locales/chrome";
 
 export function Footer({ lang }: { lang: Locale }) {
   const dict = getDictionary(lang);
   const f = dict.footer;
+  const fc = FOOTER_CONTENT[lang];
 
-  const trustCards = [
-    {
-      href: getLocalizedHref("/centers/", lang),
-      icon: ShieldCheck,
-      iconBg: "bg-emerald-500/15 text-emerald-400",
-      tagColor: "text-emerald-400",
-      title: "US & EU Patented",
-      sub: "Original Evminov Design",
-      tag: "US 6,869,387 B2",
-    },
-    {
-      href: getLocalizedHref("/wellness-disclaimer/", lang),
-      icon: CreditCard,
-      iconBg: "bg-sky-400/15 text-sky-400",
-      tagColor: "text-sky-400",
-      title: "HSA / FSA Ready",
-      sub: "Pre-Tax Health Savings",
-      tag: "Itemized Receipt + LMN",
-    },
-    {
-      href: getLocalizedHref("/centers/", lang),
-      icon: Award,
-      iconBg: "bg-indigo-400/15 text-indigo-400",
-      tagColor: "text-indigo-400",
-      title: "30-Year Heritage",
-      sub: "Continuous Since 1996",
-      tag: "EP 1 038 512 • MOH 711",
-    },
-    {
-      href: getLocalizedHref("/conditions/athlete-spine-recovery/", lang),
-      icon: Activity,
-      iconBg: "bg-amber-400/15 text-amber-400",
-      tagColor: "text-amber-400",
-      title: "Sports & PT",
-      sub: "Spine Axial Unloading",
-      tag: "Rated Up to 330 lbs",
-    },
-    {
-      href: getLocalizedHref("/terms/", lang),
-      icon: Shield,
-      iconBg: "bg-teal-400/15 text-teal-400",
-      tagColor: "text-teal-400",
-      title: "10-Year Warranty",
-      sub: "Carpathian Pine & Alder",
-      tag: "Structural Frame Guarantee",
-    },
-    {
-      href: getLocalizedHref("/shipping-returns/", lang),
-      icon: CheckCircle2,
-      iconBg: "bg-pink-400/15 text-pink-400",
-      tagColor: "text-pink-400",
-      title: "60-Day Trial",
-      sub: "Risk-Free Home Relief",
-      tag: "100% Refund Guarantee",
-    },
+  const trustCardStyles = [
+    { href: getLocalizedHref("/centers/", lang), icon: ShieldCheck, iconBg: "bg-emerald-500/15 text-emerald-400", tagColor: "text-emerald-400" },
+    { href: getLocalizedHref("/wellness-disclaimer/", lang), icon: CreditCard, iconBg: "bg-sky-400/15 text-sky-400", tagColor: "text-sky-400" },
+    { href: getLocalizedHref("/centers/", lang), icon: Award, iconBg: "bg-indigo-400/15 text-indigo-400", tagColor: "text-indigo-400" },
+    { href: getLocalizedHref("/conditions/athlete-spine-recovery/", lang), icon: Activity, iconBg: "bg-amber-400/15 text-amber-400", tagColor: "text-amber-400" },
+    { href: getLocalizedHref("/terms/", lang), icon: Shield, iconBg: "bg-teal-400/15 text-teal-400", tagColor: "text-teal-400" },
+    { href: getLocalizedHref("/shipping-returns/", lang), icon: CheckCircle2, iconBg: "bg-pink-400/15 text-pink-400", tagColor: "text-pink-400" },
   ];
+  const trustCards = trustCardStyles.map((style, idx) => ({
+    ...style,
+    ...fc.trustCards[idx],
+  }));
 
   return (
     <footer className="border-t border-white/10 bg-gradient-to-b from-[#0B192C] to-[#060E1A] text-slate-300">
@@ -92,7 +50,7 @@ export function Footer({ lang }: { lang: Locale }) {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-12">
           {/* Column 1: Brand & Origin */}
           <div className="lg:col-span-4">
-            <Link href={getLocalizedHref("/", lang)} aria-label="Evminov Spine Med Home">
+            <Link href={getLocalizedHref("/", lang)} aria-label={fc.homeAria}>
               <EvminovBrandLockup size={38} dark />
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-slate-400">
@@ -102,15 +60,15 @@ export function Footer({ lang }: { lang: Locale }) {
               <p className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-400" />
                 <span>
-                  <strong className="text-slate-200">US Operations &amp; Hub:</strong>{" "}
+                  <strong className="text-slate-200">{fc.usHubLabel}</strong>{" "}
                   {SITE_CONFIG.address.full}
                 </span>
               </p>
               <p className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-sky-400" />
                 <span>
-                  <strong className="text-slate-200">European Craftsmanship:</strong>{" "}
-                  Kyiv &amp; Odesa, Ukraine (Est. 1996)
+                  <strong className="text-slate-200">{fc.euroCraftLabel}</strong>{" "}
+                  {fc.euroCraftLocation}
                 </span>
               </p>
             </div>
@@ -137,7 +95,7 @@ export function Footer({ lang }: { lang: Locale }) {
                   href={getLocalizedHref("/shipping/", lang)}
                   className="font-semibold text-sky-400 transition hover:text-sky-300"
                 >
-                  50 US States &amp; Global Delivery
+                  {fc.shipping50Link}
                 </Link>
               </li>
             </ul>
@@ -154,7 +112,7 @@ export function Footer({ lang }: { lang: Locale }) {
                   href={getLocalizedHref("/conditions/scoliosis-posture/", lang)}
                   className="font-bold text-emerald-300 transition hover:text-emerald-200"
                 >
-                  Kids &amp; Family Posture Station
+                  {fc.kidsPostureLink}
                 </Link>
               </li>
               <li>
@@ -162,7 +120,7 @@ export function Footer({ lang }: { lang: Locale }) {
                   href={getLocalizedHref("/compare/evminov-vs-inversion-table/", lang)}
                   className="text-slate-300 transition hover:text-white"
                 >
-                  Evminov vs. Inversion Tables
+                  {fc.vsInversionLink}
                 </Link>
               </li>
               <li>
@@ -170,7 +128,7 @@ export function Footer({ lang }: { lang: Locale }) {
                   href={getLocalizedHref("/compare/evminov-vs-teeter/", lang)}
                   className="text-slate-300 transition hover:text-white"
                 >
-                  Evminov vs. Teeter Alternative
+                  {fc.vsTeeterLink}
                 </Link>
               </li>
               <li>
@@ -178,7 +136,7 @@ export function Footer({ lang }: { lang: Locale }) {
                   href={getLocalizedHref("/calculator/", lang)}
                   className="text-slate-300 transition hover:text-white"
                 >
-                  Incline Angle Calculator
+                  {fc.calculatorLink}
                 </Link>
               </li>
               <li>
@@ -186,7 +144,7 @@ export function Footer({ lang }: { lang: Locale }) {
                   href={getLocalizedHref("/centers/", lang)}
                   className="font-bold text-emerald-400 transition hover:text-emerald-300"
                 >
-                  Since 1996 Centers &amp; Heritage
+                  {fc.centersLink}
                 </Link>
               </li>
               <li>
@@ -194,7 +152,7 @@ export function Footer({ lang }: { lang: Locale }) {
                   href={getLocalizedHref("/conditions/athlete-spine-recovery/", lang)}
                   className="text-amber-300 transition hover:text-amber-200"
                 >
-                  Athletic Recovery (Deadlifts &amp; Squats)
+                  {fc.athleteLink}
                 </Link>
               </li>
               <li>
@@ -202,7 +160,7 @@ export function Footer({ lang }: { lang: Locale }) {
                   href={getLocalizedHref("/guides/", lang)}
                   className="text-slate-300 transition hover:text-white"
                 >
-                  Evidence-Informed Guides
+                  {fc.guidesLink}
                 </Link>
               </li>
             </ul>
@@ -248,7 +206,7 @@ export function Footer({ lang }: { lang: Locale }) {
                   href={getLocalizedHref("/portal/", lang)}
                   className="font-bold text-emerald-400 hover:text-emerald-300"
                 >
-                  Patient Portal
+                  {fc.patientPortalLink}
                 </Link>
               </li>
               <li>
@@ -264,7 +222,7 @@ export function Footer({ lang }: { lang: Locale }) {
                   href={getLocalizedHref("/shipping-returns/", lang)}
                   className="text-slate-300 hover:text-white"
                 >
-                  60-Day Home Trial
+                  {fc.trial60Link}
                 </Link>
               </li>
             </ul>
@@ -275,7 +233,7 @@ export function Footer({ lang }: { lang: Locale }) {
         <div className="mt-12 rounded-3xl border border-white/10 bg-white/[0.03] p-5 md:p-6">
           <div className="mb-4 flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-slate-200">
             <Star className="h-4 w-4 fill-emerald-400 text-emerald-400" />
-            <span>Patents, Craftsmanship &amp; Buyer Protections</span>
+            <span>{fc.trustHeading}</span>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
@@ -316,9 +274,9 @@ export function Footer({ lang }: { lang: Locale }) {
             <Star className="h-5 w-5 shrink-0 fill-amber-400 text-amber-400" />
             <div>
               <strong className="text-white">
-                30 Years of Continuous Spine Methodology (Since 1996):
+                {fc.heritageBannerLead}
               </strong>{" "}
-              Internationally patented inclined plane design across the US, European Union, and WIPO — handcrafted from resonant Carpathian pine and select Ukrainian alder.
+              {fc.heritageBannerBody}
             </div>
           </Link>
         </div>
@@ -328,20 +286,20 @@ export function Footer({ lang }: { lang: Locale }) {
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-slate-300">
             <span className="inline-flex items-center gap-1.5">
               <Lock className="h-3.5 w-3.5 text-emerald-400" />
-              <span>256-Bit SSL Encrypted</span>
+              <span>{fc.securitySsl}</span>
             </span>
             <span className="inline-flex items-center gap-1.5">
               <ShieldCheck className="h-3.5 w-3.5 text-sky-400" />
-              <span>CCPA &amp; GDPR Privacy Protected</span>
+              <span>{fc.securityPrivacy}</span>
             </span>
             <span className="inline-flex items-center gap-1.5">
               <Truck className="h-3.5 w-3.5 text-amber-400" />
-              <span>Insured UPS / FedEx from California</span>
+              <span>{fc.securityShipping}</span>
             </span>
           </div>
 
           <div className="flex flex-wrap items-center gap-1.5 text-[11px] text-slate-400">
-            <span>Accepted / Planned:</span>
+            <span>{fc.acceptedLabel}</span>
             {["HSA / FSA", "Visa", "Mastercard", "AMEX", "Apple Pay", "Klarna 4×"].map(
               (badge) => (
                 <span
@@ -357,14 +315,14 @@ export function Footer({ lang }: { lang: Locale }) {
 
         {/* General Wellness Equipment Notice */}
         <div className="mt-6 rounded-2xl bg-black/30 p-4 text-xs leading-relaxed text-slate-400">
-          {f.wellnessNotice}
+          {fc.wellnessNotice}
         </div>
 
         {/* Bottom Copyright & Real Legal Routes */}
         <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-slate-400">
           <p>
             © {SITE_CONFIG.foundingYear}–2026 {SITE_CONFIG.brandName}. {f.rights}{" "}
-            <span className="text-slate-500">Architecture by Apex Root LLC.</span>
+            <span className="text-slate-500">{fc.architectureCredit}</span>
           </p>
 
           <div className="flex flex-wrap items-center gap-4">
@@ -400,7 +358,7 @@ export function Footer({ lang }: { lang: Locale }) {
               RSS
             </a>
             <a href="/sitemap.xml" className="text-slate-500 hover:text-slate-300">
-              Sitemap
+              {fc.sitemapLabel}
             </a>
           </div>
         </div>

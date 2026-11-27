@@ -23,6 +23,11 @@ export async function generateMetadata({
   });
 }
 
-export default function LocalizedPrivacyPage() {
-  return <LegalPageView type="privacy" />;
+export default async function LocalizedPrivacyPage({
+  params,
+}: {
+  params: Promise<{ lang: Locale }>;
+}) {
+  const { lang } = await params;
+  return <LegalPageView type="privacy" lang={lang} />;
 }

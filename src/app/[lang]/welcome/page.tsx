@@ -24,6 +24,11 @@ export async function generateMetadata({
   });
 }
 
-export default function LocalizedWelcomePage() {
-  return <WelcomePageView />;
+export default async function LocalizedWelcomePage({
+  params,
+}: {
+  params: Promise<{ lang: Locale }>;
+}) {
+  const { lang } = await params;
+  return <WelcomePageView lang={lang} />;
 }

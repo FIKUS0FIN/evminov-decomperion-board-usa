@@ -3,19 +3,27 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Locale } from "@/i18n/types";
 import { ComparisonPageData, COMPARISONS } from "@/data/comparisons";
 import { getProductBySlug } from "@/data/products";
+import { getLocalizedComparison } from "@/i18n/locales/comparisons-i18n";
+import { getSiloUi } from "@/i18n/locales/silo-ui";
+import { getLocalizedProduct } from "@/i18n/locales/catalog";
 import { buildPrefilledOrderUrl, getLocalizedHref } from "@/lib/url";
 import { formatUSD } from "@/lib/physics";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import { FaqJsonLd } from "@/components/seo/JsonLd";
 
 export function ComparisonDetailView({
-  comparison,
+  comparison: rawComparison,
   lang,
 }: {
   comparison: ComparisonPageData;
   lang: Locale;
 }) {
+  const comparison = getLocalizedComparison(rawComparison, lang);
+  const ui = getSiloUi(lang);
   const recProduct = getProductBySlug(comparison.recommendedProductSlug);
+  const recLocalized = recProduct
+    ? getLocalizedProduct(recProduct, lang)
+    : undefined;
 
   return (
     <>
@@ -44,7 +52,7 @@ export function ComparisonDetailView({
           </div>
           <div className="rounded-3xl bg-slate-950 p-6 text-white md:col-span-6">
             <h2 className="font-display text-lg font-bold text-emerald-400">
-              Key Takeaways
+              {ui.comparison.keyTakeaways}
             </h2>
             <ul className="mt-4 space-y-3 text-sm text-slate-200">
               {comparison.keyTakeaways.map((k) => (
@@ -62,8 +70,10 @@ export function ComparisonDetailView({
           <table className="w-full min-w-[540px] border-collapse text-left text-sm">
             <thead className="bg-slate-950 text-white">
               <tr>
-                <th className="p-4 font-bold">Criteria</th>
-                <th className="p-4 font-bold text-emerald-400">Evminov Spine Board</th>
+                <th className="p-4 font-bold">{ui.comparison.criteriaHeader}</th>
+                <th className="p-4 font-bold text-emerald-400">
+                  {ui.comparison.evminovBoardHeader}
+                </th>
                 <th className="p-4 font-bold text-slate-300">
                   {comparison.competitorName}
                 </th>
@@ -98,18 +108,18 @@ export function ComparisonDetailView({
         </div>
 
         {/* Recommended Board CTA */}
-        {recProduct && (
+        {recProduct && recLocalized && (
           <div className="mt-12 flex flex-col items-start justify-between gap-6 rounded-3xl bg-gradient-to-r from-slate-950 to-teal-900 p-7 text-white md:flex-row md:items-center">
             <div>
               <p className="text-xs font-bold uppercase text-emerald-400">
-                Recommended Upgrade
+                {ui.comparison.recommendedUpgrade}
               </p>
               <h2 className="mt-1 font-display text-2xl font-black">
-                {recProduct.localizedNames[lang] || recProduct.name}
+                {recLocalized.name}
               </h2>
               <p className="mt-1 text-sm text-slate-300">
-                Starting from {formatUSD(recProduct.directPriceUsd)} • 60-Day Home Trial •
-                Glisson Loop Included
+                {ui.common.startingFrom} {formatUSD(recProduct.directPriceUsd)} •{" "}
+                {ui.common.homeTrialBadge} • {ui.common.glissonIncludedBadge}
               </p>
             </div>
             <Link
@@ -120,7 +130,7 @@ export function ComparisonDetailView({
               })}
               className="inline-flex shrink-0 items-center gap-2 rounded-2xl bg-emerald-400 px-6 py-3.5 text-sm font-black text-slate-950 hover:bg-emerald-300"
             >
-              <span>Configure &amp; Order</span>
+              <span>{ui.common.configureAndOrder}</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -130,7 +140,7 @@ export function ComparisonDetailView({
         {comparison.faqs.length > 0 && (
           <section className="mt-12">
             <h2 className="font-display text-2xl font-black text-slate-950">
-              Frequently Asked Questions
+              {ui.comparison.faqHeading}
             </h2>
             <div className="mt-4 space-y-3">
               {comparison.faqs.map((f) => (
@@ -142,7 +152,9 @@ export function ComparisonDetailView({
                   <summary className="cursor-pointer font-bold text-slate-950">
                     {f.q}
                   </summary>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{f.a}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                    {f.a}
+                  </p>
                 </details>
               ))}
             </div>
@@ -152,18 +164,21 @@ export function ComparisonDetailView({
         {/* Cross-links */}
         <div className="mt-12 border-t border-slate-200 pt-8">
           <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
-            More Comparisons
+            {ui.comparison.moreComparisons}
           </p>
           <div className="mt-3 flex flex-wrap gap-2">
-            {COMPARISONS.filter((c) => c.slug !== comparison.slug).map((c) => (
-              <Link
-                key={c.slug}
-                href={getLocalizedHref(`/compare/${c.slug}/`, lang)}
-                className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-bold text-slate-800 hover:border-teal-600"
-              >
-                {c.shortTitle}
-              </Link>
-            ))}
+            {COMPARISONS.filter((c) => c.slug !== comparison.slug).map((raw) => {
+              const c = getLocalizedComparison(raw, lang);
+              return (
+                <Link
+                  key={c.slug}
+                  href={getLocalizedHref(`/compare/${c.slug}/`, lang)}
+                  className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-bold text-slate-800 hover:border-teal-600"
+                >
+                  {c.shortTitle}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </article>

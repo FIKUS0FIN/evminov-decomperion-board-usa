@@ -11,6 +11,7 @@ import {
   Zap,
 } from "lucide-react";
 import { Locale } from "@/i18n/types";
+import { PATHWAYS_ITEMS } from "@/i18n/locales/home-part1";
 import { getLocalizedHref } from "@/lib/url";
 
 const SECTION_COPY: Record<
@@ -44,79 +45,56 @@ const SECTION_COPY: Record<
   },
 };
 
+const PATHWAY_META = [
+  {
+    href: (lang: Locale) => getLocalizedHref("/compare/evminov-vs-inversion-table/", lang),
+    accent: "bg-sky-50 text-sky-700 border-sky-200",
+    icon: ShieldCheck,
+  },
+  {
+    href: (lang: Locale) => getLocalizedHref("/conditions/herniated-disc-l4-l5/", lang),
+    accent: "bg-emerald-50 text-emerald-700 border-emerald-200",
+    icon: Activity,
+  },
+  {
+    href: (lang: Locale) => getLocalizedHref("/conditions/sciatica-relief/", lang),
+    accent: "bg-amber-50 text-amber-700 border-amber-200",
+    icon: Zap,
+  },
+  {
+    href: () => "#pediatric-family",
+    accent: "bg-teal-50 text-teal-700 border-teal-200",
+    icon: Users,
+  },
+  {
+    href: (lang: Locale) => getLocalizedHref("/conditions/cervical-neck-traction/", lang),
+    accent: "bg-indigo-50 text-indigo-700 border-indigo-200",
+    icon: Sparkles,
+  },
+  {
+    href: () => "#athletes",
+    accent: "bg-orange-50 text-orange-700 border-orange-200",
+    icon: Dumbbell,
+  },
+  {
+    href: (lang: Locale) => getLocalizedHref("/conditions/desk-worker-posture/", lang),
+    accent: "bg-violet-50 text-violet-700 border-violet-200",
+    icon: Monitor,
+  },
+  {
+    href: () => "#mounting",
+    accent: "bg-slate-100 text-slate-800 border-slate-300",
+    icon: Wrench,
+  },
+];
+
 export function ClinicalPathwaysNav({ lang }: { lang: Locale }) {
   const copy = SECTION_COPY[lang];
-
-  const pathways = [
-    {
-      href: getLocalizedHref("/compare/evminov-vs-inversion-table/", lang),
-      title: "Why Not Inversion?",
-      subtitle: "Zero upside-down head rush",
-      tag: "Safety Compare",
-      accent: "bg-sky-50 text-sky-700 border-sky-200",
-      icon: ShieldCheck,
-    },
-    {
-      href: getLocalizedHref("/conditions/herniated-disc-l4-l5/", lang),
-      title: "L4–S1 Disc Comfort",
-      subtitle: "Low-angle 12°–20° unloading",
-      tag: "Lumbar Focus",
-      accent: "bg-emerald-50 text-emerald-700 border-emerald-200",
-      icon: Activity,
-    },
-    {
-      href: getLocalizedHref("/conditions/sciatica-relief/", lang),
-      title: "Sciatica & Nerve Ease",
-      subtitle: "Gentle lumbar decompression",
-      tag: "Sciatic Mobility",
-      accent: "bg-amber-50 text-amber-700 border-amber-200",
-      icon: Zap,
-    },
-    {
-      href: "#pediatric-family",
-      title: "Kids & Family Posture",
-      subtitle: "Ages 4–85+ Spine Toothbrush",
-      tag: "Kids & Teens",
-      accent: "bg-teal-50 text-teal-700 border-teal-200",
-      icon: Users,
-    },
-    {
-      href: getLocalizedHref("/conditions/cervical-neck-traction/", lang),
-      title: "Cervical Neck Traction",
-      subtitle: "Free Glisson Loop at 8°–12°",
-      tag: "Neck & C1–C7",
-      accent: "bg-indigo-50 text-indigo-700 border-indigo-200",
-      icon: Sparkles,
-    },
-    {
-      href: "#athletes",
-      title: "Athletic Recovery",
-      subtitle: "Post-deadlift & squat relief",
-      tag: "Heavy Lifters",
-      accent: "bg-orange-50 text-orange-700 border-orange-200",
-      icon: Dumbbell,
-    },
-    {
-      href: getLocalizedHref("/conditions/desk-worker-posture/", lang),
-      title: "Desk Worker Posture",
-      subtitle: "Reverses 8h sitting slump",
-      tag: "WFH & Nurses",
-      accent: "bg-violet-50 text-violet-700 border-violet-200",
-      icon: Monitor,
-    },
-    {
-      href: "#mounting",
-      title: "16\" Wall & Renter Setup",
-      subtitle: "Single stud or no-drill stand",
-      tag: "Installation",
-      accent: "bg-slate-100 text-slate-800 border-slate-300",
-      icon: Wrench,
-    },
-  ];
+  const texts = PATHWAYS_ITEMS[lang];
 
   return (
     <section
-      aria-label="Guided Spine Pathways"
+      aria-label={copy.eyebrow}
       className="border-b border-slate-200 bg-white py-8 shadow-[0_6px_24px_rgba(11,31,58,0.04)]"
     >
       <div className="mx-auto max-w-7xl px-4">
@@ -136,15 +114,17 @@ export function ClinicalPathwaysNav({ lang }: { lang: Locale }) {
         </div>
 
         <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {pathways.map((item) => {
-            const Icon = item.icon;
-            const isAnchor = item.href.startsWith("#");
+          {PATHWAY_META.map((meta, idx) => {
+            const Icon = meta.icon;
+            const item = texts[idx];
+            const href = meta.href(lang);
+            const isAnchor = href.startsWith("#");
             const cardClasses =
               "group flex items-center gap-3.5 rounded-2xl border border-slate-200/90 bg-white p-3.5 transition hover:-translate-y-0.5 hover:border-teal-600 hover:shadow-md";
             const inner = (
               <>
                 <span
-                  className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border ${item.accent}`}
+                  className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border ${meta.accent}`}
                 >
                   <Icon className="h-5 w-5" />
                 </span>
@@ -162,11 +142,11 @@ export function ClinicalPathwaysNav({ lang }: { lang: Locale }) {
             );
 
             return isAnchor ? (
-              <a key={item.title} href={item.href} className={cardClasses}>
+              <a key={item.title} href={href} className={cardClasses}>
                 {inner}
               </a>
             ) : (
-              <Link key={item.title} href={item.href} className={cardClasses}>
+              <Link key={item.title} href={href} className={cardClasses}>
                 {inner}
               </Link>
             );

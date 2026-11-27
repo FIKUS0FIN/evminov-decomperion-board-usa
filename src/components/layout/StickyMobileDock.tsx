@@ -7,20 +7,22 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { getLocalizedHref } from "@/lib/url";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { sendGTMEvent } from "@/lib/gtm";
+import { MOBILE_DOCK_EXTRA } from "@/i18n/locales/chrome";
 
 export function StickyMobileDock({ lang }: { lang: Locale }) {
   const m = getDictionary(lang).mobileDock;
+  const mx = MOBILE_DOCK_EXTRA[lang];
 
   return (
     <nav
-      aria-label="Mobile quick actions"
+      aria-label={mx.navAria}
       className="fixed bottom-0 left-0 right-0 z-40 border-t border-slate-200 bg-white/96 shadow-[0_-6px_24px_rgba(11,31,58,0.10)] backdrop-blur-xl md:hidden"
     >
       <div className="flex items-center justify-between border-b border-slate-100 bg-slate-50/90 px-3 py-1 text-[11px]">
         <span className="font-extrabold text-[#0B1F3A]">
-          From $450 <span className="font-semibold text-emerald-700">(or 4× $112.50)</span>
+          {mx.fromPrice} <span className="font-semibold text-emerald-700">{mx.installments}</span>
         </span>
-        <span className="font-semibold text-slate-500">60-Day Trial • US Express</span>
+        <span className="font-semibold text-slate-500">{mx.trialExpress}</span>
       </div>
       <div className="grid grid-cols-4 gap-1.5 px-2 py-1.5">
         <button

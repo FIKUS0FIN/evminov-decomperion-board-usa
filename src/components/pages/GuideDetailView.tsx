@@ -3,19 +3,27 @@ import { ArrowRight, BookOpen } from "lucide-react";
 import { Locale } from "@/i18n/types";
 import { GuideItem, GUIDES } from "@/data/guides";
 import { getProductBySlug } from "@/data/products";
+import { getLocalizedGuide } from "@/i18n/locales/guides-i18n";
+import { getSiloUi } from "@/i18n/locales/silo-ui";
+import { getLocalizedProduct } from "@/i18n/locales/catalog";
 import { buildPrefilledOrderUrl, getLocalizedHref } from "@/lib/url";
 import { formatUSD } from "@/lib/physics";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import { FaqJsonLd, GuideArticleJsonLd } from "@/components/seo/JsonLd";
 
 export function GuideDetailView({
-  guide,
+  guide: rawGuide,
   lang,
 }: {
   guide: GuideItem;
   lang: Locale;
 }) {
+  const guide = getLocalizedGuide(rawGuide, lang);
+  const ui = getSiloUi(lang);
   const recProduct = getProductBySlug(guide.recommendedProductSlug);
+  const recLocalized = recProduct
+    ? getLocalizedProduct(recProduct, lang)
+    : undefined;
 
   return (
     <>
@@ -37,9 +45,13 @@ export function GuideDetailView({
 
           <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 border-y border-slate-200 py-3 text-xs text-slate-500">
             <span>
-              By <strong className="text-slate-900">{guide.author.name}</strong> ({guide.author.credentials})
+              {ui.guide.byAuthorPrefix}{" "}
+              <strong className="text-slate-900">{guide.author.name}</strong> (
+              {guide.author.credentials})
             </span>
-            <span>Updated: {guide.dateModified}</span>
+            <span>
+              {ui.guide.updatedLabel}: {guide.dateModified}
+            </span>
           </div>
 
           <div className="relative mt-6 aspect-[16/9] w-full overflow-hidden rounded-3xl border border-slate-200">
@@ -55,12 +67,12 @@ export function GuideDetailView({
 
           {/* Table of Contents */}
           <nav
-            aria-label="Table of contents"
+            aria-label={ui.guide.tocAriaLabel}
             className="mt-7 rounded-2xl border border-slate-200 bg-slate-50 p-5"
           >
             <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-600">
               <BookOpen className="h-4 w-4 text-teal-700" />
-              <span>In This Guide</span>
+              <span>{ui.guide.inThisGuide}</span>
             </p>
             <ul className="mt-2.5 space-y-1.5 text-sm">
               {guide.sections.map((sec) => (
@@ -103,13 +115,15 @@ export function GuideDetailView({
           {guide.references.length > 0 && (
             <section className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-5">
               <h2 className="text-xs font-bold uppercase tracking-wider text-slate-600">
-                Clinical &amp; Biomechanical References
+                {ui.guide.referencesHeading}
               </h2>
               <ol className="mt-3 list-decimal space-y-1.5 pl-5 text-xs text-slate-600">
                 {guide.references.map((ref) => (
                   <li key={ref.citation}>
                     {ref.citation}{" "}
-                    <span className="font-semibold text-slate-800">({ref.source})</span>
+                    <span className="font-semibold text-slate-800">
+                      ({ref.source})
+                    </span>
                   </li>
                 ))}
               </ol>
@@ -120,7 +134,7 @@ export function GuideDetailView({
           {guide.faqs.length > 0 && (
             <section className="mt-10">
               <h2 className="font-display text-2xl font-black text-slate-950">
-                Key Questions Answered
+                {ui.guide.keyQuestionsHeading}
               </h2>
               <div className="mt-4 space-y-3">
                 {guide.faqs.map((faq) => (
@@ -142,24 +156,25 @@ export function GuideDetailView({
           )}
         </article>
 
-        {/* Contextual Conversion Sidebar (Smista kunskap/[slug] pattern) */}
+        {/* Contextual Conversion Sidebar */}
         <aside className="space-y-6 lg:col-span-4">
-          {recProduct && (
+          {recProduct && recLocalized && (
             <div className="sticky top-28 space-y-6">
               <div className="rounded-3xl bg-slate-950 p-6 text-white shadow-xl">
                 <p className="text-xs font-bold uppercase text-emerald-400">
-                  Featured Equipment
+                  {ui.guide.featuredEquipment}
                 </p>
                 <h2 className="mt-1.5 font-display text-xl font-black">
-                  {recProduct.localizedNames[lang] || recProduct.name}
+                  {recLocalized.name}
                 </h2>
                 <p className="mt-2 text-xs leading-relaxed text-slate-300">
-                  {recProduct.keyFeature}
+                  {recLocalized.keyFeature}
                 </p>
                 <p className="mt-4 text-2xl font-black text-emerald-400">
                   {formatUSD(recProduct.directPriceUsd)}{" "}
                   <span className="text-xs font-normal text-slate-400">
-                    direct / {formatUSD(recProduct.expressPriceUsd)} CA Express
+                    {ui.common.directLabel} / {formatUSD(recProduct.expressPriceUsd)}{" "}
+                    {ui.common.caExpressLabel}
                   </span>
                 </p>
                 <Link
@@ -170,34 +185,37 @@ export function GuideDetailView({
                   })}
                   className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-400 px-5 py-3 text-sm font-black text-slate-950 hover:bg-emerald-300"
                 >
-                  <span>Configure &amp; Order</span>
+                  <span>{ui.common.configureAndOrder}</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
                   href={getLocalizedHref("/calculator/", lang)}
                   className="mt-2.5 inline-flex w-full items-center justify-center rounded-xl border border-white/20 px-5 py-2.5 text-xs font-bold text-white hover:bg-white/10"
                 >
-                  Calculate Your Safe Angle
+                  {ui.common.calculateSafeAngle}
                 </Link>
               </div>
 
               <div className="rounded-3xl border border-slate-200 bg-white p-5">
                 <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                  Related Guides
+                  {ui.guide.relatedGuides}
                 </p>
                 <ul className="mt-3 space-y-2.5 text-sm">
                   {GUIDES.filter((g) => g.slug !== guide.slug)
                     .slice(0, 4)
-                    .map((g) => (
-                      <li key={g.slug}>
-                        <Link
-                          href={getLocalizedHref(`/guides/${g.slug}/`, lang)}
-                          className="font-semibold text-slate-800 hover:text-teal-700"
-                        >
-                          {g.title}
-                        </Link>
-                      </li>
-                    ))}
+                    .map((raw) => {
+                      const g = getLocalizedGuide(raw, lang);
+                      return (
+                        <li key={g.slug}>
+                          <Link
+                            href={getLocalizedHref(`/guides/${g.slug}/`, lang)}
+                            className="font-semibold text-slate-800 hover:text-teal-700"
+                          >
+                            {g.title}
+                          </Link>
+                        </li>
+                      );
+                    })}
                 </ul>
               </div>
             </div>

@@ -21,6 +21,7 @@ import { SITE_CONFIG } from "@/lib/site-config";
 import { useHsaSavings } from "@/context/HsaSavingsContext";
 import { sendGTMEvent } from "@/lib/gtm";
 import { EvminovBrandLockup } from "@/components/brand/EvminovLogo";
+import { HEADER_EXTRA } from "@/i18n/locales/chrome";
 
 interface HeaderLabels {
   estBadge: string;
@@ -54,7 +55,7 @@ const HEADER_LABELS: Record<Locale, HeaderLabels> = {
   },
   es: {
     estBadge: "DESDE 1996",
-    barTagline: "30 Años de Biomecánica Espinal • Envío 50 Estados EE. UU. y Global • Prueba 60 Días",
+    barTagline: "30 Años de Biomecánica • Envío Rápido EE. UU. y Global • Prueba 60 Días",
     whyNotInversion: "¿Por Qué No Inversión?",
     boardsPricing: "Tablas y Precios",
     protocols: "Protocolos",
@@ -68,7 +69,7 @@ const HEADER_LABELS: Record<Locale, HeaderLabels> = {
   },
   fr: {
     estBadge: "FONDÉ EN 1996",
-    barTagline: "30 Ans de Biomécanique Vertébrale • Livraison USA, Canada & Europe • Essai 60 Jours",
+    barTagline: "30 Ans de Biomécanique • Livraison USA, Canada & UE • Essai 60 Jours",
     whyNotInversion: "Pourquoi Pas l'Inversion ?",
     boardsPricing: "Planches & Tarifs",
     protocols: "Protocoles",
@@ -82,7 +83,7 @@ const HEADER_LABELS: Record<Locale, HeaderLabels> = {
   },
   uk: {
     estBadge: "ЗАСНОВАНО 1996",
-    barTagline: "30 Років Методики Євмінова • Доставка в 50 Штатів США, Канаду та ЄС • 60 Днів Тесту",
+    barTagline: "30 Років Методики Євмінова • Доставка США, Канада, ЄС • 60 Днів Тесту",
     whyNotInversion: "Чому не інверсія?",
     boardsPricing: "Дошки та Ціни",
     protocols: "Протоколи",
@@ -96,7 +97,7 @@ const HEADER_LABELS: Record<Locale, HeaderLabels> = {
   },
   ru: {
     estBadge: "ОСНОВАНО В 1996",
-    barTagline: "30 Лет Методики Евминова • Доставка в 50 Штатов США, Канаду и ЕС • 60 Дней Теста",
+    barTagline: "30 Лет Методики Евминова • Доставка США, Канада, ЕС • 60 Дней Теста",
     whyNotInversion: "Почему не инверсия?",
     boardsPricing: "Доски и Цены",
     protocols: "Протоколы",
@@ -113,6 +114,7 @@ const HEADER_LABELS: Record<Locale, HeaderLabels> = {
 export function Header({ lang }: { lang: Locale }) {
   const dict = getDictionary(lang);
   const hl = HEADER_LABELS[lang];
+  const hx = HEADER_EXTRA[lang];
   const pathname = usePathname() || "/";
   const [mobileOpen, setMobileOpen] = useState(false);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -205,11 +207,11 @@ export function Header({ lang }: { lang: Locale }) {
     <>
       {/* Top Announcement & Heritage Trust Bar (matches original dark clinical navy bar) */}
       <aside
-        aria-label="Heritage & Trust Bar"
+        aria-label={hx.heritageBarAria}
         className="border-b border-white/10 bg-[#0B1628] text-white"
       >
-        <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-x-4 gap-y-1.5 px-4 py-2 text-[11px] sm:text-xs">
-          <div className="flex items-center gap-2 min-w-0">
+        <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-x-4 gap-y-1.5 px-4 py-2 text-[11px] sm:text-xs lg:flex-nowrap">
+          <div className="flex min-w-0 flex-1 items-center gap-2">
             <span className="shrink-0 font-extrabold tracking-[0.05em] text-[#34D399]">
               {hl.estBadge}
             </span>
@@ -231,9 +233,9 @@ export function Header({ lang }: { lang: Locale }) {
             >
               <ShieldCheck className="h-3.5 w-3.5 shrink-0" />
               <span className="hidden sm:inline">
-                {applyHsaSavings ? "HSA/FSA -30% ON" : dict.nav.hsaToggleLabel}
+                {applyHsaSavings ? hx.hsaOnShort : dict.nav.hsaToggleLabel}
               </span>
-              <span className="sm:hidden">HSA -30%</span>
+              <span className="sm:hidden">{hx.hsaMobileShort}</span>
               <span
                 className={`inline-block h-3.5 w-6 rounded-full p-0.5 transition-colors ${
                   applyHsaSavings ? "bg-emerald-400" : "bg-slate-600"
@@ -248,7 +250,7 @@ export function Header({ lang }: { lang: Locale }) {
             </button>
 
             {/* 5-Language Switcher */}
-            <nav aria-label="Language switcher" className="flex items-center gap-0.5">
+            <nav aria-label={hx.langSwitcherAria} className="flex items-center gap-0.5">
               <Globe className="mr-1 h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
               {LOCALES.map((loc) => {
                 const active = loc === lang;
@@ -284,7 +286,7 @@ export function Header({ lang }: { lang: Locale }) {
           {/* Official Evminov Monogram + Wordmark */}
           <Link
             href={getLocalizedHref("/", lang)}
-            aria-label="Evminov Spine Med Home"
+            aria-label={hx.homeAria}
             className="shrink-0 rounded-xl py-0.5 focus-visible:outline-teal-700"
           >
             <EvminovBrandLockup size={38} />
@@ -296,7 +298,7 @@ export function Header({ lang }: { lang: Locale }) {
               <button
                 type="button"
                 onClick={() => scrollNavBy(-200)}
-                aria-label="Scroll navigation left"
+                aria-label={hx.scrollLeftAria}
                 className="z-10 mr-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-sm transition hover:border-slate-300 hover:text-slate-950"
               >
                 <ChevronLeft className="h-4 w-4" />
@@ -306,7 +308,7 @@ export function Header({ lang }: { lang: Locale }) {
             <nav
               ref={navRef}
               onScroll={syncScrollChevrons}
-              aria-label="Primary Navigation"
+              aria-label={hx.primaryNavAria}
               className="no-scrollbar flex items-center gap-1 overflow-x-auto scroll-smooth px-1"
             >
               {navLinks.map((item) => {
@@ -334,7 +336,7 @@ export function Header({ lang }: { lang: Locale }) {
               <button
                 type="button"
                 onClick={() => scrollNavBy(200)}
-                aria-label="Scroll navigation right"
+                aria-label={hx.scrollRightAria}
                 className="z-10 ml-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-sm transition hover:border-slate-300 hover:text-slate-950"
               >
                 <ChevronRight className="h-4 w-4" />
@@ -351,7 +353,7 @@ export function Header({ lang }: { lang: Locale }) {
             >
               <User className="h-4 w-4 text-emerald-600 shrink-0" />
               <span className="hidden sm:inline">{hl.patientPortal}</span>
-              <span className="sm:hidden">Portal</span>
+              <span className="sm:hidden">{hx.portalShort}</span>
             </Link>
 
             {/* Find My Angle Pill */}
@@ -377,7 +379,7 @@ export function Header({ lang }: { lang: Locale }) {
               type="button"
               onClick={() => setMobileOpen((prev) => !prev)}
               aria-expanded={mobileOpen}
-              aria-label="Toggle Navigation Menu"
+              aria-label={hx.toggleMenuAria}
               className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 lg:hidden"
             >
               {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -407,7 +409,7 @@ export function Header({ lang }: { lang: Locale }) {
                 className="rounded-2xl border border-emerald-200 bg-emerald-50/70 p-3"
               >
                 <p className="text-xs font-extrabold text-emerald-900">{hl.since1996}</p>
-                <p className="mt-0.5 text-[11px] text-emerald-700">Patented 1996 • Global</p>
+                <p className="mt-0.5 text-[11px] text-emerald-700">{hx.mobileSince1996Sub}</p>
               </Link>
               <Link
                 href={getLocalizedHref("/portal/", lang)}
@@ -415,11 +417,11 @@ export function Header({ lang }: { lang: Locale }) {
                 className="rounded-2xl border border-sky-200 bg-sky-50/70 p-3"
               >
                 <p className="text-xs font-extrabold text-[#0B1F3A]">{hl.patientPortal}</p>
-                <p className="mt-0.5 text-[11px] text-slate-600">Routine, Timer &amp; HSA Kit</p>
+                <p className="mt-0.5 text-[11px] text-slate-600">{hx.mobilePortalSub}</p>
               </Link>
             </div>
 
-            <nav aria-label="Mobile Directory" className="flex flex-col gap-1">
+            <nav aria-label={hx.mobileNavAria} className="flex flex-col gap-1">
               {navLinks.map((item) => (
                 <Link
                   key={item.href}
