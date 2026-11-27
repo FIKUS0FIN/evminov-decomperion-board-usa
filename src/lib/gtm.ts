@@ -8,7 +8,7 @@ type WindowWithAnalytics = Window & {
 };
 
 export const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "";
-export const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID || "";
+export const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID || "zk40l7z943";
 export const CF_ANALYTICS_TOKEN = process.env.NEXT_PUBLIC_CF_ANALYTICS_TOKEN || "";
 
 const ATTRIBUTION_KEY = "evminov_attribution_v1";
