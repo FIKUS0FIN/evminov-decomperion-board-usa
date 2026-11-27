@@ -1,17 +1,51 @@
 {
   "name": "evminov-spine-systems-us",
+  "version": "2.0.0",
   "private": true,
-  "version": "1.0.0",
-  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build && node scripts/prerender-ssg.js",
-    "preview": "vite preview",
-    "test": "vitest run"
+    "dev": "next dev --webpack",
+    "dev:turbo": "next dev",
+    "build": "next build --webpack && next-image-export-optimizer",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --exclude \"**/*.spec.ts\"",
+    "test:e2e": "npx playwright test",
+    "verify:seo": "node scripts/verify-seo-indexers.mjs",
+    "verify:live": "node scripts/verify-seo-indexers.mjs --live https://evminovusa.com",
+    "indexnow": "node scripts/submit-indexnow.mjs"
   },
-  "dependencies": {},
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.563.0",
+    "next": "16.1.6",
+    "next-image-export-optimizer": "^1.20.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "resend": "^6.9.2",
+    "sharp": "^0.34.5",
+    "tailwind-merge": "^3.4.0",
+    "zod": "^4.3.6"
+  },
   "devDependencies": {
-    "vite": "^5.4.2",
-    "vitest": "^2.0.5"
-  }
+    "@cloudflare/workers-types": "^4.20260213.0",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@vitest/coverage-v8": "3.2.4",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.6",
+    "jsdom": "^26.1.0",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "vitest": "3.2.4"
+  },
+  "browserslist": [
+    "chrome >= 111",
+    "edge >= 111",
+    "firefox >= 111",
+    "safari >= 16.4",
+    "ios >= 16.4"
+  ]
 }

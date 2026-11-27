@@ -1,0 +1,10 @@
+{
+  "ucp_version": "2026-08-25",
+  "merchant": "Evminov Spine Systems USA",
+  "profiles": ["dev.ucp.shopping", "dev.ucp.shopping.checkout"],
+  "transports": {
+    "rest": "https://evminovusa.com/api/acp/checkout_sessions",
+    "mcp": "https://evminovusa.com/api/mcp",
+    "nlweb": "https://evminovusa.com/api/ask"
+  }
+}

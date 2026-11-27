@@ -1,0 +1,15 @@
+{
+  "protocol": "acp",
+  "version": "2026-01-30",
+  "merchant": {
+    "name": "Evminov Spine Systems USA",
+    "url": "https://evminovusa.com/",
+    "support_email": "support@evminovusa.com",
+    "privacy_policy_url": "https://evminovusa.com/privacy/",
+    "terms_of_service_url": "https://evminovusa.com/terms/",
+    "return_policy_url": "https://evminovusa.com/shipping-returns/"
+  },
+  "endpoints": {
+    "checkout_sessions": "https://evminovusa.com/api/acp/checkout_sessions"
+  }
+}

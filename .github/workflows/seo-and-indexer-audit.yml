@@ -1,0 +1,50 @@
+name: SEO, Indexer & Multilingual Quality Audit
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_run:
+    workflows: ["Deploy to Cloudflare Pages"]
+    types:
+      - completed
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+    inputs:
+      live_url:
+        description: "Live URL to audit externally"
+        required: false
+        default: "https://evminovusa.com"
+
+jobs:
+  static-seo-gate:
+    if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+      - run: npm run verify:seo
+
+  live-external-audit:
+    if: >
+      github.event_name == 'schedule' ||
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
+    runs-on: ubuntu-24.04
+    env:
+      LIVE_SITE_URL: ${{ github.event.inputs.live_url || 'https://evminovusa.com' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+      - run: node scripts/verify-seo-indexers.mjs --live "$LIVE_SITE_URL"

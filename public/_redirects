@@ -1,2 +1,20 @@
-# Cloudflare Pages Redirects & Fallback
-/*    /index.html   200
+# Single-hop 301 redirects for legacy Tilda, Vite SPA, and redundant English URLs
+# NOTE: No catch-all `/* /index.html 200` soft-404 rule! Unknown URLs serve proper HTTP 404 via /404.html.
+/en / 301
+/en/ / 301
+/en/* /:splat 301
+/blog /guides/ 301
+/blog/ /guides/ 301
+/blog/remote-worker-spine-hygiene-posture-stick /guides/remote-worker-spine-hygiene-posture-reset/ 301
+/blog/* /guides/:splat/ 301
+/portal /welcome/ 301
+/portal/ /welcome/ 301
+/inversion-table-alternative /compare/evminov-vs-inversion-table/ 301
+/herniated-disc-relief /conditions/herniated-disc-l4-l5/ 301
+/athlete-spine-recovery /conditions/athlete-spine-recovery/ 301
+/sciatica-relief /conditions/sciatica-relief/ 301
+/daily-spine-stick /conditions/desk-worker-posture/ 301
+/backbrush /products/standard-pine-board/ 301
+/shop /products/ 301
+/checkout /order/ 301
+/contact /order/ 301

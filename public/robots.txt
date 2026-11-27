@@ -1,18 +1,24 @@
-# robots.txt for Evminov Spine Systems (US & Global)
 User-agent: *
 Allow: /
+Allow: /api/mcp
+Allow: /api/ask
+Allow: /api/health
+Allow: /api/acp/checkout_sessions
+Allow: /.well-known/
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /rss.xml
+Disallow: /nextImageExportOptimizer/
+Disallow: /images/*/nextImageExportOptimizer/
+Disallow: /next-image-export-optimizer-hashes.json
 
-# Dedicated AI Search Engine & Retrieval Crawlers (LLMs.txt Discovery)
 User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
 Allow: /
 
 User-agent: OAI-SearchBot
 Allow: /
 
-User-agent: PerplexityBot
+User-agent: ChatGPT-User
 Allow: /
 
 User-agent: ClaudeBot
@@ -21,51 +27,18 @@ Allow: /
 User-agent: anthropic-ai
 Allow: /
 
-User-agent: Google-Extended
+User-agent: PerplexityBot
 Allow: /
 
-User-agent: Applebot
+User-agent: Google-Extended
 Allow: /
 
 User-agent: Applebot-Extended
 Allow: /
 
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
-
-User-agent: YandexBot
-Allow: /
-
-User-agent: Baiduspider
-Allow: /
-
-User-agent: Slurp
-Allow: /
-
-User-agent: YouBot
-Allow: /
-
 User-agent: meta-externalagent
 Allow: /
 
-User-agent: cohere-ai
-Allow: /
-
-User-agent: Amazonbot
-Allow: /
-
-User-agent: FacebookBot
-Allow: /
-
-User-agent: CCBot
-Allow: /
-
-# Sitemap & Machine-Readable AI Endpoints
-Sitemap: https://evminov-decompression-board-usa.apex-root.com/sitemap.xml
-# LLMs.txt for AI agents: https://evminov-decompression-board-usa.apex-root.com/llms.txt
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
+Agentmap: https://evminovusa.com/.well-known/ai-catalog.json
+Sitemap: https://evminovusa.com/sitemap.xml

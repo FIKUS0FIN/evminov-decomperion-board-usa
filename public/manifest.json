@@ -1,0 +1,34 @@
+{
+  "name": "Evminov Spine Systems USA",
+  "short_name": "Evminov Spine",
+  "description": "Patented inclined Carpathian pine spine decompression boards — safer low-angle alternative to inversion tables.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1f3a",
+  "theme_color": "#0b1f3a",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Configure & Order Board",
+      "url": "/order/"
+    },
+    {
+      "name": "Angle & Size Calculator",
+      "url": "/calculator/"
+    },
+    {
+      "name": "Compare vs Inversion Tables",
+      "url": "/compare/evminov-vs-inversion-table/"
+    },
+    {
+      "name": "US 50-State Shipping",
+      "url": "/shipping/"
+    }
+  ]
+}

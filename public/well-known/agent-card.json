@@ -1,0 +1,16 @@
+{
+  "name": "Evminov Spine Systems Concierge Agent",
+  "version": "1.0.0",
+  "url": "https://evminovusa.com/",
+  "description": "Multilingual (EN/ES/FR/UK/RU) spine board sizing, inclined traction physics, inversion table comparison, and US/global ordering agent.",
+  "provider": {
+    "organization": "Evminov Spine Systems USA",
+    "url": "https://evminovusa.com/"
+  },
+  "interfaces": {
+    "mcp": "https://evminovusa.com/api/mcp",
+    "nlweb": "https://evminovusa.com/api/ask",
+    "acp": "https://evminovusa.com/api/acp/checkout_sessions",
+    "openapi": "https://evminovusa.com/openapi.json"
+  }
+}

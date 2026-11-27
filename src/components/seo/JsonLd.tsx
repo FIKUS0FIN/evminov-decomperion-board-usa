@@ -1,0 +1,329 @@
+import { SITE_CONFIG } from "@/lib/site-config";
+import { ProductItem, PRODUCTS } from "@/data/products";
+import { GuideItem, getGuideWordCount } from "@/data/guides";
+import { Locale, LOCALE_META } from "@/i18n/types";
+import { getCanonicalUrl } from "@/lib/url";
+
+export function JsonLdScript({ data }: { data: Record<string, unknown> }) {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+export function OrganizationAndWebsiteSchema({ lang }: { lang: Locale }) {
+  const origin = SITE_CONFIG.canonicalOrigin;
+  const orgId = `${origin}/#organization`;
+  const siteId = `${origin}/#website`;
+
+  const graph = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["Organization", "Store"],
+        "@id": orgId,
+        name: SITE_CONFIG.brandName,
+        legalName: SITE_CONFIG.legalName,
+        url: `${origin}/`,
+        logo: `${origin}/images/authentic/evminov-official-logo.png`,
+        image: `${origin}/images/social/evminov-decompression-studio-preview.jpg`,
+        foundingDate: String(SITE_CONFIG.foundingYear),
+        telephone: SITE_CONFIG.phoneDisplay,
+        email: SITE_CONFIG.supportEmail,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: SITE_CONFIG.address.street,
+          addressLocality: SITE_CONFIG.address.city,
+          addressRegion: SITE_CONFIG.address.state,
+          postalCode: SITE_CONFIG.address.postalCode,
+          addressCountry: SITE_CONFIG.address.country,
+        },
+        areaServed: [
+          { "@type": "Country", name: "United States" },
+          { "@type": "Country", name: "Canada" },
+          { "@type": "Country", name: "Ukraine" },
+          { "@type": "Place", name: "European Union" },
+        ],
+        sameAs: SITE_CONFIG.socialProfiles,
+        knowsAbout: [
+          "Inclined Spine Decompression",
+          "Evminov Method",
+          "Inversion Table Alternatives",
+          "Glisson Cervical Traction Loop",
+          "Carpathian Pine Spine Conditioning Boards",
+          "16-Inch US Wood Stud Wall Mounting",
+          "HSA and FSA Pre-Tax Wellness Receipts",
+        ],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Evminov Spine Decompression Boards & Accessories",
+          itemListElement: PRODUCTS.map((p) => ({
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Product",
+              name: p.name,
+              sku: p.sku,
+              url: `${origin}/products/${p.slug}/`,
+            },
+            price: String(p.directPriceUsd),
+            priceCurrency: "USD",
+            availability: "https://schema.org/InStock",
+          })),
+        },
+        potentialAction: [
+          {
+            "@type": "OrderAction",
+            target: {
+              "@type": "EntryPoint",
+              urlTemplate: `${origin}/order/?product={product_slug}&shipping={shipping_mode}&step=2#order-form`,
+              actionPlatform: [
+                "http://schema.org/DesktopWebPlatform",
+                "http://schema.org/MobileWebPlatform",
+              ],
+            },
+          },
+          {
+            "@type": "CommunicateAction",
+            target: SITE_CONFIG.phoneHref,
+          },
+        ],
+      },
+      {
+        "@type": "WebSite",
+        "@id": siteId,
+        url: `${origin}/`,
+        name: SITE_CONFIG.brandName,
+        inLanguage: [
+          LOCALE_META.en.hreflang,
+          LOCALE_META.es.hreflang,
+          LOCALE_META.fr.hreflang,
+          LOCALE_META.uk.hreflang,
+          LOCALE_META.ru.hreflang,
+        ],
+        publisher: { "@id": orgId },
+        potentialAction: {
+          "@type": "SearchAction",
+          target: `${origin}/api/ask?q={search_term_string}&lang=${lang}`,
+          "query-input": "required name=search_term_string",
+        },
+      },
+    ],
+  };
+
+  return <JsonLdScript data={graph} />;
+}
+
+export function ProductJsonLd({
+  product,
+  lang,
+}: {
+  product: ProductItem;
+  lang: Locale;
+}) {
+  const origin = SITE_CONFIG.canonicalOrigin;
+  const canonical = getCanonicalUrl(`/products/${product.slug}/`, lang);
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": `${canonical}#product`,
+    name: product.localizedNames[lang] || product.name,
+    description: product.subtitle,
+    sku: product.sku,
+    mpn: product.sku,
+    brand: {
+      "@type": "Brand",
+      name: SITE_CONFIG.brandName,
+    },
+    image: product.galleryImages.map((img) => `${origin}${img.url}`),
+    url: canonical,
+    material: product.material,
+    offers: {
+      "@type": "AggregateOffer",
+      url: canonical,
+      priceCurrency: "USD",
+      lowPrice: String(product.directPriceUsd),
+      highPrice: String(product.expressPriceUsd),
+      offerCount: "2",
+      availability: "https://schema.org/InStock",
+      seller: { "@id": `${origin}/#organization` },
+      offers: [
+        {
+          "@type": "Offer",
+          name: "Direct Workshop Delivery",
+          price: String(product.directPriceUsd),
+          priceCurrency: "USD",
+          availability: "https://schema.org/InStock",
+          priceValidUntil: "2027-12-31",
+          url: `${origin}/order/?product=${product.slug}&shipping=direct&step=2#order-form`,
+          hasMerchantReturnPolicy: {
+            "@type": "MerchantReturnPolicy",
+            applicableCountry: "US",
+            returnPolicyCategory:
+              "https://schema.org/MerchantReturnFiniteReturnWindow",
+            merchantReturnDays: SITE_CONFIG.compliance.trialDays,
+            returnMethod: "https://schema.org/ReturnByMail",
+          },
+          shippingDetails: {
+            "@type": "OfferShippingDetails",
+            shippingDestination: {
+              "@type": "DefinedRegion",
+              addressCountry: "US",
+            },
+            deliveryTime: {
+              "@type": "ShippingDeliveryTime",
+              handlingTime: {
+                "@type": "QuantitativeValue",
+                minValue: 1,
+                maxValue: 3,
+                unitCode: "DAY",
+              },
+              transitTime: {
+                "@type": "QuantitativeValue",
+                minValue: 10,
+                maxValue: 16,
+                unitCode: "DAY",
+              },
+            },
+          },
+        },
+        {
+          "@type": "Offer",
+          name: "Glendale, CA US Warehouse Express (1–4 Days)",
+          price: String(product.expressPriceUsd),
+          priceCurrency: "USD",
+          availability: "https://schema.org/InStock",
+          priceValidUntil: "2027-12-31",
+          url: `${origin}/order/?product=${product.slug}&shipping=express&step=2#order-form`,
+          hasMerchantReturnPolicy: {
+            "@type": "MerchantReturnPolicy",
+            applicableCountry: "US",
+            returnPolicyCategory:
+              "https://schema.org/MerchantReturnFiniteReturnWindow",
+            merchantReturnDays: SITE_CONFIG.compliance.trialDays,
+            returnMethod: "https://schema.org/ReturnByMail",
+          },
+          shippingDetails: {
+            "@type": "OfferShippingDetails",
+            shippingDestination: {
+              "@type": "DefinedRegion",
+              addressCountry: "US",
+            },
+            deliveryTime: {
+              "@type": "ShippingDeliveryTime",
+              handlingTime: {
+                "@type": "QuantitativeValue",
+                minValue: 1,
+                maxValue: 1,
+                unitCode: "DAY",
+              },
+              transitTime: {
+                "@type": "QuantitativeValue",
+                minValue: 1,
+                maxValue: 4,
+                unitCode: "DAY",
+              },
+            },
+          },
+        },
+      ],
+    },
+  };
+
+  return <JsonLdScript data={schema} />;
+}
+
+export function FaqJsonLd({ faqs }: { faqs: Array<{ q: string; a: string }> }) {
+  if (!faqs.length) return null;
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.a,
+      },
+    })),
+  };
+  return <JsonLdScript data={schema} />;
+}
+
+export function BreadcrumbJsonLd({
+  items,
+}: {
+  items: Array<{ name: string; url: string }>;
+}) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, idx) => ({
+      "@type": "ListItem",
+      position: idx + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+  return <JsonLdScript data={schema} />;
+}
+
+export function GuideArticleJsonLd({
+  guide,
+  lang,
+}: {
+  guide: GuideItem;
+  lang: Locale;
+}) {
+  const origin = SITE_CONFIG.canonicalOrigin;
+  const canonical = getCanonicalUrl(`/guides/${guide.slug}/`, lang);
+  const wordCount = getGuideWordCount(guide);
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${canonical}#article`,
+    headline: guide.title,
+    description: guide.metaDescription,
+    image: `${origin}${guide.heroImage}`,
+    datePublished: guide.datePublished,
+    dateModified: guide.dateModified,
+    inLanguage: LOCALE_META[lang].hreflang,
+    wordCount,
+    mainEntityOfPage: canonical,
+    author: {
+      "@type": "Organization",
+      name: guide.author.name,
+      url: `${origin}/centers/`,
+    },
+    publisher: { "@id": `${origin}/#organization` },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", "article p:first-of-type"],
+    },
+  };
+
+  return <JsonLdScript data={schema} />;
+}
+
+export function VideoObjectJsonLd() {
+  const origin = SITE_CONFIG.canonicalOrigin;
+  const videos = [SITE_CONFIG.videos.methodDemo, SITE_CONFIG.videos.wallMounting];
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": videos.map((v) => ({
+      "@type": "VideoObject",
+      name: v.title,
+      description: `${v.title} — Official demonstration by Evminov Spine Systems.`,
+      thumbnailUrl: `${origin}${v.thumbnail}`,
+      uploadDate: "2026-09-01",
+      duration: v.duration,
+      embedUrl: `https://www.youtube-nocookie.com/embed/${v.id}`,
+      contentUrl: `https://www.youtube.com/watch?v=${v.id}`,
+      publisher: { "@id": `${origin}/#organization` },
+    })),
+  };
+  return <JsonLdScript data={schema} />;
+}

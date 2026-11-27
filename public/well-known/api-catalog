@@ -1,0 +1,16 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://evminovusa.com/api/",
+      "service-desc": [
+        { "href": "https://evminovusa.com/openapi.json", "type": "application/openapi+json" }
+      ],
+      "service-doc": [
+        { "href": "https://evminovusa.com/auth.md", "type": "text/markdown" }
+      ],
+      "status": [
+        { "href": "https://evminovusa.com/api/health", "type": "application/json" }
+      ]
+    }
+  ]
+}

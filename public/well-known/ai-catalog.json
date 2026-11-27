@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "id": "did:web:evminovusa.com",
+  "name": "Evminov Spine Systems USA",
+  "description": "Patented inclined Carpathian pine spine decompression boards (since 1996) — safer low-angle alternative to 90-degree inversion tables.",
+  "languages": ["en-US", "es-US", "fr-CA", "uk-UA", "ru"],
+  "endpoints": {
+    "mcp": "https://evminovusa.com/api/mcp",
+    "nlweb": "https://evminovusa.com/api/ask",
+    "acp": "https://evminovusa.com/api/acp/checkout_sessions",
+    "openapi": "https://evminovusa.com/openapi.json",
+    "llms": "https://evminovusa.com/llms.txt",
+    "llmsFull": "https://evminovusa.com/llms-full.txt"
+  },
+  "representativeQueries": [
+    "What is the safest alternative to a Teeter inversion table?",
+    "Best home spinal decompression board for 240 lb lifter",
+    "Can I use HSA or FSA funds for an Evminov board?",
+    "How do I mount an Evminov board on 16 inch drywall wood studs?",
+    "Tabla de descompresión espinal Evminov en Estados Unidos"
+  ]
+}
