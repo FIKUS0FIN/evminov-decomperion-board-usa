@@ -11,7 +11,9 @@ import {
   ClipboardCheck,
   Clock,
   FileText,
+  LogOut,
   Mail,
+  Package,
   Pause,
   Phone,
   Play,
@@ -25,6 +27,9 @@ import {
   Wrench,
 } from "lucide-react";
 import { Locale } from "@/i18n/types";
+import { AUTH_UI_COPY } from "@/i18n/locales/auth";
+import { AuthCard } from "@/components/auth/AuthCard";
+import { OrderRecord, useAuth } from "@/components/auth/useAuth";
 import {
   LOCALIZED_CONTRAINDICATIONS,
   PORTAL_UI_COPY,
@@ -250,8 +255,40 @@ const GOAL_KEYS: ConditionGoal[] = [
 export function PatientPortalDashboard({ lang }: { lang: Locale }) {
   const copy = PORTAL_COPY[lang];
   const ui = PORTAL_UI_COPY[lang];
+  const authCopy = AUTH_UI_COPY[lang];
   const calcCopy = CALCULATOR_COPY[lang];
   const contra = LOCALIZED_CONTRAINDICATIONS[lang];
+
+  const { user, setUser, loading: authLoading, googleOAuthEnabled, logout } = useAuth();
+  const [myOrders, setMyOrders] = useState<OrderRecord[]>([]);
+  const [ordersLoading, setOrdersLoading] = useState(false);
+
+  useEffect(() => {
+    if (!user) {
+      setMyOrders([]);
+      return;
+    }
+    let cancelled = false;
+    setOrdersLoading(true);
+    fetch("/api/orders/my", { credentials: "include" })
+      .then((res) =>
+        res.ok
+          ? (res.json() as Promise<{ orders?: OrderRecord[] }>)
+          : Promise.resolve({ orders: [] as OrderRecord[] })
+      )
+      .then((data) => {
+        if (!cancelled) setMyOrders(data.orders || []);
+      })
+      .catch(() => {
+        if (!cancelled) setMyOrders([]);
+      })
+      .finally(() => {
+        if (!cancelled) setOrdersLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [user]);
 
   const rawStored = useSyncExternalStore(
     subscribePortalStore,
@@ -500,8 +537,128 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
 
   const featuredExercises = getLocalizedExercises(lang).slice(0, 6);
 
+  if (authLoading) {
+    return (
+      <div className="mx-auto max-w-2xl px-4 py-20 text-center">
+        <div className="rounded-3xl border border-slate-200 bg-white p-10 text-sm font-semibold text-slate-600 shadow-sm">
+          {authCopy.loadingSession}
+        </div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return (
+      <div className="bg-slate-50/70 px-4 py-14">
+        <AuthCard
+          lang={lang}
+          context="portal"
+          returnTo={getLocalizedHref("/portal/", lang)}
+          googleOAuthEnabled={googleOAuthEnabled}
+          onAuthenticated={(authedUser) => setUser(authedUser)}
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="bg-slate-50/70 pb-20">
+      {/* Authenticated Account Bar */}
+      <div className="no-print border-b border-slate-200 bg-white">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-3 text-xs">
+          <div className="flex items-center gap-2 text-slate-700">
+            <span className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
+            <span>{authCopy.signedInAs}:</span>
+            <strong className="text-slate-950">{user.name || user.email}</strong>
+            <span className="hidden text-slate-500 sm:inline">({user.email})</span>
+          </div>
+          <div className="flex items-center gap-2">
+            {user.role === "admin" && (
+              <Link
+                href="/admin/"
+                className="inline-flex items-center gap-1.5 rounded-xl bg-amber-100 px-3 py-1.5 font-extrabold text-amber-950 transition hover:bg-amber-200"
+              >
+                <ShieldCheck className="h-3.5 w-3.5" />
+                <span>{authCopy.adminPanelBtn}</span>
+              </Link>
+            )}
+            <button
+              type="button"
+              onClick={() => void logout()}
+              className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-50 px-3 py-1.5 font-bold text-slate-700 transition hover:bg-slate-100"
+            >
+              <LogOut className="h-3.5 w-3.5" />
+              <span>{authCopy.signOut}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Live Orders & Status Panel */}
+      <section className="no-print mx-auto max-w-7xl px-4 pt-6">
+        <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h2 className="flex items-center gap-2 font-display text-lg font-black text-slate-950">
+                <Package className="h-5 w-5 text-teal-700" />
+                <span>{authCopy.myOrdersHeading}</span>
+              </h2>
+              <p className="mt-0.5 text-xs text-slate-500">{authCopy.myOrdersSub}</p>
+            </div>
+            <Link
+              href={getLocalizedHref("/order/", lang)}
+              className="rounded-xl bg-teal-700 px-4 py-2 text-xs font-extrabold text-white transition hover:bg-teal-800"
+            >
+              {authCopy.placeFirstOrder}
+            </Link>
+          </div>
+
+          {ordersLoading ? (
+            <p className="mt-4 text-xs text-slate-500">{authCopy.loadingSession}</p>
+          ) : myOrders.length === 0 ? (
+            <p className="mt-4 rounded-2xl bg-slate-50 p-4 text-xs text-slate-600">
+              {authCopy.noOrdersYet}
+            </p>
+          ) : (
+            <div className="mt-4 grid gap-3 md:grid-cols-2">
+              {myOrders.map((ord) => (
+                <div
+                  key={ord.id}
+                  className="rounded-2xl border border-slate-200 bg-slate-50/70 p-4 text-xs"
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="font-mono font-extrabold text-slate-950">
+                      {ord.order_ref}
+                    </span>
+                    <span className="rounded-full bg-teal-100 px-2.5 py-0.5 font-extrabold text-teal-900">
+                      {authCopy.statuses[ord.status] || ord.status}
+                    </span>
+                  </div>
+                  <p className="mt-1.5 font-bold text-slate-900">
+                    {ord.product_name} {ord.finish ? `• ${ord.finish}` : ""}
+                  </p>
+                  <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-slate-600">
+                    {ord.total_usd > 0 && (
+                      <span>
+                        {authCopy.totalLabel}: <strong>${ord.total_usd} USD</strong>
+                      </span>
+                    )}
+                    {ord.tracking_number && (
+                      <span>
+                        {authCopy.trackingLabel}:{" "}
+                        <strong className="font-mono text-slate-900">
+                          {ord.tracking_number}
+                        </strong>
+                      </span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
       {/* Clinical Navy Hero + Inline Owner Access Card */}
       <section className="no-print border-b border-slate-200 bg-gradient-to-br from-[#0B1628] via-[#0B1F3A] to-[#0E2949] text-white">
         <div className="mx-auto max-w-7xl px-4 py-10 md:py-14">

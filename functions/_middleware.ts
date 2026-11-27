@@ -192,7 +192,9 @@ function getRobotsTag(lowerPath: string, rawPath: string): string | null {
   }
   if (
     lowerPath === "/next-image-export-optimizer-hashes.json" ||
-    lowerPath === `/${INDEXNOW_KEY}.txt`
+    lowerPath === `/${INDEXNOW_KEY}.txt` ||
+    lowerPath === "/admin" ||
+    lowerPath.startsWith("/admin/")
   ) {
     return "noindex, nofollow, noarchive";
   }
@@ -204,7 +206,7 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   const url = new URL(request.url);
   const pathname = url.pathname.toLowerCase();
 
-  if (pathname.endsWith(".pdf")) {
+  if (pathname.endsWith(".pdf") || pathname.startsWith("/api/")) {
     return next();
   }
 

@@ -1,10 +1,14 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { CheckCircle2, Mic, MicOff, ShieldCheck, Truck } from "lucide-react";
+import { CheckCircle2, LogOut, Mic, MicOff, ShieldCheck, Truck } from "lucide-react";
 import { Locale } from "@/i18n/types";
 import { getDictionary } from "@/i18n/dictionaries";
+import { AUTH_UI_COPY } from "@/i18n/locales/auth";
+import { AuthCard } from "@/components/auth/AuthCard";
+import { useAuth } from "@/components/auth/useAuth";
+import { getLocalizedHref } from "@/lib/url";
 import {
   formatWeightLimit,
   getLocalizedFinish,
@@ -25,7 +29,9 @@ import { getAttributionSummary, sendGTMEvent } from "@/lib/gtm";
 export function OrderWizard({ lang }: { lang: Locale }) {
   const t = getDictionary(lang).orderUi;
   const ow = ORDER_WIZARD_COPY[lang];
+  const authCopy = AUTH_UI_COPY[lang];
   const searchParams = useSearchParams();
+  const { user, setUser, loading: authLoading, googleOAuthEnabled, logout } = useAuth();
 
   const initialSlug = (() => {
     const p = searchParams.get("product");
@@ -73,6 +79,13 @@ export function OrderWizard({ lang }: { lang: Locale }) {
   const [orderRef, setOrderRef] = useState<string | null>(null);
   const [recording, setRecording] = useState(false);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+
+  useEffect(() => {
+    if (!user) return;
+    setName((prev) => prev || user.name || "");
+    setEmail((prev) => prev || user.email || "");
+    setPhone((prev) => prev || user.phone || "");
+  }, [user]);
 
   const selectedProduct =
     PRODUCTS.find((p) => p.slug === productSlug) || PRODUCTS[0];
@@ -444,8 +457,51 @@ export function OrderWizard({ lang }: { lang: Locale }) {
             </div>
           )}
 
-          {step === 3 && (
+          {step === 3 && !authLoading && !user && (
             <div className="space-y-4">
+              <AuthCard
+                lang={lang}
+                context="order"
+                returnTo={`${getLocalizedHref("/order/", lang)}?product=${encodeURIComponent(productSlug)}&shipping=${shipping}&stand=${includeStand ? "1" : "0"}&step=3`}
+                googleOAuthEnabled={googleOAuthEnabled}
+                onAuthenticated={(authedUser) => {
+                  setUser(authedUser);
+                }}
+              />
+              <div className="text-center">
+                <button
+                  type="button"
+                  onClick={() => setStep(2)}
+                  className="rounded-xl border border-slate-300 px-5 py-2.5 text-xs font-bold text-slate-700 hover:bg-slate-50"
+                >
+                  ← {t.prevStep}
+                </button>
+              </div>
+            </div>
+          )}
+
+          {step === 3 && authLoading && (
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8 text-center text-sm font-semibold text-slate-600">
+              {authCopy.loadingSession}
+            </div>
+          )}
+
+          {step === 3 && !authLoading && user && (
+            <div className="space-y-4">
+              <div className="flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-emerald-200 bg-emerald-50/70 px-4 py-3 text-xs text-emerald-950">
+                <div>
+                  <span className="font-semibold text-emerald-800">{authCopy.signedInAs}: </span>
+                  <span className="font-extrabold">{user.email}</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => void logout()}
+                  className="inline-flex items-center gap-1 rounded-lg border border-emerald-300 bg-white px-2.5 py-1 text-[11px] font-bold text-emerald-900 hover:bg-emerald-100"
+                >
+                  <LogOut className="h-3 w-3" />
+                  <span>{authCopy.signOut}</span>
+                </button>
+              </div>
               <div className="rounded-xl border border-amber-200 bg-amber-50 p-3.5 text-xs leading-relaxed text-amber-950">
                 {ow.stripeNotice}
               </div>

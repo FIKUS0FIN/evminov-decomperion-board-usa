@@ -1,9 +1,4 @@
-interface Env {
-  RESEND_API_KEY?: string;
-  TELEGRAM_BOT_TOKEN?: string;
-  TELEGRAM_CHAT_ID?: string;
-  STRIPE_SECRET_KEY?: string;
-}
+import { AuthEnv, getSessionUser, normalizeEmail } from "../_lib/auth";
 
 export function escapeHtml(input: string): string {
   return input
@@ -14,7 +9,7 @@ export function escapeHtml(input: string): string {
     .replaceAll("'", "&#39;");
 }
 
-export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
+export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) => {
   try {
     const contentType = request.headers.get("content-type") || "";
     let payload: Record<string, unknown> = {};
@@ -29,9 +24,23 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     }
 
     const mode = String(payload.mode || "order_reservation").slice(0, 40);
-    const name = String(payload.name || "").trim().slice(0, 120);
-    const email = String(payload.email || "").trim().slice(0, 180);
-    const phone = String(payload.phone || "").trim().slice(0, 40);
+    const sessionUser = await getSessionUser(request, env);
+
+    // Mandatory login before placing an order reservation
+    if (mode === "order_reservation" && env.DB && !sessionUser) {
+      return new Response(
+        JSON.stringify({
+          ok: false,
+          code: "AUTH_REQUIRED",
+          error: "Please sign in with Google or Email & Password before placing an order.",
+        }),
+        { status: 401, headers: { "Content-Type": "application/json; charset=utf-8" } }
+      );
+    }
+
+    const name = String(payload.name || sessionUser?.name || "").trim().slice(0, 120);
+    const email = normalizeEmail(payload.email || sessionUser?.email || "");
+    const phone = String(payload.phone || sessionUser?.phone || "").trim().slice(0, 40);
     const product = String(payload.product || "standard-pine-board").slice(0, 80);
     const productName = String(payload.productName || product).slice(0, 140);
     const finish = String(payload.finish || "Light Natural Pine").slice(0, 60);
@@ -51,7 +60,58 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
       );
     }
 
+    const orderId = crypto.randomUUID();
     const orderRef = `EV-${crypto.randomUUID().replace(/-/g, "").slice(0, 8).toUpperCase()}`;
+    const nowIso = new Date().toISOString();
+
+    // Persist order in Cloudflare D1
+    if (env.DB) {
+      await env.DB.prepare(
+        `INSERT INTO orders (
+          id, order_ref, user_id, mode, status,
+          customer_name, customer_email, customer_phone,
+          product_slug, product_name, finish, shipping_method,
+          include_stand, include_hsa_doc, total_usd,
+          state_or_country, address, customer_notes, locale,
+          created_at, updated_at
+        ) VALUES (?, ?, ?, ?, 'new', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+      )
+        .bind(
+          orderId,
+          orderRef,
+          sessionUser?.id || null,
+          mode,
+          name,
+          email,
+          phone,
+          product,
+          productName,
+          finish,
+          shipping,
+          includeStand ? 1 : 0,
+          includeHsaDoc ? 1 : 0,
+          totalUsd,
+          stateOrCountry,
+          address,
+          notes,
+          lang,
+          nowIso,
+          nowIso
+        )
+        .run();
+
+      // Keep user's phone/name enriched on their profile
+      if (sessionUser) {
+        await env.DB.prepare(
+          `UPDATE users
+           SET name = COALESCE(NULLIF(?, ''), name),
+               phone = COALESCE(NULLIF(?, ''), phone)
+           WHERE id = ?`
+        )
+          .bind(name, phone, sessionUser.id)
+          .run();
+      }
+    }
 
     // Optional live Stripe Checkout Session creation once STRIPE_SECRET_KEY is configured in Cloudflare
     let checkoutUrl: string | undefined;
@@ -90,7 +150,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 
     const tasks: Array<Promise<unknown>> = [];
 
-    // 1. Instant Telegram Operations Alert (mirrors Smista's dual-channel failover)
+    // 1. Instant Telegram Operations Alert
     if (env.TELEGRAM_BOT_TOKEN && env.TELEGRAM_CHAT_ID) {
       const tgText = [
         mode === "protocol_lead"
@@ -108,6 +168,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
         `Destination: ${stateOrCountry}${address ? ` — ${address}` : ""}`,
         notes ? `Notes: ${notes}` : "",
         `Locale: ${lang}`,
+        `Admin: https://evminovusa.com/admin/`,
       ]
         .filter(Boolean)
         .join("\n");
@@ -150,7 +211,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
               <li><strong>Destination:</strong> ${safeDest}</li>
               ${safeNotes ? `<li><strong>Notes:</strong> ${safeNotes}</li>` : ""}
             </ul>
-            <p>We will follow up within 1 business day with shipping confirmation and your itemized invoice${includeHsaDoc ? " (HSA/FSA ready)" : ""}.</p>
+            <p>Track your order status anytime in your <a href="https://evminovusa.com/portal/" style="color:#0f766e;font-weight:bold;">Patient Portal</a>. We will follow up within 1 business day with shipping confirmation and your itemized invoice${includeHsaDoc ? " (HSA/FSA ready)" : ""}.</p>
             <p style="font-size:12px;color:#64748b;">Glendale Operations Hub: 4525 San Fernando Rd, Unit H, Glendale, CA 91204 • +1 (747) 306-0140 • support@evminovusa.com</p>
           </div>
         </div>
