@@ -95,6 +95,8 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
       const tgText = [
         mode === "protocol_lead"
           ? `📐 New Evminov Calculator Lead (${orderRef})`
+          : mode === "warranty_registration"
+          ? `🛡️ New 10-Year Warranty Registration (${orderRef})`
           : `🌲 New Evminov Board Reservation (${orderRef})`,
         `Product: ${productName} (${finish})`,
         `Shipping: ${shipping}${includeStand ? " + Free-Standing Stand" : ""}`,
@@ -167,6 +169,8 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
             subject:
               mode === "protocol_lead"
                 ? `Your Evminov Custom Spine Angle Plan (${orderRef})`
+                : mode === "warranty_registration"
+                ? `Evminov 10-Year Structural Warranty Registered (${orderRef})`
                 : `Evminov Reservation Confirmed — ${orderRef}`,
             html: htmlBody,
           }),

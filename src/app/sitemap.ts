@@ -40,6 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/guides/", priority: 0.9, changeFrequency: "weekly" },
     { path: "/shipping/", priority: 0.85, changeFrequency: "monthly" },
     { path: "/centers/", priority: 0.85, changeFrequency: "monthly" },
+    { path: "/portal/", priority: 0.75, changeFrequency: "monthly" },
     { path: "/welcome/", priority: 0.6, changeFrequency: "monthly" },
     { path: "/privacy/", priority: 0.3, changeFrequency: "yearly" },
     { path: "/terms/", priority: 0.3, changeFrequency: "yearly" },

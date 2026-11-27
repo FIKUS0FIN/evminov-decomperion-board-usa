@@ -16,6 +16,7 @@ const SEGMENT_LABELS: Record<string, Record<Locale, string>> = {
   centers: { en: "Heritage 1996", es: "Historia 1996", fr: "Histoire 1996", uk: "Історія 1996", ru: "История 1996" },
   calculator: { en: "Angle Calculator", es: "Calculadora", fr: "Calculateur", uk: "Калькулятор", ru: "Калькулятор" },
   order: { en: "Order Board", es: "Pedir Tabla", fr: "Commander", uk: "Замовлення", ru: "Заказ" },
+  portal: { en: "Patient Portal", es: "Portal Paciente", fr: "Portail Patient", uk: "Кабінет Пацієнта", ru: "Кабинет Пациента" },
   welcome: { en: "Owner Setup", es: "Instalación", fr: "Installation", uk: "Налаштування", ru: "Настройка" },
   privacy: { en: "Privacy Policy", es: "Privacidad", fr: "Confidentialité", uk: "Конфіденційність", ru: "Конфиденциальность" },
   terms: { en: "Terms of Service", es: "Términos", fr: "Conditions", uk: "Умови", ru: "Условия" },

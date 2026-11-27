@@ -17,7 +17,7 @@ export function isIndexablePageUrl(rawUrl) {
     if (!u.pathname.endsWith("/")) return false;
     if (u.hash) return false;
     if (/\.[a-z0-9]{2,5}\/?$/i.test(u.pathname)) return false;
-    for (const blocked of ["/_next/", "/api/", "/.well-known/", "/well-known/", "/portal/", "/en/"]) {
+    for (const blocked of ["/_next/", "/api/", "/.well-known/", "/well-known/", "/en/"]) {
       if (u.pathname.toLowerCase().includes(blocked)) return false;
     }
     return true;

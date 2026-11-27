@@ -26,7 +26,6 @@ const EXACT_REDIRECTS: Record<string, string> = {
   "/index.html": "/",
   "/en": "/",
   "/blog": "/guides/",
-  "/portal": "/welcome/",
   "/inversion-table-alternative": "/compare/evminov-vs-inversion-table/",
   "/herniated-disc-relief": "/conditions/herniated-disc-l4-l5/",
   "/athlete-spine-recovery": "/conditions/athlete-spine-recovery/",

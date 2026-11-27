@@ -17,7 +17,7 @@ describe("Cloudflare Edge Middleware, NLWeb & Security Helpers", () => {
       "/guides/inversion-table-dangers-and-safe-alternatives/"
     );
     expect(canonicalizePathname("/backbrush")).toBe("/products/standard-pine-board/");
-    expect(canonicalizePathname("/portal")).toBe("/welcome/");
+    expect(canonicalizePathname("/portal")).toBe("/portal/");
     expect(canonicalizePathname("/shipping/california")).toBe("/shipping/california/");
   });
 

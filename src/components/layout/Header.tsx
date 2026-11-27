@@ -1,76 +1,253 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Phone, Sparkles, Globe, ShieldCheck } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Globe,
+  Menu,
+  Phone,
+  ShieldCheck,
+  ShoppingCart,
+  User,
+  X,
+} from "lucide-react";
 import { LOCALES, LOCALE_META, Locale } from "@/i18n/types";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getLocalizedHref } from "@/lib/url";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { useHsaSavings } from "@/context/HsaSavingsContext";
 import { sendGTMEvent } from "@/lib/gtm";
+import { EvminovBrandLockup } from "@/components/brand/EvminovLogo";
+
+interface HeaderLabels {
+  estBadge: string;
+  barTagline: string;
+  whyNotInversion: string;
+  boardsPricing: string;
+  protocols: string;
+  since1996: string;
+  spineGoals: string;
+  guides: string;
+  shipping50: string;
+  patientPortal: string;
+  findMyAngle: string;
+  cartOrder: string;
+}
+
+const HEADER_LABELS: Record<Locale, HeaderLabels> = {
+  en: {
+    estBadge: "ESTABLISHED 1996",
+    barTagline: "30 Years of Spine Biomechanics • Fast 50-State US & Global Shipping • 60-Day Trial",
+    whyNotInversion: "Why Not Inversion?",
+    boardsPricing: "Boards & Pricing",
+    protocols: "Protocols",
+    since1996: "Since 1996 Heritage",
+    spineGoals: "Spine Goals",
+    guides: "Guides",
+    shipping50: "US Shipping",
+    patientPortal: "Patient Portal",
+    findMyAngle: "Find My Angle",
+    cartOrder: "Cart",
+  },
+  es: {
+    estBadge: "DESDE 1996",
+    barTagline: "30 Años de Biomecánica Espinal • Envío 50 Estados EE. UU. y Global • Prueba 60 Días",
+    whyNotInversion: "¿Por Qué No Inversión?",
+    boardsPricing: "Tablas y Precios",
+    protocols: "Protocolos",
+    since1996: "Historia desde 1996",
+    spineGoals: "Objetivos",
+    guides: "Guías",
+    shipping50: "Envíos EE. UU.",
+    patientPortal: "Portal Paciente",
+    findMyAngle: "Mi Ángulo",
+    cartOrder: "Pedido",
+  },
+  fr: {
+    estBadge: "FONDÉ EN 1996",
+    barTagline: "30 Ans de Biomécanique Vertébrale • Livraison USA, Canada & Europe • Essai 60 Jours",
+    whyNotInversion: "Pourquoi Pas l'Inversion ?",
+    boardsPricing: "Planches & Tarifs",
+    protocols: "Protocoles",
+    since1996: "Héritage 1996",
+    spineGoals: "Objectifs",
+    guides: "Guides",
+    shipping50: "Livraison",
+    patientPortal: "Portail Patient",
+    findMyAngle: "Mon Angle",
+    cartOrder: "Panier",
+  },
+  uk: {
+    estBadge: "ЗАСНОВАНО 1996",
+    barTagline: "30 Років Методики Євмінова • Доставка в 50 Штатів США, Канаду та ЄС • 60 Днів Тесту",
+    whyNotInversion: "Чому не інверсія?",
+    boardsPricing: "Дошки та Ціни",
+    protocols: "Протоколи",
+    since1996: "Спадщина з 1996",
+    spineGoals: "Програми",
+    guides: "Гайди",
+    shipping50: "Доставка США",
+    patientPortal: "Кабінет Пацієнта",
+    findMyAngle: "Мій Кут",
+    cartOrder: "Кошик",
+  },
+  ru: {
+    estBadge: "ОСНОВАНО В 1996",
+    barTagline: "30 Лет Методики Евминова • Доставка в 50 Штатов США, Канаду и ЕС • 60 Дней Теста",
+    whyNotInversion: "Почему не инверсия?",
+    boardsPricing: "Доски и Цены",
+    protocols: "Протоколы",
+    since1996: "Наследие с 1996",
+    spineGoals: "Программы",
+    guides: "Статьи",
+    shipping50: "Доставка США",
+    patientPortal: "Кабинет Пациента",
+    findMyAngle: "Мой Угол",
+    cartOrder: "Корзина",
+  },
+};
 
 export function Header({ lang }: { lang: Locale }) {
-  const t = getDictionary(lang).nav;
+  const dict = getDictionary(lang);
+  const hl = HEADER_LABELS[lang];
   const pathname = usePathname() || "/";
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const navRef = useRef<HTMLElement>(null);
   const { applyHsaSavings, toggleHsaSavings } = useHsaSavings();
 
-  // State pages exist in English (/shipping/[state]/); switching locale from a state page routes to localized /shipping/
   const isStateDetailPage = /^\/shipping\/[^/]+\/?$/.test(pathname);
   const switchBasePath = isStateDetailPage ? "/shipping/" : pathname;
 
-  const navItems = [
-    { label: t.products, href: getLocalizedHref("/products/", lang) },
-    { label: t.calculator, href: getLocalizedHref("/calculator/", lang) },
-    { label: t.compare, href: getLocalizedHref("/compare/", lang) },
-    { label: t.conditions, href: getLocalizedHref("/conditions/", lang) },
-    { label: t.guides, href: getLocalizedHref("/guides/", lang) },
-    { label: t.shipping, href: getLocalizedHref("/shipping/", lang) },
-    { label: t.centers, href: getLocalizedHref("/centers/", lang) },
+  const navLinks = [
+    {
+      label: hl.whyNotInversion,
+      href: getLocalizedHref("/compare/evminov-vs-inversion-table/", lang),
+      highlight: false,
+    },
+    {
+      label: hl.boardsPricing,
+      href: getLocalizedHref("/products/", lang),
+      highlight: false,
+    },
+    {
+      label: hl.since1996,
+      href: getLocalizedHref("/centers/", lang),
+      highlight: true,
+    },
+    {
+      label: hl.spineGoals,
+      href: getLocalizedHref("/conditions/", lang),
+      highlight: false,
+    },
+    {
+      label: hl.guides,
+      href: getLocalizedHref("/guides/", lang),
+      highlight: false,
+    },
+    {
+      label: hl.shipping50,
+      href: getLocalizedHref("/shipping/", lang),
+      highlight: false,
+    },
   ];
 
+  // Update chevron visibility for horizontal scrollable nav
+  const syncScrollChevrons = () => {
+    const el = navRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 4);
+    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+  };
+
+  useEffect(() => {
+    const rafId = window.requestAnimationFrame(syncScrollChevrons);
+    window.addEventListener("resize", syncScrollChevrons, { passive: true });
+    return () => {
+      window.cancelAnimationFrame(rafId);
+      window.removeEventListener("resize", syncScrollChevrons);
+    };
+  }, [lang]);
+
+  // Subtle reading progress bar along bottom edge of sticky header
+  useEffect(() => {
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = window.requestAnimationFrame(() => {
+        raf = 0;
+        const docHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
+        if (docHeight > 0) {
+          setScrollProgress(Math.min(100, Math.round((window.scrollY / docHeight) * 100)));
+        }
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (raf) window.cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  const scrollNavBy = (delta: number) => {
+    navRef.current?.scrollBy({ left: delta, behavior: "smooth" });
+  };
+
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/95 backdrop-blur">
-      {/* Top Utility Strip: Global HSA/FSA ~30% Toggle + 5-Language Switcher */}
-      <div className="border-b border-slate-100 bg-slate-950 text-white">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-2 px-4 py-1.5 text-xs">
-          <button
-            type="button"
-            onClick={toggleHsaSavings}
-            aria-pressed={applyHsaSavings}
-            className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 font-medium text-emerald-300 transition hover:bg-white/20"
-          >
-            <ShieldCheck className="h-3.5 w-3.5 shrink-0" />
-            <span>
-              {applyHsaSavings ? t.hsaToggleActive : t.hsaToggleLabel}
+    <>
+      {/* Top Announcement & Heritage Trust Bar (matches original dark clinical navy bar) */}
+      <aside
+        aria-label="Heritage & Trust Bar"
+        className="border-b border-white/10 bg-[#0B1628] text-white"
+      >
+        <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-x-4 gap-y-1.5 px-4 py-2 text-[11px] sm:text-xs">
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="shrink-0 font-extrabold tracking-[0.05em] text-[#34D399]">
+              {hl.estBadge}
             </span>
-            <span
-              className={`inline-block h-4 w-7 rounded-full p-0.5 transition-colors ${
-                applyHsaSavings ? "bg-emerald-500" : "bg-slate-600"
-              }`}
+            <span className="text-white/30" aria-hidden="true">
+              •
+            </span>
+            <span className="truncate text-slate-200 font-medium">
+              {hl.barTagline}
+            </span>
+          </div>
+
+          <div className="flex items-center gap-3 shrink-0">
+            {/* Compact HSA/FSA ~30% Toggle Pill */}
+            <button
+              type="button"
+              onClick={toggleHsaSavings}
+              aria-pressed={applyHsaSavings}
+              className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/25 bg-emerald-500/10 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-300 transition hover:bg-emerald-500/20"
             >
+              <ShieldCheck className="h-3.5 w-3.5 shrink-0" />
+              <span className="hidden sm:inline">
+                {applyHsaSavings ? "HSA/FSA -30% ON" : dict.nav.hsaToggleLabel}
+              </span>
+              <span className="sm:hidden">HSA -30%</span>
               <span
-                className={`block h-3 w-3 rounded-full bg-white transition-transform ${
-                  applyHsaSavings ? "translate-x-3" : "translate-x-0"
+                className={`inline-block h-3.5 w-6 rounded-full p-0.5 transition-colors ${
+                  applyHsaSavings ? "bg-emerald-400" : "bg-slate-600"
                 }`}
-              />
-            </span>
-          </button>
+              >
+                <span
+                  className={`block h-2.5 w-2.5 rounded-full bg-white transition-transform ${
+                    applyHsaSavings ? "translate-x-2.5" : "translate-x-0"
+                  }`}
+                />
+              </span>
+            </button>
 
-          <div className="flex items-center gap-3">
-            <a
-              href={SITE_CONFIG.phoneHref}
-              onClick={() => sendGTMEvent("click_phone", { location: "topbar" })}
-              className="hidden sm:inline-flex items-center gap-1.5 text-slate-200 hover:text-white"
-            >
-              <Phone className="h-3.5 w-3.5 text-emerald-400" />
-              <span>{SITE_CONFIG.phoneDisplay}</span>
-            </a>
-
-            <nav aria-label="Language selector" className="flex items-center gap-1">
-              <Globe className="mr-1 h-3.5 w-3.5 text-slate-400" />
+            {/* 5-Language Switcher */}
+            <nav aria-label="Language switcher" className="flex items-center gap-0.5">
+              <Globe className="mr-1 h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
               {LOCALES.map((loc) => {
                 const active = loc === lang;
                 return (
@@ -78,9 +255,9 @@ export function Header({ lang }: { lang: Locale }) {
                     key={loc}
                     href={getLocalizedHref(switchBasePath, loc)}
                     hrefLang={LOCALE_META[loc].hreflang}
-                    className={`rounded px-1.5 py-0.5 font-semibold transition ${
+                    className={`rounded px-1.5 py-0.5 text-[11px] font-bold transition ${
                       active
-                        ? "bg-teal-600 text-white"
+                        ? "bg-emerald-500 text-slate-950"
                         : "text-slate-300 hover:bg-white/10 hover:text-white"
                     }`}
                   >
@@ -91,92 +268,186 @@ export function Header({ lang }: { lang: Locale }) {
             </nav>
           </div>
         </div>
-      </div>
+      </aside>
 
-      {/* Main Navigation Row */}
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
-        <Link
-          href={getLocalizedHref("/", lang)}
-          className="flex items-center gap-2.5 font-display text-lg font-extrabold tracking-tight text-slate-950"
-        >
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-slate-900 to-teal-800 text-sm font-black text-amber-400 shadow-sm">
-            EV
-          </span>
-          <span>
-            EVMINOV{" "}
-            <span className="text-teal-700 font-bold">SPINE</span>
-          </span>
-        </Link>
-
-        <nav aria-label="Primary navigation" className="hidden lg:flex items-center gap-5">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm font-semibold text-slate-700 transition-colors hover:text-teal-700"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-2.5">
-          <button
-            type="button"
-            onClick={() => {
-              window.dispatchEvent(new CustomEvent("evminov:toggle-ai-chat"));
-              sendGTMEvent("ai_chat_open", { source: "header" });
-            }}
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-xl border border-teal-200 bg-teal-50 px-3 py-2 text-xs font-bold text-teal-800 transition hover:bg-teal-100"
-          >
-            <Sparkles className="h-3.5 w-3.5" />
-            <span>AI</span>
-          </button>
-
+      {/* Main White Sticky Header (faithful Evminov SPINE MED design + chevron scroller + Patient Portal pill) */}
+      <header className="sticky top-0 z-40 border-b border-slate-200/90 bg-white/95 shadow-[0_1px_12px_rgba(11,31,58,0.05)] backdrop-blur-md">
+        <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-3 px-4 py-2.5">
+          {/* Official Evminov Monogram + Wordmark */}
           <Link
-            href={getLocalizedHref("/order/", lang)}
-            onClick={() => sendGTMEvent("click_order_cta", { location: "header" })}
-            className="rounded-xl bg-teal-700 px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-teal-800"
+            href={getLocalizedHref("/", lang)}
+            aria-label="Evminov Spine Med Home"
+            className="shrink-0 rounded-xl py-0.5 focus-visible:outline-teal-700"
           >
-            {t.orderNow}
+            <EvminovBrandLockup size={38} />
           </Link>
 
-          <button
-            type="button"
-            onClick={() => setMobileOpen((prev) => !prev)}
-            aria-expanded={mobileOpen}
-            aria-label="Toggle navigation menu"
-            className="inline-flex lg:hidden items-center justify-center rounded-xl border border-slate-200 p-2 text-slate-700 hover:bg-slate-50"
-          >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Drawer */}
-      {mobileOpen && (
-        <div className="border-t border-slate-200 bg-white px-4 py-4 lg:hidden">
-          <div className="flex flex-col gap-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMobileOpen(false)}
-                className="rounded-lg px-3 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+          {/* Center Horizontal Scrollable Navigation with Circular Chevron Arrows ("Птички") */}
+          <div className="relative hidden min-w-0 flex-1 items-center lg:flex">
+            {canScrollLeft && (
+              <button
+                type="button"
+                onClick={() => scrollNavBy(-200)}
+                aria-label="Scroll navigation left"
+                className="z-10 mr-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-sm transition hover:border-slate-300 hover:text-slate-950"
               >
-                {item.label}
-              </Link>
-            ))}
-            <a
-              href={SITE_CONFIG.phoneHref}
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-4 py-2.5 text-sm font-bold text-slate-900"
+                <ChevronLeft className="h-4 w-4" />
+              </button>
+            )}
+
+            <nav
+              ref={navRef}
+              onScroll={syncScrollChevrons}
+              aria-label="Primary Navigation"
+              className="no-scrollbar flex items-center gap-1 overflow-x-auto scroll-smooth px-1"
             >
-              <Phone className="h-4 w-4 text-teal-700" />
-              {SITE_CONFIG.phoneDisplay}
-            </a>
+              {navLinks.map((item) => {
+                const isActive = pathname === item.href;
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`whitespace-nowrap rounded-lg px-3 py-2 text-[13.5px] transition-colors ${
+                      item.highlight
+                        ? "font-bold text-emerald-700 hover:bg-emerald-50"
+                        : isActive
+                        ? "bg-slate-100 font-bold text-[#0B1F3A]"
+                        : "font-medium text-slate-600 hover:bg-slate-50 hover:text-[#0B1F3A]"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </nav>
+
+            {canScrollRight && (
+              <button
+                type="button"
+                onClick={() => scrollNavBy(200)}
+                aria-label="Scroll navigation right"
+                className="z-10 ml-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-sm transition hover:border-slate-300 hover:text-slate-950"
+              >
+                <ChevronRight className="h-4 w-4" />
+              </button>
+            )}
+          </div>
+
+          {/* Right Action Pills: Patient Portal + Find My Angle + Cart/Order */}
+          <div className="flex shrink-0 items-center gap-2">
+            {/* Patient Portal Outlined Pill (with emerald User icon, matching screenshot) */}
+            <Link
+              href={getLocalizedHref("/portal/", lang)}
+              className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-[#0B1F3A] shadow-xs transition hover:border-emerald-500/60 hover:bg-emerald-50/40 sm:text-[13px]"
+            >
+              <User className="h-4 w-4 text-emerald-600 shrink-0" />
+              <span className="hidden sm:inline">{hl.patientPortal}</span>
+              <span className="sm:hidden">Portal</span>
+            </Link>
+
+            {/* Find My Angle Pill */}
+            <Link
+              href={getLocalizedHref("/calculator/", lang)}
+              className="hidden xl:inline-flex items-center rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-[13px] font-bold text-[#0B1F3A] shadow-xs transition hover:border-slate-300 hover:bg-slate-50"
+            >
+              {hl.findMyAngle}
+            </Link>
+
+            {/* Cart / Order Soft Pill */}
+            <Link
+              href={getLocalizedHref("/order/", lang)}
+              onClick={() => sendGTMEvent("click_order_cta", { location: "header_cart" })}
+              className="inline-flex items-center gap-1.5 rounded-full bg-[#EFF3F8] px-4 py-2 text-xs font-extrabold text-[#0B1F3A] transition hover:bg-[#0B1F3A] hover:text-white sm:text-[13px]"
+            >
+              <ShoppingCart className="h-4 w-4 shrink-0" />
+              <span>{hl.cartOrder}</span>
+            </Link>
+
+            {/* Mobile Hamburger Trigger */}
+            <button
+              type="button"
+              onClick={() => setMobileOpen((prev) => !prev)}
+              aria-expanded={mobileOpen}
+              aria-label="Toggle Navigation Menu"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 lg:hidden"
+            >
+              {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
           </div>
         </div>
-      )}
-    </header>
+
+        {/* Thin Clinical Scroll Progress Bar */}
+        <div
+          aria-hidden="true"
+          className="h-[2px] w-full bg-transparent"
+        >
+          <div
+            className="h-full bg-gradient-to-r from-[#023373] via-[#4EABBF] to-emerald-500 transition-[width] duration-150"
+            style={{ width: `${scrollProgress}%` }}
+          />
+        </div>
+
+        {/* Mobile Clinical Directory Drawer */}
+        {mobileOpen && (
+          <div className="border-t border-slate-200 bg-white px-4 pb-6 pt-4 shadow-2xl lg:hidden">
+            {/* Quick Action Cards */}
+            <div className="grid grid-cols-2 gap-2.5 mb-4">
+              <Link
+                href={getLocalizedHref("/centers/", lang)}
+                onClick={() => setMobileOpen(false)}
+                className="rounded-2xl border border-emerald-200 bg-emerald-50/70 p-3"
+              >
+                <p className="text-xs font-extrabold text-emerald-900">{hl.since1996}</p>
+                <p className="mt-0.5 text-[11px] text-emerald-700">Patented 1996 • Global</p>
+              </Link>
+              <Link
+                href={getLocalizedHref("/portal/", lang)}
+                onClick={() => setMobileOpen(false)}
+                className="rounded-2xl border border-sky-200 bg-sky-50/70 p-3"
+              >
+                <p className="text-xs font-extrabold text-[#0B1F3A]">{hl.patientPortal}</p>
+                <p className="mt-0.5 text-[11px] text-slate-600">Routine, Timer &amp; HSA Kit</p>
+              </Link>
+            </div>
+
+            <nav aria-label="Mobile Directory" className="flex flex-col gap-1">
+              {navLinks.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={`rounded-xl px-3.5 py-2.5 text-sm font-semibold ${
+                    item.highlight
+                      ? "bg-emerald-50 text-emerald-800"
+                      : "text-slate-800 hover:bg-slate-50"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <Link
+                href={getLocalizedHref("/calculator/", lang)}
+                onClick={() => setMobileOpen(false)}
+                className="rounded-xl px-3.5 py-2.5 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+              >
+                {hl.findMyAngle}
+              </Link>
+            </nav>
+
+            <div className="mt-4 flex flex-col gap-2 border-t border-slate-100 pt-4">
+              <a
+                href={SITE_CONFIG.phoneHref}
+                onClick={() => sendGTMEvent("click_phone", { location: "mobile_drawer" })}
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-4 py-2.5 text-sm font-bold text-[#0B1F3A]"
+              >
+                <Phone className="h-4 w-4 text-emerald-600" />
+                <span>{SITE_CONFIG.phoneDisplay}</span>
+              </a>
+            </div>
+          </div>
+        )}
+      </header>
+    </>
   );
 }

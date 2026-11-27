@@ -7,8 +7,6 @@
 /blog/ /guides/ 301
 /blog/remote-worker-spine-hygiene-posture-stick /guides/remote-worker-spine-hygiene-posture-reset/ 301
 /blog/* /guides/:splat/ 301
-/portal /welcome/ 301
-/portal/ /welcome/ 301
 /inversion-table-alternative /compare/evminov-vs-inversion-table/ 301
 /herniated-disc-relief /conditions/herniated-disc-l4-l5/ 301
 /athlete-spine-recovery /conditions/athlete-spine-recovery/ 301

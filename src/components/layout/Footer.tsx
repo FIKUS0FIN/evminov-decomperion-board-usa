@@ -1,54 +1,124 @@
 "use client";
 
 import Link from "next/link";
-import { Phone, Mail, MapPin, Youtube } from "lucide-react";
+import {
+  Activity,
+  Award,
+  CheckCircle2,
+  CreditCard,
+  Lock,
+  Mail,
+  MapPin,
+  Phone,
+  Shield,
+  ShieldCheck,
+  Star,
+  Truck,
+  Youtube,
+} from "lucide-react";
 import { Locale } from "@/i18n/types";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getLocalizedHref } from "@/lib/url";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { PRODUCTS } from "@/data/products";
-import { COMPARISONS } from "@/data/comparisons";
 import { openCookieSettings } from "@/lib/consent";
+import { EvminovBrandLockup } from "@/components/brand/EvminovLogo";
 
 export function Footer({ lang }: { lang: Locale }) {
   const dict = getDictionary(lang);
   const f = dict.footer;
 
+  const trustCards = [
+    {
+      href: getLocalizedHref("/centers/", lang),
+      icon: ShieldCheck,
+      iconBg: "bg-emerald-500/15 text-emerald-400",
+      tagColor: "text-emerald-400",
+      title: "US & EU Patented",
+      sub: "Original Evminov Design",
+      tag: "US 6,869,387 B2",
+    },
+    {
+      href: getLocalizedHref("/wellness-disclaimer/", lang),
+      icon: CreditCard,
+      iconBg: "bg-sky-400/15 text-sky-400",
+      tagColor: "text-sky-400",
+      title: "HSA / FSA Ready",
+      sub: "Pre-Tax Health Savings",
+      tag: "Itemized Receipt + LMN",
+    },
+    {
+      href: getLocalizedHref("/centers/", lang),
+      icon: Award,
+      iconBg: "bg-indigo-400/15 text-indigo-400",
+      tagColor: "text-indigo-400",
+      title: "30-Year Heritage",
+      sub: "Continuous Since 1996",
+      tag: "EP 1 038 512 • MOH 711",
+    },
+    {
+      href: getLocalizedHref("/conditions/athlete-spine-recovery/", lang),
+      icon: Activity,
+      iconBg: "bg-amber-400/15 text-amber-400",
+      tagColor: "text-amber-400",
+      title: "Sports & PT",
+      sub: "Spine Axial Unloading",
+      tag: "Rated Up to 330 lbs",
+    },
+    {
+      href: getLocalizedHref("/terms/", lang),
+      icon: Shield,
+      iconBg: "bg-teal-400/15 text-teal-400",
+      tagColor: "text-teal-400",
+      title: "10-Year Warranty",
+      sub: "Carpathian Pine & Alder",
+      tag: "Structural Frame Guarantee",
+    },
+    {
+      href: getLocalizedHref("/shipping-returns/", lang),
+      icon: CheckCircle2,
+      iconBg: "bg-pink-400/15 text-pink-400",
+      tagColor: "text-pink-400",
+      title: "60-Day Trial",
+      sub: "Risk-Free Home Relief",
+      tag: "100% Refund Guarantee",
+    },
+  ];
+
   return (
-    <footer className="border-t border-slate-200 bg-slate-950 text-slate-300">
-      <div className="mx-auto max-w-7xl px-4 py-14">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-          {/* Brand */}
-          <div>
-            <Link
-              href={getLocalizedHref("/", lang)}
-              className="inline-flex items-center gap-2.5 font-display text-lg font-extrabold text-white"
-            >
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-teal-700 text-xs font-black text-amber-300">
-                EV
-              </span>
-              <span>EVMINOV SPINE SYSTEMS</span>
+    <footer className="border-t border-white/10 bg-gradient-to-b from-[#0B192C] to-[#060E1A] text-slate-300">
+      <div className="mx-auto max-w-[1360px] px-4 pb-10 pt-14">
+        {/* 4-Column Classic Evminov Footer Directory */}
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-12">
+          {/* Column 1: Brand & Origin */}
+          <div className="lg:col-span-4">
+            <Link href={getLocalizedHref("/", lang)} aria-label="Evminov Spine Med Home">
+              <EvminovBrandLockup size={38} dark />
             </Link>
-            <p className="mt-3 text-sm leading-relaxed text-slate-400">
+            <p className="mt-4 text-sm leading-relaxed text-slate-400">
               {f.tagline}
             </p>
-            <p className="mt-3 text-xs text-slate-400">
-              {SITE_CONFIG.compliance.patentsSummary}
-            </p>
-            <a
-              href={SITE_CONFIG.youtubeChannelUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-2 rounded-lg bg-white/10 px-3 py-1.5 text-xs font-semibold text-white hover:bg-white/20"
-            >
-              <Youtube className="h-4 w-4 text-red-400" />
-              <span>YouTube {SITE_CONFIG.youtubeHandle}</span>
-            </a>
+            <div className="mt-4 space-y-1.5 text-xs leading-relaxed text-slate-400">
+              <p className="flex items-start gap-2">
+                <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-400" />
+                <span>
+                  <strong className="text-slate-200">US Operations &amp; Hub:</strong>{" "}
+                  {SITE_CONFIG.address.full}
+                </span>
+              </p>
+              <p className="flex items-start gap-2">
+                <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-sky-400" />
+                <span>
+                  <strong className="text-slate-200">European Craftsmanship:</strong>{" "}
+                  Kyiv &amp; Odesa, Ukraine (Est. 1996)
+                </span>
+              </p>
+            </div>
           </div>
 
-          {/* Boards & Tools */}
-          <div>
-            <h2 className="text-xs font-bold uppercase tracking-wider text-amber-400">
+          {/* Column 2: Decompression Systems */}
+          <div className="lg:col-span-3">
+            <h2 className="font-display text-xs font-extrabold uppercase tracking-wider text-white">
               {f.shopHeading}
             </h2>
             <ul className="mt-4 space-y-2 text-sm">
@@ -56,7 +126,7 @@ export function Footer({ lang }: { lang: Locale }) {
                 <li key={p.slug}>
                   <Link
                     href={getLocalizedHref(`/products/${p.slug}/`, lang)}
-                    className="hover:text-white transition-colors"
+                    className="text-slate-300 transition hover:text-white"
                   >
                     {p.localizedNames[lang] || p.name}
                   </Link>
@@ -64,153 +134,272 @@ export function Footer({ lang }: { lang: Locale }) {
               ))}
               <li>
                 <Link
-                  href={getLocalizedHref("/calculator/", lang)}
-                  className="text-emerald-400 font-semibold hover:text-emerald-300"
+                  href={getLocalizedHref("/shipping/", lang)}
+                  className="font-semibold text-sky-400 transition hover:text-sky-300"
                 >
-                  {dict.nav.calculator}
+                  50 US States &amp; Global Delivery
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Guides & Comparisons */}
-          <div>
-            <h2 className="text-xs font-bold uppercase tracking-wider text-amber-400">
+          {/* Column 3: Protocols & Heritage */}
+          <div className="lg:col-span-3">
+            <h2 className="font-display text-xs font-extrabold uppercase tracking-wider text-white">
               {f.resourcesHeading}
             </h2>
             <ul className="mt-4 space-y-2 text-sm">
-              {COMPARISONS.map((c) => (
-                <li key={c.slug}>
-                  <Link
-                    href={getLocalizedHref(`/compare/${c.slug}/`, lang)}
-                    className="hover:text-white transition-colors"
-                  >
-                    {c.shortTitle}
-                  </Link>
-                </li>
-              ))}
               <li>
                 <Link
-                  href={getLocalizedHref("/conditions/", lang)}
-                  className="hover:text-white transition-colors"
+                  href={getLocalizedHref("/conditions/scoliosis-posture/", lang)}
+                  className="font-bold text-emerald-300 transition hover:text-emerald-200"
                 >
-                  {dict.nav.conditions}
+                  Kids &amp; Family Posture Station
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={getLocalizedHref("/compare/evminov-vs-inversion-table/", lang)}
+                  className="text-slate-300 transition hover:text-white"
+                >
+                  Evminov vs. Inversion Tables
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={getLocalizedHref("/compare/evminov-vs-teeter/", lang)}
+                  className="text-slate-300 transition hover:text-white"
+                >
+                  Evminov vs. Teeter Alternative
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={getLocalizedHref("/calculator/", lang)}
+                  className="text-slate-300 transition hover:text-white"
+                >
+                  Incline Angle Calculator
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={getLocalizedHref("/centers/", lang)}
+                  className="font-bold text-emerald-400 transition hover:text-emerald-300"
+                >
+                  Since 1996 Centers &amp; Heritage
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={getLocalizedHref("/conditions/athlete-spine-recovery/", lang)}
+                  className="text-amber-300 transition hover:text-amber-200"
+                >
+                  Athletic Recovery (Deadlifts &amp; Squats)
                 </Link>
               </li>
               <li>
                 <Link
                   href={getLocalizedHref("/guides/", lang)}
-                  className="hover:text-white transition-colors"
+                  className="text-slate-300 transition hover:text-white"
                 >
-                  {dict.nav.guides}
+                  Evidence-Informed Guides
                 </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: Support & Patient Portal */}
+          <div className="lg:col-span-2">
+            <h2 className="font-display text-xs font-extrabold uppercase tracking-wider text-white">
+              {f.contactHeading}
+            </h2>
+            <ul className="mt-4 space-y-2.5 text-sm">
+              <li>
+                <a
+                  href={`mailto:${SITE_CONFIG.supportEmail}`}
+                  className="inline-flex items-center gap-1.5 text-slate-300 hover:text-white"
+                >
+                  <Mail className="h-3.5 w-3.5 text-teal-400 shrink-0" />
+                  <span className="truncate">{SITE_CONFIG.supportEmail}</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={SITE_CONFIG.phoneHref}
+                  className="inline-flex items-center gap-1.5 font-semibold text-white hover:text-emerald-300"
+                >
+                  <Phone className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                  <span>{SITE_CONFIG.phoneDisplay}</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={SITE_CONFIG.youtubeChannelUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 font-bold text-red-400 hover:text-red-300"
+                >
+                  <Youtube className="h-4 w-4 shrink-0" />
+                  <span>YouTube {SITE_CONFIG.youtubeHandle}</span>
+                </a>
               </li>
               <li>
                 <Link
-                  href={getLocalizedHref("/shipping/", lang)}
-                  className="hover:text-white transition-colors"
+                  href={getLocalizedHref("/portal/", lang)}
+                  className="font-bold text-emerald-400 hover:text-emerald-300"
                 >
-                  {dict.nav.shipping}
+                  Patient Portal
                 </Link>
               </li>
               <li>
                 <Link
                   href={getLocalizedHref("/welcome/", lang)}
-                  className="text-emerald-400 hover:text-emerald-300"
+                  className="text-slate-300 hover:text-white"
                 >
                   {f.welcomeQr}
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact & Legal */}
-          <div>
-            <h2 className="text-xs font-bold uppercase tracking-wider text-amber-400">
-              {f.contactHeading}
-            </h2>
-            <ul className="mt-4 space-y-2.5 text-sm">
-              <li className="flex items-start gap-2">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-teal-400" />
-                <span>{SITE_CONFIG.address.full}</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 shrink-0 text-teal-400" />
-                <a href={SITE_CONFIG.phoneHref} className="font-semibold text-white hover:underline">
-                  {SITE_CONFIG.phoneDisplay}
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 shrink-0 text-teal-400" />
-                <a
-                  href={`mailto:${SITE_CONFIG.supportEmail}`}
-                  className="hover:text-white hover:underline"
-                >
-                  {SITE_CONFIG.supportEmail}
-                </a>
-              </li>
-            </ul>
-
-            <h3 className="mt-6 text-xs font-bold uppercase tracking-wider text-slate-400">
-              {f.legalHeading}
-            </h3>
-            <ul className="mt-2.5 space-y-1.5 text-xs">
-              <li>
-                <Link href={getLocalizedHref("/privacy/", lang)} className="hover:text-white">
-                  {f.privacy}
-                </Link>
-              </li>
-              <li>
-                <Link href={getLocalizedHref("/terms/", lang)} className="hover:text-white">
-                  {f.terms}
                 </Link>
               </li>
               <li>
                 <Link
                   href={getLocalizedHref("/shipping-returns/", lang)}
-                  className="hover:text-white"
+                  className="text-slate-300 hover:text-white"
                 >
-                  {f.shippingReturns}
+                  60-Day Home Trial
                 </Link>
-              </li>
-              <li>
-                <Link
-                  href={getLocalizedHref("/wellness-disclaimer/", lang)}
-                  className="hover:text-white"
-                >
-                  {f.wellnessDisclaimer}
-                </Link>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={openCookieSettings}
-                  className="underline hover:text-white"
-                >
-                  {f.cookieSettings}
-                </button>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* General Wellness Classification Notice */}
-        <div className="mt-10 rounded-xl border border-slate-800 bg-slate-900/80 p-4 text-xs leading-relaxed text-slate-400">
+        {/* Full-Width Authority & Trust Cards Grid (Signature Previous Footer Section) */}
+        <div className="mt-12 rounded-3xl border border-white/10 bg-white/[0.03] p-5 md:p-6">
+          <div className="mb-4 flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-slate-200">
+            <Star className="h-4 w-4 fill-emerald-400 text-emerald-400" />
+            <span>Patents, Craftsmanship &amp; Buyer Protections</span>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
+            {trustCards.map((card) => {
+              const Icon = card.icon;
+              return (
+                <Link
+                  key={card.title}
+                  href={card.href}
+                  className="group flex flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.03] p-3.5 transition hover:border-white/25 hover:bg-white/[0.07]"
+                >
+                  <div className="flex items-center gap-2.5">
+                    <span
+                      className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${card.iconBg}`}
+                    >
+                      <Icon className="h-4 w-4" />
+                    </span>
+                    <span className="text-xs font-extrabold text-white">
+                      {card.title}
+                    </span>
+                  </div>
+                  <div className="mt-3">
+                    <p className="text-[11px] text-slate-400">{card.sub}</p>
+                    <p className={`mt-0.5 text-[11px] font-bold ${card.tagColor}`}>
+                      {card.tag}
+                    </p>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* Heritage Validation Banner */}
+          <Link
+            href={getLocalizedHref("/centers/", lang)}
+            className="mt-4 flex items-center gap-3 rounded-2xl border border-amber-400/20 bg-amber-400/[0.07] px-4 py-3 text-xs text-slate-200 transition hover:bg-amber-400/[0.12]"
+          >
+            <Star className="h-5 w-5 shrink-0 fill-amber-400 text-amber-400" />
+            <div>
+              <strong className="text-white">
+                30 Years of Continuous Spine Methodology (Since 1996):
+              </strong>{" "}
+              Internationally patented inclined plane design across the US, European Union, and WIPO — handcrafted from resonant Carpathian pine and select Ukrainian alder.
+            </div>
+          </Link>
+        </div>
+
+        {/* Security, Privacy & Payment Trust Bar */}
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-white/10 bg-black/25 px-5 py-3.5 text-xs">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-slate-300">
+            <span className="inline-flex items-center gap-1.5">
+              <Lock className="h-3.5 w-3.5 text-emerald-400" />
+              <span>256-Bit SSL Encrypted</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <ShieldCheck className="h-3.5 w-3.5 text-sky-400" />
+              <span>CCPA &amp; GDPR Privacy Protected</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <Truck className="h-3.5 w-3.5 text-amber-400" />
+              <span>Insured UPS / FedEx from California</span>
+            </span>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-1.5 text-[11px] text-slate-400">
+            <span>Accepted / Planned:</span>
+            {["HSA / FSA", "Visa", "Mastercard", "AMEX", "Apple Pay", "Klarna 4×"].map(
+              (badge) => (
+                <span
+                  key={badge}
+                  className="rounded-md border border-white/10 bg-white/10 px-2 py-0.5 font-bold text-white"
+                >
+                  {badge}
+                </span>
+              )
+            )}
+          </div>
+        </div>
+
+        {/* General Wellness Equipment Notice */}
+        <div className="mt-6 rounded-2xl bg-black/30 p-4 text-xs leading-relaxed text-slate-400">
           {f.wellnessNotice}
         </div>
 
-        <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-slate-800 pt-6 text-xs text-slate-500">
+        {/* Bottom Copyright & Real Legal Routes */}
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-slate-400">
           <p>
-            © {SITE_CONFIG.foundingYear}–2026 {SITE_CONFIG.brandName}. {f.rights}
+            © {SITE_CONFIG.foundingYear}–2026 {SITE_CONFIG.brandName}. {f.rights}{" "}
+            <span className="text-slate-500">Architecture by Apex Root LLC.</span>
           </p>
-          <div className="flex flex-wrap gap-4">
-            <a href="/llms.txt" className="hover:text-slate-300">
+
+          <div className="flex flex-wrap items-center gap-4">
+            <Link href={getLocalizedHref("/privacy/", lang)} className="hover:text-white">
+              {f.privacy}
+            </Link>
+            <Link href={getLocalizedHref("/terms/", lang)} className="hover:text-white">
+              {f.terms}
+            </Link>
+            <Link
+              href={getLocalizedHref("/shipping-returns/", lang)}
+              className="hover:text-white"
+            >
+              {f.shippingReturns}
+            </Link>
+            <Link
+              href={getLocalizedHref("/wellness-disclaimer/", lang)}
+              className="hover:text-white"
+            >
+              {f.wellnessDisclaimer}
+            </Link>
+            <button
+              type="button"
+              onClick={openCookieSettings}
+              className="underline hover:text-white"
+            >
+              {f.cookieSettings}
+            </button>
+            <a href="/llms.txt" className="text-slate-500 hover:text-slate-300">
               llms.txt
             </a>
-            <a href="/rss.xml" className="hover:text-slate-300">
+            <a href="/rss.xml" className="text-slate-500 hover:text-slate-300">
               RSS
             </a>
-            <a href="/sitemap.xml" className="hover:text-slate-300">
+            <a href="/sitemap.xml" className="text-slate-500 hover:text-slate-300">
               Sitemap
             </a>
           </div>

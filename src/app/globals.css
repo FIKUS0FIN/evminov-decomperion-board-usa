@@ -60,3 +60,20 @@ footer {
   content-visibility: auto;
   contain-intrinsic-size: auto 560px;
 }
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media print {
+  header,
+  aside,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+}
