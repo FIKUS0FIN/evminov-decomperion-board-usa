@@ -688,6 +688,21 @@ export function OrderWizard({ lang }: { lang: Locale }) {
             <span>{ow.trackingLine}</span>
           </li>
         </ul>
+
+        <div className="mt-5 space-y-1.5 border-t border-white/10 pt-4 text-xs text-slate-300">
+          <a
+            href={`mailto:${SITE_CONFIG.ordersEmail}`}
+            className="block font-semibold text-emerald-300 hover:text-emerald-200"
+          >
+            {SITE_CONFIG.ordersEmail}
+          </a>
+          <a
+            href={`mailto:${SITE_CONFIG.supportEmail}`}
+            className="block text-slate-300 hover:text-white"
+          >
+            {SITE_CONFIG.supportEmail}
+          </a>
+        </div>
       </aside>
     </div>
   );

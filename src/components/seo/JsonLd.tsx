@@ -32,6 +32,22 @@ export function OrganizationAndWebsiteSchema({ lang }: { lang: Locale }) {
         foundingDate: String(SITE_CONFIG.foundingYear),
         telephone: SITE_CONFIG.phoneDisplay,
         email: SITE_CONFIG.supportEmail,
+        contactPoint: [
+          {
+            "@type": "ContactPoint",
+            contactType: "customer support",
+            email: SITE_CONFIG.supportEmail,
+            telephone: SITE_CONFIG.phoneDisplay,
+            availableLanguage: ["English", "Spanish", "French", "Ukrainian", "Russian"],
+          },
+          {
+            "@type": "ContactPoint",
+            contactType: "sales",
+            email: SITE_CONFIG.ordersEmail,
+            telephone: SITE_CONFIG.phoneDisplay,
+            availableLanguage: ["English", "Spanish", "French", "Ukrainian", "Russian"],
+          },
+        ],
         address: {
           "@type": "PostalAddress",
           streetAddress: SITE_CONFIG.address.street,

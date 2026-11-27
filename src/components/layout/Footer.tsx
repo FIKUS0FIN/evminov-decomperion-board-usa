@@ -183,6 +183,15 @@ export function Footer({ lang }: { lang: Locale }) {
               </li>
               <li>
                 <a
+                  href={`mailto:${SITE_CONFIG.ordersEmail}`}
+                  className="inline-flex items-center gap-1.5 text-slate-300 hover:text-white"
+                >
+                  <Mail className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                  <span className="truncate">{SITE_CONFIG.ordersEmail}</span>
+                </a>
+              </li>
+              <li>
+                <a
                   href={SITE_CONFIG.phoneHref}
                   className="inline-flex items-center gap-1.5 font-semibold text-white hover:text-emerald-300"
                 >
