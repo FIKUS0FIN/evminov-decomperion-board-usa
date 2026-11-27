@@ -536,74 +536,58 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
 
   const featuredExercises = getLocalizedExercises(lang).slice(0, 6);
 
-                  if (authLoading || !user) {
+  if (authLoading || !user) {
     return (
-                  <div className="bg-slate-50/70 pb-20">
-                    <section className="no-print border-b border-slate-200 bg-gradient-to-br from-[#0B1628] via-[#0B1F3A] to-[#0E2949] text-white">
-                      <div className="mx-auto max-w-7xl px-4 py-10 md:py-14">
-                        <div className="grid items-center gap-8 lg:grid-cols-12">
-                          <div className="lg:col-span-7">
-                            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-emerald-300">
-                              <Sparkles className="h-3.5 w-3.5" />
-                              <span>{copy.badge}</span>
-                            </div>
-                            <h1 className="mt-4 font-display text-3xl font-black tracking-tight text-white sm:text-4xl md:text-5xl">
-                              {copy.h1}
-                            </h1>
-                            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-300 sm:text-base">
-                              {copy.subtitle}
-                            </p>
-                            <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold text-slate-200">
-                              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5">
-                                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
-                                {ui.heroPills[0]}
-                              </span>
-                              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5">
-                                <CheckCircle2 className="h-3.5 w-3.5 text-sky-400" />
-                                {ui.heroPills[1]}
-                              </span>
-                              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5">
-                                <CheckCircle2 className="h-3.5 w-3.5 text-amber-300" />
-                                {ui.heroPills[2]}
-                              </span>
-                            </div>
-                          </div>
-                        </section>
-                        <div className="lg:col-span-5">
-                          {authLoading ? (
-                            <div className="rounded-3xl border border-white/15 bg-white/10 p-10 text-center text-sm font-semibold text-slate-200 backdrop-blur-md">
-                              {authCopy.loadingSession}
-                            </div>
-                          ) : (
-                            <AuthCard
-                              lang={lang}
-                              context="portal"
-                              returnTo={getLocalizedHref("/portal/", lang)}
-                              googleOAuthEnabled={googleOAuthEnabled}
-                              onAuthenticated={(authedUser) => setUser(authedUser)}
-                            />
-                          )}
-                        </div>
-                      </div>
+      <div className="bg-slate-50/70 pb-20">
+        <section className="no-print border-b border-slate-200 bg-gradient-to-br from-[#0B1628] via-[#0B1F3A] to-[#0E2949] text-white">
+          <div className="mx-auto max-w-7xl px-4 py-10 md:py-14">
+            <div className="grid items-center gap-8 lg:grid-cols-12">
+              <div className="lg:col-span-7">
+                <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-emerald-300">
+                  <Sparkles className="h-3.5 w-3.5" />
+                  <span>{copy.badge}</span>
+                </div>
+                <h1 className="mt-4 font-display text-3xl font-black tracking-tight text-white sm:text-4xl md:text-5xl">
+                  {copy.h1}
+                </h1>
+                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-300 sm:text-base">
+                  {copy.subtitle}
+                </p>
+                <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold text-slate-200">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
+                    {ui.heroPills[0]}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-sky-400" />
+                    {ui.heroPills[1]}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-amber-300" />
+                    {ui.heroPills[2]}
+                  </span>
+                </div>
+              </div>
+              <div className="lg:col-span-5">
+                {authLoading ? (
+                  <div className="rounded-3xl border border-white/15 bg-white/10 p-10 text-center text-sm font-semibold text-slate-200 backdrop-blur-md">
+                    {authCopy.loadingSession}
                   </div>
-                  );
-                </section>
+                ) : (
+                  <AuthCard
+                    lang={lang}
+                    context="portal"
+                    returnTo={getLocalizedHref("/portal/", lang)}
+                    googleOAuthEnabled={googleOAuthEnabled}
+                    onAuthenticated={(authedUser) => setUser(authedUser)}
+                  />
+                )}
               </div>
-              );
-  }
-
-              if (!user) {
-    return (
-              <div className="bg-slate-50/70 px-4 py-14">
-                <AuthCard
-                  lang={lang}
-                  context="portal"
-                  returnTo={getLocalizedHref("/portal/", lang)}
-                  googleOAuthEnabled={googleOAuthEnabled}
-                  onAuthenticated={(authedUser) => setUser(authedUser)}
-                />
-              </div>
-              );
+            </div>
+          </div>
+        </section>
+      </div>
+    );
   }
 
               return (
