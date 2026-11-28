@@ -349,8 +349,8 @@ export function AdminDashboard() {
               type="button"
               onClick={() => setTab("orders")}
               className={`inline-flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-extrabold transition ${tab === "orders"
-                  ? "bg-slate-950 text-white"
-                  : "text-slate-600 hover:text-slate-950"
+                ? "bg-slate-950 text-white"
+                : "text-slate-600 hover:text-slate-950"
                 }`}
             >
               <Package className="h-4 w-4" />
@@ -360,8 +360,8 @@ export function AdminDashboard() {
               type="button"
               onClick={() => setTab("users")}
               className={`inline-flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-extrabold transition ${tab === "users"
-                  ? "bg-slate-950 text-white"
-                  : "text-slate-600 hover:text-slate-950"
+                ? "bg-slate-950 text-white"
+                : "text-slate-600 hover:text-slate-950"
                 }`}
             >
               <Users className="h-4 w-4" />
@@ -722,8 +722,8 @@ export function AdminDashboard() {
                         <td className="p-3.5">
                           <span
                             className={`rounded-full px-2.5 py-0.5 text-[11px] font-extrabold ${u.role === "admin"
-                                ? "bg-amber-100 text-amber-900"
-                                : "bg-slate-100 text-slate-700"
+                              ? "bg-amber-100 text-amber-900"
+                              : "bg-slate-100 text-slate-700"
                               }`}
                           >
                             {u.role}

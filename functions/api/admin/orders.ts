@@ -148,8 +148,8 @@ export const onRequestPatch: PagesFunction<AuthEnv> = async ({ request, env }) =
         mode === "protocol_lead"
           ? `Your Evminov Custom Spine Angle Plan (${orderRef})`
           : mode === "warranty_registration"
-          ? `Evminov 10-Year Structural Warranty Registered (${orderRef})`
-          : `Evminov Reservation Confirmed — ${orderRef}`;
+            ? `Evminov 10-Year Structural Warranty Registered (${orderRef})`
+            : `Evminov Reservation Confirmed — ${orderRef}`;
       const threadId = `<order-${orderRef.toLowerCase()}@evminovusa.com>`;
 
       const htmlBody = `
@@ -166,14 +166,13 @@ export const onRequestPatch: PagesFunction<AuthEnv> = async ({ request, env }) =
               <div style="font-size:18px;font-weight:800;color:#0f172a;margin-top:4px;">${statusLabel}</div>
               ${safeTracking ? `<div style="margin-top:8px;font-size:13px;color:#334155;"><strong>Tracking Number:</strong> ${safeTracking}</div>` : ""}
             </div>
-            ${
-              safeCustomerMessage
-                ? `<div style="background:#f8fafc;border-left:4px solid #0f766e;border-radius:6px;padding:14px 16px;margin:16px 0;">
+            ${safeCustomerMessage
+          ? `<div style="background:#f8fafc;border-left:4px solid #0f766e;border-radius:6px;padding:14px 16px;margin:16px 0;">
                     <div style="font-size:12px;text-transform:uppercase;color:#0f766e;font-weight:700;margin-bottom:6px;">Message from Evminov Operations Team</div>
                     <div style="font-size:14px;color:#0f172a;line-height:1.6;">${safeCustomerMessage}</div>
                   </div>`
-                : ""
-            }
+          : ""
+        }
             <p>You can view your full order details and recovery guides anytime in your <a href="https://evminovusa.com/portal/" style="color:#0f766e;font-weight:bold;">Patient Portal</a>, or simply reply to this email.</p>
             <p style="font-size:12px;color:#64748b;">Glendale Operations Hub: 4525 San Fernando Rd, Unit H, Glendale, CA 91204 • +1 (747) 306-0140 • support@evminovusa.com</p>
           </div>
