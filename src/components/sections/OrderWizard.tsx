@@ -366,7 +366,58 @@ export function OrderWizard({ lang }: { lang: Locale }) {
     PRODUCTS.find((p) => p.slug === productSlug) || PRODUCTS[0];
   const localizedSelected = getLocalizedProduct(selectedProduct, lang);
 
-  const selectedAccessoryItems = OFFICIAL_ACCESSORIES.filter((a) =>
+  // Show only add-ons that match the selected board (3-piece vs 2-piece) and width (26 cm vs 30 cm)
+  const compatibleAccessories = OFFICIAL_ACCESSORIES.filter((acc) => {
+    if (
+      acc.compatibleWith !== "all" &&
+      acc.compatibleWith !== selectedProduct.slug
+    ) {
+      return false;
+    }
+    if (acc.id === "wall-panel-standard-2pc" && boardWidth !== "standard") {
+      return false;
+    }
+    if (acc.id === "wall-panel-wide-2pc" && boardWidth !== "wide") {
+      return false;
+    }
+    return true;
+  });
+
+  // Auto-swap carry case / wall panel if the customer switches board model or width
+  useEffect(() => {
+    setSelectedAddons((prev) => {
+      if (prev.length === 0) return prev;
+      let changed = false;
+      const next = prev.map((id) => {
+        if (
+          id === "carry-case-2bag-3pc" &&
+          selectedProduct.slug === "2-piece-folding-board"
+        ) {
+          changed = true;
+          return "carry-case-1bag-2pc";
+        }
+        if (
+          id === "carry-case-1bag-2pc" &&
+          selectedProduct.slug === "3-piece-travel-board"
+        ) {
+          changed = true;
+          return "carry-case-2bag-3pc";
+        }
+        if (id === "wall-panel-standard-2pc" && boardWidth === "wide") {
+          changed = true;
+          return "wall-panel-wide-2pc";
+        }
+        if (id === "wall-panel-wide-2pc" && boardWidth === "standard") {
+          changed = true;
+          return "wall-panel-standard-2pc";
+        }
+        return id;
+      });
+      return changed ? Array.from(new Set(next)) : prev;
+    });
+  }, [selectedProduct.slug, boardWidth]);
+
+  const selectedAccessoryItems = compatibleAccessories.filter((a) =>
     selectedAddons.includes(a.id)
   );
   const standardCurrentPrice = getProductPrice(selectedProduct, "standard", shipping);
@@ -677,7 +728,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                   {accCopy.wizardHint}
                 </p>
                 <div className="mt-2.5 grid gap-2.5 sm:grid-cols-2">
-                  {OFFICIAL_ACCESSORIES.map((accItem) => {
+                  {compatibleAccessories.map((accItem) => {
                     const checked = selectedAddons.includes(accItem.id);
                     return (
                       <label
