@@ -16,6 +16,55 @@ import { formatUSD } from "@/lib/physics";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import { BreadcrumbJsonLd, FaqJsonLd, GuideArticleJsonLd } from "@/components/seo/JsonLd";
+import { InteractiveLmnBuilder } from "@/components/sections/InteractiveLmnBuilder";
+
+const GEO_TAKEAWAY_COPY: Record<
+  Locale,
+  { badge: string; angleChip: string; timeChip: string; safetyChip: string; calcCta: string }
+> = {
+  en: {
+    badge: "30-Second Clinical Summary",
+    angleChip: "8°–25° Head-Up Incline",
+    timeChip: "10–15 Min Daily",
+    safetyChip: "Zero Upside-Down Inversion",
+    calcCta: "Calculate Your Exact Angle →",
+  },
+  es: {
+    badge: "Resumen Clínico en 30 Segundos",
+    angleChip: "Inclinación 8°–25° Cabeza Arriba",
+    timeChip: "10–15 Min al Día",
+    safetyChip: "Sin Inversión Cabeza Abajo",
+    calcCta: "Calcula Tu Ángulo Exacto →",
+  },
+  fr: {
+    badge: "Résumé Clinique en 30 Secondes",
+    angleChip: "Inclinaison Douce 8°–25°",
+    timeChip: "10–15 Min par Jour",
+    safetyChip: "Zéro Inversion Tête en Bas",
+    calcCta: "Calculer Votre Angle Exact →",
+  },
+  de: {
+    badge: "30-Sekunden-Klinik-Kurzfassung",
+    angleChip: "8°–25° Sanfte Neigung",
+    timeChip: "10–15 Min. Täglich",
+    safetyChip: "Ohne Kopfüber-Inversion",
+    calcCta: "Exakten Winkel Berechnen →",
+  },
+  uk: {
+    badge: "Клінічне зведення за 30 секунд",
+    angleChip: "Кут 8°–25° головою догори",
+    timeChip: "10–15 хв щодня",
+    safetyChip: "Без перевернутої інверсії",
+    calcCta: "Розрахувати свій точний кут →",
+  },
+  ru: {
+    badge: "Клиническое резюме за 30 секунд",
+    angleChip: "Угол 8°–25° головой вверх",
+    timeChip: "10–15 мин в день",
+    safetyChip: "Без перевёрнутой инверсии",
+    calcCta: "Рассчитать свой точный угол →",
+  },
+};
 
 const GUIDE_CRO_COPY: Record<
   Locale,
@@ -115,6 +164,7 @@ export function GuideDetailView({
   const guide = getLocalizedGuide(rawGuide, lang);
   const ui = getSiloUi(lang);
   const cro = GUIDE_CRO_COPY[lang];
+  const geo = GEO_TAKEAWAY_COPY[lang];
   const bc = BREADCRUMB_COPY[lang];
   const recProduct = getProductBySlug(guide.recommendedProductSlug);
   const recLocalized = recProduct
@@ -185,6 +235,36 @@ export function GuideDetailView({
             </span>
           </div>
 
+          {/* Answer-First Clinical GEO Summary Callout */}
+          <div
+            id="guide-geo-summary"
+            className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50/60 p-5 shadow-xs"
+          >
+            <p className="text-[11px] font-extrabold uppercase tracking-wider text-emerald-800">
+              {geo.badge}
+            </p>
+            <p className="mt-2 text-sm font-medium leading-relaxed text-slate-800">
+              {guide.excerpt}
+            </p>
+            <div className="mt-3.5 flex flex-wrap items-center gap-2 text-xs font-bold">
+              <span className="rounded-lg bg-white px-2.5 py-1 text-slate-800 ring-1 ring-emerald-200">
+                {geo.angleChip}
+              </span>
+              <span className="rounded-lg bg-white px-2.5 py-1 text-slate-800 ring-1 ring-emerald-200">
+                {geo.timeChip}
+              </span>
+              <span className="rounded-lg bg-white px-2.5 py-1 text-slate-800 ring-1 ring-emerald-200">
+                {geo.safetyChip}
+              </span>
+              <Link
+                href={getLocalizedHref("/calculator/", lang)}
+                className="ml-auto text-teal-800 hover:underline"
+              >
+                {geo.calcCta}
+              </Link>
+            </div>
+          </div>
+
           <div className="relative mt-6 aspect-[16/9] w-full overflow-hidden rounded-3xl border border-slate-200 bg-[#F4F7F9]">
             <OptimizedImage
               src={guide.heroImage}
@@ -240,6 +320,13 @@ export function GuideDetailView({
                     </ul>
                   )}
                 </section>
+
+                {secIdx === 0 &&
+                  rawGuide.slug === "hsa-fsa-spinal-decompression-lmn-guide" && (
+                    <div className="pt-2">
+                      <InteractiveLmnBuilder lang={lang} />
+                    </div>
+                  )}
 
                 {secIdx === Math.min(1, guide.sections.length - 1) && recProduct && (
                   <div className="rounded-3xl border border-emerald-200 bg-gradient-to-br from-[#0B1F3A] to-[#0D3B46] p-6 text-white shadow-lg">

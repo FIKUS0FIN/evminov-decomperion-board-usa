@@ -17,6 +17,15 @@ import { SITE_CONFIG } from "@/lib/site-config";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import { BreadcrumbJsonLd, ConditionArticleJsonLd, FaqJsonLd } from "@/components/seo/JsonLd";
 
+const CONDITION_GEO_BADGE: Record<Locale, string> = {
+  en: "Quick Biomechanical Protocol",
+  es: "Protocolo Biomecánico Rápido",
+  fr: "Protocole Biomécanique Rapide",
+  de: "Biomechanisches Kurzprotokoll",
+  uk: "Швидкий біомеханічний протокол",
+  ru: "Быстрый биомеханический протокол",
+};
+
 export function ConditionDetailView({
   condition: rawCondition,
   lang,
@@ -64,35 +73,44 @@ export function ConditionDetailView({
         <h1 className="mt-3 font-display text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
           {condition.title}
         </h1>
-        <p className="mt-4 text-lg leading-relaxed text-slate-600">
-          {condition.summary}
-        </p>
 
-        {/* Key Parameters Strip */}
-        <div className="mt-7 grid gap-3 sm:grid-cols-3">
-          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-            <p className="text-xs font-bold uppercase text-slate-500">
-              {ui.condition.suggestedAngle}
-            </p>
-            <p className="mt-1 text-lg font-black text-teal-800">
-              {condition.recommendedAngle}
-            </p>
-          </div>
-          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-            <p className="text-xs font-bold uppercase text-slate-500">
-              {ui.condition.dailySession}
-            </p>
-            <p className="mt-1 text-lg font-black text-slate-950">
-              {condition.dailyDuration}
-            </p>
-          </div>
-          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-            <p className="text-xs font-bold uppercase text-slate-500">
-              {ui.condition.focusArea}
-            </p>
-            <p className="mt-1 text-lg font-black text-slate-950">
-              {condition.targetZone}
-            </p>
+        <div
+          id="condition-geo-summary"
+          className="mt-5 rounded-3xl border border-emerald-200 bg-emerald-50/40 p-5 sm:p-6"
+        >
+          <p className="text-[11px] font-extrabold uppercase tracking-wider text-emerald-800">
+            {CONDITION_GEO_BADGE[lang]}
+          </p>
+          <p className="mt-2 text-lg leading-relaxed text-slate-700">
+            {condition.summary}
+          </p>
+
+          {/* Key Parameters Strip */}
+          <div className="mt-5 grid gap-3 sm:grid-cols-3">
+            <div className="rounded-2xl border border-slate-200 bg-white p-4">
+              <p className="text-xs font-bold uppercase text-slate-500">
+                {ui.condition.suggestedAngle}
+              </p>
+              <p className="mt-1 text-lg font-black text-teal-800">
+                {condition.recommendedAngle}
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-white p-4">
+              <p className="text-xs font-bold uppercase text-slate-500">
+                {ui.condition.dailySession}
+              </p>
+              <p className="mt-1 text-lg font-black text-slate-950">
+                {condition.dailyDuration}
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-white p-4">
+              <p className="text-xs font-bold uppercase text-slate-500">
+                {ui.condition.focusArea}
+              </p>
+              <p className="mt-1 text-lg font-black text-slate-950">
+                {condition.targetZone}
+              </p>
+            </div>
           </div>
         </div>
 

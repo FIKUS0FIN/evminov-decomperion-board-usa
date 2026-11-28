@@ -17,15 +17,254 @@ import {
   formatUSD,
 } from "@/lib/physics";
 import { buildPrefilledOrderUrl, getLocalizedHref } from "@/lib/url";
+import { SITE_CONFIG } from "@/lib/site-config";
+import { IS_CANADA } from "@/lib/region-config";
 import { useHsaSavings } from "@/context/HsaSavingsContext";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
-import { FaqJsonLd, ProductJsonLd } from "@/components/seo/JsonLd";
+import { LiteYouTube } from "@/components/ui/LiteYouTube";
+import {
+  FaqJsonLd,
+  ProductJsonLd,
+  VideoObjectJsonLd,
+} from "@/components/seo/JsonLd";
 import {
   ACCESSORIES_SECTION_COPY,
   getLocalizedFinish,
   getLocalizedProduct,
   PRODUCT_DETAIL_COPY,
 } from "@/i18n/locales/catalog";
+
+const PDP_CRO_EXTRA: Record<
+  Locale,
+  {
+    lmnHelperLink: string;
+    videoHeading: string;
+    videoSub: string;
+    demoTitle: string;
+    mountTitle: string;
+    compareHeading: string;
+    colFeature: string;
+    colThreePiece: string;
+    colTwoPiece: string;
+    activeBadge: string;
+    rows: Array<{ label: string; three: string; two: string }>;
+  }
+> = {
+  en: {
+    lmnHelperLink: IS_CANADA
+      ? "Claiming via Extended Health / HSA? Build & print a free doctor's note template →"
+      : "Using HSA/FSA before Dec 31? Build & print a free LMN template for your doctor →",
+    videoHeading: "Official Technique & Wall Mounting Walkthroughs",
+    videoSub: "Verified demonstrations from the official @evminoviusa channel.",
+    demoTitle: "Evminov Method Carriage & Glisson Cervical Decompression Demo",
+    mountTitle: "16-Inch North American Wood Stud Wall Mounting Guide",
+    compareHeading: "3-Piece Full-Length vs 2-Piece Compact — Quick Choice Guide",
+    colFeature: "Specification",
+    colThreePiece: "3-Piece Folding (230–245 cm)",
+    colTwoPiece: "2-Piece Compact (Spine Toothbrush)",
+    activeBadge: "Viewing",
+    rows: [
+      {
+        label: "Full Length & Sections",
+        three: "3 sections • full 230–245 cm clinical span",
+        two: "2 sections • compact daily posture board",
+      },
+      {
+        label: "Packed / Closet Footprint",
+        three: "Packs under 120 cm (2-bag case option)",
+        two: "Fast 2-half closet storage (1-bag case option)",
+      },
+      {
+        label: "Panel Width Options",
+        three: "26 cm Standard (≤100 kg) or 30 cm Wide (≤150 kg)",
+        two: "26 cm Standard (≤100 kg) or 30 cm Wide (≤150 kg)",
+      },
+      {
+        label: "Ideal For",
+        three: "Disc conditioning, tall athletes & full-length glide",
+        two: "Condos, apartments, desks & rapid daily setup",
+      },
+    ],
+  },
+  es: {
+    lmnHelperLink: IS_CANADA
+      ? "¿Usas seguro de salud en Canadá? Prepara gratis tu plantilla médica →"
+      : "¿Usas HSA/FSA antes del 31 dic.? Crea e imprime tu plantilla LMN gratis →",
+    videoHeading: "Videos Oficiales de Uso e Instalación en Pared",
+    videoSub: "Demostraciones verificadas del canal oficial @evminoviusa.",
+    demoTitle: "Técnica Oficial de Descompresión Evminov y Lazo de Glisson",
+    mountTitle: "Guía de Instalación en Montantes de Madera de 16 Pulgadas",
+    compareHeading: "Modelo 3 Piezas vs 2 Piezas Compacta — Comparativa Rápida",
+    colFeature: "Característica",
+    colThreePiece: "Plegable 3 Piezas (230–245 cm)",
+    colTwoPiece: "Compacta 2 Piezas",
+    activeBadge: "Viendo",
+    rows: [
+      {
+        label: "Longitud y Secciones",
+        three: "3 secciones • longitud clínica completa 230–245 cm",
+        two: "2 secciones • higiene postural diaria compacta",
+      },
+      {
+        label: "Almacenamiento",
+        three: "Bajo 120 cm embalado (opción 2 bolsas)",
+        two: "Cabe rápido en clóset (opción 1 funda)",
+      },
+      {
+        label: "Anchos Disponibles",
+        three: "26 cm Estándar (≤100 kg) o 30 cm Reforzada (≤150 kg)",
+        two: "26 cm Estándar (≤100 kg) o 30 cm Reforzada (≤150 kg)",
+      },
+      {
+        label: "Recomendada Para",
+        three: "Deportistas altos y recorrido completo de carro",
+        two: "Departamentos, oficinas y guardado en segundos",
+      },
+    ],
+  },
+  fr: {
+    lmnHelperLink:
+      "Assurance santé / HSA ? Créez et imprimez gratuitement votre attestation →",
+    videoHeading: "Démonstrations Officielles & Installation Murale",
+    videoSub: "Vidéos vérifiées de la chaîne officielle @evminoviusa.",
+    demoTitle: "Démonstration Technique Evminov et Boucle de Glisson",
+    mountTitle: "Guide de Fixation sur Montant Bois 16 Pouces",
+    compareHeading: "Planche 3 Pièces vs 2 Pièces Compacte — Comparatif Rapide",
+    colFeature: "Critère",
+    colThreePiece: "Pliable 3 Pièces (230–245 cm)",
+    colTwoPiece: "Compacte 2 Pièces",
+    activeBadge: "Consultée",
+    rows: [
+      {
+        label: "Longueur & Sections",
+        three: "3 sections • pleine longueur clinique 230–245 cm",
+        two: "2 sections • format compact quotidien",
+      },
+      {
+        label: "Rangement",
+        three: "Moins de 120 cm démontée (option 2 housses)",
+        two: "Rangement rapide en placard (option 1 housse)",
+      },
+      {
+        label: "Largeurs",
+        three: "26 cm Standard (≤100 kg) ou 30 cm Large (≤150 kg)",
+        two: "26 cm Standard (≤100 kg) ou 30 cm Large (≤150 kg)",
+      },
+      {
+        label: "Idéale Pour",
+        three: "Grands gabarits, sportifs et amplitude maximale",
+        two: "Appartements, condos et routine express",
+      },
+    ],
+  },
+  de: {
+    lmnHelperLink:
+      "HSA/FSA nutzen? Kostenlose ärztliche LMN-Vorlage erstellen & drucken →",
+    videoHeading: "Offizielle Anwendungs- & Montagevideos",
+    videoSub: "Verifizierte Anleitungen vom offiziellen Kanal @evminoviusa.",
+    demoTitle: "Offizielle Evminov Technik & Glisson-Schlaufe Demonstration",
+    mountTitle: "Wandmontage-Anleitung für 16-Zoll-Holzständerbauweise",
+    compareHeading: "3-teilig Vollformat vs. 2-teilig Kompakt — Schnellvergleich",
+    colFeature: "Merkmal",
+    colThreePiece: "3-teilig Faltbar (230–245 cm)",
+    colTwoPiece: "2-teilig Kompakt",
+    activeBadge: "Aktiv",
+    rows: [
+      {
+        label: "Länge & Teile",
+        three: "3 Segmente • volle klinische Länge 230–245 cm",
+        two: "2 Segmente • kompaktes tägliches Rückenboard",
+      },
+      {
+        label: "Verstauen",
+        three: "Packmaß unter 120 cm (optional 2 Taschen)",
+        two: "Blitzschnell im Schrank verstaubar (1 Tasche)",
+      },
+      {
+        label: "Breiten",
+        three: "26 cm Standard (≤100 kg) oder 30 cm Breit (≤150 kg)",
+        two: "26 cm Standard (≤100 kg) oder 30 cm Breit (≤150 kg)",
+      },
+      {
+        label: "Optimal Für",
+        three: "Sportler, große Personen & voller Schlittenweg",
+        two: "Wohnungen, Homeoffice & tägliche Kurz-Routine",
+      },
+    ],
+  },
+  uk: {
+    lmnHelperLink: IS_CANADA
+      ? "Подаєте на канадську страховку? Сформуйте та роздрукуйте шаблон довідки →"
+      : "Повертаєте ~30% через HSA/FSA? Створіть шаблон довідки LMN для лікаря →",
+    videoHeading: "Офіційні відео техніки занять і монтажу на стіну",
+    videoSub: "Перевірені інструкції з офіційного каналу @evminoviusa.",
+    demoTitle: "Демонстрація занять на Профілакторі Євмінова та з петлею Гліссона",
+    mountTitle: "Монтаж кріплення на американський/канадський дерев’яний брус 16 дюймів",
+    compareHeading: "Профілактор з 3-х частин чи компактний з 2-х частин — що обрати",
+    colFeature: "Параметр",
+    colThreePiece: "З 3-х частин (повні 230–245 см)",
+    colTwoPiece: "З 2-х частин («Зубна щітка»)",
+    activeBadge: "Дивитесь",
+    rows: [
+      {
+        label: "Довжина та секції",
+        three: "3 секції • повна клінічна довжина 230–245 см",
+        two: "2 секції • компактний формат для щоденної гігієни спини",
+      },
+      {
+        label: "Зберігання вдома",
+        three: "У складеному вигляді до 120 см (опція — 2 сумки)",
+        two: "Миттєво ховається в шафу чи під ліжко (опція — 1 сумка)",
+      },
+      {
+        label: "Варіанти ширини",
+        three: "26 см стандарт (до 100 кг) або 30 см посилена (до 150 кг)",
+        two: "26 см стандарт (до 100 кг) або 30 см посилена (до 150 кг)",
+      },
+      {
+        label: "Найкраще підходить",
+        three: "Для високого зросту, спорту та повного ходу каретки",
+        two: "Для квартир, орендованого житла та занять за 10 хвилин",
+      },
+    ],
+  },
+  ru: {
+    lmnHelperLink: IS_CANADA
+      ? "Подаёте на канадскую страховку? Подготовьте шаблон справки для врача →"
+      : "Возвращаете ~30% через HSA/FSA? Создайте шаблон справки LMN для врача →",
+    videoHeading: "Официальные видео техники занятий и монтажа на стену",
+    videoSub: "Проверенные инструкции с официального канала @evminoviusa.",
+    demoTitle: "Демонстрация занятий на Профилакторе Евминова и с петлёй Глиссона",
+    mountTitle: "Монтаж крепления в деревянную стойку стены 16 дюймов",
+    compareHeading: "Модель из 3-х частей или компактная из 2-х частей — что выбрать",
+    colFeature: "Параметр",
+    colThreePiece: "Из 3-х частей (полные 230–245 см)",
+    colTwoPiece: "Из 2-х частей («Зубная щётка»)",
+    activeBadge: "Смотрите",
+    rows: [
+      {
+        label: "Длина и секции",
+        three: "3 секции • полная клиническая длина 230–245 см",
+        two: "2 секции • компактный формат для ежедневной гигиены спины",
+      },
+      {
+        label: "Хранение дома",
+        three: "В разобранном виде до 120 см (опция — 2 сумки)",
+        two: "Легко убирается в шкаф или под кровать (опция — 1 чехол)",
+      },
+      {
+        label: "Варианты ширины",
+        three: "26 см стандарт (до 100 кг) или 30 см усиленная (до 150 кг)",
+        two: "26 см стандарт (до 100 кг) или 30 см усиленная (до 150 кг)",
+      },
+      {
+        label: "Лучше всего для",
+        three: "Высокого роста, спорта и полного хода каретки",
+        two: "Квартир, съёмного жилья и быстрой разминки за 10 минут",
+      },
+    ],
+  },
+};
 
 export function ProductDetailView({
   product,
@@ -36,6 +275,7 @@ export function ProductDetailView({
 }) {
   const ui = getDictionary(lang).productUi;
   const pd = PRODUCT_DETAIL_COPY[lang];
+  const cro = PDP_CRO_EXTRA[lang];
   const accCopy = ACCESSORIES_SECTION_COPY[lang];
   const lp = getLocalizedProduct(product, lang);
   const { applyHsaSavings, toggleHsaSavings } = useHsaSavings();
@@ -58,6 +298,7 @@ export function ProductDetailView({
     <>
       <ProductJsonLd product={product} lang={lang} />
       <FaqJsonLd faqs={lp.faqs} />
+      <VideoObjectJsonLd />
 
       <div className="mx-auto max-w-7xl px-4 py-8 md:py-14">
         <div className="grid gap-8 lg:grid-cols-12 lg:gap-10">
@@ -168,6 +409,14 @@ export function ProductDetailView({
                     {formatUSD(getProductPrice(product, boardWidth, "direct"))}
                   </span>
                 </button>
+              </div>
+              <div className="mt-3 border-t border-slate-200 pt-2.5">
+                <Link
+                  href={`${getLocalizedHref("/guides/hsa-fsa-spinal-decompression-lmn-guide/", lang)}#lmn-builder`}
+                  className="inline-flex items-center text-xs font-bold text-teal-800 hover:underline"
+                >
+                  {cro.lmnHelperLink}
+                </Link>
               </div>
             </div>
 
@@ -317,6 +566,93 @@ export function ProductDetailView({
               </div>
             ))}
           </dl>
+        </section>
+
+        {/* Official @evminoviusa Video Walkthroughs */}
+        <section className="mt-12">
+          <h2 className="font-display text-2xl font-black text-slate-950">
+            {cro.videoHeading}
+          </h2>
+          <p className="mt-1 text-sm text-slate-600">{cro.videoSub}</p>
+          <div className="mt-5 grid gap-5 md:grid-cols-2">
+            <div>
+              <LiteYouTube
+                videoId={SITE_CONFIG.videos.methodDemo.id}
+                title={cro.demoTitle}
+                thumbnail={SITE_CONFIG.videos.methodDemo.thumbnail}
+              />
+              <p className="mt-2 text-xs font-bold text-slate-800">{cro.demoTitle}</p>
+            </div>
+            <div>
+              <LiteYouTube
+                videoId={SITE_CONFIG.videos.wallMounting.id}
+                title={cro.mountTitle}
+                thumbnail={SITE_CONFIG.videos.wallMounting.thumbnail}
+              />
+              <p className="mt-2 text-xs font-bold text-slate-800">{cro.mountTitle}</p>
+            </div>
+          </div>
+        </section>
+
+        {/* 3-Piece vs 2-Piece Quick Comparison */}
+        <section className="mt-12">
+          <h2 className="font-display text-2xl font-black text-slate-950">
+            {cro.compareHeading}
+          </h2>
+          <div className="mt-4 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-xs">
+            <table className="w-full min-w-[560px] text-left text-xs sm:text-sm">
+              <thead className="border-b border-slate-200 bg-slate-50 text-slate-900">
+                <tr>
+                  <th className="px-4 py-3 font-extrabold">{cro.colFeature}</th>
+                  <th
+                    className={`px-4 py-3 font-extrabold ${
+                      product.slug === "3-piece-travel-board" ? "bg-emerald-50 text-emerald-950" : ""
+                    }`}
+                  >
+                    {cro.colThreePiece}
+                    {product.slug === "3-piece-travel-board" && (
+                      <span className="ml-2 rounded-full bg-emerald-600 px-2 py-0.5 text-[10px] font-black text-white">
+                        {cro.activeBadge}
+                      </span>
+                    )}
+                  </th>
+                  <th
+                    className={`px-4 py-3 font-extrabold ${
+                      product.slug === "2-piece-folding-board" ? "bg-emerald-50 text-emerald-950" : ""
+                    }`}
+                  >
+                    {cro.colTwoPiece}
+                    {product.slug === "2-piece-folding-board" && (
+                      <span className="ml-2 rounded-full bg-emerald-600 px-2 py-0.5 text-[10px] font-black text-white">
+                        {cro.activeBadge}
+                      </span>
+                    )}
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 text-slate-700">
+                {cro.rows.map((row) => (
+                  <tr key={row.label}>
+                    <td className="px-4 py-3 font-bold text-slate-900">{row.label}</td>
+                    <td
+                      className={`px-4 py-3 ${
+                        product.slug === "3-piece-travel-board" ? "bg-emerald-50/40 font-semibold text-slate-900" : ""
+                      }`}
+                    >
+                      {row.three}
+                    </td>
+                    <td
+                      className={`px-4 py-3 ${
+                        product.slug === "2-piece-folding-board" ? "bg-emerald-50/40 font-semibold text-slate-900" : ""
+                      }`}
+                    >
+                      {row.two}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </section>
 
         {/* Official Accessories Add-Ons */}

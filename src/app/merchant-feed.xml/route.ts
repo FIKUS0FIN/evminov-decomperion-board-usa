@@ -66,7 +66,7 @@ export async function GET(): Promise<Response> {
       <g:id>${escXml(`${p.sku}-${v.skuSuffix}`)}</g:id>
       <g:item_group_id>${escXml(p.sku)}</g:item_group_id>
       <g:title>${escXml(`${p.name} ${v.titleSuffix}`)}</g:title>
-      <g:description>${escXml(`${p.subtitle} ${p.keyFeature} Available in Light (Natural Warm Amber Alder) or Dark (Dark Walnut Pine). Includes free Glisson Cervical Loop, wall mounting kit, 1-Year Warranty, and itemized HSA/FSA receipt. ~2-week tracked international delivery.`)}</g:description>
+      <g:description>${escXml(`${p.subtitle} ${p.keyFeature} Available in Light (Natural Warm Amber Alder) or Dark (Dark Walnut Pine). Includes free Glisson Cervical Loop, wall mounting kit, 1-Year Warranty, and ${IS_CANADA ? "itemized Extended Health / HSA receipt" : "itemized HSA/FSA receipt"}. ~2-week tracked international delivery.`)}</g:description>
       <g:link>${escXml(v.link)}</g:link>
       <g:image_link>${escXml(primaryImage)}</g:image_link>
 ${additionalImages}
@@ -77,6 +77,8 @@ ${additionalImages}
       <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:size>${escXml(v.sizeLabel)}</g:size>
+      <g:shipping_weight>${v.width === "wide" ? "16 kg" : "14 kg"}</g:shipping_weight>
+      <g:custom_label_0>${IS_CANADA ? "Extended-Health-HSA-Canada" : "HSA-FSA-Eligible-With-LMN"}</g:custom_label_0>
       <g:google_product_category>Sporting Goods &gt; Exercise &amp; Fitness &gt; Exercise Benches</g:google_product_category>
       <g:product_type>Home Spine Conditioning &amp; Inclined Traction Equipment</g:product_type>
       <g:material>${escXml(p.material)}</g:material>

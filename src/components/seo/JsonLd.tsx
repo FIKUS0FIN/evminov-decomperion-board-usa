@@ -15,7 +15,7 @@ import {
   getLocalizedConditionMeta,
   getLocalizedGuideMeta,
 } from "@/i18n/content-meta";
-import { getCanonicalUrl } from "@/lib/url";
+import { getCanonicalUrl, getRegionalHreflang } from "@/lib/url";
 
 export function JsonLdScript({ data }: { data: Record<string, unknown> }) {
   return (
@@ -391,7 +391,7 @@ export function GuideArticleJsonLd({
     dateModified: guide.dateModified.includes("T")
       ? guide.dateModified
       : `${guide.dateModified}T00:00:00Z`,
-    inLanguage: LOCALE_META[lang].hreflang,
+    inLanguage: getRegionalHreflang(lang),
     wordCount,
     mainEntityOfPage: canonical,
     author: {
@@ -402,7 +402,7 @@ export function GuideArticleJsonLd({
     publisher: { "@id": `${origin}/#organization` },
     speakable: {
       "@type": "SpeakableSpecification",
-      cssSelector: ["h1", "article p:first-of-type"],
+      cssSelector: ["h1", "#guide-geo-summary"],
     },
   };
 
@@ -443,7 +443,7 @@ export function HomepageRichSchemas({ lang }: { lang: Locale }) {
         name: "Evminov Spine Systems — Patented Inclined Spine Decompression Board",
         isPartOf: { "@id": `${origin}/#website` },
         about: { "@id": `${origin}/#organization` },
-        inLanguage: LOCALE_META[lang].hreflang,
+        inLanguage: getRegionalHreflang(lang),
         speakable: {
           "@type": "SpeakableSpecification",
           cssSelector: ["h1", "section p:first-of-type"],
@@ -533,7 +533,7 @@ export function ComparisonArticleJsonLd({
     image: `${origin}${comparison.heroImage}`,
     datePublished: "2026-09-15T00:00:00Z",
     dateModified: "2026-11-28T00:00:00Z",
-    inLanguage: LOCALE_META[lang].hreflang,
+    inLanguage: getRegionalHreflang(lang),
     mainEntityOfPage: canonical,
     author: {
       "@type": "Organization",
@@ -573,7 +573,7 @@ export function ConditionArticleJsonLd({
     image: `${origin}${condition.heroImage}`,
     datePublished: "2026-09-15T00:00:00Z",
     dateModified: "2026-11-28T00:00:00Z",
-    inLanguage: LOCALE_META[lang].hreflang,
+    inLanguage: getRegionalHreflang(lang),
     mainEntityOfPage: canonical,
     author: {
       "@type": "Organization",
@@ -583,7 +583,7 @@ export function ConditionArticleJsonLd({
     publisher: { "@id": `${origin}/#organization` },
     speakable: {
       "@type": "SpeakableSpecification",
-      cssSelector: ["h1", "article p:first-of-type"],
+      cssSelector: ["h1", "#condition-geo-summary"],
     },
   };
 
@@ -602,7 +602,7 @@ export function CalculatorWebAppJsonLd({ lang }: { lang: Locale }) {
     url: calcUrl,
     applicationCategory: "HealthApplication",
     operatingSystem: "Any (Web Browser)",
-    inLanguage: LOCALE_META[lang].hreflang,
+    inLanguage: getRegionalHreflang(lang),
     isAccessibleForFree: true,
     offers: {
       "@type": "Offer",
@@ -646,7 +646,7 @@ export function ClinicsB2bJsonLd({
         url: clinicsUrl,
         name: title,
         description,
-        inLanguage: LOCALE_META[lang].hreflang,
+        inLanguage: getRegionalHreflang(lang),
         isPartOf: { "@id": `${origin}/#website` },
         about: { "@id": `${origin}/#organization` },
         speakable: {

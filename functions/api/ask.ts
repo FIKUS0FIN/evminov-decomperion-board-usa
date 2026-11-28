@@ -65,7 +65,7 @@ export function getRegionalEdgeConfig(originOrUrl?: string): RegionalEdgeConfig 
       ordersEmail: "orders@evminovcanada.com",
       hub: "Canada Nationwide Courier Delivery (All Provinces) • North American Hub: Glendale, CA",
       benefitsNote:
-        "Itemized wellness equipment receipt + LMN/prescription guide provided for Canadian Extended Health Benefits & CRA Medical Expense claims (subject to plan approval).",
+        "Itemized wellness equipment receipt + printable Letter of Medical Necessity (LMN) Builder at /guides/hsa-fsa-spinal-decompression-lmn-guide/#lmn-builder provided for Canadian Extended Health Benefits & CRA Medical Expense claims (subject to plan approval).",
     };
   }
 
@@ -82,7 +82,7 @@ export function getRegionalEdgeConfig(originOrUrl?: string): RegionalEdgeConfig 
     ordersEmail: "orders@evminovusa.com",
     hub: "4525 San Fernando Rd, Unit H, Glendale, CA 91204, USA",
     benefitsNote:
-      "Itemized wellness equipment receipt + Letter of Medical Necessity (LMN) checklist provided for ~25–35% pre-tax HSA/FSA reimbursement (requires healthcare provider LMN and plan approval).",
+      "Itemized wellness equipment receipt + free printable Letter of Medical Necessity (LMN) Builder at /guides/hsa-fsa-spinal-decompression-lmn-guide/#lmn-builder provided for ~25–35% pre-tax HSA/FSA reimbursement (requires healthcare provider LMN and plan approval).",
   };
 }
 
@@ -303,7 +303,7 @@ export function queryEvminovKnowledge(rawQuery: string, lang = "en", originOrUrl
     guideUrl = `${cfg.origin}${localePrefix}/guides/spinal-stenosis-and-l5-s1-morning-decompression-guide/`;
   } else if (/hsa|fsa|lmn|tax|reimburse|cra|insurance|extended\s*health|страхов/.test(q)) {
     topic = "hsa_fsa_lmn_reimbursement";
-    guideUrl = `${cfg.origin}${localePrefix}/guides/hsa-fsa-spinal-decompression-lmn-guide/`;
+    guideUrl = `${cfg.origin}${localePrefix}/guides/hsa-fsa-spinal-decompression-lmn-guide/#lmn-builder`;
   } else if (/canada|shipping|deliver|customs|weeks|доставк/.test(q)) {
     topic = "usa_canada_shipping";
     guideUrl = `${cfg.origin}${localePrefix}/guides/buy-evminov-board-usa-canada-shipping-guide/`;

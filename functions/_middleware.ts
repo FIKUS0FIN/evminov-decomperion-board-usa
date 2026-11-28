@@ -301,6 +301,10 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     return next();
   }
 
+  if (pathname.startsWith("/.well-known/acme-challenge/")) {
+    return next();
+  }
+
   if (pathname.startsWith("/api/")) {
     const reqOrigin = request.headers.get("Origin");
     const trusted = isTrustedOrigin(reqOrigin);

@@ -135,6 +135,14 @@ describe("Cloudflare Edge Middleware, NLWeb & Security Helpers", () => {
     expect(b2bStudioEn.topic).toBe("b2b_clinic_studio_wholesale");
     expect(b2bStudioEn.recommendedWidth).toBe("wide");
     expect(b2bStudioEn.guideUrl).toBe("https://evminovusa.com/clinics/");
+
+    const lmnEn = queryEvminovKnowledge(
+      "HSA FSA Letter of Medical Necessity template",
+      "en",
+      "https://evminovusa.com"
+    );
+    expect(lmnEn.topic).toBe("hsa_fsa_lmn_reimbursement");
+    expect(lmnEn.guideUrl.endsWith("#lmn-builder")).toBe(true);
   });
 
   it("escapes XSS payloads in order confirmation email HTML", () => {
