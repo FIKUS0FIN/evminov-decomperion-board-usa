@@ -112,7 +112,7 @@ function formatDateShort(iso: string): string {
 
 export function AdminDashboard() {
   const { user, setUser, loading, googleOAuthEnabled, logout } = useAuth();
-  const [tab, setTab] = useState<"orders" | "users">("orders");
+  const [tab, setTab] = useState<"orders" | "leads" | "users">("orders");
 
   const [orders, setOrders] = useState<OrderRecord[]>([]);
   const [summary, setSummary] = useState<StatusSummary[]>([]);
@@ -196,24 +196,34 @@ export function AdminDashboard() {
 
   useEffect(() => {
     if (user?.role === "admin") {
-      if (tab === "orders") void loadOrders();
+      if (tab === "orders" || tab === "leads") void loadOrders();
       else void loadUsers();
     }
   }, [user, tab, loadOrders, loadUsers]);
 
+  const realOrders = useMemo(
+    () => orders.filter((o) => o.mode !== "protocol_lead"),
+    [orders]
+  );
+  const planLeads = useMemo(
+    () => orders.filter((o) => o.mode === "protocol_lead"),
+    [orders]
+  );
+  const visibleOrders = tab === "leads" ? planLeads : realOrders;
+
   const kpis = useMemo(() => {
-    const totalCount = summary.reduce((acc, s) => acc + Number(s.count || 0), 0);
-    const newCount =
-      Number(summary.find((s) => s.status === "new")?.count || 0) +
-      Number(summary.find((s) => s.status === "operator_review")?.count || 0);
-    const shippedCount =
-      Number(summary.find((s) => s.status === "shipped")?.count || 0) +
-      Number(summary.find((s) => s.status === "delivered")?.count || 0);
-    const activeRevenue = summary
-      .filter((s) => s.status !== "cancelled")
-      .reduce((acc, s) => acc + Number(s.revenue || 0), 0);
+    const totalCount = realOrders.length;
+    const newCount = realOrders.filter(
+      (o) => o.status === "new" || o.status === "operator_review"
+    ).length;
+    const shippedCount = realOrders.filter(
+      (o) => o.status === "shipped" || o.status === "delivered"
+    ).length;
+    const activeRevenue = realOrders
+      .filter((o) => o.status !== "cancelled")
+      .reduce((acc, o) => acc + Number(o.total_usd || 0), 0);
     return { totalCount, newCount, shippedCount, activeRevenue };
-  }, [summary]);
+  }, [realOrders]);
 
   const openOrderEditor = (ord: OrderRecord) => {
     setSelectedOrder(ord);
@@ -542,20 +552,38 @@ export function AdminDashboard() {
           <div className="inline-flex rounded-2xl border border-slate-200 bg-white p-1 shadow-sm">
             <button
               type="button"
-              onClick={() => setTab("orders")}
-              className={`inline-flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-extrabold transition ${
+              onClick={() => {
+                setTab("orders");
+                setSelectedOrder(null);
+              }}
+              className={`inline-flex cursor-pointer items-center gap-2 rounded-xl px-4 py-2 text-xs font-extrabold transition ${
                 tab === "orders"
                   ? "bg-slate-950 text-white"
                   : "text-slate-600 hover:text-slate-950"
               }`}
             >
               <Package className="h-4 w-4" />
-              <span>Замовлення ({orders.length})</span>
+              <span>Замовлення ({realOrders.length})</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setTab("leads");
+                setSelectedOrder(null);
+              }}
+              className={`inline-flex cursor-pointer items-center gap-2 rounded-xl px-4 py-2 text-xs font-extrabold transition ${
+                tab === "leads"
+                  ? "bg-teal-700 text-white"
+                  : "text-slate-600 hover:text-slate-950"
+              }`}
+            >
+              <Mail className="h-4 w-4" />
+              <span>Запити на план ({planLeads.length})</span>
             </button>
             <button
               type="button"
               onClick={() => setTab("users")}
-              className={`inline-flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-extrabold transition ${
+              className={`inline-flex cursor-pointer items-center gap-2 rounded-xl px-4 py-2 text-xs font-extrabold transition ${
                 tab === "users"
                   ? "bg-slate-950 text-white"
                   : "text-slate-600 hover:text-slate-950"
@@ -587,7 +615,9 @@ export function AdminDashboard() {
             )}
             <button
               type="button"
-              onClick={() => (tab === "orders" ? void loadOrders() : void loadUsers())}
+              onClick={() =>
+                tab === "orders" || tab === "leads" ? void loadOrders() : void loadUsers()
+              }
               className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-slate-700 shadow-sm hover:bg-slate-50"
             >
               <RefreshCw className={`h-3.5 w-3.5 ${busy ? "animate-spin" : ""}`} />
@@ -596,8 +626,8 @@ export function AdminDashboard() {
           </div>
         </div>
 
-        {/* ORDERS TAB */}
-        {tab === "orders" && (
+        {/* ORDERS & CALCULATOR PLAN LEADS TABS */}
+        {(tab === "orders" || tab === "leads") && (
           <div className="mt-5 grid gap-6 lg:grid-cols-12">
             <div className={selectedOrder ? "lg:col-span-7" : "lg:col-span-12"}>
               {/* Filters */}
@@ -633,20 +663,24 @@ export function AdminDashboard() {
                     <tr>
                       <th className="p-3.5 font-bold">Номер / Дата</th>
                       <th className="p-3.5 font-bold">Клієнт</th>
-                      <th className="p-3.5 font-bold">Товар / Сума</th>
+                      <th className="p-3.5 font-bold">
+                        {tab === "leads" ? "Рекомендація / Параметри калькулятора" : "Товар / Сума"}
+                      </th>
                       <th className="p-3.5 font-bold">Статус</th>
                       <th className="p-3.5 font-bold text-right">Дія</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100">
-                    {orders.length === 0 ? (
+                    {visibleOrders.length === 0 ? (
                       <tr>
                         <td colSpan={5} className="p-8 text-center text-slate-500">
-                          Замовлень поки немає.
+                          {tab === "leads"
+                            ? "Запитів на план із калькулятора поки немає."
+                            : "Замовлень поки немає."}
                         </td>
                       </tr>
                     ) : (
-                      orders.map((ord) => {
+                      visibleOrders.map((ord) => {
                         const active = selectedOrder?.id === ord.id;
                         return (
                           <tr
@@ -679,14 +713,22 @@ export function AdminDashboard() {
                               <div className="font-bold text-slate-900">
                                 {ord.product_name || ord.mode}
                               </div>
-                              <div className="text-[11px] text-slate-500">
-                                {ord.finish} • {ord.shipping_method}
-                                {ord.include_stand ? " + Stand" : ""}
-                              </div>
-                              {ord.total_usd > 0 && (
-                                <div className="mt-0.5 font-extrabold text-teal-800">
-                                  ${ord.total_usd} USD
+                              {ord.mode === "protocol_lead" ? (
+                                <div className="mt-0.5 line-clamp-2 text-[11px] text-teal-800">
+                                  {ord.customer_notes || "Запит на персональний план із калькулятора"}
                                 </div>
+                              ) : (
+                                <>
+                                  <div className="text-[11px] text-slate-500">
+                                    {ord.finish} • {ord.shipping_method}
+                                    {ord.include_stand ? " + Stand" : ""}
+                                  </div>
+                                  {ord.total_usd > 0 && (
+                                    <div className="mt-0.5 font-extrabold text-teal-800">
+                                      ${ord.total_usd} USD
+                                    </div>
+                                  )}
+                                </>
                               )}
                             </td>
                             <td className="p-3.5">

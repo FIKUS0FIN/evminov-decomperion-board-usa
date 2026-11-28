@@ -19,7 +19,8 @@ export const onRequestGet: PagesFunction<AuthEnv> = async ({ request, env }) => 
        state_or_country, address, customer_notes,
        tracking_number, locale, created_at, updated_at
      FROM orders
-     WHERE user_id = ? OR lower(customer_email) = ?
+     WHERE (user_id = ? OR lower(customer_email) = ?)
+       AND mode != 'protocol_lead'
      ORDER BY created_at DESC
      LIMIT 100`
   )
@@ -34,7 +35,8 @@ export const onRequestGet: PagesFunction<AuthEnv> = async ({ request, env }) => 
       `SELECT e.id, e.order_id, e.event_type, e.status, e.message, e.author_role, e.author_name, e.created_at
        FROM order_events e
        INNER JOIN orders o ON o.id = e.order_id
-       WHERE o.user_id = ? OR lower(o.customer_email) = ?
+       WHERE (o.user_id = ? OR lower(o.customer_email) = ?)
+         AND o.mode != 'protocol_lead'
        ORDER BY e.created_at ASC`
     )
       .bind(user.id, user.email.toLowerCase())

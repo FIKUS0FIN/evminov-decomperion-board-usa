@@ -78,8 +78,9 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
         ? `/${lang}`
         : "";
 
-    // Persist real orders & warranty registrations in Cloudflare D1 (keep calculator leads out of Orders table)
-    if (env.DB && mode !== "protocol_lead") {
+    // Persist orders, warranty registrations, and calculator plan leads in Cloudflare D1
+    if (env.DB) {
+      const dbTotalUsd = mode === "protocol_lead" ? 0 : totalUsd;
       await env.DB.prepare(
         `INSERT INTO orders (
           id, order_ref, user_id, mode, status,
@@ -95,7 +96,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
           orderRef,
           sessionUser?.id || null,
           mode,
-          name,
+          name || (mode === "protocol_lead" ? "Calculator Lead" : ""),
           email,
           phone,
           product,
@@ -104,7 +105,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
           shipping,
           includeStand ? 1 : 0,
           includeHsaDoc ? 1 : 0,
-          totalUsd,
+          dbTotalUsd,
           stateOrCountry,
           address,
           notes,
