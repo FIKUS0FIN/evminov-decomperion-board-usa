@@ -11,6 +11,19 @@ const CANONICAL_HOST = "evminovusa.com";
 const SUPPORTED_HOSTS = new Set(["evminovusa.com", "evminovcanada.com"]);
 const REDIRECT_TO_US_HOSTS = new Set(["evminov.shop", "www.evminov.shop"]);
 
+export function isPreviewHost(rawHostname: string): boolean {
+  const lower = rawHostname.toLowerCase();
+  return (
+    lower.endsWith(".pages.dev") ||
+    lower === "localhost" ||
+    lower === "127.0.0.1"
+  );
+}
+
+export function shouldNoindexHost(rawHostname: string): boolean {
+  return rawHostname.toLowerCase().endsWith(".pages.dev");
+}
+
 export function resolveRedirectHost(rawHostname: string): {
   host: string;
   forceHttpsRedirect: boolean;
@@ -23,6 +36,9 @@ export function resolveRedirectHost(rawHostname: string): {
     if (lower === `www.${supported}`) {
       return { host: supported, forceHttpsRedirect: true };
     }
+  }
+  if (!SUPPORTED_HOSTS.has(lower) && !isPreviewHost(lower)) {
+    return { host: CANONICAL_HOST, forceHttpsRedirect: true };
   }
   return { host: lower, forceHttpsRedirect: false };
 }
@@ -275,6 +291,7 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   const { request, next } = context;
   const url = new URL(request.url);
   const pathname = url.pathname.toLowerCase();
+  const previewNoindex = shouldNoindexHost(url.hostname);
   const activeHost = SUPPORTED_HOSTS.has(url.hostname)
     ? url.hostname
     : CANONICAL_HOST;
@@ -380,6 +397,9 @@ export const onRequest: PagesFunction<Env> = async (context) => {
       headers.set("Cache-Control", "public, max-age=3600");
       headers.set("Content-Signal", "ai-train=yes, search=yes, ai-input=yes");
       headers.set("Link", LINK_HEADERS);
+      if (previewNoindex) {
+        headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+      }
       headers.delete("Content-Length");
       return new Response(localized, { status: 200, headers });
     }
@@ -402,6 +422,9 @@ export const onRequest: PagesFunction<Env> = async (context) => {
       headers.set("Cache-Control", "public, max-age=3600");
       headers.set("Content-Signal", "ai-train=yes, search=yes, ai-input=yes");
       headers.set("Link", LINK_HEADERS);
+      if (previewNoindex) {
+        headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+      }
       headers.delete("Content-Length");
       return new Response(localized, { status: 200, headers });
     }
@@ -417,12 +440,26 @@ export const onRequest: PagesFunction<Env> = async (context) => {
       headers.set("Cache-Control", "public, max-age=3600");
       headers.set("Content-Signal", "ai-train=yes, search=yes, ai-input=yes");
       headers.set("Link", LINK_HEADERS);
+      if (previewNoindex) {
+        headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+      }
       return new Response(res.body, { status: 200, headers });
     }
   }
 
   // Ensure /robots.txt always carries region-correct Sitemap, Agentmap, and Content-Signal
+  // Block indexing completely on *.pages.dev preview hosts to prevent mirror cannibalization
   if (pathname === "/robots.txt") {
+    if (previewNoindex) {
+      return new Response("User-agent: *\nDisallow: /\n", {
+        status: 200,
+        headers: {
+          "Content-Type": "text/plain; charset=utf-8",
+          "Cache-Control": "no-store",
+          "X-Robots-Tag": "noindex, nofollow, noarchive",
+        },
+      });
+    }
     const res = await next();
     let text = res.ok ? await res.text() : "";
     text = localizeDiscoveryText(text, activeHost);
@@ -449,6 +486,9 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   const accept = request.headers.get("accept") || "";
   const method = request.method;
   const robotsTag = getRobotsTag(pathname, url.pathname);
+  const effectiveRobotsTag = previewNoindex
+    ? "noindex, nofollow, noarchive"
+    : robotsTag;
 
   const response = await next();
   const contentType = response.headers.get("content-type") || "";
@@ -471,7 +511,7 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     headers.set("Link", LINK_HEADERS);
     headers.set("Content-Signal", "ai-train=yes, search=yes, ai-input=yes");
     headers.set("Cache-Control", "public, max-age=0, must-revalidate");
-    if (robotsTag) headers.set("X-Robots-Tag", robotsTag);
+    if (effectiveRobotsTag) headers.set("X-Robots-Tag", effectiveRobotsTag);
 
     return new Response(method === "HEAD" ? null : markdown, {
       status: response.status,
@@ -498,7 +538,7 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   ) {
     newHeaders.set("Cache-Control", "public, max-age=31536000, immutable");
   }
-  if (robotsTag) newHeaders.set("X-Robots-Tag", robotsTag);
+  if (effectiveRobotsTag) newHeaders.set("X-Robots-Tag", effectiveRobotsTag);
 
   const vary = response.headers.get("vary");
   if (vary) {

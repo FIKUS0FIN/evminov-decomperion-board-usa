@@ -4,6 +4,7 @@ import { inter, jakarta, onest } from "@/lib/fonts";
 import { Locale, LOCALE_META } from "@/i18n/types";
 import { getDictionary } from "@/i18n/dictionaries";
 import { SITE_CONFIG } from "@/lib/site-config";
+import { IS_CANADA } from "@/lib/region-config";
 import { getCanonicalUrl, getHreflangAlternates } from "@/lib/url";
 import { CONSENT_KEY } from "@/lib/consent";
 import { HsaSavingsProvider } from "@/context/HsaSavingsContext";
@@ -25,20 +26,92 @@ export const sharedViewport: Viewport = {
   interactiveWidget: "resizes-content",
 };
 
+const CANADA_HOME_META: Record<
+  Locale,
+  { siteTitle: string; siteDescription: string; keywords: string[] }
+> = {
+  en: {
+    siteTitle: "Evminov Spine Systems Canada | Inclined Spine Decompression Board (CAD)",
+    siteDescription:
+      "Authentic handcrafted Carpathian pine Evminov spine decompression boards shipped across Canada (all 13 provinces) in CAD. Safer 8°–35° alternative to inversion tables, 60-day trial & itemized Extended Health / HSA receipt.",
+    keywords: [
+      "evminov board canada",
+      "spinal decompression board canada",
+      "inversion table alternative canada",
+      "herniated disc home relief canada",
+      "extended health benefits spine equipment",
+    ],
+  },
+  es: {
+    siteTitle: "Evminov Spine Systems Canadá | Tabla de Descompresión Espinal (CAD)",
+    siteDescription:
+      "Tablas Evminov originales de pino de los Cárpatos en Canadá (precios en CAD). Alternativa segura de 8°–35° a las mesas de inversión, envío a las 13 provincias y prueba de 60 días.",
+    keywords: [
+      "tabla evminov canada",
+      "descompresion espinal canada",
+      "alternativa mesa de inversion canada",
+    ],
+  },
+  fr: {
+    siteTitle: "Evminov Spine Systems Canada | Planche de Décompression Vertébrale (CAD)",
+    siteDescription:
+      "Planches Evminov authentiques en pin des Carpates livrées partout au Canada en CAD (Québec, Ontario et 13 provinces). Alternative sûre 8°–35° aux tables d'inversion, essai 60 jours et reçu d'assurance.",
+    keywords: [
+      "planche evminov canada",
+      "decompression vertebrale quebec",
+      "alternative table inversion canada",
+      "soulagement dos sciatique montreal",
+    ],
+  },
+  de: {
+    siteTitle: "Evminov Spine Systems Kanada | Wirbelsäulen-Dekompressionsboard (CAD)",
+    siteDescription:
+      "Authentische handgefertigte Evminov Boards aus Karpaten-Kiefer mit Versand in ganz Kanada (Preise in CAD). Sichere 8°–35° Alternative zur Inversionsbank, 60 Tage Test & Quittung.",
+    keywords: [
+      "evminov board kanada",
+      "wirbelsäulendekompression kanada",
+      "alternative inversionsbank kanada",
+    ],
+  },
+  uk: {
+    siteTitle: "Evminov Spine Systems Канада | Оригінальний Профілактор Євмінова (CAD)",
+    siteDescription:
+      "Оригінальні дошки (Профілактори) Євмінова у Канаді з цінами в CAD і доставкою в усі 13 провінцій (Онтаріо, Квебек, Британська Колумбія, Альберта). Безпечна декомпресія 8°–35°, 60 днів тесту та чек для Extended Health.",
+    keywords: [
+      "профілактор євмінова канада",
+      "дошка євмінова купити канада",
+      "декомпресія хребта канада",
+      "альтернатива інверсійному столу канада",
+    ],
+  },
+  ru: {
+    siteTitle: "Evminov Spine Systems Канада | Оригинальная Доска Евминова (CAD)",
+    siteDescription:
+      "Оригинальные доски Евминова в Канаде в CAD с доставкой во все 13 провинций (Торонто, Монреаль, Ванкувер, Калгари). Безопасная декомпрессия 8°–35°, 60 дней теста и чек для страховки.",
+    keywords: [
+      "доска евминова канада",
+      "профилактор евминова купить канада",
+      "декомпрессия позвоночника канада",
+    ],
+  },
+};
+
 export function getSharedMetadata(lang: Locale): Metadata {
   const dict = getDictionary(lang);
+  const activeMeta = IS_CANADA ? CANADA_HOME_META[lang] : dict.meta;
   const canonical = getCanonicalUrl("/", lang);
+  const ogLocale = IS_CANADA ? `${lang}_CA` : LOCALE_META[lang].ogLocale;
   const googleVerify = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined;
   const bingVerify = process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION || undefined;
 
   return {
     metadataBase: new URL(SITE_CONFIG.canonicalOrigin),
     title: {
-      default: dict.meta.siteTitle,
-      template: "%s | Evminov",
+      default: activeMeta.siteTitle,
+      template: IS_CANADA ? "%s | Evminov Canada" : "%s | Evminov USA",
     },
-    description: dict.meta.siteDescription,
-    keywords: dict.meta.keywords,
+    description: activeMeta.siteDescription,
+    keywords: activeMeta.keywords,
     alternates: {
       canonical,
       languages: getHreflangAlternates("/"),
@@ -52,11 +125,11 @@ export function getSharedMetadata(lang: Locale): Metadata {
         : undefined,
     openGraph: {
       type: "website",
-      locale: LOCALE_META[lang].ogLocale,
+      locale: ogLocale,
       url: canonical,
-      siteName: SITE_CONFIG.brandName,
-      title: dict.meta.siteTitle,
-      description: dict.meta.siteDescription,
+      siteName: SITE_CONFIG.legalName,
+      title: activeMeta.siteTitle,
+      description: activeMeta.siteDescription,
       images: [
         {
           url: `${SITE_CONFIG.canonicalOrigin}/images/social/evminov-decompression-studio-preview.jpg`,
@@ -68,8 +141,8 @@ export function getSharedMetadata(lang: Locale): Metadata {
     },
     twitter: {
       card: "summary_large_image",
-      title: dict.meta.siteTitle,
-      description: dict.meta.siteDescription,
+      title: activeMeta.siteTitle,
+      description: activeMeta.siteDescription,
       images: [
         `${SITE_CONFIG.canonicalOrigin}/images/social/evminov-decompression-studio-preview.jpg`,
       ],

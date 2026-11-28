@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Activity,
   Award,
@@ -18,17 +19,62 @@ import {
 } from "lucide-react";
 import { Locale } from "@/i18n/types";
 import { getDictionary } from "@/i18n/dictionaries";
-import { getLocalizedHref } from "@/lib/url";
+import {
+  getCrossRegionStoreUrl,
+  getLocalizedHref,
+  getRegionalHreflang,
+} from "@/lib/url";
+import { IS_CANADA } from "@/lib/region-config";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { PRODUCTS } from "@/data/products";
 import { openCookieSettings } from "@/lib/consent";
 import { EvminovBrandLockup } from "@/components/brand/EvminovLogo";
 import { FOOTER_CONTENT } from "@/i18n/locales/chrome";
 
+const REGION_SWITCHER_COPY: Record<
+  Locale,
+  { label: string; usStore: string; caStore: string }
+> = {
+  en: {
+    label: "Official North America Stores:",
+    usStore: "🇺🇸 United States • evminovusa.com (USD)",
+    caStore: "🇨🇦 Canada • evminovcanada.com (CAD)",
+  },
+  es: {
+    label: "Tiendas oficiales de Norteamérica:",
+    usStore: "🇺🇸 EE. UU. • evminovusa.com (USD)",
+    caStore: "🇨🇦 Canadá • evminovcanada.com (CAD)",
+  },
+  fr: {
+    label: "Boutiques officielles Amérique du Nord :",
+    usStore: "🇺🇸 États-Unis • evminovusa.com (USD)",
+    caStore: "🇨🇦 Canada • evminovcanada.com (CAD)",
+  },
+  de: {
+    label: "Offizielle Nordamerika-Shops:",
+    usStore: "🇺🇸 USA • evminovusa.com (USD)",
+    caStore: "🇨🇦 Kanada • evminovcanada.com (CAD)",
+  },
+  uk: {
+    label: "Офіційні магазини Північної Америки:",
+    usStore: "🇺🇸 США • evminovusa.com (USD)",
+    caStore: "🇨🇦 Канада • evminovcanada.com (CAD)",
+  },
+  ru: {
+    label: "Официальные магазины Северной Америки:",
+    usStore: "🇺🇸 США • evminovusa.com (USD)",
+    caStore: "🇨🇦 Канада • evminovcanada.com (CAD)",
+  },
+};
+
 export function Footer({ lang }: { lang: Locale }) {
+  const pathname = usePathname() || "/";
   const dict = getDictionary(lang);
   const f = dict.footer;
   const fc = FOOTER_CONTENT[lang];
+  const rs = REGION_SWITCHER_COPY[lang];
+  const usHref = getCrossRegionStoreUrl(pathname, lang, "US");
+  const caHref = getCrossRegionStoreUrl(pathname, lang, "CA");
 
   const trustCardStyles = [
     { href: getLocalizedHref("/centers/", lang), icon: ShieldCheck, iconBg: "bg-emerald-500/15 text-emerald-400", tagColor: "text-emerald-400" },
@@ -332,8 +378,39 @@ export function Footer({ lang }: { lang: Locale }) {
           </div>
         </div>
 
+        {/* Official North America Cross-Store Switcher (USA ↔ Canada Authority & Region Routing) */}
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-xs">
+          <span className="font-bold text-slate-300">{rs.label}</span>
+          <div className="flex flex-wrap items-center gap-2">
+            <a
+              href={usHref}
+              hrefLang={getRegionalHreflang(lang, "US")}
+              aria-current={!IS_CANADA ? "true" : undefined}
+              className={`inline-flex min-h-[36px] items-center rounded-xl px-3 py-1.5 font-bold transition ${
+                !IS_CANADA
+                  ? "border border-emerald-400/50 bg-emerald-500/15 text-emerald-300"
+                  : "border border-white/10 bg-white/[0.04] text-slate-300 hover:border-white/25 hover:text-white"
+              }`}
+            >
+              {rs.usStore}
+            </a>
+            <a
+              href={caHref}
+              hrefLang={getRegionalHreflang(lang, "CA")}
+              aria-current={IS_CANADA ? "true" : undefined}
+              className={`inline-flex min-h-[36px] items-center rounded-xl px-3 py-1.5 font-bold transition ${
+                IS_CANADA
+                  ? "border border-emerald-400/50 bg-emerald-500/15 text-emerald-300"
+                  : "border border-white/10 bg-white/[0.04] text-slate-300 hover:border-white/25 hover:text-white"
+              }`}
+            >
+              {rs.caStore}
+            </a>
+          </div>
+        </div>
+
         {/* General Wellness Equipment Notice */}
-        <div className="mt-6 rounded-2xl bg-black/30 p-4 text-xs leading-relaxed text-slate-400">
+        <div className="mt-4 rounded-2xl bg-black/30 p-4 text-xs leading-relaxed text-slate-400">
           {fc.wellnessNotice}
         </div>
 

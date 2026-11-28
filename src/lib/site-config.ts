@@ -52,6 +52,7 @@ export const SITE_CONFIG = {
   socialProfiles: [
     "https://www.youtube.com/channel/UCwsC2K28uWYijzAKnZljzsw",
     "https://evminovusa.com/",
+    "https://evminovcanada.com/",
   ],
   indexNowKey: "e7f4b29c1a8345d0b6e9c2f1a8d7304b",
 } as const;

@@ -2,9 +2,11 @@ import { describe, it, expect } from "vitest";
 import {
   canonicalizePathname,
   convertHtmlToMarkdown,
+  isPreviewHost,
   localizeDiscoveryText,
   prefersMarkdown,
   resolveRedirectHost,
+  shouldNoindexHost,
 } from "../../functions/_middleware";
 import { queryEvminovKnowledge } from "../../functions/api/ask";
 import { escapeHtml } from "../../functions/api/submit-order";
@@ -35,6 +37,13 @@ describe("Cloudflare Edge Middleware, NLWeb & Security Helpers", () => {
       host: "evminovcanada.com",
       forceHttpsRedirect: true,
     });
+    expect(resolveRedirectHost("legacy.example-mirror.org")).toEqual({
+      host: "evminovusa.com",
+      forceHttpsRedirect: true,
+    });
+    expect(isPreviewHost("evminov-decompression-board-usa.pages.dev")).toBe(true);
+    expect(shouldNoindexHost("evminov-decompression-board-ca.pages.dev")).toBe(true);
+    expect(shouldNoindexHost("evminovusa.com")).toBe(false);
   });
 
   it("detects Markdown-for-Agents Accept preference accurately", () => {

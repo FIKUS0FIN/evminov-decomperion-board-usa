@@ -1,4 +1,5 @@
 import { SITE_CONFIG } from "@/lib/site-config";
+import { CA_ORIGIN, IS_CANADA, US_ORIGIN } from "@/lib/region-config";
 import {
   getProductPrice,
   OFFICIAL_ACCESSORIES,
@@ -68,13 +69,33 @@ export function OrganizationAndWebsiteSchema({ lang }: { lang: Locale }) {
           postalCode: SITE_CONFIG.address.postalCode,
           addressCountry: SITE_CONFIG.address.country,
         },
-        areaServed: [
-          { "@type": "Country", name: "United States" },
-          { "@type": "Country", name: "Canada" },
-          { "@type": "Country", name: "Ukraine" },
-          { "@type": "Place", name: "European Union" },
-        ],
-        sameAs: [SITE_CONFIG.youtubeChannelUrl, `${origin}/`],
+        areaServed: IS_CANADA
+          ? [{ "@type": "Country", name: "Canada" }]
+          : [
+              { "@type": "Country", name: "United States" },
+              { "@type": "Country", name: "Canada" },
+              { "@type": "Country", name: "Ukraine" },
+              { "@type": "Place", name: "European Union" },
+            ],
+        ...(IS_CANADA
+          ? {
+              parentOrganization: {
+                "@type": "Organization",
+                "@id": `${US_ORIGIN}/#organization`,
+                name: SITE_CONFIG.brandName,
+                url: `${US_ORIGIN}/`,
+              },
+            }
+          : {
+              subOrganization: {
+                "@type": "OnlineStore",
+                "@id": `${CA_ORIGIN}/#organization`,
+                name: "Evminov Spine Systems Canada",
+                url: `${CA_ORIGIN}/`,
+                areaServed: { "@type": "Country", name: "Canada" },
+              },
+            }),
+        sameAs: [SITE_CONFIG.youtubeChannelUrl, `${US_ORIGIN}/`, `${CA_ORIGIN}/`],
         knowsAbout: [
           "Inclined Spine Decompression",
           "Evminov Method",

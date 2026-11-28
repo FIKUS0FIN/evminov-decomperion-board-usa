@@ -17,7 +17,12 @@ import {
 } from "lucide-react";
 import { LOCALES, LOCALE_META, Locale } from "@/i18n/types";
 import { getDictionary } from "@/i18n/dictionaries";
-import { getLocalizedHref } from "@/lib/url";
+import {
+  getCrossRegionStoreUrl,
+  getLocalizedHref,
+  getRegionalHreflang,
+} from "@/lib/url";
+import { IS_CANADA } from "@/lib/region-config";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { useHsaSavings } from "@/context/HsaSavingsContext";
 import { sendGTMEvent } from "@/lib/gtm";
@@ -140,11 +145,48 @@ const HEADER_LABELS: Record<Locale, HeaderLabels> = {
   },
 };
 
+const CANADA_BAR_OVERRIDES: Record<
+  Locale,
+  { barTagline: string; shippingNav: string }
+> = {
+  en: {
+    barTagline: "30 Years of Spine Biomechanics • Canada-Wide Shipping (CAD) • 60-Day Trial",
+    shippingNav: "Canada Shipping",
+  },
+  es: {
+    barTagline: "30 Años de Biomecánica • Envío a Todo Canadá (CAD) • Prueba 60 Días",
+    shippingNav: "Envíos en Canadá",
+  },
+  fr: {
+    barTagline: "30 Ans de Biomécanique • Livraison Partout au Canada (CAD) • Essai 60 Jours",
+    shippingNav: "Livraison Canada",
+  },
+  de: {
+    barTagline: "30 Jahre Wirbelsäulen-Biomechanik • Kanadaweiter Versand (CAD) • 60 Tage Test",
+    shippingNav: "Kanada-Versand",
+  },
+  uk: {
+    barTagline: "30 років методики Євмінова • Доставка по всій Канаді (CAD) • 60 днів тесту",
+    shippingNav: "Доставка Канада",
+  },
+  ru: {
+    barTagline: "30 лет методики Евминова • Доставка по всей Канаде (CAD) • 60 дней теста",
+    shippingNav: "Доставка Канада",
+  },
+};
+
 export function Header({ lang }: { lang: Locale }) {
   const dict = getDictionary(lang);
   const hl = HEADER_LABELS[lang];
+  const caOverride = IS_CANADA ? CANADA_BAR_OVERRIDES[lang] : null;
+  const barTagline = caOverride ? caOverride.barTagline : hl.barTagline;
+  const shippingNavLabel = caOverride ? caOverride.shippingNav : hl.shipping50;
   const hx = HEADER_EXTRA[lang];
   const pathname = usePathname() || "/";
+  const sisterRegion = IS_CANADA ? "US" : "CA";
+  const sisterStoreHref = getCrossRegionStoreUrl(pathname, lang, sisterRegion);
+  const usStoreHref = getCrossRegionStoreUrl(pathname, lang, "US");
+  const caStoreHref = getCrossRegionStoreUrl(pathname, lang, "CA");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -188,7 +230,7 @@ export function Header({ lang }: { lang: Locale }) {
       highlight: false,
     },
     {
-      label: hl.shipping50,
+      label: shippingNavLabel,
       href: getLocalizedHref("/shipping/", lang),
       highlight: false,
     },
@@ -253,11 +295,20 @@ export function Header({ lang }: { lang: Locale }) {
               •
             </span>
             <span className="truncate font-medium text-slate-200">
-              {hl.barTagline}
+              {barTagline}
             </span>
           </div>
 
           <div className="flex w-full items-center justify-between gap-2 md:w-auto md:justify-end md:gap-3">
+            {/* Compact Sister North American Store Pill */}
+            <a
+              href={sisterStoreHref}
+              hrefLang={getRegionalHreflang(lang, sisterRegion)}
+              className="hidden sm:inline-flex min-h-[28px] shrink-0 items-center gap-1 rounded-full border border-white/15 bg-white/5 px-2.5 py-0.5 text-[11px] font-bold text-slate-200 transition hover:border-emerald-400/50 hover:bg-white/10 hover:text-white"
+            >
+              <span>{IS_CANADA ? "🇺🇸 USA (USD)" : "🇨🇦 Canada (CAD)"}</span>
+            </a>
+
             {/* Compact HSA/FSA ~30% Toggle Pill */}
             <button
               type="button"
@@ -298,7 +349,7 @@ export function Header({ lang }: { lang: Locale }) {
                   <Link
                     key={loc}
                     href={getLocalizedHref(switchBasePath, loc)}
-                    hrefLang={LOCALE_META[loc].hreflang}
+                    hrefLang={getRegionalHreflang(loc)}
                     className={`shrink-0 rounded px-1.5 py-1 text-[11px] font-bold transition ${
                       active
                         ? "bg-emerald-500 text-slate-950"
@@ -499,7 +550,33 @@ export function Header({ lang }: { lang: Locale }) {
               </Link>
             </nav>
 
-            <div className="mt-4 flex flex-col gap-2 border-t border-slate-100 pt-4">
+            <div className="mt-4 flex flex-col gap-2.5 border-t border-slate-100 pt-4">
+              <div className="grid grid-cols-2 gap-2">
+                <a
+                  href={usStoreHref}
+                  hrefLang={getRegionalHreflang(lang, "US")}
+                  aria-current={!IS_CANADA ? "true" : undefined}
+                  className={`flex min-h-[44px] items-center justify-center rounded-xl border px-3 text-xs font-extrabold transition ${
+                    !IS_CANADA
+                      ? "border-emerald-500 bg-emerald-50 text-emerald-900"
+                      : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
+                  }`}
+                >
+                  🇺🇸 USA (USD)
+                </a>
+                <a
+                  href={caStoreHref}
+                  hrefLang={getRegionalHreflang(lang, "CA")}
+                  aria-current={IS_CANADA ? "true" : undefined}
+                  className={`flex min-h-[44px] items-center justify-center rounded-xl border px-3 text-xs font-extrabold transition ${
+                    IS_CANADA
+                      ? "border-emerald-500 bg-emerald-50 text-emerald-900"
+                      : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
+                  }`}
+                >
+                  🇨🇦 Canada (CAD)
+                </a>
+              </div>
               <a
                 href={SITE_CONFIG.whatsappHref}
                 target="_blank"

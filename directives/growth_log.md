@@ -71,3 +71,25 @@
 - **Cloudflare `evminov.shop` → `https://evminovusa.com` 301 Redirect:**
   - Cloudflare Zone `c6a4e5cad8b2797c95d32b50383f40c1` (`evminov.shop`, status `active`): proxied apex `evminov.shop` & `www.evminov.shop` DNS (`192.0.2.1` / `100::`) + `http_request_dynamic_redirect` ruleset (`744c358a7e684550b7a4694b6dae4dcf`, rule `1af05e6407944bd487eda7e4219a8d12`) issuing HTTP `301` preserving path & query string.
   - [functions/_middleware.ts](file:///Users/dimasymonenko/Desktop/Apex_Root_LLC_Consultant/Apex_Root_Projects/Evminov-Board/functions/_middleware.ts) & [src/lib/edge-middleware-and-apis.test.ts](file:///Users/dimasymonenko/Desktop/Apex_Root_LLC_Consultant/Apex_Root_Projects/Evminov-Board/src/lib/edge-middleware-and-apis.test.ts) — added `resolveRedirectHost()` Edge Middleware defense-in-depth fallback + unit tests.
+
+
+---
+
+## Iteration #3 — 2026-11-28
+- **Direction:** International SEO / Anti-Cannibalization & Mutual Domain Authority (`evminovusa.com` ↔ `evminovcanada.com` + `evminov.shop` + Preview Shields)
+- **Why This Pillar Matters:** Prevents cross-domain cannibalization on `/uk/`, `/ru/`, `/es/`, `/de/`, `/fr/` where `evminovcanada.com` previously carried self-canonicals without matching `*-CA` return `hreflang` tags and shared US-centric titles, closes mirror indexing risks on `*.pages.dev` and staging subdomains, and consolidates US/CA Knowledge Graph & internal crawling signals into one unified North American brand entity.
+
+### What Was Built & Modified
+- **Full 15-Tag Reciprocal US/CA `hreflang` Matrix + Cross-Region Routing:**
+  - [src/lib/url.ts](file:///Users/dimasymonenko/Desktop/Apex_Root_LLC_Consultant/Apex_Root_Projects/Evminov-Board/src/lib/url.ts) — emitted symmetric `*-US`, `*-CA`, regional defaults (`de-DE`, `uk-UA`, `ru`), and `x-default` return links across all 6 languages; added `getRegionalHreflang()` and `getCrossRegionStoreUrl()` (with state/province fallback to `/shipping/`).
+- **Preview & Mirror Indexation Shield + Cloudflare Domain Cleanup:**
+  - [functions/_middleware.ts](file:///Users/dimasymonenko/Desktop/Apex_Root_LLC_Consultant/Apex_Root_Projects/Evminov-Board/functions/_middleware.ts) — added `isPreviewHost()` & `shouldNoindexHost()` serving `X-Robots-Tag: noindex, nofollow, noarchive` + `Disallow: /` `/robots.txt` on `*.pages.dev` preview deployments, and 1-hop 301 canonicalization to `https://evminovusa.com` for any stray non-canonical custom hostname.
+  - Cloudflare Pages `evminov-decompression-board-usa`: removed 3 non-canonical staging domain bindings via Cloudflare API, leaving only `evminovusa.com` and `www.evminovusa.com`.
+- **Cross-Domain Knowledge Graph Entity Linking:**
+  - [src/lib/site-config.ts](file:///Users/dimasymonenko/Desktop/Apex_Root_LLC_Consultant/Apex_Root_Projects/Evminov-Board/src/lib/site-config.ts) & [src/components/seo/JsonLd.tsx](file:///Users/dimasymonenko/Desktop/Apex_Root_LLC_Consultant/Apex_Root_Projects/Evminov-Board/src/components/seo/JsonLd.tsx) — linked US and CA stores via shared `sameAs` + reciprocal `subOrganization` (US → CA) / `parentOrganization` (CA → US) and isolated Canadian `areaServed` to Canada.
+- **Regionalized Canadian Titles, Meta Descriptions & `og:locale`:**
+  - [src/components/layout/WebsiteLayout.tsx](file:///Users/dimasymonenko/Desktop/Apex_Root_LLC_Consultant/Apex_Root_Projects/Evminov-Board/src/components/layout/WebsiteLayout.tsx) & [src/lib/page-metadata.ts](file:///Users/dimasymonenko/Desktop/Apex_Root_LLC_Consultant/Apex_Root_Projects/Evminov-Board/src/lib/page-metadata.ts) — added `CANADA_HOME_META` across all 6 languages, `regionalizeMetaText()`, Canadian `%s | Evminov Canada` title template, and `${lang}_CA` `og:locale`.
+- **Mutual Storefront Switchers (`🇺🇸 USA (USD)` ↔ `🇨🇦 Canada (CAD)`):**
+  - [src/components/layout/Footer.tsx](file:///Users/dimasymonenko/Desktop/Apex_Root_LLC_Consultant/Apex_Root_Projects/Evminov-Board/src/components/layout/Footer.tsx) & [src/components/layout/Header.tsx](file:///Users/dimasymonenko/Desktop/Apex_Root_LLC_Consultant/Apex_Root_Projects/Evminov-Board/src/components/layout/Header.tsx) — added localized footer regional switcher, desktop top-bar sister-store pill, mobile drawer region switcher, and Canadian top-bar tagline overrides.
+- **Self-Referencing Hreflang Verification & Unit Tests:**
+  - [scripts/verify-seo-indexers.mjs](file:///Users/dimasymonenko/Desktop/Apex_Root_LLC_Consultant/Apex_Root_Projects/Evminov-Board/scripts/verify-seo-indexers.mjs), [src/lib/url-and-i18n.test.ts](file:///Users/dimasymonenko/Desktop/Apex_Root_LLC_Consultant/Apex_Root_Projects/Evminov-Board/src/lib/url-and-i18n.test.ts), and [src/lib/edge-middleware-and-apis.test.ts](file:///Users/dimasymonenko/Desktop/Apex_Root_LLC_Consultant/Apex_Root_Projects/Evminov-Board/src/lib/edge-middleware-and-apis.test.ts).

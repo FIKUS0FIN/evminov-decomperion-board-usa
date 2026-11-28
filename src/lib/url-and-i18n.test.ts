@@ -4,8 +4,10 @@ import { getDictionary } from "@/i18n/dictionaries";
 import {
   buildPrefilledOrderUrl,
   getCanonicalUrl,
+  getCrossRegionStoreUrl,
   getHreflangAlternates,
   getLocalizedHref,
+  getRegionalHreflang,
 } from "@/lib/url";
 import { PRODUCTS } from "@/data/products";
 import { GUIDES } from "@/data/guides";
@@ -32,11 +34,29 @@ describe("5-Language URL Routing & Single-Source-of-Truth Integrity", () => {
     expect(alts["en-US"]).toBe("https://evminovusa.com/products/standard-pine-board/");
     expect(alts["en-CA"]).toBe("https://evminovcanada.com/products/standard-pine-board/");
     expect(alts["es-US"]).toBe("https://evminovusa.com/es/products/standard-pine-board/");
+    expect(alts["es-CA"]).toBe("https://evminovcanada.com/es/products/standard-pine-board/");
     expect(alts["fr-CA"]).toBe("https://evminovcanada.com/fr/products/standard-pine-board/");
+    expect(alts["fr-US"]).toBe("https://evminovusa.com/fr/products/standard-pine-board/");
     expect(alts["de-DE"]).toBe("https://evminovusa.com/de/products/standard-pine-board/");
+    expect(alts["de-US"]).toBe("https://evminovusa.com/de/products/standard-pine-board/");
+    expect(alts["de-CA"]).toBe("https://evminovcanada.com/de/products/standard-pine-board/");
     expect(alts["uk-UA"]).toBe("https://evminovusa.com/uk/products/standard-pine-board/");
+    expect(alts["uk-US"]).toBe("https://evminovusa.com/uk/products/standard-pine-board/");
+    expect(alts["uk-CA"]).toBe("https://evminovcanada.com/uk/products/standard-pine-board/");
     expect(alts["ru"]).toBe("https://evminovusa.com/ru/products/standard-pine-board/");
+    expect(alts["ru-US"]).toBe("https://evminovusa.com/ru/products/standard-pine-board/");
+    expect(alts["ru-CA"]).toBe("https://evminovcanada.com/ru/products/standard-pine-board/");
     expect(alts["x-default"]).toBe("https://evminovusa.com/products/standard-pine-board/");
+
+    expect(getRegionalHreflang("uk", "CA")).toBe("uk-CA");
+    expect(getRegionalHreflang("uk", "US")).toBe("uk-US");
+    expect(getRegionalHreflang("de", "US")).toBe("de-DE");
+    expect(getCrossRegionStoreUrl("/uk/guides/", "uk", "CA")).toBe(
+      "https://evminovcanada.com/uk/guides/"
+    );
+    expect(getCrossRegionStoreUrl("/shipping/california/", "en", "CA")).toBe(
+      "https://evminovcanada.com/shipping/"
+    );
   });
 
   it("builds deep-linked pre-filled order URLs", () => {

@@ -63,9 +63,33 @@ export function getCanonicalUrl(path: string, lang: Locale = DEFAULT_LOCALE): st
   return `${SITE_CONFIG.canonicalOrigin}${href}`;
 }
 
+export function getRegionalHreflang(
+  lang: Locale,
+  region: "US" | "CA" = REGION_CONFIG.region
+): string {
+  if (region === "CA") {
+    return `${lang}-CA`;
+  }
+  return lang === "de" ? "de-DE" : `${lang}-US`;
+}
+
+export function getCrossRegionStoreUrl(
+  pathname: string,
+  lang: Locale,
+  targetRegion: "US" | "CA"
+): string {
+  const localHref = getLocalizedHref(pathname || "/", lang).split(/[?#]/)[0];
+  const isRegionalShippingDetail = /^\/(?:[a-z]{2}\/)?shipping\/[^/]+\/$/.test(localHref);
+  const mappedHref = isRegionalShippingDetail
+    ? getLocalizedHref("/shipping/", lang)
+    : localHref;
+  const targetOrigin = targetRegion === "CA" ? CA_ORIGIN : US_ORIGIN;
+  return `${targetOrigin}${mappedHref}`;
+}
+
 /**
- * Generates Next.js `alternates.languages` map with reciprocal cross-domain
- * US (evminovusa.com) + Canada (evminovcanada.com) hreflang parity.
+ * Generates Next.js `alternates.languages` map with full reciprocal cross-domain
+ * US (evminovusa.com) + Canada (evminovcanada.com) hreflang parity across all locales.
  */
 export function getHreflangAlternates(
   path: string,
@@ -81,17 +105,30 @@ export function getHreflangAlternates(
 
   const languages: Record<string, string> = {};
   const enHref = getLocalizedHref(path, "en").split(/[?#]/)[0];
-  const frHref = getLocalizedHref(path, "fr").split(/[?#]/)[0];
 
   for (const loc of availableLocales) {
     const locHref = getLocalizedHref(path, loc).split(/[?#]/)[0];
-    if (loc === "fr") {
-      languages["fr-CA"] = `${CA_ORIGIN}${frHref}`;
-    } else if (loc === "en") {
-      languages["en-US"] = `${US_ORIGIN}${enHref}`;
-      languages["en-CA"] = `${CA_ORIGIN}${enHref}`;
-    } else {
-      languages[LOCALE_META[loc].hreflang] = `${US_ORIGIN}${locHref}`;
+    if (loc === "en") {
+      languages["en-US"] = `${US_ORIGIN}${locHref}`;
+      languages["en-CA"] = `${CA_ORIGIN}${locHref}`;
+    } else if (loc === "es") {
+      languages["es-US"] = `${US_ORIGIN}${locHref}`;
+      languages["es-CA"] = `${CA_ORIGIN}${locHref}`;
+    } else if (loc === "fr") {
+      languages["fr-CA"] = `${CA_ORIGIN}${locHref}`;
+      languages["fr-US"] = `${US_ORIGIN}${locHref}`;
+    } else if (loc === "de") {
+      languages["de-DE"] = `${US_ORIGIN}${locHref}`;
+      languages["de-US"] = `${US_ORIGIN}${locHref}`;
+      languages["de-CA"] = `${CA_ORIGIN}${locHref}`;
+    } else if (loc === "uk") {
+      languages["uk-UA"] = `${US_ORIGIN}${locHref}`;
+      languages["uk-US"] = `${US_ORIGIN}${locHref}`;
+      languages["uk-CA"] = `${CA_ORIGIN}${locHref}`;
+    } else if (loc === "ru") {
+      languages["ru"] = `${US_ORIGIN}${locHref}`;
+      languages["ru-US"] = `${US_ORIGIN}${locHref}`;
+      languages["ru-CA"] = `${CA_ORIGIN}${locHref}`;
     }
   }
   languages["x-default"] = `${US_ORIGIN}${enHref}`;

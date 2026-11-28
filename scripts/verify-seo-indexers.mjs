@@ -108,12 +108,30 @@ function auditHtml(html, expectedCanonical, relContext) {
     recordError(relContext, `Canonical mismatch: expected "${expectedCanonical}", found "${canonicalMatch?.[1] || "missing"}"`);
   }
 
-  // 5. Hreflang checks
+  // 5. Reciprocal & self-referencing hreflang checks
   const isStatePage = /^\/shipping\/[^/]+\/$/.test(parsed.pathname);
   const requiredHreflangs = isStatePage
     ? [IS_CANADA ? "en-CA" : "en-US", "x-default"]
-    : ["en-US", "en-CA", "es-US", "fr-CA", "de-DE", "uk-UA", "ru", "x-default"];
+    : [
+        "en-US",
+        "en-CA",
+        "es-US",
+        "es-CA",
+        "fr-CA",
+        "fr-US",
+        "de-DE",
+        "de-US",
+        "de-CA",
+        "uk-UA",
+        "uk-US",
+        "uk-CA",
+        "ru",
+        "ru-US",
+        "ru-CA",
+        "x-default",
+      ];
 
+  const foundHreflangTargets = [];
   for (const hl of requiredHreflangs) {
     const regex = new RegExp(
       `<link[^>]+hreflang=["']${hl}["'][^>]+href=["']([^"']+)["']|<link[^>]+href=["']([^"']+)["'][^>]+hreflang=["']${hl}["']`,
@@ -124,12 +142,20 @@ function auditHtml(html, expectedCanonical, relContext) {
       recordError(relContext, `Missing hreflang="${hl}"`);
     } else {
       const href = (m[1] || m[2]).trim();
+      foundHreflangTargets.push(href);
       const validOrigin = ALLOWED_HREFLANG_ORIGINS.some((o) => href.startsWith(o));
       const isBareRoot = ALLOWED_HREFLANG_ORIGINS.includes(href);
       if (!validOrigin || (!href.endsWith("/") && !isBareRoot)) {
         recordError(relContext, `Invalid hreflang="${hl}" URL: "${href}"`);
       }
     }
+  }
+
+  if (foundHreflangTargets.length > 0 && !foundHreflangTargets.includes(expectedCanonical)) {
+    recordError(
+      relContext,
+      `Self-referencing hreflang missing for canonical "${expectedCanonical}"`
+    );
   }
 
   // 6. Single H1 presence

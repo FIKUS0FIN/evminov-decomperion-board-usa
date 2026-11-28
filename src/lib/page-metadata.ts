@@ -1,7 +1,16 @@
 import type { Metadata } from "next";
 import { LOCALES, LOCALE_META, Locale } from "@/i18n/types";
+import { IS_CANADA } from "@/lib/region-config";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { getCanonicalUrl, getHreflangAlternates } from "@/lib/url";
+
+function regionalizeMetaText(raw: string): string {
+  if (!IS_CANADA) return raw;
+  return raw
+    .replace(/\b50 US states\b/gi, "13 Canadian provinces")
+    .replace(/\bHSA\/FSA\b/g, "Extended Health / HSA")
+    .replace(/\bEvminov USA\b/gi, "Evminov Canada");
+}
 
 function cleanPageTitle(rawTitle: string): string {
   return rawTitle
@@ -31,8 +40,11 @@ export function buildPageMetadata(options: {
   productPriceUsd?: number;
 }): Metadata {
   const canonical = getCanonicalUrl(options.path, options.lang);
-  const title = cleanPageTitle(options.title);
-  const description = cleanMetaDescription(options.description);
+  const title = cleanPageTitle(regionalizeMetaText(options.title));
+  const description = cleanMetaDescription(regionalizeMetaText(options.description));
+  const ogLocale = IS_CANADA
+    ? `${options.lang}_CA`
+    : LOCALE_META[options.lang].ogLocale;
   const ogImage = options.image
     ? `${SITE_CONFIG.canonicalOrigin}${options.image}`
     : `${SITE_CONFIG.canonicalOrigin}/images/social/evminov-decompression-studio-preview.jpg`;
@@ -70,9 +82,9 @@ export function buildPageMetadata(options: {
     },
     openGraph: {
       type: "website",
-      locale: LOCALE_META[options.lang].ogLocale,
+      locale: ogLocale,
       url: canonical,
-      siteName: SITE_CONFIG.brandName,
+      siteName: SITE_CONFIG.legalName,
       title,
       description,
       images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
