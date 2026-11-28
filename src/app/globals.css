@@ -128,8 +128,7 @@ footer {
 
 .animate-inversion-sway {
   animation: inversion-sway 4.2s ease-in-out infinite;
-  transform-box: fill-box;
-  transform-origin: 50% 15%;
+  transform-origin: 0px 0px;
 }
 
 .perspective-stage {

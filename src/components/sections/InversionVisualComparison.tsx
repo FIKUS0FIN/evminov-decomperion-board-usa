@@ -459,60 +459,62 @@ export function InversionVisualComparison({ lang = "en" }: { lang?: Locale }) {
                   <ellipse cx="185" cy="147" rx="88" ry="5" fill="#020617" opacity="0.65" />
 
                   {/* Bulky Steel A-Frame Legs */}
-                  <line x1="126" y1="146" x2="180" y2="54" stroke="#475569" strokeWidth="5" strokeLinecap="round" />
-                  <line x1="244" y1="146" x2="180" y2="54" stroke="#64748B" strokeWidth="5" strokeLinecap="round" />
-                  <line x1="145" y1="118" x2="225" y2="118" stroke="#334155" strokeWidth="3.5" />
+                  <line x1="126" y1="146" x2="180" y2="62" stroke="#475569" strokeWidth="5" strokeLinecap="round" />
+                  <line x1="234" y1="146" x2="180" y2="62" stroke="#64748B" strokeWidth="5" strokeLinecap="round" />
+                  <line x1="145" y1="118" x2="215" y2="118" stroke="#334155" strokeWidth="3.5" />
                   {/* Pivot Joint */}
-                  <circle cx="180" cy="54" r="6" fill="#94A3B8" />
+                  <circle cx="180" cy="62" r="6" fill="#94A3B8" />
 
-                  {/* Swaying Inverted Table + Upside-Down Figure */}
-                  <g className="animate-inversion-sway" transform="translate(180, 54)">
-                    {/* Steel Backrest Slab */}
-                    <rect x="-48" y="-5" width="112" height="9" rx="3" fill="#475569" />
-                    <rect x="-48" y="-5" width="112" height="3.5" rx="2" fill="#94A3B8" />
+                  {/* Swaying Inverted Table + Upside-Down Figure (Outer translate + Inner pivot rotation) */}
+                  <g transform="translate(180, 62)">
+                    <g className="animate-inversion-sway">
+                      {/* Steel Backrest Slab */}
+                      <rect x="-46" y="-5" width="106" height="9" rx="3" fill="#475569" />
+                      <rect x="-46" y="-5" width="106" height="3.5" rx="2" fill="#94A3B8" />
 
-                    {/* Ankle Clamp Lock at Upper End */}
-                    <rect x="-54" y="-13" width="12" height="16" rx="3" fill="#F59E0B" />
-                    <circle
-                      cx="-48"
-                      cy="-8"
-                      r="11"
-                      fill="none"
-                      stroke="#FBBF24"
-                      strokeWidth="1.5"
-                      strokeDasharray="2 2"
-                      className="animate-cranial-pulse"
-                    />
+                      {/* Ankle Clamp Lock at Upper End */}
+                      <rect x="-50" y="-14" width="12" height="16" rx="3" fill="#F59E0B" />
+                      <circle
+                        cx="-44"
+                        cy="-9"
+                        r="10"
+                        fill="none"
+                        stroke="#FBBF24"
+                        strokeWidth="1.5"
+                        strokeDasharray="2 2"
+                        className="animate-cranial-pulse"
+                      />
 
-                    {/* Upside-Down Body Silhouette */}
-                    <line
-                      x1="-44"
-                      y1="-11"
-                      x2="38"
-                      y2="-11"
-                      stroke="#CBD5E1"
-                      strokeWidth="7"
-                      strokeLinecap="round"
-                    />
+                      {/* Upside-Down Body Silhouette */}
+                      <line
+                        x1="-40"
+                        y1="-12"
+                        x2="38"
+                        y2="-12"
+                        stroke="#CBD5E1"
+                        strokeWidth="7"
+                        strokeLinecap="round"
+                      />
 
-                    {/* Downward-Hanging Head with Cranial Pressure Pulse */}
-                    <circle
-                      cx="54"
-                      cy="-12"
-                      r="17"
-                      fill="url(#cranialGlow)"
-                      className="animate-cranial-pulse"
-                    />
-                    <circle cx="54" cy="-12" r="8.5" fill="#F87171" />
-                    <circle
-                      cx="54"
-                      cy="-12"
-                      r="13"
-                      fill="none"
-                      stroke="#FB7185"
-                      strokeWidth="1.4"
-                      strokeDasharray="3 2"
-                    />
+                      {/* Downward-Hanging Head with Cranial Pressure Pulse */}
+                      <circle
+                        cx="54"
+                        cy="-12"
+                        r="17"
+                        fill="url(#cranialGlow)"
+                        className="animate-cranial-pulse"
+                      />
+                      <circle cx="54" cy="-12" r="8.5" fill="#F87171" />
+                      <circle
+                        cx="54"
+                        cy="-12"
+                        r="13"
+                        fill="none"
+                        stroke="#FB7185"
+                        strokeWidth="1.4"
+                        strokeDasharray="3 2"
+                      />
+                    </g>
                   </g>
 
                   {/* Downward Blood-Rush Gravity Arrows */}
