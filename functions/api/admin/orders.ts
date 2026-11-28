@@ -4,6 +4,7 @@ import {
   getSessionUser,
   jsonResponse,
   normalizeEmail,
+  sendTelegramAdminAlert,
 } from "../../_lib/auth";
 import { escapeHtml } from "../submit-order";
 
@@ -244,6 +245,22 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
       emailSent = resendRes.ok;
     }
 
+    await sendTelegramAdminAlert(
+      env,
+      [
+        `🆕 Нове ручне замовлення (${emailCfg.isCanada ? "CA" : "US"}) — ${orderRef}`,
+        `Оператор: ${user.name || user.email}`,
+        `Клієнт: ${customerName || "—"} (${customerEmail})${customerPhone ? ` • ${customerPhone}` : ""}`,
+        `Товар: ${productName} (${finish})`,
+        totalUsd > 0 ? `Сума: $${totalUsd} ${emailCfg.isCanada ? "CAD" : "USD"}` : "",
+        `Статус: ${STATUS_LABELS[status] || status}`,
+        `Адреса: ${`${stateOrCountry} ${address}`.trim() || "—"}`,
+        `Адмінка: ${emailCfg.siteOrigin}/admin/`,
+      ]
+        .filter(Boolean)
+        .join("\n")
+    );
+
     return jsonResponse({ ok: true, orderRef, id: orderId, emailSent }, 201);
   } catch {
     return jsonResponse({ ok: false, error: "Failed to create order." }, 500);
@@ -429,6 +446,25 @@ export const onRequestPatch: PagesFunction<AuthEnv> = async ({ request, env }) =
       });
       emailSent = resendRes.ok;
     }
+
+    const orderRefLog = String(existing.order_ref || "");
+    await sendTelegramAdminAlert(
+      env,
+      [
+        `🔄 Оновлення замовлення (${emailCfg.isCanada ? "CA" : "US"}) — ${orderRefLog}`,
+        `Оператор: ${user.name || user.email}`,
+        `Клієнт: ${nextName || "—"} (${customerEmail})${nextPhone ? ` • ${nextPhone}` : ""}`,
+        `Товар: ${String(existing.product_name || "Evminov Board")}`,
+        `Статус: ${STATUS_LABELS[prevStatus] || prevStatus} → ${STATUS_LABELS[nextStatus] || nextStatus}`,
+        trackingNumber ? `Трекінг: ${trackingNumber}` : "",
+        nextTotal > 0 ? `Сума: $${nextTotal} ${emailCfg.isCanada ? "CAD" : "USD"}` : "",
+        customerMessage ? `Повідомлення клієнту: ${customerMessage.slice(0, 500)}` : "",
+        `Email клієнту: ${emailSent ? "надіслано ✅" : notifyCustomer ? "помилка відправки ⚠️" : "не надсилався"}`,
+        `Адмінка: ${emailCfg.siteOrigin}/admin/`,
+      ]
+        .filter(Boolean)
+        .join("\n")
+    );
 
     const [updated, eventsRes] = await Promise.all([
       env.DB.prepare("SELECT * FROM orders WHERE id = ? LIMIT 1").bind(orderId).first<Record<string, unknown>>(),
