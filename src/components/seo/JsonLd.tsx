@@ -77,12 +77,8 @@ export function OrganizationAndWebsiteSchema({ lang }: { lang: Locale }) {
           name: "Evminov Spine Decompression Boards & Accessories",
           itemListElement: PRODUCTS.map((p) => ({
             "@type": "Offer",
-            itemOffered: {
-              "@type": "Product",
-              name: p.name,
-              sku: p.sku,
-              url: `${origin}/products/${p.slug}/`,
-            },
+            name: p.name,
+            url: `${origin}/products/${p.slug}/`,
             price: String(p.directPriceUsd),
             priceCurrency: SITE_CONFIG.currency,
             availability: "https://schema.org/InStock",
@@ -142,6 +138,17 @@ export function ProductJsonLd({
   const origin = SITE_CONFIG.canonicalOrigin;
   const canonical = getCanonicalUrl(`/products/${product.slug}/`, lang);
 
+  const returnPolicy = {
+    "@type": "MerchantReturnPolicy",
+    applicableCountry: ["US", "CA"],
+    returnPolicyCategory:
+      "https://schema.org/MerchantReturnFiniteReturnWindow",
+    merchantReturnDays: SITE_CONFIG.compliance.trialDays,
+    returnMethod: "https://schema.org/ReturnByMail",
+    returnFees: "https://schema.org/ReturnShippingFees",
+    refundType: "https://schema.org/FullRefund",
+  };
+
   const schema = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -150,6 +157,7 @@ export function ProductJsonLd({
     description: product.subtitle,
     sku: product.sku,
     mpn: product.sku,
+    category: "Sporting Goods > Exercise & Fitness > Spine Conditioning",
     brand: {
       "@type": "Brand",
       name: SITE_CONFIG.brandName,
@@ -157,96 +165,86 @@ export function ProductJsonLd({
     image: product.galleryImages.map((img) => `${origin}${img.url}`),
     url: canonical,
     material: product.material,
-    offers: {
-      "@type": "AggregateOffer",
-      url: canonical,
-      priceCurrency: SITE_CONFIG.currency,
-      lowPrice: String(product.directPriceUsd),
-      highPrice: String(product.expressPriceUsd),
-      offerCount: "2",
-      availability: "https://schema.org/InStock",
-      seller: { "@id": `${origin}/#organization` },
-      offers: [
-        {
-          "@type": "Offer",
-          name: "Direct Workshop Delivery",
-          price: String(product.directPriceUsd),
-          priceCurrency: SITE_CONFIG.currency,
-          availability: "https://schema.org/InStock",
-          priceValidUntil: "2027-12-31",
-          url: `${origin}/order/?product=${product.slug}&shipping=direct&step=2#order-form`,
-          hasMerchantReturnPolicy: {
-            "@type": "MerchantReturnPolicy",
-            applicableCountry: "US",
-            returnPolicyCategory:
-              "https://schema.org/MerchantReturnFiniteReturnWindow",
-            merchantReturnDays: SITE_CONFIG.compliance.trialDays,
-            returnMethod: "https://schema.org/ReturnByMail",
+    offers: [
+      {
+        "@type": "Offer",
+        name: "Direct Workshop Delivery (~2 Weeks US & Canada)",
+        price: String(product.directPriceUsd),
+        priceCurrency: SITE_CONFIG.currency,
+        availability: "https://schema.org/InStock",
+        itemCondition: "https://schema.org/NewCondition",
+        priceValidUntil: "2027-12-31",
+        url: `${origin}/order/?product=${product.slug}&shipping=direct&step=2#order-form`,
+        seller: { "@id": `${origin}/#organization` },
+        hasMerchantReturnPolicy: returnPolicy,
+        shippingDetails: {
+          "@type": "OfferShippingDetails",
+          shippingRate: {
+            "@type": "MonetaryAmount",
+            value: "0",
+            currency: SITE_CONFIG.currency,
           },
-          shippingDetails: {
-            "@type": "OfferShippingDetails",
-            shippingDestination: {
-              "@type": "DefinedRegion",
-              addressCountry: "US",
+          shippingDestination: {
+            "@type": "DefinedRegion",
+            addressCountry: ["US", "CA"],
+          },
+          deliveryTime: {
+            "@type": "ShippingDeliveryTime",
+            handlingTime: {
+              "@type": "QuantitativeValue",
+              minValue: 1,
+              maxValue: 3,
+              unitCode: "DAY",
             },
-            deliveryTime: {
-              "@type": "ShippingDeliveryTime",
-              handlingTime: {
-                "@type": "QuantitativeValue",
-                minValue: 1,
-                maxValue: 3,
-                unitCode: "DAY",
-              },
-              transitTime: {
-                "@type": "QuantitativeValue",
-                minValue: 10,
-                maxValue: 16,
-                unitCode: "DAY",
-              },
+            transitTime: {
+              "@type": "QuantitativeValue",
+              minValue: 10,
+              maxValue: 16,
+              unitCode: "DAY",
             },
           },
         },
-        {
-          "@type": "Offer",
-          name: "Glendale, CA US Warehouse Express (1–4 Days)",
-          price: String(product.expressPriceUsd),
-          priceCurrency: SITE_CONFIG.currency,
-          availability: "https://schema.org/InStock",
-          priceValidUntil: "2027-12-31",
-          url: `${origin}/order/?product=${product.slug}&shipping=express&step=2#order-form`,
-          hasMerchantReturnPolicy: {
-            "@type": "MerchantReturnPolicy",
-            applicableCountry: "US",
-            returnPolicyCategory:
-              "https://schema.org/MerchantReturnFiniteReturnWindow",
-            merchantReturnDays: SITE_CONFIG.compliance.trialDays,
-            returnMethod: "https://schema.org/ReturnByMail",
+      },
+      {
+        "@type": "Offer",
+        name: "Express Fulfillment Option",
+        price: String(product.expressPriceUsd),
+        priceCurrency: SITE_CONFIG.currency,
+        availability: "https://schema.org/InStock",
+        itemCondition: "https://schema.org/NewCondition",
+        priceValidUntil: "2027-12-31",
+        url: `${origin}/order/?product=${product.slug}&shipping=express&step=2#order-form`,
+        seller: { "@id": `${origin}/#organization` },
+        hasMerchantReturnPolicy: returnPolicy,
+        shippingDetails: {
+          "@type": "OfferShippingDetails",
+          shippingRate: {
+            "@type": "MonetaryAmount",
+            value: "0",
+            currency: SITE_CONFIG.currency,
           },
-          shippingDetails: {
-            "@type": "OfferShippingDetails",
-            shippingDestination: {
-              "@type": "DefinedRegion",
-              addressCountry: "US",
+          shippingDestination: {
+            "@type": "DefinedRegion",
+            addressCountry: ["US", "CA"],
+          },
+          deliveryTime: {
+            "@type": "ShippingDeliveryTime",
+            handlingTime: {
+              "@type": "QuantitativeValue",
+              minValue: 1,
+              maxValue: 2,
+              unitCode: "DAY",
             },
-            deliveryTime: {
-              "@type": "ShippingDeliveryTime",
-              handlingTime: {
-                "@type": "QuantitativeValue",
-                minValue: 1,
-                maxValue: 1,
-                unitCode: "DAY",
-              },
-              transitTime: {
-                "@type": "QuantitativeValue",
-                minValue: 1,
-                maxValue: 4,
-                unitCode: "DAY",
-              },
+            transitTime: {
+              "@type": "QuantitativeValue",
+              minValue: 2,
+              maxValue: 5,
+              unitCode: "DAY",
             },
           },
         },
-      ],
-    },
+      },
+    ],
   };
 
   return <JsonLdScript data={schema} />;
@@ -305,8 +303,12 @@ export function GuideArticleJsonLd({
     headline: guide.title,
     description: guide.metaDescription,
     image: `${origin}${guide.heroImage}`,
-    datePublished: guide.datePublished,
-    dateModified: guide.dateModified,
+    datePublished: guide.datePublished.includes("T")
+      ? guide.datePublished
+      : `${guide.datePublished}T00:00:00Z`,
+    dateModified: guide.dateModified.includes("T")
+      ? guide.dateModified
+      : `${guide.dateModified}T00:00:00Z`,
     inLanguage: LOCALE_META[lang].hreflang,
     wordCount,
     mainEntityOfPage: canonical,
@@ -335,7 +337,7 @@ export function VideoObjectJsonLd() {
       name: v.title,
       description: `${v.title} — Official demonstration by Evminov Spine Systems.`,
       thumbnailUrl: `${origin}${v.thumbnail}`,
-      uploadDate: "2026-09-01",
+      uploadDate: "2025-09-01T12:00:00Z",
       duration: v.duration,
       embedUrl: `https://www.youtube-nocookie.com/embed/${v.id}`,
       contentUrl: `https://www.youtube.com/watch?v=${v.id}`,
