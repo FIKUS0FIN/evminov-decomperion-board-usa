@@ -2400,6 +2400,302 @@ const GUIDE_TRANSLATIONS: Record<
       ],
     },
   },
+  "best-home-spinal-decompression-devices-2026-guide": {
+    es: {
+      title: "Mejores Equipos de Descompresión Espinal en Casa (2026): Inversión vs. Neumático vs. Tabla Inclinada",
+      category: "Guía de Compra 2026",
+      readTime: "9 min de lectura",
+      author: { name: "Equipo Editorial de Biomecánica Evminov", role: "Investigación de Equipos para el Hogar", credentials: "30 Años del Método Evminov (Desde 1996)" },
+      excerpt: "Compara honestamente las 5 categorías de descompresión espinal en casa en 2026: mesas de inversión, tracción neumática Saunders/ComforTrac, Nubax, cinturones de aire y la Tabla Inclinada Evminov.",
+      sections: [
+        {
+          id: "five-categories-overview",
+          heading: "1. Las 5 Categorías de Descompresión Espinal Doméstica en 2026",
+          paragraphs: ["En casa existen cinco mecanismos principales para descomprimir la columna, con diferencias enormes en seguridad, confort articular y resultados duraderos:"],
+          bullets: [
+            "Tabla Inclinada Evminov (8°–35°): Cabeza arriba, cero presión en tobillos o rodillas, fortalece estabilizadores profundos e incluye Lazo cervical Glisson.",
+            "Mesas de Inversión (Teeter, Innova): Fuerte tracción por gravedad, pero elevan presión ocular y arterial y ocupan 15+ pies cuadrados.",
+            "Tracción Neumática en Suelo (Saunders, ComforTrac): Segura para la presión arterial, pero 100% pasiva y solo lumbar.",
+            "Marcos de Rodillas (Nubax Trio): Sin inversión, pero cargan peso sobre rodillas y costillas.",
+            "Cinturones de Aire y Arcos Plásticos: Económicos y portátiles, pero con tracción axial limitada y sin fortalecimiento muscular.",
+          ],
+        },
+      ],
+      faqs: [
+        { q: "¿Cuál es la opción más segura si no puedo colgar boca abajo?", a: "La tabla inclinada Evminov (8°–25° cabeza arriba) y la tracción neumática supina evitan el flujo sanguíneo a la cabeza; Evminov añade fortalecimiento activo y cobertura cervical." },
+      ],
+    },
+    fr: {
+      title: "Meilleurs Appareils de Décompression Vertébrale à Domicile (2026) : Comparatif Complet",
+      category: "Guide d'Achat 2026",
+      readTime: "9 min de lecture",
+      author: { name: "Équipe Éditoriale Biomécanique Evminov", role: "Recherche Équipements Domicile", credentials: "30 Ans de Méthode Evminov (Depuis 1996)" },
+      excerpt: "Comparez les 5 catégories d'appareils de décompression en 2026 : tables d'inversion, traction pneumatique Saunders/ComforTrac, Nubax, ceintures d'air et Planche Inclinée Evminov.",
+      sections: [
+        {
+          id: "five-categories-overview",
+          heading: "1. Les 5 Catégories de Décompression à Domicile en 2026",
+          paragraphs: ["Cinq mécanismes dominent le marché résidentiel, avec des profils de sécurité et d'efficacité très distincts :"],
+          bullets: [
+            "Planche Inclinée Evminov (8°–35°) : Tête en haut, zéro pression chevilles/genoux, renforcement actif profond + sangle cervicale Glisson incluse.",
+            "Tables d'Inversion (Teeter, Innova) : Traction forte, mais pic de pression oculaire/artérielle et encombrement massif.",
+            "Traction Pneumatique au Sol (Saunders, ComforTrac) : Sûre pour la tension, mais 100 % passive et uniquement lombaire.",
+            "Cadres à Genoux (Nubax Trio) : Sans inversion, mais appui lourd sur les genoux.",
+            "Ceintures Gonflables & Arches : Abordables mais sans renforcement stabilisateur durable.",
+          ],
+        },
+      ],
+      faqs: [
+        { q: "Quel est l'appareil le plus sûr sans se suspendre tête en bas ?", a: "La planche inclinée Evminov (8°–25° tête en haut) offre une décompression douce sans afflux sanguin, avec travail actif des muscles profonds et traction cervicale incluse." },
+      ],
+    },
+    uk: {
+      title: "Найкращі домашні тренажери для декомпресії хребта (2026): інверсія, пневмо-тракція чи Профілактор Євмінова",
+      category: "Гайд покупця 2026",
+      readTime: "9 хв читання",
+      author: { name: "Редакція біомеханіки Evminov", role: "Огляд домашнього обладнання", credentials: "30 років документації методики Євмінова (з 1996)" },
+      excerpt: "Чесне порівняння 5 типів домашньої декомпресії хребта у 2026 році: інверсійні столи (Teeter), пневматичні апарати (Saunders/ComforTrac), рамка Nubax, повітряні пояси та похилий Профілактор Євмінова.",
+      sections: [
+        {
+          id: "five-categories-overview",
+          heading: "1. 5 типів домашньої декомпресії хребта у 2026 році",
+          paragraphs: ["Клінічні столи DRX9000 коштують понад $15 000, тому для дому користувачі в США та Канаді обирають один із п'яти механізмів:"],
+          bullets: [
+            "1. Похилий Профілактор Євмінова (8°–35°): головою вгору, без припливу крові й затиску щиколоток, активне зміцнення глибоких м'язів + Петля Гліссона для шиї в комплекті.",
+            "2. Інверсійні столи (Teeter, Innova): сильна тяга вниз головою, але підвищують очний та артеріальний тиск і займають багато місця.",
+            "3. Пневмо-тракція на підлозі (Saunders, ComforTrac): безпечна для тиску, але 100% пасивна і лише для попереку.",
+            "4. Рамки на колінах (Nubax Trio): без інверсії, але дають навантаження на коліна та ребра.",
+            "5. Повітряні пояси та пластикові містки: бюджетні, але дають лише тимчасовий ефект без зміцнення корсета.",
+          ],
+        },
+      ],
+      faqs: [
+        { q: "Який тренажер найбезпечніший для дому без вису вниз головою?", a: "Похилий Профілактор Євмінова під кутом 8°–25° тримає голову вище серця, не навантажує коліна й щиколотки та одразу тренує глибокі м'язи-стабілізатори." },
+      ],
+    },
+    ru: {
+      title: "Лучшие домашние тренажёры для декомпрессии позвоночника (2026): инверсия, пневмо-тракция или Доска Евминова",
+      category: "Гид покупателя 2026",
+      readTime: "9 мин чтения",
+      author: { name: "Редакция биомеханики Evminov", role: "Обзор домашнего оборудования", credentials: "30 лет документации методики Евминова (с 1996)" },
+      excerpt: "Честное сравнение 5 категорий домашней декомпрессии в 2026 году: инверсионные столы (Teeter), пневмо-аппараты (Saunders/ComforTrac), рамка Nubax, надувные пояса и наклонная Доска Евминова.",
+      sections: [
+        {
+          id: "five-categories-overview",
+          heading: "1. 5 категорий домашней декомпрессии позвоночника в 2026 году",
+          paragraphs: ["Для домашних занятий в США и Канаде покупатели сравнивают пять принципиально разных подходов:"],
+          bullets: [
+            "1. Наклонная Доска Евминова (8°–35°): головой вверх, без скачков давления и зажима лодыжек, активная тренировка глубоких мышц + Петля Глиссона бесплатно.",
+            "2. Инверсионные столы (Teeter, Innova): сильное вытяжение вниз головой, но риск для глазного и артериального давления.",
+            "3. Пневмо-тракция на полу (Saunders, ComforTrac): без инверсии, но полностью пассивная и только для поясницы.",
+            "4. Рамки на коленях (Nubax Trio): без инверсии, но ощутимая нагрузка на колени и рёбра.",
+            "5. Воздушные пояса и пластиковые мостики: компактны, но не дают активной стабилизации позвоночника.",
+          ],
+        },
+      ],
+      faqs: [
+        { q: "Какой домашний тренажёр безопаснее всего без виса вниз головой?", a: "Наклонная Доска Евминова (8°–25°) сохраняет голову выше сердца, бережёт колени и лодыжки и сочетает разгрузку с укреплением глубокого корсета." },
+      ],
+    },
+    de: {
+      title: "Beste Wirbelsäulen-Dekompressionsgeräte für Zuhause (2026): Inversion vs. Pneumatik vs. Schrägbrett",
+      category: "Kaufberatung 2026",
+      readTime: "9 Min. Lesezeit",
+      author: { name: "Evminov Biomechanik-Redaktion", role: "Heimgeräte-Analyse", credentials: "30 Jahre Dokumentation der Evminov-Methode (Seit 1996)" },
+      excerpt: "Ehrlicher Vergleich der 5 Heimgeräte-Kategorien 2026: Inversionsbänke, Saunders/ComforTrac Pneumatik, Nubax, Luftgurte und das schräge Evminov Board.",
+      sections: [
+        {
+          id: "five-categories-overview",
+          heading: "1. Die 5 Kategorien der Heim-Dekompression 2026",
+          paragraphs: ["Für zuhause stehen fünf sehr unterschiedliche Konzepte zur Wahl — mit großen Unterschieden bei Sicherheit und Nachhaltigkeit:"],
+          bullets: [
+            "1. Schräges Evminov Board (8°–35°): Kopf-oben, null Knöchel-/Kniedruck, aktives Tiefenmuskel-Training + Glisson-Schlaufe gratis.",
+            "2. Inversionsbänke (Teeter, Innova): Starker Zug, aber Blut-/Augendruckspitzen und großer Platzbedarf.",
+            "3. Pneumatische Bodentraktion (Saunders, ComforTrac): Kreislaufschonend, aber rein passiv und nur für die LWS.",
+            "4. Kniende Rahmen (Nubax Trio): Ohne Inversion, aber hoher Druck auf Knie und Rippen.",
+            "5. Luftgurte & Kunststoffbögen: Günstig, jedoch ohne aktive Tiefenstabilisierung.",
+          ],
+        },
+      ],
+      faqs: [
+        { q: "Welches Gerät ist am sichersten, wenn man nicht kopfüber hängen möchte?", a: "Das schräge Evminov Board (8°–25° Kopf-oben) vermeidet Blutstau im Kopf und kombiniert sanfte Entlastung mit aktivem Stabilisatorentraining." },
+      ],
+    },
+  },
+  "inversion-table-alternative-high-blood-pressure-seniors": {
+    es: {
+      title: "Descompresión Espinal Segura para Hipertensión, Glaucoma y Mayores de 55 Años (Sin Inversión)",
+      category: "Seguridad y Mayores 55+",
+      readTime: "7 min de lectura",
+      author: { name: "Equipo Editorial de Biomecánica Evminov", role: "Movilidad Senior y Seguridad Cardiovascular", credentials: "30 Años del Método Evminov (Desde 1996)" },
+      excerpt: "Colgar boca abajo dispara la presión arterial craneal y ocular. Descubre cómo la descarga inclinada cabeza arriba (8°–18°) alivia la columna con calma y seguridad.",
+      sections: [
+        {
+          id: "head-up-inclined-advantage",
+          heading: "1. Por Qué el Ángulo Cabeza Arriba (8°–18°) Evita Riesgos de Presión",
+          paragraphs: ["En la Tabla Evminov tu cabeza siempre permanece por encima del corazón, evitando picos de presión ocular, mareos y compresión en los tobillos. Consulta siempre con tu médico ante hipertensión no controlada o glaucoma."],
+        },
+      ],
+      faqs: [
+        { q: "¿Hace que la sangre suba a la cabeza en ángulos de 10°–15°?", a: "No. Tu cabeza permanece por encima del torso en todo momento, sin congestión facial ni ocular." },
+      ],
+    },
+    fr: {
+      title: "Décompression Vertébrale Sûre en Cas d'Hypertension, Glaucome & Seniors 55+ (Sans Inversion)",
+      category: "Sécurité & Seniors 55+",
+      readTime: "7 min de lecture",
+      author: { name: "Équipe Éditoriale Biomécanique Evminov", role: "Mobilité Seniors & Sécurité", credentials: "30 Ans de Méthode Evminov (Depuis 1996)" },
+      excerpt: "Se suspendre tête en bas fait grimper la tension artérielle et oculaire. Découvrez la décharge douce tête en haut (8°–18°) sans afflux sanguin ni blocage des chevilles.",
+      sections: [
+        {
+          id: "head-up-inclined-advantage",
+          heading: "1. Décompression Tête en Haut (8°–18°) Sans Pression Oculaire",
+          paragraphs: ["Sur la Planche Evminov, votre tête reste toujours plus haute que le cœur. Demandez l'avis de votre médecin en cas d'hypertension non équilibrée, de glaucome ou d'ostéoporose sévère."],
+        },
+      ],
+      faqs: [
+        { q: "La planche Evminov provoque-t-elle un afflux sanguin vers la tête ?", a: "Non : la tête demeure au-dessus du torse aux angles standards de 8° à 18°, sans vertige ni serrage des chevilles." },
+      ],
+    },
+    uk: {
+      title: "Безпечна декомпресія хребта при гіпертонії, глаукомі та для віку 55+ (без вису вниз головою)",
+      category: "Безпека та 55+",
+      readTime: "7 хв читання",
+      author: { name: "Редакція біомеханіки Evminov", role: "Безпека для судин і старшого віку", credentials: "30 років документації методики Євмінова (з 1996)" },
+      excerpt: "Інверсійні столи різко підвищують тиск у голові та очах. Дізнайтеся, як м'яке розвантаження головою вгору під кутом 8°–18° на Профілакторі Євмінова береже судини, очі та суглоби.",
+      sections: [
+        {
+          id: "head-up-inclined-advantage",
+          heading: "1. Чому положення головою вгору (8°–18°) безпечніше за інверсію",
+          paragraphs: ["На Профілакторі Євмінова голова завжди розташована вище рівня серця, тому немає припливу крові до обличчя, стрибків очного тиску чи болю в щиколотках. При неконтрольованій гіпертонії, глаукомі або остеопорозі обов'язково проконсультуйтеся з лікарем перед початком занять."],
+        },
+      ],
+      faqs: [
+        { q: "Чи викликає Профілактор Євмінова приплив крові до голови?", a: "Ні. На відміну від інверсійного стола, голова завжди вища за тулуб і ноги — заняття проходять спокійно та комфортно." },
+      ],
+    },
+    ru: {
+      title: "Безопасная декомпрессия позвоночника при гипертонии, глаукоме и 55+ (без виса вниз головой)",
+      category: "Безопасность и 55+",
+      readTime: "7 мин чтения",
+      author: { name: "Редакция биомеханики Evminov", role: "Безопасность для сосудов и 55+", credentials: "30 лет документации методики Евминова (с 1996)" },
+      excerpt: "Инверсионные столы резко повышают давление в голове и глазах. Узнайте, как мягкая разгрузка головой вверх под углом 8°–18° на Доске Евминова бережёт сосуды, глаза и суставы.",
+      sections: [
+        {
+          id: "head-up-inclined-advantage",
+          heading: "1. Почему положение головой вверх (8°–18°) безопаснее инверсии",
+          paragraphs: ["На Доске Евминова голова всегда находится выше уровня сердца — без прилива крови, скачков глазного давления и зажима лодыжек. При неконтролируемой гипертонии, глаукоме или выраженном остеопорозе обязательно проконсультируйтесь с врачом."],
+        },
+      ],
+      faqs: [
+        { q: "Вызывает ли Доска Евминова прилив крови к голове?", a: "Нет. Голова всегда расположена выше корпуса и ног, что делает занятия 8°–18° спокойными и комфортными для взрослых 55+." },
+      ],
+    },
+    de: {
+      title: "Sichere Wirbelsäulen-Dekompression bei Bluthochdruck, Glaukom & ab 55+ (Ohne Kopfüber-Hängen)",
+      category: "Sicherheit & 55+",
+      readTime: "7 Min. Lesezeit",
+      author: { name: "Evminov Biomechanik-Redaktion", role: "Senioren-Mobilität & Sicherheit", credentials: "30 Jahre Dokumentation der Evminov-Methode (Seit 1996)" },
+      excerpt: "Inversionsbänke erhöhen Augen- und Blutdruck sprunghaft. Erfahren Sie, wie sanfte 8°–18° Kopf-oben-Entlastung auf dem Evminov Board Kreislauf und Gelenke schont.",
+      sections: [
+        {
+          id: "head-up-inclined-advantage",
+          heading: "1. Kopf-oben-Entlastung (8°–18°) ohne Blutstau im Kopf",
+          paragraphs: ["Auf dem Evminov Board bleibt der Kopf stets über Herzhöhe — ohne Schwindel oder Knöcheldruck. Bei unkontrolliertem Bluthochdruck, Glaukom oder schwerer Osteoporose vorab ärztlich abklären."],
+        },
+      ],
+      faqs: [
+        { q: "Steigt beim Evminov Board das Blut in den Kopf?", a: "Nein — bei 8°–18° bleibt der Kopf entspannt oberhalb des Oberkörpers, ganz ohne Kopfüber-Inversion." },
+      ],
+    },
+  },
+  "spinal-stenosis-and-l5-s1-morning-decompression-guide": {
+    es: {
+      title: "Estenosis Espinal y Protusión L5–S1: Rutina Suave en Flexión, Postura al Dormir y Regla Matutina",
+      category: "Estenosis y L5–S1",
+      readTime: "8 min de lectura",
+      author: { name: "Equipo Editorial de Biomecánica Evminov", role: "Biomecánica Lumbar e Higiene Diaria", credentials: "30 Años del Método Evminov (Desde 1996)" },
+      excerpt: "Por qué la estenosis lumbar empeora con arcos forzados, cómo proteger discos L5–S1 hidratados durante los primeros 30 minutos de la mañana y cómo usar ángulos suaves 8°–12°.",
+      sections: [
+        {
+          id: "sleep-and-morning-30-min-rule",
+          heading: "1. Sueño Neutro, Giro en Bloque y Descarga Suave con Rodillas Flexionadas",
+          paragraphs: ["Dormir con almohada bajo o entre las rodillas y salir de la cama girando en bloque protege L5–S1 al despertar. Ante estenosis lumbar, evita hiperextensión y consulta con tu médico antes de iniciar ángulos suaves de 8°–12° con rodillas ligeramente flexionadas."],
+        },
+      ],
+      faqs: [
+        { q: "¿Es mejor descomprimir L5–S1 por la mañana o por la noche?", a: "La descarga vespertina suele ser más cómoda tras la compresión del día; por la mañana espera 30–60 minutos tras despertar antes de flexiones intensas." },
+      ],
+    },
+    fr: {
+      title: "Sténose Spinale & Bombement L5–S1 : Sommeil, Lever Matinal et Décharge Douce Genoux Fléchis",
+      category: "Sténose & L5–S1",
+      readTime: "8 min de lecture",
+      author: { name: "Équipe Éditoriale Biomécanique Evminov", role: "Biomécanique Lombaire", credentials: "30 Ans de Méthode Evminov (Depuis 1996)" },
+      excerpt: "Pourquoi la sténose lombaire redoute l'hyperextension, comment protéger un disque L5–S1 gonflé d'eau le matin (règle des 30 min) et décompresser en douceur à 8°–12°.",
+      sections: [
+        {
+          id: "sleep-and-morning-30-min-rule",
+          heading: "1. Sommeil Neutre, Lever en Bloc et Décharge Douce",
+          paragraphs: ["Placez un oreiller sous ou entre les genoux la nuit, levez-vous en roulant sur le côté et privilégiez une décharge douce le soir à 8°–12° genoux fléchis (après avis médical en cas de sténose diagnostiquée)."],
+        },
+      ],
+      faqs: [
+        { q: "Vaut-il mieux utiliser la planche le matin ou le soir pour L5–S1 ?", a: "Le soir après la compression quotidienne est souvent le plus apaisant ; le matin, attendez 30 à 60 minutes après le réveil." },
+      ],
+    },
+    uk: {
+      title: "Стеноз хребта та протрузія L5–S1: безпечний сон, ранкове правило 30 хвилин і м'яка розгрузка",
+      category: "Стеноз та L5–S1",
+      readTime: "8 хв читання",
+      author: { name: "Редакція біомеханіки Evminov", role: "Біомеханіка попереку та гігієна спини", credentials: "30 років документації методики Євмінова (з 1996)" },
+      excerpt: "Чому при стенозі попереку не можна робити різкі прогини назад, як правильно спати і вставати з ліжка при протрузії L5–S1 та як безпечно розвантажувати спину зі злегка зігнутими колінами.",
+      sections: [
+        {
+          id: "sleep-and-morning-30-min-rule",
+          heading: "1. Правильний сон, підйом «колодою» та м'яке вечірнє розвантаження",
+          paragraphs: ["Вночі диски вбирають рідину, тому перші 30–60 хвилин після пробудження поперек L5–S1 найбільш вразливий до різких нахилів. Спіть із подушкою під або між колінами, вставайте через бік, а при стенозі (після консультації з лікарем) використовуйте ультрам'який кут 8°–12° із зігнутими колінами без перерозгинання."],
+        },
+      ],
+      faqs: [
+        { q: "Коли краще розвантажувати L5–S1 — вранці чи ввечері?", a: "Найкомфортніше починати з 8–10 хвилин м'якого розвантаження ввечері перед сном; вранці зачекайте 30–60 хвилин після підйому перед активними вправами." },
+      ],
+    },
+    ru: {
+      title: "Стеноз позвоночника и протрузия L5–S1: поза сна, утреннее правило 30 минут и мягкая разгрузка",
+      category: "Стеноз и L5–S1",
+      readTime: "8 мин чтения",
+      author: { name: "Редакция биомеханики Evminov", role: "Биомеханика поясницы и гигиена спины", credentials: "30 лет документации методики Евминова (с 1996)" },
+      excerpt: "Почему при стенозе поясницы вредны резкие прогибы назад, как спать и вставать с кровати при протрузии L5–S1 и как безопасно разгружать спину с согнутыми коленями.",
+      sections: [
+        {
+          id: "sleep-and-morning-30-min-rule",
+          heading: "1. Нейтральный сон, подъём через бок и мягкая вечерняя разгрузка",
+          paragraphs: ["Ночью межпозвонковые диски набирают влагу, поэтому первые 30–60 минут после пробуждения поясница L5–S1 особенно уязвима к резким наклонам. Кладите подушку под или между коленями, вставайте через бок, а при стенозе (с одобрения врача) используйте ультрамягкий угол 8°–12° с согнутыми коленями без переразгибания."],
+        },
+      ],
+      faqs: [
+        { q: "Когда лучше делать разгрузку при L5–S1 — утром или вечером?", a: "Вечерняя разгрузка 8–10 минут после дневной нагрузки обычно комфортнее; утром подождите 30–60 минут после подъёма перед активными наклонами." },
+      ],
+    },
+    de: {
+      title: "Spinalkanalstenose & L5–S1 Bandscheibenvorwölbung: Schlafposition, Morgenregel & sanfte Entlastung",
+      category: "Stenose & L5–S1",
+      readTime: "8 Min. Lesezeit",
+      author: { name: "Evminov Biomechanik-Redaktion", role: "LWS-Biomechanik & Alltag", credentials: "30 Jahre Dokumentation der Evminov-Methode (Seit 1996)" },
+      excerpt: "Warum Hohlkreuz-Überstreckung bei Stenose schadet, wie die 30-Minuten-Morgenregel L5–S1 schützt und wie sanfte 8°–12°-Entlastung mit gebeugten Knien funktioniert.",
+      sections: [
+        {
+          id: "sleep-and-morning-30-min-rule",
+          heading: "1. Neutraler Schlaf, Log-Roll-Aufstehen & gebeugte Knie-Entlastung",
+          paragraphs: ["Ein Kissen unter oder zwischen den Knien sowie das seitliche Aufstehen schützen morgens geschwollene L5–S1-Bandscheiben. Bei ärztlich abgeklärter Stenose vermeiden Sie Überstreckung und nutzen sanfte 8°–12° mit leicht gebeugten Knien."],
+        },
+      ],
+      faqs: [
+        { q: "Sollte man L5–S1 morgens oder abends entlasten?", a: "Abends nach der Tageskompression ist die 8–10-minütige Entlastung meist am angenehmsten; morgens nach dem Aufstehen 30–60 Minuten warten." },
+      ],
+    },
+  },
 };
 
 export function getLocalizedGuide(guide: GuideItem, lang: Locale): GuideItem {

@@ -198,6 +198,38 @@ const COMPARISON_META: Record<string, Record<Locale, LocalizedMeta>> = {
         "Vergleichen Sie kopf-oben Wirbelsäulen-Dekompression: schräges Evminov Holzboard vs. motorisiertes Chirp Contour, Posture Pump Luftkissen und Traktionsgurte.",
     },
   },
+  "evminov-vs-nubax-saunders-traction": {
+    en: {
+      title: "Evminov vs. Nubax Trio, Saunders & ComforTrac Traction",
+      description:
+        "Compare non-inversion home spinal decompression: Evminov inclined wood board vs. Nubax kneeling frame vs. Saunders & ComforTrac pneumatic lumbar traction.",
+    },
+    es: {
+      title: "Evminov vs. Nubax Trio, Saunders y ComforTrac (2026)",
+      description:
+        "Compara descompresión sin inversión: tabla inclinada Evminov vs. Nubax de rodillas vs. tracción neumática lumbar Saunders y ComforTrac.",
+    },
+    fr: {
+      title: "Evminov vs. Nubax Trio & Saunders (Comparatif 2026)",
+      description:
+        "Comparez la décompression sans inversion : planche inclinée Evminov vs. Nubax à genoux vs. traction pneumatique Saunders et ComforTrac.",
+    },
+    uk: {
+      title: "Євмінов проти Nubax Trio, Saunders та ComforTrac (2026)",
+      description:
+        "Порівняння систем декомпресії без інверсії: похилий Профілактор Євмінова проти рамки Nubax на колінах та пневмо-тракції Saunders і ComforTrac.",
+    },
+    ru: {
+      title: "Евминов против Nubax Trio, Saunders и ComforTrac (2026)",
+      description:
+        "Сравнение систем декомпрессии без инверсии: наклонная Доска Евминова против рамки Nubax на коленях и пневмо-тракции Saunders и ComforTrac.",
+    },
+    de: {
+      title: "Evminov vs. Nubax Trio & Saunders (Vergleich 2026)",
+      description:
+        "Vergleich nicht-invertierter Dekompression: schräges Evminov Holzboard vs. kniender Nubax Trio vs. pneumatische Saunders & ComforTrac Traktion.",
+    },
+  },
 };
 
 const CONDITION_META: Record<string, Record<Locale, LocalizedMeta>> = {
@@ -752,32 +784,32 @@ const GUIDE_META: Record<string, Record<Locale, LocalizedMeta>> = {
     en: {
       title: "Buy Original Evminov Board in USA & Canada (3-Piece & 2-Piece)",
       description:
-        "Official US & Canada buyer's guide: 3-piece (230–245 cm) & 2-piece folding panels, 26 cm vs 30 cm width, 4 accessories, ~2-week courier shipping, and 1-year warranty.",
+        "Official US & Canada buyer's guide: 3-piece (230–245 cm) & 2-piece folding panels, 26 cm vs 30 cm width, 6 accessories, ~2-week courier shipping, and 1-year warranty.",
     },
     es: {
       title: "Comprar Tabla Evminov Original en EE. UU. y Canadá (3 y 2 Piezas)",
       description:
-        "Guía oficial EE. UU. y Canadá: modelos plegables de 3 piezas (230–245 cm) y 2 piezas, ancho 26 cm vs 30 cm, 4 accesorios, envío ~2 semanas y garantía 1 año.",
+        "Guía oficial EE. UU. y Canadá: modelos plegables de 3 piezas (230–245 cm) y 2 piezas, ancho 26 cm vs 30 cm, 6 accesorios, envío ~2 semanas y garantía 1 año.",
     },
     fr: {
       title: "Acheter une Planche Evminov Originale aux USA & Canada (3 et 2 Pièces)",
       description:
-        "Guide officiel USA & Canada : modèles démontables 3 pièces (230–245 cm) et 2 pièces, largeur 26 ou 30 cm, 4 accessoires, livraison ~2 semaines et garantie 1 an.",
+        "Guide officiel USA & Canada : modèles démontables 3 pièces (230–245 cm) et 2 pièces, largeur 26 ou 30 cm, 6 accessoires, livraison ~2 semaines et garantie 1 an.",
     },
     uk: {
       title: "Купити Оригінальний Профілактор Євмінова в США та Канаді (~2 Тижні)",
       description:
-        "Офіційна лінійка для США і Канади: 3-секційний (230–245 см) та 2-секційна «Зубна щітка», 26 або 30 см, 4 аксесуари, доставка ~2 тижні, гарантія 1 рік.",
+        "Офіційна лінійка для США і Канади: 3-секційний (230–245 см) та 2-секційна «Зубна щітка», 26 або 30 см, 6 аксесуарів, доставка ~2 тижні, гарантія 1 рік.",
     },
     ru: {
       title: "Купить Оригинальный Профилактор Евминова в США и Канаде (~2 Недели)",
       description:
-        "Официальная линейка для США и Канады: 3-секционный (230–245 см) и 2-секционная «Зубная щётка», 26 или 30 см, 4 аксессуара, доставка ~2 недели, гарантия 1 год.",
+        "Официальная линейка для США и Канады: 3-секционный (230–245 см) и 2-секционная «Зубная щётка», 26 или 30 см, 6 аксессуаров, доставка ~2 недели, гарантия 1 год.",
     },
     de: {
       title: "Original Evminov Board in den USA & Kanada kaufen (3- & 2-teilig)",
       description:
-        "Offizieller Ratgeber USA & Kanada: 3-teiliges (230–245 cm) & 2-teiliges Klappboard, 26 cm vs. 30 cm Breite, 4 Zubehörteile, ~2 Wochen Versand, 1 Jahr Garantie.",
+        "Offizieller Ratgeber USA & Kanada: 3-teiliges (230–245 cm) & 2-teiliges Klappboard, 26 cm vs. 30 cm Breite, 6 Zubehörteile, ~2 Wochen Versand, 1 Jahr Garantie.",
     },
   },
   "glisson-loop-cervical-traction-neck-relief-guide": {
@@ -810,6 +842,102 @@ const GUIDE_META: Record<string, Record<Locale, LocalizedMeta>> = {
       title: "Glisson-Schlaufe Ratgeber: Sanfte HWS-Traktion bei 8°–12°",
       description:
         "Sichere Nackenentlastung mit der gepolsterten Glisson-Schlaufe (kostenlos bei jedem Evminov Board) — sanfte Hilfe bei Handy-Nacken & C5–C6.",
+    },
+  },
+  "best-home-spinal-decompression-devices-2026-guide": {
+    en: {
+      title: "Best Home Spinal Decompression Devices (2026 Guide)",
+      description:
+        "Compare the 5 types of home spinal decompression equipment in 2026: inversion tables, Saunders/ComforTrac pneumatic traction, Nubax, air belts & Evminov Boards.",
+    },
+    es: {
+      title: "Mejores Equipos de Descompresión Espinal en Casa (2026)",
+      description:
+        "Compara las 5 categorías de descompresión espinal en casa en 2026: inversión, Saunders/ComforTrac, Nubax, cinturones de aire y Tabla Evminov.",
+    },
+    fr: {
+      title: "Meilleurs Appareils de Décompression Vertébrale (2026)",
+      description:
+        "Comparez les 5 catégories d'appareils de décompression à domicile en 2026 : tables d'inversion, Saunders/ComforTrac, Nubax et Planche Evminov.",
+    },
+    uk: {
+      title: "Найкращі Домашні Тренажери для Декомпресії Хребта (2026)",
+      description:
+        "Порівняння 5 типів домашньої декомпресії у 2026 році: інверсійні столи, пневмо-тракція Saunders/ComforTrac, Nubax та Профілактор Євмінова.",
+    },
+    ru: {
+      title: "Лучшие Домашние Тренажёры для Декомпрессии Позвоночника (2026)",
+      description:
+        "Сравнение 5 типов домашней декомпрессии в 2026 году: инверсионные столы, пневмо-тракция Saunders/ComforTrac, Nubax и Доска Евминова.",
+    },
+    de: {
+      title: "Beste Wirbelsäulen-Dekompressionsgeräte für Zuhause (2026)",
+      description:
+        "Vergleich der 5 Heimgeräte-Kategorien 2026: Inversionsbänke, Saunders/ComforTrac Pneumatik, Nubax, Luftgurte und das schräge Evminov Board.",
+    },
+  },
+  "inversion-table-alternative-high-blood-pressure-seniors": {
+    en: {
+      title: "Inversion Table Alternative for High Blood Pressure & Seniors",
+      description:
+        "Have high blood pressure, glaucoma, vertigo, or are over 55? Learn why 90° inversion tables are risky and how gentle 8°–18° head-up unloading works safely.",
+    },
+    es: {
+      title: "Alternativa a Inversión para Hipertensión, Glaucoma y 55+",
+      description:
+        "¿Hipertensión, glaucoma o mayor de 55 años? Descubre por qué evitar colgar boca abajo y cómo descomprimir la columna suavemente cabeza arriba a 8°–18°.",
+    },
+    fr: {
+      title: "Alternative à l'Inversion : Hypertension, Glaucome & Seniors 55+",
+      description:
+        "Hypertension, glaucome ou 55+ ans ? Découvrez pourquoi éviter l'inversion à 90° et comment décompresser le dos en douceur tête en haut à 8°–18°.",
+    },
+    uk: {
+      title: "Декомпресія Хребта при Гіпертонії, Глаукомі та 55+ Без Інверсії",
+      description:
+        "Чому інверсійні столи небезпечні при тиску та глаукомі, і як м'яке розвантаження головою вгору під кутом 8°–18° береже судини, очі та суглоби.",
+    },
+    ru: {
+      title: "Декомпрессия Позвоночника при Гипертонии, Глаукоме и 55+",
+      description:
+        "Почему инверсионные столы опасны при давлении и глаукоме, и как мягкая разгрузка головой вверх под углом 8°–18° бережёт сосуды и глаза.",
+    },
+    de: {
+      title: "Inversionsbank-Alternative bei Bluthochdruck, Glaukom & 55+",
+      description:
+        "Bluthochdruck, Glaukom oder über 55? Warum 90°-Inversion riskant ist und wie sanfte 8°–18° Kopf-oben-Entlastung Kreislauf und Augen schont.",
+    },
+  },
+  "spinal-stenosis-and-l5-s1-morning-decompression-guide": {
+    en: {
+      title: "Spinal Stenosis & L5–S1 Bulging Disc Home Guide",
+      description:
+        "Learn why lumbar spinal stenosis and L5–S1 bulges react poorly to forced back-arching, how to protect morning discs, and safe bent-knee unloading.",
+    },
+    es: {
+      title: "Estenosis Espinal y L5–S1: Sueño, Mañana y Descarga Suave",
+      description:
+        "Por qué la estenosis lumbar empeora con arcos forzados, cómo proteger L5–S1 al despertar (regla de 30 min) y descarga segura con rodillas flexionadas.",
+    },
+    fr: {
+      title: "Sténose Spinale & L5–S1 : Sommeil, Matin et Décharge Douce",
+      description:
+        "Pourquoi la sténose redoute l'hyperextension, comment protéger un disque L5–S1 le matin (règle des 30 min) et décompresser genoux fléchis à 8°–12°.",
+    },
+    uk: {
+      title: "Стеноз Хребта та L5–S1: Сон, Ранок і Безпечна Розгрузка",
+      description:
+        "Чому при стенозі попереку шкідливі прогини назад, як захистити диск L5–S1 у перші 30 хв ранку та безпечно розвантажувати спину зі зігнутими колінами.",
+    },
+    ru: {
+      title: "Стеноз Позвоночника и L5–S1: Сон, Утро и Мягкая Разгрузка",
+      description:
+        "Почему при стенозе поясницы вредны прогибы назад, как защитить диск L5–S1 в первые 30 мин утра и безопасно разгружать спину с согнутыми коленями.",
+    },
+    de: {
+      title: "Spinalkanalstenose & L5–S1: Schlaf, Morgenregel & Entlastung",
+      description:
+        "Warum Überstreckung bei Stenose schadet, wie die 30-Minuten-Morgenregel L5–S1 schützt und wie sanfte 8°–12°-Entlastung mit gebeugten Knien klappt.",
     },
   },
 };

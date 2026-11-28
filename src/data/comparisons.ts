@@ -55,7 +55,7 @@ export const HOME_COMPARISON_MATRIX = [
   },
   {
     metric: "Total Cost",
-    evminov: "$450–$665 one-time (1-Yr Warranty)",
+    evminov: "$435–$660 one-time (1-Yr Warranty)",
     inversion: "$450–$850 + foam wear",
     clinic: "$3,000–$6,000+ per year in co-pays",
   },
@@ -153,7 +153,7 @@ export const COMPARISONS: ComparisonPageData[] = [
       "Teeter is the best-known US inversion table brand, yet many buyers return it due to ankle discomfort, dizzy head rush, and its massive steel footprint. See how the Evminov board compares on every practical factor.",
     heroImage: "/images/authentic/evminov-board-profile.jpg",
     keyTakeaways: [
-      "Comparable one-time price ($450–$635) with zero replacement ankle foam pads.",
+      "Comparable one-time price ($435–$660) with zero replacement ankle foam pads.",
       "Zero dizzy spells or facial pressure — comfortable for morning and pre-sleep routines.",
       "Includes the Glisson cervical neck loop for upper spine and tech-neck relief.",
       "Handcrafted natural wood aesthetic that blends into modern bedrooms and home gyms.",
@@ -161,7 +161,7 @@ export const COMPARISONS: ComparisonPageData[] = [
     rows: [
       {
         metric: "Starting Price",
-        evminov: "$450 direct / $595 CA Express",
+        evminov: "From $475 US / $435 CA direct",
         alternative: "$379 – $699 depending on Teeter series",
         winner: "tie",
       },
@@ -267,21 +267,21 @@ export const COMPARISONS: ComparisonPageData[] = [
     title: "Home Spine Decompression (Evminov) vs. Ongoing Clinic Traction Sessions",
     metaTitle: "Home Decompression Board vs. Clinic Traction Cost & Results",
     metaDescription:
-      "Compare a one-time $450 Evminov home board against $3,000–$6,000/year in clinic traction co-pays and commute time. Daily 10-minute home consistency explained.",
+      "Compare a one-time Evminov folding home board against $3,000–$6,000/year in clinic traction co-pays and commute time. Daily 10-minute home consistency explained.",
     competitorName: "In-Clinic Traction Sessions",
     eyebrow: "Economics & Consistency • Home Spine Station",
     summary:
       "Motorized clinic traction costs $80–$150 per session and requires driving across town — often re-compressing your spine in traffic right after treatment. Daily 10-minute home sessions let you decompress every morning and night.",
     heroImage: "/images/authentic/clinic-rehab-center-1.jpg",
     keyTakeaways: [
-      "One-time $450–$665 investment pays for itself in 3–5 weeks compared to clinic co-pays.",
+      "One-time $435–$660 investment pays for itself in 3–5 weeks compared to clinic co-pays.",
       "Zero post-session car commute — lie down directly before sleep to lock in spinal relief.",
       "One board adjusts in 5 seconds for every family member from age 6 to 85+.",
     ],
     rows: [
       {
         metric: "Annual Cost",
-        evminov: "$450–$665 once (decades of use)",
+        evminov: "$435–$660 once (decades of use)",
         alternative: "$3,000–$6,000+ per year in co-pays",
         winner: "evminov",
       },
@@ -344,7 +344,7 @@ export const COMPARISONS: ComparisonPageData[] = [
       },
       {
         metric: "Typical Cost (US)",
-        evminov: "$450–$665 one-time",
+        evminov: "$475–$660 one-time",
         alternative: "$45,000–$120,000+ billed hospital cost",
         winner: "evminov",
       },
@@ -443,6 +443,88 @@ export const COMPARISONS: ComparisonPageData[] = [
       {
         q: "Can I use my HSA/FSA or Canadian Extended Health Benefits for an Evminov Board?",
         a: "Yes — with a Letter of Medical Necessity (LMN) or doctor's prescription and plan approval. Every order includes an itemized wellness equipment receipt (HTS 9506.91.0030).",
+      },
+    ],
+    recommendedProductSlug: "3-piece-travel-board",
+  },
+  {
+    slug: "evminov-vs-nubax-saunders-traction",
+    shortTitle: "Evminov vs. Nubax & Saunders",
+    title: "Evminov Board vs. Nubax Trio, Saunders & ComforTrac Lumbar Traction (2026)",
+    metaTitle: "Evminov vs. Nubax Trio, Saunders & ComforTrac Traction",
+    metaDescription:
+      "Compare top non-inversion spinal decompression devices: Evminov inclined wood board vs. Nubax kneeling frame vs. Saunders & ComforTrac pneumatic lumbar traction.",
+    competitorName: "Nubax Trio / Saunders / ComforTrac",
+    eyebrow: "2026 Non-Inversion Comparison • Mechanical Traction",
+    summary:
+      "If you want spinal decompression without hanging upside down, three devices dominate 2026 buyer research: the kneeling Nubax Trio, floor-based pneumatic traction units (Saunders Lumbar / ComforTrac), and the patented Evminov Inclined Board. Here is how they compare on knee comfort, full-spine coverage, and active core strengthening.",
+    heroImage: "/images/authentic/evminov-board-profile.jpg",
+    keyTakeaways: [
+      "Zero kneeling pressure on arthritic knees or hips (unlike Nubax Trio's kneeling frame).",
+      "Full lumbar, thoracic AND cervical decompression (free Glisson Loop) — unlike lumbar-only Saunders or ComforTrac floor harnesses.",
+      "Combines gentle 8°–35° axial unloading with active deep core micro-movements instead of 100% passive floor pulling.",
+      "Zero pneumatic pumps, gauges, or air seals to leak — solid multi-layer timber built for 20+ years with a 1-Year Warranty.",
+    ],
+    rows: [
+      {
+        metric: "Body Position",
+        evminov: "Supine / prone on flexing 8°–35° wood deck (head-up)",
+        alternative: "Nubax: kneeling forward | Saunders/ComforTrac: strapped flat on floor",
+        winner: "evminov",
+      },
+      {
+        metric: "Knee, Hip & Rib Comfort",
+        evminov: "Zero weight on knees or ribs — full ergonomic back support",
+        alternative: "Nubax loads knees/shins & ribs; Saunders requires tight chest/pelvis belts",
+        winner: "evminov",
+      },
+      {
+        metric: "Spine Zones Covered",
+        evminov: "Full spine: Lumbar, Thoracic & Cervical (free Glisson Loop)",
+        alternative: "Lumbar lower-back zone only (separate unit needed for neck)",
+        winner: "evminov",
+      },
+      {
+        metric: "Active Core Strengthening",
+        evminov: "Yes — 20+ unloaded deep stabilizer & multifidus exercises",
+        alternative: "No — passive traction pull only (no muscle conditioning)",
+        winner: "evminov",
+      },
+      {
+        metric: "Blood & Eye Pressure Safety",
+        evminov: "Head stays above heart — safe non-inverted posture",
+        alternative: "Non-inverted (also avoids upside-down head rush)",
+        winner: "tie",
+      },
+      {
+        metric: "Mechanical Durability",
+        evminov: "Pure timber & alloy carriage — zero pumps, gauges, or seals",
+        alternative: "Pneumatic hand pumps, hoses & velcro harness straps wear over time",
+        winner: "evminov",
+      },
+    ],
+    deepDiveSections: [
+      {
+        heading: "Evminov Board vs. Nubax Trio: Why Knee-Free Supine Unloading Wins for Daily Consistency",
+        body: "The Nubax Trio uses a steel frame where you kneel on a pad, strap your waist, and lean forward to create flexion traction. While it avoids upside-down inversion, adults with stiff knees, meniscus history, or hip osteoarthritis frequently struggle with kneeling pressure and chest-pad discomfort. On the Evminov Board, you lie smoothly on a resonant wooden plane with zero weight on your knees, shins, or ribcage — making daily 10-minute sessions genuinely relaxing.",
+      },
+      {
+        heading: "Evminov Board vs. Saunders Lumbar & ComforTrac: Full-Spine Active Conditioning vs. Passive Strapping",
+        body: "Saunders Lumbar Traction and ComforTrac are respected clinical-style pneumatic floor units that pull the pelvis horizontally using a hand pump and tight torso harnesses. However, strapping yourself into heavy belts on the floor is strictly passive and treats only the lower lumbar zone. The Evminov Method pairs gentle calibrated gravity unloading with low-amplitude micro-movements that awaken your deep paraspinal muscles — plus includes the Glisson Loop for cervical neck comfort in one single station.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Is the Evminov Board safer for bad knees than a Nubax Trio?",
+        a: "Yes. Unlike Nubax Trio, which requires kneeling and supporting weight through the knees and shins, the Evminov Board lets you lie flat on an inclined wooden plane with zero knee compression.",
+      },
+      {
+        q: "Does the Evminov Board require air pumps or Velcro chest straps like Saunders or ComforTrac?",
+        a: "No. Traction force is controlled naturally by the board's incline angle (8°–35°) using smooth gravity mechanics — no pneumatic hand pumps, leaking gauges, or restrictive ribcage belts.",
+      },
+      {
+        q: "Can I ship the Evminov Board to both the US and Canada?",
+        a: "Yes — both 3-Piece (230–245 cm) and 2-Piece folding models ship nationwide across the USA and Canada in approximately 2 weeks, with a 1-Year Warranty and itemized HSA/FSA receipt.",
       },
     ],
     recommendedProductSlug: "3-piece-travel-board",

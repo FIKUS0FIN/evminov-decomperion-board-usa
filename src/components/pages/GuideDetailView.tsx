@@ -3,9 +3,11 @@ import { ArrowRight, BookOpen, MessageCircle, ShieldCheck } from "lucide-react";
 import { Locale } from "@/i18n/types";
 import { GuideItem, GUIDES } from "@/data/guides";
 import { COMPARISONS } from "@/data/comparisons";
+import { CONDITIONS } from "@/data/conditions";
 import { getProductBySlug } from "@/data/products";
 import { getLocalizedGuide } from "@/i18n/locales/guides-i18n";
 import { getLocalizedComparison } from "@/i18n/locales/comparisons-i18n";
+import { getLocalizedCondition } from "@/i18n/locales/conditions-i18n";
 import { getSiloUi } from "@/i18n/locales/silo-ui";
 import { getLocalizedProduct } from "@/i18n/locales/catalog";
 import { buildPrefilledOrderUrl, getLocalizedHref } from "@/lib/url";
@@ -296,24 +298,46 @@ export function GuideDetailView({
             </section>
           )}
 
-          {/* Silo Internal Cross-Links to Comparisons */}
-          <section className="mt-10 border-t border-slate-200 pt-7">
-            <h2 className="text-xs font-extrabold uppercase tracking-wider text-slate-500">
-              {cro.compareHeading}
-            </h2>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {COMPARISONS.slice(0, 4).map((rawComp) => {
-                const c = getLocalizedComparison(rawComp, lang);
-                return (
-                  <Link
-                    key={c.slug}
-                    href={getLocalizedHref(`/compare/${c.slug}/`, lang)}
-                    className="rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-bold text-slate-800 transition hover:border-teal-600 hover:text-teal-800"
-                  >
-                    {c.shortTitle} →
-                  </Link>
-                );
-              })}
+          {/* Silo Internal Cross-Links to Comparisons & Conditions */}
+          <section className="mt-10 space-y-6 border-t border-slate-200 pt-7">
+            <div>
+              <h2 className="text-xs font-extrabold uppercase tracking-wider text-slate-500">
+                {cro.compareHeading}
+              </h2>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {COMPARISONS.map((rawComp) => {
+                  const c = getLocalizedComparison(rawComp, lang);
+                  return (
+                    <Link
+                      key={c.slug}
+                      href={getLocalizedHref(`/compare/${c.slug}/`, lang)}
+                      className="rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-bold text-slate-800 transition hover:border-teal-600 hover:text-teal-800"
+                    >
+                      {c.shortTitle} →
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-xs font-extrabold uppercase tracking-wider text-slate-500">
+                {ui.condition.otherSpineGoals}
+              </h2>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {CONDITIONS.slice(0, 6).map((rawCond) => {
+                  const cond = getLocalizedCondition(rawCond, lang);
+                  return (
+                    <Link
+                      key={cond.slug}
+                      href={getLocalizedHref(`/conditions/${cond.slug}/`, lang)}
+                      className="rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-slate-700 transition hover:border-teal-600 hover:text-teal-800"
+                    >
+                      {cond.shortTitle} →
+                    </Link>
+                  );
+                })}
+              </div>
             </div>
           </section>
         </article>

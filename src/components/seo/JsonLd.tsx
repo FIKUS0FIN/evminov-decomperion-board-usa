@@ -1,6 +1,8 @@
 import { SITE_CONFIG } from "@/lib/site-config";
-import { ProductItem, PRODUCTS } from "@/data/products";
+import { getProductPrice, ProductItem, PRODUCTS } from "@/data/products";
 import { GuideItem, getGuideWordCount } from "@/data/guides";
+import { ComparisonPageData } from "@/data/comparisons";
+import { ConditionPageData } from "@/data/conditions";
 import { Locale, LOCALE_META } from "@/i18n/types";
 import { getCanonicalUrl } from "@/lib/url";
 
@@ -62,7 +64,7 @@ export function OrganizationAndWebsiteSchema({ lang }: { lang: Locale }) {
           { "@type": "Country", name: "Ukraine" },
           { "@type": "Place", name: "European Union" },
         ],
-        sameAs: SITE_CONFIG.socialProfiles,
+        sameAs: [SITE_CONFIG.youtubeChannelUrl, `${origin}/`],
         knowsAbout: [
           "Inclined Spine Decompression",
           "Evminov Method",
@@ -149,6 +151,67 @@ export function ProductJsonLd({
     refundType: "https://schema.org/FullRefund",
   };
 
+  const stdDirect = getProductPrice(product, "standard", "direct");
+  const stdExpress = getProductPrice(product, "standard", "express");
+  const wideDirect = getProductPrice(product, "wide", "direct");
+  const wideExpress = getProductPrice(product, "wide", "express");
+
+  const directShipping = {
+    "@type": "OfferShippingDetails",
+    shippingRate: {
+      "@type": "MonetaryAmount",
+      value: "0",
+      currency: SITE_CONFIG.currency,
+    },
+    shippingDestination: {
+      "@type": "DefinedRegion",
+      addressCountry: ["US", "CA"],
+    },
+    deliveryTime: {
+      "@type": "ShippingDeliveryTime",
+      handlingTime: {
+        "@type": "QuantitativeValue",
+        minValue: 1,
+        maxValue: 3,
+        unitCode: "DAY",
+      },
+      transitTime: {
+        "@type": "QuantitativeValue",
+        minValue: 10,
+        maxValue: 16,
+        unitCode: "DAY",
+      },
+    },
+  };
+
+  const expressShipping = {
+    "@type": "OfferShippingDetails",
+    shippingRate: {
+      "@type": "MonetaryAmount",
+      value: "0",
+      currency: SITE_CONFIG.currency,
+    },
+    shippingDestination: {
+      "@type": "DefinedRegion",
+      addressCountry: ["US", "CA"],
+    },
+    deliveryTime: {
+      "@type": "ShippingDeliveryTime",
+      handlingTime: {
+        "@type": "QuantitativeValue",
+        minValue: 1,
+        maxValue: 2,
+        unitCode: "DAY",
+      },
+      transitTime: {
+        "@type": "QuantitativeValue",
+        minValue: 2,
+        maxValue: 5,
+        unitCode: "DAY",
+      },
+    },
+  };
+
   const schema = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -168,81 +231,55 @@ export function ProductJsonLd({
     offers: [
       {
         "@type": "Offer",
-        name: "Direct Workshop Delivery (~2 Weeks US & Canada)",
-        price: String(product.directPriceUsd),
+        name: "Standard 26 cm — Direct Workshop Delivery (~2 Weeks US & Canada)",
+        price: String(stdDirect),
         priceCurrency: SITE_CONFIG.currency,
         availability: "https://schema.org/InStock",
         itemCondition: "https://schema.org/NewCondition",
         priceValidUntil: "2027-12-31",
-        url: `${origin}/order/?product=${product.slug}&shipping=direct&step=2#order-form`,
+        url: `${origin}/order/?product=${product.slug}&width=standard&shipping=direct&step=2#order-form`,
         seller: { "@id": `${origin}/#organization` },
         hasMerchantReturnPolicy: returnPolicy,
-        shippingDetails: {
-          "@type": "OfferShippingDetails",
-          shippingRate: {
-            "@type": "MonetaryAmount",
-            value: "0",
-            currency: SITE_CONFIG.currency,
-          },
-          shippingDestination: {
-            "@type": "DefinedRegion",
-            addressCountry: ["US", "CA"],
-          },
-          deliveryTime: {
-            "@type": "ShippingDeliveryTime",
-            handlingTime: {
-              "@type": "QuantitativeValue",
-              minValue: 1,
-              maxValue: 3,
-              unitCode: "DAY",
-            },
-            transitTime: {
-              "@type": "QuantitativeValue",
-              minValue: 10,
-              maxValue: 16,
-              unitCode: "DAY",
-            },
-          },
-        },
+        shippingDetails: directShipping,
       },
       {
         "@type": "Offer",
-        name: "Express Fulfillment Option",
-        price: String(product.expressPriceUsd),
+        name: "Reinforced Wide 30 cm — Direct Workshop Delivery (~2 Weeks US & Canada)",
+        price: String(wideDirect),
         priceCurrency: SITE_CONFIG.currency,
         availability: "https://schema.org/InStock",
         itemCondition: "https://schema.org/NewCondition",
         priceValidUntil: "2027-12-31",
-        url: `${origin}/order/?product=${product.slug}&shipping=express&step=2#order-form`,
+        url: `${origin}/order/?product=${product.slug}&width=wide&shipping=direct&step=2#order-form`,
         seller: { "@id": `${origin}/#organization` },
         hasMerchantReturnPolicy: returnPolicy,
-        shippingDetails: {
-          "@type": "OfferShippingDetails",
-          shippingRate: {
-            "@type": "MonetaryAmount",
-            value: "0",
-            currency: SITE_CONFIG.currency,
-          },
-          shippingDestination: {
-            "@type": "DefinedRegion",
-            addressCountry: ["US", "CA"],
-          },
-          deliveryTime: {
-            "@type": "ShippingDeliveryTime",
-            handlingTime: {
-              "@type": "QuantitativeValue",
-              minValue: 1,
-              maxValue: 2,
-              unitCode: "DAY",
-            },
-            transitTime: {
-              "@type": "QuantitativeValue",
-              minValue: 2,
-              maxValue: 5,
-              unitCode: "DAY",
-            },
-          },
-        },
+        shippingDetails: directShipping,
+      },
+      {
+        "@type": "Offer",
+        name: "Standard 26 cm — Express Fulfillment Option",
+        price: String(stdExpress),
+        priceCurrency: SITE_CONFIG.currency,
+        availability: "https://schema.org/InStock",
+        itemCondition: "https://schema.org/NewCondition",
+        priceValidUntil: "2027-12-31",
+        url: `${origin}/order/?product=${product.slug}&width=standard&shipping=express&step=2#order-form`,
+        seller: { "@id": `${origin}/#organization` },
+        hasMerchantReturnPolicy: returnPolicy,
+        shippingDetails: expressShipping,
+      },
+      {
+        "@type": "Offer",
+        name: "Reinforced Wide 30 cm — Express Fulfillment Option",
+        price: String(wideExpress),
+        priceCurrency: SITE_CONFIG.currency,
+        availability: "https://schema.org/InStock",
+        itemCondition: "https://schema.org/NewCondition",
+        priceValidUntil: "2027-12-31",
+        url: `${origin}/order/?product=${product.slug}&width=wide&shipping=express&step=2#order-form`,
+        seller: { "@id": `${origin}/#organization` },
+        hasMerchantReturnPolicy: returnPolicy,
+        shippingDetails: expressShipping,
       },
     ],
   };
@@ -426,6 +463,78 @@ export function HomepageRichSchemas({ lang }: { lang: Locale }) {
   };
 
   return <JsonLdScript data={graph} />;
+}
+
+export function ComparisonArticleJsonLd({
+  comparison,
+  lang,
+}: {
+  comparison: ComparisonPageData;
+  lang: Locale;
+}) {
+  const origin = SITE_CONFIG.canonicalOrigin;
+  const canonical = getCanonicalUrl(`/compare/${comparison.slug}/`, lang);
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${canonical}#article`,
+    headline: comparison.title,
+    description: comparison.metaDescription,
+    image: `${origin}${comparison.heroImage}`,
+    datePublished: "2026-09-15T00:00:00Z",
+    dateModified: "2026-11-28T00:00:00Z",
+    inLanguage: LOCALE_META[lang].hreflang,
+    mainEntityOfPage: canonical,
+    author: {
+      "@type": "Organization",
+      name: SITE_CONFIG.brandName,
+      url: `${origin}/centers/`,
+    },
+    publisher: { "@id": `${origin}/#organization` },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", "article p:first-of-type"],
+    },
+  };
+
+  return <JsonLdScript data={schema} />;
+}
+
+export function ConditionArticleJsonLd({
+  condition,
+  lang,
+}: {
+  condition: ConditionPageData;
+  lang: Locale;
+}) {
+  const origin = SITE_CONFIG.canonicalOrigin;
+  const canonical = getCanonicalUrl(`/conditions/${condition.slug}/`, lang);
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${canonical}#article`,
+    headline: condition.title,
+    description: condition.metaDescription,
+    image: `${origin}${condition.heroImage}`,
+    datePublished: "2026-09-15T00:00:00Z",
+    dateModified: "2026-11-28T00:00:00Z",
+    inLanguage: LOCALE_META[lang].hreflang,
+    mainEntityOfPage: canonical,
+    author: {
+      "@type": "Organization",
+      name: SITE_CONFIG.brandName,
+      url: `${origin}/centers/`,
+    },
+    publisher: { "@id": `${origin}/#organization` },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", "article p:first-of-type"],
+    },
+  };
+
+  return <JsonLdScript data={schema} />;
 }
 
 export function CalculatorWebAppJsonLd({ lang }: { lang: Locale }) {

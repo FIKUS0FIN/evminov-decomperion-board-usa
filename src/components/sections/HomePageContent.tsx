@@ -390,8 +390,10 @@ export function HomePageContent({ lang }: { lang: Locale }) {
             </Link>
           </div>
 
-          <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {GUIDES.slice(0, 4).map((raw) => {
+          <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {GUIDES.slice(-6)
+              .reverse()
+              .map((raw) => {
               const g = getLocalizedGuide(raw, lang);
               return (
                 <article
@@ -403,7 +405,7 @@ export function HomePageContent({ lang }: { lang: Locale }) {
                       src={g.heroImage}
                       alt={g.title}
                       fill
-                      sizes="(max-width: 768px) 100vw, 25vw"
+                      sizes="(max-width: 768px) 100vw, 33vw"
                       className="object-cover"
                     />
                   </div>

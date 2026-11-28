@@ -358,7 +358,7 @@ export const GUIDES: GuideItem[] = [
         id: "thirty-two-vertebrae",
         heading: "2. Daily 10-Minute Prevention Economics",
         paragraphs: [
-          "Vyacheslav Evminov coined the phrase \"Daily Hygiene for the Spine\" after restoring his own mobility in the 1990s. One handcrafted $450 Evminov board lasts 20+ years and adjusts in seconds for an entire household of three — working out to roughly $7.50 per person per year, compared to thousands in recurring clinic visits.",
+          "Vyacheslav Evminov coined the phrase \"Daily Hygiene for the Spine\" after restoring his own mobility in the 1990s. One handcrafted folding Evminov board lasts 20+ years and adjusts in seconds for an entire household of three — costing pennies per day compared to thousands in recurring clinic visits.",
         ],
       },
     ],
@@ -396,16 +396,14 @@ export const GUIDES: GuideItem[] = [
     sections: [
       {
         id: "choosing-your-model",
-        heading: "1. Choosing Between the 5 Evminov Board Models",
+        heading: "1. Choosing Between the Official Folding Evminov Models (US & Canada)",
         paragraphs: [
-          "Selecting the right Evminov board depends on three simple variables: your height/weight, your living space, and how often you plan to move or travel with the board.",
+          "Selecting the right Evminov board depends on three simple variables: your height/weight, your living space, and how you plan to mount or store the board. All North American orders ship in precision-coupled demountable panels (~2 weeks via international couriers) with a 1-Year Warranty:",
         ],
         bullets: [
-          "Standard Solid Pine ($450 direct / $595 CA Express): Best all-around permanent wall board for users up to 6'4\" and 210 lbs.",
-          "2-Piece Folding ($475 / $615): Separates into two 45\" halves in 30 seconds for closet or under-bed storage (up to 220 lbs).",
-          "3-Piece Travel ($495 / $635): Packs into 31\" trunk/airline bag with over-the-door strap (up to 220 lbs).",
-          "Wide Heavy-Duty ($500 / $635): 30% wider reinforced deck rated to 330 lbs and 6'9\" — built for athletes and broad shoulders.",
-          "Select Alder Wood ($525 / $665): ~15% lighter warm-amber timber (19–21 lbs) for effortless handling (up to 220 lbs).",
+          "3-Piece Folding Evminov Board (230–245 cm): Full clinical length in 3 compact sections — Standard 26 cm (≤100 kg / 220 lbs) or Reinforced Wide 30 cm (>100 kg / up to 330 lbs), Light or Dark finish.",
+          "2-Piece Folding Evminov Board ('Spine Toothbrush' — 2 sections only): Ultra-compact home model in Standard 26 cm or Reinforced Wide 30 cm, Light or Dark finish.",
+          "Official Factory Accessories: 4-Piece Demountable Ladder Stand (max 123 cm, $275), Stand/Swedish Wall Hooks ($35), 2-Bag Case Set ($105), Single Case Bag ($105), and 2-Piece Wall Protection Panels (Standard 26 cm $155 / Wide 30 cm $175).",
         ],
       },
       {
@@ -595,17 +593,18 @@ export const GUIDES: GuideItem[] = [
       },
       {
         id: "official-6-item-lineup",
-        heading: "2. Complete Official US & Canada Lineup (Boards & 4 Factory Accessories)",
+        heading: "2. Complete Official US & Canada Lineup (2 Folding Boards & 6 Factory Accessories)",
         paragraphs: [
-          "Every Evminov board includes the patented Glisson Cervical Loop, wall mounting kit, illustrated exercise manual, official product passport, and a 1-Year Warranty. Choose from two folding boards and four matching factory accessories:",
+          "Every Evminov board includes the patented Glisson Cervical Loop, wall mounting kit, illustrated exercise manual, official product passport, and a 1-Year Warranty. Choose from two folding boards and six matching factory accessories:",
         ],
         bullets: [
           "1. 3-Piece Folding Evminov Board (230–245 cm full length): Standard 26 cm (≤100 kg / 220 lbs) or Reinforced Wide 30 cm (>100 kg / up to 330 lbs), in Light (Natural Warm Amber Alder) or Dark (Dark Walnut Pine).",
           "2. 2-Piece Folding Evminov Board ('Spine Toothbrush' — 2 sections only): Compact home model in Standard 26 cm or Reinforced Wide 30 cm, Light or Dark finish.",
-          "3. 4-Piece Demountable Ladder Stand (max height 123 cm): Freestanding no-drill stand compatible with both 26 cm Standard and 30 cm Reinforced Wide Evminov Boards.",
-          "4. Evminov Board Mounting Hooks: Heavy-duty steel hooks for attaching your board to the 4-Piece Ladder Stand or any Swedish Wall.",
-          "5. 2-Bag Protective Carry Case Set: Dual-bag storage & transport set tailored for the 3-Piece Evminov Board.",
-          "6. Single Protective Carry Case Bag: One fitted carry bag tailored for the 2-Piece 'Spine Toothbrush' Board.",
+          "3. 4-Piece Demountable Ladder Stand (max height 123 cm, $275): Freestanding no-drill stand compatible with both 26 cm Standard and 30 cm Reinforced Wide Evminov Boards.",
+          "4. Evminov Board Mounting Hooks ($35): Heavy-duty steel hooks for attaching your board to the 4-Piece Ladder Stand or any Swedish Wall.",
+          "5. 2-Bag Protective Carry Case Set ($105): Dual-bag storage & transport set tailored for the 3-Piece Evminov Board.",
+          "6. Single Protective Carry Case Bag ($105): One fitted carry bag tailored for the 2-Piece 'Spine Toothbrush' Board.",
+          "7. 2-Piece Wall Protection Panels: Protective wall backing for Standard 26 cm ($155) and Reinforced Wide 30 cm ($175) Evminov Boards.",
         ],
       },
       {
@@ -702,6 +701,209 @@ export const GUIDES: GuideItem[] = [
       {
         q: "What angle should I use for neck traction on the Evminov Board?",
         a: "Always stay in the ultra-gentle 8° to 12° range for cervical sessions and keep sessions brief (3–5 minutes). Consult your healthcare provider first if you have a diagnosed cervical disc bulge or nerve symptoms.",
+      },
+    ],
+  },
+  {
+    id: "best-home-spinal-decompression-devices-2026",
+    slug: "best-home-spinal-decompression-devices-2026-guide",
+    title: "Best Home Spinal Decompression Devices Compared (2026): Inversion vs. Pneumatic vs. Inclined Board",
+    metaTitle: "Best Home Spinal Decompression Devices (2026 Guide)",
+    metaDescription:
+      "Compare the 5 types of home spinal decompression equipment in 2026: inversion tables, Saunders/ComforTrac pneumatic traction, Nubax, air belts & Evminov Boards.",
+    category: "2026 Buyer's Guide",
+    datePublished: "2026-11-28",
+    dateModified: "2026-11-28",
+    readTime: "9 min read",
+    author: {
+      name: "Evminov Spine Biomechanics Editorial Team",
+      role: "Home Spine Equipment Research",
+      credentials: "30 Years of Evminov Method Documentation (Since 1996)",
+    },
+    heroImage: "/images/authentic/hero-full-device-traction.jpg",
+    excerpt:
+      "Clinical motorized DRX9000 decompression tables cost $15,000+ and stay in clinics. For home use in 2026, five distinct device categories compete for your back — here is an honest biomechanical comparison so you pick the safest, most sustainable option.",
+    recommendedProductSlug: "3-piece-travel-board",
+    sections: [
+      {
+        id: "five-categories-overview",
+        heading: "1. The 5 Types of Home Spinal Decompression Equipment in 2026",
+        paragraphs: [
+          "True computer-controlled clinic decompression tables cost tens of thousands of dollars. At home, spine unloading relies on one of five mechanical approaches — each with very different safety profiles, comfort levels, and long-term results:",
+        ],
+        bullets: [
+          "1. Inclined Decompression Boards (Evminov Board): Head-up 8°–35° resonant wood plane combining smooth axial gravity unloading with active deep stabilizer micro-exercises + free Glisson neck loop. Zero upside-down head rush, zero ankle clamping, zero electronics.",
+          "2. Gravity Inversion Tables (Teeter FitSpine, Innova): Hang upside down by ankle locks (60°–90°). Strong gravity pull, but spikes eye/blood pressure, stresses ankles/knees, takes 15+ sq ft, and offers passive hanging only.",
+          "3. Supine Pneumatic Floor Traction (Saunders Lumbar, ComforTrac): Lie flat on the floor strapped into chest/pelvis harnesses and pump air manually. Safe for blood pressure, but strictly passive, lumbar-only (no neck or thoracic relief), and relies on pumps/seals.",
+          "4. Kneeling Leverage Frames (Nubax Trio): Kneel forward and lean into a chest pad. Non-inverted and portable, but places heavy pressure on knees, shins, hips, and ribs.",
+          "5. Inflatable Air Belts & Plastic Arches (DiskDr, Posture Pump, Foam Rollers): Low-cost portable relief ($40–$200), useful for temporary mild comfort, but limited axial traction force and zero active spinal stabilization.",
+        ],
+      },
+      {
+        id: "active-vs-passive-results",
+        heading: "2. Why Consistency + Active Deep Core Training Decide Long-Term Relief",
+        paragraphs: [
+          "Physical therapists and systematic reviews (including JAMA Internal Medicine & WHO 2023 guidelines) emphasize a critical truth: passive stretching alone temporarily eases tension, but weak deep paraspinal muscles allow vertebrae to re-compress minutes after you stand up.",
+          "That is why inclined spine conditioning on the Evminov Board focuses on two steps in every 10-minute session: (1) gentle head-up unloading to relax protective muscle spasms and promote disc fluid diffusion, followed immediately by (2) tiny, pain-free stabilizing movements that strengthen the deep multifidus muscle corset.",
+        ],
+      },
+      {
+        id: "buying-checklist-2026",
+        heading: "3. 2026 Buyer's Checklist Before You Spend $300–$650",
+        paragraphs: [
+          "Before ordering any home spine traction device in the US or Canada, run through four practical checks:",
+        ],
+        bullets: [
+          "Cardiovascular & Eye Safety: If you have high blood pressure, glaucoma, acid reflux, vertigo, or are over 50, choose head-up decompression instead of 90° inversion.",
+          "Joint Comfort: Check whether the device clamps your ankles (inversion) or loads your knees (kneeling frames).",
+          "Full-Spine Value: Does one station cover lower back, mid-back, AND neck (Glisson Loop), or will you need multiple gadgets?",
+          "Reimbursement & Warranty: Verify 1-Year manufacturer warranty, itemized HSA/FSA receipt availability (with provider LMN), and compact folding storage for apartments.",
+        ],
+      },
+    ],
+    references: [
+      { citation: "World Health Organization. WHO Guideline for Non-Surgical Management of Chronic Primary Low Back Pain in Adults. Geneva: WHO; 2023.", source: "WHO" },
+      { citation: "Steffens D et al. Prevention of Low Back Pain: A Systematic Review and Meta-analysis. JAMA Intern Med. 2016;176(2):199-208.", source: "JAMA Internal Medicine" },
+    ],
+    faqs: [
+      {
+        q: "What is the safest home spinal decompression device if I cannot hang upside down?",
+        a: "Head-up inclined boards (like the Evminov Board at 8°–25°) and supine pneumatic floor units (like Saunders/ComforTrac) keep your head at or above heart level, avoiding the cranial and ocular pressure spikes of inversion tables. The Evminov Board adds active deep-core exercises and full-spine + neck coverage in one unit.",
+      },
+      {
+        q: "How much space does a folding Evminov Board require compared to an inversion table?",
+        a: "While an inversion table occupies 15+ sq ft of floor space, a 3-Piece or 2-Piece folding Evminov Board folds flat to 2.4 inches against a wall or packs neatly into carry bags when not in use.",
+      },
+    ],
+  },
+  {
+    id: "inversion-table-alternative-high-blood-pressure-seniors",
+    slug: "inversion-table-alternative-high-blood-pressure-seniors",
+    title: "Safe Spinal Decompression for High Blood Pressure, Glaucoma & Adults 55+ (No Hanging Upside Down)",
+    metaTitle: "Inversion Table Alternative for High Blood Pressure & Seniors",
+    metaDescription:
+      "Have high blood pressure, glaucoma, vertigo, or are over 55? Learn why 90° inversion tables are risky and how gentle 8°–18° head-up unloading decompresses safely.",
+    category: "Safety & Seniors 55+",
+    datePublished: "2026-11-28",
+    dateModified: "2026-11-28",
+    readTime: "7 min read",
+    author: {
+      name: "Evminov Spine Biomechanics Editorial Team",
+      role: "Senior Mobility & Cardiovascular Safety",
+      credentials: "30 Years of Evminov Method Documentation (Since 1996)",
+    },
+    heroImage: "/images/authentic/evminov-board-profile.jpg",
+    excerpt:
+      "Hanging upside down on an inversion table spikes blood pressure in the head and intraocular eye pressure within 60 seconds. Here is how adults over 55 and anyone managing hypertension, glaucoma, or reflux can unload their spine calmly head-up.",
+    recommendedProductSlug: "2-piece-folding-board",
+    sections: [
+      {
+        id: "why-inversion-is-contraindicated",
+        heading: "1. Why Doctors Warn Against Inversion Tables for Hypertension & Glaucoma",
+        paragraphs: [
+          "Major clinical centers including the Cleveland Clinic caution that hanging upside down forces venous blood toward the skull, rapidly elevating both cranial systolic blood pressure and intraocular eye pressure (IOP) while slowing heart rate.",
+          "For adults managing hypertension, glaucoma, retinal detachment risk, acid reflux (GERD), vertigo, middle-ear dizziness, or fragile ankle/knee joints, steep inversion is widely contraindicated — even for just two minutes.",
+        ],
+      },
+      {
+        id: "head-up-inclined-advantage",
+        heading: "2. How 8°–18° Head-Up Inclined Unloading Works Without Blood Rush",
+        paragraphs: [
+          "On the patented Evminov Inclined Board, your head ALWAYS stays comfortably higher than your heart and torso. Gravity gently elongates your lumbar spine downward along a smooth, flexing natural wood surface while your hands rest effortlessly on padded overhead handles:",
+        ],
+        bullets: [
+          "Head above heart at every standard angle (8°–18° for seniors & beginners) — zero facial flushing, sinus pressure, or eye surge.",
+          "Zero ankle clamps or flipping mechanisms — simply sit on the low board, lie back smoothly, and rest.",
+          "Calm nasal breathing lowers nervous-system tension instead of triggering a stress spike.",
+          "Safe Side-Roll Exit: Pause flat for 1–2 minutes after your 8-minute session, then roll gently onto your side to stand up without dizziness.",
+        ],
+      },
+      {
+        id: "medical-clearance-guidance",
+        heading: "3. Medical Clearance & Smart Precautions for Adults 55+",
+        paragraphs: [
+          "Evminov Boards are General Wellness & Spine Conditioning Equipment (HTS 9506.91.0030). If you have uncontrolled high blood pressure, severe osteoporosis, recent spinal surgery, vascular stents, or glaucoma, always consult your physician or physical therapist before starting any new traction or exercise routine — and never hold your breath (avoid the Valsalva maneuver) during gentle movements.",
+        ],
+      },
+    ],
+    references: [
+      { citation: "Friberg TR, Weinreb RN. Ocular manifestations of gravity inversion. JAMA. 1985;253(12):1755-1757.", source: "JAMA" },
+      { citation: "Cleveland Clinic Health Essentials. Are Inversion Tables Safe for Back Pain? Cardiovascular & Glaucoma Precautions.", source: "Cleveland Clinic" },
+    ],
+    faqs: [
+      {
+        q: "Does using the Evminov Board at 10°–15° cause blood to rush to my head?",
+        a: "No. Because your head stays elevated above your torso and feet during standard Evminov unloading, there is zero upside-down head rush or ankle hanging. Always confirm with your physician if you have uncontrolled hypertension.",
+      },
+      {
+        q: "Can older adults easily get on and off the Evminov Board alone?",
+        a: "Yes. At gentle 8°–14° inclines, the board rests close to the floor — you simply sit down, glide smoothly onto your back, hold the padded handles, and roll safely to your side when finished.",
+      },
+    ],
+  },
+  {
+    id: "spinal-stenosis-and-l5-s1-morning-decompression",
+    slug: "spinal-stenosis-and-l5-s1-morning-decompression-guide",
+    title: "Spinal Stenosis & L5–S1 Bulging Disc: Flexion-Friendly Home Routine, Sleep Posture & Morning Log-Roll",
+    metaTitle: "Spinal Stenosis & L5–S1 Bulging Disc Home Guide",
+    metaDescription:
+      "Learn why lumbar spinal stenosis and L5–S1 bulges react poorly to forced back-arching, how to protect morning-hydrated discs, and safe bent-knee unloading.",
+    category: "Stenosis & L5–S1 Care",
+    datePublished: "2026-11-28",
+    dateModified: "2026-11-28",
+    readTime: "8 min read",
+    author: {
+      name: "Evminov Spine Biomechanics Editorial Team",
+      role: "Lumbar Biomechanics & Daily Hygiene",
+      credentials: "30 Years of Evminov Method Documentation (Since 1996)",
+    },
+    heroImage: "/images/gallery/lumbar-single-leg-lift.jpg",
+    excerpt:
+      "What relieves one back issue can aggravate another: lumbar spinal stenosis typically worsens with forced back-arching, while L5–S1 discs swell overnight and are most vulnerable in the first 30 minutes after waking. Here is your 24-hour gentle blueprint.",
+    recommendedProductSlug: "2-piece-folding-board",
+    sections: [
+      {
+        id: "stenosis-flexion-vs-extension",
+        heading: "1. Spinal Stenosis Biomechanics: Why Neutral & Bent-Knee Unloading Beats Hyperextension",
+        paragraphs: [
+          "Lumbar spinal stenosis involves narrowing of the spinal canal or nerve root exits. Aggressive backward arching (hyperextension) — common on cheap plastic floor arches or unsupported hanging — narrows the canal further and can trigger leg heaviness or tingling (neurogenic claudication).",
+          "By contrast, gentle neutral or softly flexed positioning (such as lying supine with knees slightly bent, posterior pelvic tilts, or ultra-mild 8°–12° supported unloading on a flat resonant board) helps keep the posterior canal open and relaxed without pinching facet joints.",
+        ],
+      },
+      {
+        id: "sleep-and-morning-30-min-rule",
+        heading: "2. L5–S1 Sleep Alignment & The Critical First 30 Minutes After Waking",
+        paragraphs: [
+          "Overnight, intervertebral discs absorb fluid and increase in height and internal pressure. That makes the first 30–60 minutes after waking the highest-risk window for sharp bending, twisting, or tying shoes with a rounded spine:",
+        ],
+        bullets: [
+          "Back Sleepers: Place 1–2 firm pillows under your knees to soften lumbar arch and ease tension on L5–S1 nerve roots.",
+          "Side Sleepers: Place a supportive pillow between knees and thighs so the top leg never drops forward and twists the pelvis.",
+          "Use the Log-Roll Bed Exit: Bend both knees, roll your shoulders and hips together as one unit onto your side, drop your feet off the mattress, and press up with your arms.",
+          "Evening Decompression Habit: Spend 8–10 minutes on a gentle 10°–16° Evminov incline in the evening (with knees softly bent if you have stenosis symptoms) to reverse daytime compression before sleep.",
+        ],
+      },
+      {
+        id: "golden-safety-rules",
+        heading: "3. The Red-Light Rule & Emergency Medical Screening",
+        paragraphs: [
+          "Never push through shooting leg pain, progressive numbness, or muscle weakness. If any stretch causes symptoms to travel farther down your leg (peripheralization), stop immediately and consult a spine specialist or physical therapist.",
+          "Seek immediate emergency medical care if you ever develop foot drop, rapidly worsening leg weakness, groin/saddle numbness, or loss of bowel or bladder control (potential Cauda Equina Syndrome).",
+        ],
+      },
+    ],
+    references: [
+      { citation: "Reilly T, Tyrrell A, Troup JD. Circadian variation in human stature (overnight disc hydration). Chronobiol Int. 1984;1(2):121-126.", source: "PubMed" },
+      { citation: "Lurie J, Tomkins-Lane C. Management of lumbar spinal stenosis. BMJ. 2016;352:h6234.", source: "BMJ Clinical Review" },
+    ],
+    faqs: [
+      {
+        q: "Can people with mild lumbar spinal stenosis use an Evminov Board?",
+        a: "Always get clearance from your physician or physical therapist first. When cleared, stenosis users avoid forced back-arching and instead use ultra-gentle 8°–12° angles lying supine with knees comfortably bent or supported by a small bolster so the lumbar canal stays neutral and open.",
+      },
+      {
+        q: "Should I decompress on the Evminov Board first thing in the morning or in the evening?",
+        a: "For L5–S1 disc bulges, evening unloading (after a full day of gravity compression) is usually the most comfortable starting point. In the morning, wait 30–60 minutes after waking before doing active bends or steeper inclines.",
       },
     ],
   },

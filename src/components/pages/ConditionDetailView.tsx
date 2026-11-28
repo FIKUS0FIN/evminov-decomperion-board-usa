@@ -1,15 +1,20 @@
 import Link from "next/link";
-import { ArrowRight, AlertTriangle } from "lucide-react";
+import { ArrowRight, AlertTriangle, MessageCircle } from "lucide-react";
 import { Locale } from "@/i18n/types";
 import { ConditionPageData, CONDITIONS } from "@/data/conditions";
+import { COMPARISONS } from "@/data/comparisons";
+import { GUIDES } from "@/data/guides";
 import { getProductBySlug } from "@/data/products";
 import { getLocalizedCondition } from "@/i18n/locales/conditions-i18n";
+import { getLocalizedComparison } from "@/i18n/locales/comparisons-i18n";
+import { getLocalizedGuide } from "@/i18n/locales/guides-i18n";
 import { getSiloUi } from "@/i18n/locales/silo-ui";
 import { getLocalizedProduct } from "@/i18n/locales/catalog";
 import { buildPrefilledOrderUrl, getLocalizedHref } from "@/lib/url";
 import { formatUSD } from "@/lib/physics";
+import { SITE_CONFIG } from "@/lib/site-config";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
-import { FaqJsonLd } from "@/components/seo/JsonLd";
+import { ConditionArticleJsonLd, FaqJsonLd } from "@/components/seo/JsonLd";
 
 export function ConditionDetailView({
   condition: rawCondition,
@@ -27,6 +32,7 @@ export function ConditionDetailView({
 
   return (
     <>
+      <ConditionArticleJsonLd condition={condition} lang={lang} />
       <FaqJsonLd faqs={condition.faqs} />
       <article className="mx-auto max-w-5xl px-4 py-12">
         <span className="inline-block rounded-full bg-emerald-50 px-3.5 py-1 text-xs font-bold text-emerald-800">
@@ -160,11 +166,20 @@ export function ConditionDetailView({
                   goal: condition.goalKey,
                   step: 2,
                 })}
-                className="inline-flex items-center gap-2 rounded-xl bg-emerald-400 px-5 py-3 text-xs font-black text-slate-950 hover:bg-emerald-300"
+                className="inline-flex min-h-[44px] items-center gap-2 rounded-xl bg-emerald-400 px-5 py-3 text-xs font-black text-slate-950 hover:bg-emerald-300"
               >
                 <span>{ui.common.orderBoard}</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
+              <a
+                href={SITE_CONFIG.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-[44px] items-center gap-2 rounded-xl bg-[#16A34A] px-4 py-3 text-xs font-extrabold text-white hover:bg-emerald-500"
+              >
+                <MessageCircle className="h-4 w-4" />
+                <span>WhatsApp</span>
+              </a>
             </div>
           </div>
         )}
@@ -194,23 +209,67 @@ export function ConditionDetailView({
           </section>
         )}
 
-        <div className="mt-12 border-t border-slate-200 pt-8">
-          <p className="text-xs font-bold uppercase text-slate-500">
-            {ui.condition.otherSpineGoals}
-          </p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {CONDITIONS.filter((c) => c.slug !== condition.slug).map((raw) => {
-              const c = getLocalizedCondition(raw, lang);
-              return (
-                <Link
-                  key={c.slug}
-                  href={getLocalizedHref(`/conditions/${c.slug}/`, lang)}
-                  className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-bold text-slate-800 hover:border-teal-600"
-                >
-                  {c.shortTitle}
-                </Link>
-              );
-            })}
+        <div className="mt-12 space-y-7 border-t border-slate-200 pt-8">
+          <div>
+            <p className="text-xs font-bold uppercase text-slate-500">
+              {ui.condition.otherSpineGoals}
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {CONDITIONS.filter((c) => c.slug !== condition.slug).map((raw) => {
+                const c = getLocalizedCondition(raw, lang);
+                return (
+                  <Link
+                    key={c.slug}
+                    href={getLocalizedHref(`/conditions/${c.slug}/`, lang)}
+                    className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-bold text-slate-800 hover:border-teal-600"
+                  >
+                    {c.shortTitle}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+
+          <div>
+            <p className="text-xs font-bold uppercase text-slate-500">
+              {ui.comparison.moreComparisons}
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {COMPARISONS.slice(0, 5).map((raw) => {
+                const comp = getLocalizedComparison(raw, lang);
+                return (
+                  <Link
+                    key={comp.slug}
+                    href={getLocalizedHref(`/compare/${comp.slug}/`, lang)}
+                    className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-xs font-bold text-slate-700 hover:border-teal-600 hover:text-teal-800"
+                  >
+                    {comp.shortTitle} →
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+
+          <div>
+            <p className="text-xs font-bold uppercase text-slate-500">
+              {ui.guide.relatedGuides}
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {GUIDES.slice(-4)
+                .reverse()
+                .map((raw) => {
+                  const g = getLocalizedGuide(raw, lang);
+                  return (
+                    <Link
+                      key={g.slug}
+                      href={getLocalizedHref(`/guides/${g.slug}/`, lang)}
+                      className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-xs font-bold text-slate-700 hover:border-teal-600 hover:text-teal-800"
+                    >
+                      {g.title} →
+                    </Link>
+                  );
+                })}
+            </div>
           </div>
         </div>
       </article>

@@ -35,7 +35,7 @@ export function getSharedMetadata(lang: Locale): Metadata {
     metadataBase: new URL(SITE_CONFIG.canonicalOrigin),
     title: {
       default: dict.meta.siteTitle,
-      template: "%s | Evminov Spine Systems",
+      template: "%s | Evminov",
     },
     description: dict.meta.siteDescription,
     keywords: dict.meta.keywords,

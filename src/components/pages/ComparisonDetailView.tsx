@@ -2,15 +2,17 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, MessageCircle } from "lucide-react";
 import { Locale } from "@/i18n/types";
 import { ComparisonPageData, COMPARISONS } from "@/data/comparisons";
+import { GUIDES } from "@/data/guides";
 import { getProductBySlug } from "@/data/products";
 import { getLocalizedComparison } from "@/i18n/locales/comparisons-i18n";
+import { getLocalizedGuide } from "@/i18n/locales/guides-i18n";
 import { getSiloUi } from "@/i18n/locales/silo-ui";
 import { getLocalizedProduct } from "@/i18n/locales/catalog";
 import { buildPrefilledOrderUrl, getLocalizedHref } from "@/lib/url";
 import { formatUSD } from "@/lib/physics";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
-import { FaqJsonLd } from "@/components/seo/JsonLd";
+import { ComparisonArticleJsonLd, FaqJsonLd } from "@/components/seo/JsonLd";
 
 export function ComparisonDetailView({
   comparison: rawComparison,
@@ -28,6 +30,7 @@ export function ComparisonDetailView({
 
   return (
     <>
+      <ComparisonArticleJsonLd comparison={comparison} lang={lang} />
       <FaqJsonLd faqs={comparison.faqs} />
       <article className="mx-auto max-w-5xl px-4 py-10 md:py-12">
 
@@ -174,24 +177,48 @@ export function ComparisonDetailView({
           </section>
         )}
 
-        {/* Cross-links */}
-        <div className="mt-12 border-t border-slate-200 pt-8">
-          <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
-            {ui.comparison.moreComparisons}
-          </p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {COMPARISONS.filter((c) => c.slug !== comparison.slug).map((raw) => {
-              const c = getLocalizedComparison(raw, lang);
-              return (
-                <Link
-                  key={c.slug}
-                  href={getLocalizedHref(`/compare/${c.slug}/`, lang)}
-                  className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-bold text-slate-800 hover:border-teal-600"
-                >
-                  {c.shortTitle}
-                </Link>
-              );
-            })}
+        {/* Cross-links: Comparisons + Related Guides */}
+        <div className="mt-12 space-y-7 border-t border-slate-200 pt-8">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
+              {ui.comparison.moreComparisons}
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {COMPARISONS.filter((c) => c.slug !== comparison.slug).map((raw) => {
+                const c = getLocalizedComparison(raw, lang);
+                return (
+                  <Link
+                    key={c.slug}
+                    href={getLocalizedHref(`/compare/${c.slug}/`, lang)}
+                    className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-bold text-slate-800 hover:border-teal-600"
+                  >
+                    {c.shortTitle}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+
+          <div>
+            <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
+              {ui.guide.relatedGuides}
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {GUIDES.slice(-5)
+                .reverse()
+                .map((raw) => {
+                  const g = getLocalizedGuide(raw, lang);
+                  return (
+                    <Link
+                      key={g.slug}
+                      href={getLocalizedHref(`/guides/${g.slug}/`, lang)}
+                      className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-xs font-bold text-slate-700 hover:border-teal-600 hover:text-teal-800"
+                    >
+                      {g.title} →
+                    </Link>
+                  );
+                })}
+            </div>
           </div>
         </div>
       </article>

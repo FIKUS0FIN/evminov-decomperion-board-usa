@@ -1650,6 +1650,193 @@ const COMPARISONS_TRANSLATIONS: Record<
       ],
     },
   },
+  "evminov-vs-nubax-saunders-traction": {
+    es: {
+      shortTitle: "Evminov vs. Nubax y Saunders",
+      title: "Tabla Evminov vs. Nubax Trio, Saunders y ComforTrac (Comparativa 2026)",
+      metaTitle: "Evminov vs. Nubax Trio, Saunders y ComforTrac",
+      metaDescription:
+        "Compara dispositivos de descompresión sin inversión: tabla inclinada Evminov vs. Nubax de rodillas vs. tracción neumática Saunders y ComforTrac.",
+      competitorName: "Nubax Trio / Saunders / ComforTrac",
+      eyebrow: "Comparativa 2026 sin Inversión • Tracción Mecánica",
+      summary:
+        "Para descomprimir la espalda sin colgar boca abajo destacan tres opciones: el marco Nubax Trio de rodillas, los equipos neumáticos de suelo Saunders/ComforTrac y la tabla inclinada Evminov.",
+      keyTakeaways: [
+        "Cero presión sobre rodillas o caderas con artrosis (a diferencia de la postura arrodillada de Nubax).",
+        "Cubre zona lumbar, torácica y cervical (Lazo Glisson incluido) — no solo tracción lumbar pasiva.",
+        "Combina descarga axial 8°–35° con fortalecimiento activo de estabilizadores profundos.",
+        "Sin bombas de aire, mangueras ni fugas — madera resonante con Garantía de 1 Año.",
+      ],
+      rows: [
+        { metric: "Postura Corporal", evminov: "Tumbado en madera flexible 8°–35° (cabeza arriba)", alternative: "Nubax: arrodillado | Saunders/ComforTrac: atado en el suelo" },
+        { metric: "Confort de Rodillas y Costillas", evminov: "Cero carga en rodillas o costillas", alternative: "Nubax carga rodillas; Saunders usa arneses apretados" },
+        { metric: "Zonas de la Columna", evminov: "Lumbar, Torácica y Cervical (Lazo Glisson gratis)", alternative: "Solo lumbar (requiere equipo aparte para el cuello)" },
+        { metric: "Fortalecimiento Activo", evminov: "Sí — 20+ ejercicios de estabilizadores profundos", alternative: "No — tracción 100% pasiva" },
+        { metric: "Presión Arterial y Ocular", evminov: "Cabeza por encima del corazón — sin inversión", alternative: "Sin inversión (también evita congestión craneal)" },
+        { metric: "Durabilidad Mecánica", evminov: "Madera multicapa sin bombas ni válvulas", alternative: "Bombas manuales, mangueras y velcros con desgaste" },
+      ],
+      deepDiveSections: [
+        {
+          heading: "Por Qué la Descarga Acostada Sin Rodillas Supera a Nubax y Arneses de Suelo",
+          body: "Nubax exige arrodillarse y cargar peso sobre rodillas y costillas, mientras Saunders y ComforTrac solo aplican tracción lumbar pasiva con cinturones. La tabla Evminov ofrece descarga cómoda de toda la columna y fortalecimiento activo diario.",
+        },
+      ],
+      faqs: [
+        {
+          q: "¿Es la tabla Evminov mejor que Nubax si tengo molestias en las rodillas?",
+          a: "Sí. En la tabla Evminov descansas tumbado sobre madera flexible sin apoyar peso sobre rodillas ni espinillas.",
+        },
+      ],
+    },
+    fr: {
+      shortTitle: "Evminov vs. Nubax & Saunders",
+      title: "Planche Evminov vs. Nubax Trio, Saunders & ComforTrac (Comparatif 2026)",
+      metaTitle: "Evminov vs. Nubax Trio, Saunders & ComforTrac",
+      metaDescription:
+        "Comparatif décompression sans inversion : planche inclinée Evminov vs. Nubax à genoux vs. traction pneumatique Saunders et ComforTrac.",
+      competitorName: "Nubax Trio / Saunders / ComforTrac",
+      eyebrow: "Comparatif 2026 Sans Inversion • Traction Mécanique",
+      summary:
+        "Pour soulager le dos sans se suspendre tête en bas, comparez le cadre à genoux Nubax Trio, les appareils pneumatiques Saunders/ComforTrac et la planche inclinée Evminov.",
+      keyTakeaways: [
+        "Zéro appui douloureux sur les genoux ou les hanches (contrairement à Nubax).",
+        "Couvre lombaires, dorsales ET cervicales (Sangle Glisson offerte) — pas seulement les lombaires.",
+        "Associe décharge axiale 8°–35° et renforcement actif des muscles profonds.",
+        "Aucune pompe à air ni valve qui fuit — bois massif garanti 1 an.",
+      ],
+      rows: [
+        { metric: "Position du Corps", evminov: "Allongé sur bois souple 8°–35° (tête en haut)", alternative: "Nubax : à genoux | Saunders/ComforTrac : sanglé au sol" },
+        { metric: "Confort Genoux & Côtes", evminov: "Zéro pression sur genoux ou côtes", alternative: "Nubax appuie sur genoux ; Saunders serre le thorax" },
+        { metric: "Zones Couvertes", evminov: "Lombaire, Thoracique & Cervicale (Glisson offert)", alternative: "Lombaire uniquement (appareil séparé pour le cou)" },
+        { metric: "Renforcement Actif", evminov: "Oui — 20+ exercices de stabilisateurs profonds", alternative: "Non — traction 100 % passive" },
+        { metric: "Pression Artérielle / Oculaire", evminov: "Tête au-dessus du cœur — sans inversion", alternative: "Sans inversion (évite aussi l'afflux sanguin)" },
+        { metric: "Fiabilité Mécanique", evminov: "Bois massif sans pompe ni joint pneumatique", alternative: "Pompes manuelles, tuyaux et sangles velcro d'usure" },
+      ],
+      deepDiveSections: [
+        {
+          heading: "Confort Allongé et Travail Actif vs. Traction Passive",
+          body: "Contrairement à Nubax (appui sur les genoux) ou aux harnais de sol Saunders/ComforTrac strictement passifs, la planche Evminov décompresse toute la colonne tout en renforçant le corset musculaire profond.",
+        },
+      ],
+      faqs: [
+        {
+          q: "La planche Evminov est-elle plus douce pour les genoux que le Nubax ?",
+          a: "Oui : vous êtes allongé sur le plan incliné sans jamais vous agenouiller ni comprimer les articulations des genoux.",
+        },
+      ],
+    },
+    uk: {
+      shortTitle: "Євмінов vs. Nubax і Saunders",
+      title: "Профілактор Євмінова проти Nubax Trio, Saunders та ComforTrac (2026)",
+      metaTitle: "Євмінов проти Nubax Trio, Saunders та ComforTrac",
+      metaDescription:
+        "Порівняння систем декомпресії без вису вниз головою: похилий Профілактор Євмінова проти рамки Nubax на колінах та пневмо-тракції Saunders і ComforTrac.",
+      competitorName: "Nubax Trio / Saunders / ComforTrac",
+      eyebrow: "Порівняння 2026 Без Інверсії • Механічна Тракція",
+      summary:
+        "Серед домашніх систем декомпресії головою вгору найчастіше порівнюють рамку Nubax Trio, пневматичні апарати Saunders/ComforTrac і запатентований Профілактор Євмінова. Ось реальна різниця за комфортом колін, охопленням хребта й тренуванням м'язів.",
+      keyTakeaways: [
+        "Жодного тиску на коліна чи тазостегнові суглоби (на відміну від позиції на колінах у Nubax).",
+        "Охоплює поперековий, грудний І шийний відділи (Петля Гліссона в подарунок), а не лише поперек.",
+        "Поєднує м'яку осьову тракцію 8°–35° з активним зміцненням глибоких м'язів-стабілізаторів.",
+        "Жодних повітряних помп, шлангів чи ременів, що зношуються — дерево з гарантією 1 рік.",
+      ],
+      rows: [
+        { metric: "Положення Тіла", evminov: "Лежачи на пружній дерев'яній площині 8°–35°", alternative: "Nubax: на колінах уперед | Saunders: пристебнутий на підлозі" },
+        { metric: "Комфорт Колін та Ребер", evminov: "Нульове навантаження на коліна й ребра", alternative: "Nubax навантажує коліна; Saunders тисне ременями на груди" },
+        { metric: "Відділи Хребта", evminov: "Весь хребет: поперек, грудний і шия (Гліссон)", alternative: "Лише поперековий відділ (для шиї потрібен окремий прилад)" },
+        { metric: "Активне Зміцнення М'язів", evminov: "Так — 20+ вправ для глибокого корсета в розвантаженні", alternative: "Ні — 100% пасивне розтягування" },
+        { metric: "Тиск у Голові та Очах", evminov: "Голова вище серця — безпечно без інверсії", alternative: "Без інверсії (також без припливу крові до голови)" },
+        { metric: "Довговічність", evminov: "Багатошарове дерево без помп і клапанів", alternative: "Ручні помпи, трубки та липучки потребують заміни" },
+      ],
+      deepDiveSections: [
+        {
+          heading: "Чому Лежаче Розвантаження й Активна Стабілізація Перемагають Nubax і Saunders",
+          body: "Nubax Trio змушує стояти на колінах, що часто викликає біль у колінних суглобах, а підлогові пневмо-системи Saunders і ComforTrac працюють лише пасивно з попереком. Профілактор Євмінова розвантажує весь хребет комфортно лежачи та одразу тренує глибокі м'язи для стійкого результату.",
+        },
+      ],
+      faqs: [
+        {
+          q: "Чи безпечніший Профілактор Євмінова за Nubax при болю в колінах?",
+          a: "Так. На Профілакторі ви лежите на рівній похилій площині без жодного навантаження на коліна та гомілки.",
+        },
+      ],
+    },
+    ru: {
+      shortTitle: "Евминов vs. Nubax и Saunders",
+      title: "Доска Евминова против Nubax Trio, Saunders и ComforTrac (2026)",
+      metaTitle: "Евминов против Nubax Trio, Saunders и ComforTrac",
+      metaDescription:
+        "Сравнение систем декомпрессии без виса вниз головой: наклонная Доска Евминова против рамки Nubax на коленях и пневмо-тракции Saunders и ComforTrac.",
+      competitorName: "Nubax Trio / Saunders / ComforTrac",
+      eyebrow: "Сравнение 2026 Без Инверсии • Механическая Тракция",
+      summary:
+        "Среди домашних устройств декомпрессии головой вверх чаще всего сравнивают рамку Nubax Trio, пневматические аппараты Saunders/ComforTrac и запатентованную Доску Евминова.",
+      keyTakeaways: [
+        "Никакого давления на колени или тазобедренные суставы (в отличие от стойки на коленях в Nubax).",
+        "Охватывает поясницу, грудной И шейный отделы (Петля Глиссона бесплатно), а не только поясницу.",
+        "Сочетает мягкую осевую тракцию 8°–35° с активным укреплением глубоких мышц-стабилизаторов.",
+        "Без воздушных помп, шлангов и изнашиваемых ремней — дерево с гарантией 1 год.",
+      ],
+      rows: [
+        { metric: "Положение Тела", evminov: "Лёжа на упругой деревянной панели 8°–35°", alternative: "Nubax: на коленях вперёд | Saunders: пристёгнут на полу" },
+        { metric: "Комфорт Коленей и Рёбер", evminov: "Нулевая нагрузка на колени и рёбра", alternative: "Nubax грузит колени; Saunders сжимает грудную клетку ремнями" },
+        { metric: "Отделы Позвоночника", evminov: "Весь позвоночник: поясница, грудной и шея (Глиссон)", alternative: "Только поясница (для шеи нужен отдельный прибор)" },
+        { metric: "Активное Укрепление Мышц", evminov: "Да — 20+ упражнений для глубокого корсета", alternative: "Нет — 100% пассивное вытяжение" },
+        { metric: "Давление в Голове и Глазах", evminov: "Голова выше сердца — безопасно без инверсии", alternative: "Без инверсии (также без прилива крови к голове)" },
+        { metric: "Долговечность", evminov: "Многослойное дерево без помп и клапанов", alternative: "Ручные помпы, трубки и липучки изнашиваются" },
+      ],
+      deepDiveSections: [
+        {
+          heading: "Почему Разгрузка Лёжа и Активная Стабилизация Лучше Nubax и Saunders",
+          body: "Nubax Trio требует опоры на колени, что не подходит при артрозе или дискомфорте суставов, а напольные аппараты Saunders и ComforTrac действуют исключительно пассивно в пояснице. Доска Евминова разгружает весь позвоночник и одновременно укрепляет глубокий мышечный корсет.",
+        },
+      ],
+      faqs: [
+        {
+          q: "Безопаснее ли Доска Евминова, чем Nubax, при проблемах с коленями?",
+          a: "Да. На Доске Евминова вы лежите на наклонной деревянной плоскости без нагрузки на колени и голени.",
+        },
+      ],
+    },
+    de: {
+      shortTitle: "Evminov vs. Nubax & Saunders",
+      title: "Evminov Board vs. Nubax Trio, Saunders & ComforTrac Traktion (2026)",
+      metaTitle: "Evminov vs. Nubax Trio, Saunders & ComforTrac",
+      metaDescription:
+        "Vergleich nicht-invertierter Dekompressionsgeräte: schräges Evminov Holzboard vs. kniender Nubax Trio vs. pneumatische Saunders & ComforTrac Traktion.",
+      competitorName: "Nubax Trio / Saunders / ComforTrac",
+      eyebrow: "Vergleich 2026 ohne Inversion • Mechanische Traktion",
+      summary:
+        "Wer die Wirbelsäule ohne Kopfüber-Hängen entlasten will, vergleicht meist Nubax Trio, Saunders/ComforTrac und das schräge Evminov Board — hier die wichtigsten Unterschiede.",
+      keyTakeaways: [
+        "Null Druck auf empfindliche Knie oder Hüften (anders als die kniende Nubax-Position).",
+        "Lenden-, Brust- UND Halswirbelsäule (Glisson-Schlaufe gratis) in einem Gerät.",
+        "Kombiniert 8°–35° Axialtraktion mit aktivem Training der tiefen Stabilisatoren.",
+        "Keine Handpumpen, Luftschläuche oder Dichtungen — langlebiges Holz mit 1 Jahr Garantie.",
+      ],
+      rows: [
+        { metric: "Körperposition", evminov: "Liegend auf federndem Holzdeck 8°–35° (Kopf oben)", alternative: "Nubax: kniend | Saunders/ComforTrac: am Boden gegurtet" },
+        { metric: "Knie- & Rippenkomfort", evminov: "Keinerlei Druck auf Knie oder Rippen", alternative: "Nubax belastet Knie; Saunders nutzt enge Brustgurte" },
+        { metric: "Wirbelsäulenzonen", evminov: "LWS, BWS & HWS komplett (Glisson-Schlaufe inkl.)", alternative: "Nur LWS (separates Gerät für den Nacken nötig)" },
+        { metric: "Aktives Muskeltraining", evminov: "Ja — 20+ Übungen für tiefe Rückenstabilisatoren", alternative: "Nein — rein passive Zugkraft" },
+        { metric: "Blut- & Augendruck", evminov: "Kopf bleibt über dem Herzen — ohne Inversion", alternative: "Ebenfalls ohne Kopfüber-Inversion" },
+        { metric: "Haltbarkeit", evminov: "Massivholz-Mechanik ohne Pumpen oder Ventile", alternative: "Handpumpen, Schläuche & Klettgurte verschleißen" },
+      ],
+      deepDiveSections: [
+        {
+          heading: "Kniefreie Voll-Wirbelsäulen-Entlastung statt passiver Gurte",
+          body: "Nubax erfordert eine kniende Haltung und Saunders/ComforTrac wirken rein passiv im Lendenbereich. Das Evminov Board entlastet LWS, BWS und HWS bequem im Liegen und stärkt zugleich die tiefe Stützmuskulatur.",
+        },
+      ],
+      faqs: [
+        {
+          q: "Ist das Evminov Board bei Knieproblemen besser geeignet als Nubax?",
+          a: "Ja — Sie liegen entspannt auf dem geneigten Holzboard, ohne jemals Druck auf Knie oder Schienbeine auszuüben.",
+        },
+      ],
+    },
+  },
 };
 
 export function getLocalizedComparison(
