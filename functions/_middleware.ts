@@ -8,7 +8,20 @@ interface Env {
 }
 
 const CANONICAL_HOST = "evminovusa.com";
+const SUPPORTED_HOSTS = new Set(["evminovusa.com", "evminovcanada.com"]);
+const TRUSTED_ORIGINS = new Set([
+  "https://evminovusa.com",
+  "https://www.evminovusa.com",
+  "https://evminovcanada.com",
+  "https://www.evminovcanada.com",
+]);
 const INDEXNOW_KEY = "e7f4b29c1a8345d0b6e9c2f1a8d7304b";
+
+function isTrustedOrigin(origin: string | null): origin is string {
+  if (!origin) return false;
+  if (TRUSTED_ORIGINS.has(origin)) return true;
+  return /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/i.test(origin);
+}
 
 const LINK_HEADERS = [
   '</.well-known/api-catalog>; rel="api-catalog"',
@@ -210,17 +223,59 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   const url = new URL(request.url);
   const pathname = url.pathname.toLowerCase();
 
-  if (pathname.endsWith(".pdf") || pathname.startsWith("/api/")) {
+  if (pathname.endsWith(".pdf")) {
     return next();
   }
 
-  // Single-hop 301 canonicalization (only redirect host on production www host)
-  let needsRedirect = false;
-  if (url.hostname === `www.${CANONICAL_HOST}`) {
-    url.hostname = CANONICAL_HOST;
-    needsRedirect = true;
+  if (pathname.startsWith("/api/")) {
+    const reqOrigin = request.headers.get("Origin");
+    const trusted = isTrustedOrigin(reqOrigin);
+
+    if (request.method === "OPTIONS" && trusted) {
+      return new Response(null, {
+        status: 204,
+        headers: {
+          "Access-Control-Allow-Origin": reqOrigin,
+          "Access-Control-Allow-Credentials": "true",
+          "Access-Control-Allow-Methods": "GET, POST, PUT, PATCH, DELETE, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type, Authorization",
+          "Access-Control-Max-Age": "86400",
+          Vary: "Origin",
+        },
+      });
+    }
+
+    const apiRes = await next();
+    if (!trusted) return apiRes;
+
+    const apiHeaders = new Headers(apiRes.headers);
+    if (!apiHeaders.has("Access-Control-Allow-Origin")) {
+      apiHeaders.set("Access-Control-Allow-Origin", reqOrigin);
+      apiHeaders.set("Access-Control-Allow-Credentials", "true");
+      const existingVary = apiHeaders.get("Vary");
+      if (!existingVary) {
+        apiHeaders.set("Vary", "Origin");
+      } else if (!existingVary.toLowerCase().includes("origin")) {
+        apiHeaders.set("Vary", `${existingVary}, Origin`);
+      }
+    }
+    return new Response(apiRes.body, {
+      status: apiRes.status,
+      statusText: apiRes.statusText,
+      headers: apiHeaders,
+    });
   }
-  if (url.hostname === CANONICAL_HOST && url.protocol === "http:") {
+
+  // Single-hop 301 canonicalization for both evminovusa.com and evminovcanada.com
+  let needsRedirect = false;
+  for (const host of SUPPORTED_HOSTS) {
+    if (url.hostname === `www.${host}`) {
+      url.hostname = host;
+      needsRedirect = true;
+      break;
+    }
+  }
+  if (SUPPORTED_HOSTS.has(url.hostname) && url.protocol === "http:") {
     url.protocol = "https:";
     needsRedirect = true;
   }
@@ -274,8 +329,11 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     if (!text.includes("Content-Signal:")) {
       text = `${text.trim()}\nContent-Signal: ai-train=yes, search=yes, ai-input=yes\n`;
     }
+    const activeHost = SUPPORTED_HOSTS.has(url.hostname)
+      ? url.hostname
+      : CANONICAL_HOST;
     if (!text.includes("Agentmap:")) {
-      text = `${text.trim()}\nAgentmap: https://${CANONICAL_HOST}/.well-known/ai-catalog.json\n`;
+      text = `${text.trim()}\nAgentmap: https://${activeHost}/.well-known/ai-catalog.json\n`;
     }
     return new Response(text, {
       status: 200,

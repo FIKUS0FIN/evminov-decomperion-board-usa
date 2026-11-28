@@ -136,11 +136,16 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
       totalUsd >= 100 &&
       totalUsd <= 5000
     ) {
+      const reqOrigin = new URL(request.url).origin;
+      const siteOrigin =
+        reqOrigin === "https://evminovcanada.com"
+          ? "https://evminovcanada.com"
+          : "https://evminovusa.com";
       const stripeBody = new URLSearchParams({
         mode: "payment",
         customer_email: email,
-        success_url: `https://evminovusa.com/welcome/?order=${orderRef}`,
-        cancel_url: `https://evminovusa.com/order/?product=${encodeURIComponent(product)}&step=3`,
+        success_url: `${siteOrigin}/welcome/?order=${orderRef}`,
+        cancel_url: `${siteOrigin}/order/?product=${encodeURIComponent(product)}&step=3`,
         "line_items[0][price_data][currency]": "usd",
         "line_items[0][price_data][product_data][name]": `${productName} (${finish}, ${shipping})`,
         "line_items[0][price_data][unit_amount]": String(Math.round(totalUsd * 100)),
@@ -259,7 +264,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
             <p>Hello ${safeName},</p>
             <p>Thank you for contacting Evminov Spine Systems. Our Glendale, California team has received your request with the following details:</p>
             ${detailsRowsHtml}
-            <p>Track your order status anytime in your <a href="https://evminovusa.com/portal/" style="color:#0f766e;font-weight:bold;">Patient Portal</a>. We will follow up within 1 business day with shipping confirmation and your itemized invoice${includeHsaDoc ? " (HSA/FSA ready)" : ""}.</p>
+            <p>Track your order status anytime in your <a href="${new URL(request.url).origin === "https://evminovcanada.com" ? "https://evminovcanada.com" : "https://evminovusa.com"}/portal/" style="color:#0f766e;font-weight:bold;">Patient Portal</a>. We will follow up within 1 business day with shipping confirmation and your itemized invoice${includeHsaDoc ? " (HSA/FSA ready)" : ""}.</p>
             <p style="font-size:12px;color:#64748b;">Glendale Operations Hub: 4525 San Fernando Rd, Unit H, Glendale, CA 91204 • +1 (747) 306-0140 • support@evminovusa.com</p>
           </div>
         </div>
