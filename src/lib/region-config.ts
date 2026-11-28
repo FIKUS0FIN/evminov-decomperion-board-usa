@@ -67,8 +67,12 @@ const USD_TO_CAD_EXACT: Record<number, number> = {
   615: 860,
   495: 695,
   635: 885,
-  25: 35,
+  275: 385,
+  75: 105,
+  55: 75,
   50: 70,
+  45: 65,
+  25: 35,
 };
 
 export function toRegionalPrice(usdAmount: number): number {

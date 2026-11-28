@@ -135,7 +135,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
     const totalUsd = Number(body.total_usd || 0);
     const stateOrCountry = String(body.state_or_country || "US").slice(0, 80);
     const address = String(body.address || "").trim().slice(0, 220);
-    const adminNotes = String(body.admin_notes || "").trim().slice(0, 1000);
+    const adminNotes = String(body.admin_notes || "").trim().slice(0, 5000);
     const status = VALID_STATUSES.has(String(body.status || ""))
       ? String(body.status)
       : "confirmed";
@@ -264,8 +264,8 @@ export const onRequestPatch: PagesFunction<AuthEnv> = async ({ request, env }) =
     const orderId = String(body.id || "").trim();
     const status = String(body.status || "").trim();
     const trackingNumber = String(body.tracking_number ?? "").trim().slice(0, 120);
-    const adminNotes = String(body.admin_notes ?? "").trim().slice(0, 1000);
-    const customerMessage = String(body.customer_message ?? "").trim().slice(0, 2000);
+    const adminNotes = String(body.admin_notes ?? "").trim().slice(0, 5000);
+    const customerMessage = String(body.customer_message ?? "").trim().slice(0, 20000);
     const notifyCustomer = Boolean(body.notifyCustomer);
 
     if (!orderId) {
@@ -365,18 +365,23 @@ export const onRequestPatch: PagesFunction<AuthEnv> = async ({ request, env }) =
       const productName = escapeHtml(String(existing.product_name || "Evminov Board"));
       const statusLabel = escapeHtml(STATUS_LABELS[nextStatus] || nextStatus);
       const safeTracking = escapeHtml(trackingNumber);
-      const safeCustomerMessage = escapeHtml(customerMessage).replace(/\n/g, "<br/>");
+      const safeCustomerMessage = escapeHtml(customerMessage)
+        .replace(
+          /(https?:\/\/[^\s<]+)/g,
+          '<a href="$1" style="color:#0f766e;text-decoration:underline;word-break:break-all;">$1</a>'
+        )
+        .replace(/\n/g, "<br/>");
 
       const originalSubject =
         mode === "protocol_lead"
           ? `Your Evminov Custom Spine Angle Plan (${orderRef})`
           : mode === "warranty_registration"
-          ? `Evminov 10-Year Structural Warranty Registered (${orderRef})`
+          ? `Evminov 1-Year Structural Warranty Registered (${orderRef})`
           : `Evminov Reservation Confirmed — ${orderRef}`;
       const threadId = `<order-${orderRef.toLowerCase()}@${emailCfg.threadDomain}>`;
 
       const htmlBody = `
-        <div style="font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:600px;margin:0 auto;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;">
+        <div style="font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:620px;margin:0 auto;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;">
           <div style="background:#0b1f3a;color:#fff;padding:24px;">
             <h1 style="margin:0;font-size:20px;">${emailCfg.brandHeader}</h1>
             <p style="margin:6px 0 0;font-size:12px;color:#34d399;">Order Update • ${escapeHtml(orderRef)}</p>
@@ -393,12 +398,12 @@ export const onRequestPatch: PagesFunction<AuthEnv> = async ({ request, env }) =
               safeCustomerMessage
                 ? `<div style="background:#f8fafc;border-left:4px solid #0f766e;border-radius:6px;padding:14px 16px;margin:16px 0;">
                     <div style="font-size:12px;text-transform:uppercase;color:#0f766e;font-weight:700;margin-bottom:6px;">Message from Evminov Spine Med Operator</div>
-                    <div style="font-size:14px;color:#0f172a;line-height:1.6;">${safeCustomerMessage}</div>
+                    <div style="font-size:14px;color:#0f172a;line-height:1.65;word-break:break-word;">${safeCustomerMessage}</div>
                   </div>`
                 : ""
             }
-            <p>Track your live order timeline and reply anytime in your <a href="${emailCfg.siteOrigin}/portal/" style="color:#0f766e;font-weight:bold;">Patient Portal</a>, or simply reply to this email.</p>
-            <p style="font-size:12px;color:#64748b;">Evminov Spine Systems • +1 (747) 306-0140 • ${emailCfg.supportEmail}</p>
+            <p>Need faster help? Message our operator directly on <a href="https://wa.me/17473060140" style="color:#059669;font-weight:bold;">WhatsApp (+1 747 306-0140)</a>, track your live timeline in your <a href="${emailCfg.siteOrigin}/portal/" style="color:#0f766e;font-weight:bold;">Patient Portal</a>, or simply reply to this email.</p>
+            <p style="font-size:12px;color:#64748b;">Evminov Spine Systems • WhatsApp: +1 (747) 306-0140 • ${emailCfg.supportEmail}</p>
           </div>
         </div>
       `;

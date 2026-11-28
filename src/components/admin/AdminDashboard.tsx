@@ -71,6 +71,38 @@ const ORDER_STATUSES = [
 
 const QUICK_TEMPLATES = [
   {
+    label: "Лінійка США/Канада + WhatsApp",
+    text: `Hello!
+
+My name is Kostiantyn, and I will help you finalize your Evminov Board order, shipping, and customs paperwork.
+
+Because international carriers enforce a 120 cm parcel limit, our US & Canada lineup ships exclusively in demountable folding sections (delivery by international couriers takes approximately 2 weeks, backed by a 1-Year Warranty):
+
+1. 3-Piece Folding Evminov Board (230–245 cm):
+https://evminovusa.com/products/3-piece-travel-board/
+• Standard Width (26 cm, up to 100 kg / 220 lbs) or Reinforced Wide (30 cm, for >100 kg / up to 330 lbs)
+• Light (Natural Warm Amber Alder) or Dark (Dark Walnut Pine) finish
+
+2. 2-Piece Folding Evminov Board ("Spine Toothbrush" — 2 sections only):
+https://evminovusa.com/products/2-piece-folding-board/
+• Standard Width (26 cm) or Reinforced Wide (30 cm)
+• Light or Dark wood finish
+
+Every board includes the Glisson Cervical Loop, wall mounting hardware, illustrated manual, official product passport, and a 1-Year Warranty.
+
+Optional official accessories:
+• 4-Piece Demountable Ladder Stand (max height 123 cm, fits 26 cm & 30 cm boards)
+• Mounting Hooks for Ladder Stand or Swedish Wall
+• 2-Bag Protective Carry Case Set (for 3-Piece Board) or Single Carry Bag (for 2-Piece Board)
+
+For the fastest confirmation of all shipping, customs, and payment details, please message our operator directly on WhatsApp:
+https://wa.me/17473060140 (+1 747 306-0140)
+
+Warm regards,
+Kostiantyn
+Evminov Spine Systems Operations Team`,
+  },
+  {
     label: "Запросити адресу і тел.",
     text: "Hello! Thank you for your Evminov Board order. Could you please confirm your full street shipping address, postal/ZIP code, and phone number for the courier so we can finalize your shipment?",
   },
@@ -901,6 +933,9 @@ export function AdminDashboard() {
                         <label className="block text-xs font-bold text-teal-800">
                           Повідомлення клієнту (у лист + Портал)
                         </label>
+                        <span className="text-[10px] font-semibold text-slate-500">
+                          {editCustomerMessage.length.toLocaleString()} / 20 000 символів
+                        </span>
                       </div>
                       <div className="mt-1.5 flex flex-wrap gap-1.5">
                         {QUICK_TEMPLATES.map((tpl) => (
@@ -915,11 +950,11 @@ export function AdminDashboard() {
                         ))}
                       </div>
                       <textarea
-                        rows={3}
+                        rows={7}
                         value={editCustomerMessage}
                         onChange={(e) => setEditCustomerMessage(e.target.value)}
-                        placeholder="Текст повідомлення, який клієнт побачить у листі (в тому ж треді) та в Порталі..."
-                        className="mt-1.5 w-full rounded-xl border border-teal-300 bg-teal-50/30 px-3 py-2 text-xs text-slate-900 focus:border-teal-600 focus:outline-none"
+                        placeholder="Текст повідомлення, який клієнт побачить у листі (в тому ж треді) та в Порталі — повний текст без обрізання..."
+                        className="mt-1.5 min-h-[140px] w-full resize-y rounded-xl border border-teal-300 bg-teal-50/30 px-3 py-2 text-xs leading-relaxed text-slate-900 focus:border-teal-600 focus:outline-none"
                       />
                     </div>
 
@@ -999,25 +1034,25 @@ export function AdminDashboard() {
                     )}
 
                     {/* Inline Reply to Customer */}
-                    <div className="mt-3 flex gap-2">
-                      <input
-                        type="text"
+                    <div className="mt-3 flex items-end gap-2">
+                      <textarea
+                        rows={2}
                         value={quickReplyText}
                         onChange={(e) => setQuickReplyText(e.target.value)}
                         onKeyDown={(e) => {
-                          if (e.key === "Enter" && !e.shiftKey) {
+                          if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
                             e.preventDefault();
                             void handleQuickReply();
                           }
                         }}
-                        placeholder="Відповісти клієнту (у Портал + Gmail-тред)..."
-                        className="flex-1 rounded-xl border border-teal-300 bg-white px-3 py-2 text-xs text-slate-900 focus:border-teal-600 focus:outline-none"
+                        placeholder="Відповісти клієнту (у Портал + Gmail-тред)... Ctrl/Cmd+Enter для відправки"
+                        className="flex-1 resize-y rounded-xl border border-teal-300 bg-white px-3 py-2 text-xs leading-relaxed text-slate-900 focus:border-teal-600 focus:outline-none"
                       />
                       <button
                         type="button"
                         disabled={sendingQuickReply || !quickReplyText.trim()}
                         onClick={() => void handleQuickReply()}
-                        className="inline-flex shrink-0 items-center gap-1.5 rounded-xl bg-teal-700 px-3.5 py-2 text-xs font-extrabold text-white transition hover:bg-teal-800 disabled:opacity-50"
+                        className="inline-flex shrink-0 items-center gap-1.5 rounded-xl bg-teal-700 px-3.5 py-2.5 text-xs font-extrabold text-white transition hover:bg-teal-800 disabled:opacity-50"
                       >
                         <Send className="h-3.5 w-3.5" />
                         <span>{sendingQuickReply ? "..." : "Відповісти"}</span>

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowRight, Check, ShieldCheck, Truck } from "lucide-react";
 import { Locale } from "@/i18n/types";
 import { getDictionary } from "@/i18n/dictionaries";
-import { ProductItem, PRODUCTS } from "@/data/products";
+import { OFFICIAL_ACCESSORIES, ProductItem, PRODUCTS } from "@/data/products";
 import {
   calculateHsaPrice,
   formatKlarnaBiWeekly,
@@ -16,6 +16,7 @@ import { useHsaSavings } from "@/context/HsaSavingsContext";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import { FaqJsonLd, ProductJsonLd } from "@/components/seo/JsonLd";
 import {
+  ACCESSORIES_SECTION_COPY,
   getLocalizedFinish,
   getLocalizedProduct,
   PRODUCT_DETAIL_COPY,
@@ -30,14 +31,18 @@ export function ProductDetailView({
 }) {
   const ui = getDictionary(lang).productUi;
   const pd = PRODUCT_DETAIL_COPY[lang];
+  const accCopy = ACCESSORIES_SECTION_COPY[lang];
   const lp = getLocalizedProduct(product, lang);
   const { applyHsaSavings, toggleHsaSavings } = useHsaSavings();
   const [activeImg, setActiveImg] = useState(product.galleryImages[0]?.url || product.image);
   const [selectedFinish, setSelectedFinish] = useState(product.finishes[0]);
+  const [boardWidth, setBoardWidth] = useState<"standard" | "wide">("standard");
   const [shipping, setShipping] = useState<"express" | "direct">("express");
 
+  const widthExtra = boardWidth === "wide" ? product.wideSurchargeUsd : 0;
   const activePrice =
-    shipping === "express" ? product.expressPriceUsd : product.directPriceUsd;
+    (shipping === "express" ? product.expressPriceUsd : product.directPriceUsd) +
+    widthExtra;
   const shownPrice = applyHsaSavings ? calculateHsaPrice(activePrice) : activePrice;
 
   const related = PRODUCTS.filter((p) => p.slug !== product.slug).slice(0, 3);
@@ -51,24 +56,24 @@ export function ProductDetailView({
         <div className="grid gap-10 lg:grid-cols-12">
           {/* Gallery */}
           <div className="lg:col-span-6">
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-sm">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-slate-200 bg-[#F4F7F9] shadow-sm">
               <OptimizedImage
                 src={activeImg}
                 alt={lp.name}
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
+                className="object-contain p-3"
               />
             </div>
-            <div className="mt-3 grid grid-cols-5 gap-2">
+            <div className="mt-3 grid grid-cols-6 gap-2">
               {lp.galleryImages.map((img) => (
                 <button
                   key={img.url}
                   type="button"
                   onClick={() => setActiveImg(img.url)}
                   aria-label={img.label}
-                  className={`relative aspect-[4/3] overflow-hidden rounded-xl border-2 transition ${
+                  className={`relative aspect-[4/3] overflow-hidden rounded-xl border-2 bg-[#F4F7F9] transition ${
                     activeImg === img.url
                       ? "border-teal-700"
                       : "border-slate-200 opacity-75 hover:opacity-100"
@@ -79,7 +84,7 @@ export function ProductDetailView({
                     alt={img.label}
                     fill
                     sizes="120px"
-                    className="object-cover"
+                    className="object-contain p-1"
                   />
                 </button>
               ))}
@@ -159,8 +164,47 @@ export function ProductDetailView({
               </div>
             </div>
 
-            {/* Finish Selector */}
+            {/* Width Selector: Standard 26 cm vs Reinforced Wide 30 cm */}
             <div className="mt-5">
+              <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                26 cm / 30 cm
+              </p>
+              <div className="mt-2 grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  onClick={() => setBoardWidth("standard")}
+                  className={`rounded-xl border px-3 py-2.5 text-left text-xs font-bold transition ${
+                    boardWidth === "standard"
+                      ? "border-slate-950 bg-slate-950 text-white"
+                      : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
+                  }`}
+                >
+                  <span className="block">26 cm Standard</span>
+                  <span className="mt-0.5 block text-[11px] font-normal opacity-80">
+                    ≤ 100 kg (220 lbs)
+                  </span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setBoardWidth("wide")}
+                  className={`rounded-xl border px-3 py-2.5 text-left text-xs font-bold transition ${
+                    boardWidth === "wide"
+                      ? "border-slate-950 bg-slate-950 text-white"
+                      : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
+                  }`}
+                >
+                  <span className="block">
+                    30 cm Wide (+{formatUSD(product.wideSurchargeUsd)})
+                  </span>
+                  <span className="mt-0.5 block text-[11px] font-normal opacity-80">
+                    &gt; 100 kg (up to 330 lbs)
+                  </span>
+                </button>
+              </div>
+            </div>
+
+            {/* Finish Selector */}
+            <div className="mt-4">
               <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
                 {ui.finishes}
               </p>
@@ -184,33 +228,31 @@ export function ProductDetailView({
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <Link
-                href={buildPrefilledOrderUrl({
+                href={`${buildPrefilledOrderUrl({
                   lang,
                   product: product.slug,
                   finish: selectedFinish,
                   shipping,
-                  step: 2,
-                })}
+                  step: 1,
+                }).replace("#order-form", "")}&width=${boardWidth}#order-form`}
                 className="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl bg-teal-700 px-6 py-4 text-sm font-black text-white shadow-lg transition hover:bg-teal-800"
               >
                 <span>{ui.orderModel}</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
-              {product.slug !== "free-standing-stand" && (
-                <Link
-                  href={buildPrefilledOrderUrl({
-                    lang,
-                    product: product.slug,
-                    finish: selectedFinish,
-                    shipping,
-                    stand: true,
-                    step: 2,
-                  })}
-                  className="inline-flex items-center justify-center rounded-2xl border border-slate-300 px-5 py-4 text-xs font-bold text-slate-900 hover:bg-slate-50"
-                >
-                  + {ui.addStand}
-                </Link>
-              )}
+              <Link
+                href={`${buildPrefilledOrderUrl({
+                  lang,
+                  product: product.slug,
+                  finish: selectedFinish,
+                  shipping,
+                  stand: true,
+                  step: 1,
+                }).replace("#order-form", "")}&width=${boardWidth}#order-form`}
+                className="inline-flex items-center justify-center rounded-2xl border border-slate-300 px-5 py-4 text-xs font-bold text-slate-900 hover:bg-slate-50"
+              >
+                + {ui.addStand}
+              </Link>
             </div>
 
             <div className="mt-5 flex flex-wrap gap-4 text-xs text-slate-600">
@@ -268,6 +310,41 @@ export function ProductDetailView({
               </div>
             ))}
           </dl>
+        </section>
+
+        {/* Official Accessories Add-Ons */}
+        <section className="mt-12">
+          <h2 className="font-display text-2xl font-black text-slate-950">
+            {accCopy.title}
+          </h2>
+          <p className="mt-1 text-sm text-slate-600">{accCopy.shippingBanner}</p>
+          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {OFFICIAL_ACCESSORIES.map((acc) => (
+              <div
+                key={acc.id}
+                className="flex flex-col rounded-2xl border border-slate-200 bg-white p-4 shadow-xs"
+              >
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-teal-700">
+                  {acc.tag[lang]}
+                </span>
+                <h3 className="mt-1 font-display text-sm font-extrabold text-slate-950">
+                  {acc.name[lang]}
+                </h3>
+                <p className="mt-1 text-xs text-slate-600">{acc.spec[lang]}</p>
+                <div className="mt-auto flex items-center justify-between pt-3">
+                  <span className="text-base font-black text-slate-950">
+                    {formatUSD(acc.priceUsd)}
+                  </span>
+                  <Link
+                    href={`${getLocalizedHref("/order/", lang)}?product=${product.slug}&width=${boardWidth}&addon=${acc.id}&step=1#order-form`}
+                    className="rounded-lg bg-slate-950 px-2.5 py-1.5 text-[11px] font-bold text-white hover:bg-teal-700"
+                  >
+                    {accCopy.addToOrder} →
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
         </section>
 
         {/* Product FAQs */}

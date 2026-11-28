@@ -19,7 +19,7 @@ export async function generateMetadata({
     path: "/terms/",
     lang,
     title: getDictionary(lang).footer.terms,
-    description: "Evminov Spine Systems Terms of Service and 10-Year Frame Warranty.",
+    description: "Evminov Spine Systems Terms of Service and 1-Year Frame Warranty.",
   });
 }
 

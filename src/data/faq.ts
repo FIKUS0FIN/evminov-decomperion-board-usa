@@ -22,7 +22,7 @@ export const GLOBAL_FAQS: FaqItem[] = [
   {
     question: "How much time and money does home spinal decompression save compared to recurring clinic visits?",
     answer:
-      "Attending 2 massage, chiropractic, or physical therapy sessions per week at $80–$120 per visit can total $3,500–$6,000+ annually plus 200+ hours of commuting and waiting rooms. A one-time $450 Evminov board backed by a 10-year structural frame warranty pays for itself in roughly 4 to 6 typical sessions and gives the whole household unlimited 10-minute home sessions.",
+      "Attending 2 massage, chiropractic, or physical therapy sessions per week at $80–$120 per visit can total $3,500–$6,000+ annually plus 200+ hours of commuting and waiting rooms. A one-time $450 Evminov board backed by a 1-year structural frame warranty pays for itself in roughly 4 to 6 typical sessions and gives the whole household unlimited 10-minute home sessions.",
   },
   {
     question: "How does the Evminov board help desk and remote workers who sit 8+ hours a day?",
@@ -45,9 +45,9 @@ export const GLOBAL_FAQS: FaqItem[] = [
       "People brush 32 teeth for two minutes every day to prevent future problems, yet rarely give their 32–34 vertebrae 5–10 minutes of daily unloaded care. Spread across a family of three over 20 years, a $450 Evminov board costs roughly $7.50 per person per year (under 3 cents a day) and adjusts in 5 seconds for ages 4 to 85+.",
   },
   {
-    question: "What is your 60-Day Home Trial and 10-Year Warranty?",
+    question: "What is your 60-Day Home Trial and 1-Year Warranty?",
     answer:
-      "Test your Evminov board at home for 60 days from delivery. If you are not satisfied, contact our Glendale, CA team at support@evminovusa.com or +1 (747) 306-0140 for return authorization and a full product refund. Every board frame is backed by a 10-Year Structural Craftsmanship Warranty.",
+      "Test your Evminov board at home for 60 days from delivery. If you are not satisfied, contact our Glendale, CA team at support@evminovusa.com or +1 (747) 306-0140 for return authorization and a full product refund. Every board frame is backed by a 1-Year Structural Craftsmanship Warranty.",
   },
   {
     question: "How fast is shipping across all 50 US states, Canada, Europe, and 40+ countries?",

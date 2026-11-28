@@ -55,7 +55,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
     const totalUsd = Number(payload.totalUsd || 0);
     const stateOrCountry = String(payload.stateOrCountry || payload.state || "US").slice(0, 80);
     const address = String(payload.address || "").trim().slice(0, 220);
-    const notes = String(payload.notes || "").trim().slice(0, 1000);
+    const notes = String(payload.notes || "").trim().slice(0, 5000);
     const lang = String(payload.lang || "en").slice(0, 10);
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -186,7 +186,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
         mode === "protocol_lead"
           ? `📐 New Evminov Calculator Lead (${orderRef})`
           : mode === "warranty_registration"
-          ? `🛡️ New 10-Year Warranty Registration (${orderRef})`
+          ? `🛡️ New 1-Year Warranty Registration (${orderRef})`
           : `🌲 New Evminov Board Reservation (${orderRef})`,
         `Product: ${productName} (${finish})`,
         `Shipping: ${shipping}${includeStand ? " + Free-Standing Stand" : ""}`,
@@ -280,7 +280,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
             whyTitle: "Чому 100 000+ користувачів обирають Evminov замість інверсійного столу?",
             why1: "Голова вище серця — нуль припливу крові до очей, запаморочення та затиску щиколоток.",
             why2: "Резонансна деревина (Natural Warm Amber Alder або Dark Walnut Pine) + активація глибоких м'язів-стабілізаторів.",
-            why3: "Безкоштовна Петля Гліссона в комплекті, 60-денний тест-драйв вдома та гарантія 10 років.",
+            why3: "Безкоштовна Петля Гліссона в комплекті, 60-денний тест-драйв вдома та гарантія 1 рік.",
             exploreTitle: "Корисні розділи на нашому сайті",
             linkProducts: "Порівняти 2-Piece та 3-Piece дошки",
             linkCompare: "Evminov vs. Інверсійні столи (3D-порівняння)",
@@ -307,7 +307,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
             whyTitle: "Почему 100 000+ пользователей выбирают Evminov вместо инверсионного стола?",
             why1: "Голова выше сердца — ноль прилива крови к глазам, головокружения и зажима лодыжек.",
             why2: "Резонансная древесина (Natural Warm Amber Alder или Dark Walnut Pine) + активация глубоких мышц-стабилизаторов.",
-            why3: "Бесплатная Петля Глиссона в комплекте, 60-дневный тест-драйв дома и гарантия 10 лет.",
+            why3: "Бесплатная Петля Глиссона в комплекте, 60-дневный тест-драйв дома и гарантия 1 год.",
             exploreTitle: "Полезные разделы нашего сайта",
             linkProducts: "Сравнить складные модели 2-Piece и 3-Piece",
             linkCompare: "Evminov vs. Инверсионные столы (3D-сравнение)",
@@ -334,7 +334,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
             whyTitle: "Warum 100.000+ Nutzer das Evminov Board der Inversionsbank vorziehen",
             why1: "Kopf bleibt über dem Herzen — kein Blutstau im Kopf, kein Schwindel und keine Knöchelklemmen.",
             why2: "Resonantes Karpatenholz (Natural Warm Amber Alder oder Dark Walnut Pine) + tiefe Rumpfstabilisatoren.",
-            why3: "Gratis Glisson-Schlaufe enthalten, 60-Tage-Testphase zuhause & 10 Jahre Rahmengarantie.",
+            why3: "Gratis Glisson-Schlaufe enthalten, 60-Tage-Testphase zuhause & 1 Jahr Rahmengarantie.",
             exploreTitle: "Entdecken Sie unsere Website-Ressourcen",
             linkProducts: "2-teilige & 3-teilige Klappboards vergleichen",
             linkCompare: "Evminov vs. Inversionsbänke (3D-Vergleich)",
@@ -361,7 +361,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
             whyTitle: "¿Por qué 100,000+ usuarios eligen Evminov frente a mesas de inversión?",
             why1: "Cabeza siempre sobre el corazón: cero presión ocular, mareos ni dolor en tobillos.",
             why2: "Madera resonante (Natural Warm Amber Alder o Dark Walnut Pine) + activación de estabilizadores profundos.",
-            why3: "Lazo de Glisson incluido gratis, prueba de 60 días en casa y garantía de 10 años.",
+            why3: "Lazo de Glisson incluido gratis, prueba de 60 días en casa y garantía de 1 año.",
             exploreTitle: "Explora Todo en Nuestro Sitio Web",
             linkProducts: "Comparar Tablas Plegables de 2 y 3 Piezas",
             linkCompare: "Evminov vs. Mesas de Inversión (Comparativa 3D)",
@@ -388,7 +388,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
             whyTitle: "Pourquoi 100 000+ utilisateurs choisissent Evminov plutôt que l'inversion ?",
             why1: "Tête au-dessus du cœur : zéro afflux sanguin vers les yeux, zéro vertige, aucune tension aux chevilles.",
             why2: "Bois résonant (Natural Warm Amber Alder ou Dark Walnut Pine) + activation des stabilisateurs profonds.",
-            why3: "Boucle de Glisson offerte, essai 60 jours à domicile et garantie structurelle de 10 ans.",
+            why3: "Boucle de Glisson offerte, essai 60 jours à domicile et garantie structurelle de 1 an.",
             exploreTitle: "Découvrez Toutes Nos Ressources",
             linkProducts: "Comparer nos Planches Pliables 2 et 3 Pièces",
             linkCompare: "Evminov vs. Tables d'Inversion (Comparatif 3D)",
@@ -414,7 +414,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
           whyTitle: "Why 100,000+ Users Choose Evminov Over 90° Inversion Tables",
           why1: "Head stays calmly above heart — zero cranial blood rush, dizziness, or clamped ankles.",
           why2: "Resonant wood deck (Natural Warm Amber Alder or Dark Walnut Pine) activates deep spinal stabilizers.",
-          why3: "Free Glisson Cervical Loop included, 60-Day Home Trial, HSA/FSA Eligible (with LMN), and 10-Year Warranty.",
+          why3: "Free Glisson Cervical Loop included, 60-Day Home Trial, HSA/FSA Eligible (with LMN), and 1-Year Warranty.",
           exploreTitle: "Explore Everything on Our Website",
           linkProducts: "Compare 2-Piece & 3-Piece Folding Boards",
           linkCompare: "Evminov vs. Inversion Tables (Interactive 3D)",
@@ -430,7 +430,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
         mode === "protocol_lead"
           ? protocolEmailCopy.subject
           : mode === "warranty_registration"
-          ? `Evminov 10-Year Structural Warranty Registered (${orderRef})`
+          ? `Evminov 1-Year Structural Warranty Registered (${orderRef})`
           : `Evminov Reservation Confirmed — ${orderRef}`;
 
       const protocolCustomerHtml = `
@@ -479,7 +479,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
                 <p style="margin:0;font-size:11px;font-weight:800;color:#047857;letter-spacing:0.8px;text-transform:uppercase;">${protocolEmailCopy.recTitle}</p>
                 <h2 style="margin:6px 0 4px;font-size:18px;font-weight:900;color:#0f172a;">${calcModel}</h2>
                 <p style="margin:0;font-size:13px;color:#334155;">${escapeHtml(calcWidth)} • Natural Warm Amber Alder / Dark Walnut Pine • Free Glisson Loop</p>
-                <p style="margin:10px 0 16px;font-size:20px;font-weight:900;color:#0f766e;">From $${calcPrice} ${orderCurrency} <span style="font-size:12px;font-weight:600;color:#475569;">(60-Day Trial • 10-Yr Warranty • ${isCanadaOrigin ? "Extended Health / HSA" : "HSA/FSA with LMN"})</span></p>
+                <p style="margin:10px 0 16px;font-size:20px;font-weight:900;color:#0f766e;">From $${calcPrice} ${orderCurrency} <span style="font-size:12px;font-weight:600;color:#475569;">(60-Day Trial • 1-Yr Warranty • ${isCanadaOrigin ? "Extended Health / HSA" : "HSA/FSA with LMN"})</span></p>
                 <div>
                   <a href="${calcOrderUrl}" style="display:inline-block;background:#10b981;color:#052e16;text-decoration:none;font-weight:900;font-size:14px;padding:13px 24px;border-radius:12px;">${protocolEmailCopy.ctaOrder}</a>
                   <a href="${calcReopenUrl}" style="display:inline-block;margin-left:8px;margin-top:8px;background:#ffffff;color:#0f172a;text-decoration:none;font-weight:700;font-size:13px;padding:11px 18px;border-radius:12px;border:1px solid #cbd5e1;">${protocolEmailCopy.ctaCalc}</a>

@@ -55,7 +55,7 @@ export const HOME_COMPARISON_MATRIX = [
   },
   {
     metric: "Total Cost",
-    evminov: "$450–$665 one-time (10-Yr Warranty)",
+    evminov: "$450–$665 one-time (1-Yr Warranty)",
     inversion: "$450–$850 + foam wear",
     clinic: "$3,000–$6,000+ per year in co-pays",
   },
@@ -242,7 +242,7 @@ export const COMPARISONS: ComparisonPageData[] = [
       },
       {
         metric: "Lifespan",
-        evminov: "20+ year timber construction (10-Yr Warranty)",
+        evminov: "20+ year timber construction (1-Yr Warranty)",
         alternative: "Plastic fatigue / cracking within months",
         winner: "evminov",
       },

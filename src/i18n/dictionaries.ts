@@ -213,7 +213,7 @@ const en: SiteDictionary = {
     trustItems: [
       "US Patent 6,869,387 B2 & EU Patent EP 1 038 512 B1",
       "Glisson Cervical Loop Included Free",
-      "60-Day Home Trial & 10-Year Frame Warranty",
+      "60-Day Home Trial & 1-Year Frame Warranty",
       "Itemized Receipt for HSA / FSA Pre-Tax Claims",
     ],
     startingFrom: "Starting from",
@@ -272,7 +272,7 @@ const en: SiteDictionary = {
     whatsIncluded: "Included in the Box",
     finishes: "Available Finishes",
     specsTitle: "Technical Specifications",
-    trialBadge: "60-Day Home Trial • 10-Yr Frame Warranty",
+    trialBadge: "60-Day Home Trial • 1-Yr Frame Warranty",
   },
   calculatorUi: {
     goalLabel: "Primary Spine Goal",
@@ -417,7 +417,7 @@ const es: SiteDictionary = {
     trustItems: [
       "Patente EE. UU. 6,869,387 B2 y Patente UE EP 1 038 512 B1",
       "Arnés Cervical Glisson Incluido Gratis",
-      "Prueba en Casa de 60 Días y Garantía de 10 Años",
+      "Prueba en Casa de 60 Días y Garantía de 1 Año",
       "Factura Detallada para Reembolso HSA / FSA",
     ],
     startingFrom: "Desde",
@@ -477,7 +477,7 @@ const es: SiteDictionary = {
     whatsIncluded: "Incluido en la Caja",
     finishes: "Acabados Disponibles",
     specsTitle: "Especificaciones Técnicas",
-    trialBadge: "Prueba de 60 Días • Garantía de 10 Años",
+    trialBadge: "Prueba de 60 Días • Garantía de 1 Año",
   },
   calculatorUi: {
     ...en.calculatorUi,
@@ -608,7 +608,7 @@ const fr: SiteDictionary = {
     trustItems: [
       "Brevet US 6,869,387 B2 & Brevet Européen EP 1 038 512 B1",
       "Boucle Cervicale Glisson Incluse Gratuitement",
-      "Essai à Domicile 60 Jours & Garantie 10 Ans",
+      "Essai à Domicile 60 Jours & Garantie 1 An",
       "Facture Détaillée pour Remboursement Santé",
     ],
     startingFrom: "À partir de",
@@ -668,7 +668,7 @@ const fr: SiteDictionary = {
     whatsIncluded: "Inclus dans le Coffret",
     finishes: "Finitions Disponibles",
     specsTitle: "Spécifications Techniques",
-    trialBadge: "Essai 60 Jours • Garantie 10 Ans",
+    trialBadge: "Essai 60 Jours • Garantie 1 An",
   },
   calculatorUi: {
     ...en.calculatorUi,
@@ -797,7 +797,7 @@ const uk: SiteDictionary = {
     trustItems: [
       "Патент США US 6,869,387 B2, ЄС EP 1 038 512 B1 та України № 27976",
       "Петля Гліссона для шиї у подарунок",
-      "60 днів тест-драйву вдома та 10 років гарантії на раму",
+      "60 днів тест-драйву вдома та 1 рік гарантії на раму",
       "Деталізований інвойс для HSA / FSA у США",
     ],
     startingFrom: "Від",
@@ -857,7 +857,7 @@ const uk: SiteDictionary = {
     whatsIncluded: "Комплектація",
     finishes: "Кольори Покриття",
     specsTitle: "Технічні Характеристики",
-    trialBadge: "60 Днів Тест-Драйву • 10 Років Гарантії",
+    trialBadge: "60 Днів Тест-Драйву • 1 Рік Гарантії",
   },
   calculatorUi: {
     ...en.calculatorUi,
@@ -1003,7 +1003,7 @@ const ru: SiteDictionary = {
     trustItems: [
       "Патент США US 6,869,387 B2, ЕС EP 1 038 512 B1 и Украины № 27976",
       "Петля Глиссона для шеи в комплекте бесплатно",
-      "60 дней домашнего теста и 10 лет гарантии на конструкцию",
+      "60 дней домашнего теста и 1 год гарантии на конструкцию",
       "Детализированный инвойс для HSA / FSA в США",
     ],
     startingFrom: "От",
@@ -1063,7 +1063,7 @@ const ru: SiteDictionary = {
     whatsIncluded: "Комплектация",
     finishes: "Варианты Покрытия",
     specsTitle: "Технические Характеристики",
-    trialBadge: "60 Дней Тест-Драйва • 10 Лет Гарантии",
+    trialBadge: "60 Дней Тест-Драйва • 1 Год Гарантии",
   },
   calculatorUi: {
     ...en.calculatorUi,
@@ -1209,7 +1209,7 @@ const de: SiteDictionary = {
     trustItems: [
       "US-Patent 6,869,387 B2 & EU-Patent EP 1 038 512 B1",
       "Glisson-Halswirbelschlaufe kostenlos enthalten",
-      "60 Tage Heimtest & 10 Jahre Rahmengarantie",
+      "60 Tage Heimtest & 1 Jahr Rahmengarantie",
       "Aufgeschlüsselte Rechnung für HSA-/FSA-Erstattung (USA)",
     ],
     startingFrom: "Ab",
@@ -1268,7 +1268,7 @@ const de: SiteDictionary = {
     whatsIncluded: "Lieferumfang",
     finishes: "Verfügbare Oberflächen",
     specsTitle: "Technische Daten",
-    trialBadge: "60 Tage Heimtest • 10 Jahre Rahmengarantie",
+    trialBadge: "60 Tage Heimtest • 1 Jahr Rahmengarantie",
   },
   calculatorUi: {
     goalLabel: "Primäres Rückenziel",

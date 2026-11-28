@@ -140,7 +140,7 @@ export function queryEvminovKnowledge(rawQuery: string, lang = "en") {
       hub: "4525 San Fernando Rd, Unit H, Glendale, CA 91204, USA",
     },
     compliance:
-      "General Wellness & Spine Conditioning Equipment (HTS 9506.91.0030). 60-Day Home Trial & 10-Year Frame Warranty. Itemized HSA/FSA receipt provided.",
+      "General Wellness & Spine Conditioning Equipment (HTS 9506.91.0030). 60-Day Home Trial & 1-Year Frame Warranty. Itemized HSA/FSA receipt provided.",
   };
 }
 

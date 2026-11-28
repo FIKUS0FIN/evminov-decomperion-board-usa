@@ -7,7 +7,7 @@ export const metadata: Metadata = buildPageMetadata({
   lang: "en",
   title: "Patient & Owner Portal — 30-Day Routine, Timer & HSA/FSA Kit",
   description:
-    "Access the Evminov Spine Systems Patient & Owner Portal: guided decompression session timer, 30-day progress tracker, 16-inch US wood stud mounting checklist, printable HSA/FSA LMN guide, and 10-year warranty registration.",
+    "Access the Evminov Spine Systems Patient & Owner Portal: guided decompression session timer, 30-day progress tracker, 16-inch US wood stud mounting checklist, printable HSA/FSA LMN guide, and 1-year warranty registration.",
 });
 
 export default function PatientPortalPage() {

@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { Locale } from "@/i18n/types";
 import { getDictionary } from "@/i18n/dictionaries";
-import { PRODUCTS, ProductItem } from "@/data/products";
+import { OFFICIAL_ACCESSORIES, PRODUCTS, ProductItem } from "@/data/products";
 import {
   calculateHsaPrice,
   formatKlarnaBiWeekly,
@@ -23,6 +23,7 @@ import { useHsaSavings } from "@/context/HsaSavingsContext";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import { sendGTMEvent } from "@/lib/gtm";
 import {
+  ACCESSORIES_SECTION_COPY,
   CATALOG_SECTION_COPY,
   getLocalizedFinish,
   getLocalizedProduct,
@@ -260,6 +261,7 @@ export function ProductCard({
 export function ProductCatalogSection({ lang }: { lang: Locale }) {
   const dict = getDictionary(lang);
   const cc = CATALOG_SECTION_COPY[lang];
+  const acc = ACCESSORIES_SECTION_COPY[lang];
   const { applyHsaSavings, toggleHsaSavings } = useHsaSavings();
   const boxScrollRef = useRef<HTMLDivElement>(null);
 
@@ -313,6 +315,81 @@ export function ProductCatalogSection({ lang }: { lang: Locale }) {
         {PRODUCTS.map((product) => (
           <ProductCard key={product.slug} product={product} lang={lang} />
         ))}
+      </div>
+
+      {/* International Courier Delivery (~2 Weeks) & 1-Year Warranty Strip */}
+      <div className="mx-auto mt-6 flex max-w-5xl items-center justify-center gap-2 rounded-2xl border border-teal-200 bg-teal-50/70 px-4 py-3 text-center text-xs font-bold text-teal-950 sm:text-sm">
+        <ShieldCheck className="h-4 w-4 shrink-0 text-teal-700" />
+        <span>{acc.shippingBanner}</span>
+      </div>
+
+      {/* Official US & Canada Accessories Lineup (4 Items) */}
+      <div className="mt-14">
+        <div className="max-w-3xl">
+          <span className="text-xs font-extrabold uppercase tracking-wider text-teal-700">
+            {acc.eyebrow}
+          </span>
+          <h3 className="mt-1 font-display text-2xl font-black tracking-tight text-slate-950 md:text-3xl">
+            {acc.title}
+          </h3>
+          <p className="mt-2 text-sm text-slate-600">{acc.subtitle}</p>
+        </div>
+
+        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {OFFICIAL_ACCESSORIES.map((item) => {
+            const targetProduct =
+              item.compatibleWith === "2-piece-folding-board"
+                ? "2-piece-folding-board"
+                : "3-piece-travel-board";
+            const orderHref = `${getLocalizedHref("/order/", lang)}?product=${targetProduct}&addon=${item.id}&step=1#order-form`;
+            return (
+              <article
+                key={item.id}
+                className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xs transition hover:border-teal-500/60 hover:shadow-md"
+              >
+                <div className="relative aspect-[4/3] w-full bg-[#F4F7F9]">
+                  <OptimizedImage
+                    src={item.image}
+                    alt={item.name[lang]}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 25vw"
+                    className="object-contain p-2"
+                  />
+                  <span className="absolute left-2.5 top-2.5 rounded-full bg-slate-950/90 px-2.5 py-0.5 text-[10px] font-bold text-emerald-300">
+                    {item.tag[lang]}
+                  </span>
+                </div>
+                <div className="flex flex-1 flex-col p-4">
+                  <h4 className="font-display text-sm font-extrabold text-slate-950">
+                    {item.name[lang]}
+                  </h4>
+                  <p className="mt-1 text-[11px] font-semibold text-teal-800">
+                    {item.spec[lang]}
+                  </p>
+                  <p className="mt-1.5 text-xs leading-relaxed text-slate-600">
+                    {item.desc[lang]}
+                  </p>
+                  <div className="mt-auto flex items-center justify-between gap-2 border-t border-slate-100 pt-3.5">
+                    <span className="text-lg font-black text-slate-950">
+                      {formatUSD(
+                        applyHsaSavings
+                          ? calculateHsaPrice(item.priceUsd)
+                          : item.priceUsd
+                      )}
+                    </span>
+                    <Link
+                      href={orderHref}
+                      className="inline-flex items-center gap-1 rounded-xl bg-slate-950 px-3 py-2 text-[11px] font-bold text-white transition hover:bg-teal-700"
+                    >
+                      <span>{acc.addToOrder}</span>
+                      <ArrowRight className="h-3 w-3" />
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
       </div>
 
       <div className="mt-14 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">

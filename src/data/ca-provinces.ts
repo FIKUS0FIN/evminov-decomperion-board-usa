@@ -68,7 +68,7 @@ const RAW_PROVINCES: Array<Omit<CaProvinceShippingData, "slug">> = [
     carrier: "UPS Canada / Canada Post",
     majorCities: ["Saskatoon", "Regina", "Prince Albert"],
     housingNote:
-      "Ships in reinforced protective packaging with free Glisson Cervical Loop and 10-year structural frame warranty.",
+      "Ships in reinforced protective packaging with free Glisson Cervical Loop and 1-year structural frame warranty.",
   },
   {
     code: "NS",
@@ -108,7 +108,7 @@ const RAW_PROVINCES: Array<Omit<CaProvinceShippingData, "slug">> = [
     carrier: "Canada Post Expedited / UPS Canada",
     majorCities: ["Charlottetown", "Summerside"],
     housingNote:
-      "Direct tracked residential delivery with full transit insurance and 10-year timber frame warranty.",
+      "Direct tracked residential delivery with full transit insurance and 1-year timber frame warranty.",
   },
   {
     code: "YT",

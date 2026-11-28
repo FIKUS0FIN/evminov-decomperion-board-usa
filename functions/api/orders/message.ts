@@ -17,7 +17,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
   try {
     const body = (await request.json()) as Record<string, unknown>;
     const orderId = String(body.orderId || "").trim();
-    const message = String(body.message || "").trim().slice(0, 2000);
+    const message = String(body.message || "").trim().slice(0, 20000);
 
     if (!orderId || !message) {
       return jsonResponse({ ok: false, error: "Order ID and message are required." }, 400);
@@ -60,11 +60,16 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
         mode === "protocol_lead"
           ? `Your Evminov Custom Spine Angle Plan (${orderRef})`
           : mode === "warranty_registration"
-          ? `Evminov 10-Year Structural Warranty Registered (${orderRef})`
+          ? `Evminov 1-Year Structural Warranty Registered (${orderRef})`
           : `Evminov Reservation Confirmed — ${orderRef}`;
       const threadId = `<order-${orderRef.toLowerCase()}@${emailCfg.threadDomain}>`;
 
-      const safeMsg = escapeHtml(message).replace(/\n/g, "<br/>");
+      const safeMsg = escapeHtml(message)
+        .replace(
+          /(https?:\/\/[^\s<]+)/g,
+          '<a href="$1" style="color:#0f766e;text-decoration:underline;word-break:break-all;">$1</a>'
+        )
+        .replace(/\n/g, "<br/>");
       const htmlBody = `
         <div style="font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:600px;margin:0 auto;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;">
           <div style="background:#0b1f3a;color:#fff;padding:20px 24px;">

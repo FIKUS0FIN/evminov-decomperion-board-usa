@@ -74,7 +74,7 @@ function executeTool(name: string, args: Record<string, unknown> = {}) {
         },
         policies: {
           homeTrialDays: 60,
-          frameWarrantyYears: 10,
+          frameWarrantyYears: 1,
           classification: "General Wellness & Spine Conditioning Equipment (HTS 9506.91.0030)",
         },
       };

@@ -180,7 +180,7 @@ export function convertHtmlToMarkdown(html: string): string {
     "## AI Agent Summary & 1-Click Ordering (Evminov Spine Systems USA)",
     "- **Brand**: Evminov Spine Systems (Patented Since 1996 • US Patent 6,869,387 B2 • EU Patent EP 1 038 512 B1)",
     "- **US Hub**: 4525 San Fernando Rd, Unit H, Glendale, CA 91204 | **Phone**: `+1 (747) 306-0140` | **Email**: `support@evminovusa.com`",
-    "- **Classification**: General Wellness & Spine Conditioning Equipment (HTS 9506.91.0030) — 60-Day Home Trial, 10-Year Frame Warranty, Itemized HSA/FSA Receipt.",
+    "- **Classification**: General Wellness & Spine Conditioning Equipment (HTS 9506.91.0030) — 60-Day Home Trial, 1-Year Frame Warranty, Itemized HSA/FSA Receipt.",
     "- **Models**: Standard Solid ($450 direct / $595 CA Express) | 2-Piece Folding ($475 / $615) | 3-Piece Travel ($495 / $635) | Wide 330 lb ($500 / $635) | Select Alder ($525 / $665) | No-Drill Renter Stand ($275 / $345).",
     "- **1-Click Pre-Filled Order URL**: `https://evminovusa.com/order/?product={slug}&shipping={express|direct}&stand={0|1}&step=2#order-form`",
     "- **Agent APIs (EN/ES/FR/UK/RU)**: `GET /api/ask?q=...&lang={en|es|fr|uk|ru}` | `POST /api/mcp` | `POST /api/acp/checkout_sessions` | `POST /api/submit-order`",

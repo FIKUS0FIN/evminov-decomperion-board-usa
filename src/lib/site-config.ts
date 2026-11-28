@@ -46,7 +46,7 @@ export const SITE_CONFIG = {
     hsaFsaNote: REGION_CONFIG.hsaFsaNote,
     hsaEstimatedSavingsRate: 0.3,
     trialDays: 60,
-    warrantyYears: 10,
+    warrantyYears: 1,
     patentsSummary: "US Patent 6,869,387 B2 • European Patent EP 1 038 512 B1 • WIPO WO 1999/043288 • UA Patent 27976 / 28849A",
   },
   socialProfiles: [

@@ -103,7 +103,7 @@ export const AUTH_UI_COPY: Record<Locale, AuthUiCopy> = {
     creatingAccount: "Creando cuenta...",
     portalTitle: "Inicia Sesión en el Portal del Paciente Evminov",
     portalSubtitle:
-      "Accede a tus protocolos espinales, seguimiento de pedidos en vivo, garantía de 10 años y documentos HSA/FSA.",
+      "Accede a tus protocolos espinales, seguimiento de pedidos en vivo, garantía de 1 año y documentos HSA/FSA.",
     orderTitle: "Inicia Sesión Antes de Confirmar tu Pedido",
     orderSubtitle:
       "Inicia sesión con Google o crea una cuenta para guardar tu reserva, seguir el envío desde Glendale, CA y acceder a tu Portal.",
@@ -149,7 +149,7 @@ export const AUTH_UI_COPY: Record<Locale, AuthUiCopy> = {
     creatingAccount: "Création du compte...",
     portalTitle: "Connexion au Portail Patient Evminov",
     portalSubtitle:
-      "Accédez à vos protocoles vertébraux, suivi de commande en direct, garantie 10 ans et justificatifs.",
+      "Accédez à vos protocoles vertébraux, suivi de commande en direct, garantie 1 an et justificatifs.",
     orderTitle: "Connexion Requise Avant Commande",
     orderSubtitle:
       "Connectez-vous avec Google ou créez un compte pour valider votre réservation, suivre l'expédition et ouvrir votre Portail.",
@@ -195,7 +195,7 @@ export const AUTH_UI_COPY: Record<Locale, AuthUiCopy> = {
     creatingAccount: "Konto wird erstellt...",
     portalTitle: "Anmeldung zum Evminov Patientenportal",
     portalSubtitle:
-      "Greifen Sie auf Ihre gespeicherten Rückenprotokolle, Live-Bestellstatus, 10-Jahres-Garantie und HSA/FSA-Unterlagen zu.",
+      "Greifen Sie auf Ihre gespeicherten Rückenprotokolle, Live-Bestellstatus, 1-Jahres-Garantie und HSA/FSA-Unterlagen zu.",
     orderTitle: "Anmeldung vor der Bestellung erforderlich",
     orderSubtitle:
       "Melden Sie sich mit Google oder E-Mail an, um Ihre Reservierung zu sichern, den Versand zu verfolgen und das Patientenportal freizuschalten.",
@@ -241,7 +241,7 @@ export const AUTH_UI_COPY: Record<Locale, AuthUiCopy> = {
     creatingAccount: "Створення акаунта...",
     portalTitle: "Вхід у Портал Пацієнта Євмінова",
     portalSubtitle:
-      "Доступ до ваших протоколів, живого статусу замовлень, реєстрації 10-річної гарантії та документів HSA/FSA.",
+      "Доступ до ваших протоколів, живого статусу замовлень, реєстрації 1-річної гарантії та документів HSA/FSA.",
     orderTitle: "Увійдіть перед оформленням замовлення",
     orderSubtitle:
       "Увійдіть через Google або створіть акаунт, щоб зафіксувати бронювання, відстежувати доставку з Glendale, CA та відкрити Портал.",
@@ -287,7 +287,7 @@ export const AUTH_UI_COPY: Record<Locale, AuthUiCopy> = {
     creatingAccount: "Создание аккаунта...",
     portalTitle: "Вход в Портал Пациента Евминова",
     portalSubtitle:
-      "Доступ к вашим протоколам, статусам заказов, регистрации 10-летней гарантии и документам HSA/FSA.",
+      "Доступ к вашим протоколам, статусам заказов, регистрации 1-летней гарантии и документам HSA/FSA.",
     orderTitle: "Войдите перед оформлением заказа",
     orderSubtitle:
       "Войдите через Google или создайте аккаунт, чтобы закрепить бронь, отслеживать доставку из Glendale, CA и открыть Портал.",

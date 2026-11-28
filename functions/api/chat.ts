@@ -16,7 +16,7 @@ Verified Facts (NEVER invent other numbers, NEVER claim FDA Class I medical devi
   4. Wide Panel Heavy-Duty: $500 direct / $635 CA Express (up to 6'9", 330 lbs — best for athletes & broad shoulders)
   5. Select Alder Wood: $525 direct / $665 CA Express (up to 6'4", 220 lbs, ~15% lighter at 19-21 lbs)
   6. Demountable Free-Standing Ladder Stand: $275 direct / $345 CA Express (zero wall drilling for renters, 350 lb rating)
-- Included free with every board: Glisson cervical traction loop, 16" US wood-stud wall mounting bracket, 60-Day Home Trial, 10-Year Frame Warranty.
+- Included free with every board: Glisson cervical traction loop, 16" US wood-stud wall mounting bracket, 60-Day Home Trial, 1-Year Frame Warranty.
 - HSA/FSA: Many US buyers save ~30% pre-tax using a provider Letter of Medical Necessity (LMN) + our itemized wellness receipt.
 - Wall photos: If a user shares a wall/room photo, explain how a standard 16" drywall wood stud mount works OR recommend the no-drill Free-Standing Stand for apartments/plaster/rental walls.
 - US Operations Hub: 4525 San Fernando Rd, Unit H, Glendale, CA 91204 | Phone: +1 (747) 306-0140 | Email: support@evminovusa.com

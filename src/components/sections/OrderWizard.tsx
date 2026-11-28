@@ -10,13 +10,18 @@ import { AuthCard } from "@/components/auth/AuthCard";
 import { useAuth } from "@/components/auth/useAuth";
 import { getLocalizedHref } from "@/lib/url";
 import {
+  ACCESSORIES_SECTION_COPY,
   formatWeightLimit,
   getLocalizedFinish,
   getLocalizedProduct,
   ORDER_WIZARD_COPY,
 } from "@/i18n/locales/catalog";
 import { localizeTransitDays } from "@/i18n/locales/chrome";
-import { PRODUCTS } from "@/data/products";
+import {
+  OFFICIAL_ACCESSORIES,
+  OfficialAccessoryId,
+  PRODUCTS,
+} from "@/data/products";
 import { US_STATES } from "@/data/us-states";
 import { CA_PROVINCES } from "@/data/ca-provinces";
 import { IS_CANADA } from "@/lib/region-config";
@@ -54,135 +59,135 @@ const CONFIG_COPY: Record<
   }
 > = {
   en: {
-    widthHeading: "Select Board Width",
-    standardWidth: "Standard Width",
-    standardWidthSub: "Up to 220 lbs • Up to 6'4\"",
-    wideWidth: "Wide Heavy-Duty (+$25)",
-    wideWidthSub: "For higher weight & broad build • Up to 330 lbs • 6'9\"",
-    standHeading: "Support Stand Configuration",
-    standIncludedTitle: "Support Stand Included",
-    standIncludedDesc: "The 2-Piece Folding Evminov Board ships complete with a sturdy support stand.",
-    standWith: "With Support Stand (+$50)",
-    standWithDesc: "Ready to use anywhere without needing an external support.",
-    standWithout: "Without Support Stand",
-    standWithoutDesc: "Compact travel kit — lowest weight & price.",
-    standWithoutWarning: "Note: Without a support stand, you will need a sturdy, reliable support structure before starting your sessions.",
+    widthHeading: "Select Board Width (26 cm / 30 cm)",
+    standardWidth: "Standard Width — 26 cm",
+    standardWidthSub: "Up to 100 kg (220 lbs) • Up to 6'4\"",
+    wideWidth: "Reinforced Wide — 30 cm",
+    wideWidthSub: "For users over 100 kg (up to 330 lbs / 150 kg) • 6'9\"",
+    standHeading: "Official Accessories & Add-Ons",
+    standIncludedTitle: "4-Piece Demountable Ladder Stand",
+    standIncludedDesc: "Optional 4-piece ladder stand (max height 123 cm) fits both 26 cm and 30 cm boards.",
+    standWith: "With 4-Piece Ladder Stand",
+    standWithDesc: "Max height 123 cm — fits 26 cm & 30 cm boards.",
+    standWithout: "Board Only (Wall Mount Kit Included)",
+    standWithoutDesc: "Includes wall mounting hardware & Glisson Loop.",
+    standWithoutWarning: "Note: Wall mounting hardware is included. Add the 4-Piece Ladder Stand (max 123 cm) or Mounting Hooks below if you prefer freestanding or Swedish Wall setup.",
     step4Label: "4. Order Summary",
     continueToSummary: "Continue to Order Summary",
     summaryStepTitle: "Review Your Order & Confirm",
     deliveryReviewTitle: "Delivery Details",
     editDetails: "Edit",
-    shippingTwoWeekNote: "Current Shipping Schedule: All US & Canada orders currently deliver in ~2 weeks via direct dispatch. Faster local express shipping (2–5 days) resumes in the New Year.",
+    shippingTwoWeekNote: "International Courier Delivery: All US & Canada demountable board orders deliver via tracked international carriers in approximately 2 weeks. Every board includes a 1-Year Warranty.",
     signInToConfirmNote: "Sign in or create your free Evminov account below to confirm your reservation and unlock live order tracking in your Patient Portal.",
   },
   es: {
-    widthHeading: "Selecciona el Ancho de la Tabla",
-    standardWidth: "Ancho Estándar",
-    standardWidthSub: "Hasta 220 lbs • Hasta 193 cm",
-    wideWidth: "Ancho Reforzado Wide (+$25)",
-    wideWidthSub: "Para mayor peso • Hasta 330 lbs (150 kg) • 206 cm",
-    standHeading: "Configuración de Soporte",
-    standIncludedTitle: "Soporte Incluido",
-    standIncludedDesc: "La tabla plegable de 2 piezas se entrega con su soporte resistente incluido.",
-    standWith: "Con Soporte (+$50)",
-    standWithDesc: "Lista para usar en cualquier lugar con estabilidad total.",
-    standWithout: "Sin Soporte",
-    standWithoutDesc: "Opción compacta de viaje.",
-    standWithoutWarning: "Nota: Sin soporte, deberá asegurar un apoyo firme y fiable antes de iniciar los ejercicios.",
+    widthHeading: "Selecciona el Ancho de la Tabla (26 cm / 30 cm)",
+    standardWidth: "Ancho Estándar — 26 cm",
+    standardWidthSub: "Hasta 100 kg (220 lbs) • Hasta 193 cm",
+    wideWidth: "Reforzada Ancha — 30 cm",
+    wideWidthSub: "Para peso superior a 100 kg (hasta 150 kg / 330 lbs)",
+    standHeading: "Accesorios Oficiales",
+    standIncludedTitle: "Soporte-Escalera Desmontable de 4 Piezas",
+    standIncludedDesc: "Soporte desmontable en 4 partes (altura máx. 123 cm) para modelos de 26 cm y 30 cm.",
+    standWith: "Con Soporte-Escalera 4 Piezas",
+    standWithDesc: "Altura máx. 123 cm — compatible con 26 cm y 30 cm.",
+    standWithout: "Solo Tabla (Incluye Kit de Pared)",
+    standWithoutDesc: "Incluye herrajes de pared y Lazo de Glisson.",
+    standWithoutWarning: "Nota: Incluye herrajes de pared. Añade el Soporte-Escalera de 4 piezas o Ganchos abajo si lo deseas.",
     step4Label: "4. Resumen y Confirmar",
     continueToSummary: "Continuar al Resumen del Pedido",
     summaryStepTitle: "Revisa Tu Pedido y Confirma",
     deliveryReviewTitle: "Datos de Entrega",
     editDetails: "Editar",
-    shippingTwoWeekNote: "Aviso de Envío: Actualmente los envíos a EE. UU. y Canadá tardan ~2 semanas por envío directo. El envío exprés local (2–5 días) vuelve en Año Nuevo.",
+    shippingTwoWeekNote: "Envío Internacional: Todos los pedidos para EE. UU. y Canadá se entregan por mensajería internacional en aproximadamente 2 semanas. Garantía de 1 Año.",
     signInToConfirmNote: "Inicia sesión o crea tu cuenta Evminov abajo para confirmar tu reserva y seguir tu envío en tiempo real.",
   },
   fr: {
-    widthHeading: "Choisissez la Largeur de la Planche",
-    standardWidth: "Largeur Standard",
+    widthHeading: "Choisissez la Largeur (26 cm / 30 cm)",
+    standardWidth: "Largeur Standard — 26 cm",
     standardWidthSub: "Jusqu'à 100 kg (220 lbs) • 193 cm",
-    wideWidth: "Large Renforcée Wide (+$25)",
-    wideWidthSub: "Pour poids plus élevé • Jusqu'à 150 kg (330 lbs) • 206 cm",
-    standHeading: "Configuration du Support",
-    standIncludedTitle: "Support Inclus",
-    standIncludedDesc: "La planche pliable 2 pièces est livrée avec son support stable inclus.",
-    standWith: "Avec Support (+$50)",
-    standWithDesc: "Prête à l'emploi partout en toute autonomie.",
-    standWithout: "Sans Support",
-    standWithoutDesc: "Format voyage ultra-compact.",
-    standWithoutWarning: "Remarque : Sans support, vous devrez prévoir un appui solide et fiable avant chaque séance.",
+    wideWidth: "Large Renforcée — 30 cm",
+    wideWidthSub: "Pour plus de 100 kg (jusqu'à 150 kg / 330 lbs)",
+    standHeading: "Accessoires Officiels",
+    standIncludedTitle: "Support-Échelle Démontable 4 Pièces",
+    standIncludedDesc: "Support démontable en 4 pièces (hauteur max 123 cm) pour modèles 26 cm et 30 cm.",
+    standWith: "Avec Support-Échelle 4 Pièces",
+    standWithDesc: "Hauteur max 123 cm — compatible 26 cm et 30 cm.",
+    standWithout: "Planche Seule (Kit Mural Inclus)",
+    standWithoutDesc: "Inclut kit de fixation murale et Boucle de Glisson.",
+    standWithoutWarning: "Remarque : Kit mural inclus. Ajoutez le Support-Échelle 4 pièces ou les Crochets ci-dessous si besoin.",
     step4Label: "4. Récapitulatif",
     continueToSummary: "Continuer vers le Récapitulatif",
     summaryStepTitle: "Vérifiez et Confirmez Votre Commande",
     deliveryReviewTitle: "Coordonnées de Livraison",
     editDetails: "Modifier",
-    shippingTwoWeekNote: "Calendrier de Livraison : Les commandes vers les États-Unis et le Canada sont livrées en ~2 semaines par envoi direct. La livraison express locale (2–5 jours) reprend au Nouvel An.",
+    shippingTwoWeekNote: "Livraison Internationale : Les commandes USA et Canada sont livrées par transporteurs internationaux en environ 2 semaines. Garantie 1 An incluse.",
     signInToConfirmNote: "Connectez-vous ou créez votre compte Evminov ci-dessous pour confirmer votre commande et accéder au suivi en direct.",
   },
   de: {
-    widthHeading: "Board-Breite wählen",
-    standardWidth: "Standard-Breite",
+    widthHeading: "Board-Breite wählen (26 cm / 30 cm)",
+    standardWidth: "Standardbreite — 26 cm",
     standardWidthSub: "Bis 100 kg (220 lbs) • Bis 193 cm",
-    wideWidth: "Breit Heavy-Duty Wide (+$25)",
-    wideWidthSub: "Für höheres Gewicht • Bis 150 kg (330 lbs) • 206 cm",
-    standHeading: "Ständer-Konfiguration",
-    standIncludedTitle: "Stützständer im Lieferumfang",
-    standIncludedDesc: "Das 2-teilige Evminov Board wird komplett mit stabilem Stützständer geliefert.",
-    standWith: "Mit Stützständer (+$50)",
-    standWithDesc: "Sofort einsatzbereit ohne externe Halterung.",
-    standWithout: "Ohne Stützständer",
-    standWithoutDesc: "Kompakte Reisevariante.",
-    standWithoutWarning: "Hinweis: Ohne Stützständer benötigen Sie vor dem Training eine stabile, zuverlässige Auflage bzw. Abstützung.",
+    wideWidth: "Verstärkt Breit — 30 cm",
+    wideWidthSub: "Für über 100 kg Körpergewicht (bis 150 kg / 330 lbs)",
+    standHeading: "Offizielles Zubehör",
+    standIncludedTitle: "4-teiliger Zerlegbarer Leiterständer",
+    standIncludedDesc: "Zerlegbarer Leiterständer (max. 123 cm) passend für 26 cm und 30 cm Boards.",
+    standWith: "Mit 4-teiligem Leiterständer",
+    standWithDesc: "Max. Höhe 123 cm — für 26 cm & 30 cm Boards.",
+    standWithout: "Nur Board (Wandmontageset inkl.)",
+    standWithoutDesc: "Inkl. Wandhalterung und Glisson-Schlaufe.",
+    standWithoutWarning: "Hinweis: Wandhalterung ist enthalten. Optionalen 4-teiligen Leiterständer oder Haken unten auswählen.",
     step4Label: "4. Bestellübersicht",
     continueToSummary: "Weiter zur Bestellübersicht",
     summaryStepTitle: "Bestellung prüfen & bestätigen",
     deliveryReviewTitle: "Lieferdaten",
     editDetails: "Bearbeiten",
-    shippingTwoWeekNote: "Aktueller Versandhinweis: Lieferungen in die USA & nach Kanada dauern derzeit ca. 2 Wochen per Direktversand. Der schnellere Express-Versand (2–5 Tage) startet ab Neujahr wieder.",
+    shippingTwoWeekNote: "Internationaler Kurierversand: Bestellungen in die USA & nach Kanada dauern ca. 2 Wochen. Jedes Board beinhaltet 1 Jahr Garantie.",
     signInToConfirmNote: "Melden Sie sich unten an oder erstellen Sie ein kostenloses Evminov-Konto, um Ihre Bestellung zu bestätigen und im Portal zu verfolgen.",
   },
   uk: {
-    widthHeading: "Оберіть ширину дошки",
-    standardWidth: "Стандартна ширина",
-    standardWidthSub: "До 100 кг (220 lbs) • Зріст до 193 см",
-    wideWidth: "Широка Heavy-Duty (+$25)",
-    wideWidthSub: "Для більшої ваги та широких плечей • До 150 кг (330 lbs)",
-    standHeading: "Комплектація стійкою-підставкою",
-    standIncludedTitle: "Стійка-підставка в комплекті",
-    standIncludedDesc: "2-секційна дошка Євмінова поставляється разом із надійною стійкою-підставкою.",
-    standWith: "З підставкою (+$50)",
-    standWithDesc: "Готово до занять одразу вдома чи в поїздці.",
-    standWithout: "Без підставки",
-    standWithoutDesc: "Максимально компактний дорожній варіант.",
-    standWithoutWarning: "Зверніть увагу: у варіанті без підставки перед початком занять потрібно знайти надійну опору.",
+    widthHeading: "Оберіть ширину панелі (26 см / 30 см)",
+    standardWidth: "Стандартна ширина — 26 см",
+    standardWidthSub: "Для ваги до 100 кг (220 lbs) • Зріст до 193 см",
+    wideWidth: "Посилена широка — 30 см",
+    wideWidthSub: "Для ваги понад 100 кг (до 150 кг / 330 lbs)",
+    standHeading: "Офіційні аксесуари",
+    standIncludedTitle: "Стійка-драбинка розбірна (4 частини)",
+    standIncludedDesc: "Макс. висота 123 см — підходить для стандартної (26 см) та посиленої (30 см) моделей.",
+    standWith: "Зі стійкою-драбинкою (4 частини)",
+    standWithDesc: "Макс. 123 см — без свердління стін.",
+    standWithout: "Лише дошка (кріплення у стіну в комплекті)",
+    standWithoutDesc: "У комплекті петля Гліссона, кріплення у стіну та паспорт.",
+    standWithoutWarning: "Примітка: кріплення у стіну вже в комплекті. Нижче можна додати стійку-драбинку, гачки або чохол.",
     step4Label: "4. Підсумок і Підтвердження",
     continueToSummary: "Перейти до Підсумку Замовлення",
     summaryStepTitle: "Перевірте Замовлення та Підтвердіть",
     deliveryReviewTitle: "Дані Доставки",
     editDetails: "Змінити",
-    shippingTwoWeekNote: "Актуальний графік доставки: наразі доставка до США та Канади займає ~2 тижні (пряма відправка). З Нового року повернеться швидка локальна експрес-доставка (2–5 днів).",
+    shippingTwoWeekNote: "Доставка міжнародними перевізниками по США та Канаді займає приблизно 2 тижні. Офіційна гарантія — 1 рік.",
     signInToConfirmNote: "Увійдіть або зареєструйтесь нижче, щоб підтвердити замовлення та відстежувати його статус у Клієнтському Порталі.",
   },
   ru: {
-    widthHeading: "Выберите ширину доски",
-    standardWidth: "Стандартная ширина",
-    standardWidthSub: "До 100 кг (220 lbs) • Рост до 193 см",
-    wideWidth: "Широкая Heavy-Duty (+$25)",
-    wideWidthSub: "Для большего веса и широких плеч • До 150 кг (330 lbs)",
-    standHeading: "Комплектация стойкой-подставкой",
-    standIncludedTitle: "Стойка-подставка в комплекте",
-    standIncludedDesc: "2-секционная доска Евминова поставляется в комплекте с надёжной стойкой-подставкой.",
-    standWith: "С подставкой (+$50)",
-    standWithDesc: "Готово к занятиям сразу дома или в поездке.",
-    standWithout: "Без подставки",
-    standWithoutDesc: "Максимально компактный дорожный вариант.",
-    standWithoutWarning: "Обратите внимание: в варианте без подставки перед занятиями необходимо найти надёжную опору.",
+    widthHeading: "Выберите ширину панели (26 см / 30 см)",
+    standardWidth: "Стандартная ширина — 26 см",
+    standardWidthSub: "Для веса до 100 кг (220 lbs) • Рост до 193 см",
+    wideWidth: "Усиленная широкая — 30 см",
+    wideWidthSub: "Для веса более 100 кг (до 150 кг / 330 lbs)",
+    standHeading: "Официальные аксессуары",
+    standIncludedTitle: "Стойка-лесенка разборная (4 части)",
+    standIncludedDesc: "Макс. высота 123 см — для стандартной (26 см) и усиленной (30 см) моделей.",
+    standWith: "Со стойкой-лесенкой (4 части)",
+    standWithDesc: "Макс. 123 см — без сверления стен.",
+    standWithout: "Только доска (крепление в стену в комплекте)",
+    standWithoutDesc: "В комплекте петля Глиссона, крепление в стену и паспорт.",
+    standWithoutWarning: "Примечание: крепление в стену уже в комплекте. Ниже можно добавить стойку-лесенку, крючки или чехол.",
     step4Label: "4. Итог и Подтверждение",
     continueToSummary: "Перейти к Итогу Заказа",
     summaryStepTitle: "Проверьте Заказ и Подтвердите",
     deliveryReviewTitle: "Данные Доставки",
     editDetails: "Изменить",
-    shippingTwoWeekNote: "Актуальный график доставки: сейчас доставка в США и Канаду занимает ~2 недели (прямая отправка). С Нового года вернётся быстрая локальная экспресс-доставка (2–5 дней).",
+    shippingTwoWeekNote: "Доставка международными перевозчиками по США и Канаде занимает примерно 2 недели. Официальная гарантия — 1 год.",
     signInToConfirmNote: "Войдите или зарегистрируйтесь ниже, чтобы подтвердить заказ и отслеживать его статус в Личном Кабинете.",
   },
 };
@@ -192,6 +197,7 @@ const ORDER_DRAFT_STORAGE_KEY = "evminov_order_draft_v1";
 export function OrderWizard({ lang }: { lang: Locale }) {
   const t = getDictionary(lang).orderUi;
   const ow = ORDER_WIZARD_COPY[lang];
+  const accCopy = ACCESSORIES_SECTION_COPY[lang];
   const cfg = CONFIG_COPY[lang];
   const authCopy = AUTH_UI_COPY[lang];
   const searchParams = useSearchParams();
@@ -201,7 +207,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
     const p = searchParams.get("product");
     return p && PRODUCTS.some((item) => item.slug === p)
       ? p
-      : "2-piece-folding-board";
+      : "3-piece-travel-board";
   })();
   const initialProduct =
     PRODUCTS.find((item) => item.slug === initialSlug) || PRODUCTS[0];
@@ -227,10 +233,27 @@ export function OrderWizard({ lang }: { lang: Locale }) {
   const [shipping, setShipping] = useState<"express" | "direct">(() =>
     searchParams.get("shipping") === "direct" ? "direct" : "express"
   );
-  const [includeStand, setIncludeStand] = useState<boolean>(() => {
-    if (initialProduct.standIncluded) return true;
-    return searchParams.get("stand") === "1";
+  const [selectedAddons, setSelectedAddons] = useState<OfficialAccessoryId[]>(() => {
+    const initial: OfficialAccessoryId[] = [];
+    if (searchParams.get("stand") === "1") {
+      initial.push("ladder-stand-4pc");
+    }
+    const qsAddon = searchParams.get("addon") as OfficialAccessoryId | null;
+    if (
+      qsAddon &&
+      OFFICIAL_ACCESSORIES.some((a) => a.id === qsAddon) &&
+      !initial.includes(qsAddon)
+    ) {
+      initial.push(qsAddon);
+    }
+    return initial;
   });
+  const includeStand = selectedAddons.includes("ladder-stand-4pc");
+  const toggleAddon = (id: OfficialAccessoryId) => {
+    setSelectedAddons((prev) =>
+      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
+    );
+  };
   const [includeHsaDoc, setIncludeHsaDoc] = useState(true);
 
   const [name, setName] = useState("");
@@ -269,6 +292,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
         notes?: string;
         boardWidth?: "standard" | "wide";
         finish?: string;
+        selectedAddons?: OfficialAccessoryId[];
       };
       if (draft.name) setName((prev) => prev || draft.name!);
       if (draft.email) setEmail((prev) => prev || draft.email!);
@@ -280,6 +304,9 @@ export function OrderWizard({ lang }: { lang: Locale }) {
         setBoardWidth(draft.boardWidth);
       }
       if (draft.finish) setFinish(draft.finish);
+      if (Array.isArray(draft.selectedAddons) && draft.selectedAddons.length > 0) {
+        setSelectedAddons((prev) => (prev.length > 0 ? prev : draft.selectedAddons!));
+      }
     } catch {
       // ignore storage errors
     }
@@ -303,6 +330,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
           notes: notes.trim(),
           boardWidth,
           finish,
+          selectedAddons,
         })
       );
     } catch {
@@ -337,18 +365,20 @@ export function OrderWizard({ lang }: { lang: Locale }) {
     PRODUCTS.find((p) => p.slug === productSlug) || PRODUCTS[0];
   const localizedSelected = getLocalizedProduct(selectedProduct, lang);
 
-  const effectiveStandIncluded = selectedProduct.standIncluded || includeStand;
+  const selectedAccessoryItems = OFFICIAL_ACCESSORIES.filter((a) =>
+    selectedAddons.includes(a.id)
+  );
   const widthSurcharge =
     boardWidth === "wide" ? selectedProduct.wideSurchargeUsd : 0;
   const boardPrice =
     (shipping === "express"
       ? selectedProduct.expressPriceUsd
       : selectedProduct.directPriceUsd) + widthSurcharge;
-  const standPrice =
-    !selectedProduct.standIncluded && includeStand
-      ? selectedProduct.standAddUsd
-      : 0;
-  const totalUsd = boardPrice + standPrice;
+  const accessoriesTotal = selectedAccessoryItems.reduce(
+    (sum, item) => sum + item.priceUsd,
+    0
+  );
+  const totalUsd = boardPrice + accessoriesTotal;
   const estimatedHsaNet = calculateHsaPrice(totalUsd);
 
   const toggleVoice = async () => {
@@ -401,7 +431,15 @@ export function OrderWizard({ lang }: { lang: Locale }) {
     }
     setSubmitting(true);
     const attr = getAttributionSummary();
-    const combinedNotes = [notes.trim(), attr ? `Attribution: ${attr}` : ""]
+    const addonsSummary =
+      selectedAccessoryItems.length > 0
+        ? `Add-ons: ${selectedAccessoryItems.map((a) => a.name.en).join(", ")}`
+        : "";
+    const combinedNotes = [
+      addonsSummary,
+      notes.trim(),
+      attr ? `Attribution: ${attr}` : "",
+    ]
       .filter(Boolean)
       .join(" | ");
     try {
@@ -412,11 +450,17 @@ export function OrderWizard({ lang }: { lang: Locale }) {
           mode: "order_reservation",
           product: selectedProduct.slug,
           productName: `${selectedProduct.name} (${
-            boardWidth === "wide" ? "Wide Heavy-Duty 330 lbs" : "Standard Width 220 lbs"
-          } • ${effectiveStandIncluded ? "With Support Stand" : "Without Support Stand"})`,
+            boardWidth === "wide"
+              ? "Reinforced Wide 30 cm / >100 kg"
+              : "Standard 26 cm / up to 100 kg"
+          }${
+            selectedAccessoryItems.length > 0
+              ? ` + ${selectedAccessoryItems.map((a) => a.name.en).join(", ")}`
+              : ""
+          })`,
           finish,
           shipping,
-          includeStand: effectiveStandIncluded,
+          includeStand,
           includeHsaDoc,
           totalUsd,
           name: name.trim(),
@@ -562,7 +606,6 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                         onClick={() => {
                           setProductSlug(p.slug);
                           setFinish(p.finishes[0]);
-                          if (p.standIncluded) setIncludeStand(true);
                         }}
                         className={`rounded-2xl border p-4 text-left transition ${
                           active
@@ -617,7 +660,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                     }`}
                   >
                     <p className="text-xs font-extrabold text-slate-950">
-                      {cfg.wideWidth}
+                      {cfg.wideWidth} (+{formatUSD(selectedProduct.wideSurchargeUsd)})
                     </p>
                     <p className="mt-0.5 text-[11px] text-slate-600">
                       {cfg.wideWidthSub}
@@ -626,57 +669,49 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                 </div>
               </div>
 
-              {/* Support Stand Configuration */}
+              {/* Official US & Canada Accessories Multi-Select */}
               <div>
-                <p className="text-sm font-bold text-slate-900">{cfg.standHeading}</p>
-                {selectedProduct.standIncluded ? (
-                  <div className="mt-2 rounded-2xl border border-emerald-200 bg-emerald-50/70 p-3.5 text-xs text-emerald-950">
-                    <p className="font-extrabold">{cfg.standIncludedTitle}</p>
-                    <p className="mt-0.5 text-emerald-900/90">{cfg.standIncludedDesc}</p>
-                  </div>
-                ) : (
-                  <div className="mt-2 space-y-2.5">
-                    <div className="grid gap-2.5 sm:grid-cols-2">
-                      <button
-                        type="button"
-                        onClick={() => setIncludeStand(true)}
-                        className={`rounded-2xl border p-3.5 text-left transition ${
-                          includeStand
+                <p className="text-sm font-bold text-slate-900">
+                  {accCopy.wizardHeading}
+                </p>
+                <p className="mt-0.5 text-xs text-slate-500">
+                  {accCopy.wizardHint}
+                </p>
+                <div className="mt-2.5 grid gap-2.5 sm:grid-cols-2">
+                  {OFFICIAL_ACCESSORIES.map((accItem) => {
+                    const checked = selectedAddons.includes(accItem.id);
+                    return (
+                      <label
+                        key={accItem.id}
+                        className={`flex cursor-pointer items-start gap-2.5 rounded-2xl border p-3 text-left transition ${
+                          checked
                             ? "border-teal-700 bg-teal-50/70 ring-2 ring-teal-700/20"
                             : "border-slate-200 hover:border-slate-300"
                         }`}
                       >
-                        <p className="text-xs font-extrabold text-slate-950">
-                          {cfg.standWith}
-                        </p>
-                        <p className="mt-0.5 text-[11px] text-slate-600">
-                          {cfg.standWithDesc}
-                        </p>
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setIncludeStand(false)}
-                        className={`rounded-2xl border p-3.5 text-left transition ${
-                          !includeStand
-                            ? "border-teal-700 bg-teal-50/70 ring-2 ring-teal-700/20"
-                            : "border-slate-200 hover:border-slate-300"
-                        }`}
-                      >
-                        <p className="text-xs font-extrabold text-slate-950">
-                          {cfg.standWithout}
-                        </p>
-                        <p className="mt-0.5 text-[11px] text-slate-600">
-                          {cfg.standWithoutDesc}
-                        </p>
-                      </button>
-                    </div>
-                    {!includeStand && (
-                      <div className="rounded-xl border border-amber-200 bg-amber-50 px-3.5 py-2.5 text-xs font-medium text-amber-950">
-                        {cfg.standWithoutWarning}
-                      </div>
-                    )}
-                  </div>
-                )}
+                        <input
+                          type="checkbox"
+                          checked={checked}
+                          onChange={() => toggleAddon(accItem.id)}
+                          className="mt-0.5 h-4 w-4 shrink-0 accent-teal-700"
+                        />
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-start justify-between gap-2">
+                            <span className="text-xs font-extrabold text-slate-950">
+                              {accItem.name[lang]}
+                            </span>
+                            <span className="shrink-0 text-xs font-black text-teal-800">
+                              +{formatUSD(accItem.priceUsd)}
+                            </span>
+                          </div>
+                          <p className="mt-0.5 text-[11px] text-slate-600">
+                            {accItem.spec[lang]}
+                          </p>
+                        </div>
+                      </label>
+                    );
+                  })}
+                </div>
               </div>
 
               <div>
@@ -990,6 +1025,11 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                       {boardWidth === "wide" ? cfg.wideWidth : cfg.standardWidth} •{" "}
                       {getLocalizedFinish(finish, lang)}
                     </dd>
+                    {selectedAccessoryItems.length > 0 && (
+                      <dd className="mt-1 text-[11px] font-semibold text-teal-800">
+                        + {selectedAccessoryItems.map((a) => a.name[lang]).join(" • ")}
+                      </dd>
+                    )}
                   </div>
                   <div>
                     <dt className="font-semibold text-slate-500">
@@ -1106,14 +1146,17 @@ export function OrderWizard({ lang }: { lang: Locale }) {
             <span className="font-bold">{formatUSD(boardPrice)}</span>
           </div>
           <p className="text-xs text-slate-400">
+            {boardWidth === "wide" ? cfg.wideWidth : cfg.standardWidth} •{" "}
             {ow.finishLabel}: {getLocalizedFinish(finish, lang)}
           </p>
-          {standPrice > 0 && (
-            <div className="flex justify-between gap-2">
-              <span className="text-slate-300">{ow.standItemLabel}</span>
-              <span className="font-bold">{formatUSD(standPrice)}</span>
+          {selectedAccessoryItems.map((accItem) => (
+            <div key={accItem.id} className="flex justify-between gap-2 text-xs">
+              <span className="text-slate-300">{accItem.name[lang]}</span>
+              <span className="shrink-0 font-bold">
+                +{formatUSD(accItem.priceUsd)}
+              </span>
             </div>
-          )}
+          ))}
         </div>
 
         <div className="mt-4 space-y-2">

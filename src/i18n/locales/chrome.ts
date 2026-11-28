@@ -190,7 +190,7 @@ export const FOOTER_CONTENT: Record<Locale, FooterContent> = {
         tag: "Rated Up to 330 lbs",
       },
       {
-        title: "10-Year Warranty",
+        title: "1-Year Warranty",
         sub: "Carpathian Pine & Alder",
         tag: "Structural Frame Guarantee",
       },
@@ -250,7 +250,7 @@ export const FOOTER_CONTENT: Record<Locale, FooterContent> = {
         tag: "Hasta 330 lbs (150 kg)",
       },
       {
-        title: "Garantía 10 Años",
+        title: "Garantía 1 Año",
         sub: "Pino de los Cárpatos y Aliso",
         tag: "Garantía Estructural",
       },
@@ -310,7 +310,7 @@ export const FOOTER_CONTENT: Record<Locale, FooterContent> = {
         tag: "Certifié Jusqu'à 150 kg",
       },
       {
-        title: "Garantie 10 Ans",
+        title: "Garantie 1 An",
         sub: "Pin des Carpates & Aulne",
         tag: "Garantie Structurelle",
       },
@@ -370,7 +370,7 @@ export const FOOTER_CONTENT: Record<Locale, FooterContent> = {
         tag: "Навантаження до 150 кг",
       },
       {
-        title: "Гарантія 10 Років",
+        title: "Гарантія 1 Рік",
         sub: "Карпатська Сосна та Вільха",
         tag: "Гарантія на Раму",
       },
@@ -430,7 +430,7 @@ export const FOOTER_CONTENT: Record<Locale, FooterContent> = {
         tag: "Нагрузка до 150 кг",
       },
       {
-        title: "Гарантия 10 Лет",
+        title: "Гарантия 1 Год",
         sub: "Карпатская Сосна и Ольха",
         tag: "Гарантия на Конструкцию",
       },
@@ -490,7 +490,7 @@ export const FOOTER_CONTENT: Record<Locale, FooterContent> = {
         tag: "Belastbar bis 330 lbs (150 kg)",
       },
       {
-        title: "10 Jahre Garantie",
+        title: "1 Jahr Garantie",
         sub: "Karpaten-Kiefer & Erle",
         tag: "Strukturelle Rahmengarantie",
       },
@@ -1159,7 +1159,7 @@ export const LEGAL_PAGES_CONTENT: Record<
     terms: {
       title: "Terms of Service",
       metaDescription:
-        "Evminov Spine Systems ordering terms, pricing clarity, 10-year timber frame warranty, and patent rights.",
+        "Evminov Spine Systems ordering terms, pricing clarity, 1-year timber frame warranty, and patent rights.",
       updated: "November 2026",
       sections: [
         {
@@ -1167,8 +1167,8 @@ export const LEGAL_PAGES_CONTENT: Record<
           p: "All product prices on evminovusa.com are listed in US Dollars (USD) and clearly distinguish Direct Workshop Delivery from Glendale, California Express Fulfillment. Reservations submitted prior to payment completion are confirmed by email from orders@evminovusa.com.",
         },
         {
-          h: "2. 10-Year Structural Frame Warranty",
-          p: "Every authentic Evminov Carpathian pine or Ukrainian alder board carries a 10-year warranty against structural manufacturing defects under normal home or studio use within the specified user weight limit (210–220 lbs Standard/Folding/Alder; 330 lbs Wide Heavy-Duty).",
+          h: "2. 1-Year Structural Frame Warranty",
+          p: "Every authentic Evminov Carpathian pine or Ukrainian alder board carries a 1-year warranty against structural manufacturing defects under normal home or studio use within the specified user weight limit (210–220 lbs Standard/Folding/Alder; 330 lbs Wide Heavy-Duty).",
         },
         {
           h: "3. Intellectual Property",
@@ -1241,7 +1241,7 @@ export const LEGAL_PAGES_CONTENT: Record<
     terms: {
       title: "Términos de Servicio",
       metaDescription:
-        "Condiciones de pedido de Evminov Spine Systems, transparencia de precios, garantía estructural de 10 años y patentes internacionales.",
+        "Condiciones de pedido de Evminov Spine Systems, transparencia de precios, garantía estructural de 1 año y patentes internacionales.",
       updated: "Noviembre de 2026",
       sections: [
         {
@@ -1249,8 +1249,8 @@ export const LEGAL_PAGES_CONTENT: Record<
           p: "Todos los precios de productos en evminovusa.com se muestran en dólares estadounidenses (USD) y distinguen claramente el Envío Directo de Taller del Despacho Express desde Glendale, California. Las reservas enviadas antes de completar el pago se confirman por correo electrónico desde orders@evminovusa.com.",
         },
         {
-          h: "2. Garantía Estructural de 10 Años",
-          p: "Cada tabla Evminov auténtica de pino de los Cárpatos o aliso ucraniano cuenta con una garantía de 10 años contra defectos estructurales de fabricación bajo uso doméstico o de estudio normal dentro del límite de peso especificado (210–220 lbs Estándar/Plegable/Aliso; 330 lbs Ancha Reforzada).",
+          h: "2. Garantía Estructural de 1 Año",
+          p: "Cada tabla Evminov auténtica de pino de los Cárpatos o aliso ucraniano cuenta con una garantía de 1 año contra defectos estructurales de fabricación bajo uso doméstico o de estudio normal dentro del límite de peso especificado (210–220 lbs Estándar/Plegable/Aliso; 330 lbs Ancha Reforzada).",
         },
         {
           h: "3. Propiedad Intelectual",
@@ -1323,7 +1323,7 @@ export const LEGAL_PAGES_CONTENT: Record<
     terms: {
       title: "Conditions d'Utilisation",
       metaDescription:
-        "Conditions de commande Evminov Spine Systems, tarification transparente, garantie structurelle de 10 ans et brevets internationaux.",
+        "Conditions de commande Evminov Spine Systems, tarification transparente, garantie structurelle de 1 an et brevets internationaux.",
       updated: "Novembre 2026",
       sections: [
         {
@@ -1331,8 +1331,8 @@ export const LEGAL_PAGES_CONTENT: Record<
           p: "Tous les prix affichés sur evminovusa.com sont indiqués en dollars américains (USD) et distinguent clairement la Livraison Directe Atelier de l'Expédition Express depuis Glendale, Californie. Les réservations soumises avant le règlement sont confirmées par courriel depuis orders@evminovusa.com.",
         },
         {
-          h: "2. Garantie Structurelle de 10 Ans",
-          p: "Chaque planche Evminov authentique en pin des Carpates ou en aulne ukrainien bénéficie d'une garantie de 10 ans contre les défauts structurels de fabrication dans le cadre d'une utilisation normale à domicile ou en studio, dans la limite de poids prévue (95–100 kg Standard/Pliable/Aulne ; 150 kg Modèle Large Renforcé).",
+          h: "2. Garantie Structurelle de 1 An",
+          p: "Chaque planche Evminov authentique en pin des Carpates ou en aulne ukrainien bénéficie d'une garantie de 1 an contre les défauts structurels de fabrication dans le cadre d'une utilisation normale à domicile ou en studio, dans la limite de poids prévue (95–100 kg Standard/Pliable/Aulne ; 150 kg Modèle Large Renforcé).",
         },
         {
           h: "3. Propriété Intellectuelle",
@@ -1405,7 +1405,7 @@ export const LEGAL_PAGES_CONTENT: Record<
     terms: {
       title: "Умови Використання",
       metaDescription:
-        "Умови замовлення Evminov Spine Systems, прозоре ціноутворення, 10-річна гарантія на дерев'яну конструкцію та міжнародні патенти.",
+        "Умови замовлення Evminov Spine Systems, прозоре ціноутворення, 1-річна гарантія на дерев'яну конструкцію та міжнародні патенти.",
       updated: "Листопад 2026",
       sections: [
         {
@@ -1413,8 +1413,8 @@ export const LEGAL_PAGES_CONTENT: Record<
           p: "Усі ціни на сайті evminovusa.com вказані в доларах США (USD) і чітко розрізняють Пряму Доставку з Виробництва та Експрес-відправку зі складу в Глендейлі, Каліфорнія. Бронювання, подані до завершення оплати, підтверджуються листом з адреси orders@evminovusa.com.",
         },
         {
-          h: "2. 10-Річна Гарантія на Конструкцію",
-          p: "Кожен оригінальний Профілактор Євмінова з карпатської сосни або української вільхи має 10-річну гарантію від конструктивних виробничих дефектів за умов звичайного домашнього чи студійного використання в межах зазначеної ваги користувача (95–100 кг / 210–220 lbs для Стандартної, Складаної та Вільхової моделей; 150 кг / 330 lbs для Широкої Посиленої).",
+          h: "2. 1-Річна Гарантія на Конструкцію",
+          p: "Кожен оригінальний Профілактор Євмінова з карпатської сосни або української вільхи має 1-річну гарантію від конструктивних виробничих дефектів за умов звичайного домашнього чи студійного використання в межах зазначеної ваги користувача (95–100 кг / 210–220 lbs для Стандартної, Складаної та Вільхової моделей; 150 кг / 330 lbs для Широкої Посиленої).",
         },
         {
           h: "3. Інтелектуальна Власність",
@@ -1487,7 +1487,7 @@ export const LEGAL_PAGES_CONTENT: Record<
     terms: {
       title: "Условия Использования",
       metaDescription:
-        "Условия оформления заказов Evminov Spine Systems, прозрачность цен, 10-летняя гарантия на деревянную конструкцию и патентные права.",
+        "Условия оформления заказов Evminov Spine Systems, прозрачность цен, 1-летняя гарантия на деревянную конструкцию и патентные права.",
       updated: "Ноябрь 2026",
       sections: [
         {
@@ -1495,8 +1495,8 @@ export const LEGAL_PAGES_CONTENT: Record<
           p: "Все цены на сайте evminovusa.com указаны в долларах США (USD) и чётко разделяют Прямую Доставку с Производства и Экспресс-отправку со склада в Глендейле, Калифорния. Заявки, отправленные до завершения оплаты, подтверждаются письмом с адреса orders@evminovusa.com.",
         },
         {
-          h: "2. 10-Летняя Гарантия на Конструкцию",
-          p: "Каждая оригинальная Доска Евминова из карпатской сосны или украинской ольхи имеет 10-летнюю гарантию от конструктивных производственных дефектов при обычном домашнем или студийном использовании в пределах указанного лимита веса (95–100 кг / 210–220 lbs для Стандартной, Складной и Ольховой моделей; 150 кг / 330 lbs для Широкой Усиленной).",
+          h: "2. 1-Летняя Гарантия на Конструкцию",
+          p: "Каждая оригинальная Доска Евминова из карпатской сосны или украинской ольхи имеет 1-летнюю гарантию от конструктивных производственных дефектов при обычном домашнем или студийном использовании в пределах указанного лимита веса (95–100 кг / 210–220 lbs для Стандартной, Складной и Ольховой моделей; 150 кг / 330 lbs для Широкой Усиленной).",
         },
         {
           h: "3. Интеллектуальная Собственность",
@@ -1569,7 +1569,7 @@ export const LEGAL_PAGES_CONTENT: Record<
     terms: {
       title: "Nutzungsbedingungen",
       metaDescription:
-        "Bestellbedingungen von Evminov Spine Systems, transparente USD-Preise, 10 Jahre Holzrahmen-Garantie und internationale Patente.",
+        "Bestellbedingungen von Evminov Spine Systems, transparente USD-Preise, 1 Jahr Holzrahmen-Garantie und internationale Patente.",
       updated: "November 2026",
       sections: [
         {
@@ -1577,8 +1577,8 @@ export const LEGAL_PAGES_CONTENT: Record<
           p: "Alle Produktpreise auf evminovusa.com sind in US-Dollar (USD) angegeben und unterscheiden klar zwischen Werkstatt-Direktlieferung und Expressversand aus Glendale, Kalifornien. Reservierungen vor Zahlungsabschluss werden per E-Mail von orders@evminovusa.com bestätigt.",
         },
         {
-          h: "2. 10 Jahre strukturelle Rahmengarantie",
-          p: "Jedes authentische Evminov Board aus Karpaten-Kiefer oder ukrainischer Erle verfügt über eine 10-jährige Garantie auf strukturelle Herstellungsfehler bei normaler privater oder Studio-Nutzung innerhalb der angegebenen Belastungsgrenze (210–220 lbs / 95–100 kg bei Standard/Klapp/Erle; 330 lbs / 150 kg bei Wide Heavy-Duty).",
+          h: "2. 1 Jahr strukturelle Rahmengarantie",
+          p: "Jedes authentische Evminov Board aus Karpaten-Kiefer oder ukrainischer Erle verfügt über eine 1-jährige Garantie auf strukturelle Herstellungsfehler bei normaler privater oder Studio-Nutzung innerhalb der angegebenen Belastungsgrenze (210–220 lbs / 95–100 kg bei Standard/Klapp/Erle; 330 lbs / 150 kg bei Wide Heavy-Duty).",
         },
         {
           h: "3. Geistiges Eigentum",

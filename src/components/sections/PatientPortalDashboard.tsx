@@ -152,10 +152,10 @@ const PORTAL_COPY: Record<Locale, PortalCopy> = {
     badge: "ESTABLISHED 1996 • PATIENT & OWNER PORTAL",
     h1: "Evminov Patient & Owner Portal",
     subtitle:
-      "Your guided 30-day spinal decompression workspace: interactive session timer, traction biometrics, 16-inch US wood stud mounting guide, printable HSA/FSA LMN kit, and 10-year structural warranty registration.",
+      "Your guided 30-day spinal decompression workspace: interactive session timer, traction biometrics, 16-inch US wood stud mounting guide, printable HSA/FSA LMN kit, and 1-year structural warranty registration.",
     ownerCardTitle: "Personalize Your Owner Workspace",
     ownerCardDesc:
-      "Enter your order reference & email to pre-fill your HSA/FSA documentation and 10-year warranty, or explore immediately in interactive preview mode.",
+      "Enter your order reference & email to pre-fill your HSA/FSA documentation and 1-year warranty, or explore immediately in interactive preview mode.",
     signedInAs: "Verified Owner Workspace Active",
     signOut: "Switch Owner",
     activateBtn: "Activate Owner Profile",
@@ -171,7 +171,7 @@ const PORTAL_COPY: Record<Locale, PortalCopy> = {
     badge: "DESDE 1996 • PORTAL DE PACIENTES Y PROPIETARIOS",
     h1: "Portal de Pacientes y Propietarios Evminov",
     subtitle:
-      "Tu espacio guiado de 30 días para descompresión espinal: temporizador de sesiones, biomecánica de tracción, guía de montaje en vigas de 16 pulgadas, kit imprimible HSA/FSA y registro de garantía de 10 años.",
+      "Tu espacio guiado de 30 días para descompresión espinal: temporizador de sesiones, biomecánica de tracción, guía de montaje en vigas de 16 pulgadas, kit imprimible HSA/FSA y registro de garantía de 1 año.",
     ownerCardTitle: "Personaliza Tu Espacio de Propietario",
     ownerCardDesc:
       "Ingresa tu referencia de pedido y correo para prellenar tu documentación HSA/FSA y garantía, o explora ahora mismo en modo interactivo.",
@@ -190,7 +190,7 @@ const PORTAL_COPY: Record<Locale, PortalCopy> = {
     badge: "FONDÉ EN 1996 • PORTAIL PATIENT & PROPRIÉTAIRE",
     h1: "Portail Patient & Propriétaire Evminov",
     subtitle:
-      "Votre espace guidé sur 30 jours : minuteur de séance de décompression, biomécanique d'inclinaison, guide de fixation murale 16 pouces, dossier HSA/FSA imprimable et enregistrement de garantie 10 ans.",
+      "Votre espace guidé sur 30 jours : minuteur de séance de décompression, biomécanique d'inclinaison, guide de fixation murale 16 pouces, dossier HSA/FSA imprimable et enregistrement de garantie 1 an.",
     ownerCardTitle: "Personnalisez Votre Espace Propriétaire",
     ownerCardDesc:
       "Saisissez votre référence de commande et e-mail pour pré-remplir votre dossier HSA/FSA et votre garantie, ou explorez immédiatement l'espace interactif.",
@@ -209,7 +209,7 @@ const PORTAL_COPY: Record<Locale, PortalCopy> = {
     badge: "ЗАСНОВАНО 1996 • КАБІНЕТ ПАЦІЄНТА ТА ВЛАСНИКА",
     h1: "Кабінет Пацієнта та Власника Євмінова",
     subtitle:
-      "Ваш інтерактивний простір на 30 днів: таймер занять, біомеханічний калькулятор тяги, інструкція монтажу на стійки 16 дюймів (США), комплект HSA/FSA для друку та реєстрація 10-річної гарантії.",
+      "Ваш інтерактивний простір на 30 днів: таймер занять, біомеханічний калькулятор тяги, інструкція монтажу на стійки 16 дюймів (США), комплект HSA/FSA для друку та реєстрація 1-річної гарантії.",
     ownerCardTitle: "Персоналізуйте Кабінет Власника",
     ownerCardDesc:
       "Введіть номер замовлення та email для автозаповнення документів HSA/FSA і гарантії — або користуйтеся інтерактивним режимом одразу.",
@@ -228,7 +228,7 @@ const PORTAL_COPY: Record<Locale, PortalCopy> = {
     badge: "ОСНОВАНО В 1996 • КАБИНЕТ ПАЦИЕНТА И ВЛАДЕЛЬЦА",
     h1: "Кабинет Пациента и Владельца Евминова",
     subtitle:
-      "Ваше интерактивное пространство на 30 дней: таймер тренировок, биомеханика вытяжения, гид монтажа на стойки 16 дюймов (США), пакет HSA/FSA для печати и регистрация 10-летней гарантии.",
+      "Ваше интерактивное пространство на 30 дней: таймер тренировок, биомеханика вытяжения, гид монтажа на стойки 16 дюймов (США), пакет HSA/FSA для печати и регистрация 1-летней гарантии.",
     ownerCardTitle: "Персонализируйте Кабинет Владельца",
     ownerCardDesc:
       "Введите номер заказа и email для автозаполнения документов HSA/FSA и гарантии — или пользуйтесь интерактивным режимом прямо сейчас.",
@@ -247,10 +247,10 @@ const PORTAL_COPY: Record<Locale, PortalCopy> = {
     badge: "GEGRÜNDET 1996 • PATIENTEN- & BESITZERPORTAL",
     h1: "Evminov Patienten- & Besitzerportal",
     subtitle:
-      "Ihr geführter 30-Tage-Arbeitsbereich für die Wirbelsäulen-Dekompression: interaktiver Sitzungstimer, Traktions-Biometrie, 16-Zoll-Holzständer-Montageanleitung (USA), druckbares HSA/FSA-LMN-Kit und 10-Jahres-Rahmengarantie-Registrierung.",
+      "Ihr geführter 30-Tage-Arbeitsbereich für die Wirbelsäulen-Dekompression: interaktiver Sitzungstimer, Traktions-Biometrie, 16-Zoll-Holzständer-Montageanleitung (USA), druckbares HSA/FSA-LMN-Kit und 1-Jahres-Rahmengarantie-Registrierung.",
     ownerCardTitle: "Besitzerbereich personalisieren",
     ownerCardDesc:
-      "Geben Sie Ihre Bestellreferenz und E-Mail-Adresse ein, um Ihre HSA/FSA-Unterlagen und die 10-Jahres-Garantie vorab auszufüllen – oder erkunden Sie sofort den interaktiven Vorschaumodus.",
+      "Geben Sie Ihre Bestellreferenz und E-Mail-Adresse ein, um Ihre HSA/FSA-Unterlagen und die 1-Jahres-Garantie vorab auszufüllen – oder erkunden Sie sofort den interaktiven Vorschaumodus.",
     signedInAs: "Verifizierter Besitzerbereich aktiv",
     signOut: "Profil wechseln",
     activateBtn: "Besitzerprofil aktivieren",
@@ -519,7 +519,7 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
           productName: selectedProduct.name,
           finish: warrantyFinish,
           stateOrCountry: warrantyState,
-          notes: `10-Year Structural Frame Warranty Registration | Order/Serial Ref: ${finalOrder || "Pending Verification"
+          notes: `1-Year Structural Frame Warranty Registration | Order/Serial Ref: ${finalOrder || "Pending Verification"
             }`,
           lang,
         }),
@@ -1548,7 +1548,7 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                     </div>
                   )}
 
-                  {/* TAB 5: 10-YEAR WARRANTY REGISTRATION & GLENDALE SUPPORT */}
+                  {/* TAB 5: 1-YEAR WARRANTY REGISTRATION & GLENDALE SUPPORT */}
                   {activeTab === "warranty" && (
                     <div className="grid gap-6 lg:grid-cols-12">
                       <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm lg:col-span-7 md:p-8">

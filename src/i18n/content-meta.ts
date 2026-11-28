@@ -62,7 +62,7 @@ const COMPARISON_META: Record<string, Record<Locale, LocalizedMeta>> = {
     ru: {
       title: "Альтернатива Teeter: Доска Евминова против стола Teeter",
       description:
-        "Сравнение Профилактора Евминова с инверсионным столом Teeter: складной профиль 6 см у стены, мягкие углы 8°–35°, 60 дней теста и гарантия 10 лет.",
+        "Сравнение Профилактора Евминова с инверсионным столом Teeter: складной профиль 6 см у стены, мягкие углы 8°–35°, 60 дней теста и гарантия 1 год.",
     },
     de: {
       title: "Alternative zur Teeter Inversionsbank: Evminov Board im Vergleich",
@@ -106,32 +106,32 @@ const COMPARISON_META: Record<string, Record<Locale, LocalizedMeta>> = {
     en: {
       title: "Home Decompression Board vs. Clinic Traction Cost & ROI",
       description:
-        "Compare $3,500+/year in recurring clinic decompression visits against a one-time $450 Evminov board with 10-year frame warranty and 10-minute home sessions.",
+        "Compare $3,500+/year in recurring clinic decompression visits against a one-time $450 Evminov board with 1-year frame warranty and 10-minute home sessions.",
     },
     es: {
       title: "Tabla Evminov en Casa vs. Costo de Clínicas de Tracción",
       description:
-        "Compara $3,500+ al año en citas clínicas de descompresión frente a una inversión única de $450 en la tabla Evminov con garantía estructural de 10 años.",
+        "Compara $3,500+ al año en citas clínicas de descompresión frente a una inversión única de $450 en la tabla Evminov con garantía estructural de 1 año.",
     },
     fr: {
       title: "Planche Evminov à Domicile vs. Coût des Cliniques",
       description:
-        "Comparez 3 500 $/an de séances en clinique à un investissement unique de 450 $ pour la planche Evminov garantie 10 ans pour toute la famille.",
+        "Comparez 3 500 $/an de séances en clinique à un investissement unique de 450 $ pour la planche Evminov garantie 1 an pour toute la famille.",
     },
     uk: {
       title: "Дошка Євмінова Вдома проти Ціни Клінічних Сеансів",
       description:
-        "Порівняйте $3,500+/рік витрат на клінічну тракцію з разовою інвестицією $450 у Профілактор Євмінова з 10-річною гарантією для всієї родини.",
+        "Порівняйте $3,500+/рік витрат на клінічну тракцію з разовою інвестицією $450 у Профілактор Євмінова з 1-річною гарантією для всієї родини.",
     },
     ru: {
       title: "Доска Евминова Дома против Цены Клинической Тракции",
       description:
-        "Сравните $3,500+ в год на визиты в клиники с разовой покупкой доски Евминова за $450, 10-летней гарантией и 10 минутами занятий дома.",
+        "Сравните $3,500+ в год на визиты в клиники с разовой покупкой доски Евминова за $450, 1-летней гарантией и 10 минутами занятий дома.",
     },
     de: {
       title: "Heim-Dekompressionsboard vs. Klinik-Traktion: Kosten & Nutzen",
       description:
-        "Vergleichen Sie $3,500+/Jahr für Klinik-Traktionssitzungen mit einer einmaligen Investition von $450 in das Evminov Board samt 10-Jahres-Garantie und 10-Minuten-Heimroutine.",
+        "Vergleichen Sie $3,500+/Jahr für Klinik-Traktionssitzungen mit einer einmaligen Investition von $450 in das Evminov Board samt 1-Jahres-Garantie und 10-Minuten-Heimroutine.",
     },
   },
   "evminov-vs-back-surgery": {
@@ -634,7 +634,7 @@ const GUIDE_META: Record<string, Record<Locale, LocalizedMeta>> = {
     fr: {
       title: "Guide Complet de la Décompression Vertébrale à Domicile",
       description:
-        "Tout savoir avant d'acheter une planche de traction : angles, pin vs. aulne, fixation murale 16 pouces et garantie 10 ans.",
+        "Tout savoir avant d'acheter une planche de traction : angles, pin vs. aulne, fixation murale 16 pouces et garantie 1 an.",
     },
     uk: {
       title: "Повний Гайд з Домашньої Декомпресії Хребта",

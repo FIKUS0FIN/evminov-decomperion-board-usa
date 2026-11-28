@@ -35,7 +35,7 @@ export async function GET(): Promise<Response> {
     return `    <item>
       <g:id>${escXml(p.sku)}</g:id>
       <g:title>${escXml(p.name)}</g:title>
-      <g:description>${escXml(`${p.subtitle} ${p.keyFeature} Includes 60-day home trial, 10-year structural warranty, and itemized HSA/FSA receipt.`)}</g:description>
+      <g:description>${escXml(`${p.subtitle} ${p.keyFeature} Includes 60-day home trial, 1-year structural warranty, and itemized HSA/FSA receipt.`)}</g:description>
       <g:link>${escXml(productUrl)}</g:link>
       <g:image_link>${escXml(primaryImage)}</g:image_link>
 ${additionalImages}

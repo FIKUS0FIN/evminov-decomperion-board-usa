@@ -723,7 +723,7 @@ const COMPARISONS_TRANSLATIONS: Record<
         },
         {
           metric: "Vida Útil",
-          evminov: "Construcción en madera para 20+ años (Garantía de 10 Años)",
+          evminov: "Construcción en madera para 20+ años (Garantía de 1 Año)",
           alternative: "Fatiga o rotura del plástico en pocos meses",
         },
       ],
@@ -776,7 +776,7 @@ const COMPARISONS_TRANSLATIONS: Record<
         },
         {
           metric: "Durée de Vie",
-          evminov: "Bois massif conçu pour 20+ ans (Garantie 10 ans)",
+          evminov: "Bois massif conçu pour 20+ ans (Garantie 1 an)",
           alternative: "Déformation ou fissuration du plastique en quelques mois",
         },
       ],
@@ -829,7 +829,7 @@ const COMPARISONS_TRANSLATIONS: Record<
         },
         {
           metric: "Термін Служби",
-          evminov: "20+ років дерев'яної конструкції (Гарантія 10 років)",
+          evminov: "20+ років дерев'яної конструкції (Гарантія 1 рік)",
           alternative: "Втома або тріщини пластику за кілька місяців",
         },
       ],
@@ -882,7 +882,7 @@ const COMPARISONS_TRANSLATIONS: Record<
         },
         {
           metric: "Срок Службы",
-          evminov: "20+ лет деревянной конструкции (Гарантия 10 лет)",
+          evminov: "20+ лет деревянной конструкции (Гарантия 1 год)",
           alternative: "Усталость и трещины пластика за несколько месяцев",
         },
       ],
@@ -935,7 +935,7 @@ const COMPARISONS_TRANSLATIONS: Record<
         },
         {
           metric: "Lebensdauer",
-          evminov: "20+ Jahre Massivholz-Konstruktion (10 Jahre Garantie)",
+          evminov: "20+ Jahre Massivholz-Konstruktion (1 Jahr Garantie)",
           alternative: "Kunststoffermüdung oder Brüche nach wenigen Monaten",
         },
       ],

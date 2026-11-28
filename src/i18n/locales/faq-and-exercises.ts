@@ -18,7 +18,7 @@ const LOCALIZED_FAQS: Record<Exclude<Locale, "en">, FaqItem[]> = {
     },
     {
       question: "¿Cuánto tiempo y dinero ahorra frente a visitas recurrentes a clínicas?",
-      answer: "2 visitas semanales a $80–$120 suman $3,500–$6,000+ al año más 200+ horas de traslados. Una tabla Evminov de $450 (garantía 10 años) se paga en 4–6 sesiones y sirve a toda la familia.",
+      answer: "2 visitas semanales a $80–$120 suman $3,500–$6,000+ al año más 200+ horas de traslados. Una tabla Evminov de $450 (garantía 1 año) se paga en 4–6 sesiones y sirve a toda la familia.",
     },
     {
       question: "¿Cómo ayuda la tabla Evminov a quienes trabajan sentados 8+ horas al día?",
@@ -37,8 +37,8 @@ const LOCALIZED_FAQS: Record<Exclude<Locale, "en">, FaqItem[]> = {
       answer: "Cepillamos 32 dientes cada día, pero descuidamos 32–34 vértebras. Una tabla de $450 usada 20 años por una familia de 3 cuesta unos $7.50 por persona al año.",
     },
     {
-      question: "¿En qué consiste la Prueba en Casa de 60 Días y Garantía de 10 Años?",
-      answer: "Pruebe la tabla 60 días desde la entrega. Si no queda satisfecho, escriba a support@evminovusa.com o llame al +1 (747) 306-0140 para reembolso completo del producto. Incluye Garantía Estructural de 10 Años.",
+      question: "¿En qué consiste la Prueba en Casa de 60 Días y Garantía de 1 Año?",
+      answer: "Pruebe la tabla 60 días desde la entrega. Si no queda satisfecho, escriba a support@evminovusa.com o llame al +1 (747) 306-0140 para reembolso completo del producto. Incluye Garantía Estructural de 1 Año.",
     },
     {
       question: "¿Qué tan rápido es el envío a los 50 estados de EE. UU., Canadá, Europa y 40+ países?",
@@ -80,7 +80,7 @@ const LOCALIZED_FAQS: Record<Exclude<Locale, "en">, FaqItem[]> = {
     },
     {
       question: "Combien économise-t-on par rapport aux séances répétées en clinique ?",
-      answer: "2 séances/semaine à 80–120 $ coûtent 3 500–6 000 $/an. Une planche à 450 $ (garantie 10 ans) est amortie en 4 à 6 séances pour toute la famille.",
+      answer: "2 séances/semaine à 80–120 $ coûtent 3 500–6 000 $/an. Une planche à 450 $ (garantie 1 an) est amortie en 4 à 6 séances pour toute la famille.",
     },
     {
       question: "Comment aide-t-elle les télétravailleurs assis 8h+ par jour ?",
@@ -99,8 +99,8 @@ const LOCALIZED_FAQS: Record<Exclude<Locale, "en">, FaqItem[]> = {
       answer: "Nous brossons 32 dents par jour mais négligeons 32–34 vertèbres. Sur 20 ans pour une famille de 3, la planche à 450 $ revient à ~7,50 $/personne/an.",
     },
     {
-      question: "Comment fonctionnent l'Essai 60 Jours et la Garantie 10 Ans ?",
-      answer: "Testez 60 jours chez vous ; contactez support@evminovusa.com ou +1 (747) 306-0140 pour retour et remboursement. Cadre garanti 10 ans.",
+      question: "Comment fonctionnent l'Essai 60 Jours et la Garantie 1 An ?",
+      answer: "Testez 60 jours chez vous ; contactez support@evminovusa.com ou +1 (747) 306-0140 pour retour et remboursement. Cadre garanti 1 an.",
     },
     {
       question: "Quels sont les délais de livraison aux USA, Canada, Europe et 40+ pays ?",
@@ -142,7 +142,7 @@ const LOCALIZED_FAQS: Record<Exclude<Locale, "en">, FaqItem[]> = {
     },
     {
       question: "Скільки часу й грошей економить домашня декомпресія порівняно з клініками?",
-      answer: "2 візити на тиждень по $80–$120 — це $3,500–$6,000+ на рік і 200+ годин у дорозі. Разова покупка дошки за $450 (гарантія 10 років) окупається за 4–6 сеансів і служить всій родині.",
+      answer: "2 візити на тиждень по $80–$120 — це $3,500–$6,000+ на рік і 200+ годин у дорозі. Разова покупка дошки за $450 (гарантія 1 рік) окупається за 4–6 сеансів і служить всій родині.",
     },
     {
       question: "Як дошка допомагає офісним та віддаленим працівникам (8+ годин сидіння)?",
@@ -161,8 +161,8 @@ const LOCALIZED_FAQS: Record<Exclude<Locale, "en">, FaqItem[]> = {
       answer: "Ми чистимо 32 зуби щодня, але ігноруємо 32–34 хребці. Дошка за $450 на 20 років для родини з 3 осіб коштує ~$7.50 на людину на рік (менше 3 центів на день).",
     },
     {
-      question: "Як працюють 60-Денний Тест-Період та 10-Річна Гарантія?",
-      answer: "Тестуйте дошку вдома 60 днів. Якщо не підійде — зверніться до нашої команди в Глендейлі (support@evminovusa.com або +1 747-306-0140) для повного повернення коштів. На раму діє 10-річна гарантія.",
+      question: "Як працюють 60-Денний Тест-Період та 1-Річна Гарантія?",
+      answer: "Тестуйте дошку вдома 60 днів. Якщо не підійде — зверніться до нашої команди в Глендейлі (support@evminovusa.com або +1 747-306-0140) для повного повернення коштів. На раму діє 1-річна гарантія.",
     },
     {
       question: "Як швидко доставляєте по 50 штатах США, в Канаду, Європу та 40+ країн?",
@@ -204,7 +204,7 @@ const LOCALIZED_FAQS: Record<Exclude<Locale, "en">, FaqItem[]> = {
     },
     {
       question: "Сколько времени и денег экономит домашняя декомпрессия по сравнению с клиниками?",
-      answer: "2 визита в неделю по $80–$120 — это $3,500–$6,000+ в год и 200+ часов в дороге. Разовая покупка доски за $450 (гарантия 10 лет) окупается за 4–6 сеансов для всей семьи.",
+      answer: "2 визита в неделю по $80–$120 — это $3,500–$6,000+ в год и 200+ часов в дороге. Разовая покупка доски за $450 (гарантия 1 год) окупается за 4–6 сеансов для всей семьи.",
     },
     {
       question: "Как доска помогает офисным и удалённым сотрудникам (8+ часов сидения)?",
@@ -223,8 +223,8 @@ const LOCALIZED_FAQS: Record<Exclude<Locale, "en">, FaqItem[]> = {
       answer: "Мы чистим 32 зуба каждый день, но забываем о 32–34 позвонках. Доска за $450 на 20 лет для семьи из 3 человек стоит ~$7.50 на человека в год.",
     },
     {
-      question: "Как работают 60-Дневный Тест-Период и 10-Летняя Гарантия?",
-      answer: "Тестируйте доску дома 60 дней. Если не подойдёт — свяжитесь с командой в Глендейле (support@evminovusa.com или +1 747-306-0140) для полного возврата. На раму действует 10-летняя гарантия.",
+      question: "Как работают 60-Дневный Тест-Период и 1-Летняя Гарантия?",
+      answer: "Тестируйте доску дома 60 дней. Если не подойдёт — свяжитесь с командой в Глендейле (support@evminovusa.com или +1 747-306-0140) для полного возврата. На раму действует 1-летняя гарантия.",
     },
     {
       question: "Как быстро доставляете по 50 штатам США, в Канаду, Европу и 40+ стран?",
@@ -266,7 +266,7 @@ const LOCALIZED_FAQS: Record<Exclude<Locale, "en">, FaqItem[]> = {
     },
     {
       question: "Wie viel Zeit und Geld spart man gegenüber laufenden Praxisbesuchen?",
-      answer: "Zwei Termine pro Woche à $80–$120 summieren sich auf $3,500–$6,000+ pro Jahr plus über 200 Stunden Fahrtzeit. Ein einmaliges Evminov Board ab $450 (10 Jahre Garantie) amortisiert sich nach 4–6 Sitzungen für die ganze Familie.",
+      answer: "Zwei Termine pro Woche à $80–$120 summieren sich auf $3,500–$6,000+ pro Jahr plus über 200 Stunden Fahrtzeit. Ein einmaliges Evminov Board ab $450 (1 Jahr Garantie) amortisiert sich nach 4–6 Sitzungen für die ganze Familie.",
     },
     {
       question: "Wie hilft das Evminov Board bei 8+ Stunden täglicher Schreibtischarbeit?",
@@ -285,8 +285,8 @@ const LOCALIZED_FAQS: Record<Exclude<Locale, "en">, FaqItem[]> = {
       answer: "Wir pflegen täglich 32 Zähne, vernachlässigen aber 32–34 Wirbel. Ein $450-Board, das eine 3-köpfige Familie 20 Jahre lang nutzt, kostet nur ca. $7,50 pro Person und Jahr.",
     },
     {
-      question: "Wie funktionieren der 60-Tage-Heimtest und die 10-Jahres-Garantie?",
-      answer: "Testen Sie das Board 60 Tage ab Lieferung zu Hause. Wenn es nicht passt, kontaktieren Sie unser Team in Glendale unter support@evminovusa.com oder +1 (747) 306-0140 für eine volle Produkterstattung. Inklusive 10 Jahre struktureller Rahmengarantie.",
+      question: "Wie funktionieren der 60-Tage-Heimtest und die 1-Jahres-Garantie?",
+      answer: "Testen Sie das Board 60 Tage ab Lieferung zu Hause. Wenn es nicht passt, kontaktieren Sie unser Team in Glendale unter support@evminovusa.com oder +1 (747) 306-0140 für eine volle Produkterstattung. Inklusive 1 Jahr struktureller Rahmengarantie.",
     },
     {
       question: "Wie schnell ist der Versand in alle 50 US-Staaten, nach Kanada, Europa & in 40+ Länder?",
