@@ -64,13 +64,14 @@ function executeTool(name: string, args: Record<string, unknown> = {}) {
       return {
         brand: "Evminov Spine Systems USA",
         website: "https://evminovusa.com/",
+        whatsapp: "https://wa.me/17473060140",
         phone: "+1 (747) 306-0140",
         email: "support@evminovusa.com",
         hubAddress: "4525 San Fernando Rd, Unit H, Glendale, CA 91204, USA",
         patents: "US 6,869,387 B2 | EP 1 038 512 B1 | WO 1999/043288 | UA 27976",
         shipping: {
-          usExpressFromCalifornia: "1-2 days West Coast, 2-3 days Central/South, 3-4 days East Coast, 4-5 days AK/HI",
-          directWorkshopGlobal: "10-16 business days to US, Canada, EU, UK, and Ukraine",
+          internationalCourierUsCanada: "Approximately 2 weeks via tracked international carriers to US & Canada (demountable 2-piece & 3-piece panels)",
+          directWorkshopGlobal: "Approximately 2 weeks to US, Canada, EU, UK, and Ukraine",
         },
         policies: {
           homeTrialDays: 60,

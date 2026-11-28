@@ -1759,11 +1759,11 @@ export const CALCULATOR_COPY: Record<Locale, CalculatorLocalizedCopy> = {
     },
     boardReasons: {
       "wide-heavy-duty-board":
-        "Rated up to 330 lbs and 6'9\" with a 30% wider multi-layer Carpathian pine deck and reinforced alloy carriage.",
+        "Reinforced Wide 30 cm deck rated for >100 kg (up to 330 lbs / 6'9\") in Light or Dark finish — 1-Year Warranty & ~2 weeks international courier delivery.",
       "3-piece-travel-board":
-        "Breaks down into ~31\" segments for closets, car trunks, or air travel while supporting up to 220 lbs and 6'4\".",
+        "Full-length 230–245 cm Evminov Board in 3 demountable sections (26 cm Standard or 30 cm Reinforced Wide, Light or Dark) — ~2 weeks delivery & 1-Year Warranty.",
       "standard-pine-board":
-        "2-Piece Folding Evminov Board with Support Stand included, rated up to 6'4\" and 220 lbs (Wide: 330 lbs). Includes free Glisson Loop.",
+        "Compact 2-Piece Folding Evminov Board (\"Spine Toothbrush\") in 26 cm Standard or 30 cm Reinforced Wide, Light or Dark — ~2 weeks delivery & 1-Year Warranty.",
     },
   },
   es: {
@@ -1816,11 +1816,11 @@ export const CALCULATOR_COPY: Record<Locale, CalculatorLocalizedCopy> = {
     },
     boardReasons: {
       "wide-heavy-duty-board":
-        "Capacidad hasta 330 lbs (150 kg) y 6'9\" (206 cm) con plataforma de pino de los Cárpatos 30% más ancha y carro reforzado.",
+        "Ancho reforzado de 30 cm para peso >100 kg (hasta 150 kg / 330 lbs), acabado Claro u Oscuro — envío ~2 semanas y garantía de 1 año.",
       "3-piece-travel-board":
-        "Se desmonta en secciones de ~31\" (79 cm) para armarios, maleteros o viajes, soportando hasta 220 lbs y 6'4\".",
+        "Tabla completa 230–245 cm en 3 piezas desmontables (26 cm estándar o 30 cm reforzada, Clara u Oscura) — envío internacional ~2 semanas.",
       "standard-pine-board":
-        "Tabla Plegable de 2 Piezas con soporte incluido hasta 6'4\" y 220 lbs (Ancha: 330 lbs). Incluye Lazo de Glisson gratis.",
+        "Tabla compacta de 2 piezas (26 cm estándar o 30 cm reforzada, Clara u Oscura) con Lazo de Glisson gratis — garantía de 1 año.",
     },
   },
   fr: {
@@ -1873,11 +1873,11 @@ export const CALCULATOR_COPY: Record<Locale, CalculatorLocalizedCopy> = {
     },
     boardReasons: {
       "wide-heavy-duty-board":
-        "Certifiée jusqu'à 150 kg (330 lb) et 206 cm (6'9\") avec plateau en pin des Carpates 30 % plus large et chariot renforcé.",
+        "Largeur renforcée 30 cm pour plus de 100 kg (jusqu'à 150 kg / 330 lb), finition Claire ou Foncée — livraison ~2 semaines & garantie 1 an.",
       "3-piece-travel-board":
-        "Se démonte en 3 segments d'environ 79 cm pour placards, coffres ou voyages tout en supportant 100 kg et 193 cm.",
+        "Planche pleine longueur 230–245 cm en 3 sections démontables (26 cm standard ou 30 cm renforcée) — livraison internationale ~2 semaines.",
       "standard-pine-board":
-        "Planche Pliable 2 Pièces avec support inclus jusqu'à 193 cm et 100 kg (Large : 150 kg). Boucle Glisson offerte.",
+        "Planche compacte 2 pièces (26 cm standard ou 30 cm renforcée, Claire ou Foncée) avec Boucle Glisson offerte — garantie 1 an.",
     },
   },
   uk: {
@@ -1930,11 +1930,11 @@ export const CALCULATOR_COPY: Record<Locale, CalculatorLocalizedCopy> = {
     },
     boardReasons: {
       "wide-heavy-duty-board":
-        "Розрахована до 150 кг (330 lbs) і 206 см (6'9\"): на 30% ширша багатошарова карпатська сосна та посилена каретка.",
+        "Посилена ширина 30 см для ваги понад 100 кг (до 150 кг / 330 lbs), світла або темна — доставка ~2 тижні та гарантія 1 рік.",
       "3-piece-travel-board":
-        "Розкладається на 3 секції по ~79 см для шафи, багажника авто чи подорожей, витримує до 100 кг і 193 см.",
+        "Повнорозмірний Профілактор 230–245 см із 3-х частин (стандарт 26 см або посилений 30 см, світлий/темний) — доставка ~2 тижні.",
       "standard-pine-board":
-        "Складана дошка з 2-х частин зі стійкою в комплекті, до 193 см і 100 кг (Широка: 150 кг). Петля Гліссона у подарунок.",
+        "Компактна 2-секційна «Зубна щітка» (26 см стандарт або 30 см посилена, світла/темна) з петлею Гліссона — гарантія 1 рік.",
     },
   },
   ru: {
@@ -1987,11 +1987,11 @@ export const CALCULATOR_COPY: Record<Locale, CalculatorLocalizedCopy> = {
     },
     boardReasons: {
       "wide-heavy-duty-board":
-        "Рассчитана до 150 кг (330 lbs) и 206 см (6'9\"): на 30% более широкая карпатская сосна и усиленная каретка.",
+        "Усиленная ширина 30 см для веса более 100 кг (до 150 кг / 330 lbs), светлая или тёмная — доставка ~2 недели и гарантия 1 год.",
       "3-piece-travel-board":
-        "Разбирается на 3 секции по ~79 см для шкафа, багажника авто или поездок, выдерживает до 100 кг и 193 см.",
+        "Полноразмерный Профилактор 230–245 см из 3-х частей (стандарт 26 см или усиленный 30 см, светлый/тёмный) — доставка ~2 недели.",
       "standard-pine-board":
-        "Складная доска из 2 частей со стойкой в комплекте, до 193 см и 100 кг (Широкая: 150 кг). Петля Глиссона в подарок.",
+        "Компактная 2-секционная «Зубная щётка» (26 см стандарт или 30 см усиленная, светлая/тёмная) с петлёй Глиссона — гарантия 1 год.",
     },
   },
   de: {
@@ -2044,11 +2044,11 @@ export const CALCULATOR_COPY: Record<Locale, CalculatorLocalizedCopy> = {
     },
     boardReasons: {
       "wide-heavy-duty-board":
-        "Zugelassen bis 150 kg (330 lbs) und 206 cm (6'9\") mit 30 % breiterer Karpatenkiefer-Planke und verstärktem Leichtmetall-Schlitten.",
+        "Verstärkte 30-cm-Breite für über 100 kg (bis 150 kg / 330 lbs), Hell oder Dunkel — ~2 Wochen Kurierversand & 1 Jahr Garantie.",
       "3-piece-travel-board":
-        "Zerlegbar in ca. 79 cm (31\") Segmente für Schrank, Kofferraum oder Flugreise bei einer Traglast bis 100 kg (220 lbs) und 193 cm (6'4\").",
+        "Vollständiges 230–245 cm Evminov Board in 3 zerlegbaren Teilen (26 cm Standard oder 30 cm Verstärkt) — ~2 Wochen Lieferung.",
       "standard-pine-board":
-        "2-teiliges Klapp-Evminov-Board inkl. Stützständer für Nutzer bis 193 cm und 100 kg (Breit: 150 kg). Glisson-Schlaufe gratis enthalten.",
+        "Kompaktes 2-teiliges Evminov Board (26 cm Standard oder 30 cm Verstärkt, Hell/Dunkel) inkl. Glisson-Schlaufe — 1 Jahr Garantie.",
     },
   },
 };
@@ -2257,7 +2257,7 @@ export const ORDER_WIZARD_COPY: Record<Locale, OrderWizardCopy> = {
     validationNameEmail: "Please enter your name and email address.",
     submitErrorFallback: "Unable to submit reservation.",
     submitErrorCatch: "Could not submit order request.",
-    needFasterHelp: "Need faster assistance? Call",
+    needFasterHelp: "Need faster assistance? Message us on",
     orEmail: "or email",
     directShort: "Direct",
     caExpressShort: "CA Express",
@@ -2302,7 +2302,7 @@ export const ORDER_WIZARD_COPY: Record<Locale, OrderWizardCopy> = {
     validationNameEmail: "Por favor ingresa tu nombre y correo electrónico.",
     submitErrorFallback: "No se pudo enviar la reserva.",
     submitErrorCatch: "No se pudo procesar la solicitud de pedido.",
-    needFasterHelp: "¿Necesitas ayuda más rápida? Llama al",
+    needFasterHelp: "¿Necesitas ayuda más rápida? Escríbenos por",
     orEmail: "o escribe a",
     directShort: "Directo",
     caExpressShort: "Express CA",
@@ -2347,7 +2347,7 @@ export const ORDER_WIZARD_COPY: Record<Locale, OrderWizardCopy> = {
     validationNameEmail: "Veuillez saisir votre nom et votre adresse courriel.",
     submitErrorFallback: "Impossible d'envoyer la réservation.",
     submitErrorCatch: "La demande de commande n'a pas pu être transmise.",
-    needFasterHelp: "Besoin d'une aide plus rapide ? Appelez le",
+    needFasterHelp: "Besoin d'une aide plus rapide ? Écrivez-nous sur",
     orEmail: "ou écrivez à",
     directShort: "Direct",
     caExpressShort: "Express CA",
@@ -2391,7 +2391,7 @@ export const ORDER_WIZARD_COPY: Record<Locale, OrderWizardCopy> = {
     validationNameEmail: "Будь ласка, введіть ваше ім'я та електронну пошту.",
     submitErrorFallback: "Не вдалося надіслати бронювання.",
     submitErrorCatch: "Не вдалося оформити заявку на замовлення.",
-    needFasterHelp: "Потрібна швидша допомога? Телефонуйте",
+    needFasterHelp: "Потрібна швидша допомога? Напишіть нам у",
     orEmail: "або пишіть на",
     directShort: "Пряма",
     caExpressShort: "Експрес CA",
@@ -2434,7 +2434,7 @@ export const ORDER_WIZARD_COPY: Record<Locale, OrderWizardCopy> = {
     validationNameEmail: "Пожалуйста, укажите ваше имя и адрес электронной почты.",
     submitErrorFallback: "Не удалось отправить бронирование.",
     submitErrorCatch: "Не удалось отправить заявку на заказ.",
-    needFasterHelp: "Нужна более быстрая помощь? Позвоните",
+    needFasterHelp: "Нужна более быстрая помощь? Напишите нам в",
     orEmail: "или напишите на",
     directShort: "Прямая",
     caExpressShort: "Экспресс CA",
@@ -2479,7 +2479,7 @@ export const ORDER_WIZARD_COPY: Record<Locale, OrderWizardCopy> = {
     validationNameEmail: "Bitte geben Sie Ihren Namen und Ihre E-Mail-Adresse ein.",
     submitErrorFallback: "Reservierung konnte nicht übermittelt werden.",
     submitErrorCatch: "Bestellanfrage konnte nicht gesendet werden.",
-    needFasterHelp: "Brauchen Sie schnellere Hilfe? Rufen Sie an unter",
+    needFasterHelp: "Brauchen Sie schnellere Hilfe? Schreiben Sie uns auf",
     orEmail: "oder schreiben Sie an",
     directShort: "Direkt",
     caExpressShort: "CA Express",

@@ -529,7 +529,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
               <!-- Footer -->
               <div style="border-top:1px solid #e2e8f0;padding-top:16px;font-size:11px;line-height:1.6;color:#64748b;">
                 <p style="margin:0;"><strong>Evminov Spine Systems</strong> • 4525 San Fernando Rd, Unit H, Glendale, CA 91204, USA</p>
-                <p style="margin:4px 0 0;">Phone: <a href="tel:+17473060140" style="color:#0f766e;text-decoration:none;">+1 (747) 306-0140</a> • Email: <a href="mailto:support@evminovusa.com" style="color:#0f766e;text-decoration:none;">support@evminovusa.com</a></p>
+                <p style="margin:4px 0 0;">WhatsApp (Fastest): <a href="https://wa.me/17473060140" style="color:#059669;font-weight:700;text-decoration:none;">+1 (747) 306-0140</a> • Email: <a href="mailto:${emailCfg.supportEmail}" style="color:#0f766e;text-decoration:none;">${emailCfg.supportEmail}</a></p>
                 <p style="margin:8px 0 0;font-size:10px;color:#94a3b8;">General Wellness &amp; Spine Conditioning Equipment (HTS 9506.91.0030). HSA/FSA pre-tax reimbursement requires a Letter of Medical Necessity (LMN) from your healthcare provider and plan approval.</p>
               </div>
             </div>
@@ -563,7 +563,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
             <p>Thank you for contacting Evminov Spine Systems. Our team has received your request with the following details:</p>
             ${detailsRowsHtml}
             <p>Track your order status anytime in your <a href="${emailCfg.siteOrigin}/portal/" style="color:#0f766e;font-weight:bold;">Patient Portal</a>. We will follow up within 1 business day with shipping confirmation and your itemized invoice${includeHsaDoc ? (isCanadaOrigin ? " (Extended Health / HSA ready)" : " (HSA/FSA ready)") : ""}.</p>
-            <p style="font-size:12px;color:#64748b;">Evminov Spine Systems • +1 (747) 306-0140 • ${emailCfg.supportEmail}</p>
+            <p style="font-size:12px;color:#64748b;">Evminov Spine Systems • WhatsApp: <a href="https://wa.me/17473060140" style="color:#059669;font-weight:700;text-decoration:none;">+1 (747) 306-0140</a> • ${emailCfg.supportEmail}</p>
           </div>
         </div>
       `;

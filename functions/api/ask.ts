@@ -135,12 +135,13 @@ export function queryEvminovKnowledge(rawQuery: string, lang = "en") {
     guideUrl,
     orderUrl,
     contact: {
+      whatsapp: "https://wa.me/17473060140",
       phone: "+1 (747) 306-0140",
       email: "support@evminovusa.com",
       hub: "4525 San Fernando Rd, Unit H, Glendale, CA 91204, USA",
     },
     compliance:
-      "General Wellness & Spine Conditioning Equipment (HTS 9506.91.0030). 60-Day Home Trial & 1-Year Frame Warranty. Itemized HSA/FSA receipt provided.",
+      "General Wellness & Spine Conditioning Equipment (HTS 9506.91.0030). ~2 weeks international courier delivery, 60-Day Home Trial & 1-Year Warranty. Itemized HSA/FSA receipt provided.",
   };
 }
 
