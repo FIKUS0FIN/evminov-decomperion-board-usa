@@ -11,6 +11,7 @@ import {
   Phone,
   ShieldCheck,
   ShoppingCart,
+  Truck,
   User,
   X,
 } from "lucide-react";
@@ -33,6 +34,7 @@ interface HeaderLabels {
   spineGoals: string;
   guides: string;
   shipping50: string;
+  shippingNoticeBanner: string;
   patientPortal: string;
   findMyAngle: string;
   cartOrder: string;
@@ -48,7 +50,8 @@ const HEADER_LABELS: Record<Locale, HeaderLabels> = {
     since1996: "Since 1996 Heritage",
     spineGoals: "Spine Goals",
     guides: "Guides",
-    shipping50: "US Shipping",
+    shipping50: "US & Canada Shipping",
+    shippingNoticeBanner: "Shipping Update: All US & Canada orders currently deliver in ~2 weeks via direct dispatch. Faster local express delivery (2–5 days) resumes in the New Year.",
     patientPortal: "Patient Portal",
     findMyAngle: "Find My Angle",
     cartOrder: "Cart",
@@ -62,7 +65,8 @@ const HEADER_LABELS: Record<Locale, HeaderLabels> = {
     since1996: "Historia desde 1996",
     spineGoals: "Objetivos",
     guides: "Guías",
-    shipping50: "Envíos EE. UU.",
+    shipping50: "Envíos EE. UU. y Canadá",
+    shippingNoticeBanner: "Aviso de Envío: Todos los pedidos a EE. UU. y Canadá tardan actualmente ~2 semanas por envío directo. El envío exprés local (2–5 días) vuelve en Año Nuevo.",
     patientPortal: "Portal Paciente",
     findMyAngle: "Mi Ángulo",
     cartOrder: "Pedido",
@@ -76,7 +80,8 @@ const HEADER_LABELS: Record<Locale, HeaderLabels> = {
     since1996: "Héritage 1996",
     spineGoals: "Objectifs",
     guides: "Guides",
-    shipping50: "Livraison",
+    shipping50: "Livraison US & Canada",
+    shippingNoticeBanner: "Info Livraison : Toutes les commandes vers les États-Unis et le Canada sont livrées en ~2 semaines par envoi direct. La livraison express locale (2–5 jours) reprend au Nouvel An.",
     patientPortal: "Portail Patient",
     findMyAngle: "Mon Angle",
     cartOrder: "Panier",
@@ -90,7 +95,8 @@ const HEADER_LABELS: Record<Locale, HeaderLabels> = {
     since1996: "Спадщина з 1996",
     spineGoals: "Програми",
     guides: "Гайди",
-    shipping50: "Доставка США",
+    shipping50: "Доставка США та Канада",
+    shippingNoticeBanner: "Оновлення доставки: наразі доставка до США та Канади займає ~2 тижні (пряма відправка). З Нового року повернеться швидка локальна експрес-доставка (2–5 днів).",
     patientPortal: "Кабінет Пацієнта",
     findMyAngle: "Мій Кут",
     cartOrder: "Кошик",
@@ -104,7 +110,8 @@ const HEADER_LABELS: Record<Locale, HeaderLabels> = {
     since1996: "Наследие с 1996",
     spineGoals: "Программы",
     guides: "Статьи",
-    shipping50: "Доставка США",
+    shipping50: "Доставка США и Канада",
+    shippingNoticeBanner: "Обновление доставки: сейчас доставка в США и Канаду занимает ~2 недели (прямая отправка). С Нового года вернётся быстрая локальная экспресс-доставка (2–5 дней).",
     patientPortal: "Кабинет Пациента",
     findMyAngle: "Мой Угол",
     cartOrder: "Корзина",
@@ -118,7 +125,8 @@ const HEADER_LABELS: Record<Locale, HeaderLabels> = {
     since1996: "Tradition seit 1996",
     spineGoals: "Rückenziele",
     guides: "Ratgeber",
-    shipping50: "US-Versand",
+    shipping50: "US- & Kanada-Versand",
+    shippingNoticeBanner: "Versandhinweis: Lieferungen in die USA & nach Kanada dauern aktuell ca. 2 Wochen per Direktversand. Der schnellere Express-Versand (2–5 Tage) startet ab Neujahr wieder.",
     patientPortal: "Patientenportal",
     findMyAngle: "Mein Winkel",
     cartOrder: "Warenkorb",
@@ -472,6 +480,17 @@ export function Header({ lang }: { lang: Locale }) {
           </div>
         )}
       </header>
+
+      {/* Current US & Canada 2-Week Shipping Schedule Notice Banner */}
+      <div
+        role="status"
+        className="border-b border-amber-200/80 bg-gradient-to-r from-amber-50 via-emerald-50/60 to-amber-50 text-slate-900"
+      >
+        <div className="mx-auto flex max-w-[1400px] items-center justify-center gap-2 px-4 py-2 text-center text-[11px] font-semibold leading-snug sm:text-xs">
+          <Truck className="h-3.5 w-3.5 shrink-0 text-teal-700" aria-hidden="true" />
+          <span>{hl.shippingNoticeBanner}</span>
+        </div>
+      </div>
     </>
   );
 }

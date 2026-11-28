@@ -42,6 +42,13 @@ const CONFIG_COPY: Record<
     standWithout: string;
     standWithoutDesc: string;
     standWithoutWarning: string;
+    step4Label: string;
+    continueToSummary: string;
+    summaryStepTitle: string;
+    deliveryReviewTitle: string;
+    editDetails: string;
+    shippingTwoWeekNote: string;
+    signInToConfirmNote: string;
   }
 > = {
   en: {
@@ -58,6 +65,13 @@ const CONFIG_COPY: Record<
     standWithout: "Without Support Stand",
     standWithoutDesc: "Compact travel kit — lowest weight & price.",
     standWithoutWarning: "Note: Without a support stand, you will need a sturdy, reliable support structure before starting your sessions.",
+    step4Label: "4. Order Summary",
+    continueToSummary: "Continue to Order Summary",
+    summaryStepTitle: "Review Your Order & Confirm",
+    deliveryReviewTitle: "Delivery Details",
+    editDetails: "Edit",
+    shippingTwoWeekNote: "Current Shipping Schedule: All US & Canada orders currently deliver in ~2 weeks via direct dispatch. Faster local express shipping (2–5 days) resumes in the New Year.",
+    signInToConfirmNote: "Sign in or create your free Evminov account below to confirm your reservation and unlock live order tracking in your Patient Portal.",
   },
   es: {
     widthHeading: "Selecciona el Ancho de la Tabla",
@@ -73,6 +87,13 @@ const CONFIG_COPY: Record<
     standWithout: "Sin Soporte",
     standWithoutDesc: "Opción compacta de viaje.",
     standWithoutWarning: "Nota: Sin soporte, deberá asegurar un apoyo firme y fiable antes de iniciar los ejercicios.",
+    step4Label: "4. Resumen y Confirmar",
+    continueToSummary: "Continuar al Resumen del Pedido",
+    summaryStepTitle: "Revisa Tu Pedido y Confirma",
+    deliveryReviewTitle: "Datos de Entrega",
+    editDetails: "Editar",
+    shippingTwoWeekNote: "Aviso de Envío: Actualmente los envíos a EE. UU. y Canadá tardan ~2 semanas por envío directo. El envío exprés local (2–5 días) vuelve en Año Nuevo.",
+    signInToConfirmNote: "Inicia sesión o crea tu cuenta Evminov abajo para confirmar tu reserva y seguir tu envío en tiempo real.",
   },
   fr: {
     widthHeading: "Choisissez la Largeur de la Planche",
@@ -88,6 +109,13 @@ const CONFIG_COPY: Record<
     standWithout: "Sans Support",
     standWithoutDesc: "Format voyage ultra-compact.",
     standWithoutWarning: "Remarque : Sans support, vous devrez prévoir un appui solide et fiable avant chaque séance.",
+    step4Label: "4. Récapitulatif",
+    continueToSummary: "Continuer vers le Récapitulatif",
+    summaryStepTitle: "Vérifiez et Confirmez Votre Commande",
+    deliveryReviewTitle: "Coordonnées de Livraison",
+    editDetails: "Modifier",
+    shippingTwoWeekNote: "Calendrier de Livraison : Les commandes vers les États-Unis et le Canada sont livrées en ~2 semaines par envoi direct. La livraison express locale (2–5 jours) reprend au Nouvel An.",
+    signInToConfirmNote: "Connectez-vous ou créez votre compte Evminov ci-dessous pour confirmer votre commande et accéder au suivi en direct.",
   },
   de: {
     widthHeading: "Board-Breite wählen",
@@ -103,6 +131,13 @@ const CONFIG_COPY: Record<
     standWithout: "Ohne Stützständer",
     standWithoutDesc: "Kompakte Reisevariante.",
     standWithoutWarning: "Hinweis: Ohne Stützständer benötigen Sie vor dem Training eine stabile, zuverlässige Auflage bzw. Abstützung.",
+    step4Label: "4. Bestellübersicht",
+    continueToSummary: "Weiter zur Bestellübersicht",
+    summaryStepTitle: "Bestellung prüfen & bestätigen",
+    deliveryReviewTitle: "Lieferdaten",
+    editDetails: "Bearbeiten",
+    shippingTwoWeekNote: "Aktueller Versandhinweis: Lieferungen in die USA & nach Kanada dauern derzeit ca. 2 Wochen per Direktversand. Der schnellere Express-Versand (2–5 Tage) startet ab Neujahr wieder.",
+    signInToConfirmNote: "Melden Sie sich unten an oder erstellen Sie ein kostenloses Evminov-Konto, um Ihre Bestellung zu bestätigen und im Portal zu verfolgen.",
   },
   uk: {
     widthHeading: "Оберіть ширину дошки",
@@ -118,6 +153,13 @@ const CONFIG_COPY: Record<
     standWithout: "Без підставки",
     standWithoutDesc: "Максимально компактний дорожній варіант.",
     standWithoutWarning: "Зверніть увагу: у варіанті без підставки перед початком занять потрібно знайти надійну опору.",
+    step4Label: "4. Підсумок і Підтвердження",
+    continueToSummary: "Перейти до Підсумку Замовлення",
+    summaryStepTitle: "Перевірте Замовлення та Підтвердіть",
+    deliveryReviewTitle: "Дані Доставки",
+    editDetails: "Змінити",
+    shippingTwoWeekNote: "Актуальний графік доставки: наразі доставка до США та Канади займає ~2 тижні (пряма відправка). З Нового року повернеться швидка локальна експрес-доставка (2–5 днів).",
+    signInToConfirmNote: "Увійдіть або зареєструйтесь нижче, щоб підтвердити замовлення та відстежувати його статус у Клієнтському Порталі.",
   },
   ru: {
     widthHeading: "Выберите ширину доски",
@@ -133,8 +175,17 @@ const CONFIG_COPY: Record<
     standWithout: "Без подставки",
     standWithoutDesc: "Максимально компактный дорожный вариант.",
     standWithoutWarning: "Обратите внимание: в варианте без подставки перед занятиями необходимо найти надёжную опору.",
+    step4Label: "4. Итог и Подтверждение",
+    continueToSummary: "Перейти к Итогу Заказа",
+    summaryStepTitle: "Проверьте Заказ и Подтвердите",
+    deliveryReviewTitle: "Данные Доставки",
+    editDetails: "Изменить",
+    shippingTwoWeekNote: "Актуальный график доставки: сейчас доставка в США и Канаду занимает ~2 недели (прямая отправка). С Нового года вернётся быстрая локальная экспресс-доставка (2–5 дней).",
+    signInToConfirmNote: "Войдите или зарегистрируйтесь ниже, чтобы подтвердить заказ и отслеживать его статус в Личном Кабинете.",
   },
 };
+
+const ORDER_DRAFT_STORAGE_KEY = "evminov_order_draft_v1";
 
 export function OrderWizard({ lang }: { lang: Locale }) {
   const t = getDictionary(lang).orderUi;
@@ -153,9 +204,9 @@ export function OrderWizard({ lang }: { lang: Locale }) {
   const initialProduct =
     PRODUCTS.find((item) => item.slug === initialSlug) || PRODUCTS[0];
 
-  const [step, setStep] = useState<1 | 2 | 3>(() => {
+  const [step, setStep] = useState<1 | 2 | 3 | 4>(() => {
     const qsStep = Number(searchParams.get("step"));
-    return qsStep === 2 || qsStep === 3 ? qsStep : 1;
+    return qsStep === 2 || qsStep === 3 || qsStep === 4 ? qsStep : 1;
   });
   const [productSlug, setProductSlug] = useState(initialSlug);
   const [boardWidth, setBoardWidth] = useState<"standard" | "wide">(() =>
@@ -201,6 +252,62 @@ export function OrderWizard({ lang }: { lang: Locale }) {
   const [orderRef, setOrderRef] = useState<string | null>(null);
   const [recording, setRecording] = useState(false);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+
+  // Restore saved delivery details after OAuth redirect (e.g., returning to Step 4)
+  useEffect(() => {
+    try {
+      const raw = window.sessionStorage.getItem(ORDER_DRAFT_STORAGE_KEY);
+      if (!raw) return;
+      const draft = JSON.parse(raw) as {
+        name?: string;
+        email?: string;
+        phone?: string;
+        stateOrCountry?: string;
+        address?: string;
+        notes?: string;
+        boardWidth?: "standard" | "wide";
+        finish?: string;
+      };
+      if (draft.name) setName((prev) => prev || draft.name!);
+      if (draft.email) setEmail((prev) => prev || draft.email!);
+      if (draft.phone) setPhone((prev) => prev || draft.phone!);
+      if (draft.stateOrCountry) setStateOrCountry(draft.stateOrCountry);
+      if (draft.address) setAddress((prev) => prev || draft.address!);
+      if (draft.notes) setNotes((prev) => prev || draft.notes!);
+      if (draft.boardWidth === "wide" || draft.boardWidth === "standard") {
+        setBoardWidth(draft.boardWidth);
+      }
+      if (draft.finish) setFinish(draft.finish);
+    } catch {
+      // ignore storage errors
+    }
+  }, []);
+
+  const saveDraftAndGoToSummary = () => {
+    setErrorMsg("");
+    if (!name.trim() || !email.trim()) {
+      setErrorMsg(ow.validationNameEmail);
+      return;
+    }
+    try {
+      window.sessionStorage.setItem(
+        ORDER_DRAFT_STORAGE_KEY,
+        JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          phone: phone.trim(),
+          stateOrCountry,
+          address: address.trim(),
+          notes: notes.trim(),
+          boardWidth,
+          finish,
+        })
+      );
+    } catch {
+      // ignore storage errors
+    }
+    setStep(4);
+  };
 
   useEffect(() => {
     if (!user) return;
@@ -335,8 +442,18 @@ export function OrderWizard({ lang }: { lang: Locale }) {
         locale: lang,
       });
       if (data.checkoutUrl) {
+        try {
+          window.sessionStorage.removeItem(ORDER_DRAFT_STORAGE_KEY);
+        } catch {
+          // ignore
+        }
         window.location.assign(data.checkoutUrl);
         return;
+      }
+      try {
+        window.sessionStorage.removeItem(ORDER_DRAFT_STORAGE_KEY);
+      } catch {
+        // ignore
       }
       setOrderRef(data.orderRef || "EV-CONFIRMED");
     } catch (err) {
@@ -384,18 +501,31 @@ export function OrderWizard({ lang }: { lang: Locale }) {
   return (
     <div id="order-form" className="grid gap-8 lg:grid-cols-12">
       <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8 lg:col-span-8">
-        {/* Stepper */}
-        <div className="mb-6 grid grid-cols-3 gap-2">
-          {([1, 2, 3] as const).map((s) => {
-            const label = s === 1 ? t.step1 : s === 2 ? t.step2 : t.step3;
+        {/* 4-Step Stepper */}
+        <div className="mb-6 grid grid-cols-2 gap-2 sm:grid-cols-4">
+          {([1, 2, 3, 4] as const).map((s) => {
+            const label =
+              s === 1
+                ? t.step1
+                : s === 2
+                ? t.step2
+                : s === 3
+                ? t.step3
+                : cfg.step4Label;
             const active = step === s;
             const done = step > s;
             return (
               <button
                 key={s}
                 type="button"
-                onClick={() => setStep(s)}
-                className={`rounded-xl px-3 py-2.5 text-xs font-bold transition ${
+                onClick={() => {
+                  if (s === 4) {
+                    saveDraftAndGoToSummary();
+                  } else {
+                    setStep(s);
+                  }
+                }}
+                className={`cursor-pointer rounded-xl px-2.5 py-2.5 text-[11px] font-bold transition sm:text-xs ${
                   active
                     ? "bg-slate-950 text-white"
                     : done
@@ -574,6 +704,12 @@ export function OrderWizard({ lang }: { lang: Locale }) {
 
           {step === 2 && (
             <div className="space-y-5">
+              {/* Current US & Canada 2-Week Shipping Notice */}
+              <div className="flex items-start gap-2.5 rounded-2xl border border-amber-300/80 bg-amber-50 p-4 text-xs leading-relaxed text-amber-950">
+                <Truck className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" />
+                <p className="font-semibold">{cfg.shippingTwoWeekNote}</p>
+              </div>
+
               <div>
                 <p className="text-sm font-bold text-slate-900">
                   {t.selectShipping}
@@ -670,51 +806,8 @@ export function OrderWizard({ lang }: { lang: Locale }) {
             </div>
           )}
 
-          {step === 3 && !authLoading && !user && (
+          {step === 3 && (
             <div className="space-y-4">
-              <AuthCard
-                lang={lang}
-                context="order"
-                returnTo={`${getLocalizedHref("/order/", lang)}?product=${encodeURIComponent(productSlug)}&shipping=${shipping}&stand=${includeStand ? "1" : "0"}&step=3`}
-                googleOAuthEnabled={googleOAuthEnabled}
-                onAuthenticated={(authedUser) => {
-                  setUser(authedUser);
-                }}
-              />
-              <div className="text-center">
-                <button
-                  type="button"
-                  onClick={() => setStep(2)}
-                  className="rounded-xl border border-slate-300 px-5 py-2.5 text-xs font-bold text-slate-700 hover:bg-slate-50"
-                >
-                  ← {t.prevStep}
-                </button>
-              </div>
-            </div>
-          )}
-
-          {step === 3 && authLoading && (
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8 text-center text-sm font-semibold text-slate-600">
-              {authCopy.loadingSession}
-            </div>
-          )}
-
-          {step === 3 && !authLoading && user && (
-            <div className="space-y-4">
-              <div className="flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-emerald-200 bg-emerald-50/70 px-4 py-3 text-xs text-emerald-950">
-                <div>
-                  <span className="font-semibold text-emerald-800">{authCopy.signedInAs}: </span>
-                  <span className="font-extrabold">{user.email}</span>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => void logout()}
-                  className="inline-flex items-center gap-1 rounded-lg border border-emerald-300 bg-white px-2.5 py-1 text-[11px] font-bold text-emerald-900 hover:bg-emerald-100"
-                >
-                  <LogOut className="h-3 w-3" />
-                  <span>{authCopy.signOut}</span>
-                </button>
-              </div>
               <div className="rounded-xl border border-amber-200 bg-amber-50 p-3.5 text-xs leading-relaxed text-amber-950">
                 {ow.stripeNotice}
               </div>
@@ -839,18 +932,150 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                 <button
                   type="button"
                   onClick={() => setStep(2)}
-                  className="rounded-xl border border-slate-300 px-5 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50"
+                  className="cursor-pointer rounded-xl border border-slate-300 px-5 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50"
                 >
                   ← {t.prevStep}
                 </button>
                 <button
-                  type="submit"
-                  disabled={submitting}
-                  className="flex-1 rounded-xl bg-teal-700 py-3.5 text-sm font-extrabold text-white shadow hover:bg-teal-800 disabled:opacity-50"
+                  type="button"
+                  onClick={saveDraftAndGoToSummary}
+                  className="flex-1 cursor-pointer rounded-xl bg-teal-700 py-3.5 text-sm font-extrabold text-white shadow hover:bg-teal-800"
                 >
-                  {submitting ? t.submitting : t.submitReservation}
+                  {cfg.continueToSummary} →
                 </button>
               </div>
+            </div>
+          )}
+
+          {step === 4 && (
+            <div className="space-y-5">
+              {/* Full Order Summary Review Card */}
+              <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5">
+                <div className="flex items-center justify-between gap-2 border-b border-slate-200 pb-3">
+                  <h3 className="font-display text-base font-black text-slate-950">
+                    {cfg.summaryStepTitle}
+                  </h3>
+                  <button
+                    type="button"
+                    onClick={() => setStep(3)}
+                    className="cursor-pointer text-xs font-bold text-teal-700 hover:underline"
+                  >
+                    {cfg.editDetails}
+                  </button>
+                </div>
+
+                <dl className="mt-3.5 grid gap-3 text-xs sm:grid-cols-2">
+                  <div>
+                    <dt className="font-semibold text-slate-500">{t.selectModel}</dt>
+                    <dd className="mt-0.5 font-extrabold text-slate-950">
+                      {localizedSelected.name}
+                    </dd>
+                    <dd className="text-slate-600">
+                      {boardWidth === "wide" ? cfg.wideWidth : cfg.standardWidth} •{" "}
+                      {getLocalizedFinish(finish, lang)}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="font-semibold text-slate-500">
+                      {cfg.deliveryReviewTitle}
+                    </dt>
+                    <dd className="mt-0.5 font-extrabold text-slate-950">
+                      {name || user?.name}
+                    </dd>
+                    <dd className="text-slate-600">
+                      {email || user?.email}
+                      {phone ? ` • ${phone}` : ""}
+                    </dd>
+                    <dd className="text-slate-600">
+                      {[address, stateOrCountry].filter(Boolean).join(", ")}
+                    </dd>
+                  </div>
+                </dl>
+
+                <div className="mt-4 flex items-center justify-between border-t border-slate-200 pt-3 text-sm">
+                  <span className="font-bold text-slate-700">{t.totalLabel}</span>
+                  <span className="text-xl font-black text-teal-800">
+                    {formatUSD(totalUsd)}
+                  </span>
+                </div>
+              </div>
+
+              {/* Auth Step on Order Summary Screen */}
+              {authLoading && (
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8 text-center text-sm font-semibold text-slate-600">
+                  {authCopy.loadingSession}
+                </div>
+              )}
+
+              {!authLoading && !user && (
+                <div className="space-y-3">
+                  <p className="rounded-xl border border-emerald-200 bg-emerald-50/70 px-4 py-3 text-xs font-semibold text-emerald-950">
+                    {cfg.signInToConfirmNote}
+                  </p>
+                  <AuthCard
+                    lang={lang}
+                    context="order"
+                    returnTo={`${getLocalizedHref("/order/", lang)}?product=${encodeURIComponent(productSlug)}&width=${boardWidth}&shipping=${shipping}&stand=${includeStand ? "1" : "0"}&step=4`}
+                    googleOAuthEnabled={googleOAuthEnabled}
+                    onAuthenticated={(authedUser) => {
+                      setUser(authedUser);
+                    }}
+                  />
+                  <div className="text-center">
+                    <button
+                      type="button"
+                      onClick={() => setStep(3)}
+                      className="cursor-pointer rounded-xl border border-slate-300 px-5 py-2.5 text-xs font-bold text-slate-700 hover:bg-slate-50"
+                    >
+                      ← {t.prevStep}
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {!authLoading && user && (
+                <div className="space-y-4">
+                  <div className="flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-emerald-200 bg-emerald-50/70 px-4 py-3 text-xs text-emerald-950">
+                    <div>
+                      <span className="font-semibold text-emerald-800">
+                        {authCopy.signedInAs}:{" "}
+                      </span>
+                      <span className="font-extrabold">{user.email}</span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => void logout()}
+                      className="inline-flex cursor-pointer items-center gap-1 rounded-lg border border-emerald-300 bg-white px-2.5 py-1 text-[11px] font-bold text-emerald-900 hover:bg-emerald-100"
+                    >
+                      <LogOut className="h-3 w-3" />
+                      <span>{authCopy.signOut}</span>
+                    </button>
+                  </div>
+
+                  {errorMsg && (
+                    <p className="rounded-xl bg-red-50 px-3.5 py-2 text-xs font-semibold text-red-700">
+                      {errorMsg}
+                    </p>
+                  )}
+
+                  <div className="flex gap-3">
+                    <button
+                      type="button"
+                      onClick={() => setStep(3)}
+                      className="cursor-pointer rounded-xl border border-slate-300 px-5 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50"
+                    >
+                      ← {t.prevStep}
+                    </button>
+                    <button
+                      type="submit"
+                      disabled={submitting}
+                      className="flex-1 cursor-pointer rounded-xl bg-emerald-600 py-3.5 text-sm font-black text-white shadow-lg transition hover:bg-emerald-700 disabled:opacity-50"
+                    >
+                      {submitting ? t.submitting : t.submitReservation}
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </form>
