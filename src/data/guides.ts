@@ -1104,6 +1104,177 @@ export const GUIDES: GuideItem[] = [
       },
     ],
   },
+  {
+    id: "neck-hump-forward-head-guide",
+    slug: "neck-hump-dowagers-hump-and-forward-head-posture-guide",
+    title: "Neck Hump (Dowager's Hump) & Forward Head Posture: Safe At-Home Reset Routine",
+    metaTitle: "Fix Neck Hump & Forward Head Posture Safely at Home | Evminov",
+    metaDescription:
+      "Why screen posture creates a stiff cervicothoracic 'neck hump' (C7–T1), how to screen for osteoporosis first, and how 8°–12° supine unloading with the free Glisson Loop opens rounded shoulders.",
+    category: "Cervical & Posture",
+    datePublished: "2026-11-28",
+    dateModified: "2026-11-28",
+    readTime: "8 min read",
+    author: {
+      name: "Evminov Cervical & Posture Research Desk",
+      role: "Thoracic & Cervical Conditioning",
+      credentials: "30 Years of Evminov Method Documentation (Since 1996)",
+    },
+    heroImage: "/images/products/glisson-loop-studio.jpg",
+    excerpt:
+      "Searches for 'neck hump' and 'forward head posture' have surged across North America. Learn why aggressive foam-roller back-cracking fails, how to distinguish soft-tissue postural rounding from bone density issues, and a gentle 10-minute evening alignment reset.",
+    recommendedProductSlug: "2-piece-folding-board",
+    sections: [
+      {
+        id: "what-creates-neck-hump",
+        heading: "1. Why Forward Head Posture Loads C7–T1 by Up to 60 lbs",
+        paragraphs: [
+          "For every inch your ears drift forward ahead of your shoulders while looking at laptops or smartphones, effective mechanical leverage across the lower cervical and upper thoracic junction (C7–T1) rises sharply — up to 45–60 lbs of sustained shear stress.",
+          "Over months, pectoral and suboccipital muscles tighten while deep neck flexors and mid-thoracic extensors switch off, forming the hallmark rounded 'tech-neck hump' at the base of the neck.",
+        ],
+      },
+      {
+        id: "why-supported-unloading-works",
+        heading: "2. Why Supine Inclined Unloading Beats Hard Plastic Arches",
+        paragraphs: [
+          "Hard plastic back-cracking arches press sharply onto just two ribs or vertebrae on the living room floor without relieving longitudinal gravity or training the deep postural muscles.",
+          "Lying supine on the Evminov Board at a gentle 8°–12° head-up incline lets the entire ribcage open naturally while the free cotton-padded Glisson Cervical Loop gently elongates posterior suboccipital tension with zero jaw crushing.",
+        ],
+        bullets: [
+          "Gentle Chin-Tuck Elongation (8°–10°): Rest in the padded Glisson Loop for 3–5 minutes breathing slowly through the diaphragm while lightly lengthening the crown of your head upward.",
+          "Thoracic Scapular Glides (10°–14°): Slide arms comfortably overhead along the rails to open tight chest fascia without over-arching the lower back.",
+          "Safety First: Seek physician evaluation before cervical traction if you have severe osteoporosis, sudden kyphotic deformity after trauma, cervical instability, or numbness spreading into fingers.",
+        ],
+      },
+    ],
+    references: [
+      { citation: "Hansraj KK. Assessment of stresses in the cervical spine caused by posture and position of the head.", source: "Surgical Technology International" },
+      { citation: "Evminov Spine Conditioning Manual: Gentle Glisson Loop Cervical & Thoracic Alignment (pp. 44–51).", source: "Evminov Spine Archive" },
+    ],
+    faqs: [
+      {
+        q: "Can a postural neck hump improve with daily home conditioning?",
+        a: "When the rounding is driven by tight chest muscles, weak upper-back extensors, and prolonged laptop posture (rather than structural osteoporotic wedge fractures), consistent 10-minute supine thoracic extension, chin tucks, and deep stabilizer work measurably improve upright head carriage.",
+      },
+      {
+        q: "Is the Glisson Loop included with both 2-Piece and 3-Piece folding Evminov Boards?",
+        a: "Yes — every North American 2-Piece and 3-Piece Evminov Board ships with the cotton-padded Glisson Cervical Loop, wall mount hardware, illustrated manual, and 1-Year Warranty.",
+      },
+    ],
+  },
+  {
+    id: "l4-l5-vs-l5-s1-symptoms-guide",
+    slug: "l4-l5-vs-l5-s1-herniated-disc-symptoms-and-decompression-guide",
+    title: "L4–L5 vs. L5–S1 Bulging Disc Symptoms: Pattern Clues, Movements to Avoid & Safe Home Unloading",
+    metaTitle: "L4–L5 vs. L5–S1 Disc Symptoms & Safe Home Relief | Evminov",
+    metaDescription:
+      "Compare L4–L5 (shin & top-of-foot tingling) vs. L5–S1 (calf, heel & outer-foot tension) patterns, movements to pause during flare-ups, and gentle 10°–16° head-up lumbar unloading.",
+    category: "Lumbar Biomechanics",
+    datePublished: "2026-11-28",
+    dateModified: "2026-11-28",
+    readTime: "9 min read",
+    author: {
+      name: "Evminov Spine Biomechanics Editorial Team",
+      role: "Vertebral Wellness & Equipment Research",
+      credentials: "30 Years of Evminov Method Documentation (Since 1996)",
+    },
+    heroImage: "/images/authentic/hero-carriage-traction-detail.jpg",
+    excerpt:
+      "When an MRI mentions 'L4–L5' or 'L5–S1', patients immediately search which nerve path matches their leg sensation and which gym moves worsen it. Here is a clear educational breakdown and how gentle head-up traction supports recovery.",
+    recommendedProductSlug: "3-piece-travel-board",
+    sections: [
+      {
+        id: "l4-l5-vs-l5-s1-map",
+        heading: "1. Decoding L4–L5 (L5 Root) vs. L5–S1 (S1 Root) Patterns",
+        paragraphs: [
+          "L4–L5 and L5–S1 carry the highest biomechanical load in the human body and account for the overwhelming majority of lumbar MRI findings.",
+        ],
+        bullets: [
+          "L4–L5 Level (typically affects the L5 nerve root): Tension or numbness commonly travels across the outer thigh, down the front/side of the shin (anterolateral leg), and across the top of the foot toward the big toe; lifting the big toe may feel weaker.",
+          "L5–S1 Level (typically affects the S1 nerve root): Discomfort usually runs down the back of the thigh and center of the calf into the heel, sole, or outer pinky-toe edge of the foot.",
+          "Emergency Red Flags (Seek Immediate Care): Progressive foot drop, saddle numbness in the groin, or new bowel/bladder changes require urgent emergency evaluation — never attempt home equipment first.",
+        ],
+      },
+      {
+        id: "moves-to-avoid-and-unloading",
+        heading: "2. Movements to Pause & How 10°–16° Inclined Unloading Helps",
+        paragraphs: [
+          "During a sensitive disc flare-up, clinicians advise pausing loaded lumbar flexion (heavy toe touches, rounding forward with dumbbells, traditional sit-ups) and sustained slouched sitting in the first 30 minutes after waking.",
+          "Replacing aggressive hanging with a calm 8–10 minute session at 10°–16° on the resonant wooden Evminov Board eases vertical compression gently (about 15%–25% of bodyweight) while slow heel slides wake up deep spinal stabilizers without triggering defensive spasm.",
+        ],
+      },
+    ],
+    references: [
+      { citation: "Deyo RA, Mirza SK. Herniated Lumbar Intervertebral Disk.", source: "New England Journal of Medicine" },
+      { citation: "Nachemson AL. Disc pressure measurements across upright sitting, standing, and supine unloading.", source: "Spine Journal" },
+    ],
+    faqs: [
+      {
+        q: "How long do L4–L5 or L5–S1 flare-ups usually take to calm down conservatively?",
+        a: "Clinical literature shows many non-emergency lumbar disc flare-ups settle substantially over 6 to 12 weeks with smart load management, gentle walking, and gradual core stabilization under clinician guidance.",
+      },
+      {
+        q: "Why does the 3-Piece 230–245 cm Evminov Board matter for taller users with L4–S1 discomfort?",
+        a: "Full 230–245 cm plank length gives your legs, pelvis, and torso complete continuous wood support during heel slides and decompression, and users over 100 kg (220 lbs) or 6'4\" can select the Reinforced Wide 30 cm deck.",
+      },
+    ],
+  },
+  {
+    id: "spinal-decompression-cost-drx9000-guide",
+    slug: "drx9000-spinal-decompression-therapy-cost-vs-home-board-guide",
+    title: "DRX9000 & Clinic Spinal Decompression Cost vs. Home Evminov Board (2026 USA & Canada Breakdown)",
+    metaTitle: "Spinal Decompression Cost (DRX9000 vs. Home Evminov) 2026",
+    metaDescription:
+      "Compare $2,500–$5,000+ US & Canada clinic spinal decompression packages (DRX9000) vs. owning a patented Evminov Board ($475–$520 USD / $435–$500 CAD) with HSA/FSA itemized receipt.",
+    category: "Buyer's Guide",
+    datePublished: "2026-11-28",
+    dateModified: "2026-11-28",
+    readTime: "8 min read",
+    author: {
+      name: "Evminov Spine Economics & Product Desk",
+      role: "North American Ownership Comparison",
+      credentials: "USA & Canada Patient Guidance",
+    },
+    heroImage: "/images/authentic/clinic-rehab-center-1.jpg",
+    excerpt:
+      "Clinic-based motorized spinal decompression (such as DRX9000 packages) routinely runs $75–$200 per visit and $2,400–$5,000+ out-of-pocket. Here is an honest look at clinic costs vs. owning daily home spine conditioning.",
+    recommendedProductSlug: "3-piece-travel-board",
+    sections: [
+      {
+        id: "clinic-cost-reality",
+        heading: "1. What Non-Surgical Clinic Decompression Costs in the US & Canada",
+        paragraphs: [
+          "Across US and Canadian chiropractic and physical medicine clinics, motorized axial decompression tables (such as DRX9000 or Triton systems) are usually sold in 20-to-30 session protocols.",
+          "Typical out-of-pocket fees range from $75 to $200 per session ($2,400 to $5,000+ total), and many US health insurers categorize repeated motorized table sessions as elective wellness — leaving families paying thousands plus 20+ round-trip commutes.",
+        ],
+        bullets: [
+          "The Commute Paradox: Even after a soothing clinic pull, driving 25–40 minutes home in an upright bucket seat immediately re-compresses freshly hydrated discs.",
+          "Passivity Limit: Motorized clinic tables pull passively without teaching deep multifidus muscles how to stabilize once you stand up.",
+        ],
+      },
+      {
+        id: "home-ownership-math",
+        heading: "2. One-Time Home Ownership + Year-Round Family Use",
+        paragraphs: [
+          "Owning an original folding Evminov Board costs a one-time $475–$520 USD ($435–$500 CAD) Direct with 1-Year Manufacturer Warranty and 60-Day Home Trial — less than the cost of 3 to 5 clinic appointments.",
+          "Better yet, you can decompress every single evening right before bed (no car ride afterward!) and combine gentle 8°–25° unloading with active stabilizer micro-movements for every member of your household. US buyers with an HSA/FSA and doctor Letter of Medical Necessity (LMN) often save another ~25%–35% pre-tax.",
+        ],
+      },
+    ],
+    references: [
+      { citation: "Evminov Spine Systems 2026 Ownership vs. Clinic Fee Audit (USA & Canada Direct Survey).", source: "Evminov North America" },
+    ],
+    faqs: [
+      {
+        q: "Does an Evminov Board replace emergency clinic care?",
+        a: "No — Evminov Boards are General Wellness & Spine Conditioning Equipment (HTS 9506.91.0030). Severe acute radiculopathy or progressive weakness always needs licensed clinical evaluation, while an Evminov Board shines for safe daily home maintenance and conditioning.",
+      },
+      {
+        q: "Can clinics also order Evminov Boards?",
+        a: "Yes — wellness studios, PTs, and chiropractors across North America install Reinforced Wide 30 cm boards as low-maintenance patient conditioning stations.",
+      },
+    ],
+  },
 ];
 
 export function getGuideWordCount(guide: GuideItem): number {

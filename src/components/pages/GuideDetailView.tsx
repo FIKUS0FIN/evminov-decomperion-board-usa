@@ -9,12 +9,13 @@ import { getLocalizedGuide } from "@/i18n/locales/guides-i18n";
 import { getLocalizedComparison } from "@/i18n/locales/comparisons-i18n";
 import { getLocalizedCondition } from "@/i18n/locales/conditions-i18n";
 import { getSiloUi } from "@/i18n/locales/silo-ui";
+import { BREADCRUMB_COPY } from "@/i18n/locales/chrome";
 import { getLocalizedProduct } from "@/i18n/locales/catalog";
-import { buildPrefilledOrderUrl, getLocalizedHref } from "@/lib/url";
+import { buildPrefilledOrderUrl, getCanonicalUrl, getLocalizedHref } from "@/lib/url";
 import { formatUSD } from "@/lib/physics";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
-import { FaqJsonLd, GuideArticleJsonLd } from "@/components/seo/JsonLd";
+import { BreadcrumbJsonLd, FaqJsonLd, GuideArticleJsonLd } from "@/components/seo/JsonLd";
 
 const GUIDE_CRO_COPY: Record<
   Locale,
@@ -114,19 +115,54 @@ export function GuideDetailView({
   const guide = getLocalizedGuide(rawGuide, lang);
   const ui = getSiloUi(lang);
   const cro = GUIDE_CRO_COPY[lang];
+  const bc = BREADCRUMB_COPY[lang];
   const recProduct = getProductBySlug(guide.recommendedProductSlug);
   const recLocalized = recProduct
     ? getLocalizedProduct(recProduct, lang)
     : undefined;
+  const relatedGuides = [...GUIDES]
+    .filter((g) => g.slug !== guide.slug)
+    .sort((a, b) => {
+      const aScore =
+        (a.category === rawGuide.category ? 2 : 0) +
+        (a.recommendedProductSlug === rawGuide.recommendedProductSlug ? 1 : 0);
+      const bScore =
+        (b.category === rawGuide.category ? 2 : 0) +
+        (b.recommendedProductSlug === rawGuide.recommendedProductSlug ? 1 : 0);
+      if (bScore !== aScore) return bScore - aScore;
+      return b.dateModified.localeCompare(a.dateModified);
+    })
+    .slice(0, 6);
 
   return (
     <>
       <GuideArticleJsonLd guide={guide} lang={lang} />
       <FaqJsonLd faqs={guide.faqs} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: bc.home, url: getCanonicalUrl("/", lang) },
+          { name: cro.guidesLabel, url: getCanonicalUrl("/guides/", lang) },
+          { name: guide.title, url: getCanonicalUrl(`/guides/${guide.slug}/`, lang) },
+        ]}
+      />
 
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-10 md:py-12 lg:grid-cols-12">
         {/* Main Article */}
         <article className="lg:col-span-8">
+          <nav
+            aria-label={bc.navAria}
+            className="mb-3 flex flex-wrap items-center gap-1.5 text-xs font-semibold text-slate-500"
+          >
+            <Link href={getLocalizedHref("/", lang)} className="hover:text-teal-700">
+              {bc.home}
+            </Link>
+            <span aria-hidden="true">/</span>
+            <Link href={getLocalizedHref("/guides/", lang)} className="hover:text-teal-700">
+              {cro.guidesLabel}
+            </Link>
+            <span aria-hidden="true">/</span>
+            <span className="line-clamp-1 text-slate-800">{guide.title}</span>
+          </nav>
 
           <span className="inline-block rounded-full bg-teal-50 px-3 py-1 text-xs font-bold text-teal-800">
             {guide.category} • {guide.readTime}
@@ -396,9 +432,7 @@ export function GuideDetailView({
                   {ui.guide.relatedGuides}
                 </p>
                 <ul className="mt-3 space-y-2.5 text-sm">
-                  {GUIDES.filter((g) => g.slug !== guide.slug)
-                    .slice(0, 5)
-                    .map((raw) => {
+                  {relatedGuides.map((raw) => {
                       const g = getLocalizedGuide(raw, lang);
                       return (
                         <li key={g.slug}>

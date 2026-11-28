@@ -82,6 +82,26 @@ describe("Cloudflare Edge Middleware, NLWeb & Security Helpers", () => {
       "https://evminovcanada.com/de/guides/piriformis-syndrome-vs-sciatica-self-test-and-relief-guide/"
     );
     expect(piriformisDe.orderUrl).toContain("https://evminovcanada.com/de/order/");
+
+    const neckHumpUk = queryEvminovKnowledge(
+      "neck hump forward head posture",
+      "uk",
+      "https://evminovusa.com"
+    );
+    expect(neckHumpUk.recommendedSlug).toBe("2-piece-folding-board");
+    expect(neckHumpUk.guideUrl).toBe(
+      "https://evminovusa.com/uk/guides/neck-hump-dowagers-hump-and-forward-head-posture-guide/"
+    );
+
+    const drxCostEn = queryEvminovKnowledge(
+      "DRX9000 spinal decompression cost per session",
+      "en",
+      "https://evminovusa.com"
+    );
+    expect(drxCostEn.topic).toBe("drx9000_cost_vs_home_board");
+    expect(drxCostEn.guideUrl).toContain(
+      "drx9000-spinal-decompression-therapy-cost-vs-home-board-guide/"
+    );
   });
 
   it("escapes XSS payloads in order confirmation email HTML", () => {

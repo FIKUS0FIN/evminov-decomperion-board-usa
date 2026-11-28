@@ -262,6 +262,38 @@ const COMPARISON_META: Record<string, Record<Locale, LocalizedMeta>> = {
         "Vergleichen Sie gestützte 8°–35°-Schrägentlastung am Evminov Board mit Dead Hangs an der Klimmzugstange und McKenzie-Übungen.",
     },
   },
+  "evminov-vs-over-the-door-neck-traction-and-inflatable-collars": {
+    en: {
+      title: "Evminov + Glisson Loop vs. Over-Door Neck Traction & Collars",
+      description:
+        "Compare 8°–12° supine cervical unloading with the free Evminov Glisson Loop against upright over-the-door water-bag pulleys and inflatable air neck stretchers.",
+    },
+    es: {
+      title: "Evminov + Lazo Glisson vs. Tracción de Puerta y Collarines",
+      description:
+        "Compara la descarga cervical supina a 8°–12° con Lazo de Glisson gratis frente a poleas de puerta con bolsa de agua y collarines inflables.",
+    },
+    fr: {
+      title: "Evminov + Boucle Glisson vs. Traction de Porte & Colliers Air",
+      description:
+        "Comparez la traction cervicale allongée à 8°–12° (Boucle de Glisson offerte) aux poulies à eau de porte et colliers cervicaux gonflables.",
+    },
+    uk: {
+      title: "Євмінов + Петля Гліссона проти дверних витяжок шиї та комірців",
+      description:
+        "Порівняйте похилу розгрузку шиї 8°–12° із безкоштовною Петлею Гліссона проти дверних тренажерів із водою та надувних комірців.",
+    },
+    ru: {
+      title: "Евминов + Петля Глиссона против дверных петель и воротников",
+      description:
+        "Сравните наклонную разгрузку шеи 8°–12° с бесплатной Петлёй Глиссона против дверных петель с грузом и надувных воротников.",
+    },
+    de: {
+      title: "Evminov + Glisson vs. Tür-Nackentraktion & Luftkragen",
+      description:
+        "Vergleichen Sie liegende 8°–12°-HWS-Entlastung mit kostenloser Glisson-Schlaufe gegen Tür-Zugsysteme und aufblasbare Nackenstrecker.",
+    },
+  },
 };
 
 const CONDITION_META: Record<string, Record<Locale, LocalizedMeta>> = {
@@ -1066,6 +1098,102 @@ const GUIDE_META: Record<string, Record<Locale, LocalizedMeta>> = {
       title: "Wirbelgleiten (Spondylolisthesis) & Facettensyndrom: Sicher Entlasten",
       description:
         "Warum Hohlkreuz-Überstreckung Facettengelenke reizt und wie neutrale 8°–14°-Schrägentlastung mit angewinkelten Knien sanft entlastet.",
+    },
+  },
+  "neck-hump-dowagers-hump-and-forward-head-posture-guide": {
+    en: {
+      title: "Fix Neck Hump & Forward Head Posture Safely at Home | Evminov",
+      description:
+        "Why laptop posture causes a stiff C7–T1 neck hump, how to screen for bone health first, and a 10-minute 8°–12° supine Glisson Loop alignment reset.",
+    },
+    es: {
+      title: "Joroba Cervical ('Neck Hump') y Cabeza Adelantada: Guía en Casa",
+      description:
+        "Por qué la postura frente a pantallas carga C7–T1 y cómo usar 8°–12° en la tabla Evminov con Lazo de Glisson gratis para abrir hombros y cuello.",
+    },
+    fr: {
+      title: "Bosse du Cou ('Neck Hump') & Tête en Avant : Routine Douce",
+      description:
+        "Pourquoi les écrans surchargent C7–T1 et comment décompresser en douceur à 8°–12° sur la planche Evminov avec la Boucle de Glisson offerte.",
+    },
+    uk: {
+      title: "«Холка» на шиї та сутулість від екранів: безпечна програма вдома",
+      description:
+        "Чому висунута вперед голова перевантажує C7–T1, як перевірити безпечність і як 8°–12° з Петлею Гліссона м’яко вирівнюють верх спини.",
+    },
+    ru: {
+      title: "«Холка» на шее и сутулость от экрана: безопасная программа дома",
+      description:
+        "Почему выдвинутая вперед голова перегружает C7–T1, проверка противопоказаний и мягкое вытяжение 8°–12° с бесплатной Петлёй Глиссона.",
+    },
+    de: {
+      title: "Nackenbuckel (Witwenbuckel) & Handynacken sicher lösen | Evminov",
+      description:
+        "Warum Bildschirmhaltung C7–T1 belastet, wann ärztliche Abklärung wichtig ist und wie 8°–12° mit kostenloser Glisson-Schlaufe den Nacken entlastet.",
+    },
+  },
+  "l4-l5-vs-l5-s1-herniated-disc-symptoms-and-decompression-guide": {
+    en: {
+      title: "L4–L5 vs. L5–S1 Disc Symptoms & Safe Home Relief | Evminov",
+      description:
+        "Compare L4–L5 (shin & top-of-foot tingling) vs. L5–S1 (calf, heel & outer-foot tension) patterns, movements to pause, and gentle 10°–16° unloading.",
+    },
+    es: {
+      title: "Síntomas Disco L4–L5 vs. L5–S1: Mapa de Pierna y Descarga Segura",
+      description:
+        "Diferencia entre L4–L5 (espinilla y dedo gordo) y L5–S1 (pantorrilla y talón), qué movimientos evitar y protocolo suave a 10°–16°.",
+    },
+    fr: {
+      title: "Symptômes Disque L4–L5 vs. L5–S1 : Trajets et Décharge Sûre",
+      description:
+        "Comparez L4–L5 (tibia / gros orteil) et L5–S1 (mollet / talon), mouvements à éviter et décompression douce à 10°–16° sans inversion.",
+    },
+    uk: {
+      title: "Грижа L4–L5 проти L5–S1: карта симптомів у нозі та м’яка розгрузка",
+      description:
+        "Чим відрізняються прояви L4–L5 (гомілка/великий палець) і L5–S1 (литка/п’ята), чого уникати при загостренні та безпечний кут 10°–16°.",
+    },
+    ru: {
+      title: "Грыжа L4–L5 против L5–S1: симптомы в ноге и безопасная разгрузка",
+      description:
+        "Отличия L4–L5 (голень и большой палец) от L5–S1 (икра и пятка), запрещённые движения в острой фазе и мягкое вытяжение под углом 10°–16°.",
+    },
+    de: {
+      title: "L4–L5 vs. L5–S1 Bandscheibe: Beinsymptome & sanfte Entlastung",
+      description:
+        "Unterschied zwischen L4–L5 (Schienbein/Großzeh) und L5–S1 (Wade/Ferse), welche Übungen pausieren und wie 10°–16° sanft entlasten.",
+    },
+  },
+  "drx9000-spinal-decompression-therapy-cost-vs-home-board-guide": {
+    en: {
+      title: "Spinal Decompression Cost (DRX9000 vs. Home Evminov Board) 2026",
+      description:
+        "Compare $2,400–$5,000+ clinic DRX9000 packages across the USA & Canada against owning a patented Evminov Board ($475–$520 USD / $435–$500 CAD) with HSA/FSA.",
+    },
+    es: {
+      title: "Costo Descompresión Espinal: Clínica DRX9000 vs. Casa (2026)",
+      description:
+        "Compara $2,400–$5,000+ en clínicas DRX9000 frente a la tabla Evminov propia ($475–$520 USD / $435–$500 CAD) para toda la familia y uso con HSA/FSA.",
+    },
+    fr: {
+      title: "Coût Décompression : Clinique DRX9000 vs. Planche Evminov (2026)",
+      description:
+        "Comparez 2 400 $–5 000 $+ de séances cliniques DRX9000 à l'achat unique d'une planche Evminov pliable (475 $–520 $ USD / 435 $–500 $ CAD).",
+    },
+    uk: {
+      title: "Ціна декомпресії спини: клініки DRX9000 проти Дошки Євмінова (2026)",
+      description:
+        "Порівняйте $2,400–$5,000+ за курс клінічної терапії DRX9000 у США й Канаді з разовою купівлею Профілактора Євмінова ($475–$520 USD / $435–$500 CAD).",
+    },
+    ru: {
+      title: "Цена декомпрессии спины: клиники DRX9000 vs. Доска Евминова (2026)",
+      description:
+        "Сравните $2,400–$5,000+ за курс в клиниках США и Канады с разовой покупкой оригинальной Доски Евминова ($475–$520 USD / $435–$500 CAD).",
+    },
+    de: {
+      title: "Kosten Wirbelsäulendekompression: DRX9000 vs. Heim-Board (2026)",
+      description:
+        "Vergleichen Sie $2,400–$5,000+ für DRX9000-Klinikpakete mit dem einmaligen Kauf eines Evminov Boards ($475–$520 USD / $435–$500 CAD).",
     },
   },
 };

@@ -601,6 +601,78 @@ export const COMPARISONS: ComparisonPageData[] = [
     ],
     recommendedProductSlug: "3-piece-travel-board",
   },
+  {
+    slug: "evminov-vs-over-the-door-neck-traction-and-inflatable-collars",
+    shortTitle: "Evminov vs. Over-Door Neck Traction",
+    title: "Evminov + Glisson Loop vs. Over-the-Door Neck Traction & Inflatable Collars (2026)",
+    metaTitle: "Evminov + Glisson Loop vs. Over-Door Neck Traction & Air Collars",
+    metaDescription:
+      "Compare 8°–12° supine cervical unloading with the Evminov Glisson Loop (included free) against upright over-the-door water-bag pulleys and inflatable air neck stretchers.",
+    competitorName: "Over-the-Door Pulleys & Air Collars",
+    eyebrow: "Cervical Comparison • Tech-Neck & C5–C6",
+    summary:
+      "Cheap over-the-door water bags pull your jaw upward while you sit upright with rounded shoulders, and inflatable air collars only press up from your collarbones. The Evminov Board reclines your entire upper spine at 8°–12° so the included cotton-padded Glisson Loop unloads your neck naturally.",
+    heroImage: "/images/products/glisson-loop-studio.jpg",
+    keyTakeaways: [
+      "Supine 8°–12° positioning aligns the thoracic & lumbar spine at the same time instead of twisting against tight office posture.",
+      "Soft cotton-padded Glisson Loop comes INCLUDED FREE with every Evminov Board — saving you an extra purchase.",
+      "Zero awkward water-bag setup on bedroom doors or TMJ jaw soreness from seated upright vertical weights.",
+      "Transitions in seconds from neck relief to full-spine L4–S1 decompression for the whole family.",
+    ],
+    rows: [
+      {
+        metric: "Body Position During Pull",
+        evminov: "Supported supine 8°–12° head-up incline (thoracic & cervical aligned)",
+        alternative: "Seated upright on chair or squeezed between collarbones",
+        winner: "evminov",
+      },
+      {
+        metric: "TMJ Jaw & Artery Comfort",
+        evminov: "Gentle suboccipital + padded Glisson sling — minimal axial pull (4–8 lbs)",
+        alternative: "Heavy chin straps strain TMJ jaw; air collars press neck triangles",
+        winner: "evminov",
+      },
+      {
+        metric: "Full-Spine Lumbar Benefit",
+        evminov: "Full-body L4–S1 decompression & deep-core exercises included",
+        alternative: "Neck-only gadget — zero lower-back relief",
+        winner: "evminov",
+      },
+      {
+        metric: "Setup Speed & Aesthetics",
+        evminov: "Clips onto carriage in 5 seconds; natural Alder or Dark Walnut wood",
+        alternative: "Hanging water bags over bedroom doors or bulky accordion collars",
+        winner: "evminov",
+      },
+      {
+        metric: "Price & Value",
+        evminov: "Glisson Loop included FREE with every board ($475+ / 1-Yr Warranty)",
+        alternative: "$25–$120 single-purpose accessory often abandoned in a drawer",
+        winner: "evminov",
+      },
+    ],
+    deepDiveSections: [
+      {
+        heading: "Why Cervical Conditioning Works Best When the Thoracic Spine Unloads Too",
+        body: "Neck stiffness rarely lives in isolation at C5–C6 — it starts when rounded upper-back shoulders force the lower neck to crane forward all day. Pulling the head vertically upward while seated on a chair fights against a curved thoracic spine. On the Evminov Board at 8°–12°, your shoulder blades rest flat against natural wood while the Glisson Loop delivers featherlight, controllable axial relief.",
+      },
+      {
+        heading: "Safe Guidelines for Pinched Nerve / Radiculopathy Queries",
+        body: "Home wellness equipment is never a substitute for urgent neurological care. Always confirm cervical traction safety with your clinician if you have severe cervical myelopathy, vertebral instability, rheumatoid arthritis, or spreading arm weakness. Stop immediately if symptoms radiate further down the arm rather than settling gently.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Is the Evminov Glisson Loop safer than an over-the-door water bag for mild tech-neck?",
+        a: "Supine 8°–12° positioning removes postural slouching and avoids swinging water-bag weights, letting users control traction gently in 3–5 minute sessions with full thoracic support.",
+      },
+      {
+        q: "Do I have to pay extra for the Glisson Loop?",
+        a: "No — the cotton-padded Glisson Cervical Loop is included free in the box with every 2-Piece and 3-Piece Evminov Board.",
+      },
+    ],
+    recommendedProductSlug: "2-piece-folding-board",
+  },
 ];
 
 export function getComparisonBySlug(slug: string): ComparisonPageData | undefined {

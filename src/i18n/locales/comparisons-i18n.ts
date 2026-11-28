@@ -1979,6 +1979,148 @@ const COMPARISONS_TRANSLATIONS: Record<
       ],
     },
   },
+  "evminov-vs-over-the-door-neck-traction-and-inflatable-collars": {
+    es: {
+      shortTitle: "Evminov vs. Tracción Cervical Puerta",
+      title: "Evminov + Lazo Glisson vs. Tracción Cervical de Puerta y Collarines Inflables (2026)",
+      metaTitle: "Evminov + Glisson vs. Tracción Cervical de Puerta y Collarines",
+      metaDescription: "Compara la descarga cervical supina de 8°–12° con el Lazo de Glisson (gratis con Evminov) frente a poleas de agua en puerta y collarines inflables.",
+      competitorName: "Poleas en Puerta y Collarines de Aire",
+      eyebrow: "Comparativa Cervical • Tech-Neck y C5–C6",
+      summary: "Las bolsas de agua en la puerta tiran hacia arriba mientras sigues sentado encorvado. En la tabla Evminov a 8°–12°, toda tu espalda descansa apoyada mientras el Lazo de Glisson acolchado incluido gratis descarga el cuello con suavidad.",
+      keyTakeaways: [
+        "Posición supina de 8°–12° alinea columna dorsal y cervical a la vez.",
+        "Lazo Cervical de Glisson incluido GRATIS con cada tabla Evminov.",
+        "Sin molestas bolsas de agua colgando de la puerta ni presión brusca en la mandíbula.",
+        "Sirve tanto para cuello como para descarga lumbar L4–S1 en toda la familia.",
+      ],
+      rows: [
+        { metric: "Postura Durante Tracción", evminov: "Supina inclinada a 8°–12° con apoyo torácico total", alternative: "Sentado en silla o comprimido desde clavículas" },
+        { metric: "Comodidad Mandibular", evminov: "Carga ultrasuave (2–3.5 kg) sin aplastar TMJ", alternative: "Correas rígidas de barbilla o collarines gruesos" },
+        { metric: "Beneficio Lumbar", evminov: "Descompresión completa L4–S1 y core incluida", alternative: "Solo cuello — cero alivio lumbar" },
+        { metric: "Instalación", evminov: "Se engancha en 5 seg; madera natural artesanal", alternative: "Bolsas de agua en puertas o bombas manuales" },
+        { metric: "Valor Incluido", evminov: "Lazo de Glisson GRATIS en cada compra + Garantía 1 año", alternative: "Accesorio de $25–$120 que termina guardado" },
+      ],
+      deepDiveSections: [
+        { heading: "Por Qué el Cuello Necesita Que la Espalda Alta También Se Abra", body: "La rigidez cervical suele empezar en unos hombros redondeados frente al portátil. Acostado a 8°–12°, los omóplatos descansan planos mientras el Lazo de Glisson alivia el cuello suavemente." },
+      ],
+      faqs: [
+        { q: "¿El Lazo de Glisson viene incluido sin costo extra?", a: "Sí — se incluye gratis en todas las tablas Evminov plegables de 2 y 3 piezas." },
+      ],
+    },
+    fr: {
+      shortTitle: "Evminov vs. Traction Cervicale Porte",
+      title: "Evminov + Boucle Glisson vs. Traction de Porte et Colliers Gonflables (2026)",
+      metaTitle: "Evminov + Glisson vs. Traction Cervicale de Porte & Colliers",
+      metaDescription: "Comparez la décompression cervicale inclinée 8°–12° (Boucle de Glisson offerte) aux poulies à eau de porte et colliers cervicaux gonflables.",
+      competitorName: "Poulies sur Porte & Colliers Gonflables",
+      eyebrow: "Comparatif Cervical • Nuque & C5–C6",
+      summary: "Les sacs d'eau suspendus aux portes tirent à la verticale sur un dos encore voûté. Sur la planche Evminov à 8°–12°, tout le buste s'ouvre pendant que la Boucle de Glisson offerte détend la nuque.",
+      keyTakeaways: [
+        "Position allongée à 8°–12° alignant à la fois le haut du dos et les cervicales.",
+        "Boucle de Glisson en coton rembourré incluse GRATUITEMENT.",
+        "Zéro installation de poche d'eau sur porte ni écrasement de la mâchoire.",
+        "Offre aussi la décompression lombaire L4–S1 complète pour toute la famille.",
+      ],
+      rows: [
+        { metric: "Position d'Utilisation", evminov: "Allongée à 8°–12° avec soutien thoracique complet", alternative: "Assis sur chaise ou appui sur clavicules" },
+        { metric: "Confort Mâchoire", evminov: "Traction plume (2–3,5 kg) confortable", alternative: "Sangles dures sous le menton ou colliers encombrants" },
+        { metric: "Soin Lombaire Inclus", evminov: "Décharge L4–S1 et gainage complet inclus", alternative: "Cou uniquement — zéro effet lombaire" },
+        { metric: "Installation", evminov: "Clipse en 5 sec ; bois noble naturel", alternative: "Poche d'eau sur porte ou pompe à air" },
+        { metric: "Budget", evminov: "Boucle de Glisson OFFERTE avec la planche", alternative: "25–120 $ souvent abandonné au placard" },
+      ],
+      deepDiveSections: [
+        { heading: "Relâcher le Haut du Dos en Même Temps que la Nuque", body: "Tirer sur la nuque en restant assis le dos rond limite l'efficacité. Sur la planche Evminov à 8°–12°, les omoplates s'ouvrent pendant que la nuque se relâche en douceur." },
+      ],
+      faqs: [
+        { q: "La Boucle de Glisson est-elle fournie sans supplément ?", a: "Oui — chaque planche Evminov 2 ou 3 pièces inclut gratuitement la Boucle de Glisson rembourrée." },
+      ],
+    },
+    uk: {
+      shortTitle: "Євмінов vs. дверний петльовий тягач",
+      title: "Профілактор Євмінова + Петля Гліссона проти дверних тренажерів шиї та надувних комірців (2026)",
+      metaTitle: "Євмінов + Петля Гліссона проти дверних витяжок шиї та комірців",
+      metaDescription: "Порівняйте м’яку шийну розгрузку лежачи під 8°–12° з Петлею Гліссона (у подарунок до Євмінова) проти дверних мішків з водою і надувних комірців.",
+      competitorName: "Дверні витяжки та надувні комірці",
+      eyebrow: "Порівняння для шиї • Tech-Neck і C5–C6",
+      summary: "Дешеві дверні петлі з мішком води тягнуть голову вгору, поки ви сидите зі згорбленою спиною, а надувні комірці просто впираються у ключиці. На Профілакторі Євмінова під 8°–12° вся спина розслаблена, а безкоштовна бавовняна Петля Гліссона працює м’яко й точно.",
+      keyTakeaways: [
+        "Положення лежачи під 8°–12° вирівнює одночасно грудний і шийний відділи.",
+        "М’яка бавовняна Петля Гліссона вже ВХОДИТЬ У КОМПЛЕКТ безкоштовно.",
+        "Жодних пакетів з водою на дверях і зайвого тиску на скронево-нижньощелепний суглоб.",
+        "Один тренажер вирішує і шийну напругу, і розвантаження попереку L4–S1 для всієї родини.",
+      ],
+      rows: [
+        { metric: "Положення тіла", evminov: "Лежачи під 8°–12° із повною опорою грудного відділу", alternative: "Сидячи на стільці або упор у ключиці" },
+        { metric: "Комфорт щелепи та судин", evminov: "Делікатна сила тяги (~2–3,5 кг), м’яка бавовняна петля", alternative: "Жорсткі ремені під підборіддя / тиск на передню частину шиї" },
+        { metric: "Користь для попереку", evminov: "Повна декомпресія L4–S1 та зміцнення кору в комплекті", alternative: "Тільки шия — нуль впливу на поясницю" },
+        { metric: "Вигляд та монтаж", evminov: "Кріпиться за 5 секунд; натуральне дерево", alternative: "Водяний мішок на дверях спальні або пластиковий комірець" },
+        { metric: "Цінність", evminov: "Петля Гліссона БЕЗКОШТОВНО до кожної дошки ($475+ / гарантія 1 рік)", alternative: "$25–$120 за гаджет, що швидко припадає пилом" },
+      ],
+      deepDiveSections: [
+        { heading: "Чому шийне витяжіння працює найкраще разом із розкриттям грудного відділу", body: "Біль і напруга в шиї рідко існують окремо від сутулості за ноутбуком. Лежачи на дошці Євмінова під кутом 8°–12°, лопатки рівно лежать на дереві, а Петля Гліссона знімає затиск потилиці без ривків. При грижах C5–C6 чи онімінні рук обов’язково погодьте вправи з лікарем." },
+      ],
+      faqs: [
+        { q: "Чи потрібно докуповувати Петлю Гліссона окремо?", a: "Ні — бавовняна Петля Гліссона вже включена безкоштовно в кожну 2-секційну й 3-секційну дошку Євмінова." },
+      ],
+    },
+    ru: {
+      shortTitle: "Евминов vs. дверные петли и воротники",
+      title: "Доска Евминова + Петля Глиссона против дверных вытяжек шеи и надувных воротников (2026)",
+      metaTitle: "Евминов + Петля Глиссона vs. дверные тренажёры шеи и воротники",
+      metaDescription: "Сравните мягкое вытяжение шеи лёжа под 8°–12° с Петлёй Глиссона (бесплатно с Доской Евминова) против дверных мешков с водой и надувных воротников.",
+      competitorName: "Дверные вытяжки и надувные воротники",
+      eyebrow: "Сравнение для шеи • Tech-Neck и C5–C6",
+      summary: "Дверные петли с грузом тянут голову вверх, пока вы сидите с сутулой спиной, а надувные воротники упираются в ключицы. На Доске Евминова под 8°–12° вся спина отдыхает, а бесплатная хлопковая Петля Глиссона мягко вытягивает шею.",
+      keyTakeaways: [
+        "Положение лёжа под 8°–12° выравнивает грудной и шейный отделы вместе.",
+        "Хлопковая Петля Глиссона уже ВХОДИТ В КОМПЛЕКТ бесплатно.",
+        "Никаких мешков с водой на двери и сдавливания нижней челюсти.",
+        "Один тренажёр работает и для шеи, и для поясницы L4–S1 всей семьи.",
+      ],
+      rows: [
+        { metric: "Положение тела", evminov: "Лёжа под 8°–12° с полной опорой грудного отдела", alternative: "Сидя на стуле или упор в ключицы" },
+        { metric: "Комфорт челюсти", evminov: "Деликатная тяга (~2–3,5 кг), мягкая хлопковая петля", alternative: "Жёсткие ремни под подбородок или давление на шею" },
+        { metric: "Польза для поясницы", evminov: "Полная декомпрессия L4–S1 и укрепление кора в комплекте", alternative: "Только шея — ноль пользы для поясницы" },
+        { metric: "Эстетика и удобство", evminov: "Крепится за 5 секунд; натуральное дерево", alternative: "Водяной мешок на двери или пластиковая гармошка" },
+        { metric: "Выгода", evminov: "Петля Глиссона БЕСПЛАТНО к каждой доске ($475+ / гарантия 1 год)", alternative: "$25–$120 за одноцелевой гаджет" },
+      ],
+      deepDiveSections: [
+        { heading: "Почему шею нужно разгружать вместе с грудным отделом", body: "Когда вы лежите на Доске Евминова под углом 8°–12°, плечи и лопатки свободно раскрываются на дереве, а Петля Глиссона мягко снимает напряжение без рывков. При онемении рук обязательна консультация врача." },
+      ],
+      faqs: [
+        { q: "Входит ли Петля Глиссона в стоимость доски?", a: "Да — она идёт бесплатно в коробке с каждой 2-секционной и 3-секционной Доской Евминова." },
+      ],
+    },
+    de: {
+      shortTitle: "Evminov vs. Tür-Nackentraktion",
+      title: "Evminov + Glisson-Schlaufe vs. Tür-Nackentraktion & aufblasbare Nackenkragen (2026)",
+      metaTitle: "Evminov + Glisson vs. Tür-Nackentraktion & Luftkragen",
+      metaDescription: "Vergleich 2026: Liegende 8°–12°-HWS-Entlastung mit kostenloser Glisson-Schlaufe vs. Tür-Wassersack-Zugsysteme & aufblasbare Nackenstrecker.",
+      competitorName: "Tür-Zugsysteme & Luftkragen",
+      eyebrow: "HWS-Vergleich • Nacken & C5–C6",
+      summary: "Tür-Zugsysteme ziehen im Sitzen auf einem runden Rücken nach oben, und Luftkragen drücken von den Schlüsselbeinen gegen den Hals. Auf dem Evminov Board bei 8°–12° öffnet sich die ganze Brustwirbelsäule, während die kostenlose Glisson-Schlaufe sanft entlastet.",
+      keyTakeaways: [
+        "Liegende 8°–12°-Position richtet Brust- und Halswirbelsäule gemeinsam aus.",
+        "Gepolsterte Baumwoll-Glisson-Schlaufe bei jedem Board GRATIS enthalten.",
+        "Kein Wassersack-Gebammel an Zimmertüren, kein Kiefergelenk-Druck.",
+        "Inklusive kompletter Lendenentlastung L4–S1 für den ganzen Haushalt.",
+      ],
+      rows: [
+        { metric: "Körperposition", evminov: "Liegend bei 8°–12° mit voller Rückenauflage", alternative: "Aufrecht sitzend oder Schlüsselbein-Gegendruck" },
+        { metric: "Kieferkomfort", evminov: "Sanfter Zug (ca. 2–3,5 kg) ohne TMJ-Quetschung", alternative: "Harte Kinngurte oder enge Luftpolster" },
+        { metric: "LWS-Nutzen inklusive", evminov: "Komplette L4–S1-Entlastung & Tiefentraining inklusive", alternative: "Nur Nacken — null Hilfe für den unteren Rücken" },
+        { metric: "Aufbau & Optik", evminov: "In 5 Sekunden eingehängt; edles Naturholz", alternative: "Wassersack über Türblatt oder Kunststoff-Ziehharmonika" },
+        { metric: "Preis-Leistung", evminov: "Glisson-Schlaufe GRATIS enthalten ($475+ / 1 J. Garantie)", alternative: "$25–$120 Einzelgadget, das oft ungenutzt bleibt" },
+      ],
+      deepDiveSections: [
+        { heading: "Warum Nackenentlastung die Brustwirbelsäule einbeziehen muss", body: "Bei 8°–12° auf dem Evminov Holzboard ruhen die Schulterblätter flach und entspannt, während die Glisson-Schlaufe kontrolliert Zug gibt. Bei Taubheitsgefühlen im Arm bitte stets ärztlich abklären." },
+      ],
+      faqs: [
+        { q: "Ist die Glisson-Schlaufe im Preis inbegriffen?", a: "Ja — die gepolsterte Glisson-Schlaufe liegt jedem 2-teiligen und 3-teiligen Evminov Board kostenlos bei." },
+      ],
+    },
+  },
 };
 
 export function getLocalizedComparison(

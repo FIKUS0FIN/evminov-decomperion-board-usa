@@ -29,6 +29,11 @@ import { IS_CANADA } from "@/lib/region-config";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import { ProductCatalogSection } from "@/components/sections/ProductCatalogSection";
 import { BiomechanicalCalculator } from "@/components/sections/BiomechanicalCalculator";
+import { InteractiveSpineQuizSection } from "@/components/sections/InteractiveSpineQuizSection";
+import {
+  GuideCardViewModel,
+  GuidesExplorerClient,
+} from "@/components/sections/GuidesExplorerClient";
 import { OrderWizard } from "@/components/sections/OrderWizard";
 import { WelcomeReviewHub } from "@/components/sections/WelcomeReviewHub";
 import { CalculatorWebAppJsonLd } from "@/components/seo/JsonLd";
@@ -119,57 +124,41 @@ export function ConditionsHubView({ lang }: { lang: Locale }) {
   );
 }
 
+function classifyGuideTopic(slug: string, category: string): GuideCardViewModel["topicBucket"] {
+  const s = slug.toLowerCase();
+  const c = category.toLowerCase();
+  if (s.includes("sciatica") || s.includes("piriformis") || s.includes("nerve-flossing")) return "sciatica";
+  if (s.includes("neck") || s.includes("glisson") || s.includes("desk") || c.includes("cervical")) return "neck";
+  if (s.includes("inversion") || s.includes("high-blood-pressure") || s.includes("best-home-spinal")) return "compare";
+  if (s.includes("hsa-fsa") || s.includes("buy-evminov") || s.includes("drx9000")) return "buying";
+  if (s.includes("lifter") || s.includes("pediatric") || s.includes("toothbrush")) return "family";
+  return "lumbar";
+}
+
 export function GuidesHubView({ lang }: { lang: Locale }) {
   const s = getDictionary(lang).sections;
   const hub = HUB_VIEWS_COPY[lang];
+  const items: GuideCardViewModel[] = GUIDES.map((raw) => {
+    const g = getLocalizedGuide(raw, lang);
+    return {
+      slug: g.slug,
+      title: g.title,
+      excerpt: g.excerpt,
+      heroImage: g.heroImage,
+      categoryLabel: GUIDE_CATEGORY_LABELS[raw.category]?.[lang] || g.category,
+      readTimeLabel: localizeReadTime(raw.readTime, lang),
+      topicBucket: classifyGuideTopic(raw.slug, raw.category),
+    };
+  });
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-7 sm:py-10 md:py-12">
       <h1 className="break-words font-display text-[1.75rem] font-black leading-[1.15] tracking-tight text-slate-950 sm:text-3xl md:text-4xl">
         {s.guidesTitle}
       </h1>
       <p className="mt-2.5 max-w-3xl text-sm text-slate-600 sm:mt-3 sm:text-base">{s.guidesSubtitle}</p>
-      <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {GUIDES.map((raw) => {
-          const g = getLocalizedGuide(raw, lang);
-          return (
-            <article
-              key={g.slug}
-              className="flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg"
-            >
-              <div className="relative aspect-[16/10] w-full bg-slate-100">
-                <OptimizedImage
-                  src={g.heroImage}
-                  alt={g.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex flex-1 flex-col p-6">
-                <span className="text-xs font-bold uppercase text-teal-700">
-                  {GUIDE_CATEGORY_LABELS[raw.category]?.[lang] || g.category} •{" "}
-                  {localizeReadTime(raw.readTime, lang)}
-                </span>
-                <h2 className="mt-2 font-display text-lg font-extrabold text-slate-950">
-                  <Link
-                    href={getLocalizedHref(`/guides/${g.slug}/`, lang)}
-                    className="hover:text-teal-700"
-                  >
-                    {g.title}
-                  </Link>
-                </h2>
-                <p className="mt-2 flex-1 text-sm text-slate-600">{g.excerpt}</p>
-                <Link
-                  href={getLocalizedHref(`/guides/${g.slug}/`, lang)}
-                  className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-teal-700"
-                >
-                  {hub.guidesCta} <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            </article>
-          );
-        })}
-      </div>
+      <GuidesExplorerClient items={items} lang={lang} readMoreLabel={hub.guidesCta} />
+      <InteractiveSpineQuizSection lang={lang} compact />
     </div>
   );
 }

@@ -2997,6 +2997,343 @@ const GUIDE_TRANSLATIONS: Record<
       ],
     },
   },
+  "neck-hump-dowagers-hump-and-forward-head-posture-guide": {
+    es: {
+      title: "Joroba Cervical ('Neck Hump') y Cabeza Adelantada: Rutina Segura de Reset en Casa",
+      category: "Cervical y Postura",
+      readTime: "8 min de lectura",
+      author: { name: "Equipo de Postura Cervical Evminov", role: "Acondicionamiento Torácico y Cervical", credentials: "30 años del Método Evminov (Desde 1996)" },
+      excerpt: "Las búsquedas de 'neck hump' y postura de cabeza adelantada se han disparado. Descubre cómo descargar suavemente C7–T1 en plano inclinado de 8°–12° con el Lazo de Glisson incluido.",
+      sections: [
+        {
+          id: "what-creates-neck-hump",
+          heading: "1. Por Qué la Cabeza Adelantada Carga C7–T1 con Hasta 27 kg",
+          paragraphs: ["Por cada pulgada que la cabeza se adelanta frente a pantallas, la carga sobre C7–T1 aumenta drásticamente. Con el tiempo, los pectorales se acortan y la espalda alta se redondea."],
+        },
+        {
+          id: "why-supported-unloading-works",
+          heading: "2. Apertura Torácica y Tracción Suave 8°–12° con Lazo de Glisson",
+          paragraphs: ["Acostado boca arriba a 8°–12° sobre la tabla Evminov, el Lazo de Glisson acolchado incluido gratis elonga con suavidad la tensión suboccipital sin presionar la mandíbula, mientras deslizamientos suaves de brazos abren los hombros. Consulta a un médico ante osteoporosis severa."],
+        },
+      ],
+      faqs: [
+        { q: "¿Puede mejorar una joroba postural con acondicionamiento diario?", a: "Cuando proviene de tensión muscular postural y uso de pantallas (sin fractura vertebral), 10 minutos diarios de extensión torácica suave y retracciones cervicales mejoran notablemente la postura." },
+      ],
+    },
+    fr: {
+      title: "Bosse du Cou ('Neck Hump') et Tête en Avant : Routine Douce de Redressement à Domicile",
+      category: "Cervicales & Posture",
+      readTime: "8 min de lecture",
+      author: { name: "Pôle Posture Cervicale Evminov", role: "Conditionnement Thoracique & Cervical", credentials: "30 ans de la Méthode Evminov (Depuis 1996)" },
+      excerpt: "Les recherches sur la 'bosse du bison' (neck hump) explosent avec le travail sur écran. Découvrez comment décharger C7–T1 à 8°–12° grâce à la Boucle de Glisson offerte.",
+      sections: [
+        {
+          id: "what-creates-neck-hump",
+          heading: "1. Pourquoi la Tête Projetée vers l'Avant Surcharge C7–T1",
+          paragraphs: ["Chaque centimètre d'avancée de la tête devant un écran multiplie la contrainte sur C7–T1, raidissant les pectoraux et arrondissant le haut du dos."],
+        },
+        {
+          id: "why-supported-unloading-works",
+          heading: "2. Ouverture Thoracique à 8°–12° avec Boucle de Glisson Incluse",
+          paragraphs: ["Allongé à 8°–12° tête en haut sur la planche Evminov, la Boucle de Glisson rembourrée étire la nuque sans comprimer la mâchoire pendant que vos omoplates se relâchent. Demandez un avis médical en cas d'ostéoporose sévère."],
+        },
+      ],
+      faqs: [
+        { q: "Une bosse cervicale posturale peut-elle s'atténuer à la maison ?", a: "Oui, lorsqu'elle est liée à la raideur musculaire et aux écrans (hors tassement osseux), 10 minutes quotidiennes d'ouverture thoracique et de rentrés de menton améliorent nettement le port de tête." },
+      ],
+    },
+    uk: {
+      title: "«Холка» на шиї (вдовий горб) та висунута вперед голова: безпечне домашнє перезавантаження постави",
+      category: "Шийний відділ і постава",
+      readTime: "8 хв читання",
+      author: { name: "Редакція постави та шийного відділу Evminov", role: "Грудний та шийний відділ", credentials: "30 років документації методики Євмінова (з 1996)" },
+      excerpt: "Запити про «холку» на шиї та напругу від гаджетів б’ють рекорди. Дізнайтеся, чому жорсткі валики не дають осьового розвантаження, як перевірити щільність кісток і як 8°–12° з Петлею Гліссона м’яко розкривають верх спини.",
+      sections: [
+        {
+          id: "what-creates-neck-hump",
+          heading: "1. Чому голова, висунута вперед до екрана, перевантажує перехід C7–T1",
+          paragraphs: ["Кожні 2,5 см зміщення вух уперед збільшують навантаження на нижньошийний перехід C7–T1 до 20–27 кг. Грудний м’яз коротшає, а глибокі згиначі шиї слабшають, формуючи характерне округлення біля основи шиї."],
+        },
+        {
+          id: "why-supported-unloading-works",
+          heading: "2. Розвантаження на 8°–12° із безкоштовною Петлею Гліссона",
+          paragraphs: ["Лежачи на спині на Профілакторі Євмінова під м’яким кутом 8°–12° головою вгору, ви фіксуєте м’яку бавовняну Петлю Гліссона (у подарунок до кожної дошки) і за 5–8 хвилин плавно витягуєте шийний відділ без тиску на щелепу. При остеопорозі або онімінні рук обов’язково проконсультуйтеся з лікарем."],
+        },
+      ],
+      faqs: [
+        { q: "Чи реально зменшити постуральну «холку» вдома?", a: "Якщо округлення спричинене спазмом грудних м’язів та тривалим сидінням (без остеопоротичних змін хребців), щоденні 10-хвилинні заняття на розкриття грудного відділу та зміцнення глибоких м’язів шиї помітно вирівнюють поставу." },
+      ],
+    },
+    ru: {
+      title: "«Холка» на шее (вдовий горб) и выдвинутая вперёд голова: безопасная домашняя программа осанки",
+      category: "Шейный отдел и осанка",
+      readTime: "8 мин чтения",
+      author: { name: "Редакция осанки и шейного отдела Evminov", role: "Грудной и шейный отдел", credentials: "30 лет документации методики Евминова (с 1996)" },
+      excerpt: "Запросы про «холку» на шее и компьютерную шею резко выросли. Узнайте, почему жёсткие валики не снимают осевую нагрузку и как угол 8°–12° с бесплатной Петлёй Глиссона мягко выравнивает плечи и шею.",
+      sections: [
+        {
+          id: "what-creates-neck-hump",
+          heading: "1. Почему наклон головы вперёд к экрану перегружает переход C7–T1",
+          paragraphs: ["Каждые 2,5 см смещения головы вперёд увеличивают нагрузку на нижнешейный переход C7–T1 до 20–27 кг, вызывая укорочение грудных мышц и округление в области седьмого шейного позвонка."],
+        },
+        {
+          id: "why-supported-unloading-works",
+          heading: "2. Разгрузка на 8°–12° с бесплатной Петлёй Глиссона",
+          paragraphs: ["Лёжа на Доске Евминова под мягким углом 8°–12° головой вверх с хлопковой Петлёй Глиссона, вы плавно снимаете зажим в основании шеи и раскрываете грудной отдел без переразгибания поясницы. При остеопорозе или онемении рук обязательна консультация врача."],
+        },
+      ],
+      faqs: [
+        { q: "Можно ли уменьшить постуральную «холку» дома?", a: "Если округление связано со спазмом мышц и работой за ноутбуком (без костных деформаций), ежедневные 10-минутные сеансы на раскрытие грудного отдела заметно улучшают положение головы." },
+      ],
+    },
+    de: {
+      title: "Nackenbuckel (Witwenbuckel) & vorgeneigter Kopf: Sichere 10-Minuten-Haltungsroutine zu Hause",
+      category: "HWS & Haltung",
+      readTime: "8 Min. Lesezeit",
+      author: { name: "Evminov HWS- & Haltungsredaktion", role: "Brust- & Halswirbelsäulenpflege", credentials: "30 Jahre Evminov-Methode (Seit 1996)" },
+      excerpt: "Suchanfragen zu „Neck Hump“ / Nackenbuckel boomen. Erfahren Sie, warum harte Plastikbögen keinen Axialzug bieten und wie 8°–12° mit kostenloser Glisson-Schlaufe C7–T1 sanft entlastet.",
+      sections: [
+        {
+          id: "what-creates-neck-hump",
+          heading: "1. Warum die vorgeneigte Kopfhaltung C7–T1 mit bis zu 27 kg belastet",
+          paragraphs: ["Jeder Zentimeter, den der Kopf vor den Schultern schwebt, vervielfacht die Hebelkraft am Übergang C7–T1. Brustmuskeln verkürzen, während tiefe Nackenbeuger ermüden."],
+        },
+        {
+          id: "why-supported-unloading-works",
+          heading: "2. Sanfte 8°–12°-Entlastung mit kostenloser Glisson-Schlaufe",
+          paragraphs: ["In Rückenlage bei 8°–12° auf dem Evminov Board dehnt die weich gepolsterte Glisson-Schlaufe den Nacken ohne Kieferdruck, während Schultergleiten den Brustkorb öffnet. Bei schwerer Osteoporose stets ärztlich abklären lassen."],
+        },
+      ],
+      faqs: [
+        { q: "Kann sich ein haltungsbedingter Nackenbuckel durch Heimtraining bessern?", a: "Ja, bei muskulär-haltungsbedingter Rundung durch Bildschirmarbeit verbessern tägliche 10-Minuten-Einheiten mit Brustöffnung und Kinn-Retraktionen die Kopfhaltung spürbar." },
+      ],
+    },
+  },
+  "l4-l5-vs-l5-s1-herniated-disc-symptoms-and-decompression-guide": {
+    es: {
+      title: "Síntomas de Disco L4–L5 vs. L5–S1: Mapa del Dolor en Pierna, Qué Evitar y Descarga Inclinada Segura",
+      category: "Biomecánica Lumbar",
+      readTime: "9 min de lectura",
+      author: { name: "Equipo Editorial de Biomecánica Evminov", role: "Investigación en Bienestar Espinal", credentials: "30 años del Método Evminov (Desde 1996)" },
+      excerpt: "Cuando una resonancia menciona L4–L5 o L5–S1, ¿en qué se diferencian? Aprende las zonas clásicas (espinilla/dedo gordo vs. pantorrilla/talón), señales de alerta y cómo descargar a 10°–16°.",
+      sections: [
+        {
+          id: "l4-l5-vs-l5-s1-map",
+          heading: "1. Mapa L4–L5 (Raíz L5) frente a L5–S1 (Raíz S1)",
+          paragraphs: ["L4–L5 suele irradiar por el lateral del muslo y la espinilla hasta el empeine y el dedo gordo; L5–S1 baja por detrás del muslo y la pantorrilla hasta el talón o borde externo del pie. Ante debilidad del pie o cambios vesicales, acuda de inmediato a urgencias."],
+        },
+        {
+          id: "moves-to-avoid-and-unloading",
+          heading: "2. Movimientos a Pausar y Descarga Suave a 10°–16°",
+          paragraphs: ["Evita flexiones con peso, toques de dedos bruscos y estiramientos agresivos al despertar. Una sesión tranquila de 8–10 minutos a 10°–16° en la tabla Evminov alivia suavemente la presión vertical."],
+        },
+      ],
+      faqs: [
+        { q: "¿Cuánto tarda en calmarse un brote lumbar L4–L5 o L5–S1?", a: "Muchos episodios no urgentes mejoran notablemente en 6 a 12 semanas cuidando las cargas y con estabilización suave supervisada." },
+      ],
+    },
+    fr: {
+      title: "Symptômes L4–L5 vs. L5–S1 : Trajet dans la Jambe, Mouvements à Éviter et Décharge Douce",
+      category: "Biomécanique Lombaire",
+      readTime: "9 min de lecture",
+      author: { name: "Équipe Éditoriale Biomécanique Evminov", role: "Bien-être Vertébral", credentials: "30 ans de la Méthode Evminov (Depuis 1996)" },
+      excerpt: "Votre IRM indique L4–L5 ou L5–S1 ? Comprenez les trajets nerveux (tibia/gros orteil vs. mollet/talon), les drapeaux rouges et la décompression douce à 10°–16°.",
+      sections: [
+        {
+          id: "l4-l5-vs-l5-s1-map",
+          heading: "1. Distinguer L4–L5 (Racine L5) et L5–S1 (Racine S1)",
+          paragraphs: ["L4–L5 irradie souvent sur le côté de la jambe et le dessus du pied ; L5–S1 descend derrière le mollet vers le talon ou le bord externe du pied. En cas de pied tombant ou de troubles sphinctériens, consultez aux urgences."],
+        },
+        {
+          id: "moves-to-avoid-and-unloading",
+          heading: "2. Gestes à Mettre en Pause et Décharge à 10°–16°",
+          paragraphs: ["Évitez les flexions lourdes et les étirements forcés le matin. 8–10 minutes à 10°–16° sur la planche en bois Evminov soulagent la pression axiale sans à-coups."],
+        },
+      ],
+      faqs: [
+        { q: "Combien de temps faut-il pour calmer une poussée L4–L5 ou L5–S1 ?", a: "Les études montrent qu'une majorité de poussées non urgentes s'apaisent en 6 à 12 semaines avec gestion des charges et gainage doux." },
+      ],
+    },
+    uk: {
+      title: "Протрузія чи грижа L4–L5 проти L5–S1: карта симптомів у нозі, заборонені рухи та м’яке розвантаження",
+      category: "Біомеханіка Попереку",
+      readTime: "9 хв читання",
+      author: { name: "Редакція біомеханіки Evminov", role: "Вертебральна біомеханіка", credentials: "30 років документації методики Євмінова (з 1996)" },
+      excerpt: "Коли у висновку МРТ написано L4–L5 або L5–S1, важливо розуміти різницю: чому при L4–L5 тягне гомілку й великий палець стопи, а при L5–S1 — литку й п’яту, яких вправ уникати та як допомагає кут 10°–16°.",
+      sections: [
+        {
+          id: "l4-l5-vs-l5-s1-map",
+          heading: "1. Як розрізняються симптоми рівнів L4–L5 (корінець L5) і L5–S1 (корінець S1)",
+          paragraphs: ["Рівень L4–L5 (корінець L5) найчастіше віддає по зовнішній поверхні стегна й гомілки у тил стопи та великий палець. Рівень L5–S1 (корінець S1) зазвичай тягне задньою поверхнею стегна й литкою у п’яту чи зовнішній край стопи. При наростаючій слабкості стопи або онімінні промежини потрібна невідкладна медична допомога!"],
+        },
+        {
+          id: "moves-to-avoid-and-unloading",
+          heading: "2. Що виключити під час загострення і як працює кут 10°–16°",
+          paragraphs: ["У період чутливості диска приберіть нахили вперед з вагою, скручування корпусу, класичні підйоми на прес та тривале сидіння у перші 30 хвилин після сну. Спокійне лежання на Профілакторі Євмінова під кутом 10°–16° (8–10 хв) створює плавне розвантаження ~15–25% маси тіла без захисного спазму."],
+        },
+      ],
+      faqs: [
+        { q: "Скільки часу зазвичай заспокоюється загострення L4–L5 чи L5–S1?", a: "Більшість неургентних епізодів помітно вщухають протягом 6–12 тижнів за умови грамотного зниження навантаження та м’якої стабілізації кору." },
+        { q: "Чому для L4–S1 важлива повноцінна 3-секційна дошка 230–245 см?", a: "Повна довжина забезпечує суцільну опору всього хребта й ніг під час вправ, а при вазі понад 100 кг або зрості вище 193 см доступна посилена ширина 30 см." },
+      ],
+    },
+    ru: {
+      title: "Грыжа и протрузия L4–L5 против L5–S1: карта симптомов в ноге, запрещённые движения и разгрузка",
+      category: "Биомеханика Поясницы",
+      readTime: "9 мин чтения",
+      author: { name: "Редакция биомеханики Evminov", role: "Вертебральная биомеханика", credentials: "30 лет документации методики Евминова (с 1996)" },
+      excerpt: "Когда в МРТ указаны уровни L4–L5 или L5–S1, разберитесь, почему при L4–L5 отдает в голень и большой палец, а при L5–S1 — в икру и пятку, чего избегать и как помогает угол 10°–16°.",
+      sections: [
+        {
+          id: "l4-l5-vs-l5-s1-map",
+          heading: "1. Отличия уровней L4–L5 (корешок L5) и L5–S1 (корешок S1)",
+          paragraphs: ["Уровень L4–L5 чаще отдает по наружной стороне бедра и голени в верх стопы и большой палец. Уровень L5–S1 — по задней поверхности бедра и икре в пятку и внешний край стопы. При нарастающей слабости стопы или нарушении тазовых функций срочно обратитесь к врачу."],
+        },
+        {
+          id: "moves-to-avoid-and-unloading",
+          heading: "2. Что исключить при обострении и как работает мягкий угол 10°–16°",
+          paragraphs: ["Исключите наклоны вперед с весом, резкие скручивания и скручивания на пресс. Спокойные 8–10 минут на Доске Евминова под углом 10°–16° дают плавную разгрузку 15–25% веса тела без спазма мышц."],
+        },
+      ],
+      faqs: [
+        { q: "Сколько времени обычно стихает обострение L4–L5 или L5–S1?", a: "Большинство неосложнённых эпизодов заметно стихают за 6–12 недель при разумной разгрузке и укреплении глубоких мышц." },
+      ],
+    },
+    de: {
+      title: "L4–L5 vs. L5–S1 Bandscheibe: Symptom-Unterschiede im Bein, Tabu-Übungen & sanfte Heim-Entlastung",
+      category: "Lendenwirbel-Biomechanik",
+      readTime: "9 Min. Lesezeit",
+      author: { name: "Evminov Wirbelsäulen-Redaktion", role: "Biomechanik-Forschung", credentials: "30 Jahre Evminov-Methode (Seit 1996)" },
+      excerpt: "Was unterscheidet L4–L5 (Schienbein & Großzeh) von L5–S1 (Wade, Ferse & Außenfuß) im MRT-Befund? Erfahren Sie, welche Übungen Sie pausieren sollten und wie 10°–16° sanft entlasten.",
+      sections: [
+        {
+          id: "l4-l5-vs-l5-s1-map",
+          heading: "1. L4–L5 (L5-Wurzel) vs. L5–S1 (S1-Wurzel) im Überblick",
+          paragraphs: ["L4–L5 strahlt meist seitlich übers Schienbein bis zum Großzeh aus; L5–S1 zieht typischerweise hinten durch die Wade in Ferse und Außenfuß. Bei Fußheberschwäche oder Blasen-/Darmstörungen sofort ärztliche Notfallhilfe aufsuchen."],
+        },
+        {
+          id: "moves-to-avoid-and-unloading",
+          heading: "2. Belastende Bewegungen pausieren & sanfte 10°–16°-Schräglage",
+          paragraphs: ["Vermeiden Sie schweres Vorbeugen, Rumpfdrehungen und Sit-ups im Akutstadium. Ruhige 8–10 Minuten bei 10°–16° auf dem Evminov Holzboard reduzieren die axiale Last sanft ohne Muskelabwehrspannung."],
+        },
+      ],
+      faqs: [
+        { q: "Wie lange dauert die Beruhigung eines L4–L5- oder L5–S1-Schubs?", a: "Klinische Leitlinien zeigen, dass viele nicht-akute Schübe binnen 6 bis 12 Wochen mit klugem Lastmanagement und Tiefenstabilisation deutlich abklingen." },
+      ],
+    },
+  },
+  "drx9000-spinal-decompression-therapy-cost-vs-home-board-guide": {
+    es: {
+      title: "Costo de Descompresión Espinal (DRX9000 en Clínica vs. Tabla Evminov en Casa 2026)",
+      category: "Guía de Compra",
+      readTime: "8 min de lectura",
+      author: { name: "Equipo Económico Evminov Norteamérica", role: "Análisis de Costos EE. UU. y Canadá", credentials: "Evminov Norteamérica" },
+      excerpt: "Las terapias clínicas como DRX9000 suelen costar $2,400–$5,000+ por 20–30 citas sin incluir traslados. Compara esa inversión con tener una tabla Evminov propia en casa ($475–$520 USD / $435–$500 CAD).",
+      sections: [
+        {
+          id: "clinic-cost-reality",
+          heading: "1. Costo Real de Sesiones Clínicas DRX9000 en EE. UU. y Canadá",
+          paragraphs: ["Los paquetes clínicos de tracción motorizada suelen costar $75–$200 por visita ($2,400–$5,000+ por protocolo), casi siempre fuera de seguro. Además, conducir de regreso a casa vuelve a comprimir los discos recién hidratados."],
+        },
+        {
+          id: "home-ownership-math",
+          heading: "2. Pago Único en Casa + Uso Diario Antes de Dormir + HSA/FSA",
+          paragraphs: ["Una tabla plegable original Evminov cuesta $475–$520 USD ($435–$500 CAD) una sola vez con 1 año de garantía y 60 días de prueba — menos que 4 visitas clínicas — y permite sesiones nocturnas de 10 minutos para toda la familia (con ~25%–35% de ahorro HSA/FSA presentando carta LMN)."],
+        },
+      ],
+      faqs: [
+        { q: "¿Una tabla Evminov sustituye atención médica urgente?", a: "No — es equipo de bienestar general (HTS 9506.91.0030) ideal para el mantenimiento diario en casa junto con la orientación de tu especialista." },
+      ],
+    },
+    fr: {
+      title: "Coût Décompression Vertébrale (DRX9000 en Clinique vs. Planche Evminov à Domicile 2026)",
+      category: "Guide d'Achat",
+      readTime: "8 min de lecture",
+      author: { name: "Analyse Économique Evminov Amérique du Nord", role: "Comparatif Coûts USA & Canada", credentials: "Evminov North America" },
+      excerpt: "En clinique, un forfait DRX9000 coûte souvent 2 400 $ à 5 000 $+ pour 20–30 séances. Comparez avec l'achat unique d'une planche Evminov chez soi (475 $–520 $ USD / 435 $–500 $ CAD).",
+      sections: [
+        {
+          id: "clinic-cost-reality",
+          heading: "1. Le Coût Réel des Forfaits Cliniques en Amérique du Nord",
+          paragraphs: ["Une séance motorisée DRX9000 coûte entre 75 $ et 200 $ (soit 2 400 $–5 000 $+ le cycle complet), et conduire assis juste après la séance recomprime immédiatement la colonne."],
+        },
+        {
+          id: "home-ownership-math",
+          heading: "2. Un Achat Unique à la Maison Avant le Coucher",
+          paragraphs: ["Posséder sa planche Evminov pliable revient à 475 $–520 $ USD (435 $–500 $ CAD) avec garantie 1 an et essai 60 jours — moins de 4 séances en clinique — pour toute la famille, utilisable chaque soir avant de dormir."],
+        },
+      ],
+      faqs: [
+        { q: "La planche Evminov remplace-t-elle un suivi médical ?", a: "Non — c'est un équipement de bien-être général (HTS 9506.91.0030) conçu pour l'entretien quotidien sûr à domicile." },
+      ],
+    },
+    uk: {
+      title: "Вартість декомпресії хребта в клініках США й Канади (DRX9000) проти домашнього Профілактора Євмінова (2026)",
+      category: "Гід Покупця",
+      readTime: "8 хв читання",
+      author: { name: "Аналітика Evminov Північна Америка", role: "Порівняння вартості у США та Канаді", credentials: "Evminov North America" },
+      excerpt: "Курс клінічного витягування на апаратах DRX9000 у США та Канаді коштує $2,400–$5,000+ за 20–30 візитів. Чесне порівняння з купівлею власного Профілактора Євмінова за $475–$520 USD ($435–$500 CAD).",
+      sections: [
+        {
+          id: "clinic-cost-reality",
+          heading: "1. Скільки насправді коштує клінічна декомпресія у США й Канаді",
+          paragraphs: ["Один сеанс на клінічному столі типу DRX9000 коштує $75–$200, а курс із 20–30 процедур — $2,400–$5,000+ з власної кишені. Головний мінус навіть не ціна: одразу після сеансу ви сідаєте за кермо у заторах і знову стискаєте диски."],
+        },
+        {
+          id: "home-ownership-math",
+          heading: "2. Разова інвестиція в Профілактор Євмінова + щоденна практика перед сном",
+          paragraphs: ["Власний розбірний Профілактор Євмінова коштує $475–$520 USD ($435–$500 CAD) один раз — дешевше за 4 візити в клініку. Ви отримуєте гарантію 1 рік, 60 днів домашнього тесту, можливість займатися всією родиною щовечора перед сном та економію ~25–35% через HSA/FSA (з листом LMN)."],
+        },
+      ],
+      faqs: [
+        { q: "Чи замінює Профілактор Євмінова невідкладну медичну допомогу?", a: "Ні — це обладнання для загального оздоровлення (HTS 9506.91.0030). Гострі неврологічні симптоми потребують огляду лікаря, тоді як Профілактор ідеальний для щоденної домашньої підтримки." },
+      ],
+    },
+    ru: {
+      title: "Стоимость декомпрессии позвоночника в клиниках США и Канады (DRX9000) против Доски Евминова (2026)",
+      category: "Гид Покупателя",
+      readTime: "8 мин чтения",
+      author: { name: "Аналитика Evminov Северная Америка", role: "Сравнение стоимости в США и Канаде", credentials: "Evminov North America" },
+      excerpt: "Курс вытяжения в клинике на аппаратах DRX9000 стоит $2,400–$5,000+ за 20–30 визитов. Честное сравнение с покупкой оригинальной Доски Евминова за $475–$520 USD ($435–$500 CAD).",
+      sections: [
+        {
+          id: "clinic-cost-reality",
+          heading: "1. Сколько реально стоит клиническая декомпрессия в США и Канаде",
+          paragraphs: ["Один визит на стол DRX9000 обходится в $75–$200, а курс в $2,400–$5,000+ обычно не покрывается страховкой. Кроме того, дорога домой за рулём сразу после процедуры вновь сжимает поясницу."],
+        },
+        {
+          id: "home-ownership-math",
+          heading: "2. Разовая покупка для всей семьи + занятия вечером перед сном",
+          paragraphs: ["Собственная складная Доска Евминова стоит $475–$520 USD ($435–$500 CAD) с гарантией 1 год и тестом 60 дней — дешевле 4 визитов в клинику — и позволяет заниматься всей семье прямо перед сном, а в США ещё и сэкономить ~25–35% через HSA/FSA по письму LMN."],
+        },
+      ],
+      faqs: [
+        { q: "Заменяет ли Доска Евминова врача при острой боли?", a: "Нет — это оздоровительное оборудование (HTS 9506.91.0030) для ежедневного домашнего ухода и укрепления спины с согласия специалиста." },
+      ],
+    },
+    de: {
+      title: "Kosten der Wirbelsäulendekompression (DRX9000-Klinik vs. Evminov Heim-Board 2026)",
+      category: "Kaufberatung",
+      readTime: "8 Min. Lesezeit",
+      author: { name: "Evminov Wirtschaftlichkeits-Team", role: "Kostenvergleich Nordamerika", credentials: "Evminov North America" },
+      excerpt: "Klinische DRX9000-Pakete kosten oft $2,400–$5,000+ für 20–30 Termine ohne Fahrtkosten. Vergleichen Sie das mit dem einmaligen Kauf eines Evminov Boards ($475–$520 USD / $435–$500 CAD).",
+      sections: [
+        {
+          id: "clinic-cost-reality",
+          heading: "1. Reale Kosten klinischer Dekompressionspakete",
+          paragraphs: ["Pro Sitzung fallen in Kliniken oft $75–$200 an ($2,400–$5,000+ pro Zyklus), und die anschließende Autofahrt im Sitzen belastet die frisch entlasteten Bandscheiben sofort wieder."],
+        },
+        {
+          id: "home-ownership-math",
+          heading: "2. Einmaliger Kauf für die gesamte Familie & Abends vor dem Schlafen",
+          paragraphs: ["Ein klappbares Evminov Board kostet einmalig $475–$520 USD ($435–$500 CAD) inklusive 1 Jahr Garantie & 60 Tagen Heimtest — weniger als 4 Kliniktermine — und ermöglicht sanfte 10-Minuten-Routinen für den ganzen Haushalt."],
+        },
+      ],
+      faqs: [
+        { q: "Ersetzt das Evminov Board ärztliche Notfallversorgung?", a: "Nein — es ist allgemeines Wellness-Equipment (HTS 9506.91.0030) für die sichere tägliche Heimroutine nach ärztlicher Rücksprache." },
+      ],
+    },
+  },
 };
 
 export function getLocalizedGuide(guide: GuideItem, lang: Locale): GuideItem {

@@ -19,6 +19,7 @@ import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import { HeroShowcaseGallery } from "@/components/sections/HeroShowcaseGallery";
 import { VideoSpotlightSection } from "@/components/sections/VideoSpotlightSection";
 import { ClinicalPathwaysNav } from "@/components/sections/ClinicalPathwaysNav";
+import { InteractiveSpineQuizSection } from "@/components/sections/InteractiveSpineQuizSection";
 import { BiomechanicalCalculator } from "@/components/sections/BiomechanicalCalculator";
 import { InversionVisualComparison } from "@/components/sections/InversionVisualComparison";
 import { ProductCatalogSection } from "@/components/sections/ProductCatalogSection";
@@ -212,6 +213,9 @@ export function HomePageContent({ lang }: { lang: Locale }) {
 
       {/* 3. 8-CARD CLINICAL PATHWAYS ROUTER */}
       <ClinicalPathwaysNav lang={lang} />
+
+      {/* 3B. INTERACTIVE 60-SECOND SPINE COMFORT & FIT QUIZ */}
+      <InteractiveSpineQuizSection lang={lang} />
 
       {/* 3. PRODUCT CATALOG */}
       <ProductCatalogSection lang={lang} />

@@ -9,12 +9,13 @@ import { getLocalizedCondition } from "@/i18n/locales/conditions-i18n";
 import { getLocalizedComparison } from "@/i18n/locales/comparisons-i18n";
 import { getLocalizedGuide } from "@/i18n/locales/guides-i18n";
 import { getSiloUi } from "@/i18n/locales/silo-ui";
+import { BREADCRUMB_COPY } from "@/i18n/locales/chrome";
 import { getLocalizedProduct } from "@/i18n/locales/catalog";
-import { buildPrefilledOrderUrl, getLocalizedHref } from "@/lib/url";
+import { buildPrefilledOrderUrl, getCanonicalUrl, getLocalizedHref } from "@/lib/url";
 import { formatUSD } from "@/lib/physics";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
-import { ConditionArticleJsonLd, FaqJsonLd } from "@/components/seo/JsonLd";
+import { BreadcrumbJsonLd, ConditionArticleJsonLd, FaqJsonLd } from "@/components/seo/JsonLd";
 
 export function ConditionDetailView({
   condition: rawCondition,
@@ -25,6 +26,7 @@ export function ConditionDetailView({
 }) {
   const condition = getLocalizedCondition(rawCondition, lang);
   const ui = getSiloUi(lang);
+  const bc = BREADCRUMB_COPY[lang];
   const recProduct = getProductBySlug(condition.recommendedProductSlug);
   const recLocalized = recProduct
     ? getLocalizedProduct(recProduct, lang)
@@ -34,7 +36,28 @@ export function ConditionDetailView({
     <>
       <ConditionArticleJsonLd condition={condition} lang={lang} />
       <FaqJsonLd faqs={condition.faqs} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: bc.home, url: getCanonicalUrl("/", lang) },
+          { name: ui.common.backToConditionsHub, url: getCanonicalUrl("/conditions/", lang) },
+          { name: condition.shortTitle, url: getCanonicalUrl(`/conditions/${condition.slug}/`, lang) },
+        ]}
+      />
       <article className="mx-auto max-w-5xl px-4 py-12">
+        <nav
+          aria-label={bc.navAria}
+          className="mb-3 flex flex-wrap items-center gap-1.5 text-xs font-semibold text-slate-500"
+        >
+          <Link href={getLocalizedHref("/", lang)} className="hover:text-teal-700">
+            {bc.home}
+          </Link>
+          <span aria-hidden="true">/</span>
+          <Link href={getLocalizedHref("/conditions/", lang)} className="hover:text-teal-700">
+            {ui.common.backToConditionsHub}
+          </Link>
+          <span aria-hidden="true">/</span>
+          <span className="line-clamp-1 text-slate-800">{condition.shortTitle}</span>
+        </nav>
         <span className="inline-block rounded-full bg-emerald-50 px-3.5 py-1 text-xs font-bold text-emerald-800">
           {condition.eyebrow}
         </span>

@@ -251,7 +251,21 @@ export function queryEvminovKnowledge(rawQuery: string, lang = "en", originOrUrl
   let guideUrl = `${cfg.origin}${localePrefix}/guides/best-home-spinal-decompression-devices-2026-guide/`;
   let topic = "general_spine_decompression";
 
-  if (/piriformis|deep\s*gluteal|buttock|glute|піріформ|грушоподіб|грушевидн/.test(q)) {
+  if (/neck\s*hump|dowager|forward\s*head|kyphosis|холка|вдовий|горб/.test(q)) {
+    topic = "neck_hump_forward_head_posture";
+    recommended = products[1]; // 2-Piece Folding
+    guideUrl = `${cfg.origin}${localePrefix}/guides/neck-hump-dowagers-hump-and-forward-head-posture-guide/`;
+  } else if (/over[\s-]*the[\s-]*door|water\s*bag|inflatable\s*(neck|collar)|дверн|комірц|воротник/.test(q)) {
+    topic = "over_the_door_neck_traction_comparison";
+    recommended = products[1]; // 2-Piece Folding
+    guideUrl = `${cfg.origin}${localePrefix}/compare/evminov-vs-over-the-door-neck-traction-and-inflatable-collars/`;
+  } else if (/l4[\s-]*l5\s*vs|shin\s*vs\s*calf|dermatome/.test(q)) {
+    topic = "l4_l5_vs_l5_s1_symptoms";
+    guideUrl = `${cfg.origin}${localePrefix}/guides/l4-l5-vs-l5-s1-herniated-disc-symptoms-and-decompression-guide/`;
+  } else if (/drx\s*9000|decompression\s*cost|clinic\s*cost|session\s*cost|вартість\s*лікування|стоимость\s*лечения/.test(q)) {
+    topic = "drx9000_cost_vs_home_board";
+    guideUrl = `${cfg.origin}${localePrefix}/guides/drx9000-spinal-decompression-therapy-cost-vs-home-board-guide/`;
+  } else if (/piriformis|deep\s*gluteal|buttock|glute|піріформ|грушоподіб|грушевидн/.test(q)) {
     topic = "piriformis_vs_sciatica";
     guideUrl = `${cfg.origin}${localePrefix}/guides/piriformis-syndrome-vs-sciatica-self-test-and-relief-guide/`;
   } else if (/floss|nerve\s*glid|sleep|pillow|mattress|night\s*pain|спати|спать|сон|нерв/.test(q)) {

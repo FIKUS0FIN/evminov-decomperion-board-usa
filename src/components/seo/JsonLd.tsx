@@ -1,9 +1,19 @@
 import { SITE_CONFIG } from "@/lib/site-config";
-import { getProductPrice, ProductItem, PRODUCTS } from "@/data/products";
+import {
+  getProductPrice,
+  OFFICIAL_ACCESSORIES,
+  ProductItem,
+  PRODUCTS,
+} from "@/data/products";
 import { GuideItem, getGuideWordCount } from "@/data/guides";
 import { ComparisonPageData } from "@/data/comparisons";
 import { ConditionPageData } from "@/data/conditions";
 import { Locale, LOCALE_META } from "@/i18n/types";
+import {
+  getLocalizedComparisonMeta,
+  getLocalizedConditionMeta,
+  getLocalizedGuideMeta,
+} from "@/i18n/content-meta";
 import { getCanonicalUrl } from "@/lib/url";
 
 export function JsonLdScript({ data }: { data: Record<string, unknown> }) {
@@ -77,14 +87,24 @@ export function OrganizationAndWebsiteSchema({ lang }: { lang: Locale }) {
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "Evminov Spine Decompression Boards & Accessories",
-          itemListElement: PRODUCTS.map((p) => ({
-            "@type": "Offer",
-            name: p.name,
-            url: `${origin}/products/${p.slug}/`,
-            price: String(p.directPriceUsd),
-            priceCurrency: SITE_CONFIG.currency,
-            availability: "https://schema.org/InStock",
-          })),
+          itemListElement: [
+            ...PRODUCTS.map((p) => ({
+              "@type": "Offer",
+              name: p.localizedNames[lang] || p.name,
+              url: getCanonicalUrl(`/products/${p.slug}/`, lang),
+              price: String(p.directPriceUsd),
+              priceCurrency: SITE_CONFIG.currency,
+              availability: "https://schema.org/InStock",
+            })),
+            ...OFFICIAL_ACCESSORIES.map((acc) => ({
+              "@type": "Offer",
+              name: acc.name[lang] || acc.name.en,
+              url: `${origin}/order/?accessories=${acc.id}&step=1#order-form`,
+              price: String(acc.priceUsd),
+              priceCurrency: SITE_CONFIG.currency,
+              availability: "https://schema.org/InStock",
+            })),
+          ],
         },
         potentialAction: [
           {
@@ -332,13 +352,17 @@ export function GuideArticleJsonLd({
   const origin = SITE_CONFIG.canonicalOrigin;
   const canonical = getCanonicalUrl(`/guides/${guide.slug}/`, lang);
   const wordCount = getGuideWordCount(guide);
+  const meta = getLocalizedGuideMeta(guide.slug, lang, {
+    title: guide.metaTitle,
+    description: guide.metaDescription,
+  });
 
   const schema = {
     "@context": "https://schema.org",
     "@type": "Article",
     "@id": `${canonical}#article`,
-    headline: guide.title,
-    description: guide.metaDescription,
+    headline: guide.title || meta.title,
+    description: meta.description,
     image: `${origin}${guide.heroImage}`,
     datePublished: guide.datePublished.includes("T")
       ? guide.datePublished
@@ -426,36 +450,36 @@ export function HomepageRichSchemas({ lang }: { lang: Locale }) {
         totalTime: "PT15M",
         supply: [
           { "@type": "HowToSupply", name: "Included 400+ lb rated steel wall mounting bracket & lag screws" },
-          { "@type": "HowToSupply", name: "Evminov Carpathian Pine or Select Alder Board with Glisson Loop" },
+          { "@type": "HowToSupply", name: "3-Piece or 2-Piece Demountable Evminov Board (Natural Warm Amber Alder or Dark Walnut Pine) with free Glisson Loop" },
         ],
         tool: [
-          { "@type": "HowToTool", name: "Electronic wall stud finder" },
+          { "@type": "HowToTool", name: "Electronic wall stud finder (or optional 4-Piece Demountable Ladder Stand)" },
           { "@type": "HowToTool", name: "Power drill with 3/16-inch pilot bit" },
         ],
         step: [
           {
             "@type": "HowToStep",
             position: 1,
-            name: "Locate one solid 16-inch wood stud",
-            text: "Use an electronic stud finder to mark the center of a load-bearing 2x4 wood wall stud at 78 to 86 inches high (or choose the optional No-Drill Ladder Stand for rentals).",
+            name: "Locate one solid 16-inch wood stud or assemble the 4-Piece Ladder Stand",
+            text: "Use an electronic stud finder to mark the center of a load-bearing 2x4 wood wall stud at 78 to 86 inches high (or choose the optional 4-Piece Demountable Ladder Stand up to 123 cm for zero wall drilling).",
           },
           {
             "@type": "HowToStep",
             position: 2,
-            name: "Pre-drill pilot holes and anchor the steel wall bracket",
-            text: "Pre-drill pilot holes into the wood stud center and tighten the heavy-duty lag bolts flush to the wall.",
+            name: "Assemble the demountable panels and anchor the steel wall bracket",
+            text: "Join the precision-coupled 2-piece or 3-piece timber sections, pre-drill pilot holes into the wood stud center, and tighten the heavy-duty lag bolts flush to the wall.",
           },
           {
             "@type": "HowToStep",
             position: 3,
             name: "Hook the braided anchor cable and set a gentle 10°–15° incline",
-            text: "Clip the board anchor cable onto the bracket, lock the sliding alloy carriage pin to your height, and test stability by hand.",
+            text: "Clip the board anchor cable onto the bracket (or Ladder Stand Mounting Hooks), lock the sliding alloy carriage pin to your height, and test stability by hand.",
           },
           {
             "@type": "HowToStep",
             position: 4,
-            name: "Perform 10 minutes of calm inclined unloading and fold flat to 2.4 inches",
-            text: "Lie supine gripping the overhead handles for smooth axial traction with zero upside-down head rush, then fold the board flat against the wall.",
+            name: "Perform 10 minutes of calm inclined unloading and store neatly",
+            text: "Lie supine gripping the overhead handles for smooth axial traction with zero upside-down head rush, then unhook or store the compact demountable sections in their Carry Case Bag.",
           },
         ],
       },
@@ -474,13 +498,17 @@ export function ComparisonArticleJsonLd({
 }) {
   const origin = SITE_CONFIG.canonicalOrigin;
   const canonical = getCanonicalUrl(`/compare/${comparison.slug}/`, lang);
+  const meta = getLocalizedComparisonMeta(comparison.slug, lang, {
+    title: comparison.metaTitle,
+    description: comparison.metaDescription,
+  });
 
   const schema = {
     "@context": "https://schema.org",
     "@type": "Article",
     "@id": `${canonical}#article`,
-    headline: comparison.title,
-    description: comparison.metaDescription,
+    headline: comparison.title || meta.title,
+    description: meta.description,
     image: `${origin}${comparison.heroImage}`,
     datePublished: "2026-09-15T00:00:00Z",
     dateModified: "2026-11-28T00:00:00Z",
@@ -510,13 +538,17 @@ export function ConditionArticleJsonLd({
 }) {
   const origin = SITE_CONFIG.canonicalOrigin;
   const canonical = getCanonicalUrl(`/conditions/${condition.slug}/`, lang);
+  const meta = getLocalizedConditionMeta(condition.slug, lang, {
+    title: condition.metaTitle,
+    description: condition.metaDescription,
+  });
 
   const schema = {
     "@context": "https://schema.org",
     "@type": "Article",
     "@id": `${canonical}#article`,
-    headline: condition.title,
-    description: condition.metaDescription,
+    headline: condition.title || meta.title,
+    description: meta.description,
     image: `${origin}${condition.heroImage}`,
     datePublished: "2026-09-15T00:00:00Z",
     dateModified: "2026-11-28T00:00:00Z",

@@ -7,12 +7,13 @@ import { getProductBySlug } from "@/data/products";
 import { getLocalizedComparison } from "@/i18n/locales/comparisons-i18n";
 import { getLocalizedGuide } from "@/i18n/locales/guides-i18n";
 import { getSiloUi } from "@/i18n/locales/silo-ui";
+import { BREADCRUMB_COPY } from "@/i18n/locales/chrome";
 import { getLocalizedProduct } from "@/i18n/locales/catalog";
-import { buildPrefilledOrderUrl, getLocalizedHref } from "@/lib/url";
+import { buildPrefilledOrderUrl, getCanonicalUrl, getLocalizedHref } from "@/lib/url";
 import { formatUSD } from "@/lib/physics";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
-import { ComparisonArticleJsonLd, FaqJsonLd } from "@/components/seo/JsonLd";
+import { BreadcrumbJsonLd, ComparisonArticleJsonLd, FaqJsonLd } from "@/components/seo/JsonLd";
 
 export function ComparisonDetailView({
   comparison: rawComparison,
@@ -23,6 +24,7 @@ export function ComparisonDetailView({
 }) {
   const comparison = getLocalizedComparison(rawComparison, lang);
   const ui = getSiloUi(lang);
+  const bc = BREADCRUMB_COPY[lang];
   const recProduct = getProductBySlug(comparison.recommendedProductSlug);
   const recLocalized = recProduct
     ? getLocalizedProduct(recProduct, lang)
@@ -32,7 +34,28 @@ export function ComparisonDetailView({
     <>
       <ComparisonArticleJsonLd comparison={comparison} lang={lang} />
       <FaqJsonLd faqs={comparison.faqs} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: bc.home, url: getCanonicalUrl("/", lang) },
+          { name: ui.common.backToCompareHub, url: getCanonicalUrl("/compare/", lang) },
+          { name: comparison.shortTitle, url: getCanonicalUrl(`/compare/${comparison.slug}/`, lang) },
+        ]}
+      />
       <article className="mx-auto max-w-5xl px-4 py-10 md:py-12">
+        <nav
+          aria-label={bc.navAria}
+          className="mb-3 flex flex-wrap items-center gap-1.5 text-xs font-semibold text-slate-500"
+        >
+          <Link href={getLocalizedHref("/", lang)} className="hover:text-teal-700">
+            {bc.home}
+          </Link>
+          <span aria-hidden="true">/</span>
+          <Link href={getLocalizedHref("/compare/", lang)} className="hover:text-teal-700">
+            {ui.common.backToCompareHub}
+          </Link>
+          <span aria-hidden="true">/</span>
+          <span className="line-clamp-1 text-slate-800">{comparison.shortTitle}</span>
+        </nav>
 
         <span className="inline-block rounded-full bg-teal-50 px-3.5 py-1 text-xs font-bold text-teal-800">
           {comparison.eyebrow}
