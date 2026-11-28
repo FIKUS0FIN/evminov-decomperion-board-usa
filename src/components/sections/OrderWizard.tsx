@@ -34,6 +34,15 @@ import {
 import { SITE_CONFIG } from "@/lib/site-config";
 import { getAttributionSummary, sendGTMEvent } from "@/lib/gtm";
 
+const CONTINUE_ORDER_CTA: Record<Locale, string> = {
+  en: "Continue Making Order →",
+  es: "Continuar con el Pedido →",
+  fr: "Continuer la Commande →",
+  de: "Bestellung Fortsetzen →",
+  uk: "Продовжити Оформлення →",
+  ru: "Продолжить Оформление →",
+};
+
 const CONFIG_COPY: Record<
   Locale,
   {
@@ -1221,7 +1230,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
             <span className="font-bold">~{formatUSD(estimatedHsaNet)}</span>
           </div>
           <p className="text-[11px] text-slate-400">
-            {ow.klarnaInstallments}: {formatKlarnaBiWeekly(totalUsd)}
+            {ow.klarnaInstallments.replace(/:+$/, "")}: {formatKlarnaBiWeekly(totalUsd)}
           </p>
         </div>
 
@@ -1236,17 +1245,45 @@ export function OrderWizard({ lang }: { lang: Locale }) {
           </li>
         </ul>
 
-        <div className="mt-5 space-y-2 border-t border-white/10 pt-4 text-xs text-slate-300">
+        <div className="mt-5 space-y-2.5 border-t border-white/10 pt-4 text-xs text-slate-300">
           <a
             href={SITE_CONFIG.whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => sendGTMEvent("click_whatsapp", { location: "order_summary" })}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#16A34A] px-3.5 py-2.5 text-xs font-extrabold text-white shadow-sm transition hover:bg-emerald-500"
+            className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-xl bg-[#16A34A] px-3.5 py-2.5 text-xs font-extrabold text-white shadow-sm transition hover:bg-emerald-500"
           >
             <MessageCircle className="h-4 w-4 shrink-0" />
             <span>WhatsApp • {SITE_CONFIG.phoneDisplay}</span>
           </a>
+          <button
+            type="button"
+            onClick={() => {
+              if (step === 1) {
+                setStep(2);
+              } else if (step === 2) {
+                setStep(3);
+              } else if (step === 3) {
+                saveDraftAndGoToSummary();
+              } else if (step === 4 && user && !submitting) {
+                const formEl = document.querySelector<HTMLFormElement>("#order-form form");
+                formEl?.requestSubmit();
+                return;
+              }
+              document
+                .getElementById("order-form")
+                ?.scrollIntoView({ behavior: "smooth", block: "start" });
+            }}
+            className="inline-flex min-h-[44px] w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-white px-3.5 py-2.5 text-xs font-black text-slate-950 shadow-sm transition hover:bg-emerald-300"
+          >
+            <span>
+              {step === 4 && user
+                ? submitting
+                  ? t.submitting
+                  : t.submitReservation
+                : CONTINUE_ORDER_CTA[lang]}
+            </span>
+          </button>
           <a
             href={`mailto:${SITE_CONFIG.ordersEmail}`}
             className="block font-semibold text-emerald-300 hover:text-emerald-200"
