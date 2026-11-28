@@ -9,6 +9,23 @@ interface Env {
 
 const CANONICAL_HOST = "evminovusa.com";
 const SUPPORTED_HOSTS = new Set(["evminovusa.com", "evminovcanada.com"]);
+const REDIRECT_TO_US_HOSTS = new Set(["evminov.shop", "www.evminov.shop"]);
+
+export function resolveRedirectHost(rawHostname: string): {
+  host: string;
+  forceHttpsRedirect: boolean;
+} {
+  const lower = rawHostname.toLowerCase();
+  if (REDIRECT_TO_US_HOSTS.has(lower) || lower.endsWith(".evminov.shop")) {
+    return { host: CANONICAL_HOST, forceHttpsRedirect: true };
+  }
+  for (const supported of SUPPORTED_HOSTS) {
+    if (lower === `www.${supported}`) {
+      return { host: supported, forceHttpsRedirect: true };
+    }
+  }
+  return { host: lower, forceHttpsRedirect: false };
+}
 const TRUSTED_ORIGINS = new Set([
   "https://evminovusa.com",
   "https://www.evminovusa.com",
@@ -309,14 +326,13 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     });
   }
 
-  // Single-hop 301 canonicalization for both evminovusa.com and evminovcanada.com
+  // Single-hop 301 canonicalization for evminovusa.com, evminovcanada.com & evminov.shop
   let needsRedirect = false;
-  for (const host of SUPPORTED_HOSTS) {
-    if (url.hostname === `www.${host}`) {
-      url.hostname = host;
-      needsRedirect = true;
-      break;
-    }
+  const hostResolution = resolveRedirectHost(url.hostname);
+  if (hostResolution.forceHttpsRedirect) {
+    url.hostname = hostResolution.host;
+    url.protocol = "https:";
+    needsRedirect = true;
   }
   if (SUPPORTED_HOSTS.has(url.hostname) && url.protocol === "http:") {
     url.protocol = "https:";

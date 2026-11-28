@@ -4,6 +4,7 @@ import {
   convertHtmlToMarkdown,
   localizeDiscoveryText,
   prefersMarkdown,
+  resolveRedirectHost,
 } from "../../functions/_middleware";
 import { queryEvminovKnowledge } from "../../functions/api/ask";
 import { escapeHtml } from "../../functions/api/submit-order";
@@ -22,6 +23,18 @@ describe("Cloudflare Edge Middleware, NLWeb & Security Helpers", () => {
     expect(canonicalizePathname("/b2b")).toBe("/clinics/");
     expect(canonicalizePathname("/portal")).toBe("/portal/");
     expect(canonicalizePathname("/shipping/california")).toBe("/shipping/california/");
+    expect(resolveRedirectHost("evminov.shop")).toEqual({
+      host: "evminovusa.com",
+      forceHttpsRedirect: true,
+    });
+    expect(resolveRedirectHost("www.evminov.shop")).toEqual({
+      host: "evminovusa.com",
+      forceHttpsRedirect: true,
+    });
+    expect(resolveRedirectHost("www.evminovcanada.com")).toEqual({
+      host: "evminovcanada.com",
+      forceHttpsRedirect: true,
+    });
   });
 
   it("detects Markdown-for-Agents Accept preference accurately", () => {

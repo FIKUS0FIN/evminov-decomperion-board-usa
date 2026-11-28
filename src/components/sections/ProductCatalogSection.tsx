@@ -39,6 +39,24 @@ const FINISH_SWATCH_COLOR: Record<string, string> = {
   "Matching Pine Tone": "bg-[#D9B382] border-[#B08A5A]",
 };
 
+const ARIA_PREV_PHOTO: Record<Locale, string> = {
+  en: "Previous photo",
+  es: "Foto anterior",
+  fr: "Photo précédente",
+  de: "Vorheriges Foto",
+  uk: "Попереднє фото",
+  ru: "Предыдущее фото",
+};
+
+const ARIA_NEXT_PHOTO: Record<Locale, string> = {
+  en: "Next photo",
+  es: "Siguiente foto",
+  fr: "Photo suivante",
+  de: "Nächstes Foto",
+  uk: "Наступне фото",
+  ru: "Следующее фото",
+};
+
 export function ProductCard({
   product,
   lang,
@@ -97,7 +115,7 @@ export function ProductCard({
               <button
                 type="button"
                 onClick={prevImg}
-                aria-label="Previous photo"
+                aria-label={ARIA_PREV_PHOTO[lang]}
                 className="absolute left-2.5 top-1/2 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-slate-200/80 bg-white/90 text-slate-800 shadow-sm backdrop-blur transition hover:bg-slate-950 hover:text-white"
               >
                 <ChevronLeft className="h-4 w-4" />
@@ -105,7 +123,7 @@ export function ProductCard({
               <button
                 type="button"
                 onClick={nextImg}
-                aria-label="Next photo"
+                aria-label={ARIA_NEXT_PHOTO[lang]}
                 className="absolute right-2.5 top-1/2 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-slate-200/80 bg-white/90 text-slate-800 shadow-sm backdrop-blur transition hover:bg-slate-950 hover:text-white"
               >
                 <ChevronRight className="h-4 w-4" />

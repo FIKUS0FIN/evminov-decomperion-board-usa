@@ -355,14 +355,14 @@ export const CENTERS_PAGE_COPY: Record<Locale, CentersPageCopy> = {
         id: "athletes", tag: "Atletas y Levantadores", badge: "Hasta 150 kg (Wide)", title: "Powerlifters, CrossFit, Corredores y Deportes de Rotación", lead: "Recupere confort lumbar post-entreno sin fatiga de agarre.",
         mechanisms: [
           { profile: "Pesas y CrossFit", challenge: "Sentadillas y peso muerto dejan erectores rígidos 48–72 horas.", protocol: "Tracción supina a 20°–32° durante 12–15 minutos para relajación total." },
-          { profile: "Corredores, Golf y Combate", challenge: "Impacto repetitivo y torsión asimétrica tensan caderas y cuello.", protocol: "Descarga simétrica + Petla Glissona incluida a 8°–12°." },
+          { profile: "Corredores, Golf y Combate", challenge: "Impacto repetitivo y torsión asimétrica tensan caderas y cuello.", protocol: "Descarga simétrica + Lazo de Glisson incluido a 8°–12°." },
         ],
         founderNote: "Vyacheslav Evminov creó la tabla aplicando biomecánica de alto rendimiento.",
       },
       {
         id: "desk-workers", tag: "Oficina y Turnos de Pie", badge: "Reinicio de 10 Min", title: "Trabajo Remoto, Enfermería y Jornadas de Pie", lead: "Contrarreste 8–12 horas sentado o sobre pisos duros en 10 minutos.",
         mechanisms: [
-          { profile: "Compresión Sentado y Cuello Tecnológico", challenge: "Sentarse ejerce ~40% más presión lumbar que estar de pie.", protocol: "10 min a 12°–16° + Petla Glissona para pecho, psoas y cuello." },
+          { profile: "Compresión Sentado y Cuello Tecnológico", challenge: "Sentarse ejerce ~40% más presión lumbar que estar de pie.", protocol: "10 min a 12°–16° + Lazo de Glisson para pecho, psoas y cuello." },
           { profile: "12 Horas de Pie (Salud, Docencia)", challenge: "La gravedad continua comprime las facetas lumbares.", protocol: "Descarga supina suave con bombeo de tobillos sin ponerse boca abajo." },
         ],
         founderNote: "Se pliega a 6 cm tras la puerta o usa el Soporte Sin Taladro.",
@@ -430,7 +430,7 @@ export const CENTERS_PAGE_COPY: Record<Locale, CentersPageCopy> = {
     centersMeta: {},
     consultBadge: "Sistema Evminov en Casa • Soporte EE. UU. y Global",
     consultHeading: "¿No Puede Visitar Kyiv? Lleve la Artesanía Auténtica Evminov a Su Hogar",
-    consultBody: "Cada tabla enviada a EE. UU., Canadá y Europa se fabrica bajo las patentes internacionales de Vyacheslav Evminov — con Petla Glissona gratis, kit 16\", Portal 30 días, prueba 60 días y garantía de 1 año.",
+    consultBody: "Cada tabla enviada a EE. UU., Canadá y Europa se fabrica bajo las patentes internacionales de Vyacheslav Evminov — con Lazo de Glisson gratis, kit 16\", Portal 30 días, prueba 60 días y garantía de 1 año.",
     ctaOrder: "Pedir Tabla Auténtica (Desde $475)",
     ctaCalc: "Calcular Mi Ángulo",
     ctaPortal: "Ver Portal del Paciente",
@@ -694,7 +694,7 @@ export const CENTERS_PAGE_COPY: Record<Locale, CentersPageCopy> = {
         founderNote: "В'ячеслав Євмінов створив першу дошку, спираючись на спортивну біомеханіку.",
       },
       {
-        id: "desk-workers", tag: "Офіс та Робота на Ногах", badge: "Вечірній Ресет 10 Хв", title: "ІТ-Спеціалісти, Медики, Вчителі та Стоячі Зміни", lead: "Компенсуйте 8–12 годин сидіння або стояння за 10 спокійних хвилин.",
+        id: "desk-workers", tag: "Офіс та робота на ногах", badge: "Вечірнє розвантаження 10 хв", title: "ІТ-спеціалісти, медики, вчителі та стоячі зміни", lead: "Компенсуйте 8–12 годин сидіння або стояння за 10 спокійних хвилин.",
         mechanisms: [
           { profile: "Сидяча Компресія та «Офісна Шия»", challenge: "Сидіння створює на ~40% вищий тиск у дисках, ніж стояння.", protocol: "10 хв під 12°–16° + Петля Гліссона розкривають груди, псоас і шию." },
           { profile: "12 Годин на Ногах (Медики, Торгівля)", challenge: "Безперервна гравітація стискає суглоби попереку до вечора.", protocol: "Лежання без осьового навантаження з рухами стопами без перевертання." },

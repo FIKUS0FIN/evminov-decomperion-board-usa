@@ -10,6 +10,7 @@
 
   --font-jakarta: var(--font-jakarta);
   --font-inter: var(--font-inter);
+  --font-onest: var(--font-onest);
 }
 
 :root {
@@ -56,7 +57,22 @@ h2,
 h3,
 h4,
 .font-display {
-  font-family: var(--font-jakarta), var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-jakarta), var(--font-onest), var(--font-inter), system-ui, sans-serif;
+}
+
+/* Native Ukrainian & Cyrillic typography: Onest provides unified geometric display weights & native Ukrainian letterforms */
+html[lang="uk"] body,
+html[lang="ru"] body {
+  font-family: var(--font-onest), var(--font-inter), system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.004em;
+  font-kerning: normal;
+}
+
+html[lang="uk"] :is(h1, h2, h3, h4, .font-display),
+html[lang="ru"] :is(h1, h2, h3, h4, .font-display) {
+  font-family: var(--font-onest), var(--font-inter), system-ui, sans-serif;
+  letter-spacing: -0.018em;
+  line-height: 1.16;
 }
 
 a,

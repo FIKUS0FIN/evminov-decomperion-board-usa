@@ -165,9 +165,9 @@ export const PEDIATRIC_FAMILY_COPY: Record<Locale, PediatricFamilyCopy> = {
     card2Stat2Label: "Зміна Зросту",
     card3Title: "«Танці Лежачи» під Ритмічну Музику (4–15 Років)",
     card3Body: "Нудні настанови не виправляють дитячу сутулість. 6 хвилин під улюблену музику з симетричними потягуваннями та м'яким м'ячем під 8°–12° перетворюють заняття на гру.",
-    card3Cta: "Читати Гайд із Дитячої Постави",
-    photo1Label: "Ресет Постави після Рюкзака та Екранів (8°–12°)",
-    photo2Label: "Одна Регульована Дошка для Всіх Поколінь",
+    card3Cta: "Читати гайд із дитячої постави",
+    photo1Label: "Вирівнювання постави після рюкзака й екранів (8°–12°)",
+    photo2Label: "Одна регульована дошка для всіх поколінь",
     planEyebrow: "Практичний Сімейний План",
     planHeading: "13-Пунктовий Щоденний План для Дітей та Батьків",
     checklist: [
@@ -402,7 +402,7 @@ export const FOUNDER_ONBOARDING_COPY: Record<Locale, FounderOnboardingCopy> = {
         desc: "La descarga inclinada suave calma los músculos paravertebrales tensos sin espasmos defensivos.",
         bullets: [
           "Elongación supina pasiva (4–5 min)",
-          "Liberación cervical suave 8°–10° con Petla Glissona",
+          "Liberación cervical suave 8°–10° con Lazo de Glisson",
           "Respiración diafragmática lenta y microdeslizamientos",
         ],
       },
@@ -1338,7 +1338,7 @@ export const OWNER_SCENARIOS_COPY: Record<Locale, OwnerScenariosCopy> = {
         profile: "Ingenieros Remotos y Trabajo de Escritorio",
         angle: "12°–16° Reinicio Nocturno",
         model: "Pino Estándar o Plegable 2 Piezas",
-        summary: "Tras 8–10 horas frente a pantallas, 10 minutos en el pino flexible más 5 minutos con la Petla Glissona relajan flexores de cadera, hombros y rigidez lumbar.",
+        summary: "Tras 8–10 horas frente a pantallas, 10 minutos en el pino flexible más 5 minutos con el Lazo de Glisson relajan flexores de cadera, hombros y rigidez lumbar.",
         linkPath: "/conditions/desk-worker-posture/",
       },
       {
@@ -1411,9 +1411,9 @@ export const OWNER_SCENARIOS_COPY: Record<Locale, OwnerScenariosCopy> = {
     cardCta: "Переглянути Програму та Розмір",
     scenarios: [
       {
-        profile: "ІТ-Спеціалісти та Офісні Працівники",
-        angle: "12°–16° Вечірній Ресет",
-        model: "Стандартна Сосна або Складна 2-Секційна",
+        profile: "ІТ-спеціалісти та офісні працівники",
+        angle: "12°–16° вечірнє розвантаження",
+        model: "Стандартна сосна або складна 2-секційна",
         summary: "Після 8–10 годин за моніторами 10 хвилин на пружній сосні + 5 хвилин із Петлею Гліссона розслаблюють згиначі стегна, плечі та поперек.",
         linkPath: "/conditions/desk-worker-posture/",
       },

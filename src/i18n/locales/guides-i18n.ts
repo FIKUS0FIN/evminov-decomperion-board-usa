@@ -58,7 +58,7 @@ const GUIDE_TRANSLATIONS: Record<
           id: "who-should-switch",
           heading: "4. Elegir la Alternativa Correcta para Su Hogar",
           paragraphs: [
-            "Si busca descompresión diaria constante sin mareos, dolor de tobillos ni una estructura metálica gigante en su sala, la tabla de madera inclinada ofrece control preciso, Petla Glissona cervical incluida y más de 20 años de vida útil.",
+            "Si busca descompresión diaria constante sin mareos, dolor de tobillos ni una estructura metálica gigante en su sala, la tabla de madera inclinada ofrece control preciso, Lazo de Glisson cervical incluido y más de 20 años de vida útil.",
           ],
         },
       ],
@@ -1037,7 +1037,7 @@ const GUIDE_TRANSLATIONS: Record<
           ],
           bullets: [
             "Minutos 1–3 (15°): Apertura torácica supina con 10 respiraciones profundas.",
-            "Minutos 4–5 (10°): Tracción cervical suave con la Petla Glissona incluida.",
+            "Minutos 4–5 (10°): Tracción cervical suave con el Lazo de Glisson incluido.",
             "Minutos 6–7 (16°): Deslizamientos lentos de pierna para alargar el psoas.",
           ],
         },

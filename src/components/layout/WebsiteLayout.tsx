@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "@/app/globals.css";
-import { inter, jakarta } from "@/lib/fonts";
+import { inter, jakarta, onest } from "@/lib/fonts";
 import { Locale, LOCALE_META } from "@/i18n/types";
 import { getDictionary } from "@/i18n/dictionaries";
 import { SITE_CONFIG } from "@/lib/site-config";
@@ -171,7 +171,7 @@ gtag('set', 'url_passthrough', true);
         <OrganizationAndWebsiteSchema lang={lang} />
       </head>
       <body
-        className={`${inter.variable} ${jakarta.variable} font-sans antialiased bg-white text-slate-900`}
+        className={`${inter.variable} ${jakarta.variable} ${onest.variable} font-sans antialiased bg-white text-slate-900`}
       >
         <a
           href="#main-content"

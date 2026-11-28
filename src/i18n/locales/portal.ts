@@ -528,7 +528,7 @@ export const PORTAL_UI_COPY: Record<Locale, PortalUiCopy> = {
     activateWarrantyBtn: "Activar Garantía de 1 Año",
     supportEyebrow: "Soporte Directo en Norteamérica",
     supportHeading: "Centro de Glendale, California",
-    supportSub: "¿Dudas sobre montaje en vigas 16\", calibración, Petla Glissona o facturas HSA/FSA? Contáctenos directamente.",
+    supportSub: "¿Dudas sobre montaje en vigas 16\", calibración, Lazo de Glisson o facturas HSA/FSA? Contáctenos directamente.",
     addressWord: "Dirección:",
     hoursWord: "Horario:",
     languagesWord: "Idiomas:",

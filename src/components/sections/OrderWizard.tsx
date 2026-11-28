@@ -36,11 +36,11 @@ import { getAttributionSummary, sendGTMEvent } from "@/lib/gtm";
 
 const CONTINUE_ORDER_CTA: Record<Locale, string> = {
   en: "Continue Making Order →",
-  es: "Continuar con el Pedido →",
-  fr: "Continuer la Commande →",
-  de: "Bestellung Fortsetzen →",
-  uk: "Продовжити Оформлення →",
-  ru: "Продолжить Оформление →",
+  es: "Continuar con el pedido →",
+  fr: "Continuer la commande →",
+  de: "Bestellung fortsetzen →",
+  uk: "Продовжити оформлення →",
+  ru: "Продолжить оформление →",
 };
 
 const CONFIG_COPY: Record<
@@ -170,10 +170,10 @@ const CONFIG_COPY: Record<
     standWithout: "Лише дошка (кріплення у стіну в комплекті)",
     standWithoutDesc: "У комплекті петля Гліссона, кріплення у стіну та паспорт.",
     standWithoutWarning: "Примітка: кріплення у стіну вже в комплекті. Нижче можна додати стійку-драбинку, гачки або чохол.",
-    step4Label: "4. Підсумок і Підтвердження",
-    continueToSummary: "Перейти до Підсумку Замовлення",
-    summaryStepTitle: "Перевірте Замовлення та Підтвердіть",
-    deliveryReviewTitle: "Дані Доставки",
+    step4Label: "4. Підсумок і підтвердження",
+    continueToSummary: "Перейти до підсумку замовлення",
+    summaryStepTitle: "Перевірте замовлення та підтвердіть",
+    deliveryReviewTitle: "Дані доставки",
     editDetails: "Змінити",
     shippingTwoWeekNote: "Доставка міжнародними перевізниками по США та Канаді займає приблизно 2 тижні. Офіційна гарантія — 1 рік.",
     signInToConfirmNote: "Увійдіть або зареєструйтесь нижче, щоб підтвердити замовлення та відстежувати його статус у Клієнтському Порталі.",

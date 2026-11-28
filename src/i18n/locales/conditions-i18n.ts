@@ -1252,11 +1252,11 @@ const CONDITION_TRANSLATIONS: Record<
   },
   "cervical-neck-traction": {
     es: {
-      shortTitle: "Cuello y Petla Glissona",
-      title: "Tracción Cervical Suave y Alivio del Cuello Tecnológico con Petla Glissona",
-      eyebrow: "Columna Cervical • Petla Glissona Incluida",
+      shortTitle: "Cuello y Lazo de Glisson",
+      title: "Tracción Cervical Suave y Alivio del Cuello Tecnológico con Lazo de Glisson",
+      eyebrow: "Columna Cervical • Lazo de Glisson Incluido",
       summary:
-        "Inclinar la cabeza 45° sobre una pantalla multiplica la carga cervical hasta 22 kg. Cada tabla Evminov incluye nuestra Petla Glissona acolchada para descarga cervical calibrada.",
+        "Inclinar la cabeza 45° sobre una pantalla multiplica la carga cervical hasta 22 kg. Cada tabla Evminov incluye nuestro Lazo de Glisson acolchado para descarga cervical calibrada.",
       recommendedAngle: "8° – 12° Ultra Suave",
       dailyDuration: "5–8 min diarios",
       targetZone: "Cervical C1–C7 y Trapecio",
@@ -1277,7 +1277,7 @@ const CONDITION_TRANSLATIONS: Record<
           phase: "Ajustar el Arnés",
           angle: "8° – 10°",
           action:
-            "Enganche la Petla Glissona acolchada al anclaje superior y acomode mentón y nuca cómodamente.",
+            "Enganche el Lazo de Glisson acolchado al anclaje superior y acomode mentón y nuca cómodamente.",
         },
         {
           phase: "Elongación Suave",
@@ -1287,10 +1287,10 @@ const CONDITION_TRANSLATIONS: Record<
         },
       ],
       safetyNote:
-        "Nunca exceda ángulos bajos (8°–12°) con la Petla Glissona y evite la tracción cervical ante inestabilidad, trauma reciente o mareos vasculares.",
+        "Nunca exceda ángulos bajos (8°–12°) con el Lazo de Glisson y evite la tracción cervical ante inestabilidad, trauma reciente o mareos vasculares.",
       faqs: [
         {
-          q: "¿La Petla Glissona viene incluida con cada tabla Evminov?",
+          q: "¿El Lazo de Glisson viene incluido con cada tabla Evminov?",
           a: "Sí, se incluye GRATIS con todos los modelos de tabla Evminov (Estándar, Plegable, Viaje, Ancha y Aliso).",
         },
       ],
@@ -1752,7 +1752,7 @@ const CONDITION_TRANSLATIONS: Record<
           phase: "Min 4–5",
           angle: "10°",
           action:
-            "Descompresión cervical suave con la Petla Glissona para rigidez por pantalla.",
+            "Descompresión cervical suave con el Lazo de Glisson para rigidez por pantalla.",
         },
         {
           phase: "Min 6–7",
