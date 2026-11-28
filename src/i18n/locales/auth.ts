@@ -75,6 +75,7 @@ export const AUTH_UI_COPY: Record<Locale, AuthUiCopy> = {
     totalLabel: "Total",
     statuses: {
       new: "New Reservation",
+      operator_review: "Operator Review",
       confirmed: "Confirmed",
       paid: "Paid",
       in_production: "Preparing Dispatch",
@@ -120,6 +121,7 @@ export const AUTH_UI_COPY: Record<Locale, AuthUiCopy> = {
     totalLabel: "Total",
     statuses: {
       new: "Nueva Reserva",
+      operator_review: "Revisión por Operador",
       confirmed: "Confirmado",
       paid: "Pagado",
       in_production: "Preparando Envío",
@@ -165,6 +167,7 @@ export const AUTH_UI_COPY: Record<Locale, AuthUiCopy> = {
     totalLabel: "Total",
     statuses: {
       new: "Nouvelle Réservation",
+      operator_review: "Traitement par Opérateur",
       confirmed: "Confirmée",
       paid: "Payée",
       in_production: "Préparation",
@@ -210,6 +213,7 @@ export const AUTH_UI_COPY: Record<Locale, AuthUiCopy> = {
     totalLabel: "Сума",
     statuses: {
       new: "Нове замовлення",
+      operator_review: "Обробка оператором",
       confirmed: "Підтверджено",
       paid: "Оплачено",
       in_production: "Готується до відправки",
@@ -255,6 +259,7 @@ export const AUTH_UI_COPY: Record<Locale, AuthUiCopy> = {
     totalLabel: "Сумма",
     statuses: {
       new: "Новый заказ",
+      operator_review: "Обработка оператором",
       confirmed: "Подтверждён",
       paid: "Оплачен",
       in_production: "Готовится к отправке",

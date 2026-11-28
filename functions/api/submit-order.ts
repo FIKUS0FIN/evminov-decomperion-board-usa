@@ -156,8 +156,8 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
         mode === "protocol_lead"
           ? `📐 New Evminov Calculator Lead (${orderRef})`
           : mode === "warranty_registration"
-          ? `🛡️ New 10-Year Warranty Registration (${orderRef})`
-          : `🌲 New Evminov Board Reservation (${orderRef})`,
+            ? `🛡️ New 10-Year Warranty Registration (${orderRef})`
+            : `🌲 New Evminov Board Reservation (${orderRef})`,
         `Product: ${productName} (${finish})`,
         `Shipping: ${shipping}${includeStand ? " + Free-Standing Stand" : ""}`,
         totalUsd > 0 ? `Est. Total: $${totalUsd} USD` : "",
@@ -216,8 +216,8 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
         mode === "protocol_lead"
           ? `Your Evminov Custom Spine Angle Plan (${orderRef})`
           : mode === "warranty_registration"
-          ? `Evminov 10-Year Structural Warranty Registered (${orderRef})`
-          : `Evminov Reservation Confirmed — ${orderRef}`;
+            ? `Evminov 10-Year Structural Warranty Registered (${orderRef})`
+            : `Evminov Reservation Confirmed — ${orderRef}`;
 
       const detailsRowsHtml = `
         <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:13px;">
@@ -267,6 +267,8 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
         </div>
       `;
 
+      const threadId = `<order-${orderRef.toLowerCase()}@evminovusa.com>`;
+
       tasks.push(
         fetch("https://api.resend.com/emails", {
           method: "POST",
@@ -277,8 +279,12 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
           body: JSON.stringify({
             from: "Evminov Spine Systems <orders@evminovusa.com>",
             to: [email],
-            reply_to: "support@evminovusa.com",
+            cc: ["orders@evminovusa.com"],
+            reply_to: "orders@evminovusa.com",
             subject: subjectBase,
+            headers: {
+              References: threadId,
+            },
             html: customerHtml,
           }),
         })

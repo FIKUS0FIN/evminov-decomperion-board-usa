@@ -3,6 +3,7 @@ import { escapeHtml } from "../submit-order";
 
 const VALID_STATUSES = new Set([
   "new",
+  "operator_review",
   "confirmed",
   "paid",
   "in_production",
@@ -13,6 +14,7 @@ const VALID_STATUSES = new Set([
 
 const STATUS_LABELS: Record<string, string> = {
   new: "New Reservation",
+  operator_review: "Order Under Operator Review",
   confirmed: "Confirmed by Glendale Hub",
   paid: "Payment Received",
   in_production: "In Workshop / Preparing Dispatch",
@@ -100,6 +102,7 @@ export const onRequestPatch: PagesFunction<AuthEnv> = async ({ request, env }) =
     const status = String(body.status || "").trim();
     const trackingNumber = String(body.tracking_number ?? "").trim().slice(0, 120);
     const adminNotes = String(body.admin_notes ?? "").trim().slice(0, 1000);
+    const customerMessage = String(body.customer_message ?? "").trim().slice(0, 2000);
     const notifyCustomer = Boolean(body.notifyCustomer);
 
     if (!orderId) {
@@ -134,10 +137,20 @@ export const onRequestPatch: PagesFunction<AuthEnv> = async ({ request, env }) =
     const customerEmail = String(existing.customer_email || "");
     if (notifyCustomer && env.RESEND_API_KEY && customerEmail) {
       const orderRef = String(existing.order_ref || "");
+      const mode = String(existing.mode || "order_reservation");
       const customerName = escapeHtml(String(existing.customer_name || "Valued Customer"));
       const productName = escapeHtml(String(existing.product_name || "Evminov Board"));
       const statusLabel = escapeHtml(STATUS_LABELS[nextStatus] || nextStatus);
       const safeTracking = escapeHtml(trackingNumber);
+      const safeCustomerMessage = escapeHtml(customerMessage).replace(/\n/g, "<br/>");
+
+      const originalSubject =
+        mode === "protocol_lead"
+          ? `Your Evminov Custom Spine Angle Plan (${orderRef})`
+          : mode === "warranty_registration"
+          ? `Evminov 10-Year Structural Warranty Registered (${orderRef})`
+          : `Evminov Reservation Confirmed — ${orderRef}`;
+      const threadId = `<order-${orderRef.toLowerCase()}@evminovusa.com>`;
 
       const htmlBody = `
         <div style="font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:600px;margin:0 auto;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;">
@@ -153,7 +166,15 @@ export const onRequestPatch: PagesFunction<AuthEnv> = async ({ request, env }) =
               <div style="font-size:18px;font-weight:800;color:#0f172a;margin-top:4px;">${statusLabel}</div>
               ${safeTracking ? `<div style="margin-top:8px;font-size:13px;color:#334155;"><strong>Tracking Number:</strong> ${safeTracking}</div>` : ""}
             </div>
-            <p>You can view your full order details and recovery guides anytime in your <a href="https://evminovusa.com/portal/" style="color:#0f766e;font-weight:bold;">Patient Portal</a>.</p>
+            ${
+              safeCustomerMessage
+                ? `<div style="background:#f8fafc;border-left:4px solid #0f766e;border-radius:6px;padding:14px 16px;margin:16px 0;">
+                    <div style="font-size:12px;text-transform:uppercase;color:#0f766e;font-weight:700;margin-bottom:6px;">Message from Evminov Operations Team</div>
+                    <div style="font-size:14px;color:#0f172a;line-height:1.6;">${safeCustomerMessage}</div>
+                  </div>`
+                : ""
+            }
+            <p>You can view your full order details and recovery guides anytime in your <a href="https://evminovusa.com/portal/" style="color:#0f766e;font-weight:bold;">Patient Portal</a>, or simply reply to this email.</p>
             <p style="font-size:12px;color:#64748b;">Glendale Operations Hub: 4525 San Fernando Rd, Unit H, Glendale, CA 91204 • +1 (747) 306-0140 • support@evminovusa.com</p>
           </div>
         </div>
@@ -168,7 +189,13 @@ export const onRequestPatch: PagesFunction<AuthEnv> = async ({ request, env }) =
         body: JSON.stringify({
           from: "Evminov Spine Systems <orders@evminovusa.com>",
           to: [customerEmail],
-          subject: `Order ${orderRef} Update: ${STATUS_LABELS[nextStatus] || nextStatus}`,
+          cc: ["orders@evminovusa.com"],
+          reply_to: "orders@evminovusa.com",
+          subject: `Re: ${originalSubject}`,
+          headers: {
+            "In-Reply-To": threadId,
+            References: threadId,
+          },
           html: htmlBody,
         }),
       });

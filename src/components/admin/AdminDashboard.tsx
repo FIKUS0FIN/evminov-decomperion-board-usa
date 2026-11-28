@@ -41,6 +41,11 @@ interface StatusSummary {
 
 const ORDER_STATUSES = [
   { value: "new", label: "Нове (New)", badge: "bg-sky-100 text-sky-900" },
+  {
+    value: "operator_review",
+    label: "Обробка нового замовлення оператором (Operator Review)",
+    badge: "bg-cyan-100 text-cyan-900",
+  },
   { value: "confirmed", label: "Підтверджено (Confirmed)", badge: "bg-indigo-100 text-indigo-900" },
   { value: "paid", label: "Оплачено (Paid)", badge: "bg-emerald-100 text-emerald-900" },
   { value: "in_production", label: "Готується (In Production)", badge: "bg-amber-100 text-amber-900" },
@@ -93,6 +98,7 @@ export function AdminDashboard() {
   const [editStatus, setEditStatus] = useState("new");
   const [editTracking, setEditTracking] = useState("");
   const [editNotes, setEditNotes] = useState("");
+  const [editCustomerMessage, setEditCustomerMessage] = useState("");
   const [notifyCustomer, setNotifyCustomer] = useState(true);
   const [savingOrder, setSavingOrder] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
@@ -160,6 +166,7 @@ export function AdminDashboard() {
     setEditStatus(ord.status || "new");
     setEditTracking(ord.tracking_number || "");
     setEditNotes(ord.admin_notes || "");
+    setEditCustomerMessage("");
     setNotifyCustomer(true);
     setToast(null);
   };
@@ -179,6 +186,7 @@ export function AdminDashboard() {
           status: editStatus,
           tracking_number: editTracking,
           admin_notes: editNotes,
+          customer_message: editCustomerMessage,
           notifyCustomer,
         }),
       });
@@ -194,9 +202,12 @@ export function AdminDashboard() {
       if (data.order) {
         setSelectedOrder(data.order);
       }
+      if (data.emailSent) {
+        setEditCustomerMessage("");
+      }
       setToast(
         data.emailSent
-          ? "Статус оновлено і клієнту надіслано email!"
+          ? "Статус оновлено і лист відправлено в тред замовлення!"
           : "Статус замовлення успішно оновлено."
       );
       void loadOrders();
@@ -337,11 +348,10 @@ export function AdminDashboard() {
             <button
               type="button"
               onClick={() => setTab("orders")}
-              className={`inline-flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-extrabold transition ${
-                tab === "orders"
+              className={`inline-flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-extrabold transition ${tab === "orders"
                   ? "bg-slate-950 text-white"
                   : "text-slate-600 hover:text-slate-950"
-              }`}
+                }`}
             >
               <Package className="h-4 w-4" />
               <span>Замовлення ({orders.length})</span>
@@ -349,11 +359,10 @@ export function AdminDashboard() {
             <button
               type="button"
               onClick={() => setTab("users")}
-              className={`inline-flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-extrabold transition ${
-                tab === "users"
+              className={`inline-flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-extrabold transition ${tab === "users"
                   ? "bg-slate-950 text-white"
                   : "text-slate-600 hover:text-slate-950"
-              }`}
+                }`}
             >
               <Users className="h-4 w-4" />
               <span>Користувачі ({users.length})</span>
@@ -426,9 +435,8 @@ export function AdminDashboard() {
                           <tr
                             key={ord.id}
                             onClick={() => openOrderEditor(ord)}
-                            className={`cursor-pointer transition hover:bg-slate-50 ${
-                              active ? "bg-teal-50/60" : ""
-                            }`}
+                            className={`cursor-pointer transition hover:bg-slate-50 ${active ? "bg-teal-50/60" : ""
+                              }`}
                           >
                             <td className="p-3.5">
                               <div className="font-mono font-extrabold text-slate-950">
@@ -581,6 +589,19 @@ export function AdminDashboard() {
                     </div>
 
                     <div>
+                      <label className="block text-xs font-bold text-teal-800">
+                        Повідомлення / нотатка клієнту (додається в email у тред замовлення)
+                      </label>
+                      <textarea
+                        rows={3}
+                        value={editCustomerMessage}
+                        onChange={(e) => setEditCustomerMessage(e.target.value)}
+                        placeholder="Наприклад: Дякуємо за замовлення! Уточніть, будь ласка, повну адресу доставки та номер телефону..."
+                        className="mt-1 w-full rounded-xl border border-teal-300 bg-teal-50/30 px-3 py-2 text-xs text-slate-900 focus:border-teal-600 focus:outline-none"
+                      />
+                    </div>
+
+                    <div>
                       <label className="block text-xs font-bold text-slate-700">
                         Внутрішні нотатки адміна (клієнт не бачить)
                       </label>
@@ -700,11 +721,10 @@ export function AdminDashboard() {
                         </td>
                         <td className="p-3.5">
                           <span
-                            className={`rounded-full px-2.5 py-0.5 text-[11px] font-extrabold ${
-                              u.role === "admin"
+                            className={`rounded-full px-2.5 py-0.5 text-[11px] font-extrabold ${u.role === "admin"
                                 ? "bg-amber-100 text-amber-900"
                                 : "bg-slate-100 text-slate-700"
-                            }`}
+                              }`}
                           >
                             {u.role}
                           </span>
