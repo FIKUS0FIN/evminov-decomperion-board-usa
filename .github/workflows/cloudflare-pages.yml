@@ -61,7 +61,7 @@ jobs:
       - name: Build static Next.js 16 export & WebP optimization (CA — evminovcanada.com)
         env:
           NEXT_PUBLIC_SITE_REGION: CA
-          NEXT_PUBLIC_GTM_ID: ${{ secrets.NEXT_PUBLIC_GTM_ID_CA || 'GTM-M5SDBJ8Q' }}
+          NEXT_PUBLIC_GTM_ID: ${{ secrets.NEXT_PUBLIC_GTM_ID_CA || 'GTM-MLRGFNCV' }}
           NEXT_PUBLIC_CLARITY_ID: ${{ secrets.NEXT_PUBLIC_CLARITY_ID }}
           NEXT_PUBLIC_CF_ANALYTICS_TOKEN: ${{ secrets.NEXT_PUBLIC_CF_ANALYTICS_TOKEN }}
           NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ secrets.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }}
