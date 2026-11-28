@@ -13,6 +13,7 @@ import {
   Plus,
   RefreshCw,
   Search,
+  Send,
   ShieldAlert,
   ShieldCheck,
   Truck,
@@ -136,6 +137,8 @@ export function AdminDashboard() {
   const [editTotalUsd, setEditTotalUsd] = useState("0");
   const [notifyCustomer, setNotifyCustomer] = useState(true);
   const [savingOrder, setSavingOrder] = useState(false);
+  const [quickReplyText, setQuickReplyText] = useState("");
+  const [sendingQuickReply, setSendingQuickReply] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
 
   // Manual phone/WhatsApp order modal
@@ -218,6 +221,7 @@ export function AdminDashboard() {
     setEditTracking(ord.tracking_number || "");
     setEditNotes(ord.admin_notes || "");
     setEditCustomerMessage("");
+    setQuickReplyText("");
     setEditCustomerName(ord.customer_name || "");
     setEditCustomerPhone(ord.customer_phone || "");
     setEditStateOrCountry(ord.state_or_country || "");
@@ -276,6 +280,51 @@ export function AdminDashboard() {
       setToast(err instanceof Error ? err.message : "Помилка збереження");
     } finally {
       setSavingOrder(false);
+    }
+  };
+
+  const handleQuickReply = async () => {
+    const msg = quickReplyText.trim();
+    if (!selectedOrder || !msg) return;
+    setSendingQuickReply(true);
+    setToast(null);
+    try {
+      const res = await fetch("/api/admin/orders", {
+        method: "PATCH",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id: selectedOrder.id,
+          status: selectedOrder.status,
+          tracking_number: editTracking,
+          admin_notes: editNotes,
+          customer_message: msg,
+          notifyCustomer: true,
+        }),
+      });
+      const data = (await res.json()) as {
+        ok?: boolean;
+        order?: OrderRecord;
+        emailSent?: boolean;
+        error?: string;
+      };
+      if (!res.ok || !data.ok) {
+        throw new Error(data.error || "Не вдалося надіслати відповідь");
+      }
+      if (data.order) {
+        setSelectedOrder(data.order);
+      }
+      setQuickReplyText("");
+      setToast(
+        data.emailSent
+          ? "Відповідь надіслано клієнту в Портал та Gmail-тред!"
+          : "Відповідь збережено в історії замовлення."
+      );
+      void loadOrders();
+    } catch (err) {
+      setToast(err instanceof Error ? err.message : "Помилка відправки");
+    } finally {
+      setSendingQuickReply(false);
     }
   };
 
@@ -872,13 +921,19 @@ export function AdminDashboard() {
                     </button>
                   </div>
 
-                  {/* Full Order Event & Message History */}
-                  {(selectedOrder.events || []).length > 0 && (
-                    <div className="border-t border-slate-200 pt-4">
-                      <h3 className="flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-slate-500">
-                        <MessageSquare className="h-3.5 w-3.5 text-teal-700" />
-                        <span>Історія подій та переписки ({selectedOrder.events?.length})</span>
-                      </h3>
+                  {/* Full Order Event & Message History + Inline Quick Reply */}
+                  <div className="border-t border-slate-200 pt-4">
+                    <h3 className="flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-slate-500">
+                      <MessageSquare className="h-3.5 w-3.5 text-teal-700" />
+                      <span>
+                        Історія подій та переписки ({(selectedOrder.events || []).length})
+                      </span>
+                    </h3>
+                    {(selectedOrder.events || []).length === 0 ? (
+                      <p className="mt-2 text-[11px] text-slate-400">
+                        Повідомлень поки немає — напишіть клієнту нижче.
+                      </p>
+                    ) : (
                       <div className="mt-2.5 max-h-56 space-y-2 overflow-y-auto pr-1">
                         {(selectedOrder.events || []).map((ev) => (
                           <div
@@ -899,8 +954,34 @@ export function AdminDashboard() {
                           </div>
                         ))}
                       </div>
+                    )}
+
+                    {/* Inline Reply to Customer */}
+                    <div className="mt-3 flex gap-2">
+                      <input
+                        type="text"
+                        value={quickReplyText}
+                        onChange={(e) => setQuickReplyText(e.target.value)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" && !e.shiftKey) {
+                            e.preventDefault();
+                            void handleQuickReply();
+                          }
+                        }}
+                        placeholder="Відповісти клієнту (у Портал + Gmail-тред)..."
+                        className="flex-1 rounded-xl border border-teal-300 bg-white px-3 py-2 text-xs text-slate-900 focus:border-teal-600 focus:outline-none"
+                      />
+                      <button
+                        type="button"
+                        disabled={sendingQuickReply || !quickReplyText.trim()}
+                        onClick={() => void handleQuickReply()}
+                        className="inline-flex shrink-0 items-center gap-1.5 rounded-xl bg-teal-700 px-3.5 py-2 text-xs font-extrabold text-white transition hover:bg-teal-800 disabled:opacity-50"
+                      >
+                        <Send className="h-3.5 w-3.5" />
+                        <span>{sendingQuickReply ? "..." : "Відповісти"}</span>
+                      </button>
                     </div>
-                  )}
+                  </div>
                 </form>
               </div>
             )}
