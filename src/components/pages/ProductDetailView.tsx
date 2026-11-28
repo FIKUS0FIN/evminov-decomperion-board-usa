@@ -5,7 +5,12 @@ import Link from "next/link";
 import { ArrowRight, Check, ShieldCheck, Truck } from "lucide-react";
 import { Locale } from "@/i18n/types";
 import { getDictionary } from "@/i18n/dictionaries";
-import { OFFICIAL_ACCESSORIES, ProductItem, PRODUCTS } from "@/data/products";
+import {
+  getProductPrice,
+  OFFICIAL_ACCESSORIES,
+  ProductItem,
+  PRODUCTS,
+} from "@/data/products";
 import {
   calculateHsaPrice,
   formatKlarnaBiWeekly,
@@ -39,10 +44,12 @@ export function ProductDetailView({
   const [boardWidth, setBoardWidth] = useState<"standard" | "wide">("standard");
   const [shipping, setShipping] = useState<"express" | "direct">("express");
 
-  const widthExtra = boardWidth === "wide" ? product.wideSurchargeUsd : 0;
-  const activePrice =
-    (shipping === "express" ? product.expressPriceUsd : product.directPriceUsd) +
-    widthExtra;
+  const activePrice = getProductPrice(product, boardWidth, shipping);
+  const wideDelta = Math.max(
+    0,
+    getProductPrice(product, "wide", shipping) -
+      getProductPrice(product, "standard", shipping)
+  );
   const shownPrice = applyHsaSavings ? calculateHsaPrice(activePrice) : activePrice;
 
   const related = PRODUCTS.filter((p) => p.slug !== product.slug).slice(0, 3);
@@ -144,7 +151,7 @@ export function ProductDetailView({
                 >
                   <span className="block">{ui.usExpressLabel}</span>
                   <span className="mt-0.5 block text-sm font-black text-teal-800">
-                    {formatUSD(product.expressPriceUsd)}
+                    {formatUSD(getProductPrice(product, boardWidth, "express"))}
                   </span>
                 </button>
                 <button
@@ -158,7 +165,7 @@ export function ProductDetailView({
                 >
                   <span className="block">{ui.directPriceLabel}</span>
                   <span className="mt-0.5 block text-sm font-black text-slate-900">
-                    {formatUSD(product.directPriceUsd)}
+                    {formatUSD(getProductPrice(product, boardWidth, "direct"))}
                   </span>
                 </button>
               </div>
@@ -194,7 +201,7 @@ export function ProductDetailView({
                   }`}
                 >
                   <span className="block">
-                    30 cm Wide (+{formatUSD(product.wideSurchargeUsd)})
+                    30 cm Wide (+{formatUSD(wideDelta)})
                   </span>
                   <span className="mt-0.5 block text-[11px] font-normal opacity-80">
                     &gt; 100 kg (up to 330 lbs)
@@ -318,7 +325,7 @@ export function ProductDetailView({
             {accCopy.title}
           </h2>
           <p className="mt-1 text-sm text-slate-600">{accCopy.shippingBanner}</p>
-          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {OFFICIAL_ACCESSORIES.map((acc) => (
               <div
                 key={acc.id}

@@ -91,9 +91,10 @@ https://evminovusa.com/products/2-piece-folding-board/
 Every board includes the Glisson Cervical Loop, wall mounting hardware, illustrated manual, official product passport, and a 1-Year Warranty.
 
 Optional official accessories:
-• 4-Piece Demountable Ladder Stand (max height 123 cm, fits 26 cm & 30 cm boards)
-• Mounting Hooks for Ladder Stand or Swedish Wall
-• 2-Bag Protective Carry Case Set (for 3-Piece Board) or Single Carry Bag (for 2-Piece Board)
+• 4-Piece Demountable Ladder Stand (max height 123 cm, fits 26 cm & 30 cm boards) — $275
+• Mounting Hooks for Ladder Stand or Swedish Wall — $35
+• 2-Bag Protective Carry Case Set (3-Piece Board) — $105 / Single Carry Bag (2-Piece Board) — $105
+• 2-Piece Wall Protection Panel: Standard 26 cm ($155) or Reinforced Wide 30 cm ($175)
 
 For the fastest confirmation of all shipping, customs, and payment details, please message our operator directly on WhatsApp:
 https://wa.me/17473060140 (+1 747 306-0140)

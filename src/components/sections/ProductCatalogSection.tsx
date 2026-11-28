@@ -224,6 +224,22 @@ export function ProductCard({
               <span>{ui.usExpressLabel}</span>
               <strong className="text-teal-800">{formatUSD(expressShown)}</strong>
             </div>
+            <div className="mt-1.5 flex items-center justify-between border-t border-slate-200/70 pt-1.5 text-[11px] text-slate-600">
+              <span>30 cm Wide (&gt;100 kg):</span>
+              <strong className="text-slate-900">
+                {formatUSD(
+                  applyHsaSavings
+                    ? calculateHsaPrice(product.wideDirectPriceUsd)
+                    : product.wideDirectPriceUsd
+                )}{" "}
+                /{" "}
+                {formatUSD(
+                  applyHsaSavings
+                    ? calculateHsaPrice(product.wideExpressPriceUsd)
+                    : product.wideExpressPriceUsd
+                )}
+              </strong>
+            </div>
             <p className="mt-1.5 text-[11px] text-slate-500">
               {ui.klarnaLabel} {formatKlarnaBiWeekly(product.directPriceUsd)} {cc.klarnaAprSuffix}
             </p>
@@ -323,7 +339,7 @@ export function ProductCatalogSection({ lang }: { lang: Locale }) {
         <span>{acc.shippingBanner}</span>
       </div>
 
-      {/* Official US & Canada Accessories Lineup (4 Items) */}
+      {/* Official US & Canada Accessories Lineup (6 Items) */}
       <div className="mt-14">
         <div className="max-w-3xl">
           <span className="text-xs font-extrabold uppercase tracking-wider text-teal-700">
@@ -335,7 +351,7 @@ export function ProductCatalogSection({ lang }: { lang: Locale }) {
           <p className="mt-2 text-sm text-slate-600">{acc.subtitle}</p>
         </div>
 
-        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {OFFICIAL_ACCESSORIES.map((item) => {
             const targetProduct =
               item.compatibleWith === "2-piece-folding-board"

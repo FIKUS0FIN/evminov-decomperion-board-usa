@@ -31,7 +31,7 @@ import {
   recommendIncline,
 } from "@/lib/physics";
 import { buildPrefilledOrderUrl, getCanonicalUrl } from "@/lib/url";
-import { PRODUCTS } from "@/data/products";
+import { getProductPrice, PRODUCTS } from "@/data/products";
 import { useHsaSavings } from "@/context/HsaSavingsContext";
 import { getAttributionSummary, sendGTMEvent } from "@/lib/gtm";
 
@@ -98,9 +98,7 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
     PRODUCTS.find((p) => p.slug === boardRec.slug) || PRODUCTS[0];
   const localizedProduct = getLocalizedProduct(matchedProduct, lang);
 
-  const baseDirect =
-    matchedProduct.directPriceUsd +
-    (boardRec.width === "wide" ? matchedProduct.wideSurchargeUsd : 0);
+  const baseDirect = getProductPrice(matchedProduct, boardRec.width, "direct");
   const shownDirect = applyHsaSavings ? calculateHsaPrice(baseDirect) : baseDirect;
 
   const isInSafeWindow =

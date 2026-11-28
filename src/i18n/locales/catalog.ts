@@ -2120,8 +2120,8 @@ export interface AccessoriesSectionCopy {
 
 export const ACCESSORIES_SECTION_COPY: Record<Locale, AccessoriesSectionCopy> = {
   en: {
-    eyebrow: "Official US & Canada Accessories",
-    title: "Stands, Mounting Hooks & Protective Carry Cases",
+    eyebrow: "Official US & Canada Accessories (6 Items)",
+    title: "Stands, Mounting Hooks, Carry Cases & Wall Protection Panels",
     subtitle:
       "Complete your 3-Piece (230–245 cm) or 2-Piece Evminov Board setup with authentic factory accessories — engineered for both Standard 26 cm and Reinforced Wide 30 cm decks.",
     shippingBanner:
@@ -2129,11 +2129,11 @@ export const ACCESSORIES_SECTION_COPY: Record<Locale, AccessoriesSectionCopy> = 
     addToOrder: "Add to Order",
     wizardHeading: "Official Accessories & Add-Ons (Optional)",
     wizardHint:
-      "Select any accessories to ship together with your board (4-Piece Ladder Stand max 123 cm, Mounting Hooks, or fitted Carry Cases).",
+      "Select any accessories to ship together with your board (4-Piece Ladder Stand max 123 cm, Mounting Hooks, Carry Cases, or 2-Piece Wall Protection Panels).",
   },
   es: {
-    eyebrow: "Accesorios Oficiales EE. UU. y Canadá",
-    title: "Soportes, Ganchos de Montaje y Fundas Protectoras",
+    eyebrow: "Accesorios Oficiales EE. UU. y Canadá (6 Artículos)",
+    title: "Soportes, Ganchos, Fundas y Paneles Protectores de Pared",
     subtitle:
       "Completa tu tabla Evminov de 3 piezas (230–245 cm) o 2 piezas con accesorios originales de fábrica — compatibles con ancho Estándar 26 cm y Reforzado 30 cm.",
     shippingBanner:
@@ -2141,11 +2141,11 @@ export const ACCESSORIES_SECTION_COPY: Record<Locale, AccessoriesSectionCopy> = 
     addToOrder: "Añadir al Pedido",
     wizardHeading: "Accesorios Oficiales Opcionales",
     wizardHint:
-      "Selecciona los accesorios que deseas incluir (Soporte-Escalera de 4 piezas máx. 123 cm, Ganchos o Fundas de transporte).",
+      "Selecciona los accesorios que deseas incluir (Soporte-Escalera 4 piezas, Ganchos, Fundas o Paneles Protectores de Pared en 2 piezas).",
   },
   fr: {
-    eyebrow: "Accessoires Officiels USA & Canada",
-    title: "Support-Échelle, Crochets & Housses de Transport",
+    eyebrow: "Accessoires Officiels USA & Canada (6 Articles)",
+    title: "Support-Échelle, Crochets, Housses & Panneaux de Protection Murale",
     subtitle:
       "Complétez votre planche Evminov 3 pièces (230–245 cm) ou 2 pièces avec nos accessoires d'origine — compatibles Standard 26 cm et Large Renforcé 30 cm.",
     shippingBanner:
@@ -2153,11 +2153,11 @@ export const ACCESSORIES_SECTION_COPY: Record<Locale, AccessoriesSectionCopy> = 
     addToOrder: "Ajouter à la Commande",
     wizardHeading: "Accessoires Officiels Optionnels",
     wizardHint:
-      "Sélectionnez vos accessoires (Support-Échelle 4 pièces max 123 cm, Crochets pour support/espalier ou Housses sur mesure).",
+      "Sélectionnez vos accessoires (Support-Échelle 4 pièces, Crochets, Housses ou Panneaux Muraux de Protection 2 pièces).",
   },
   de: {
-    eyebrow: "Offizielles Zubehör für USA & Kanada",
-    title: "Leiterständer, Befestigungshaken & Tragetaschen",
+    eyebrow: "Offizielles Zubehör für USA & Kanada (6 Artikel)",
+    title: "Leiterständer, Haken, Tragetaschen & Wandschutzplatten",
     subtitle:
       "Ergänzen Sie Ihr 3-teiliges (230–245 cm) oder 2-teiliges Evminov Board mit Original-Zubehör — passend für Standard 26 cm und Verstärkt 30 cm.",
     shippingBanner:
@@ -2165,11 +2165,11 @@ export const ACCESSORIES_SECTION_COPY: Record<Locale, AccessoriesSectionCopy> = 
     addToOrder: "Zur Bestellung hinzufügen",
     wizardHeading: "Offizielles Zubehör (Optional)",
     wizardHint:
-      "Wählen Sie gewünschtes Zubehör (4-teiliger Leiterständer max. 123 cm, Befestigungshaken oder Tragetaschen).",
+      "Wählen Sie gewünschtes Zubehör (4-teiliger Leiterständer, Haken, Tragetaschen oder 2-teilige Wandschutzplatten).",
   },
   uk: {
-    eyebrow: "Офіційні Аксесуари (США та Канада)",
-    title: "Стійка-Драбинка, Гачки та Фірмові Чохли",
+    eyebrow: "Офіційні Аксесуари (США та Канада • 6 Позицій)",
+    title: "Стійка-Драбинка, Гачки, Чохли та Захисні Панелі на Стіну",
     subtitle:
       "Укомплектуйте ваш 3-секційний (230–245 см) або 2-секційний Профілактор Євмінова оригінальними аксесуарами від виробника — для стандартної (26 см) і посиленої (30 см) моделей.",
     shippingBanner:
@@ -2177,11 +2177,11 @@ export const ACCESSORIES_SECTION_COPY: Record<Locale, AccessoriesSectionCopy> = 
     addToOrder: "Додати до Замовлення",
     wizardHeading: "Офіційні аксесуари (опціонально)",
     wizardHint:
-      "Оберіть потрібні аксесуари: розбірна стійка-драбинка з 4 частин (макс. 123 см), гачки для кріплення або фірмові чохли.",
+      "Оберіть потрібні аксесуари: стійка-драбинка (4 частини, макс. 123 см), гачки, чохли або 2-секційна захисна панель на стіну.",
   },
   ru: {
-    eyebrow: "Официальные Аксессуары (США и Канада)",
-    title: "Стойка-Лесенка, Крючки и Фирменные Чехлы",
+    eyebrow: "Официальные Аксессуары (США и Канада • 6 Позиций)",
+    title: "Стойка-Лесенка, Крючки, Чехлы и Защитные Панели на Стену",
     subtitle:
       "Дополните ваш 3-секционный (230–245 см) или 2-секционный Профилактор Евминова оригинальными аксессуарами от производителя — для стандартной (26 см) и усиленной (30 см) моделей.",
     shippingBanner:
@@ -2189,7 +2189,7 @@ export const ACCESSORIES_SECTION_COPY: Record<Locale, AccessoriesSectionCopy> = 
     addToOrder: "Добавить к Заказу",
     wizardHeading: "Официальные аксессуары (опционально)",
     wizardHint:
-      "Отметьте нужные аксессуары: разборная стойка-лесенка из 4 частей (макс. 123 см), крючки для крепления или фирменные чехлы.",
+      "Отметьте нужные аксессуары: стойка-лесенка (4 части, макс. 123 см), крючки, чехлы или защитная панель на стену из 2 частей.",
   },
 };
 

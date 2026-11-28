@@ -1,5 +1,5 @@
 import { Locale } from "@/i18n/types";
-import { toRegionalPrice } from "@/lib/region-config";
+import { IS_CANADA } from "@/lib/region-config";
 
 export interface ProductGalleryImage {
   url: string;
@@ -19,6 +19,8 @@ export interface ProductItem {
   keyFeature: string;
   directPriceUsd: number;
   expressPriceUsd: number;
+  wideDirectPriceUsd: number;
+  wideExpressPriceUsd: number;
   wideSurchargeUsd: number;
   standIncluded: boolean;
   standOptional: boolean;
@@ -40,11 +42,28 @@ export interface ProductItem {
   faqs: Array<{ q: string; a: string }>;
 }
 
+export function getProductPrice(
+  product: ProductItem,
+  width: "standard" | "wide",
+  shipping: "direct" | "express"
+): number {
+  if (width === "wide") {
+    return shipping === "express"
+      ? product.wideExpressPriceUsd
+      : product.wideDirectPriceUsd;
+  }
+  return shipping === "express"
+    ? product.expressPriceUsd
+    : product.directPriceUsd;
+}
+
 export type OfficialAccessoryId =
   | "ladder-stand-4pc"
   | "mounting-hooks"
   | "carry-case-2bag-3pc"
-  | "carry-case-1bag-2pc";
+  | "carry-case-1bag-2pc"
+  | "wall-panel-standard-2pc"
+  | "wall-panel-wide-2pc";
 
 export interface OfficialAccessory {
   id: OfficialAccessoryId;
@@ -62,7 +81,7 @@ export const OFFICIAL_ACCESSORIES: OfficialAccessory[] = [
   {
     id: "ladder-stand-4pc",
     sku: "EV-STAND-4PC-123",
-    priceUsd: toRegionalPrice(275),
+    priceUsd: 275,
     image: "/images/authentic/evminov-board-profile.jpg",
     compatibleWith: "all",
     tag: {
@@ -101,7 +120,7 @@ export const OFFICIAL_ACCESSORIES: OfficialAccessory[] = [
   {
     id: "mounting-hooks",
     sku: "EV-HOOKS-LADDER",
-    priceUsd: toRegionalPrice(45),
+    priceUsd: 35,
     image: "/images/products/board-wall-mount-hardware.jpg",
     compatibleWith: "all",
     tag: {
@@ -140,7 +159,7 @@ export const OFFICIAL_ACCESSORIES: OfficialAccessory[] = [
   {
     id: "carry-case-2bag-3pc",
     sku: "EV-CASE-2BAG-3PC",
-    priceUsd: toRegionalPrice(75),
+    priceUsd: 105,
     image: "/images/products/board-natural-pine-finish.jpg",
     compatibleWith: "3-piece-travel-board",
     tag: {
@@ -179,7 +198,7 @@ export const OFFICIAL_ACCESSORIES: OfficialAccessory[] = [
   {
     id: "carry-case-1bag-2pc",
     sku: "EV-CASE-1BAG-2PC",
-    priceUsd: toRegionalPrice(55),
+    priceUsd: 105,
     image: "/images/products/board-natural-pine-finish.jpg",
     compatibleWith: "2-piece-folding-board",
     tag: {
@@ -215,6 +234,84 @@ export const OFFICIAL_ACCESSORIES: OfficialAccessory[] = [
       ru: "Отдельная защитная сумка-чехол с усиленными ручками, разработанная специально для 2-секционной модели «Зубная щётка для позвоночника».",
     },
   },
+  {
+    id: "wall-panel-standard-2pc",
+    sku: "EV-WALL-PANEL-26",
+    priceUsd: 155,
+    image: "/images/products/board-studio-woodgrain.jpg",
+    compatibleWith: "3-piece-travel-board",
+    tag: {
+      en: "2-Piece Panel • Standard 26 cm",
+      es: "Panel 2 Piezas • Estándar 26 cm",
+      fr: "Panneau 2 Pièces • Standard 26 cm",
+      de: "2-teilig • Standard 26 cm",
+      uk: "З 2 частин • Стандарт 26 см",
+      ru: "Из 2 частей • Стандарт 26 см",
+    },
+    name: {
+      en: "2-Piece Wall Protection Panel (Standard 26 cm Board)",
+      es: "Panel Protector de Pared en 2 Piezas (Tabla Estándar 26 cm)",
+      fr: "Panneau de Protection Mural 2 Pièces (Standard 26 cm)",
+      de: "2-teilige Wandschutzplatte (Standard 26 cm Board)",
+      uk: "Захисна панель на стіну з 2 частин (для стандартного 26 см)",
+      ru: "Защитная панель на стену из 2 частей (для стандартного 26 см)",
+    },
+    spec: {
+      en: "2-part wall shield that protects drywall & paint behind Standard 26 cm boards",
+      es: "Escudo mural de 2 piezas que protege pintura y drywall tras la tabla estándar 26 cm",
+      fr: "Protection murale 2 pièces contre les traces de chaussures/chaîne (modèle 26 cm)",
+      de: "2-teiliger Wandschutz für Tapete & Trockenbau hinter Standard 26 cm Boards",
+      uk: "Захищає стіну та шпалери в зоні контакту для стандартного Профілактора (26 см)",
+      ru: "Защищает стену и обои в зоне контакта для стандартного Профилактора (26 см)",
+    },
+    desc: {
+      en: "Two-piece wooden protective wall shield mounted behind your Standard 26 cm Evminov Board to keep drywall, wallpaper, and paint spotless during angle changes and daily workouts.",
+      es: "Panel protector de pared en 2 piezas que mantiene intactos tu pared, pintura o papel tapiz detrás del modelo Estándar de 26 cm.",
+      fr: "Panneau mural protecteur en 2 pièces qui préserve vos murs et cloisons derrière votre planche Evminov Standard 26 cm.",
+      de: "Zweiteilige Wandschutzplatte hinter dem Standard 26 cm Evminov Board — schützt Wandfarbe und Tapete zuverlässig im täglichen Training.",
+      uk: "Двосекційна захисна панель на стіну спеціально для стандартного Профілактора Євмінова (26 см) — зберігає шпалери й фарбу в ідеальному стані під час щоденних занять.",
+      ru: "Защитная панель на стену из двух частей для стандартного Профилактора Евминова (26 см) — бережёт обои и покраску стены при смене углов и ежедневных занятиях.",
+    },
+  },
+  {
+    id: "wall-panel-wide-2pc",
+    sku: "EV-WALL-PANEL-30",
+    priceUsd: 175,
+    image: "/images/products/board-studio-woodgrain.jpg",
+    compatibleWith: "3-piece-travel-board",
+    tag: {
+      en: "2-Piece Panel • Wide 30 cm",
+      es: "Panel 2 Piezas • Ancha 30 cm",
+      fr: "Panneau 2 Pièces • Large 30 cm",
+      de: "2-teilig • Breit 30 cm",
+      uk: "З 2 частин • Широка 30 см",
+      ru: "Из 2 частей • Широкая 30 см",
+    },
+    name: {
+      en: "2-Piece Wall Protection Panel (Reinforced Wide 30 cm Board)",
+      es: "Panel Protector de Pared en 2 Piezas (Tabla Reforzada 30 cm)",
+      fr: "Panneau de Protection Mural 2 Pièces (Large Renforcé 30 cm)",
+      de: "2-teilige Wandschutzplatte (Verstärktes 30 cm Board)",
+      uk: "Захисна панель на стіну з 2 частин (для широкого 30 см)",
+      ru: "Защитная панель на стену из 2 частей (для широкого 30 см)",
+    },
+    spec: {
+      en: "Extra-wide 2-part wall shield tailored for Reinforced Wide 30 cm Evminov Boards",
+      es: "Escudo mural extra ancho en 2 piezas para el modelo Reforzado de 30 cm",
+      fr: "Protection murale extra-large en 2 pièces pour planche Large Renforcée 30 cm",
+      de: "Extra breiter 2-teiliger Wandschutz für verstärkte 30 cm Evminov Boards",
+      uk: "Посилена широка 2-секційна панель на стіну для Профілактора шириною 30 см",
+      ru: "Широкая защитная панель на стену из 2 частей для усиленного Профилактора 30 см",
+    },
+    desc: {
+      en: "Two-piece wide protective wall shield sized specifically for Reinforced Wide 30 cm Evminov Boards — protects drywall and paint from scuffs and cable contact.",
+      es: "Panel protector de pared extra ancho en 2 piezas diseñado a medida para el modelo Reforzado de 30 cm.",
+      fr: "Panneau mural protecteur extra-large en 2 pièces spécialement dimensionné pour les modèles Renforcés 30 cm.",
+      de: "Zweiteilige extra breite Wandschutzplatte speziell für das verstärkte 30 cm Evminov Board — schützt zuverlässig vor Abrieb.",
+      uk: "Захисна панель на стіну з двох частин, розроблена спеціально під ширину посиленого Профілактора Євмінова (30 см) — захищає стіну від потертостей.",
+      ru: "Защитная панель на стену из двух частей для широкого усиленного Профилактора Евминова (30 см) — надёжно защищает стену от следов и потёртостей.",
+    },
+  },
 ];
 
 export const PRODUCTS: ProductItem[] = [
@@ -238,26 +335,30 @@ export const PRODUCTS: ProductItem[] = [
       "Full-length 230–245 cm (90.5\"–96.5\") Evminov Board engineered exclusively in 3 demountable sections for US & Canada international courier delivery (~2 weeks). Choose Standard 26 cm (up to 100 kg / 220 lbs) or Reinforced Wide 30 cm (>100 kg / up to 330 lbs) in Light or Dark wood finish.",
     keyFeature:
       "3 demountable sections (230–245 cm total) with precision steel couplers. Available in Standard 26 cm or Reinforced Wide 30 cm (>100 kg), Light or Dark finish. 1-Year Warranty.",
-    directPriceUsd: toRegionalPrice(495),
-    expressPriceUsd: toRegionalPrice(635),
-    wideSurchargeUsd: toRegionalPrice(25),
+    directPriceUsd: IS_CANADA ? 445 : 495,
+    expressPriceUsd: IS_CANADA ? 545 : 635,
+    wideDirectPriceUsd: IS_CANADA ? 500 : 520,
+    wideExpressPriceUsd: IS_CANADA ? 585 : 660,
+    wideSurchargeUsd: IS_CANADA ? 55 : 25,
     standIncluded: false,
     standOptional: true,
-    standAddUsd: toRegionalPrice(275),
+    standAddUsd: 275,
     weightLimitLbs: 220,
     wideWeightLimitLbs: 330,
     heightLimitLabel: "Board 230–245 cm (Users up to 6'4\" / Wide 6'9\")",
     boardWeightLabel: "Width: 26 cm Standard / 30 cm Reinforced",
     material: "Resonant Light (Natural Warm Amber Alder) or Dark (Dark Walnut Pine) with dual steel couplers",
     construction: "3-Piece Demountable Panel (230–245 cm) • 26 cm or 30 cm Width",
-    mobility: "International Courier Ready (~2 weeks US & Canada) • Optional 2-Bag Case & 4-Pc Stand",
+    mobility: "International Courier Ready (~2 weeks US & Canada) • 6 Official Accessories",
     inclineRange: "8° to 90°",
     foldedDepth: "3 demountable sections (under 120 cm packed for international parcel transit)",
     includes: [
-      "Width choice: Standard 26 cm (up to 100 kg / 220 lbs) or Reinforced Wide 30 cm (+$25, for >100 kg / up to 330 lbs)",
+      IS_CANADA
+        ? "Width choice: Standard 26 cm ($445 Direct / $545 Express) or Reinforced Wide 30 cm ($500 Direct / $585 Express, for >100 kg)"
+        : "Width choice: Standard 26 cm (up to 100 kg / 220 lbs) or Reinforced Wide 30 cm (+$25, for >100 kg / up to 330 lbs)",
       "Finish choice: Light (Natural Warm Amber Alder) or Dark (Dark Walnut Pine)",
       "Patented Glisson Cervical Loop, wall mounting hardware, illustrated manual & official product passport",
-      "Compatible with 4-Piece Ladder Stand (max 123 cm), Mounting Hooks, and 2-Bag Carry Case Set",
+      "Compatible with 4-Piece Ladder Stand (max 123 cm), Mounting Hooks, 2-Bag Case Set & 2-Piece Wall Protection Panels",
       "~2 weeks delivery via international carriers • 60-Day Home Trial & 1-Year Warranty",
     ],
     finishes: ["Natural Warm Amber Alder", "Dark Walnut Pine"],
@@ -267,7 +368,7 @@ export const PRODUCTS: ProductItem[] = [
       { url: "/images/products/board-perspective-view.jpg", label: "Light & Dark Wood Finishes" },
       { url: "/images/products/board-natural-pine-finish.jpg", label: "Optional 2-Bag Protective Case Set" },
       { url: "/images/products/board-wall-mount-hardware.jpg", label: "Optional Ladder/Wall Mounting Hooks" },
-      { url: "/images/authentic/evminov-steel-carriage-pin.jpg", label: "Precision Alloy Locking Pin" },
+      { url: "/images/products/board-studio-woodgrain.jpg", label: "Optional 2-Piece Wall Protection Panel" },
       { url: "/images/products/glisson-loop-studio.jpg", label: "Free Glisson Cervical Loop" },
     ],
     popular: true,
@@ -278,7 +379,9 @@ export const PRODUCTS: ProductItem[] = [
       },
       {
         q: "Should I choose Standard 26 cm or Reinforced Wide 30 cm?",
-        a: "Choose Standard 26 cm if you weigh up to 100 kg (220 lbs). Choose Reinforced Wide 30 cm (+$25 USD) if you weigh over 100 kg (rated up to 150 kg / 330 lbs) or prefer extra shoulder width. Both widths are available in Light and Dark finishes and fit our 4-Piece Demountable Ladder Stand.",
+        a: IS_CANADA
+          ? "Choose Standard 26 cm ($445 Direct from Ukraine / $545 Express) if you weigh up to 100 kg (220 lbs). Choose Reinforced Wide 30 cm ($500 Direct / $585 Express) if you weigh over 100 kg (up to 150 kg / 330 lbs). Both widths are available in Light and Dark finishes."
+          : "Choose Standard 26 cm if you weigh up to 100 kg (220 lbs). Choose Reinforced Wide 30 cm (+$25 USD) if you weigh over 100 kg (rated up to 150 kg / 330 lbs) or prefer extra shoulder width. Both widths are available in Light and Dark finishes and fit our 4-Piece Demountable Ladder Stand.",
       },
     ],
   },
@@ -302,12 +405,14 @@ export const PRODUCTS: ProductItem[] = [
       "Compact 2-section Evminov model (available exclusively in 2 demountable sections) for daily home spine hygiene and fast closet storage. Choose Standard 26 cm (up to 100 kg / 220 lbs) or Reinforced Wide 30 cm (>100 kg / up to 330 lbs) in Light or Dark finish.",
     keyFeature:
       "Built exclusively in 2 precision demountable sections. Available in Standard 26 cm or Reinforced Wide 30 cm (>100 kg), Light or Dark finish. Optional Single Carry Bag & 4-Piece Ladder Stand.",
-    directPriceUsd: toRegionalPrice(475),
-    expressPriceUsd: toRegionalPrice(615),
-    wideSurchargeUsd: toRegionalPrice(25),
+    directPriceUsd: IS_CANADA ? 435 : 475,
+    expressPriceUsd: IS_CANADA ? 540 : 615,
+    wideDirectPriceUsd: IS_CANADA ? 495 : 500,
+    wideExpressPriceUsd: IS_CANADA ? 580 : 640,
+    wideSurchargeUsd: IS_CANADA ? 60 : 25,
     standIncluded: false,
     standOptional: true,
-    standAddUsd: toRegionalPrice(275),
+    standAddUsd: 275,
     weightLimitLbs: 220,
     wideWeightLimitLbs: 330,
     heightLimitLabel: "Compact 2-Piece (Users up to 6'4\" / Wide 6'9\")",
@@ -318,10 +423,12 @@ export const PRODUCTS: ProductItem[] = [
     inclineRange: "8° to 90°",
     foldedDepth: "2 compact demountable halves (fits closets, under bed, or single carry bag)",
     includes: [
-      "Width choice: Standard 26 cm (up to 100 kg / 220 lbs) or Reinforced Wide 30 cm (+$25, for >100 kg / up to 330 lbs)",
+      IS_CANADA
+        ? "Width choice: Standard 26 cm ($435 Direct / $540 Express) or Reinforced Wide 30 cm ($495 Direct / $580 Express, for >100 kg)"
+        : "Width choice: Standard 26 cm (up to 100 kg / 220 lbs) or Reinforced Wide 30 cm (+$25, for >100 kg / up to 330 lbs)",
       "Finish choice: Light (Natural Warm Amber Alder) or Dark (Dark Walnut Pine)",
       "Patented Glisson Cervical Loop, wall mounting hardware, illustrated manual & official product passport",
-      "Compatible with Single Carry Case Bag, 4-Piece Ladder Stand (max 123 cm), and Mounting Hooks",
+      "Compatible with Single Carry Case Bag ($105), 4-Piece Ladder Stand (max 123 cm), and Mounting Hooks ($35)",
       "~2 weeks delivery via international carriers • 60-Day Home Trial & 1-Year Warranty",
     ],
     finishes: ["Natural Warm Amber Alder", "Dark Walnut Pine"],

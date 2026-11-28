@@ -18,6 +18,7 @@ import {
 } from "@/i18n/locales/catalog";
 import { localizeTransitDays } from "@/i18n/locales/chrome";
 import {
+  getProductPrice,
   OFFICIAL_ACCESSORIES,
   OfficialAccessoryId,
   PRODUCTS,
@@ -368,12 +369,10 @@ export function OrderWizard({ lang }: { lang: Locale }) {
   const selectedAccessoryItems = OFFICIAL_ACCESSORIES.filter((a) =>
     selectedAddons.includes(a.id)
   );
-  const widthSurcharge =
-    boardWidth === "wide" ? selectedProduct.wideSurchargeUsd : 0;
-  const boardPrice =
-    (shipping === "express"
-      ? selectedProduct.expressPriceUsd
-      : selectedProduct.directPriceUsd) + widthSurcharge;
+  const standardCurrentPrice = getProductPrice(selectedProduct, "standard", shipping);
+  const wideCurrentPrice = getProductPrice(selectedProduct, "wide", shipping);
+  const activeWideDelta = Math.max(0, wideCurrentPrice - standardCurrentPrice);
+  const boardPrice = getProductPrice(selectedProduct, boardWidth, shipping);
   const accessoriesTotal = selectedAccessoryItems.reduce(
     (sum, item) => sum + item.priceUsd,
     0
@@ -660,7 +659,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                     }`}
                   >
                     <p className="text-xs font-extrabold text-slate-950">
-                      {cfg.wideWidth} (+{formatUSD(selectedProduct.wideSurchargeUsd)})
+                      {cfg.wideWidth} (+{formatUSD(activeWideDelta)})
                     </p>
                     <p className="mt-0.5 text-[11px] text-slate-600">
                       {cfg.wideWidthSub}
@@ -782,7 +781,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                       </div>
                     </div>
                     <span className="font-extrabold text-slate-950">
-                      {formatUSD(selectedProduct.expressPriceUsd)}
+                      {formatUSD(getProductPrice(selectedProduct, boardWidth, "express"))}
                     </span>
                   </label>
 
@@ -811,7 +810,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                       </div>
                     </div>
                     <span className="font-extrabold text-slate-950">
-                      {formatUSD(selectedProduct.directPriceUsd)}
+                      {formatUSD(getProductPrice(selectedProduct, boardWidth, "direct"))}
                     </span>
                   </label>
                 </div>
