@@ -18,6 +18,8 @@ import {
 import { localizeTransitDays } from "@/i18n/locales/chrome";
 import { PRODUCTS } from "@/data/products";
 import { US_STATES } from "@/data/us-states";
+import { CA_PROVINCES } from "@/data/ca-provinces";
+import { IS_CANADA } from "@/lib/region-config";
 import {
   calculateHsaPrice,
   formatKlarnaBiWeekly,
@@ -235,7 +237,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [stateOrCountry, setStateOrCountry] = useState(
-    () => searchParams.get("state") || "California (CA)"
+    () => searchParams.get("state") || (IS_CANADA ? "Ontario (ON)" : "California (CA)")
   );
   const [address, setAddress] = useState("");
   const [notes, setNotes] = useState(() => {
@@ -861,6 +863,15 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                     onChange={(e) => setStateOrCountry(e.target.value)}
                     className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm"
                   >
+                    {IS_CANADA && (
+                      <optgroup label="Canadian Provinces & Territories">
+                        {CA_PROVINCES.map((pr) => (
+                          <option key={pr.code} value={`${pr.name} (${pr.code})`}>
+                            {pr.name} ({pr.code}) — {pr.expressDays}
+                          </option>
+                        ))}
+                      </optgroup>
+                    )}
                     <optgroup label={ow.usStatesOptgroup}>
                       {US_STATES.map((st) => (
                         <option key={st.code} value={`${st.name} (${st.code})`}>

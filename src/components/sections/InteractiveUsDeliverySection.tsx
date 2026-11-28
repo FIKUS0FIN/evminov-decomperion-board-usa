@@ -8,22 +8,13 @@ import { US_DELIVERY_COPY } from "@/i18n/locales/home-part2";
 import { localizeCarrier, localizeTransitDays } from "@/i18n/locales/chrome";
 import { getLocalizedHref } from "@/lib/url";
 import { US_STATES } from "@/data/us-states";
+import { CA_PROVINCES } from "@/data/ca-provinces";
+import { IS_CANADA } from "@/lib/region-config";
 import { SITE_CONFIG } from "@/lib/site-config";
 
-const FEATURED_CODES = [
-  "CA",
-  "TX",
-  "FL",
-  "NY",
-  "WA",
-  "IL",
-  "CO",
-  "AZ",
-  "NC",
-  "MA",
-  "VA",
-  "GA",
-];
+const FEATURED_CODES = IS_CANADA
+  ? ["ON", "QC", "BC", "AB", "MB", "SK", "NS", "NB"]
+  : ["CA", "TX", "FL", "NY", "WA", "IL", "CO", "AZ", "NC", "MA", "VA", "GA"];
 
 export function InteractiveUsDeliverySection({
   lang,
@@ -35,10 +26,13 @@ export function InteractiveUsDeliverySection({
   subtitle: string;
 }) {
   const c = US_DELIVERY_COPY[lang];
-  const [selectedSlug, setSelectedSlug] = useState("california");
+  const allLocations = IS_CANADA ? CA_PROVINCES : US_STATES;
+  const [selectedSlug, setSelectedSlug] = useState(
+    IS_CANADA ? "ontario" : "california"
+  );
   const selected =
-    US_STATES.find((st) => st.slug === selectedSlug) || US_STATES[0];
-  const topStates = US_STATES.filter((st) => FEATURED_CODES.includes(st.code));
+    allLocations.find((st) => st.slug === selectedSlug) || allLocations[0];
+  const topStates = allLocations.filter((st) => FEATURED_CODES.includes(st.code));
 
   return (
     <section id="us-shipping" className="bg-slate-50 py-16">
@@ -86,7 +80,7 @@ export function InteractiveUsDeliverySection({
                 onChange={(e) => setSelectedSlug(e.target.value)}
                 className="mt-1.5 w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm font-bold text-slate-950 focus:border-teal-600 focus:outline-none"
               >
-                {US_STATES.map((st) => (
+                {allLocations.map((st) => (
                   <option key={st.code} value={st.slug}>
                     {st.name} ({st.code}) — {localizeTransitDays(st.expressDays, lang)}
                   </option>

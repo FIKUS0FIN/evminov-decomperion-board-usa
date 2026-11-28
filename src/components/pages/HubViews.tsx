@@ -24,6 +24,8 @@ import { COMPARISONS } from "@/data/comparisons";
 import { CONDITIONS } from "@/data/conditions";
 import { GUIDES } from "@/data/guides";
 import { US_STATES } from "@/data/us-states";
+import { CA_PROVINCES } from "@/data/ca-provinces";
+import { IS_CANADA } from "@/lib/region-config";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import { ProductCatalogSection } from "@/components/sections/ProductCatalogSection";
 import { BiomechanicalCalculator } from "@/components/sections/BiomechanicalCalculator";
@@ -212,10 +214,12 @@ export function ShippingHubView({ lang }: { lang: Locale }) {
       </div>
 
       <h2 className="mt-12 font-display text-2xl font-black text-slate-950">
-        {hub.usDirectoryTitle}
+        {IS_CANADA
+          ? "Canadian Provinces & Territories Delivery Directory"
+          : hub.usDirectoryTitle}
       </h2>
       <div className="mt-5 grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-        {US_STATES.map((st) => (
+        {(IS_CANADA ? CA_PROVINCES : US_STATES).map((st) => (
           <Link
             key={st.code}
             href={`/shipping/${st.slug}/`}

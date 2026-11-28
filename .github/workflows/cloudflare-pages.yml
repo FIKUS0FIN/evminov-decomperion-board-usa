@@ -34,8 +34,9 @@ jobs:
       - name: Run Vitest unit & SEO suite
         run: npm test
 
-      - name: Build static Next.js 16 export & WebP optimization
+      - name: Build static Next.js 16 export & WebP optimization (US — evminovusa.com)
         env:
+          NEXT_PUBLIC_SITE_REGION: US
           NEXT_PUBLIC_GTM_ID: ${{ secrets.NEXT_PUBLIC_GTM_ID }}
           NEXT_PUBLIC_CLARITY_ID: ${{ secrets.NEXT_PUBLIC_CLARITY_ID }}
           NEXT_PUBLIC_CF_ANALYTICS_TOKEN: ${{ secrets.NEXT_PUBLIC_CF_ANALYTICS_TOKEN }}
@@ -43,16 +44,42 @@ jobs:
           NEXT_PUBLIC_BING_SITE_VERIFICATION: ${{ secrets.NEXT_PUBLIC_BING_SITE_VERIFICATION }}
         run: npm run build
 
-      - name: Static 5-language SEO, Schema & Compliance gate
+      - name: Static 6-language SEO, Schema & Compliance gate (US)
+        env:
+          NEXT_PUBLIC_SITE_REGION: US
         run: npm run verify:seo
 
-      - name: Deploy to Cloudflare Pages (main only)
+      - name: Deploy US to Cloudflare Pages (evminovusa.com)
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy out --project-name=evminov-decompression-board-usa --branch=main
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build static Next.js 16 export & WebP optimization (CA — evminovcanada.com)
+        env:
+          NEXT_PUBLIC_SITE_REGION: CA
+          NEXT_PUBLIC_GTM_ID: ${{ secrets.NEXT_PUBLIC_GTM_ID }}
+          NEXT_PUBLIC_CLARITY_ID: ${{ secrets.NEXT_PUBLIC_CLARITY_ID }}
+          NEXT_PUBLIC_CF_ANALYTICS_TOKEN: ${{ secrets.NEXT_PUBLIC_CF_ANALYTICS_TOKEN }}
+          NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ secrets.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }}
+          NEXT_PUBLIC_BING_SITE_VERIFICATION: ${{ secrets.NEXT_PUBLIC_BING_SITE_VERIFICATION }}
+        run: npm run build
+
+      - name: Static 6-language SEO, Schema & Compliance gate (CA)
+        env:
+          NEXT_PUBLIC_SITE_REGION: CA
+        run: npm run verify:seo
+
+      - name: Deploy Canada to Cloudflare Pages (evminovcanada.com)
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy out --project-name=evminov-decompression-board-ca --branch=main
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Notify IndexNow of updated canonical URLs

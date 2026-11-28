@@ -1,29 +1,51 @@
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, MapPin, ShieldCheck, Truck } from "lucide-react";
 import { UsStateShippingData, US_STATES } from "@/data/us-states";
+import { CaProvinceShippingData, CA_PROVINCES } from "@/data/ca-provinces";
+import { IS_CANADA } from "@/lib/region-config";
 import { PRODUCTS } from "@/data/products";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { buildPrefilledOrderUrl } from "@/lib/url";
 import { formatUSD } from "@/lib/physics";
 import { FaqJsonLd } from "@/components/seo/JsonLd";
 
-export function StateShippingView({ state }: { state: UsStateShippingData }) {
-  const stateFaqs = [
-    {
-      q: `How fast does an Evminov Spine Board ship to ${state.name}?`,
-      a: `California Warehouse Express orders dispatch from Glendale, CA via ${state.carrier} and typically arrive in ${state.name} (${state.majorCities.join(", ")}) in ${state.expressDays} with full transit insurance and live tracking.`,
-    },
-    {
-      q: `Can ${state.name} residents use pre-tax HSA or FSA funds for an Evminov board?`,
-      a: `Yes. Many ${state.name} buyers use pre-tax HSA or FSA dollars (~25%–35% tax savings) with a Letter of Medical Necessity from their healthcare provider. We provide an itemized wellness equipment invoice immediately after ordering.`,
-    },
-    {
-      q: `How is the Evminov board mounted in ${state.name} homes and apartments?`,
-      a: `${state.housingNote} Every board includes our 16-inch US wood-stud mounting bracket, and renters can add the zero-drill Free-Standing Ladder Stand.`,
-    },
-  ];
+export function StateShippingView({
+  state,
+}: {
+  state: UsStateShippingData | CaProvinceShippingData;
+}) {
+  const stateFaqs = IS_CANADA
+    ? [
+        {
+          q: `How fast does an Evminov Spine Board ship to ${state.name}, Canada?`,
+          a: `All orders to ${state.name} (${state.majorCities.join(", ")}) currently dispatch directly and arrive in ~2 weeks via ${state.carrier} with full tracking and transit insurance. Faster local express delivery resumes in the New Year.`,
+        },
+        {
+          q: `Can ${state.name} residents claim an Evminov Board through Canadian Extended Health Benefits or HSA?`,
+          a: `Many Canadian buyers claim Evminov Spine Conditioning equipment through Extended Health Benefits, a Health Spending Account (HSA), or the CRA Medical Expense Tax Credit with a doctor's prescription or note. We email an itemized CAD receipt immediately.`,
+        },
+        {
+          q: `How is the Evminov Board set up in ${state.name} homes and condos?`,
+          a: `${state.housingNote}`,
+        },
+      ]
+    : [
+        {
+          q: `How fast does an Evminov Spine Board ship to ${state.name}?`,
+          a: `Orders to ${state.name} (${state.majorCities.join(", ")}) via ${state.carrier} currently deliver in ~2 weeks via direct dispatch, with faster local express delivery (${state.expressDays}) resuming in the New Year.`,
+        },
+        {
+          q: `Can ${state.name} residents use pre-tax HSA or FSA funds for an Evminov board?`,
+          a: `Yes. Many ${state.name} buyers use pre-tax HSA or FSA dollars (~25%–35% tax savings) with a Letter of Medical Necessity from their healthcare provider. We provide an itemized wellness equipment invoice immediately after ordering.`,
+        },
+        {
+          q: `How is the Evminov board mounted in ${state.name} homes and apartments?`,
+          a: `${state.housingNote} Every 2-Piece Folding board arrives complete with its sturdy Support Stand.`,
+        },
+      ];
 
-  const siblingStates = US_STATES.filter(
+  const allLocations = IS_CANADA ? CA_PROVINCES : US_STATES;
+  const siblingStates = allLocations.filter(
     (s) => s.region === state.region && s.slug !== state.slug
   );
 
@@ -61,10 +83,12 @@ export function StateShippingView({ state }: { state: UsStateShippingData }) {
           <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
             <ShieldCheck className="h-6 w-6 text-emerald-600" />
             <h2 className="mt-3 font-display text-lg font-extrabold text-slate-950">
-              HSA / FSA Ready
+              {IS_CANADA ? "Extended Health & HSA Ready" : "HSA / FSA Ready"}
             </h2>
             <p className="mt-1 text-sm text-slate-600">
-              Itemized equipment invoice &amp; LMN template emailed to {state.name} buyers.
+              {IS_CANADA
+                ? `Itemized CAD wellness equipment invoice emailed to ${state.name} buyers for benefits or CRA claims.`
+                : `Itemized equipment invoice & LMN template emailed to ${state.name} buyers.`}
             </p>
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
@@ -156,7 +180,7 @@ export function StateShippingView({ state }: { state: UsStateShippingData }) {
               href="/shipping/"
               className="rounded-lg bg-slate-950 px-3 py-1.5 text-xs font-bold text-white"
             >
-              All 50 US States →
+              {IS_CANADA ? "All 13 Canadian Provinces →" : "All 50 US States →"}
             </Link>
           </div>
           <p className="mt-5 text-xs text-slate-500">

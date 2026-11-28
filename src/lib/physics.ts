@@ -1,4 +1,5 @@
 import { SITE_CONFIG } from "@/lib/site-config";
+import { IS_CANADA } from "@/lib/region-config";
 
 export type ConditionGoal =
   | "hernia"
@@ -32,22 +33,24 @@ export interface BoardSizeRecommendation {
 }
 
 export function formatUSD(amount: number): string {
-  return new Intl.NumberFormat("en-US", {
+  const formatted = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   }).format(Math.round(amount));
+  return IS_CANADA ? `${formatted} CAD` : formatted;
 }
 
 export function formatKlarnaBiWeekly(amount: number): string {
   const installment = amount / 4;
-  return new Intl.NumberFormat("en-US", {
+  const formatted = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   }).format(installment);
+  return IS_CANADA ? `${formatted} CAD` : formatted;
 }
 
 export function calculateHsaPrice(amount: number): number {

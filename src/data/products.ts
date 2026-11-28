@@ -1,4 +1,5 @@
 import { Locale } from "@/i18n/types";
+import { toRegionalPrice } from "@/lib/region-config";
 
 export interface ProductGalleryImage {
   url: string;
@@ -60,9 +61,9 @@ export const PRODUCTS: ProductItem[] = [
       "Separates into two ~45\" halves in 30 seconds and arrives complete with a sturdy support stand. Available in Standard (220 lbs) or Wide Heavy-Duty (330 lbs) in Natural Warm Amber Alder or Dark Walnut Pine.",
     keyFeature:
       "Includes dedicated support stand + free Glisson Cervical Loop, zero-play steel interlocking joint, and choice of Standard or Wide Heavy-Duty deck.",
-    directPriceUsd: 475,
-    expressPriceUsd: 615,
-    wideSurchargeUsd: 25,
+    directPriceUsd: toRegionalPrice(475),
+    expressPriceUsd: toRegionalPrice(615),
+    wideSurchargeUsd: toRegionalPrice(25),
     standIncluded: true,
     standOptional: false,
     standAddUsd: 0,
@@ -124,12 +125,12 @@ export const PRODUCTS: ProductItem[] = [
       "Ultra-compact 3-section design (~31\" segments) with travel bag. Order WITH the support stand or WITHOUT stand (note: without a stand, you must secure the board to a sturdy support before sessions). Standard or Wide Heavy-Duty.",
     keyFeature:
       "Packs into any car trunk or checked bag in under 60 seconds. Available with or without support stand, in Standard (220 lbs) or Wide Heavy-Duty (330 lbs), in Alder or Dark Walnut Pine.",
-    directPriceUsd: 495,
-    expressPriceUsd: 635,
-    wideSurchargeUsd: 25,
+    directPriceUsd: toRegionalPrice(495),
+    expressPriceUsd: toRegionalPrice(635),
+    wideSurchargeUsd: toRegionalPrice(25),
     standIncluded: false,
     standOptional: true,
-    standAddUsd: 50,
+    standAddUsd: toRegionalPrice(50),
     weightLimitLbs: 220,
     wideWeightLimitLbs: 330,
     heightLimitLabel: "Up to 6'4\" (Wide: 6'9\")",

@@ -30,8 +30,9 @@ describe("5-Language URL Routing & Single-Source-of-Truth Integrity", () => {
 
     const alts = getHreflangAlternates("/products/standard-pine-board/");
     expect(alts["en-US"]).toBe("https://evminovusa.com/products/standard-pine-board/");
+    expect(alts["en-CA"]).toBe("https://evminovcanada.com/products/standard-pine-board/");
     expect(alts["es-US"]).toBe("https://evminovusa.com/es/products/standard-pine-board/");
-    expect(alts["fr-CA"]).toBe("https://evminovusa.com/fr/products/standard-pine-board/");
+    expect(alts["fr-CA"]).toBe("https://evminovcanada.com/fr/products/standard-pine-board/");
     expect(alts["de-DE"]).toBe("https://evminovusa.com/de/products/standard-pine-board/");
     expect(alts["uk-UA"]).toBe("https://evminovusa.com/uk/products/standard-pine-board/");
     expect(alts["ru"]).toBe("https://evminovusa.com/ru/products/standard-pine-board/");

@@ -1,16 +1,19 @@
+import { REGION_CONFIG } from "@/lib/region-config";
+
 export const SITE_CONFIG = {
   brandName: "Evminov Spine Systems",
-  shortName: "Evminov USA",
-  legalName: "Evminov Spine Systems USA",
-  canonicalOrigin: "https://evminovusa.com",
-  hostname: "evminovusa.com",
+  shortName: REGION_CONFIG.shortName,
+  legalName: REGION_CONFIG.legalName,
+  canonicalOrigin: REGION_CONFIG.origin,
+  hostname: REGION_CONFIG.hostname,
+  currency: REGION_CONFIG.currency,
   foundingYear: 1996,
   yearsHeritage: 30,
   phoneDisplay: "+1 (747) 306-0140",
   phoneHref: "tel:+17473060140",
   whatsappNumber: "17473060140",
-  supportEmail: "support@evminovusa.com",
-  ordersEmail: "orders@evminovusa.com",
+  supportEmail: REGION_CONFIG.supportEmail,
+  ordersEmail: REGION_CONFIG.ordersEmail,
   address: {
     street: "4525 San Fernando Rd, Unit H",
     city: "Glendale",
@@ -38,8 +41,7 @@ export const SITE_CONFIG = {
   },
   compliance: {
     classification: "General Wellness & Spine Conditioning Equipment (HTS 9506.91.0030)",
-    hsaFsaNote:
-      "Many US customers use pre-tax HSA/FSA funds with a Letter of Medical Necessity (LMN) from their healthcare provider. We provide an itemized wellness equipment receipt immediately after purchase.",
+    hsaFsaNote: REGION_CONFIG.hsaFsaNote,
     hsaEstimatedSavingsRate: 0.3,
     trialDays: 60,
     warrantyYears: 10,

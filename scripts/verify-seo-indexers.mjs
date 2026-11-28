@@ -7,7 +7,14 @@
 import fs from "fs";
 import path from "path";
 
-const CANONICAL_ORIGIN = "https://evminovusa.com";
+const IS_CANADA = process.env.NEXT_PUBLIC_SITE_REGION?.toUpperCase() === "CA";
+const CANONICAL_ORIGIN = IS_CANADA
+  ? "https://evminovcanada.com"
+  : "https://evminovusa.com";
+const ALLOWED_HREFLANG_ORIGINS = [
+  "https://evminovusa.com",
+  "https://evminovcanada.com",
+];
 const OUT_DIR = path.resolve(process.cwd(), "out");
 const INDEXNOW_KEY = "e7f4b29c1a8345d0b6e9c2f1a8d7304b";
 
@@ -104,8 +111,8 @@ function auditHtml(html, expectedCanonical, relContext) {
   // 5. Hreflang checks
   const isStatePage = /^\/shipping\/[^/]+\/$/.test(parsed.pathname);
   const requiredHreflangs = isStatePage
-    ? ["en-US", "x-default"]
-    : ["en-US", "es-US", "fr-CA", "de-DE", "uk-UA", "ru", "x-default"];
+    ? [IS_CANADA ? "en-CA" : "en-US", "x-default"]
+    : ["en-US", "en-CA", "es-US", "fr-CA", "de-DE", "uk-UA", "ru", "x-default"];
 
   for (const hl of requiredHreflangs) {
     const regex = new RegExp(
@@ -117,7 +124,9 @@ function auditHtml(html, expectedCanonical, relContext) {
       recordError(relContext, `Missing hreflang="${hl}"`);
     } else {
       const href = (m[1] || m[2]).trim();
-      if (!href.startsWith(CANONICAL_ORIGIN) || !href.endsWith("/")) {
+      const validOrigin = ALLOWED_HREFLANG_ORIGINS.some((o) => href.startsWith(o));
+      const isBareRoot = ALLOWED_HREFLANG_ORIGINS.includes(href);
+      if (!validOrigin || (!href.endsWith("/") && !isBareRoot)) {
         recordError(relContext, `Invalid hreflang="${hl}" URL: "${href}"`);
       }
     }

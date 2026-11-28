@@ -68,6 +68,9 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
       reqOrigin === "https://evminovcanada.com"
         ? "https://evminovcanada.com"
         : "https://evminovusa.com";
+    const isCanadaOrigin = siteOrigin === "https://evminovcanada.com";
+    const orderCurrency = isCanadaOrigin ? "CAD" : "USD";
+    const stripeCurrency = isCanadaOrigin ? "cad" : "usd";
     const localePrefix =
       lang === "es" || lang === "fr" || lang === "de" || lang === "uk" || lang === "ru"
         ? `/${lang}`
@@ -150,7 +153,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
         customer_email: email,
         success_url: `${siteOrigin}/welcome/?order=${orderRef}`,
         cancel_url: `${siteOrigin}/order/?product=${encodeURIComponent(product)}&step=3`,
-        "line_items[0][price_data][currency]": "usd",
+        "line_items[0][price_data][currency]": stripeCurrency,
         "line_items[0][price_data][product_data][name]": `${productName} (${finish}, ${shipping})`,
         "line_items[0][price_data][unit_amount]": String(Math.round(totalUsd * 100)),
         "line_items[0][quantity]": "1",
@@ -473,7 +476,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
                 <p style="margin:0;font-size:11px;font-weight:800;color:#047857;letter-spacing:0.8px;text-transform:uppercase;">${protocolEmailCopy.recTitle}</p>
                 <h2 style="margin:6px 0 4px;font-size:18px;font-weight:900;color:#0f172a;">${calcModel}</h2>
                 <p style="margin:0;font-size:13px;color:#334155;">${escapeHtml(calcWidth)} • Natural Warm Amber Alder / Dark Walnut Pine • Free Glisson Loop</p>
-                <p style="margin:10px 0 16px;font-size:20px;font-weight:900;color:#0f766e;">From $${calcPrice} USD <span style="font-size:12px;font-weight:600;color:#475569;">(60-Day Trial • 10-Yr Warranty • HSA/FSA with LMN)</span></p>
+                <p style="margin:10px 0 16px;font-size:20px;font-weight:900;color:#0f766e;">From $${calcPrice} ${orderCurrency} <span style="font-size:12px;font-weight:600;color:#475569;">(60-Day Trial • 10-Yr Warranty • ${isCanadaOrigin ? "Extended Health / HSA" : "HSA/FSA with LMN"})</span></p>
                 <div>
                   <a href="${calcOrderUrl}" style="display:inline-block;background:#10b981;color:#052e16;text-decoration:none;font-weight:900;font-size:14px;padding:13px 24px;border-radius:12px;">${protocolEmailCopy.ctaOrder}</a>
                   <a href="${calcReopenUrl}" style="display:inline-block;margin-left:8px;margin-top:8px;background:#ffffff;color:#0f172a;text-decoration:none;font-weight:700;font-size:13px;padding:11px 18px;border-radius:12px;border:1px solid #cbd5e1;">${protocolEmailCopy.ctaCalc}</a>
@@ -541,7 +544,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
           <tr><td style="padding:7px 10px;border-bottom:1px solid #e2e8f0;color:#64748b;"><strong>Model</strong></td><td style="padding:7px 10px;border-bottom:1px solid #e2e8f0;color:#0f172a;">${safeProduct} (${safeFinish})</td></tr>
           <tr><td style="padding:7px 10px;border-bottom:1px solid #e2e8f0;color:#64748b;"><strong>Fulfillment</strong></td><td style="padding:7px 10px;border-bottom:1px solid #e2e8f0;color:#0f172a;">${safeShipping}${includeStand ? " + Free-Standing Stand" : ""}</td></tr>
           <tr><td style="padding:7px 10px;border-bottom:1px solid #e2e8f0;color:#64748b;"><strong>HSA/FSA Receipt</strong></td><td style="padding:7px 10px;border-bottom:1px solid #e2e8f0;color:#0f172a;">${includeHsaDoc ? "Yes (Itemized)" : "No"}</td></tr>
-          ${totalUsd > 0 ? `<tr><td style="padding:7px 10px;border-bottom:1px solid #e2e8f0;color:#64748b;"><strong>Estimated Total</strong></td><td style="padding:7px 10px;border-bottom:1px solid #e2e8f0;color:#0f766e;font-weight:700;">$${totalUsd} USD</td></tr>` : ""}
+          ${totalUsd > 0 ? `<tr><td style="padding:7px 10px;border-bottom:1px solid #e2e8f0;color:#64748b;"><strong>Estimated Total</strong></td><td style="padding:7px 10px;border-bottom:1px solid #e2e8f0;color:#0f766e;font-weight:700;">$${totalUsd} ${orderCurrency}</td></tr>` : ""}
           ${safeCustomerNotes ? `<tr><td style="padding:7px 10px;border-bottom:1px solid #e2e8f0;color:#64748b;"><strong>Customer Notes</strong></td><td style="padding:7px 10px;border-bottom:1px solid #e2e8f0;color:#0f172a;">${safeCustomerNotes}</td></tr>` : ""}
         </table>
       `;

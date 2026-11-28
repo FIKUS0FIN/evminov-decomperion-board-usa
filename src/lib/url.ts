@@ -1,5 +1,6 @@
 import { DEFAULT_LOCALE, LOCALES, LOCALE_META, Locale } from "@/i18n/types";
 import { SITE_CONFIG } from "@/lib/site-config";
+import { CA_ORIGIN, REGION_CONFIG, US_ORIGIN } from "@/lib/region-config";
 
 /**
  * Normalizes a route path so it always starts and ends with a trailing slash
@@ -63,17 +64,37 @@ export function getCanonicalUrl(path: string, lang: Locale = DEFAULT_LOCALE): st
 }
 
 /**
- * Generates Next.js `alternates.languages` map for full 5-language hreflang parity.
+ * Generates Next.js `alternates.languages` map with reciprocal cross-domain
+ * US (evminovusa.com) + Canada (evminovcanada.com) hreflang parity.
  */
 export function getHreflangAlternates(
   path: string,
   availableLocales: readonly Locale[] = LOCALES
 ): Record<string, string> {
-  const languages: Record<string, string> = {};
-  for (const loc of availableLocales) {
-    languages[LOCALE_META[loc].hreflang] = getCanonicalUrl(path, loc);
+  if (availableLocales.length === 1 && availableLocales[0] === DEFAULT_LOCALE) {
+    const regionalUrl = getCanonicalUrl(path, DEFAULT_LOCALE);
+    return {
+      [REGION_CONFIG.defaultHreflang]: regionalUrl,
+      "x-default": regionalUrl,
+    };
   }
-  languages["x-default"] = getCanonicalUrl(path, DEFAULT_LOCALE);
+
+  const languages: Record<string, string> = {};
+  const enHref = getLocalizedHref(path, "en").split(/[?#]/)[0];
+  const frHref = getLocalizedHref(path, "fr").split(/[?#]/)[0];
+
+  for (const loc of availableLocales) {
+    const locHref = getLocalizedHref(path, loc).split(/[?#]/)[0];
+    if (loc === "fr") {
+      languages["fr-CA"] = `${CA_ORIGIN}${frHref}`;
+    } else if (loc === "en") {
+      languages["en-US"] = `${US_ORIGIN}${enHref}`;
+      languages["en-CA"] = `${CA_ORIGIN}${enHref}`;
+    } else {
+      languages[LOCALE_META[loc].hreflang] = `${US_ORIGIN}${locHref}`;
+    }
+  }
+  languages["x-default"] = `${US_ORIGIN}${enHref}`;
   return languages;
 }
 

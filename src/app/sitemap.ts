@@ -1,13 +1,15 @@
 import { MetadataRoute } from "next";
-import { LOCALES, LOCALE_META } from "@/i18n/types";
+import { LOCALES } from "@/i18n/types";
 import { SITE_CONFIG } from "@/lib/site-config";
-import { getCanonicalUrl } from "@/lib/url";
+import { IS_CANADA, REGION_CONFIG } from "@/lib/region-config";
+import { getCanonicalUrl, getHreflangAlternates } from "@/lib/url";
 import { PRODUCTS } from "@/data/products";
 import { COMPARISONS } from "@/data/comparisons";
 import { CONDITIONS } from "@/data/conditions";
 import { GUIDES } from "@/data/guides";
 import { PATENTS } from "@/data/heritage";
 import { US_STATES } from "@/data/us-states";
+import { CA_PROVINCES } from "@/data/ca-provinces";
 
 export const dynamic = "force-static";
 
@@ -103,11 +105,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
 
   for (const route of multilingualRoutes) {
-    const languages: Record<string, string> = {};
-    for (const loc of LOCALES) {
-      languages[LOCALE_META[loc].hreflang] = getCanonicalUrl(route.path, loc);
-    }
-    languages["x-default"] = getCanonicalUrl(route.path, "en");
+    const languages = getHreflangAlternates(route.path);
 
     for (const loc of LOCALES) {
       entries.push({
@@ -121,9 +119,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  // Programmatic 50 US State Shipping Pages (English US canonical)
-  for (const state of US_STATES) {
-    const url = getCanonicalUrl(`/shipping/${state.slug}/`, "en");
+  // Programmatic Regional Shipping Pages (50 US States on US build, 13 Canadian Provinces/Territories on CA build)
+  const regionalLocations = IS_CANADA ? CA_PROVINCES : US_STATES;
+  for (const locItem of regionalLocations) {
+    const url = getCanonicalUrl(`/shipping/${locItem.slug}/`, "en");
     entries.push({
       url,
       lastModified: now,
@@ -131,7 +130,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.75,
       alternates: {
         languages: {
-          "en-US": url,
+          [REGION_CONFIG.defaultHreflang]: url,
           "x-default": url,
         },
       },
