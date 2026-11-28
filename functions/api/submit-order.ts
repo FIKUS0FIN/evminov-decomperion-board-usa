@@ -3,6 +3,7 @@ import {
   getRegionalEmailConfig,
   getSessionUser,
   normalizeEmail,
+  sendTelegramAdminAlert,
 } from "../_lib/auth";
 
 export function escapeHtml(input: string): string {
@@ -195,41 +196,29 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
     const tasks: Array<Promise<unknown>> = [];
 
     // 1. Instant Telegram Operations Alert
-    if (env.TELEGRAM_BOT_TOKEN && env.TELEGRAM_CHAT_ID) {
+    if (env.TELEGRAM_BOT_TOKEN?.trim() && env.TELEGRAM_CHAT_ID?.trim()) {
       const tgText = [
         mode === "protocol_lead"
-          ? `📐 New Evminov Calculator Lead (${orderRef})`
+          ? `📐 Новий лід з калькулятора (${isCanadaOrigin ? "CA" : "US"}) — ${orderRef}`
           : mode === "warranty_registration"
-          ? `🛡️ New 1-Year Warranty Registration (${orderRef})`
-          : `🌲 New Evminov Board Reservation (${orderRef})`,
-        `Product: ${productName} (${finish})`,
-        `Shipping: ${shipping}${includeStand ? " + Free-Standing Stand" : ""}`,
-        totalUsd > 0 ? `Est. Total: $${totalUsd} USD` : "",
-        `HSA/FSA Receipt: ${includeHsaDoc ? "Yes" : "No"}`,
-        `Name: ${name || "N/A"}`,
+          ? `🛡️ Нова реєстрація гарантії 1 рік (${isCanadaOrigin ? "CA" : "US"}) — ${orderRef}`
+          : `🌲 Нове замовлення (${isCanadaOrigin ? "CA" : "US"}) — ${orderRef}`,
+        `Товар: ${productName} (${finish})`,
+        `Доставка: ${shipping}${includeStand ? " + Стійка" : ""}`,
+        totalUsd > 0 ? `Орієнтовна сума: $${totalUsd} ${orderCurrency}` : "",
+        `HSA/FSA чек: ${includeHsaDoc ? "Так" : "Ні"}`,
+        `Ім'я: ${name || "—"}`,
         `Email: ${email}`,
-        phone ? `Phone: ${phone}` : "",
-        `Destination: ${stateOrCountry}${address ? ` — ${address}` : ""}`,
-        notes ? `Notes: ${notes}` : "",
-        `Locale: ${lang}`,
-        `Admin: ${emailCfg.siteOrigin}/admin/`,
+        phone ? `Телефон: ${phone}` : "",
+        `Куди: ${stateOrCountry}${address ? ` — ${address}` : ""}`,
+        notes ? `Примітка: ${notes.slice(0, 600)}` : "",
+        `Мова: ${lang}`,
+        `Адмінка: ${emailCfg.siteOrigin}/admin/`,
       ]
         .filter(Boolean)
         .join("\n");
 
-      tasks.push(
-        fetch(
-          `https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`,
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              chat_id: env.TELEGRAM_CHAT_ID,
-              text: tgText,
-            }),
-          }
-        )
-      );
+      tasks.push(sendTelegramAdminAlert(env, tgText));
     }
 
     // 2. Branded HTML Emails via Resend (Customer confirmation + Operations admin copy)

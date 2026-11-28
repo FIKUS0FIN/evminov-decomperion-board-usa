@@ -1,9 +1,17 @@
-export const onRequestGet: PagesFunction = async () => {
+import { AuthEnv, getRegionalEmailConfig } from "../_lib/auth";
+
+export const onRequestGet: PagesFunction<AuthEnv> = async ({ request, env }) => {
+  const emailCfg = getRegionalEmailConfig(request, env);
   return new Response(
     JSON.stringify({
       status: "ok",
       service: "evminov-spine-systems-edge",
-      origin: "https://evminovusa.com",
+      origin: emailCfg.siteOrigin,
+      region: emailCfg.isCanada ? "CA" : "US",
+      telegramConfigured: Boolean(
+        env.TELEGRAM_BOT_TOKEN?.trim() && env.TELEGRAM_CHAT_ID?.trim()
+      ),
+      emailConfigured: Boolean(emailCfg.apiKey),
       endpoints: [
         "/api/health",
         "/api/ask",

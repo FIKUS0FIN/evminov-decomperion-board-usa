@@ -61,23 +61,26 @@ export function getRegionalEmailConfig(
 export async function sendTelegramAdminAlert(
   env: AuthEnv,
   text: string
-): Promise<void> {
-  if (!env.TELEGRAM_BOT_TOKEN || !env.TELEGRAM_CHAT_ID) return;
+): Promise<boolean> {
+  const token = String(env.TELEGRAM_BOT_TOKEN || "").trim();
+  const chatId = String(env.TELEGRAM_CHAT_ID || "").trim();
+  if (!token || !chatId) return false;
   try {
-    await fetch(
-      `https://api.telegram.org/bot${encodeURIComponent(env.TELEGRAM_BOT_TOKEN)}/sendMessage`,
+    const res = await fetch(
+      `https://api.telegram.org/bot${encodeURIComponent(token)}/sendMessage`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          chat_id: env.TELEGRAM_CHAT_ID,
+          chat_id: chatId,
           text: text.slice(0, 3800),
           disable_web_page_preview: true,
         }),
       }
     );
+    return res.ok;
   } catch {
-    // Non-blocking alert — never break order or message flow
+    return false;
   }
 }
 
