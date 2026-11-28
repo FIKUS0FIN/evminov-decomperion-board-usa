@@ -63,7 +63,7 @@ describe("5-Language URL Routing & Single-Source-of-Truth Integrity", () => {
 
   it("has all 50 US states and 6 verified products without legacy bugs", () => {
     expect(US_STATES).toHaveLength(50);
-    expect(PRODUCTS).toHaveLength(6);
+    expect(PRODUCTS).toHaveLength(2);
     const serialized = JSON.stringify({ PRODUCTS, GUIDES, GLOBAL_FAQS, CENTERS });
     expect(serialized).not.toMatch(/backbrush/i);
     expect(serialized).not.toMatch(/dQw4w9WgXcQ/i);

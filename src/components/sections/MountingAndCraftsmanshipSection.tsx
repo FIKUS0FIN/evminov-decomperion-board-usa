@@ -5,15 +5,11 @@ import { MOUNTING_CRAFTSMANSHIP_COPY } from "@/i18n/locales/home-part2";
 import { getLocalizedHref } from "@/lib/url";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 
-const CRAFT_SRCS = [
-  "/images/craftsmanship/workshop-wood-selection.jpg",
-  "/images/authentic/evminov-steel-carriage-pin.jpg",
-  "/images/products/board-studio-front.jpg",
-  "/images/authentic/evminov-carriage-accessory.jpg",
-  "/images/products/carriage-foot-sleeves-installation.jpg",
-  "/images/products/carriage-foot-sleeves-inversion.jpg",
-  "/images/accessories/soft-foot-attachments-carriage.jpg",
-  "/images/products/board-mounting-bracket.jpg",
+const CRAFT_ITEMS = [
+  { idx: 0, src: "/images/craftsmanship/workshop-wood-selection.jpg" },
+  { idx: 1, src: "/images/authentic/evminov-steel-carriage-pin.jpg" },
+  { idx: 2, src: "/images/products/board-studio-front.jpg" },
+  { idx: 3, src: "/images/authentic/evminov-carriage-accessory.jpg" },
 ] as const;
 
 export function MountingAndCraftsmanshipSection({ lang }: { lang: Locale }) {
@@ -84,7 +80,7 @@ export function MountingAndCraftsmanshipSection({ lang }: { lang: Locale }) {
               ))}
             </ul>
             <Link
-              href={getLocalizedHref("/products/free-standing-stand/", lang)}
+              href={getLocalizedHref("/products/2-piece-folding-board/", lang)}
               className="mt-5 inline-flex items-center gap-1.5 text-xs font-extrabold text-teal-700 hover:underline"
             >
               <span>{c.opt2Cta}</span>
@@ -114,8 +110,9 @@ export function MountingAndCraftsmanshipSection({ lang }: { lang: Locale }) {
           </div>
 
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {CRAFT_SRCS.map((src, idx) => {
+            {CRAFT_ITEMS.map(({ idx, src }) => {
               const item = c.gallery[idx];
+              if (!item) return null;
               return (
                 <article
                   key={src}

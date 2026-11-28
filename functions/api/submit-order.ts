@@ -41,7 +41,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
     const name = String(payload.name || sessionUser?.name || "").trim().slice(0, 120);
     const email = normalizeEmail(payload.email || sessionUser?.email || "");
     const phone = String(payload.phone || sessionUser?.phone || "").trim().slice(0, 40);
-    const product = String(payload.product || "standard-pine-board").slice(0, 80);
+    const product = String(payload.product || "2-piece-folding-board").slice(0, 80);
     const productName = String(payload.productName || product).slice(0, 140);
     const finish = String(payload.finish || "Light Natural Pine").slice(0, 60);
     const shipping = String(payload.shipping || "express").slice(0, 20);

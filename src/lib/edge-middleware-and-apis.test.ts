@@ -11,12 +11,12 @@ describe("Cloudflare Edge Middleware, NLWeb & Security Helpers", () => {
   it("canonicalizes legacy /en/, /blog/, /backbrush and missing slashes in 1 hop", () => {
     expect(canonicalizePathname("/en/")).toBe("/");
     expect(canonicalizePathname("/en/products/standard-pine-board")).toBe(
-      "/products/standard-pine-board/"
+      "/products/2-piece-folding-board/"
     );
     expect(canonicalizePathname("/blog/inversion-table-dangers-and-safe-alternatives")).toBe(
       "/guides/inversion-table-dangers-and-safe-alternatives/"
     );
-    expect(canonicalizePathname("/backbrush")).toBe("/products/standard-pine-board/");
+    expect(canonicalizePathname("/backbrush")).toBe("/products/2-piece-folding-board/");
     expect(canonicalizePathname("/portal")).toBe("/portal/");
     expect(canonicalizePathname("/shipping/california")).toBe("/shipping/california/");
   });

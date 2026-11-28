@@ -40,7 +40,7 @@ export const onRequestPost: PagesFunction = async ({ request }) => {
 
     const requested = Array.isArray(body.items) && body.items.length > 0
       ? body.items
-      : [{ id: "standard-pine-board", quantity: 1, shipping: "express" as const }];
+      : [{ id: "2-piece-folding-board", quantity: 1, shipping: "express" as const }];
 
     const lineItems = requested.map((item) => {
       const found =

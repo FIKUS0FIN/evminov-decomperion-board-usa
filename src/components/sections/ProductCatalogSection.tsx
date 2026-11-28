@@ -212,7 +212,7 @@ export function ProductCatalogSection({ lang }: { lang: Locale }) {
         </button>
       </div>
 
-      <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto mt-10 grid max-w-5xl gap-6 md:grid-cols-2">
         {PRODUCTS.map((product) => (
           <ProductCard key={product.slug} product={product} lang={lang} />
         ))}
@@ -295,8 +295,10 @@ export function ProductCatalogSection({ lang }: { lang: Locale }) {
           </div>
         </div>
 
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {cc.boxItems.map((item) => (
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {cc.boxItems
+            .filter((item) => !item.src.includes("soft-foot"))
+            .map((item) => (
             <div
               key={item.src}
               className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xs"

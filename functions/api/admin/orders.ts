@@ -120,7 +120,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
     const customerName = String(body.customer_name || "").trim().slice(0, 120);
     const customerEmail = normalizeEmail(body.customer_email);
     const customerPhone = String(body.customer_phone || "").trim().slice(0, 40);
-    const productSlug = String(body.product_slug || "standard-pine-board").slice(0, 80);
+    const productSlug = String(body.product_slug || "2-piece-folding-board").slice(0, 80);
     const productName = String(body.product_name || productSlug).slice(0, 140);
     const finish = String(body.finish || "Light Natural Pine").slice(0, 60);
     const shippingMethod = String(body.shipping_method || "express").slice(0, 20);

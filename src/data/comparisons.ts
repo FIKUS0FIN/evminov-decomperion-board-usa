@@ -138,7 +138,7 @@ export const COMPARISONS: ComparisonPageData[] = [
         a: "Yes — and with far greater control. Adjusting the incline rung by rung changes traction force smoothly from ~15 lbs up to 80+ lbs while keeping your ankles completely stress-free.",
       },
     ],
-    recommendedProductSlug: "standard-pine-board",
+    recommendedProductSlug: "2-piece-folding-board",
   },
   {
     slug: "evminov-vs-teeter",
@@ -259,7 +259,7 @@ export const COMPARISONS: ComparisonPageData[] = [
         a: "Yes — foam rolling is great for myofascial warm-up on quads and upper back, while the Evminov board provides true axial spine unloading that no floor roller can replicate.",
       },
     ],
-    recommendedProductSlug: "standard-pine-board",
+    recommendedProductSlug: "2-piece-folding-board",
   },
   {
     slug: "evminov-vs-decompression-clinic",
@@ -316,7 +316,7 @@ export const COMPARISONS: ComparisonPageData[] = [
         a: "Yes! Many US physical therapists and chiropractors encourage home inclined unloading to preserve mobility gains between clinic appointments. Always share your board routine with your provider.",
       },
     ],
-    recommendedProductSlug: "select-alder-board",
+    recommendedProductSlug: "2-piece-folding-board",
   },
   {
     slug: "evminov-vs-back-surgery",
@@ -367,7 +367,7 @@ export const COMPARISONS: ComparisonPageData[] = [
         a: "Only after receiving explicit clearance from your operating spine surgeon once surgical healing is complete. Start at ultra-low angles (8°–10°) as directed by your physical therapist.",
       },
     ],
-    recommendedProductSlug: "standard-pine-board",
+    recommendedProductSlug: "2-piece-folding-board",
   },
 ];
 

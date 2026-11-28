@@ -151,7 +151,7 @@ export function PediatricFamilySection({ lang }: { lang: Locale }) {
               </span>
               <Link
                 href={getLocalizedHref(
-                  "/order/?product=standard-pine-board&step=2#order-form",
+                  "/order/?product=2-piece-folding-board&step=1#order-form",
                   lang
                 )}
                 className="inline-flex items-center gap-1.5 rounded-xl bg-teal-700 px-4 py-2.5 text-xs font-bold text-white hover:bg-teal-800"

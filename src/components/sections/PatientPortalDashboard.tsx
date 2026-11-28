@@ -995,7 +995,7 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                         </Link>
                         <Link
                           href={getLocalizedHref(
-                            "/order/?product=free-standing-stand&step=2#order-form",
+                            "/order/?product=2-piece-folding-board&step=1#order-form",
                             lang
                           )}
                           className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-teal-600 hover:shadow-md"

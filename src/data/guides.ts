@@ -48,7 +48,7 @@ export const GUIDES: GuideItem[] = [
     heroImage: "/images/authentic/hero-full-device-traction.jpg",
     excerpt:
       "Hanging upside down at 60°–90° spikes intraocular eye pressure and cranial blood flow while clamping ankles. Here is the physics of controlled 8°–35° inclined unloading on resonant pine.",
-    recommendedProductSlug: "standard-pine-board",
+    recommendedProductSlug: "2-piece-folding-board",
     sections: [
       {
         id: "gravity-paradox",
@@ -122,7 +122,7 @@ export const GUIDES: GuideItem[] = [
     heroImage: "/images/gallery/supine-spinal-elongation.jpg",
     excerpt:
       "Learn why adult intervertebral discs have no direct blood supply, how gentle unloaded motion drives fluid diffusion, and how to progress safely from 8° to 25°.",
-    recommendedProductSlug: "standard-pine-board",
+    recommendedProductSlug: "2-piece-folding-board",
     sections: [
       {
         id: "avascular-biology",
@@ -182,7 +182,7 @@ export const GUIDES: GuideItem[] = [
     heroImage: "/images/gallery/incline-glute-bridge.jpg",
     excerpt:
       "Pullup bar dead hangs fire your lats and brace your lower back. Here is how powerlifters, CrossFitters, and runners truly relax spinal erectors post-training.",
-    recommendedProductSlug: "wide-heavy-duty-board",
+    recommendedProductSlug: "2-piece-folding-board",
     sections: [
       {
         id: "barbell-compression",
@@ -242,7 +242,7 @@ export const GUIDES: GuideItem[] = [
     heroImage: "/images/gallery/lumbar-single-leg-lift.jpg",
     excerpt:
       "Why gentle bent-knee unloading at 10°–15° helps release lower-back and glute tension far more comfortably than aggressive stretching.",
-    recommendedProductSlug: "standard-pine-board",
+    recommendedProductSlug: "2-piece-folding-board",
     sections: [
       {
         id: "mechanical-compression",
@@ -344,7 +344,7 @@ export const GUIDES: GuideItem[] = [
     heroImage: "/images/gallery/family-home-lifestyle.jpg",
     excerpt:
       "We brush 32 teeth every day to avoid dental crises, yet ignore 32 vertebrae until pain strikes. Learn the prevention philosophy behind the Evminov board.",
-    recommendedProductSlug: "standard-pine-board",
+    recommendedProductSlug: "2-piece-folding-board",
     sections: [
       {
         id: "jama-evidence",
@@ -392,7 +392,7 @@ export const GUIDES: GuideItem[] = [
     heroImage: "/images/products/board-mounting-bracket.jpg",
     excerpt:
       "A practical buyer's guide covering US 16\" wood-stud mounting, Pine vs. Alder vs. Wide sizing, delivery timelines to all 50 states, and HSA/FSA itemized invoices.",
-    recommendedProductSlug: "standard-pine-board",
+    recommendedProductSlug: "2-piece-folding-board",
     sections: [
       {
         id: "choosing-your-model",
@@ -453,7 +453,7 @@ export const GUIDES: GuideItem[] = [
     heroImage: "/images/gallery/family-prone-extension.jpg",
     excerpt:
       "How a flat, symmetrical wooden reference plane and 5-minute music-guided routines help kids and teens build healthy upright habits alongside parents.",
-    recommendedProductSlug: "standard-pine-board",
+    recommendedProductSlug: "2-piece-folding-board",
     sections: [
       {
         id: "modern-school-posture",

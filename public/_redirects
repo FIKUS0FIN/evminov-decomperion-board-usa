@@ -12,7 +12,15 @@
 /athlete-spine-recovery /conditions/athlete-spine-recovery/ 301
 /sciatica-relief /conditions/sciatica-relief/ 301
 /daily-spine-stick /conditions/desk-worker-posture/ 301
-/backbrush /products/standard-pine-board/ 301
+/backbrush /products/2-piece-folding-board/ 301
+/products/standard-pine-board /products/2-piece-folding-board/ 301
+/products/standard-pine-board/ /products/2-piece-folding-board/ 301
+/products/wide-heavy-duty-board /products/2-piece-folding-board/ 301
+/products/wide-heavy-duty-board/ /products/2-piece-folding-board/ 301
+/products/select-alder-board /products/2-piece-folding-board/ 301
+/products/select-alder-board/ /products/2-piece-folding-board/ 301
+/products/free-standing-stand /products/2-piece-folding-board/ 301
+/products/free-standing-stand/ /products/2-piece-folding-board/ 301
 /shop /products/ 301
 /checkout /order/ 301
 /contact /order/ 301

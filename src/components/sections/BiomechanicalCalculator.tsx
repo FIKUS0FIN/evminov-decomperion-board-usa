@@ -88,9 +88,10 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
     PRODUCTS.find((p) => p.slug === boardRec.slug) || PRODUCTS[0];
   const localizedProduct = getLocalizedProduct(matchedProduct, lang);
 
-  const shownDirect = applyHsaSavings
-    ? calculateHsaPrice(matchedProduct.directPriceUsd)
-    : matchedProduct.directPriceUsd;
+  const baseDirect =
+    matchedProduct.directPriceUsd +
+    (boardRec.width === "wide" ? matchedProduct.wideSurchargeUsd : 0);
+  const shownDirect = applyHsaSavings ? calculateHsaPrice(baseDirect) : baseDirect;
 
   const handleShareProtocol = async () => {
     const shareUrl = `${getCanonicalUrl("/calculator/", lang)}?goal=${goal}&weight=${weightLbs}&angle=${angle}`;
@@ -166,13 +167,17 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
     }
   };
 
-  const prefilledHref = buildPrefilledOrderUrl({
+  const baseOrderHref = buildPrefilledOrderUrl({
     lang,
     product: matchedProduct.slug,
     angle,
     goal,
-    step: 2,
+    step: 1,
   });
+  const prefilledHref =
+    boardRec.width === "wide"
+      ? baseOrderHref.replace("#order-form", "&width=wide#order-form")
+      : baseOrderHref;
 
   return (
     <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-xl md:p-8">
@@ -438,9 +443,12 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
               </p>
               <p className="mt-1 text-base font-bold text-white">
                 {localizedProduct.name}
+                {boardRec.width === "wide" ? " — Wide Heavy-Duty (330 lbs)" : ""}
               </p>
               <p className="mt-1 text-xs text-slate-300">
-                {getLocalizedBoardRecReason(boardRec.slug, lang)}
+                {boardRec.width === "wide"
+                  ? getLocalizedBoardRecReason("wide-heavy-duty-board", lang)
+                  : getLocalizedBoardRecReason(boardRec.slug, lang)}
               </p>
               <div className="mt-3 flex items-baseline justify-between border-t border-white/10 pt-3">
                 <span className="text-xs text-slate-300">

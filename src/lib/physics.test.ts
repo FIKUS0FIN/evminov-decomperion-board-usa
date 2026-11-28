@@ -17,22 +17,26 @@ describe("Biomechanical Traction Physics & Pricing Utilities", () => {
     expect(res.percentBodyWeight).toBeGreaterThan(20);
   });
 
-  it("recommends Wide Heavy-Duty board for users over 210 lbs or 6'4\"", () => {
+  it("recommends Wide Heavy-Duty width for users over 210 lbs or 6'4\"", () => {
     const heavy = recommendBoardModel(235, 72);
-    expect(heavy.slug).toBe("wide-heavy-duty-board");
+    expect(heavy.slug).toBe("2-piece-folding-board");
+    expect(heavy.width).toBe("wide");
 
     const tall = recommendBoardModel(190, 78);
-    expect(tall.slug).toBe("wide-heavy-duty-board");
+    expect(tall.slug).toBe("2-piece-folding-board");
+    expect(tall.width).toBe("wide");
   });
 
   it("recommends 3-Piece Travel board when portability is requested", () => {
     const travel = recommendBoardModel(170, 69, true);
     expect(travel.slug).toBe("3-piece-travel-board");
+    expect(travel.width).toBe("standard");
   });
 
-  it("recommends Standard board for standard adults", () => {
+  it("recommends 2-Piece Folding board (with stand) for standard adults", () => {
     const std = recommendBoardModel(175, 70, false);
-    expect(std.slug).toBe("standard-pine-board");
+    expect(std.slug).toBe("2-piece-folding-board");
+    expect(std.width).toBe("standard");
   });
 
   it("recommends gentle low-angle windows for hernia & pediatric goals", () => {

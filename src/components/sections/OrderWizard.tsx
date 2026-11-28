@@ -26,9 +26,120 @@ import {
 import { SITE_CONFIG } from "@/lib/site-config";
 import { getAttributionSummary, sendGTMEvent } from "@/lib/gtm";
 
+const CONFIG_COPY: Record<
+  Locale,
+  {
+    widthHeading: string;
+    standardWidth: string;
+    standardWidthSub: string;
+    wideWidth: string;
+    wideWidthSub: string;
+    standHeading: string;
+    standIncludedTitle: string;
+    standIncludedDesc: string;
+    standWith: string;
+    standWithDesc: string;
+    standWithout: string;
+    standWithoutDesc: string;
+    standWithoutWarning: string;
+  }
+> = {
+  en: {
+    widthHeading: "Select Board Width",
+    standardWidth: "Standard Width",
+    standardWidthSub: "Up to 220 lbs • Up to 6'4\"",
+    wideWidth: "Wide Heavy-Duty (+$25)",
+    wideWidthSub: "For higher weight & broad build • Up to 330 lbs • 6'9\"",
+    standHeading: "Support Stand Configuration",
+    standIncludedTitle: "Support Stand Included",
+    standIncludedDesc: "The 2-Piece Folding Evminov Board ships complete with a sturdy support stand.",
+    standWith: "With Support Stand (+$50)",
+    standWithDesc: "Ready to use anywhere without needing an external support.",
+    standWithout: "Without Support Stand",
+    standWithoutDesc: "Compact travel kit — lowest weight & price.",
+    standWithoutWarning: "Note: Without a support stand, you will need a sturdy, reliable support structure before starting your sessions.",
+  },
+  es: {
+    widthHeading: "Selecciona el Ancho de la Tabla",
+    standardWidth: "Ancho Estándar",
+    standardWidthSub: "Hasta 220 lbs • Hasta 193 cm",
+    wideWidth: "Ancho Reforzado Wide (+$25)",
+    wideWidthSub: "Para mayor peso • Hasta 330 lbs (150 kg) • 206 cm",
+    standHeading: "Configuración de Soporte",
+    standIncludedTitle: "Soporte Incluido",
+    standIncludedDesc: "La tabla plegable de 2 piezas se entrega con su soporte resistente incluido.",
+    standWith: "Con Soporte (+$50)",
+    standWithDesc: "Lista para usar en cualquier lugar con estabilidad total.",
+    standWithout: "Sin Soporte",
+    standWithoutDesc: "Opción compacta de viaje.",
+    standWithoutWarning: "Nota: Sin soporte, deberá asegurar un apoyo firme y fiable antes de iniciar los ejercicios.",
+  },
+  fr: {
+    widthHeading: "Choisissez la Largeur de la Planche",
+    standardWidth: "Largeur Standard",
+    standardWidthSub: "Jusqu'à 100 kg (220 lbs) • 193 cm",
+    wideWidth: "Large Renforcée Wide (+$25)",
+    wideWidthSub: "Pour poids plus élevé • Jusqu'à 150 kg (330 lbs) • 206 cm",
+    standHeading: "Configuration du Support",
+    standIncludedTitle: "Support Inclus",
+    standIncludedDesc: "La planche pliable 2 pièces est livrée avec son support stable inclus.",
+    standWith: "Avec Support (+$50)",
+    standWithDesc: "Prête à l'emploi partout en toute autonomie.",
+    standWithout: "Sans Support",
+    standWithoutDesc: "Format voyage ultra-compact.",
+    standWithoutWarning: "Remarque : Sans support, vous devrez prévoir un appui solide et fiable avant chaque séance.",
+  },
+  de: {
+    widthHeading: "Board-Breite wählen",
+    standardWidth: "Standard-Breite",
+    standardWidthSub: "Bis 100 kg (220 lbs) • Bis 193 cm",
+    wideWidth: "Breit Heavy-Duty Wide (+$25)",
+    wideWidthSub: "Für höheres Gewicht • Bis 150 kg (330 lbs) • 206 cm",
+    standHeading: "Ständer-Konfiguration",
+    standIncludedTitle: "Stützständer im Lieferumfang",
+    standIncludedDesc: "Das 2-teilige Evminov Board wird komplett mit stabilem Stützständer geliefert.",
+    standWith: "Mit Stützständer (+$50)",
+    standWithDesc: "Sofort einsatzbereit ohne externe Halterung.",
+    standWithout: "Ohne Stützständer",
+    standWithoutDesc: "Kompakte Reisevariante.",
+    standWithoutWarning: "Hinweis: Ohne Stützständer benötigen Sie vor dem Training eine stabile, zuverlässige Auflage bzw. Abstützung.",
+  },
+  uk: {
+    widthHeading: "Оберіть ширину дошки",
+    standardWidth: "Стандартна ширина",
+    standardWidthSub: "До 100 кг (220 lbs) • Зріст до 193 см",
+    wideWidth: "Широка Heavy-Duty (+$25)",
+    wideWidthSub: "Для більшої ваги та широких плечей • До 150 кг (330 lbs)",
+    standHeading: "Комплектація стійкою-підставкою",
+    standIncludedTitle: "Стійка-підставка в комплекті",
+    standIncludedDesc: "2-секційна дошка Євмінова поставляється разом із надійною стійкою-підставкою.",
+    standWith: "З підставкою (+$50)",
+    standWithDesc: "Готово до занять одразу вдома чи в поїздці.",
+    standWithout: "Без підставки",
+    standWithoutDesc: "Максимально компактний дорожній варіант.",
+    standWithoutWarning: "Зверніть увагу: у варіанті без підставки перед початком занять потрібно знайти надійну опору.",
+  },
+  ru: {
+    widthHeading: "Выберите ширину доски",
+    standardWidth: "Стандартная ширина",
+    standardWidthSub: "До 100 кг (220 lbs) • Рост до 193 см",
+    wideWidth: "Широкая Heavy-Duty (+$25)",
+    wideWidthSub: "Для большего веса и широких плеч • До 150 кг (330 lbs)",
+    standHeading: "Комплектация стойкой-подставкой",
+    standIncludedTitle: "Стойка-подставка в комплекте",
+    standIncludedDesc: "2-секционная доска Евминова поставляется в комплекте с надёжной стойкой-подставкой.",
+    standWith: "С подставкой (+$50)",
+    standWithDesc: "Готово к занятиям сразу дома или в поездке.",
+    standWithout: "Без подставки",
+    standWithoutDesc: "Максимально компактный дорожный вариант.",
+    standWithoutWarning: "Обратите внимание: в варианте без подставки перед занятиями необходимо найти надёжную опору.",
+  },
+};
+
 export function OrderWizard({ lang }: { lang: Locale }) {
   const t = getDictionary(lang).orderUi;
   const ow = ORDER_WIZARD_COPY[lang];
+  const cfg = CONFIG_COPY[lang];
   const authCopy = AUTH_UI_COPY[lang];
   const searchParams = useSearchParams();
   const { user, setUser, loading: authLoading, googleOAuthEnabled, logout } = useAuth();
@@ -37,7 +148,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
     const p = searchParams.get("product");
     return p && PRODUCTS.some((item) => item.slug === p)
       ? p
-      : "standard-pine-board";
+      : "2-piece-folding-board";
   })();
   const initialProduct =
     PRODUCTS.find((item) => item.slug === initialSlug) || PRODUCTS[0];
@@ -47,15 +158,26 @@ export function OrderWizard({ lang }: { lang: Locale }) {
     return qsStep === 2 || qsStep === 3 ? qsStep : 1;
   });
   const [productSlug, setProductSlug] = useState(initialSlug);
+  const [boardWidth, setBoardWidth] = useState<"standard" | "wide">(() =>
+    searchParams.get("width") === "wide" ||
+    searchParams.get("product") === "wide-heavy-duty-board"
+      ? "wide"
+      : "standard"
+  );
   const [finish, setFinish] = useState(
-    () => searchParams.get("finish") || initialProduct.finishes[0]
+    () =>
+      (searchParams.get("finish") &&
+        initialProduct.finishes.includes(searchParams.get("finish")!))
+        ? searchParams.get("finish")!
+        : initialProduct.finishes[0]
   );
   const [shipping, setShipping] = useState<"express" | "direct">(() =>
     searchParams.get("shipping") === "direct" ? "direct" : "express"
   );
-  const [includeStand, setIncludeStand] = useState(
-    () => searchParams.get("stand") === "1"
-  );
+  const [includeStand, setIncludeStand] = useState<boolean>(() => {
+    if (initialProduct.standIncluded) return true;
+    return searchParams.get("stand") === "1";
+  });
   const [includeHsaDoc, setIncludeHsaDoc] = useState(true);
 
   const [name, setName] = useState("");
@@ -105,17 +227,17 @@ export function OrderWizard({ lang }: { lang: Locale }) {
   const selectedProduct =
     PRODUCTS.find((p) => p.slug === productSlug) || PRODUCTS[0];
   const localizedSelected = getLocalizedProduct(selectedProduct, lang);
-  const standItem = PRODUCTS.find((p) => p.slug === "free-standing-stand");
 
+  const effectiveStandIncluded = selectedProduct.standIncluded || includeStand;
+  const widthSurcharge =
+    boardWidth === "wide" ? selectedProduct.wideSurchargeUsd : 0;
   const boardPrice =
-    shipping === "express"
+    (shipping === "express"
       ? selectedProduct.expressPriceUsd
-      : selectedProduct.directPriceUsd;
+      : selectedProduct.directPriceUsd) + widthSurcharge;
   const standPrice =
-    includeStand && selectedProduct.slug !== "free-standing-stand" && standItem
-      ? shipping === "express"
-        ? standItem.expressPriceUsd
-        : standItem.directPriceUsd
+    !selectedProduct.standIncluded && includeStand
+      ? selectedProduct.standAddUsd
       : 0;
   const totalUsd = boardPrice + standPrice;
   const estimatedHsaNet = calculateHsaPrice(totalUsd);
@@ -180,10 +302,12 @@ export function OrderWizard({ lang }: { lang: Locale }) {
         body: JSON.stringify({
           mode: "order_reservation",
           product: selectedProduct.slug,
-          productName: selectedProduct.name,
+          productName: `${selectedProduct.name} (${
+            boardWidth === "wide" ? "Wide Heavy-Duty 330 lbs" : "Standard Width 220 lbs"
+          } • ${effectiveStandIncluded ? "With Support Stand" : "Without Support Stand"})`,
           finish,
           shipping,
-          includeStand,
+          includeStand: effectiveStandIncluded,
           includeHsaDoc,
           totalUsd,
           name: name.trim(),
@@ -301,6 +425,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                         onClick={() => {
                           setProductSlug(p.slug);
                           setFinish(p.finishes[0]);
+                          if (p.standIncluded) setIncludeStand(true);
                         }}
                         className={`rounded-2xl border p-4 text-left transition ${
                           active
@@ -323,6 +448,98 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                     );
                   })}
                 </div>
+              </div>
+
+              {/* Board Width Selector: Standard vs Wide Heavy-Duty */}
+              <div>
+                <p className="text-sm font-bold text-slate-900">{cfg.widthHeading}</p>
+                <div className="mt-2 grid gap-2.5 sm:grid-cols-2">
+                  <button
+                    type="button"
+                    onClick={() => setBoardWidth("standard")}
+                    className={`rounded-2xl border p-3.5 text-left transition ${
+                      boardWidth === "standard"
+                        ? "border-teal-700 bg-teal-50/70 ring-2 ring-teal-700/20"
+                        : "border-slate-200 hover:border-slate-300"
+                    }`}
+                  >
+                    <p className="text-xs font-extrabold text-slate-950">
+                      {cfg.standardWidth}
+                    </p>
+                    <p className="mt-0.5 text-[11px] text-slate-600">
+                      {cfg.standardWidthSub}
+                    </p>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setBoardWidth("wide")}
+                    className={`rounded-2xl border p-3.5 text-left transition ${
+                      boardWidth === "wide"
+                        ? "border-teal-700 bg-teal-50/70 ring-2 ring-teal-700/20"
+                        : "border-slate-200 hover:border-slate-300"
+                    }`}
+                  >
+                    <p className="text-xs font-extrabold text-slate-950">
+                      {cfg.wideWidth}
+                    </p>
+                    <p className="mt-0.5 text-[11px] text-slate-600">
+                      {cfg.wideWidthSub}
+                    </p>
+                  </button>
+                </div>
+              </div>
+
+              {/* Support Stand Configuration */}
+              <div>
+                <p className="text-sm font-bold text-slate-900">{cfg.standHeading}</p>
+                {selectedProduct.standIncluded ? (
+                  <div className="mt-2 rounded-2xl border border-emerald-200 bg-emerald-50/70 p-3.5 text-xs text-emerald-950">
+                    <p className="font-extrabold">{cfg.standIncludedTitle}</p>
+                    <p className="mt-0.5 text-emerald-900/90">{cfg.standIncludedDesc}</p>
+                  </div>
+                ) : (
+                  <div className="mt-2 space-y-2.5">
+                    <div className="grid gap-2.5 sm:grid-cols-2">
+                      <button
+                        type="button"
+                        onClick={() => setIncludeStand(true)}
+                        className={`rounded-2xl border p-3.5 text-left transition ${
+                          includeStand
+                            ? "border-teal-700 bg-teal-50/70 ring-2 ring-teal-700/20"
+                            : "border-slate-200 hover:border-slate-300"
+                        }`}
+                      >
+                        <p className="text-xs font-extrabold text-slate-950">
+                          {cfg.standWith}
+                        </p>
+                        <p className="mt-0.5 text-[11px] text-slate-600">
+                          {cfg.standWithDesc}
+                        </p>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setIncludeStand(false)}
+                        className={`rounded-2xl border p-3.5 text-left transition ${
+                          !includeStand
+                            ? "border-teal-700 bg-teal-50/70 ring-2 ring-teal-700/20"
+                            : "border-slate-200 hover:border-slate-300"
+                        }`}
+                      >
+                        <p className="text-xs font-extrabold text-slate-950">
+                          {cfg.standWithout}
+                        </p>
+                        <p className="mt-0.5 text-[11px] text-slate-600">
+                          {cfg.standWithoutDesc}
+                        </p>
+                      </button>
+                    </div>
+                    {!includeStand && (
+                      <div className="rounded-xl border border-amber-200 bg-amber-50 px-3.5 py-2.5 text-xs font-medium text-amber-950">
+                        {cfg.standWithoutWarning}
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
 
               <div>
@@ -421,25 +638,6 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                   </label>
                 </div>
               </div>
-
-              {selectedProduct.slug !== "free-standing-stand" && (
-                <label className="flex cursor-pointer items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                  <input
-                    type="checkbox"
-                    checked={includeStand}
-                    onChange={(e) => setIncludeStand(e.target.checked)}
-                    className="mt-1 h-4 w-4 accent-teal-700"
-                  />
-                  <div>
-                    <p className="text-sm font-bold text-slate-900">
-                      {ow.addFreeStand}
-                    </p>
-                    <p className="text-xs text-slate-600">
-                      {ow.addFreeStandDesc}
-                    </p>
-                  </div>
-                </label>
-              )}
 
               <label className="flex cursor-pointer items-start gap-3 rounded-2xl border border-emerald-200 bg-emerald-50/70 p-4">
                 <input

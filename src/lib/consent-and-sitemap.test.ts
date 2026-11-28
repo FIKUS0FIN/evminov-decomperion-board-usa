@@ -27,7 +27,7 @@ describe("Unconditional Analytics Consent Mode v2, Sitemap & RSS", () => {
   it("generates valid RSS 2.0 XML containing products and guides", () => {
     const xml = generateRssXml();
     expect(xml).toContain('<rss version="2.0"');
-    expect(xml).toContain("https://evminovusa.com/products/standard-pine-board/");
+    expect(xml).toContain("https://evminovusa.com/products/2-piece-folding-board/");
     expect(xml).toContain("https://evminovusa.com/guides/inversion-table-dangers-and-safe-alternatives/");
   });
 });

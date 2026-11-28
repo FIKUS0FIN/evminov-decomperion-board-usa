@@ -26,6 +26,7 @@ export interface InclineRecommendation {
 
 export interface BoardSizeRecommendation {
   slug: string;
+  width: "standard" | "wide";
   modelName: string;
   reason: string;
 }
@@ -160,24 +161,29 @@ export function recommendBoardModel(
 ): BoardSizeRecommendation {
   if (weightLbs > 210 || heightInches > 76) {
     return {
-      slug: "wide-heavy-duty-board",
-      modelName: "Wide Panel Evminov Board (Heavy-Duty)",
+      slug: needsPortability ? "3-piece-travel-board" : "2-piece-folding-board",
+      width: "wide",
+      modelName: needsPortability
+        ? "3-Piece Folding Evminov Board — Wide Heavy-Duty (330 lbs)"
+        : "2-Piece Folding Evminov Board — Wide Heavy-Duty (With Stand • 330 lbs)",
       reason:
-        "Rated up to 330 lbs and 6'9\" with a 30% wider multi-layer Carpathian pine deck and reinforced alloy carriage.",
+        "Rated up to 330 lbs and 6'9\" with a wider reinforced deck and carriage. Available in Natural Warm Amber Alder or Dark Walnut Pine.",
     };
   }
   if (needsPortability) {
     return {
       slug: "3-piece-travel-board",
-      modelName: "3-Piece Folding Evminov Board (Travel)",
+      width: "standard",
+      modelName: "3-Piece Folding Evminov Board (Travel & Trunk)",
       reason:
-        "Breaks down into ~31\" segments for closets, car trunks, or air travel while supporting up to 220 lbs and 6'4\".",
+        "Breaks down into ~31\" segments for closets or car trunks (up to 220 lbs, 6'4\"). Available with or without support stand in Alder or Dark Walnut Pine.",
     };
   }
   return {
-    slug: "standard-pine-board",
-    modelName: "Standard Solid Evminov Board (1-Piece)",
+    slug: "2-piece-folding-board",
+    width: "standard",
+    modelName: "2-Piece Folding Evminov Board (Home Storage • With Stand)",
     reason:
-      "Classic monolithic Carpathian pine flex-board for users up to 6'4\" and 210 lbs. Includes Glisson Loop and 16\" stud mount kit.",
+      "Ships complete with support stand and free Glisson Cervical Loop (up to 220 lbs, 6'4\"). Available in Natural Warm Amber Alder or Dark Walnut Pine.",
   };
 }
