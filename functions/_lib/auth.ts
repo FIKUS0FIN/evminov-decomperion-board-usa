@@ -4,9 +4,54 @@ export interface AuthEnv {
   GOOGLE_CLIENT_SECRET?: string;
   ADMIN_EMAILS?: string;
   RESEND_API_KEY?: string;
+  RESEND_API_KEY_CA?: string;
   TELEGRAM_BOT_TOKEN?: string;
   TELEGRAM_CHAT_ID?: string;
   STRIPE_SECRET_KEY?: string;
+}
+
+export interface RegionalEmailConfig {
+  isCanada: boolean;
+  apiKey: string | undefined;
+  siteOrigin: string;
+  ordersEmail: string;
+  supportEmail: string;
+  fromOrders: string;
+  fromPortal: string;
+  brandHeader: string;
+  threadDomain: string;
+}
+
+export function getRegionalEmailConfig(
+  request: Request,
+  env: AuthEnv
+): RegionalEmailConfig {
+  const host = new URL(request.url).hostname.toLowerCase();
+  const isCanada = host === "evminovcanada.com" || host.endsWith(".evminovcanada.com");
+  if (isCanada) {
+    return {
+      isCanada: true,
+      apiKey: env.RESEND_API_KEY_CA || env.RESEND_API_KEY,
+      siteOrigin: "https://evminovcanada.com",
+      ordersEmail: "orders@evminovcanada.com",
+      supportEmail: "support@evminovcanada.com",
+      fromOrders: "Evminov Spine Systems Canada <orders@evminovcanada.com>",
+      fromPortal: "Evminov Canada Patient Portal <orders@evminovcanada.com>",
+      brandHeader: "EVMINOV SPINE SYSTEMS CANADA",
+      threadDomain: "evminovcanada.com",
+    };
+  }
+  return {
+    isCanada: false,
+    apiKey: env.RESEND_API_KEY,
+    siteOrigin: "https://evminovusa.com",
+    ordersEmail: "orders@evminovusa.com",
+    supportEmail: "support@evminovusa.com",
+    fromOrders: "Evminov Spine Systems <orders@evminovusa.com>",
+    fromPortal: "Evminov Patient Portal <orders@evminovusa.com>",
+    brandHeader: "EVMINOV SPINE SYSTEMS USA",
+    threadDomain: "evminovusa.com",
+  };
 }
 
 export interface AuthUser {

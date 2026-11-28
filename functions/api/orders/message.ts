@@ -1,4 +1,9 @@
-import { AuthEnv, getSessionUser, jsonResponse } from "../../_lib/auth";
+import {
+  AuthEnv,
+  getRegionalEmailConfig,
+  getSessionUser,
+  jsonResponse,
+} from "../../_lib/auth";
 import { escapeHtml } from "../submit-order";
 
 export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) => {
@@ -47,7 +52,8 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
       .run();
 
     // Forward customer message into the same Gmail order thread for operations
-    if (env.RESEND_API_KEY) {
+    const emailCfg = getRegionalEmailConfig(request, env);
+    if (emailCfg.apiKey) {
       const orderRef = String(order.order_ref || "");
       const mode = String(order.mode || "order_reservation");
       const originalSubject =
@@ -56,7 +62,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
           : mode === "warranty_registration"
           ? `Evminov 10-Year Structural Warranty Registered (${orderRef})`
           : `Evminov Reservation Confirmed — ${orderRef}`;
-      const threadId = `<order-${orderRef.toLowerCase()}@evminovusa.com>`;
+      const threadId = `<order-${orderRef.toLowerCase()}@${emailCfg.threadDomain}>`;
 
       const safeMsg = escapeHtml(message).replace(/\n/g, "<br/>");
       const htmlBody = `
@@ -70,7 +76,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
               ${safeMsg}
             </div>
             <p style="margin-top:16px;">
-              <a href="https://evminovusa.com/admin/" style="display:inline-block;background:#0f766e;color:#fff;text-decoration:none;font-weight:700;padding:10px 18px;border-radius:8px;">Reply in Admin Dashboard</a>
+              <a href="${emailCfg.siteOrigin}/admin/" style="display:inline-block;background:#0f766e;color:#fff;text-decoration:none;font-weight:700;padding:10px 18px;border-radius:8px;">Reply in Admin Dashboard</a>
             </p>
           </div>
         </div>
@@ -79,12 +85,12 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
       await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${env.RESEND_API_KEY}`,
+          Authorization: `Bearer ${emailCfg.apiKey}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          from: "Evminov Patient Portal <orders@evminovusa.com>",
-          to: ["orders@evminovusa.com"],
+          from: emailCfg.fromPortal,
+          to: [emailCfg.ordersEmail],
           reply_to: user.email,
           subject: `Re: ${originalSubject}`,
           headers: {

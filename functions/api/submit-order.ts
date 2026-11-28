@@ -1,4 +1,9 @@
-import { AuthEnv, getSessionUser, normalizeEmail } from "../_lib/auth";
+import {
+  AuthEnv,
+  getRegionalEmailConfig,
+  getSessionUser,
+  normalizeEmail,
+} from "../_lib/auth";
 
 export function escapeHtml(input: string): string {
   return input
@@ -63,12 +68,9 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
     const orderId = crypto.randomUUID();
     const orderRef = `EV-${crypto.randomUUID().replace(/-/g, "").slice(0, 8).toUpperCase()}`;
     const nowIso = new Date().toISOString();
-    const reqOrigin = new URL(request.url).origin;
-    const siteOrigin =
-      reqOrigin === "https://evminovcanada.com"
-        ? "https://evminovcanada.com"
-        : "https://evminovusa.com";
-    const isCanadaOrigin = siteOrigin === "https://evminovcanada.com";
+    const emailCfg = getRegionalEmailConfig(request, env);
+    const siteOrigin = emailCfg.siteOrigin;
+    const isCanadaOrigin = emailCfg.isCanada;
     const orderCurrency = isCanadaOrigin ? "CAD" : "USD";
     const stripeCurrency = isCanadaOrigin ? "cad" : "usd";
     const localePrefix =
@@ -216,7 +218,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
     }
 
     // 2. Branded HTML Emails via Resend (Customer confirmation + Operations admin copy)
-    if (env.RESEND_API_KEY) {
+    if (emailCfg.apiKey) {
       const safeName = escapeHtml(name || "Valued Customer");
       const safeEmail = escapeHtml(email);
       const safePhone = escapeHtml(phone || "Not provided");
@@ -552,15 +554,15 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
       const customerHtml = `
         <div style="font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:600px;margin:0 auto;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;">
           <div style="background:#0b1f3a;color:#fff;padding:24px;">
-            <h1 style="margin:0;font-size:20px;">EVMINOV SPINE SYSTEMS USA</h1>
+            <h1 style="margin:0;font-size:20px;">${emailCfg.brandHeader}</h1>
             <p style="margin:6px 0 0;font-size:12px;color:#34d399;">Reference: ${orderRef}</p>
           </div>
           <div style="padding:24px;color:#1e293b;font-size:14px;line-height:1.6;">
             <p>Hello ${safeName},</p>
-            <p>Thank you for contacting Evminov Spine Systems. Our Glendale, California team has received your request with the following details:</p>
+            <p>Thank you for contacting Evminov Spine Systems. Our team has received your request with the following details:</p>
             ${detailsRowsHtml}
-            <p>Track your order status anytime in your <a href="${new URL(request.url).origin === "https://evminovcanada.com" ? "https://evminovcanada.com" : "https://evminovusa.com"}/portal/" style="color:#0f766e;font-weight:bold;">Patient Portal</a>. We will follow up within 1 business day with shipping confirmation and your itemized invoice${includeHsaDoc ? " (HSA/FSA ready)" : ""}.</p>
-            <p style="font-size:12px;color:#64748b;">Glendale Operations Hub: 4525 San Fernando Rd, Unit H, Glendale, CA 91204 • +1 (747) 306-0140 • support@evminovusa.com</p>
+            <p>Track your order status anytime in your <a href="${emailCfg.siteOrigin}/portal/" style="color:#0f766e;font-weight:bold;">Patient Portal</a>. We will follow up within 1 business day with shipping confirmation and your itemized invoice${includeHsaDoc ? (isCanadaOrigin ? " (Extended Health / HSA ready)" : " (HSA/FSA ready)") : ""}.</p>
+            <p style="font-size:12px;color:#64748b;">Evminov Spine Systems • +1 (747) 306-0140 • ${emailCfg.supportEmail}</p>
           </div>
         </div>
       `;
@@ -582,8 +584,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
         </div>
       `;
 
-      const threadId = `<order-${orderRef.toLowerCase()}@evminovusa.com>`;
-
+      const threadId = `<order-${orderRef.toLowerCase()}@${emailCfg.threadDomain}>`;
       const finalCustomerHtml =
         mode === "protocol_lead" ? protocolCustomerHtml : customerHtml;
 
@@ -591,14 +592,14 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
         fetch("https://api.resend.com/emails", {
           method: "POST",
           headers: {
-            Authorization: `Bearer ${env.RESEND_API_KEY}`,
+            Authorization: `Bearer ${emailCfg.apiKey}`,
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            from: "Evminov Spine Systems <orders@evminovusa.com>",
+            from: emailCfg.fromOrders,
             to: [email],
-            ...(mode === "protocol_lead" ? {} : { cc: ["orders@evminovusa.com"] }),
-            reply_to: mode === "protocol_lead" ? "support@evminovusa.com" : "orders@evminovusa.com",
+            ...(mode === "protocol_lead" ? {} : { cc: [emailCfg.ordersEmail] }),
+            reply_to: mode === "protocol_lead" ? emailCfg.supportEmail : emailCfg.ordersEmail,
             subject: subjectBase,
             headers: {
               References: threadId,
@@ -612,17 +613,17 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
         fetch("https://api.resend.com/emails", {
           method: "POST",
           headers: {
-            Authorization: `Bearer ${env.RESEND_API_KEY}`,
+            Authorization: `Bearer ${emailCfg.apiKey}`,
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            from: "Evminov Orders <orders@evminovusa.com>",
-            to: ["orders@evminovusa.com"],
+            from: emailCfg.fromOrders,
+            to: [emailCfg.ordersEmail],
             reply_to: email,
             subject:
               mode === "protocol_lead"
-                ? `[Calculator Lead] ${calcAngle}° / ${calcModel} — ${email}`
-                : `[Admin] ${subjectBase} — ${name || email}`,
+                ? `[Calculator Lead ${isCanadaOrigin ? "CA" : "US"}] ${calcAngle}° / ${calcModel} — ${email}`
+                : `[Admin ${isCanadaOrigin ? "CA" : "US"}] ${subjectBase} — ${name || email}`,
             html: adminHtml,
           }),
         })

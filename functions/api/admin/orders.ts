@@ -1,4 +1,10 @@
-import { AuthEnv, getSessionUser, jsonResponse, normalizeEmail } from "../../_lib/auth";
+import {
+  AuthEnv,
+  getRegionalEmailConfig,
+  getSessionUser,
+  jsonResponse,
+  normalizeEmail,
+} from "../../_lib/auth";
 import { escapeHtml } from "../submit-order";
 
 const VALID_STATUSES = new Set([
@@ -196,13 +202,14 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
       )
       .run();
 
+    const emailCfg = getRegionalEmailConfig(request, env);
     let emailSent = false;
-    if (notifyCustomer && env.RESEND_API_KEY) {
-      const threadId = `<order-${orderRef.toLowerCase()}@evminovusa.com>`;
+    if (notifyCustomer && emailCfg.apiKey) {
+      const threadId = `<order-${orderRef.toLowerCase()}@${emailCfg.threadDomain}>`;
       const htmlBody = `
         <div style="font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:600px;margin:0 auto;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;">
           <div style="background:#0b1f3a;color:#fff;padding:24px;">
-            <h1 style="margin:0;font-size:20px;">EVMINOV SPINE SYSTEMS USA</h1>
+            <h1 style="margin:0;font-size:20px;">${emailCfg.brandHeader}</h1>
             <p style="margin:6px 0 0;font-size:12px;color:#34d399;">Reference: ${orderRef}</p>
           </div>
           <div style="padding:24px;color:#1e293b;font-size:14px;line-height:1.6;">
@@ -211,24 +218,24 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
             <ul>
               <li><strong>Model:</strong> ${escapeHtml(productName)} (${escapeHtml(finish)})</li>
               <li><strong>Status:</strong> ${escapeHtml(STATUS_LABELS[status] || status)}</li>
-              ${totalUsd > 0 ? `<li><strong>Total:</strong> $${totalUsd} USD</li>` : ""}
+              ${totalUsd > 0 ? `<li><strong>Total:</strong> $${totalUsd} ${emailCfg.isCanada ? "CAD" : "USD"}</li>` : ""}
               <li><strong>Destination:</strong> ${escapeHtml(`${stateOrCountry} ${address}`.trim())}</li>
             </ul>
-            <p>Track your order live in your <a href="https://evminovusa.com/portal/" style="color:#0f766e;font-weight:bold;">Patient Portal</a>.</p>
+            <p>Track your order live in your <a href="${emailCfg.siteOrigin}/portal/" style="color:#0f766e;font-weight:bold;">Patient Portal</a>.</p>
           </div>
         </div>
       `;
       const resendRes = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${env.RESEND_API_KEY}`,
+          Authorization: `Bearer ${emailCfg.apiKey}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          from: "Evminov Spine Systems <orders@evminovusa.com>",
+          from: emailCfg.fromOrders,
           to: [customerEmail],
-          cc: ["orders@evminovusa.com"],
-          reply_to: "orders@evminovusa.com",
+          cc: [emailCfg.ordersEmail],
+          reply_to: emailCfg.ordersEmail,
           subject: `Evminov Reservation Confirmed — ${orderRef}`,
           headers: { References: threadId },
           html: htmlBody,
@@ -348,9 +355,10 @@ export const onRequestPatch: PagesFunction<AuthEnv> = async ({ request, env }) =
         .run();
     }
 
+    const emailCfg = getRegionalEmailConfig(request, env);
     let emailSent = false;
     const customerEmail = String(existing.customer_email || "");
-    if (notifyCustomer && env.RESEND_API_KEY && customerEmail) {
+    if (notifyCustomer && emailCfg.apiKey && customerEmail) {
       const orderRef = String(existing.order_ref || "");
       const mode = String(existing.mode || "order_reservation");
       const customerName = escapeHtml(nextName || "Valued Customer");
@@ -365,12 +373,12 @@ export const onRequestPatch: PagesFunction<AuthEnv> = async ({ request, env }) =
           : mode === "warranty_registration"
           ? `Evminov 10-Year Structural Warranty Registered (${orderRef})`
           : `Evminov Reservation Confirmed — ${orderRef}`;
-      const threadId = `<order-${orderRef.toLowerCase()}@evminovusa.com>`;
+      const threadId = `<order-${orderRef.toLowerCase()}@${emailCfg.threadDomain}>`;
 
       const htmlBody = `
         <div style="font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:600px;margin:0 auto;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;">
           <div style="background:#0b1f3a;color:#fff;padding:24px;">
-            <h1 style="margin:0;font-size:20px;">EVMINOV SPINE SYSTEMS USA</h1>
+            <h1 style="margin:0;font-size:20px;">${emailCfg.brandHeader}</h1>
             <p style="margin:6px 0 0;font-size:12px;color:#34d399;">Order Update • ${escapeHtml(orderRef)}</p>
           </div>
           <div style="padding:24px;color:#1e293b;font-size:14px;line-height:1.6;">
@@ -389,8 +397,8 @@ export const onRequestPatch: PagesFunction<AuthEnv> = async ({ request, env }) =
                   </div>`
                 : ""
             }
-            <p>Track your live order timeline and reply anytime in your <a href="https://evminovusa.com/portal/" style="color:#0f766e;font-weight:bold;">Patient Portal</a>, or simply reply to this email.</p>
-            <p style="font-size:12px;color:#64748b;">Evminov Spine Systems USA • 4525 San Fernando Rd, Unit H, Glendale, CA 91204 • +1 (747) 306-0140 • support@evminovusa.com</p>
+            <p>Track your live order timeline and reply anytime in your <a href="${emailCfg.siteOrigin}/portal/" style="color:#0f766e;font-weight:bold;">Patient Portal</a>, or simply reply to this email.</p>
+            <p style="font-size:12px;color:#64748b;">Evminov Spine Systems • +1 (747) 306-0140 • ${emailCfg.supportEmail}</p>
           </div>
         </div>
       `;
@@ -398,14 +406,14 @@ export const onRequestPatch: PagesFunction<AuthEnv> = async ({ request, env }) =
       const resendRes = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${env.RESEND_API_KEY}`,
+          Authorization: `Bearer ${emailCfg.apiKey}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          from: "Evminov Spine Systems <orders@evminovusa.com>",
+          from: emailCfg.fromOrders,
           to: [customerEmail],
-          cc: ["orders@evminovusa.com"],
-          reply_to: "orders@evminovusa.com",
+          cc: [emailCfg.ordersEmail],
+          reply_to: emailCfg.ordersEmail,
           subject: `Re: ${originalSubject}`,
           headers: {
             "In-Reply-To": threadId,
