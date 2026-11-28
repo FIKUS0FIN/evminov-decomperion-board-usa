@@ -68,31 +68,42 @@ function extractAiText(res: {
   return "";
 }
 
-function buildSystemPrompt(isCanada: boolean, origin: string, lang: ChatLocale, pathname: string): string {
+function buildSystemPrompt(
+  isCanada: boolean,
+  origin: string,
+  lang: ChatLocale,
+  pathname: string,
+  computedSizingHint: string
+): string {
   const currency = isCanada ? "CAD" : "USD";
   const email = isCanada ? "support@evminovcanada.com" : "support@evminovusa.com";
   const pricesBlock = isCanada
     ? `OFFICIAL CANADA PRICING (CAD on evminovcanada.com):
   1. 3-Piece Folding Evminov Board (230–245 cm full length):
-     - Standard 26 cm (≤100 kg / 220 lbs, up to 6'4"): $445 CAD Direct / $545 CAD Express
-     - Reinforced Wide 30 cm (>100 kg / up to 150 kg / 330 lbs, up to 6'9"): $500 CAD Direct / $585 CAD Express
+     - Standard 26 cm (FOR ALL USERS UP TO 100 kg / 220 lbs and up to 6'4" / 193 cm): $445 CAD Direct / $545 CAD Express
+     - Reinforced Wide 30 cm (ONLY FOR USERS OVER 100 kg / 220 lbs OR TALLER THAN 6'4" / 193 cm): $500 CAD Direct / $585 CAD Express
   2. 2-Piece Folding Evminov Board ("Spine Toothbrush" — compact 2 sections only):
-     - Standard 26 cm (≤100 kg / 220 lbs): $435 CAD Direct / $540 CAD Express
-     - Reinforced Wide 30 cm (>100 kg / up to 330 lbs): $495 CAD Direct / $580 CAD Express
+     - Standard 26 cm (UP TO 100 kg / 220 lbs): $435 CAD Direct / $540 CAD Express
+     - Reinforced Wide 30 cm (OVER 100 kg / 220 lbs): $495 CAD Direct / $580 CAD Express
   - Finishes (both models): Light (Natural Warm Amber Alder) or Dark (Dark Walnut Pine).
   - Official Factory Accessories: 4-Piece Demountable Ladder Stand (max 123 cm, no wall drilling) $275 | Mounting Hooks (for Stand or Swedish Wall) $35 | 2-Bag Carry Case Set (3-Piece) $105 | Single Carry Case Bag (2-Piece) $105 | 2-Piece Wall Protection Panel (26 cm $155 / 30 cm Wide $175).`
     : `OFFICIAL USA PRICING (USD on evminovusa.com):
   1. 3-Piece Folding Evminov Board (230–245 cm full length):
-     - Standard 26 cm (≤100 kg / 220 lbs, up to 6'4"): $495 USD Direct / $635 USD Express
-     - Reinforced Wide 30 cm (>100 kg / up to 150 kg / 330 lbs, up to 6'9"): $520 USD Direct / $660 USD Express
+     - Standard 26 cm (FOR ALL USERS UP TO 100 kg / 220 lbs and up to 6'4" / 193 cm): $495 USD Direct / $635 USD Express
+     - Reinforced Wide 30 cm (ONLY FOR USERS OVER 100 kg / 220 lbs OR TALLER THAN 6'4" / 193 cm): $520 USD Direct / $660 USD Express
   2. 2-Piece Folding Evminov Board ("Spine Toothbrush" — compact 2 sections only):
-     - Standard 26 cm (≤100 kg / 220 lbs): $475 USD Direct / $615 USD Express
-     - Reinforced Wide 30 cm (>100 kg / up to 330 lbs): $500 USD Direct / $640 USD Express
+     - Standard 26 cm (UP TO 100 kg / 220 lbs): $475 USD Direct / $615 USD Express
+     - Reinforced Wide 30 cm (OVER 100 kg / 220 lbs): $500 USD Direct / $640 USD Express
   - Finishes (both models): Light (Natural Warm Amber Alder) or Dark (Dark Walnut Pine).
   - Official Factory Accessories: 4-Piece Demountable Ladder Stand (max 123 cm, no wall drilling) $275 | Mounting Hooks (for Stand or Swedish Wall) $35 | 2-Bag Carry Case Set (3-Piece) $105 | Single Carry Case Bag (2-Piece) $105 | 2-Piece Wall Protection Panel (26 cm $155 / 30 cm Wide $175).`;
 
   return `You are the Evminov Spine Systems Concierge for ${origin} (Patented since 1996, US Patent 6,869,387 B2, EU Patent EP 1 038 512 B1).
-CRITICAL LANGUAGE RULE: ALWAYS reply strictly in the same language the user wrote in (detected language code: "${lang}" — English, Spanish, French, German, Ukrainian, or Russian). Be warm, clear, concise (3–6 short sentences or crisp bullets), and helpful.
+CRITICAL LANGUAGE RULE: ALWAYS reply strictly and naturally in the same language the user wrote in (detected language code: "${lang}" — English, Spanish, French, German, Ukrainian, or Russian). NEVER mix Cyrillic and Latin letters inside a single word (in Ukrainian write "3-секційний Профілактор Євмінова" / "2-секційна «Зубна щітка»"). Be warm, clear, concise (3–6 short sentences or crisp bullets), and helpful.
+
+STRICT SIZING RULE:
+- Standard 26 cm width fits EVERY adult up to 100 kg (220 lbs) and 193 cm (6'4").
+- Reinforced Wide 30 cm width is ONLY recommended if weight > 100 kg (> 220 lbs) OR height > 193 cm (> 6'4").
+${computedSizingHint ? `- ${computedSizingHint}` : ""}
 
 STRICT COMPLIANCE & VERIFIED FACTS (NEVER invent other prices, NEVER say "BackBrush", NEVER claim FDA Class I medical device clearance or HIPAA):
 - Classification: General Wellness & Spine Conditioning Equipment (HTS 9506.91.0030). Not medical advice or a substitute for emergency care; advise physician clearance for acute nerve weakness, severe osteoporosis, spondylolisthesis, or post-surgery.
@@ -402,11 +413,33 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     const fallback = buildSmartFallback(userMessage, hasImage, lang, isCanada, origin);
 
     if (env.AI) {
+      const metrics = parseUserMetrics(userMessage);
+      const needsWide =
+        (metrics.weightKg !== null && metrics.weightKg > 100) ||
+        (metrics.weightLbs !== null && metrics.weightLbs > 220) ||
+        (metrics.heightCm !== null && metrics.heightCm > 193);
+      let computedSizingHint = "";
+      if (metrics.weightLbs !== null || metrics.heightCm !== null) {
+        const cur = isCanada ? "CAD" : "USD";
+        const p3 = needsWide
+          ? isCanada ? "$500 CAD Direct / $585 CAD Express" : "$520 USD Direct / $660 USD Express"
+          : isCanada ? "$445 CAD Direct / $545 CAD Express" : "$495 USD Direct / $635 USD Express";
+        const p2 = needsWide
+          ? isCanada ? "$495 CAD Direct / $580 CAD Express" : "$500 USD Direct / $640 USD Express"
+          : isCanada ? "$435 CAD Direct / $540 CAD Express" : "$475 USD Direct / $615 USD Express";
+        computedSizingHint = `VERIFIED USER METRICS DETECTED (OBEY STRICTLY — DO NOT CONTRADICT): ${
+          metrics.weightLbs ? `Weight = ${metrics.weightLbs} lbs (${metrics.weightKg} kg)` : ""
+        }${metrics.heightCm ? ` Height = ${metrics.heightCm} cm` : ""} -> MUST recommend **${
+          needsWide ? "Reinforced Wide 30 cm" : "Standard 26 cm"
+        }** width! Exact ${cur} prices for this width: 3-Piece Folding = ${p3}; 2-Piece Spine Toothbrush = ${p2}.`;
+      }
+
       const systemPrompt = buildSystemPrompt(
         isCanada,
         origin,
         lang,
-        String(body.pathname || "/")
+        String(body.pathname || "/"),
+        computedSizingHint
       );
       const historySlice = Array.isArray(body.history)
         ? body.history
@@ -446,7 +479,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
           const aiRes = await env.AI.run(model, {
             messages,
             max_tokens: 420,
-            temperature: 0.4,
+            temperature: 0.25,
           });
           const text = extractAiText(aiRes);
           if (text) {
