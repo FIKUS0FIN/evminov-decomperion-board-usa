@@ -12,13 +12,13 @@ const PHASE_STYLES = [
 ] as const;
 
 const MOSAIC_SRCS = [
-  "/images/centers/kyiv-center-room.png",
-  "/images/centers/kyiv-center-instructor.png",
-  "/images/centers/kyiv-center-session.png",
+  "/images/authentic/evminov-board-profile.jpg",
+  "/images/products/board-studio-incline.jpg",
+  "/images/authentic/exercise-incline-stretch.jpg",
   "/images/authentic/evminov-disc-injury-mri.jpg",
-  "/images/authentic/care-modern-spine-1.jpg",
-  "/images/authentic/care-modern-spine-2.jpg",
-  "/images/authentic/care-modern-spine-3.jpg",
+  "/images/authentic/hero-evminov-decompression.jpg",
+  "/images/authentic/exercise-seated-decompression.jpg",
+  "/images/authentic/exercise-prone-extension.jpg",
   "/images/authentic/clinic-rehab-center-1.jpg",
 ] as const;
 
@@ -102,13 +102,13 @@ export function FounderAndOnboardingSection({ lang }: { lang: Locale }) {
             key={src}
             className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xs"
           >
-            <div className="relative aspect-[4/3] w-full bg-slate-100">
+            <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-50">
               <OptimizedImage
                 src={src}
                 alt={c.mosaicLabels[idx]}
                 fill
                 sizes="(max-width: 640px) 50vw, 25vw"
-                className="object-cover"
+                className="object-contain p-1"
               />
             </div>
             <figcaption className="px-3 py-2 text-center text-[11px] font-bold text-slate-700">

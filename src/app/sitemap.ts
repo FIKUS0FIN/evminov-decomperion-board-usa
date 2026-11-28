@@ -31,7 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/images/authentic/vyacheslav-evminov-founder.jpg",
     "/images/products/glisson-loop-studio.jpg",
     "/images/products/board-mounting-bracket.jpg",
-    "/images/craftsmanship/workshop-wood-selection.jpg",
+    "/images/products/board-studio-woodgrain.jpg",
     "/images/gallery/youth-paired-traction.jpg",
     "/images/gallery/family-home-lifestyle.jpg",
     "/images/authentic/exercise-reverse-traction.jpg",

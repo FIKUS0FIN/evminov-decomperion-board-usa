@@ -6,10 +6,10 @@ import { getLocalizedHref } from "@/lib/url";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 
 const CRAFT_ITEMS = [
-  { idx: 0, src: "/images/craftsmanship/workshop-wood-selection.jpg" },
+  { idx: 0, src: "/images/products/board-studio-woodgrain.jpg" },
   { idx: 1, src: "/images/authentic/evminov-steel-carriage-pin.jpg" },
   { idx: 2, src: "/images/products/board-studio-front.jpg" },
-  { idx: 3, src: "/images/authentic/evminov-carriage-accessory.jpg" },
+  { idx: 3, src: "/images/products/board-carriage-locking-pin.jpg" },
 ] as const;
 
 export function MountingAndCraftsmanshipSection({ lang }: { lang: Locale }) {

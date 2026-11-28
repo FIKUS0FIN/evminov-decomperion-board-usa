@@ -56,13 +56,13 @@ export function ExerciseGallerySection({ lang = "en" }: { lang?: Locale }) {
             onClick={() => setSelected(item)}
             className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white text-left shadow-sm transition hover:shadow-lg"
           >
-            <div className="relative aspect-[4/3] w-full bg-slate-100">
+            <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-50">
               <OptimizedImage
                 src={item.image}
                 alt={item.title}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                className="object-contain p-1 transition-transform duration-300 group-hover:scale-105"
               />
               <span className="absolute bottom-2 left-2 rounded-md bg-slate-950/85 px-2 py-0.5 text-[10px] font-bold text-emerald-300">
                 {item.angle}
@@ -95,13 +95,13 @@ export function ExerciseGallerySection({ lang = "en" }: { lang?: Locale }) {
             onClick={(e) => e.stopPropagation()}
             className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl"
           >
-            <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-slate-100">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-slate-50">
               <OptimizedImage
                 src={selected.image}
                 alt={selected.title}
                 fill
                 sizes="(max-width: 768px) 100vw, 672px"
-                className="object-cover"
+                className="object-contain p-1.5"
               />
             </div>
             <div className="mt-4 flex flex-wrap items-center gap-2 text-xs font-bold">

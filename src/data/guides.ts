@@ -119,7 +119,7 @@ export const GUIDES: GuideItem[] = [
       role: "Vertebral Wellness & Equipment Research",
       credentials: "30 Years of Evminov Method Documentation (Since 1996)",
     },
-    heroImage: "/images/gallery/supine-spinal-elongation.jpg",
+    heroImage: "/images/authentic/hero-carriage-traction-detail.jpg",
     excerpt:
       "Learn why adult intervertebral discs have no direct blood supply, how gentle unloaded motion drives fluid diffusion, and how to progress safely from 8° to 25°.",
     recommendedProductSlug: "2-piece-folding-board",

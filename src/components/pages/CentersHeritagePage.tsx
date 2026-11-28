@@ -78,7 +78,7 @@ const KYIV_IMAGES = [
 ] as const;
 
 const WOOD_IMAGES = [
-  "/images/craftsmanship/workshop-wood-selection.jpg",
+  "/images/products/board-natural-pine-finish.jpg",
   "/images/products/board-studio-woodgrain.jpg",
 ] as const;
 
