@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { CheckCircle2, LogOut, Mic, MicOff, ShieldCheck, Truck } from "lucide-react";
+import { CheckCircle2, LogOut, MessageCircle, Mic, MicOff, ShieldCheck, Truck } from "lucide-react";
 import { Locale } from "@/i18n/types";
 import { getDictionary } from "@/i18n/dictionaries";
 import { AUTH_UI_COPY } from "@/i18n/locales/auth";
@@ -484,8 +484,13 @@ export function OrderWizard({ lang }: { lang: Locale }) {
         </div>
         <p className="mt-4 text-xs text-slate-600">
           {ow.needFasterHelp}{" "}
-          <a href={SITE_CONFIG.phoneHref} className="font-bold underline">
-            {SITE_CONFIG.phoneDisplay}
+          <a
+            href={SITE_CONFIG.whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-bold text-emerald-700 underline"
+          >
+            WhatsApp {SITE_CONFIG.phoneDisplay}
           </a>{" "}
           {ow.orEmail}{" "}
           <a
@@ -1138,7 +1143,17 @@ export function OrderWizard({ lang }: { lang: Locale }) {
           </li>
         </ul>
 
-        <div className="mt-5 space-y-1.5 border-t border-white/10 pt-4 text-xs text-slate-300">
+        <div className="mt-5 space-y-2 border-t border-white/10 pt-4 text-xs text-slate-300">
+          <a
+            href={SITE_CONFIG.whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => sendGTMEvent("click_whatsapp", { location: "order_summary" })}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#16A34A] px-3.5 py-2.5 text-xs font-extrabold text-white shadow-sm transition hover:bg-emerald-500"
+          >
+            <MessageCircle className="h-4 w-4 shrink-0" />
+            <span>WhatsApp • {SITE_CONFIG.phoneDisplay}</span>
+          </a>
           <a
             href={`mailto:${SITE_CONFIG.ordersEmail}`}
             className="block font-semibold text-emerald-300 hover:text-emerald-200"

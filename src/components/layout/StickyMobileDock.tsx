@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { MessageSquare, Calculator, ShoppingBag, Phone } from "lucide-react";
+import { MessageCircle, MessageSquare, Calculator, ShoppingBag } from "lucide-react";
 import { Locale } from "@/i18n/types";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getLocalizedHref } from "@/lib/url";
@@ -55,12 +55,14 @@ export function StickyMobileDock({ lang }: { lang: Locale }) {
         </Link>
 
         <a
-          href={SITE_CONFIG.phoneHref}
-          onClick={() => sendGTMEvent("click_phone", { location: "mobile_dock" })}
-          className="flex flex-col items-center justify-center gap-0.5 rounded-xl bg-slate-900 py-1.5 text-[11px] font-bold text-white"
+          href={SITE_CONFIG.whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => sendGTMEvent("click_whatsapp", { location: "mobile_dock" })}
+          className="flex flex-col items-center justify-center gap-0.5 rounded-xl bg-[#16A34A] py-1.5 text-[11px] font-bold text-white shadow"
         >
-          <Phone className="h-4 w-4 text-emerald-400" />
-          <span>{m.call}</span>
+          <MessageCircle className="h-4 w-4 text-white" />
+          <span>WhatsApp</span>
         </a>
       </div>
     </nav>

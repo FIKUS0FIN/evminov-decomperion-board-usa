@@ -9,7 +9,7 @@ import {
   Lock,
   Mail,
   MapPin,
-  Phone,
+  MessageCircle,
   Shield,
   ShieldCheck,
   Star,
@@ -192,11 +192,13 @@ export function Footer({ lang }: { lang: Locale }) {
               </li>
               <li>
                 <a
-                  href={SITE_CONFIG.phoneHref}
-                  className="inline-flex items-center gap-1.5 font-semibold text-white hover:text-emerald-300"
+                  href={SITE_CONFIG.whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-500/15 px-2.5 py-1.5 font-extrabold text-emerald-300 ring-1 ring-emerald-400/30 transition hover:bg-emerald-500 hover:text-slate-950"
                 >
-                  <Phone className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
-                  <span>{SITE_CONFIG.phoneDisplay}</span>
+                  <MessageCircle className="h-4 w-4 shrink-0" />
+                  <span>WhatsApp {SITE_CONFIG.phoneDisplay}</span>
                 </a>
               </li>
               <li>

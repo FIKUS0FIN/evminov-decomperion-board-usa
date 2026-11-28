@@ -813,10 +813,12 @@ export function CentersHeritagePage({ lang }: { lang: Locale }) {
                 {SITE_CONFIG.address.full}
                 <br />
                 <a
-                  href={SITE_CONFIG.phoneHref}
-                  className="font-bold text-teal-700 hover:underline"
+                  href={SITE_CONFIG.whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold text-emerald-700 hover:underline"
                 >
-                  {SITE_CONFIG.phoneDisplay}
+                  WhatsApp {SITE_CONFIG.phoneDisplay}
                 </a>{" "}
                 •{" "}
                 <a

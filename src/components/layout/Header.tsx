@@ -8,7 +8,7 @@ import {
   ChevronRight,
   Globe,
   Menu,
-  Phone,
+  MessageCircle,
   ShieldCheck,
   ShoppingCart,
   Truck,
@@ -366,8 +366,20 @@ export function Header({ lang }: { lang: Locale }) {
             )}
           </div>
 
-          {/* Right Action Pills: Patient Portal + Find My Angle + Cart/Order */}
+          {/* Right Action Pills: WhatsApp + Patient Portal + Find My Angle + Cart/Order */}
           <div className="flex shrink-0 items-center gap-2">
+            {/* Primary WhatsApp Instant-Chat Pill */}
+            <a
+              href={SITE_CONFIG.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => sendGTMEvent("click_whatsapp", { location: "header_pill" })}
+              className="hidden md:inline-flex items-center gap-1.5 rounded-full border border-emerald-500/40 bg-emerald-50 px-3 py-2 text-xs font-extrabold text-emerald-800 shadow-xs transition hover:bg-[#16A34A] hover:text-white"
+            >
+              <MessageCircle className="h-4 w-4 shrink-0" />
+              <span>WhatsApp</span>
+            </a>
+
             {/* Patient Portal Outlined Pill (with emerald User icon, matching screenshot) */}
             <Link
               href={getLocalizedHref("/portal/", lang)}
@@ -469,12 +481,14 @@ export function Header({ lang }: { lang: Locale }) {
 
             <div className="mt-4 flex flex-col gap-2 border-t border-slate-100 pt-4">
               <a
-                href={SITE_CONFIG.phoneHref}
-                onClick={() => sendGTMEvent("click_phone", { location: "mobile_drawer" })}
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-4 py-2.5 text-sm font-bold text-[#0B1F3A]"
+                href={SITE_CONFIG.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => sendGTMEvent("click_whatsapp", { location: "mobile_drawer" })}
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#16A34A] px-4 py-2.5 text-sm font-extrabold text-white shadow-sm hover:bg-emerald-700"
               >
-                <Phone className="h-4 w-4 text-emerald-600" />
-                <span>{SITE_CONFIG.phoneDisplay}</span>
+                <MessageCircle className="h-4 w-4" />
+                <span>WhatsApp • {SITE_CONFIG.phoneDisplay}</span>
               </a>
             </div>
           </div>

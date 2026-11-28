@@ -12,6 +12,8 @@ export const SITE_CONFIG = {
   phoneDisplay: "+1 (747) 306-0140",
   phoneHref: "tel:+17473060140",
   whatsappNumber: "17473060140",
+  whatsappHref:
+    "https://wa.me/17473060140?text=Hello%20Evminov%20Spine%20Systems!%20I%20have%20a%20question%20about%20the%20Evminov%20Board.",
   supportEmail: REGION_CONFIG.supportEmail,
   ordersEmail: REGION_CONFIG.ordersEmail,
   address: {

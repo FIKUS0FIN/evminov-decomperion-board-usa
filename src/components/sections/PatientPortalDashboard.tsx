@@ -1700,14 +1700,16 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
 
                           <div className="mt-5 space-y-3 text-sm">
                             <a
-                              href={SITE_CONFIG.phoneHref}
+                              href={SITE_CONFIG.whatsappHref}
+                              target="_blank"
+                              rel="noopener noreferrer"
                               onClick={() =>
-                                sendGTMEvent("click_phone", { location: "patient_portal" })
+                                sendGTMEvent("click_whatsapp", { location: "patient_portal" })
                               }
-                              className="flex items-center gap-3 rounded-2xl border border-white/15 bg-white/10 px-4 py-3 font-bold text-white transition hover:bg-white/15"
+                              className="flex items-center gap-3 rounded-2xl border border-emerald-400/40 bg-[#16A34A] px-4 py-3 font-extrabold text-white shadow-sm transition hover:bg-emerald-500"
                             >
-                              <Phone className="h-4 w-4 text-emerald-400" />
-                              <span>{SITE_CONFIG.phoneDisplay}</span>
+                              <Phone className="h-4 w-4 text-white" />
+                              <span>WhatsApp • {SITE_CONFIG.phoneDisplay}</span>
                             </a>
                             <a
                               href={`mailto:${SITE_CONFIG.supportEmail}`}
