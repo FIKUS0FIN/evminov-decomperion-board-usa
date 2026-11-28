@@ -32,16 +32,16 @@ export function HeroShowcaseGallery({ lang = "en" }: { lang?: Locale }) {
   return (
     <div className="space-y-3">
       {/* Main Interactive Frame */}
-      <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-white/15 bg-slate-900 shadow-2xl">
+      <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-b from-slate-900 via-[#0E1E36] to-slate-950 shadow-2xl">
         <OptimizedImage
           src={current.src}
           alt={current.alt}
           fill
           priority={activeIndex === 0}
           sizes="(max-width: 1024px) 100vw, 44vw"
-          className="object-cover transition-transform duration-500"
+          className="object-contain p-2 transition-transform duration-500"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/15 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/90 via-slate-950/45 to-transparent" />
 
         {/* Top Badges */}
         <div className="absolute left-3.5 right-3.5 top-3.5 flex items-center justify-between gap-2">
@@ -107,7 +107,7 @@ export function HeroShowcaseGallery({ lang = "en" }: { lang?: Locale }) {
                 alt={slide.alt}
                 fill
                 sizes="100px"
-                className="object-cover"
+                className="bg-slate-950 object-contain p-0.5"
               />
             </button>
           );

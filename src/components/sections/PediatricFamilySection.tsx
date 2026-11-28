@@ -98,27 +98,27 @@ export function PediatricFamilySection({ lang }: { lang: Locale }) {
         {/* Authentic Family & Youth Photography + 13-Point Family Plan */}
         <div className="mt-8 grid items-start gap-6 lg:grid-cols-12">
           <div className="grid gap-4 sm:grid-cols-2 lg:col-span-5 lg:grid-cols-1">
-            <div className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-slate-200 shadow-sm">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-slate-200 bg-[#F4F7F9] shadow-sm">
               <OptimizedImage
                 src="/images/gallery/youth-paired-traction.jpg"
                 alt={c.photo1Label}
                 fill
                 sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover"
+                className="object-contain p-1.5"
               />
-              <span className="absolute bottom-3 left-3 rounded-full bg-slate-950/85 px-3 py-1 text-[11px] font-bold text-emerald-300">
+              <span className="absolute bottom-3 left-3 rounded-full bg-slate-950/85 px-3 py-1 text-[11px] font-bold text-emerald-300 backdrop-blur-sm">
                 {c.photo1Label}
               </span>
             </div>
-            <div className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-slate-200 shadow-sm">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-slate-200 bg-[#F4F7F9] shadow-sm">
               <OptimizedImage
                 src="/images/gallery/family-home-lifestyle.jpg"
                 alt={c.photo2Label}
                 fill
                 sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover"
+                className="object-contain p-1.5"
               />
-              <span className="absolute bottom-3 left-3 rounded-full bg-slate-950/85 px-3 py-1 text-[11px] font-bold text-white">
+              <span className="absolute bottom-3 left-3 rounded-full bg-slate-950/85 px-3 py-1 text-[11px] font-bold text-white backdrop-blur-sm">
                 {c.photo2Label}
               </span>
             </div>

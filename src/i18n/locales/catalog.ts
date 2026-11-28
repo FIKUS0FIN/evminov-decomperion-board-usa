@@ -1753,7 +1753,7 @@ export const CALCULATOR_COPY: Record<Locale, CalculatorLocalizedCopy> = {
       "3-piece-travel-board":
         "Breaks down into ~31\" segments for closets, car trunks, or air travel while supporting up to 220 lbs and 6'4\".",
       "standard-pine-board":
-        "Classic monolithic Carpathian pine flex-board for users up to 6'4\" and 210 lbs. Includes Glisson Loop and 16\" stud mount kit.",
+        "2-Piece Folding Evminov Board with Support Stand included, rated up to 6'4\" and 220 lbs (Wide: 330 lbs). Includes free Glisson Loop.",
     },
   },
   es: {
@@ -1810,7 +1810,7 @@ export const CALCULATOR_COPY: Record<Locale, CalculatorLocalizedCopy> = {
       "3-piece-travel-board":
         "Se desmonta en secciones de ~31\" (79 cm) para armarios, maleteros o viajes, soportando hasta 220 lbs y 6'4\".",
       "standard-pine-board":
-        "Tabla monolítica clásica de pino de los Cárpatos hasta 6'4\" y 210 lbs. Incluye Lazo de Glisson y soporte de pared 16\".",
+        "Tabla Plegable de 2 Piezas con soporte incluido hasta 6'4\" y 220 lbs (Ancha: 330 lbs). Incluye Lazo de Glisson gratis.",
     },
   },
   fr: {
@@ -1867,7 +1867,7 @@ export const CALCULATOR_COPY: Record<Locale, CalculatorLocalizedCopy> = {
       "3-piece-travel-board":
         "Se démonte en 3 segments d'environ 79 cm pour placards, coffres ou voyages tout en supportant 100 kg et 193 cm.",
       "standard-pine-board":
-        "Planche monobloc classique en pin des Carpates jusqu'à 193 cm et 95 kg. Boucle Glisson et kit mural 16\" inclus.",
+        "Planche Pliable 2 Pièces avec support inclus jusqu'à 193 cm et 100 kg (Large : 150 kg). Boucle Glisson offerte.",
     },
   },
   uk: {
@@ -1924,7 +1924,7 @@ export const CALCULATOR_COPY: Record<Locale, CalculatorLocalizedCopy> = {
       "3-piece-travel-board":
         "Розкладається на 3 секції по ~79 см для шафи, багажника авто чи подорожей, витримує до 100 кг і 193 см.",
       "standard-pine-board":
-        "Класична цільна гнучка дошка з карпатської сосни до 193 см і 95 кг. Петля Гліссона та кріплення 16\" у комплекті.",
+        "Складана дошка з 2-х частин зі стійкою в комплекті, до 193 см і 100 кг (Широка: 150 кг). Петля Гліссона у подарунок.",
     },
   },
   ru: {
@@ -1981,7 +1981,7 @@ export const CALCULATOR_COPY: Record<Locale, CalculatorLocalizedCopy> = {
       "3-piece-travel-board":
         "Разбирается на 3 секции по ~79 см для шкафа, багажника авто или поездок, выдерживает до 100 кг и 193 см.",
       "standard-pine-board":
-        "Классическая цельная упругая доска из карпатской сосны до 193 см и 95 кг. Петля Глиссона и крепление 16\" в комплекте.",
+        "Складная доска из 2 частей со стойкой в комплекте, до 193 см и 100 кг (Широкая: 150 кг). Петля Глиссона в подарок.",
     },
   },
   de: {
@@ -2038,7 +2038,7 @@ export const CALCULATOR_COPY: Record<Locale, CalculatorLocalizedCopy> = {
       "3-piece-travel-board":
         "Zerlegbar in ca. 79 cm (31\") Segmente für Schrank, Kofferraum oder Flugreise bei einer Traglast bis 100 kg (220 lbs) und 193 cm (6'4\").",
       "standard-pine-board":
-        "Klassisches einteiliges Karpatenkiefer-Flexboard für Nutzer bis 193 cm (6'4\") und 95 kg (210 lbs). Inklusive Glisson-Schlaufe und 16\"-Ständer-Montageset.",
+        "2-teiliges Klapp-Evminov-Board inkl. Stützständer für Nutzer bis 193 cm und 100 kg (Breit: 150 kg). Glisson-Schlaufe gratis enthalten.",
     },
   },
 };

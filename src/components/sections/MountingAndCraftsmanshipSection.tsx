@@ -6,10 +6,10 @@ import { getLocalizedHref } from "@/lib/url";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 
 const CRAFT_ITEMS = [
-  { idx: 0, src: "/images/products/board-studio-woodgrain.jpg" },
+  { idx: 0, src: "/images/products/board-perspective-view.jpg" },
   { idx: 1, src: "/images/authentic/evminov-steel-carriage-pin.jpg" },
-  { idx: 2, src: "/images/products/board-studio-front.jpg" },
-  { idx: 3, src: "/images/products/board-carriage-locking-pin.jpg" },
+  { idx: 2, src: "/images/products/board-studio-incline.jpg" },
+  { idx: 3, src: "/images/authentic/hero-carriage-traction-detail.jpg" },
 ] as const;
 
 export function MountingAndCraftsmanshipSection({ lang }: { lang: Locale }) {
@@ -118,13 +118,13 @@ export function MountingAndCraftsmanshipSection({ lang }: { lang: Locale }) {
                   key={src}
                   className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xs transition hover:shadow-md"
                 >
-                  <div className="relative aspect-[4/3] w-full bg-slate-100">
+                  <div className="relative aspect-[4/3] w-full bg-[#F4F7F9]">
                     <OptimizedImage
                       src={src}
                       alt={item.title}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover"
+                      className="object-contain p-1.5"
                     />
                     <span className="absolute left-2.5 top-2.5 rounded-full bg-slate-950/85 px-2.5 py-0.5 text-[10px] font-bold text-emerald-300">
                       {item.badge}

@@ -1,8 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Mail, Share2 } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  Mail,
+  Share2,
+  ShieldCheck,
+  Sparkles,
+} from "lucide-react";
 import { Locale } from "@/i18n/types";
 import { getDictionary } from "@/i18n/dictionaries";
 import {
@@ -36,6 +43,8 @@ const GOAL_KEYS: ConditionGoal[] = [
   "pediatric",
 ];
 
+const QUICK_ANGLES = [12, 16, 22, 28] as const;
+
 export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
   const dict = getDictionary(lang);
   const c = dict.calculatorUi;
@@ -52,6 +61,7 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
   const [leadSent, setLeadSent] = useState(false);
   const [leadBusy, setLeadBusy] = useState(false);
   const [shareCopied, setShareCopied] = useState(false);
+  const [tilt, setTilt] = useState({ rx: 0, ry: 0 });
 
   // Hydrate shared calculator deep links (?goal=sciatica&weight=210&angle=18)
   useEffect(() => {
@@ -92,6 +102,24 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
     matchedProduct.directPriceUsd +
     (boardRec.width === "wide" ? matchedProduct.wideSurchargeUsd : 0);
   const shownDirect = applyHsaSavings ? calculateHsaPrice(baseDirect) : baseDirect;
+
+  const isInSafeWindow =
+    angle >= inclineRec.startAngle && angle <= inclineRec.maxAngle;
+
+  // Dynamic support stand geometry for the live 3D board stage
+  const rad = (angle * Math.PI) / 180;
+  const tipX = 48 + Math.cos(rad) * 238;
+  const tipY = 132 - Math.sin(rad) * 238;
+
+  const handleStageMove = (e: MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    setTilt({
+      rx: Number((-y * 6).toFixed(2)),
+      ry: Number((x * 8).toFixed(2)),
+    });
+  };
 
   const handleShareProtocol = async () => {
     const shareUrl = `${getCanonicalUrl("/calculator/", lang)}?goal=${goal}&weight=${weightLbs}&angle=${angle}`;
@@ -180,13 +208,15 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
       : baseOrderHref;
 
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-xl md:p-8">
-      <div className="grid gap-8 lg:grid-cols-12">
-        {/* Controls */}
-        <div className="space-y-6 lg:col-span-7">
+    <div className="overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-5 shadow-[0_24px_60px_-24px_rgba(11,31,58,0.18)] sm:p-7 md:p-8">
+      <div className="grid gap-7 lg:grid-cols-12">
+        {/* LEFT COLUMN: TACTILE CONTROLS */}
+        <div className="space-y-5 lg:col-span-7">
+          {/* Goal Selector */}
           <div>
-            <p className="text-xs font-bold uppercase tracking-wider text-teal-700">
-              {c.goalLabel}
+            <p className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-teal-700">
+              <Sparkles className="h-3.5 w-3.5" />
+              <span>{c.goalLabel}</span>
             </p>
             <div className="mt-2.5 flex flex-wrap gap-2">
               {GOAL_KEYS.map((goalKey) => {
@@ -195,25 +225,30 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
                   <button
                     key={goalKey}
                     type="button"
+                    aria-pressed={active}
                     onClick={() => handleGoalChange(goalKey)}
-                    className={`rounded-xl px-3.5 py-2 text-xs font-bold transition ${
+                    className={`inline-flex cursor-pointer items-center gap-1.5 rounded-xl px-3.5 py-2.5 text-xs font-bold transition ${
                       active
-                        ? "bg-slate-950 text-white shadow"
-                        : "border border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100"
+                        ? "bg-[#0B1F3A] text-white shadow-md ring-2 ring-emerald-500/40"
+                        : "border border-slate-200 bg-slate-50 text-slate-700 hover:border-teal-300 hover:bg-teal-50/40"
                     }`}
                   >
-                    {cx.goals[goalKey]}
+                    {active && (
+                      <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                    )}
+                    <span>{cx.goals[goalKey]}</span>
                   </button>
                 );
               })}
             </div>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2">
-            <div>
-              <div className="flex items-center justify-between text-sm font-semibold text-slate-800">
+          {/* Weight & Height Tactile Cards */}
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="rounded-2xl border border-slate-200/80 bg-slate-50/70 p-4">
+              <div className="flex items-center justify-between text-xs font-bold text-slate-700 sm:text-sm">
                 <label htmlFor="calc-weight">{c.weightLabel}</label>
-                <span className="font-mono text-teal-700">
+                <span className="rounded-lg bg-white px-2 py-0.5 font-mono text-xs font-extrabold text-teal-800 shadow-2xs">
                   {weightLbs} {cx.lbsUnit} ({lbsToKg(weightLbs)} {cx.kgUnit})
                 </span>
               </div>
@@ -225,14 +260,19 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
                 step={5}
                 value={weightLbs}
                 onChange={(e) => setWeightLbs(Number(e.target.value))}
-                className="mt-2 w-full accent-teal-700"
+                className="mt-3 h-2 w-full cursor-pointer accent-teal-700"
               />
+              <div className="mt-1 flex justify-between text-[10px] font-semibold text-slate-400">
+                <span>65 lbs</span>
+                <span>220 lbs (Std)</span>
+                <span>330 lbs (Wide)</span>
+              </div>
             </div>
 
-            <div>
-              <div className="flex items-center justify-between text-sm font-semibold text-slate-800">
+            <div className="rounded-2xl border border-slate-200/80 bg-slate-50/70 p-4">
+              <div className="flex items-center justify-between text-xs font-bold text-slate-700 sm:text-sm">
                 <label htmlFor="calc-height">{c.heightLabel}</label>
-                <span className="font-mono text-teal-700">
+                <span className="rounded-lg bg-white px-2 py-0.5 font-mono text-xs font-extrabold text-teal-800 shadow-2xs">
                   {inchesToFeet(heightIn)} ({inchesToCm(heightIn)} {cx.cmUnit})
                 </span>
               </div>
@@ -244,15 +284,27 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
                 step={1}
                 value={heightIn}
                 onChange={(e) => setHeightIn(Number(e.target.value))}
-                className="mt-2 w-full accent-teal-700"
+                className="mt-3 h-2 w-full cursor-pointer accent-teal-700"
               />
+              <div className="mt-1 flex justify-between text-[10px] font-semibold text-slate-400">
+                <span>4&apos;0&quot;</span>
+                <span>6&apos;4&quot; (Std)</span>
+                <span>6&apos;9&quot; (Wide)</span>
+              </div>
             </div>
           </div>
 
-          <div>
-            <div className="flex items-center justify-between text-sm font-semibold text-slate-800">
+          {/* Incline Angle Tactile Card with Quick Presets */}
+          <div className="rounded-2xl border border-amber-200/80 bg-gradient-to-br from-amber-50/50 via-white to-emerald-50/30 p-4">
+            <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-bold text-slate-800 sm:text-sm">
               <label htmlFor="calc-angle">{c.angleLabel}</label>
-              <span className="font-mono font-bold text-amber-600">
+              <span
+                className={`rounded-full px-2.5 py-0.5 font-mono text-xs font-extrabold ${
+                  isInSafeWindow
+                    ? "bg-emerald-100 text-emerald-800"
+                    : "bg-amber-100 text-amber-800"
+                }`}
+              >
                 {angle}° ({cx.safeWindowLabel}: {inclineRec.startAngle}°–
                 {inclineRec.maxAngle}°)
               </span>
@@ -265,23 +317,50 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
               step={1}
               value={angle}
               onChange={(e) => setAngle(Number(e.target.value))}
-              className="mt-2 w-full accent-amber-600"
+              className="mt-3 h-2 w-full cursor-pointer accent-amber-600"
             />
+            <div className="mt-2.5 flex flex-wrap items-center justify-between gap-2">
+              <div className="flex flex-wrap gap-1.5">
+                {QUICK_ANGLES.map((preset) => (
+                  <button
+                    key={preset}
+                    type="button"
+                    onClick={() => setAngle(preset)}
+                    className={`cursor-pointer rounded-lg px-2.5 py-1 text-[11px] font-bold transition ${
+                      angle === preset
+                        ? "bg-amber-600 text-white shadow-xs"
+                        : "border border-slate-200 bg-white text-slate-700 hover:border-amber-400"
+                    }`}
+                  >
+                    {preset}°
+                  </button>
+                ))}
+              </div>
+              <span className="text-[11px] font-semibold text-slate-500">
+                8°–35° Head-Up Range
+              </span>
+            </div>
           </div>
 
-          <label className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-800">
-            <input
-              type="checkbox"
-              checked={portable}
-              onChange={(e) => setPortable(e.target.checked)}
-              className="h-4 w-4 accent-teal-700"
-            />
-            <span className="font-medium">{c.portableLabel}</span>
+          {/* Portable / Travel Toggle */}
+          <label className="flex cursor-pointer items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3.5 text-sm text-slate-800 transition hover:border-teal-300">
+            <span className="flex items-center gap-3">
+              <input
+                type="checkbox"
+                checked={portable}
+                onChange={(e) => setPortable(e.target.checked)}
+                className="h-4 w-4 cursor-pointer accent-teal-700"
+              />
+              <span className="font-semibold">{c.portableLabel}</span>
+            </span>
+            <span className="rounded-full bg-white px-2.5 py-0.5 text-[10px] font-bold text-slate-500">
+              {portable ? "3-Piece" : "2-Piece"}
+            </span>
           </label>
 
           {/* Lead Magnet: Email Custom Protocol */}
-          <div className="rounded-2xl border border-teal-200/80 bg-teal-50/70 p-4">
-            <p className="flex items-center gap-2 text-xs font-bold text-teal-900">
+          <div className="rounded-2xl border border-teal-200/80 bg-teal-50/60 p-4">
+            <p className="flex items-center gap-2 text-xs font-extrabold text-teal-950">
               <Mail className="h-4 w-4 text-teal-700" />
               <span>{c.emailProtocolTitle}</span>
             </p>
@@ -301,12 +380,12 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
                   value={leadEmail}
                   onChange={(e) => setLeadEmail(e.target.value)}
                   placeholder={cx.emailPlaceholder}
-                  className="flex-1 rounded-xl border border-teal-200 bg-white px-3 py-2 text-sm text-slate-900"
+                  className="flex-1 rounded-xl border border-teal-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 focus:border-teal-600 focus:outline-none"
                 />
                 <button
                   type="submit"
                   disabled={leadBusy}
-                  className="rounded-xl bg-teal-700 px-4 py-2 text-xs font-bold text-white hover:bg-teal-800 disabled:opacity-50"
+                  className="cursor-pointer rounded-xl bg-teal-700 px-5 py-2.5 text-xs font-extrabold text-white shadow-sm transition hover:bg-teal-800 disabled:opacity-50"
                 >
                   {c.emailProtocolButton}
                 </button>
@@ -315,137 +394,228 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
           </div>
         </div>
 
-        {/* Live Physics Output + Interactive Rotating Board SVG */}
-        <div className="flex flex-col justify-between rounded-2xl bg-slate-950 p-6 text-white lg:col-span-5">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-wider text-emerald-400">
+        {/* RIGHT COLUMN: 3D LIVE BIOMECHANICAL OUTPUT & CONVERSION CARD */}
+        <div className="relative flex flex-col justify-between overflow-hidden rounded-3xl border border-emerald-500/30 bg-gradient-to-b from-[#071529] via-[#0B1F3A] to-[#081A2A] p-6 text-white shadow-2xl lg:col-span-5">
+          {/* Ambient Glow */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-12 -top-12 h-48 w-48 rounded-full bg-emerald-500/20 blur-3xl"
+          />
+
+          <div className="relative z-10">
+            <p className="text-xs font-extrabold uppercase tracking-wider text-emerald-400">
               {localizedInclineRec.label}
             </p>
             <p className="mt-1.5 text-xs leading-relaxed text-slate-300">
               {localizedInclineRec.description}
             </p>
 
-            {/* Dynamic Live-Tilting Evminov Board SVG Diagram */}
-            <div className="mt-4 overflow-hidden rounded-2xl border border-white/10 bg-[#071426] p-3">
-              <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                <span>{cx.svgTitle}</span>
-                <span className="text-emerald-400">
-                  {angle}° • {cx.svgHeadUpright}
-                </span>
-              </div>
-              <svg
-                viewBox="0 0 320 130"
-                className="mt-1.5 h-28 w-full"
-                role="img"
-                aria-label={buildCalculatorSvgAria(
-                  lang,
-                  angle,
-                  physics.netTractionLbs
-                )}
+            {/* 3D Interactive Live-Tilting Evminov Board Stage */}
+            <div
+              className="perspective-stage mt-4"
+              onMouseMove={handleStageMove}
+              onMouseLeave={() => setTilt({ rx: 0, ry: 0 })}
+            >
+              <div
+                className="preserve-3d overflow-hidden rounded-2xl border border-emerald-400/25 bg-[#061121] p-3.5 shadow-inner transition-transform duration-300 ease-out"
+                style={{
+                  transform: `rotateX(${tilt.rx}deg) rotateY(${tilt.ry}deg)`,
+                }}
               >
-                {/* Wall Stud & Floor Grid */}
-                <rect x="274" y="10" width="14" height="106" rx="3" fill="#1E3A5F" />
-                <line x1="20" y1="116" x2="296" y2="116" stroke="#334155" strokeWidth="2" />
-                {/* Wall Anchor Hook */}
-                <circle cx="274" cy="30" r="4" fill="#34D399" />
+                {/* Clean Separated HUD Bar */}
+                <div className="flex flex-wrap items-center justify-between gap-2 text-[10px] font-extrabold uppercase tracking-wider">
+                  <span className="text-slate-400">{cx.svgTitle}</span>
+                  <span className="inline-flex items-center gap-1 rounded-full border border-emerald-400/30 bg-emerald-500/15 px-2 py-0.5 text-emerald-300">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                    {angle}° • {cx.svgHeadUpright}
+                  </span>
+                </div>
 
-                {/* Rotating Carpathian Pine Plank anchored near floor left-pivot */}
-                <g
-                  transform={`translate(46, 112) rotate(${-angle})`}
-                  style={{ transition: "transform 220ms ease-out" }}
+                <svg
+                  viewBox="0 0 340 156"
+                  className="mt-1.5 h-36 w-full sm:h-40"
+                  role="img"
+                  aria-label={buildCalculatorSvgAria(
+                    lang,
+                    angle,
+                    physics.netTractionLbs
+                  )}
                 >
-                  {/* Braided Steel Cable */}
-                  <line
-                    x1="210"
-                    y1="-4"
-                    x2="232"
-                    y2="-24"
-                    stroke="#38BDF8"
+                  <defs>
+                    <linearGradient id="calcWoodTop" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#B47638" />
+                      <stop offset="50%" stopColor="#E0A965" />
+                      <stop offset="100%" stopColor="#C88B49" />
+                    </linearGradient>
+                    <linearGradient id="calcWoodSide" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#6D411A" />
+                      <stop offset="100%" stopColor="#8C5826" />
+                    </linearGradient>
+                    <linearGradient id="calcFloor" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="#34D399" stopOpacity="0.2" />
+                      <stop offset="100%" stopColor="#0F766E" stopOpacity="0.02" />
+                    </linearGradient>
+                    <radialGradient id="calcDiscGlow" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="#34D399" stopOpacity="0.95" />
+                      <stop offset="100%" stopColor="#10B981" stopOpacity="0" />
+                    </radialGradient>
+                  </defs>
+
+                  {/* 3D Isometric Floor */}
+                  <polygon points="18,140 322,140 336,154 4,154" fill="url(#calcFloor)" />
+                  <line x1="18" y1="140" x2="322" y2="140" stroke="#334155" strokeWidth="1.5" />
+
+                  {/* Dynamic Support Stand Column */}
+                  <rect
+                    x={tipX - 16}
+                    y="135"
+                    width="34"
+                    height="5"
+                    rx="2.5"
+                    fill="#475569"
+                  />
+                  <rect
+                    x={tipX - 3}
+                    y={Math.max(12, tipY - 3)}
+                    width="8"
+                    height={Math.max(12, 137 - Math.max(12, tipY - 3))}
+                    rx="3"
+                    fill="#64748B"
+                  />
+                  <circle cx={tipX + 1} cy={tipY + 2} r="3.5" fill="#34D399" />
+
+                  {/* Shadow */}
+                  <ellipse cx="170" cy="141" rx="112" ry="3.5" fill="#020617" opacity="0.55" />
+
+                  {/* Angle Arc */}
+                  <path
+                    d="M 88 134 A 40 40 0 0 0 84 118"
+                    fill="none"
+                    stroke="#F59E0B"
                     strokeWidth="1.5"
                     strokeDasharray="3 2"
                   />
-                  {/* Carpathian Pine Flex Deck */}
-                  <rect
-                    x="0"
-                    y="-8"
-                    width="225"
-                    height="9"
-                    rx="4"
-                    fill="#D9A362"
-                    stroke="#FDE68A"
-                    strokeWidth="1"
-                  />
-                  {/* Sliding Alloy Carriage */}
-                  <rect x="172" y="-14" width="24" height="7" rx="2" fill="#34D399" />
-                  {/* Upright Head / Body Silhouette Indicator */}
-                  <circle cx="164" cy="-19" r="6" fill="#E2E8F0" />
-                  <line
-                    x1="156"
-                    y1="-15"
-                    x2="70"
-                    y2="-15"
-                    stroke="#E2E8F0"
-                    strokeWidth="4"
-                    strokeLinecap="round"
-                  />
-                  {/* Smooth Axial Unloading Force Arrow */}
-                  <line
-                    x1="138"
-                    y1="-25"
-                    x2="78"
-                    y2="-25"
-                    stroke="#34D399"
-                    strokeWidth="2"
-                  />
-                  <polygon points="72,-25 81,-29 81,-21" fill="#34D399" />
-                </g>
+                  <text x="95" y="133" fill="#FBBF24" fontSize="11" fontWeight="800">
+                    {angle}°
+                  </text>
 
-                {/* Angle Arc Label */}
-                <path
-                  d="M 88 116 A 42 42 0 0 0 82 96"
-                  fill="none"
-                  stroke="#F59E0B"
-                  strokeWidth="1.5"
-                />
-                <text x="94" y="109" fill="#FBBF24" fontSize="11" fontWeight="700">
-                  {angle}°
-                </text>
-                <text x="16" y="24" fill="#94A3B8" fontSize="10" fontWeight="600">
-                  {cx.svgSmoothPull}: {physics.netTractionLbs} {cx.pullUnit}
-                </text>
-              </svg>
+                  {/* Live-Tilting 3D Board + Spine Nodes */}
+                  <g
+                    style={{
+                      transform: `rotate(${-angle}deg)`,
+                      transformOrigin: "48px 132px",
+                      transition: "transform 220ms cubic-bezier(0.22, 1, 0.36, 1)",
+                    }}
+                  >
+                    <rect x="48" y="131" width="238" height="5.5" rx="2.5" fill="url(#calcWoodSide)" />
+                    <rect x="48" y="124" width="238" height="7.5" rx="3" fill="url(#calcWoodTop)" />
+                    <line x1="54" y1="126" x2="280" y2="126" stroke="#FDE68A" strokeOpacity="0.45" strokeWidth="1" />
+
+                    {/* Alloy Carriage & Cushioned Grips */}
+                    <rect x="226" y="117" width="24" height="7" rx="2" fill="#94A3B8" />
+                    <rect x="235" y="107" width="4.5" height="11" rx="2" fill="#CBD5E1" />
+                    <rect x="230" y="104" width="15" height="4" rx="2" fill="#10B981" />
+
+                    {/* Supine User Silhouette */}
+                    <path
+                      d="M 80 118 L 146 118 L 204 116"
+                      stroke="#E2E8F0"
+                      strokeWidth="7"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M 200 116 L 232 108"
+                      stroke="#94A3B8"
+                      strokeWidth="3.8"
+                      strokeLinecap="round"
+                    />
+                    <circle cx="218" cy="111" r="8" fill="#F8FAFC" />
+
+                    {/* Pulsing Lumbar Disc Decompression Nodes */}
+                    {[142, 156, 170, 184].map((cxPos, i) => (
+                      <g key={cxPos}>
+                        <circle
+                          cx={cxPos}
+                          cy="117"
+                          r="6.5"
+                          fill="url(#calcDiscGlow)"
+                          className="animate-spine-pulse"
+                          style={{ animationDelay: `${i * 0.22}s` }}
+                        />
+                        <circle cx={cxPos} cy="117" r="2.3" fill="#6EE7B7" />
+                      </g>
+                    ))}
+
+                    {/* Axial Pull Vector */}
+                    <path
+                      d="M 126 105 L 104 105 M 109 101.5 L 104 105 L 109 108.5"
+                      stroke="#34D399"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      fill="none"
+                    />
+                  </g>
+                </svg>
+
+                <div className="mt-1 flex items-center justify-between border-t border-white/10 pt-2 text-[11px] font-semibold text-slate-300">
+                  <span>
+                    {cx.svgSmoothPull}:{" "}
+                    <strong className="text-emerald-300">
+                      {physics.netTractionLbs} {cx.pullUnit}
+                    </strong>
+                  </span>
+                  <span className="text-sky-300">
+                    -{physics.estimatedDiscUnloadingPct}% Disc Load
+                  </span>
+                </div>
+              </div>
             </div>
 
+            {/* 3 Telemetry KPI Cards */}
             <div className="mt-4 grid grid-cols-3 gap-2.5">
-              <div className="rounded-xl bg-white/10 p-3 text-center">
-                <p className="text-xl font-extrabold text-emerald-400">
+              <div className="rounded-xl border border-white/10 bg-white/5 p-3 text-center">
+                <p className="text-lg font-black text-emerald-400 sm:text-xl">
                   {physics.netTractionLbs} {cx.pullUnit}
                 </p>
-                <p className="mt-0.5 text-[11px] text-slate-300">{c.netTraction}</p>
+                <p className="mt-0.5 text-[10px] font-semibold text-slate-300">
+                  {c.netTraction}
+                </p>
               </div>
-              <div className="rounded-xl bg-white/10 p-3 text-center">
-                <p className="text-xl font-extrabold text-amber-400">
+              <div className="rounded-xl border border-white/10 bg-white/5 p-3 text-center">
+                <p className="text-lg font-black text-amber-400 sm:text-xl">
                   {physics.percentBodyWeight}%
                 </p>
-                <p className="mt-0.5 text-[11px] text-slate-300">{c.bodyweightPull}</p>
+                <p className="mt-0.5 text-[10px] font-semibold text-slate-300">
+                  {c.bodyweightPull}
+                </p>
               </div>
-              <div className="rounded-xl bg-white/10 p-3 text-center">
-                <p className="text-xl font-extrabold text-sky-400">
+              <div className="rounded-xl border border-white/10 bg-white/5 p-3 text-center">
+                <p className="text-lg font-black text-sky-400 sm:text-xl">
                   {physics.estimatedDiscUnloadingPct}%
                 </p>
-                <p className="mt-0.5 text-[11px] text-slate-300">{c.discUnloading}</p>
+                <p className="mt-0.5 text-[10px] font-semibold text-slate-300">
+                  {c.discUnloading}
+                </p>
               </div>
             </div>
 
-            <div className="mt-5 rounded-xl border border-white/15 bg-white/5 p-4">
-              <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                {c.recommendedBoard}
-              </p>
-              <p className="mt-1 text-base font-bold text-white">
+            {/* Recommended Model Box */}
+            <div className="mt-4 rounded-2xl border border-emerald-400/25 bg-emerald-500/5 p-4">
+              <div className="flex items-center justify-between gap-2">
+                <p className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-300">
+                  {c.recommendedBoard}
+                </p>
+                <span className="inline-flex items-center gap-1 text-[10px] font-bold text-slate-300">
+                  <ShieldCheck className="h-3 w-3 text-emerald-400" />
+                  60-Day Trial
+                </span>
+              </div>
+              <p className="mt-1 text-base font-black text-white">
                 {localizedProduct.name}
                 {boardRec.width === "wide" ? " — Wide Heavy-Duty (330 lbs)" : ""}
               </p>
-              <p className="mt-1 text-xs text-slate-300">
+              <p className="mt-1 text-xs leading-relaxed text-slate-300">
                 {boardRec.width === "wide"
                   ? getLocalizedBoardRecReason("wide-heavy-duty-board", lang)
                   : getLocalizedBoardRecReason(boardRec.slug, lang)}
@@ -453,21 +623,22 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
               <div className="mt-3 flex items-baseline justify-between border-t border-white/10 pt-3">
                 <span className="text-xs text-slate-300">
                   {c.dailyDuration}:{" "}
-                  <strong>
+                  <strong className="text-white">
                     {inclineRec.durationMin} {cx.minUnit}
                   </strong>
                 </span>
-                <span className="text-lg font-extrabold text-emerald-400">
+                <span className="text-xl font-black text-emerald-400">
                   {formatUSD(shownDirect)}
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="mt-5 flex flex-col gap-2.5">
+          {/* Action CTAs */}
+          <div className="relative z-10 mt-5 flex flex-col gap-2.5">
             <Link
               href={prefilledHref}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-500 px-5 py-3.5 text-sm font-extrabold text-slate-950 transition hover:bg-emerald-400"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-emerald-500 px-5 py-3.5 text-sm font-black text-slate-950 shadow-[0_12px_30px_-8px_rgba(16,185,129,0.65)] transition hover:-translate-y-0.5 hover:bg-emerald-400"
             >
               <span>{c.ctaOrderPrefilled}</span>
               <ArrowRight className="h-4 w-4" />
@@ -475,7 +646,7 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
             <button
               type="button"
               onClick={handleShareProtocol}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-xs font-bold text-slate-200 transition hover:bg-white/10 hover:text-white"
+              className="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-xs font-bold text-slate-200 transition hover:bg-white/10 hover:text-white"
             >
               <Share2 className="h-3.5 w-3.5 text-emerald-400" />
               <span>{shareCopied ? cx.shareCopiedBtn : cx.shareBtn}</span>

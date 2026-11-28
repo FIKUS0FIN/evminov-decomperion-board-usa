@@ -1,7 +1,15 @@
 "use client";
 
+import { useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Check, Gift, ShieldCheck } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  ChevronLeft,
+  ChevronRight,
+  Gift,
+  ShieldCheck,
+} from "lucide-react";
 import { Locale } from "@/i18n/types";
 import { getDictionary } from "@/i18n/dictionaries";
 import { PRODUCTS, ProductItem } from "@/data/products";
@@ -42,6 +50,18 @@ export function ProductCard({
   const lp = getLocalizedProduct(product, lang);
   const { applyHsaSavings } = useHsaSavings();
 
+  const gallery =
+    product.galleryImages.length > 0
+      ? product.galleryImages
+      : [{ url: product.image, label: lp.name }];
+  const [imgIdx, setImgIdx] = useState(0);
+  const activeSlide = gallery[imgIdx] ?? gallery[0];
+
+  const prevImg = () =>
+    setImgIdx((prev) => (prev === 0 ? gallery.length - 1 : prev - 1));
+  const nextImg = () =>
+    setImgIdx((prev) => (prev === gallery.length - 1 ? 0 : prev + 1));
+
   const directShown = applyHsaSavings
     ? calculateHsaPrice(product.directPriceUsd)
     : product.directPriceUsd;
@@ -51,21 +71,85 @@ export function ProductCard({
 
   return (
     <article className="flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:shadow-xl">
-      <div className="relative aspect-[4/3] w-full bg-slate-100">
-        <OptimizedImage
-          src={product.image}
-          alt={lp.name}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover"
-        />
-        <span className="absolute left-3 top-3 rounded-full bg-slate-950/90 px-3 py-1 text-[11px] font-bold text-amber-300 backdrop-blur">
-          {lp.badge}
-        </span>
-        {product.popular && (
-          <span className="absolute right-3 top-3 rounded-full bg-emerald-500 px-2.5 py-0.5 text-[10px] font-black uppercase text-slate-950 shadow">
-            {cc.mostPopular}
+      {/* Interactive Product Mini-Gallery */}
+      <div className="bg-[#F4F7F9]">
+        <div className="group relative aspect-[4/3] w-full overflow-hidden">
+          <OptimizedImage
+            src={activeSlide.url}
+            alt={`${lp.name} — ${activeSlide.label}`}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 45vw"
+            className="object-contain p-2 transition-transform duration-300"
+          />
+
+          <span className="absolute left-3 top-3 rounded-full bg-slate-950/90 px-3 py-1 text-[11px] font-bold text-amber-300 backdrop-blur">
+            {lp.badge}
           </span>
+          {product.popular && (
+            <span className="absolute right-3 top-3 rounded-full bg-emerald-500 px-2.5 py-0.5 text-[10px] font-black uppercase text-slate-950 shadow">
+              {cc.mostPopular}
+            </span>
+          )}
+
+          {gallery.length > 1 && (
+            <>
+              <button
+                type="button"
+                onClick={prevImg}
+                aria-label="Previous photo"
+                className="absolute left-2.5 top-1/2 flex h-8 w-8 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-slate-200/80 bg-white/90 text-slate-800 shadow-sm backdrop-blur transition hover:bg-slate-950 hover:text-white"
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </button>
+              <button
+                type="button"
+                onClick={nextImg}
+                aria-label="Next photo"
+                className="absolute right-2.5 top-1/2 flex h-8 w-8 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-slate-200/80 bg-white/90 text-slate-800 shadow-sm backdrop-blur transition hover:bg-slate-950 hover:text-white"
+              >
+                <ChevronRight className="h-4 w-4" />
+              </button>
+              <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between gap-2">
+                <span className="rounded-full bg-slate-950/80 px-2.5 py-0.5 text-[10px] font-bold text-white backdrop-blur-sm">
+                  {activeSlide.label}
+                </span>
+                <span className="rounded-full bg-slate-950/75 px-2 py-0.5 text-[10px] font-bold text-slate-200 backdrop-blur-sm">
+                  {imgIdx + 1} / {gallery.length}
+                </span>
+              </div>
+            </>
+          )}
+        </div>
+
+        {/* Clickable Thumbnail Strip */}
+        {gallery.length > 1 && (
+          <div className="grid grid-cols-6 gap-1.5 border-t border-slate-200/70 bg-white/80 px-3 py-2">
+            {gallery.map((item, idx) => {
+              const isSelected = idx === imgIdx;
+              return (
+                <button
+                  key={`${item.url}-${idx}`}
+                  type="button"
+                  onClick={() => setImgIdx(idx)}
+                  aria-label={item.label}
+                  aria-pressed={isSelected}
+                  className={`relative aspect-[4/3] cursor-pointer overflow-hidden rounded-lg border bg-[#F4F7F9] transition ${
+                    isSelected
+                      ? "border-teal-600 ring-2 ring-teal-500/30"
+                      : "border-slate-200 opacity-75 hover:opacity-100"
+                  }`}
+                >
+                  <OptimizedImage
+                    src={item.url}
+                    alt={item.label}
+                    fill
+                    sizes="80px"
+                    className="object-contain p-0.5"
+                  />
+                </button>
+              );
+            })}
+          </div>
         )}
       </div>
 
@@ -177,6 +261,19 @@ export function ProductCatalogSection({ lang }: { lang: Locale }) {
   const dict = getDictionary(lang);
   const cc = CATALOG_SECTION_COPY[lang];
   const { applyHsaSavings, toggleHsaSavings } = useHsaSavings();
+  const boxScrollRef = useRef<HTMLDivElement>(null);
+
+  const visibleBoxItems = cc.boxItems.filter(
+    (item) =>
+      !item.src.includes("soft-foot") && !item.src.includes("carriage-foot")
+  );
+
+  const scrollBox = (dir: -1 | 1) => {
+    boxScrollRef.current?.scrollBy({
+      left: dir * 320,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <section id="catalog" className="mx-auto max-w-7xl px-4 py-16">
@@ -197,7 +294,7 @@ export function ProductCatalogSection({ lang }: { lang: Locale }) {
           type="button"
           onClick={toggleHsaSavings}
           aria-pressed={applyHsaSavings}
-          className={`inline-flex items-center gap-2 self-start rounded-2xl border px-4 py-2.5 text-xs font-bold transition md:self-auto ${
+          className={`inline-flex cursor-pointer items-center gap-2 self-start rounded-2xl border px-4 py-2.5 text-xs font-bold transition md:self-auto ${
             applyHsaSavings
               ? "border-emerald-600 bg-emerald-50 text-emerald-900"
               : "border-slate-300 bg-white text-slate-800 hover:bg-slate-50"
@@ -280,42 +377,63 @@ export function ProductCatalogSection({ lang }: { lang: Locale }) {
         </div>
       </div>
 
-      <div className="mt-10 rounded-3xl border border-emerald-200/80 bg-emerald-50/40 p-6 md:p-8">
+      {/* Compact Horizontal Carousel: Complete Box Contents & Hardware */}
+      <div className="mt-10 rounded-3xl border border-emerald-200/80 bg-emerald-50/40 p-5 md:p-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2.5">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-600 text-white">
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-emerald-600 text-white">
               <Gift className="h-4 w-4" />
             </span>
             <div>
-              <h3 className="font-display text-lg font-black text-slate-950">
+              <h3 className="font-display text-base font-black text-slate-950 sm:text-lg">
                 {cc.boxTitle}
               </h3>
               <p className="text-xs text-slate-600">{cc.boxSubtitle}</p>
             </div>
           </div>
+
+          <div className="flex items-center gap-1.5">
+            <button
+              type="button"
+              onClick={() => scrollBox(-1)}
+              aria-label="Scroll left"
+              className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-2xs transition hover:border-teal-600 hover:text-teal-700"
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollBox(1)}
+              aria-label="Scroll right"
+              className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-2xs transition hover:border-teal-600 hover:text-teal-700"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          </div>
         </div>
 
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {cc.boxItems
-            .filter((item) => !item.src.includes("soft-foot"))
-            .map((item) => (
+        <div
+          ref={boxScrollRef}
+          className="no-scrollbar mt-4 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-1"
+        >
+          {visibleBoxItems.map((item) => (
             <div
               key={item.src}
-              className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xs"
+              className="w-[270px] shrink-0 snap-start overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xs sm:w-[300px] lg:w-[calc(33.333%-11px)]"
             >
-              <div className="relative aspect-[4/3] w-full bg-slate-100">
+              <div className="relative aspect-[16/10] w-full bg-[#F4F7F9]">
                 <OptimizedImage
                   src={item.src}
                   alt={item.alt}
                   fill
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                  className="object-cover"
+                  sizes="(max-width: 768px) 280px, 340px"
+                  className="object-contain p-1.5"
                 />
                 <span className="absolute left-2.5 top-2.5 rounded-full bg-slate-950/85 px-2.5 py-0.5 text-[10px] font-bold text-emerald-300">
                   {item.tag}
                 </span>
               </div>
-              <div className="p-4">
+              <div className="p-3.5">
                 <h4 className="font-display text-sm font-extrabold text-slate-950">
                   {item.title}
                 </h4>
