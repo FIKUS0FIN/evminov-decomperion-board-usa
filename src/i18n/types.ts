@@ -1,9 +1,10 @@
-export type Locale = "en" | "es" | "fr" | "uk" | "ru";
+export type Locale = "en" | "es" | "fr" | "de" | "uk" | "ru";
 
-export const LOCALES: readonly Locale[] = ["en", "es", "fr", "uk", "ru"] as const;
+export const LOCALES: readonly Locale[] = ["en", "es", "fr", "de", "uk", "ru"] as const;
 export const NON_DEFAULT_LOCALES: readonly Exclude<Locale, "en">[] = [
   "es",
   "fr",
+  "de",
   "uk",
   "ru",
 ] as const;
@@ -44,6 +45,14 @@ export const LOCALE_META: Record<
     nativeName: "Français",
     shortLabel: "FR",
     regionNote: "Canada & Europe",
+  },
+  de: {
+    code: "de",
+    hreflang: "de-DE",
+    ogLocale: "de_DE",
+    nativeName: "Deutsch",
+    shortLabel: "DE",
+    regionNote: "Deutschland, Österreich & Schweiz",
   },
   uk: {
     code: "uk",

@@ -49,6 +49,12 @@ const HERO_COPY: Record<Locale, { badge: string; h1: string; subtitle: string }>
     subtitle:
       "Découvrez l'histoire personnelle de Vyacheslav Evminov, le modèle 'Hôpital à Domicile', le programme vétérans & tactique, la science du pin des Carpates et nos centres officiels de Kyiv à la Californie.",
   },
+  de: {
+    badge: "GEGRÜNDET 1996 • 30 JAHRE EVMINOV WIRBELSÄULEN-TRADITION",
+    h1: "Evminov Zentren, Gründer-Geschichte & Defender-Programm",
+    subtitle:
+      "Entdecken Sie Vyacheslav Evminovs persönliche Genesungsgeschichte, das ‚Home Hospital‘-Konzept, unser Programm für Veteranen & Einsatzkräfte, die Wissenschaft des Karpaten-Kiefernholzes, Sicherheitsprotokolle und unsere Zentren von Kyjiw bis Glendale, Kalifornien.",
+  },
   uk: {
     badge: "ЗАСНОВАНО 1996 • 30 РОКІВ СПАДЩИНИ МЕТОДИКИ ЄВМІНОВА",
     h1: "Центри Євмінова, Історія Засновника та Програма «Спина Захисника»",

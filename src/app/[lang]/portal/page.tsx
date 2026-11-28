@@ -24,6 +24,11 @@ const PORTAL_META: Record<Locale, { title: string; description: string }> = {
     description:
       "Accédez au Portail Patient Evminov : minuteur de séance, suivi 30 jours, guide de fixation murale 16 pouces, dossier HSA/FSA imprimable et garantie 10 ans.",
   },
+  de: {
+    title: "Patienten- & Eigentümerportal — 30-Tage-Plan, Timer & HSA/FSA-Kit",
+    description:
+      "Evminov Patientenportal mit geführtem Trainingstimer, 30-Tage-Tracker, Wandmontage-Anleitung, HSA/FSA-Unterlagen und 10-Jahres-Garantieregistrierung.",
+  },
   uk: {
     title: "Кабінет Пацієнта та Власника — План 30 Днів, Таймер і HSA/FSA",
     description:

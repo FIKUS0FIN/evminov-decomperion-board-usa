@@ -93,6 +93,21 @@ export const HEADER_EXTRA: Record<Locale, HeaderExtraStrings> = {
     mobileSince1996Sub: "Патент 1996 • Мир",
     mobilePortalSub: "Программа, таймер и пакет HSA",
   },
+  de: {
+    heritageBarAria: "Traditions- und Vertrauensleiste",
+    hsaOnShort: "HSA/FSA -30% AN",
+    hsaMobileShort: "HSA -30%",
+    langSwitcherAria: "Sprachauswahl",
+    homeAria: "Evminov Spine Systems Startseite",
+    scrollLeftAria: "Navigation nach links scrollen",
+    scrollRightAria: "Navigation nach rechts scrollen",
+    primaryNavAria: "Hauptnavigation",
+    mobileNavAria: "Mobiles Menü",
+    toggleMenuAria: "Navigationsmenü öffnen oder schließen",
+    portalShort: "Portal",
+    mobileSince1996Sub: "Patentiert 1996 • Weltweit",
+    mobilePortalSub: "Routine, Timer & HSA-Paket",
+  },
 };
 
 export interface FooterTrustCardCopy {
@@ -437,6 +452,66 @@ export const FOOTER_CONTENT: Record<Locale, FooterContent> = {
     architectureCredit: "Архитектура Apex Root LLC.",
     sitemapLabel: "Карта Сайта",
   },
+  de: {
+    homeAria: "Evminov Spine Systems Startseite",
+    usHubLabel: "US-Betrieb & Logistikzentrum:",
+    euroCraftLabel: "Europäische Handwerkskunst:",
+    euroCraftLocation: "Kyjiw & Odessa, Ukraine (seit 1996)",
+    shipping50Link: "Versand in alle 50 US-Staaten & weltweit",
+    kidsPostureLink: "Haltungsstation für Kinder & Familie",
+    vsInversionLink: "Evminov vs. Inversionsbänke",
+    vsTeeterLink: "Evminov vs. Teeter Alternative",
+    calculatorLink: "Neigungswinkel-Rechner",
+    centersLink: "Zentren & Tradition seit 1996",
+    athleteLink: "Sportregeneration (Kreuzheben & Kniebeugen)",
+    guidesLink: "Evidenzbasierte Ratgeber",
+    patientPortalLink: "Patientenportal",
+    trial60Link: "60 Tage Heimtest",
+    trustHeading: "Patente, Handwerkskunst & Käuferschutz",
+    trustCards: [
+      {
+        title: "US- & EU-Patent",
+        sub: "Original Evminov-Design",
+        tag: "US 6,869,387 B2",
+      },
+      {
+        title: "HSA / FSA geeignet",
+        sub: "Steuerfreie Erstattung (USA)",
+        tag: "Aufgeschlüsselte Rechnung + LMN",
+      },
+      {
+        title: "30 Jahre Tradition",
+        sub: "Kontinuierlich seit 1996",
+        tag: "EP 1 038 512 B1 • MOH 711",
+      },
+      {
+        title: "Sport & Physio",
+        sub: "Axiale Wirbelsäulen-Entlastung",
+        tag: "Belastbar bis 330 lbs (150 kg)",
+      },
+      {
+        title: "10 Jahre Garantie",
+        sub: "Karpaten-Kiefer & Erle",
+        tag: "Strukturelle Rahmengarantie",
+      },
+      {
+        title: "60 Tage Testphase",
+        sub: "Risikofreier Heimtest",
+        tag: "100% Rückerstattungsgarantie",
+      },
+    ],
+    heritageBannerLead: "30 Jahre kontinuierliche Wirbelsäulen-Methodik (seit 1996):",
+    heritageBannerBody:
+      "International patentierte schiefe Ebene in den USA, der Europäischen Union und bei der WIPO — handgefertigt aus resonanter Karpaten-Kiefer und ausgewählter ukrainischer Erle.",
+    securitySsl: "256-Bit-SSL-verschlüsselt",
+    securityPrivacy: "Datenschutz nach CCPA & DSGVO",
+    securityShipping: "Versicherter UPS-/FedEx-Versand aus Kalifornien",
+    acceptedLabel: "Akzeptiert / Geplant:",
+    wellnessNotice:
+      "Hinweis zu allgemeinem Wellness-Equipment: Evminov Spine Systems Boards sind als allgemeines Wellness- und Wirbelsäulen-Trainingsgerät (HTS 9506.91.0030) klassifiziert. Die Informationen auf dieser Website dienen ausschließlich Bildungszwecken und sind nicht dazu bestimmt, Krankheiten zu diagnostizieren, zu behandeln, zu heilen oder zu verhindern. Konsultieren Sie vor Beginn eines neuen Trainings- oder Traktionsprogramms einen zugelassenen Arzt, insbesondere bei akuten Wirbelsäulenverletzungen oder schweren Vorerkrankungen.",
+    architectureCredit: "Architektur von Apex Root LLC.",
+    sitemapLabel: "Sitemap",
+  },
 };
 
 export interface MobileDockExtra {
@@ -477,6 +552,12 @@ export const MOBILE_DOCK_EXTRA: Record<Locale, MobileDockExtra> = {
     installments: "(или 4× $112.50)",
     trialExpress: "60 Дней Теста • Экспресс США",
   },
+  de: {
+    navAria: "Mobile Schnellaktionen",
+    fromPrice: "Ab $450",
+    installments: "(oder 4× $112.50)",
+    trialExpress: "60 Tage Test • US-Express",
+  },
 };
 
 export interface BreadcrumbCopy {
@@ -490,6 +571,7 @@ export const BREADCRUMB_COPY: Record<Locale, BreadcrumbCopy> = {
   fr: { home: "Accueil", navAria: "Fil d'Ariane" },
   uk: { home: "Головна", navAria: "Навігаційний ланцюжок" },
   ru: { home: "Главная", navAria: "Навигационная цепочка" },
+  de: { home: "Startseite", navAria: "Brotkrümelnavigation" },
 };
 
 export interface WelcomeHubCopy {
@@ -635,6 +717,31 @@ export const WELCOME_HUB_COPY: Record<Locale, WelcomeHubCopy> = {
     copiedBtn: "Скопировано в Буфер Обмена!",
     youtubeBtn: "Открыть Канал Evminov USA",
   },
+  de: {
+    badge: "Evminov Eigentümer-QR-Hub • Montage & Community",
+    pageTitle: "Willkommen bei Ihrem Evminov Board — Montageanleitung & Erfahrungen",
+    pageSubtitle:
+      "Sehen Sie sich unten unsere Anleitung für die 16\"-US-Holzständer-Montage und die Einstiegsroutine an und teilen Sie anschließend Ihre echten Erfahrungen mit anderen.",
+    metaDescription:
+      "Offizielles Montagevideo für 16-Zoll-US-Holzständer, Einstiegsübungen und Bewertungs-Hub für Ihr Evminov Wirbelsäulen-Dekompressionsboard.",
+    wallMountingVideoTitle:
+      "Evminov Board 16-Zoll-US-Holzständer-Wandmontage & Aufbauanleitung",
+    methodDemoVideoTitle:
+      "Offizielle Evminov-Methode: Demonstration von Dekompression & Übungen",
+    reviewHeading:
+      "Begeistert von Ihrem Evminov Board? Teilen Sie Ihre Erfahrung in 15 Sekunden",
+    reviewSubtitle:
+      "Ehrliches Feedback verifizierter Besitzer hilft anderen, eine sicherere Alternative zu Kopfüber-Inversionsbänken zu finden. Passen Sie Ihren Text unten an, kopieren Sie ihn mit einem Klick und teilen Sie ihn auf Google oder YouTube.",
+    templateWord: "Vorlage",
+    samplePrompts: [
+      "Habe mein Evminov Board aus Karpaten-Kiefer in 15 Minuten an einem 16\"-Trockenbau-Holzständer montiert. 10 Minuten bei 15 Grad fühlen sich deutlich sicherer an als kopfüber auf einer Inversionsbank zu hängen!",
+      "Schnelle Lieferung aus Kalifornien und erstklassige Naturholz-Verarbeitung. Ich nutze den freistehenden Ständer in meiner Wohnung ohne ein einziges Loch in der Wand — mein unterer Rücken fühlt sich jeden Abend spürbar lockerer an.",
+    ],
+    textareaAria: "Ihr Entwurf für die Evminov-Eigentümerbewertung",
+    copyBtn: "Bewertung mit 1 Klick kopieren",
+    copiedBtn: "In die Zwischenablage kopiert!",
+    youtubeBtn: "Evminov USA Kanal öffnen",
+  },
 };
 
 export interface HubViewsCopy {
@@ -757,6 +864,26 @@ export const HUB_VIEWS_COPY: Record<Locale, HubViewsCopy> = {
     usDirectoryTitle: "Сроки Доставки по Всем 50 Штатам США",
     minReadSuffix: "мин чтения",
   },
+  de: {
+    compareCta: "Direktvergleich lesen",
+    conditionsCta: "Routine & Größe ansehen",
+    guidesCta: "Ratgeber lesen",
+    shippingCards: {
+      usLabel: "Vereinigte Staaten (USA)",
+      usTime: "1–4 Werktage",
+      usDesc: `Versand ab Glendale, CA (${SITE_CONFIG.address.street}) per versichertem UPS / FedEx.`,
+      caLabel: "Kanada (CAD / USD)",
+      caTime: "4–8 Werktage",
+      caDesc:
+        "Nachverfolgte grenzüberschreitende UPS- / Canada-Post-Lieferung nach Ontario, Québec, BC & Alberta.",
+      euLabel: "Europa & Ukraine",
+      euTime: "Werkstatt-Direktversand",
+      euDesc:
+        "Direkter europäischer Versand in die EU-Länder, das Vereinigte Königreich, Polen, Italien und die Ukraine.",
+    },
+    usDirectoryTitle: "Laufzeiten-Übersicht für alle 50 US-Bundesstaaten",
+    minReadSuffix: "Min. Lesezeit",
+  },
 };
 
 export const COMPARISON_EYEBROWS: Record<string, Record<Locale, string>> = {
@@ -766,6 +893,7 @@ export const COMPARISON_EYEBROWS: Record<string, Record<Locale, string>> = {
     fr: "Comparatif Clé • Alternative Table d'Inversion",
     uk: "Ключове Порівняння • Альтернатива Інверсійному Столу",
     ru: "Ключевое Сравнение • Альтернатива Инверсионному Столу",
+    de: "Direktvergleich • Alternative zur Inversionsbank",
   },
   "evminov-vs-teeter": {
     en: "Competitor Comparison • Teeter Alternative",
@@ -773,6 +901,7 @@ export const COMPARISON_EYEBROWS: Record<string, Record<Locale, string>> = {
     fr: "Comparatif Direct • Alternative à Teeter",
     uk: "Пряме Порівняння • Альтернатива Teeter",
     ru: "Прямое Сравнение • Альтернатива Teeter",
+    de: "Produktvergleich • Alternative zu Teeter",
   },
   "evminov-vs-back-stretcher": {
     en: "Equipment Comparison • Real Axial Unloading",
@@ -780,6 +909,7 @@ export const COMPARISON_EYEBROWS: Record<string, Record<Locale, string>> = {
     fr: "Comparatif Matériel • Vraie Décompression Axiale",
     uk: "Порівняння Обладнання • Справжнє Осьове Витяжіння",
     ru: "Сравнение Оборудования • Настоящая Осевая Разгрузка",
+    de: "Gerätevergleich • Echte axiale Entlastung",
   },
   "evminov-vs-decompression-clinic": {
     en: "Economics & Consistency • Home Spine Station",
@@ -787,6 +917,7 @@ export const COMPARISON_EYEBROWS: Record<string, Record<Locale, string>> = {
     fr: "Budget & Régularité • Station Dorsale à Domicile",
     uk: "Економіка та Регулярність • Домашня Станція Хребта",
     ru: "Экономика и Регулярность • Домашняя Станция для Спины",
+    de: "Kosten & Regelmäßigkeit • Rückenstation für zuhause",
   },
   "evminov-vs-back-surgery": {
     en: "Evidence-Informed Overview • Non-Invasive First",
@@ -794,6 +925,7 @@ export const COMPARISON_EYEBROWS: Record<string, Record<Locale, string>> = {
     fr: "Approche Documentée • Soins Non Invasifs d'Abord",
     uk: "Виважений Підхід • Спершу Неінвазивні Методи",
     ru: "Взвешенный Подход • Сначала Неинвазивные Методы",
+    de: "Fundierter Überblick • Nicht-invasiv zuerst",
   },
 };
 
@@ -804,6 +936,7 @@ export const CONDITION_HUB_BADGES: Record<string, Record<Locale, string>> = {
     fr: "Inclinaison douce 10° – 18° • 10–12 min, 1–2×/jour",
     uk: "М'який кут 10° – 18° • 10–12 хв, 1–2× на день",
     ru: "Мягкий угол 10° – 18° • 10–12 мин, 1–2× в день",
+    de: "Sanfte Neigung 10° – 18° • 10–12 Min., 1–2× täglich",
   },
   "sciatica-relief": {
     en: "10° – 18° Incline • 10–12 min daily",
@@ -811,6 +944,7 @@ export const CONDITION_HUB_BADGES: Record<string, Record<Locale, string>> = {
     fr: "Inclinaison 10° – 18° • 10–12 min par jour",
     uk: "Кут 10° – 18° • 10–12 хв щодня",
     ru: "Угол 10° – 18° • 10–12 мин ежедневно",
+    de: "Neigung 10° – 18° • 10–12 Min. täglich",
   },
   "degenerative-disc-disease": {
     en: "8° – 15° Gentle Incline • 8–10 min daily",
@@ -818,6 +952,7 @@ export const CONDITION_HUB_BADGES: Record<string, Record<Locale, string>> = {
     fr: "Inclinaison très douce 8° – 15° • 8–10 min/jour",
     uk: "Делікатний кут 8° – 15° • 8–10 хв щодня",
     ru: "Деликатный угол 8° – 15° • 8–10 мин ежедневно",
+    de: "Sanfte Neigung 8° – 15° • 8–10 Min. täglich",
   },
   "lower-back-pain": {
     en: "12° – 20° Incline • 10 min daily",
@@ -825,6 +960,7 @@ export const CONDITION_HUB_BADGES: Record<string, Record<Locale, string>> = {
     fr: "Inclinaison 12° – 20° • 10 min par jour",
     uk: "Кут 12° – 20° • 10 хв щодня",
     ru: "Угол 12° – 20° • 10 мин ежедневно",
+    de: "Neigung 12° – 20° • 10 Min. täglich",
   },
   "scoliosis-posture": {
     en: "8° – 14° Low Incline • 5–8 min daily (supervised)",
@@ -832,6 +968,7 @@ export const CONDITION_HUB_BADGES: Record<string, Record<Locale, string>> = {
     fr: "Faible inclinaison 8° – 14° • 5–8 min/jour (encadré)",
     uk: "Низький кут 8° – 14° • 5–8 хв щодня (під наглядом)",
     ru: "Низкий угол 8° – 14° • 5–8 мин ежедневно (под присмотром)",
+    de: "Flacher Winkel 8° – 14° • 5–8 Min. täglich (unter Aufsicht)",
   },
   "cervical-neck-traction": {
     en: "8° – 12° Ultra-Gentle Incline • 5–8 min daily",
@@ -839,6 +976,7 @@ export const CONDITION_HUB_BADGES: Record<string, Record<Locale, string>> = {
     fr: "Inclinaison ultra-douce 8° – 12° • 5–8 min/jour",
     uk: "Надм'який кут 8° – 12° • 5–8 хв щодня",
     ru: "Сверхмягкий угол 8° – 12° • 5–8 мин ежедневно",
+    de: "Besonders sanft 8° – 12° • 5–8 Min. täglich",
   },
   "athlete-spine-recovery": {
     en: "20° – 32° Athletic Incline • 10–15 min post-workout",
@@ -846,6 +984,7 @@ export const CONDITION_HUB_BADGES: Record<string, Record<Locale, string>> = {
     fr: "Inclinaison sportive 20° – 32° • 10–15 min post-séance",
     uk: "Спортивний кут 20° – 32° • 10–15 хв після тренування",
     ru: "Спортивный угол 20° – 32° • 10–15 мин после тренировки",
+    de: "Athletischer Winkel 20° – 32° • 10–15 Min. nach dem Training",
   },
   "desk-worker-posture": {
     en: "14° – 22° Incline • 7–10 min daily",
@@ -853,6 +992,7 @@ export const CONDITION_HUB_BADGES: Record<string, Record<Locale, string>> = {
     fr: "Inclinaison 14° – 22° • 7–10 min par jour",
     uk: "Кут 14° – 22° • 7–10 хв щодня",
     ru: "Угол 14° – 22° • 7–10 мин ежедневно",
+    de: "Neigung 14° – 22° • 7–10 Min. täglich",
   },
 };
 
@@ -863,6 +1003,7 @@ export const GUIDE_CATEGORY_LABELS: Record<string, Record<Locale, string>> = {
     fr: "Alternative Inversion",
     uk: "Альтернатива Інверсії",
     ru: "Альтернатива Инверсии",
+    de: "Inversions-Alternative",
   },
   "Lumbar Biomechanics": {
     en: "Lumbar Biomechanics",
@@ -870,6 +1011,7 @@ export const GUIDE_CATEGORY_LABELS: Record<string, Record<Locale, string>> = {
     fr: "Biomécanique Lombaire",
     uk: "Біомеханіка Попереку",
     ru: "Биомеханика Поясницы",
+    de: "Lendenwirbel-Biomechanik",
   },
   "Athletic Recovery": {
     en: "Athletic Recovery",
@@ -877,6 +1019,7 @@ export const GUIDE_CATEGORY_LABELS: Record<string, Record<Locale, string>> = {
     fr: "Récupération Sportive",
     uk: "Спортивне Відновлення",
     ru: "Спортивное Восстановление",
+    de: "Sportregeneration",
   },
   "Sciatica Comfort": {
     en: "Sciatica Comfort",
@@ -884,6 +1027,7 @@ export const GUIDE_CATEGORY_LABELS: Record<string, Record<Locale, string>> = {
     fr: "Confort Sciatique",
     uk: "Комфорт при Ішіасі",
     ru: "Комфорт при Ишиасе",
+    de: "Ischias-Komfort",
   },
   "Desk Ergonomics": {
     en: "Desk Ergonomics",
@@ -891,6 +1035,7 @@ export const GUIDE_CATEGORY_LABELS: Record<string, Record<Locale, string>> = {
     fr: "Ergonomie Bureau",
     uk: "Офісна Ергономіка",
     ru: "Офисная Эргономика",
+    de: "Büro-Ergonomie",
   },
   "Preventive Spine Hygiene": {
     en: "Preventive Spine Hygiene",
@@ -898,6 +1043,7 @@ export const GUIDE_CATEGORY_LABELS: Record<string, Record<Locale, string>> = {
     fr: "Hygiène Vertébrale Préventive",
     uk: "Профілактична Гігієна Хребта",
     ru: "Профилактическая Гигиена Спины",
+    de: "Präventive Wirbelsäulenhygiene",
   },
   "Buyer's Guide": {
     en: "Buyer's Guide",
@@ -905,6 +1051,7 @@ export const GUIDE_CATEGORY_LABELS: Record<string, Record<Locale, string>> = {
     fr: "Guide d'Achat",
     uk: "Гід Покупця",
     ru: "Гид Покупателя",
+    de: "Kaufberatung",
   },
   "Family & Youth Posture": {
     en: "Family & Youth Posture",
@@ -912,6 +1059,7 @@ export const GUIDE_CATEGORY_LABELS: Record<string, Record<Locale, string>> = {
     fr: "Posture Famille & Jeunes",
     uk: "Дитяча та Сімейна Постава",
     ru: "Детская и Семейная Осанка",
+    de: "Familien- & Jugendhaltung",
   },
 };
 
@@ -928,6 +1076,7 @@ export function localizeTransitDays(expressDays: string, lang: Locale): string {
     fr: "jours ouvrables",
     uk: "робочі дні",
     ru: "рабочих дня",
+    de: "Werktage",
   };
   return expressDays.replace(/business days/i, suffixMap[lang]);
 }
@@ -940,18 +1089,21 @@ export function localizeCarrier(carrier: string, lang: Locale): string {
       fr: "Express Local / UPS Ground",
       uk: "Локальний Експрес / UPS Ground",
       ru: "Локальный Экспресс / UPS Ground",
+      de: "Lokaler Express / UPS Ground",
     },
     "Tracked Air Freight": {
       es: "Carga Aérea con Rastreo",
       fr: "Fret Aérien Suivi",
       uk: "Авіадоставка з Трекінгом",
       ru: "Авиадоставка с Трекингом",
+      de: "Nachverfolgte Luftfracht",
     },
     "Air Cargo Express": {
       es: "Carga Aérea Express",
       fr: "Fret Aérien Express",
       uk: "Експрес-Авіадоставка",
       ru: "Экспресс-Авиадоставка",
+      de: "Luftfracht-Express",
     },
   };
   return map[carrier]?.[lang] || carrier;
@@ -976,6 +1128,7 @@ export const LEGAL_META_LABELS: Record<Locale, { lastUpdated: string }> = {
   fr: { lastUpdated: "Dernière mise à jour" },
   uk: { lastUpdated: "Останнє оновлення" },
   ru: { lastUpdated: "Последнее обновление" },
+  de: { lastUpdated: "Zuletzt aktualisiert" },
 };
 
 export const LEGAL_PAGES_CONTENT: Record<
@@ -1388,6 +1541,88 @@ export const LEGAL_PAGES_CONTENT: Record<
         {
           h: "3. Консультация Врача и Противопоказания",
           p: "Проконсультируйтесь с врачом перед началом упражнений на наклонной доске при острых травмах спины, недавних операциях, остеопорозе, тяжёлой гипертонии, беременности или тревожных неврологических симптомах (слабость стопы, выраженное онемение, нарушения функций тазовых органов). Абсолютные противопоказания включают: острую лихорадку (>37,5 °C / 99,5 °F) или системную инфекцию; свежие несросшиеся переломы позвоночника или острую спинальную травму; активные злокачественные образования позвоночника или костные метастазы; активное внутреннее кровотечение или тяжёлую аневризму аорты/сосудов; недавний инсульт или инфаркт миокарда (в течение последних 6 месяцев); острые симптомы синдрома конского хвоста (требуют экстренной медицинской помощи).",
+        },
+      ],
+    },
+  },
+  de: {
+    privacy: {
+      title: "Datenschutzerklärung (CCPA / CPRA & DSGVO-konform)",
+      metaDescription:
+        "Wie Evminov Spine Systems Kundendaten schützt, Cookies transparent unter Consent Mode v2 verwaltet und CCPA-/DSGVO-Rechte wahrt.",
+      updated: "November 2026",
+      sections: [
+        {
+          h: "1. Welche Daten wir erheben",
+          p: "Wenn Sie auf evminovusa.com ein Evminov Board reservieren, einen persönlichen Winkelplan anfordern oder mit unserem Berater chatten, erheben wir ausschließlich die Kontakt- und Lieferdaten, die Sie freiwillig angeben (Name, E-Mail, Telefonnummer, Bundesstaat/Lieferadresse sowie optionale Hinweise). Wir speichern niemals rohe Zahlungskartennummern auf unseren Servern.",
+        },
+        {
+          h: "2. Cookies & Consent Mode v2",
+          p: "Notwendige Cookies speichern Ihre Datenschutzeinstellungen. Optionale Analyse-Tags (Google Analytics 4, Microsoft Clarity) und Marketing-Tags werden erst aktiviert, nachdem Sie im Cookie-Banner ausdrücklich zugestimmt haben. Sie können Ihre Einwilligung jederzeit über den Footer ändern oder widerrufen.",
+        },
+        {
+          h: "3. Ihre Rechte (Kalifornien CCPA/CPRA & EU-DSGVO)",
+          p: `Sie haben jederzeit das Recht, Auskunft, Berichtigung oder Löschung Ihrer personenbezogenen Daten per E-Mail an ${SITE_CONFIG.supportEmail} oder telefonisch unter ${SITE_CONFIG.phoneDisplay} anzufordern. Wir verkaufen niemals personenbezogene Daten an Dritte.`,
+        },
+      ],
+    },
+    terms: {
+      title: "Nutzungsbedingungen",
+      metaDescription:
+        "Bestellbedingungen von Evminov Spine Systems, transparente USD-Preise, 10 Jahre Holzrahmen-Garantie und internationale Patente.",
+      updated: "November 2026",
+      sections: [
+        {
+          h: "1. Bestellungen, Preise & Verfügbarkeit",
+          p: "Alle Produktpreise auf evminovusa.com sind in US-Dollar (USD) angegeben und unterscheiden klar zwischen Werkstatt-Direktlieferung und Expressversand aus Glendale, Kalifornien. Reservierungen vor Zahlungsabschluss werden per E-Mail von orders@evminovusa.com bestätigt.",
+        },
+        {
+          h: "2. 10 Jahre strukturelle Rahmengarantie",
+          p: "Jedes authentische Evminov Board aus Karpaten-Kiefer oder ukrainischer Erle verfügt über eine 10-jährige Garantie auf strukturelle Herstellungsfehler bei normaler privater oder Studio-Nutzung innerhalb der angegebenen Belastungsgrenze (210–220 lbs / 95–100 kg bei Standard/Klapp/Erle; 330 lbs / 150 kg bei Wide Heavy-Duty).",
+        },
+        {
+          h: "3. Geistiges Eigentum",
+          p: `Die Konstruktionen von Evminov Spine Systems sind durch internationale Patente geschützt (${SITE_CONFIG.compliance.patentsSummary}).`,
+        },
+      ],
+    },
+    "shipping-returns": {
+      title: "Versand-, 60-Tage-Heimtest- & Rückgaberichtlinie",
+      metaDescription:
+        "1–4 Tage Expressversand ab Glendale (CA) in alle 50 US-Staaten, weltweiter Werkstattversand und 60 Tage risikofreier Heimtest.",
+      updated: "November 2026",
+      sections: [
+        {
+          h: "1. Lieferung in alle 50 US-Bundesstaaten & weltweit",
+          p: `Bestellungen per California Warehouse Express werden ab ${SITE_CONFIG.address.full} versichert mit UPS/FedEx versendet (1–2 Werktage Westküste, 2–3 Tage Zentral/Süd, 3–4 Tage Ostküste, 4–5 Tage Alaska/Hawaii). Die Werkstatt-Direktlieferung erreicht die USA, Kanada, die EU, Großbritannien und die Ukraine in 10–16 Werktagen.`,
+        },
+        {
+          h: "2. 60 Tage risikofreier Heimtest",
+          p: `Sie haben ab Zustellung 60 Kalendertage Zeit, Ihr Evminov Board in Ruhe zuhause zu testen. Für eine Rücksendung schreiben Sie bitte mit Ihrer Bestellreferenz an ${SITE_CONFIG.supportEmail}, um Rücksendegenehmigung und Anweisungen zu erhalten. Erstattungen erfolgen innerhalb von 5–7 Werktagen nach Prüfung der Rücksendung.`,
+        },
+        {
+          h: "3. Ersatz bei Transportschäden",
+          p: `Jede Sendung ist zu 100% versichert. Sollte ein Paket beschädigt ankommen, fotografieren Sie bitte Verpackung und Produkt innerhalb von 48 Stunden und senden Sie die Fotos an ${SITE_CONFIG.supportEmail} für einen schnellen kostenlosen Ersatz.`,
+        },
+      ],
+    },
+    "wellness-disclaimer": {
+      title: "Hinweis zu allgemeinem Wellness-Equipment & Sicherheit",
+      metaDescription:
+        "HTS 9506.91.0030 Klassifizierung als allgemeines Wellness-Gerät, HSA/FSA-LMN-Hinweise und Kontraindikationen für das Rückentraining.",
+      updated: "November 2026",
+      sections: [
+        {
+          h: "1. Produktklassifizierung (Allgemeines Wellness- / Trainingsgerät)",
+          p: "In den Vereinigten Staaten verkaufte Evminov Spine Systems Boards sind als allgemeines Wellness- und Wirbelsäulen-Trainingsgerät (General Wellness & Spine Conditioning Equipment, HTS 9506.91.0030) klassifiziert. Aussagen auf dieser Website wurden nicht von der US-amerikanischen Food and Drug Administration (FDA) geprüft. Unsere Geräte unterstützen allgemeines Rücken-Wohlbefinden, Haltungstraining, Beweglichkeit und sportliche Regeneration — nicht die Diagnose, Behandlung, Heilung oder Prävention von Krankheiten.",
+        },
+        {
+          h: "2. Steuerfreie HSA- / FSA-Erstattung (USA)",
+          p: "Viele Kundinnen und Kunden in den USA nutzen steuerfreie HSA-/FSA-Mittel in Verbindung mit einem ärztlichen Letter of Medical Necessity (LMN) sowie Plan-Genehmigung (ca. 25–35% Ersparnis). Wir stellen unmittelbar nach der Bestellung eine aufgeschlüsselte Rechnung über Wellness-Equipment bereit.",
+        },
+        {
+          h: "3. Ärztliche Rücksprache & Kontraindikationen",
+          p: "Konsultieren Sie einen zugelassenen Arzt, bevor Sie mit geneigten Wirbelsäulenübungen beginnen, wenn bei Ihnen akute Rückenverletzungen, kürzliche Operationen, Osteoporose, schwerer Bluthochdruck, Schwangerschaft oder neurologische Warnzeichen (Fußheberschwäche, ausgeprägte Taubheit oder Blasen-/Darmstörungen) vorliegen. Absolute Kontraindikationen sind: akutes Fieber (>37,5 °C / 99,5 °F) oder systemische Infektionen; frische unverheilte Wirbelbrüche oder akutes Wirbelsäulentrauma; aktive bösartige Wirbelsäulentumore oder Knochenmetastasen; aktive innere Blutungen oder schweres Aorten-/Gefäßaneurysma; kürzlicher Schlaganfall oder Herzinfarkt (innerhalb der letzten 6 Monate); akute Symptome eines Cauda-equina-Syndroms (erfordern sofortige medizinische Notfallversorgung).",
         },
       ],
     },

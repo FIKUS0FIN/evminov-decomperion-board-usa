@@ -9,20 +9,20 @@ import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { BREADCRUMB_COPY } from "@/i18n/locales/chrome";
 
 const SEGMENT_LABELS: Record<string, Record<Locale, string>> = {
-  products: { en: "Boards", es: "Tablas", fr: "Planches", uk: "Дошки", ru: "Доски" },
-  compare: { en: "Compare", es: "Comparar", fr: "Comparer", uk: "Порівняння", ru: "Сравнение" },
-  conditions: { en: "Spine Goals", es: "Objetivos", fr: "Objectifs", uk: "Програми", ru: "Программы" },
-  guides: { en: "Guides", es: "Guías", fr: "Guides", uk: "Гайди", ru: "Статьи" },
-  shipping: { en: "US Shipping", es: "Envíos", fr: "Livraison", uk: "Доставка", ru: "Доставка" },
-  centers: { en: "Heritage 1996", es: "Historia 1996", fr: "Histoire 1996", uk: "Історія 1996", ru: "История 1996" },
-  calculator: { en: "Angle Calculator", es: "Calculadora", fr: "Calculateur", uk: "Калькулятор", ru: "Калькулятор" },
-  order: { en: "Order Board", es: "Pedir Tabla", fr: "Commander", uk: "Замовлення", ru: "Заказ" },
-  portal: { en: "Patient Portal", es: "Portal Paciente", fr: "Portail Patient", uk: "Кабінет Пацієнта", ru: "Кабинет Пациента" },
-  welcome: { en: "Owner Setup", es: "Instalación", fr: "Installation", uk: "Налаштування", ru: "Настройка" },
-  privacy: { en: "Privacy Policy", es: "Privacidad", fr: "Confidentialité", uk: "Конфіденційність", ru: "Конфиденциальность" },
-  terms: { en: "Terms of Service", es: "Términos", fr: "Conditions", uk: "Умови", ru: "Условия" },
-  "shipping-returns": { en: "Shipping & Returns", es: "Envíos y Devoluciones", fr: "Livraison & Retours", uk: "Доставка і повернення", ru: "Доставка и возврат" },
-  "wellness-disclaimer": { en: "Wellness Disclaimer", es: "Aviso de Bienestar", fr: "Avis Bien-Être", uk: "Застереження", ru: "Дисклеймер" },
+  products: { en: "Boards", es: "Tablas", fr: "Planches", de: "Boards", uk: "Дошки", ru: "Доски" },
+  compare: { en: "Compare", es: "Comparar", fr: "Comparer", de: "Vergleich", uk: "Порівняння", ru: "Сравнение" },
+  conditions: { en: "Spine Goals", es: "Objetivos", fr: "Objectifs", de: "Rückenziele", uk: "Програми", ru: "Программы" },
+  guides: { en: "Guides", es: "Guías", fr: "Guides", de: "Ratgeber", uk: "Гайди", ru: "Статьи" },
+  shipping: { en: "US Shipping", es: "Envíos", fr: "Livraison", de: "Versand", uk: "Доставка", ru: "Доставка" },
+  centers: { en: "Heritage 1996", es: "Historia 1996", fr: "Histoire 1996", de: "Tradition 1996", uk: "Історія 1996", ru: "История 1996" },
+  calculator: { en: "Angle Calculator", es: "Calculadora", fr: "Calculateur", de: "Winkelrechner", uk: "Калькулятор", ru: "Калькулятор" },
+  order: { en: "Order Board", es: "Pedir Tabla", fr: "Commander", de: "Bestellen", uk: "Замовлення", ru: "Заказ" },
+  portal: { en: "Patient Portal", es: "Portal Paciente", fr: "Portail Patient", de: "Patientenportal", uk: "Кабінет Пацієнта", ru: "Кабинет Пациента" },
+  welcome: { en: "Owner Setup", es: "Instalación", fr: "Installation", de: "Einrichtung", uk: "Налаштування", ru: "Настройка" },
+  privacy: { en: "Privacy Policy", es: "Privacidad", fr: "Confidentialité", de: "Datenschutz", uk: "Конфіденційність", ru: "Конфиденциальность" },
+  terms: { en: "Terms of Service", es: "Términos", fr: "Conditions", de: "AGB", uk: "Умови", ru: "Условия" },
+  "shipping-returns": { en: "Shipping & Returns", es: "Envíos y Devoluciones", fr: "Livraison & Retours", de: "Versand & Rückgabe", uk: "Доставка і повернення", ru: "Доставка и возврат" },
+  "wellness-disclaimer": { en: "Wellness Disclaimer", es: "Aviso de Bienestar", fr: "Avis Bien-Être", de: "Wellness-Hinweis", uk: "Застереження", ru: "Дисклеймер" },
 };
 
 function formatSegment(segment: string, lang: Locale): string {

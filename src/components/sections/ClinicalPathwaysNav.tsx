@@ -33,6 +33,11 @@ const SECTION_COPY: Record<
     heading: "Explorer par Besoin & Installation",
     badge: "8 Parcours Biomécaniques",
   },
+  de: {
+    eyebrow: "GEFÜHRTE RÜCKENPROGRAMME",
+    heading: "Nach Ziel, Beschwerde & Setup entdecken",
+    badge: "8 Biomechanische Programme",
+  },
   uk: {
     eyebrow: "НАПРЯМКИ ТА ПРОГРАМИ",
     heading: "Оберіть Вашу Ціль або Потребу",

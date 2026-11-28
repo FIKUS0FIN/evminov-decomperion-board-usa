@@ -32,6 +32,11 @@ const COMPARISON_META: Record<string, Record<Locale, LocalizedMeta>> = {
       description:
         "Сравните наклонную доску Евминова (8°–35° головой вверх) с инверсионными столами 90°: без прилива крови к голове и нагрузки на голеностоп.",
     },
+    de: {
+      title: "Alternative zur Inversionsbank: Evminov Board vs. Kopfüber-Hängen",
+      description:
+        "Vergleichen Sie das schräge Evminov Wirbelsäulen-Board (8°–35° Kopf oben) mit 90°-Inversionsbänken: kein Blutandrang im Kopf, kein Knöcheldruck, aktive Rumpfstabilisierung.",
+    },
   },
   "evminov-vs-teeter": {
     en: {
@@ -58,6 +63,11 @@ const COMPARISON_META: Record<string, Record<Locale, LocalizedMeta>> = {
       title: "Альтернатива Teeter: Доска Евминова против стола Teeter",
       description:
         "Сравнение Профилактора Евминова с инверсионным столом Teeter: складной профиль 6 см у стены, мягкие углы 8°–35°, 60 дней теста и гарантия 10 лет.",
+    },
+    de: {
+      title: "Alternative zur Teeter Inversionsbank: Evminov Board im Vergleich",
+      description:
+        "Direkter Vergleich zwischen Evminov Karpaten-Kiefer-Boards und Teeter Inversionsbänken: nur 6 cm Wandprofil, sanfte 8°–35°-Winkel, HSA/FSA-Beleg und 60 Tage Heimtest.",
     },
   },
   "evminov-vs-back-stretcher": {
@@ -86,6 +96,11 @@ const COMPARISON_META: Record<string, Record<Locale, LocalizedMeta>> = {
       description:
         "Почему пассивные мостики для спины и роллеры не заменят осевую тракцию: сравнение с наклонной доской Евминова из карпатской сосны.",
     },
+    de: {
+      title: "Evminov Board vs. Kunststoff-Rückenstrecker & Faszienrollen",
+      description:
+        "Warum passive Rückenstrecker und Faszienrollen nur punktuell drücken, während das schräge Evminov Board echte axiale Wirbelsäulenentlastung und Rumpfkraft bietet.",
+    },
   },
   "evminov-vs-decompression-clinic": {
     en: {
@@ -113,6 +128,11 @@ const COMPARISON_META: Record<string, Record<Locale, LocalizedMeta>> = {
       description:
         "Сравните $3,500+ в год на визиты в клиники с разовой покупкой доски Евминова за $450, 10-летней гарантией и 10 минутами занятий дома.",
     },
+    de: {
+      title: "Heim-Dekompressionsboard vs. Klinik-Traktion: Kosten & Nutzen",
+      description:
+        "Vergleichen Sie $3,500+/Jahr für Klinik-Traktionssitzungen mit einer einmaligen Investition von $450 in das Evminov Board samt 10-Jahres-Garantie und 10-Minuten-Heimroutine.",
+    },
   },
   "evminov-vs-back-surgery": {
     en: {
@@ -139,6 +159,11 @@ const COMPARISON_META: Record<string, Record<Locale, LocalizedMeta>> = {
       title: "Консервативный Уход за Спиной против Операции на Позвоночнике",
       description:
         "Узнайте о мягкой наклонной разгрузке позвоночника и укреплении глубоких мышц по методике Евминова как ежедневной консервативной практике.",
+    },
+    de: {
+      title: "Konservative Rückenpflege zu Hause vs. Invasive Rücken-OP",
+      description:
+        "Entdecken Sie sanfte Schrägentlastung und tägliche Tiefenmuskel-Kräftigung als konservative Wellness-Routine begleitend zur ärztlichen Beratung vor invasiven Schritten.",
     },
   },
 };
@@ -170,6 +195,11 @@ const CONDITION_META: Record<string, Record<Locale, LocalizedMeta>> = {
       description:
         "Мягкое наклонное вытяжение 12°–20° на Доске Евминова для комфорта поясничного отдела L4–L5 и L5–S1 без переворота вниз головой.",
     },
+    de: {
+      title: "L4–L5 & L5–S1 Wirbelsäulenentlastung: Heimroutine am Schrägbrett",
+      description:
+        "Sanfte 12°–20°-Schrägentlastung für Lendenwirbel-Komfort bei L4–L5 und L5–S1 auf federnder Karpaten-Kiefer — ganz ohne Kopfüber-Inversion.",
+    },
   },
   "sciatica-relief": {
     en: {
@@ -196,6 +226,11 @@ const CONDITION_META: Record<string, Record<Locale, LocalizedMeta>> = {
       title: "Облегчение при Ишиасе Дома — Мягкая Наклонная Тракция",
       description:
         "Снимайте поясничное и седалищное напряжение дома с помощью спокойного вытяжения под углом 12°–18° на оригинальной Доске Евминова.",
+    },
+    de: {
+      title: "Ischias-Entlastung zu Hause — Sanfte Traktion im flachen Winkel",
+      description:
+        "Lösen Sie Lenden- und Ischiasspannungen zu Hause durch ruhige 12°–18°-Schrägentlastung, einbeinige Gleitübungen und sanfte Rumpfstabilisierung.",
     },
   },
   "degenerative-disc-disease": {
@@ -224,6 +259,11 @@ const CONDITION_META: Record<string, Record<Locale, LocalizedMeta>> = {
       description:
         "Поддерживайте ежедневную подвижность спины с помощью 10 минут наклонной разгрузки на карпатской сосне и мягких микроупражнений.",
     },
+    de: {
+      title: "Wirbelsäulen-Mobilität zu Hause bei steifen Bandscheiben",
+      description:
+        "Unterstützen Sie täglichen Bandscheibenkomfort und sanfte Beweglichkeit mit 10 Minuten flacher Entlastung auf Karpaten-Kiefer und Mikrobewegungen.",
+    },
   },
   "lower-back-pain": {
     en: {
@@ -250,6 +290,11 @@ const CONDITION_META: Record<string, Record<Locale, LocalizedMeta>> = {
       title: "Ежедневная Разгрузка Поясницы Дома — Доска Евминова",
       description:
         "10-минутная ежедневная практика на запатентованной Доске Евминова для снятия напряжения в пояснице после сидячей работы или нагрузок.",
+    },
+    de: {
+      title: "Tägliche Lendenwirbel-Entlastung zu Hause — Evminov Board",
+      description:
+        "10-minütige tägliche Dekompressionsroutine auf dem patentierten Evminov Board: löst Steifheit vom Sitzen, Ermüdung vom Stehen und Lendenverspannungen.",
     },
   },
   "scoliosis-posture": {
@@ -278,6 +323,11 @@ const CONDITION_META: Record<string, Record<Locale, LocalizedMeta>> = {
       description:
         "Методика «Зубная щётка для позвоночника»: профилактика сутулости от рюкзаков и экранов, симметрия осанки и забота о спине всей семьи.",
     },
+    de: {
+      title: "Haltungsstation für Kinder & Familie (Alter 4–85+ Jahre)",
+      description:
+        "Die Methode „Zahnbürste für die Wirbelsäule“ gegen Schulrucksack-Rundrücken, für symmetrische Ausrichtung und gesunde Familien-Haltung auf einem Board.",
+    },
   },
   "cervical-neck-traction": {
     en: {
@@ -304,6 +354,11 @@ const CONDITION_META: Record<string, Record<Locale, LocalizedMeta>> = {
       title: "Вытяжение Шеи и Петля Глиссона (В Комплекте Бесплатно)",
       description:
         "Деликатная разгрузка шейного отдела под углом 8°–12° с мягкой петлёй Глиссона, входящей БЕСПЛАТНО в каждый комплект Доски Евминова.",
+    },
+    de: {
+      title: "Nacken-Traktion & Handynacken-Entlastung (Glisson-Schlinge)",
+      description:
+        "Sanfte 8°–12°-Halswirbelentlastung mit der gepolsterten Glisson-Schlinge — GRATIS bei jedem Evminov Board enthalten, ideal gegen Bildschirm-Verspannungen.",
     },
   },
   "athlete-spine-recovery": {
@@ -332,6 +387,11 @@ const CONDITION_META: Record<string, Record<Locale, LocalizedMeta>> = {
       description:
         "Снимайте осевую компрессию после тяжёлой штанги за 15 минут на усиленной широкой Доске Евминова (нагрузка до 150 кг / 330 lbs).",
     },
+    de: {
+      title: "Rücken-Regeneration für Athleten nach Kreuzheben & Kniebeugen",
+      description:
+        "Entlasten Sie axiale Langhantel-Kompression in 15 Minuten auf dem 330-lb Wide Evminov Board — tiefere Lendenentspannung als Aushängen an der Klimmzugstange.",
+    },
   },
   "desk-worker-posture": {
     en: {
@@ -358,6 +418,11 @@ const CONDITION_META: Record<string, Record<Locale, LocalizedMeta>> = {
       title: "Разгрузка Спины для Офисных Работников, IT и Работы Стоя",
       description:
         "Компенсируйте 8+ часов за компьютером за 10 минут вечером на компактной Доске Евминова, складывающейся до 6 см у стены.",
+    },
+    de: {
+      title: "Rücken-Reset für Büroarbeit & Stehberufe (10-Minuten-Routine)",
+      description:
+        "Gleichen Sie 8+ Stunden Sitzen, verkürzte Hüftbeuger und Laptop-Haltung in 10 Minuten abends aus — auf einem flachen 6-cm-Kiefernholzboard.",
     },
   },
 };
@@ -389,6 +454,11 @@ const GUIDE_META: Record<string, Record<Locale, LocalizedMeta>> = {
       description:
         "Почему вис под 90° повышает давление в голове и глазах, нагружает голеностоп, и как безопасно работает наклонное вытяжение 8°–35°.",
     },
+    de: {
+      title: "Risiken von Inversionsbänken & sicherere Flachwinkel-Alternativen",
+      description:
+        "Warum 90°-Kopfüberhängen Kopf- und Augendruck erhöht, Knöchel belastet und kein Rumpftraining bietet — und wie 8°–35°-Entlastung sicher funktioniert.",
+    },
   },
   "how-to-decompress-herniated-disc-l4-l5-at-home": {
     en: {
@@ -415,6 +485,11 @@ const GUIDE_META: Record<string, Record<Locale, LocalizedMeta>> = {
       title: "Как Безопасно Разгрузить Поясницу L4–L5 и L5–S1 Дома",
       description:
         "Пошаговый биомеханический гайд: выбор стартового угла 10°–18°, спокойное дыхание и 3-этапная домашняя программа на Доске Евминова.",
+    },
+    de: {
+      title: "L4–L5 & L5–S1 sicher zu Hause entlasten: Schritt-für-Schritt-Guide",
+      description:
+        "Biomechanischer Leitfaden für flache Winkel: Startneigung 10°–18° wählen, ruhige Atmung und 3-Phasen-Heimprogression auf dem Evminov Board.",
     },
   },
   "the-lifters-guide-to-spinal-decompression": {
@@ -443,6 +518,11 @@ const GUIDE_META: Record<string, Record<Locale, LocalizedMeta>> = {
       description:
         "Как пауэрлифтеры и кроссфитеры снимают осевую усталость после тяжёлых тренировок за 15 минут на широкой Доске Евминова.",
     },
+    de: {
+      title: "Kraftsport-Ratgeber: Wirbelsäulen-Dekompression nach Kreuzheben",
+      description:
+        "Wie Kraftsportler und CrossFitter axiale Langhantel-Ermüdung in 15 Minuten abbauen — ohne Griffkraftverlust oder aggressive Inversion.",
+    },
   },
   "sciatica-relief-exercises-home-equipment": {
     en: {
@@ -469,6 +549,11 @@ const GUIDE_META: Record<string, Record<Locale, LocalizedMeta>> = {
       title: "Мягкие Упражнения при Ишиасе на Наклонной Доске",
       description:
         "Плавные скольжения пятками, расслабленное наклонное вытяжение и безопасный выход через бок на Профилакторе Евминова.",
+    },
+    de: {
+      title: "Sanfte Ischias-Mobilitätsübungen auf dem Schrägbrett",
+      description:
+        "Entdecken Sie sanfte Fersengleiter, entspannte Streckung in Rückenlage und sicheres seitliches Absteigen für eine ruhige Lendenmuskulatur.",
     },
   },
   "remote-worker-spine-hygiene-posture-reset": {
@@ -497,6 +582,11 @@ const GUIDE_META: Record<string, Record<Locale, LocalizedMeta>> = {
       description:
         "Компенсируйте 8+ часов за ноутбуком раскрытием грудного отдела, расслаблением поясницы и мягкой разгрузкой шеи петлёй Глиссона.",
     },
+    de: {
+      title: "Wirbelsäulen-Hygiene im Homeoffice: 10-Minuten-Haltungs-Reset",
+      description:
+        "Gleichen Sie 8+ Stunden am Laptop abends aus — mit Brustwirbel-Öffnung, Psoas-Entspannung und kostenloser Glisson-Schlinge für den Nacken.",
+    },
   },
   "toothbrush-for-the-spine-daily-disc-hygiene": {
     en: {
@@ -523,6 +613,11 @@ const GUIDE_META: Record<string, Record<Locale, LocalizedMeta>> = {
       title: "«Зубная Щётка для Позвоночника»: Гигиена за 10 Минут",
       description:
         "Почему 10 минут ежедневной заботы о 32–34 позвонках обходятся меньше 3 центов в день на члена семьи и берегут спину годами.",
+    },
+    de: {
+      title: "„Zahnbürste für die Wirbelsäule“: Tägliche 10-Minuten-Hygiene",
+      description:
+        "Warum tägliche Flachwinkel-Entlastung für Ihre 32–34 Wirbel unter 3 Cent pro Tag und Familienmitglied kostet und langfristige Beweglichkeit schützt.",
     },
   },
   "spine-decompression-at-home-complete-clinical-guide": {
@@ -551,6 +646,11 @@ const GUIDE_META: Record<string, Record<Locale, LocalizedMeta>> = {
       description:
         "Всё перед покупкой тренажёра: физика углов, карпатская сосна против ольхи, монтаж на стойки 16 дюймов в США и чек HSA/FSA.",
     },
+    de: {
+      title: "Komplett-Ratgeber für sichere Heim-Wirbelsäulendekompression",
+      description:
+        "Alles vor dem Kauf eines Traktionsgeräts: Winkelphysik, Karpaten-Kiefer vs. Erlenholz, 16\"-US-Ständermontage und HSA/FSA-Erstattung.",
+    },
   },
   "pediatric-scoliosis-prevention-kids-posture-spine": {
     en: {
@@ -577,6 +677,11 @@ const GUIDE_META: Record<string, Record<Locale, LocalizedMeta>> = {
       title: "Осанка Детей и Подростков: Рюкзаки и Гаджеты",
       description:
         "Как весёлые 6-минутные занятия под музыку под углом 6°–12° формируют у детей привычку к симметричной осанке.",
+    },
+    de: {
+      title: "Haltungsgewohnheiten für Kinder & Jugendliche: Rucksack & Bildschirm",
+      description:
+        "Wie betreute 6°–12°-Einheiten mit Musik Schulkindern helfen, symmetrische Haltungsgewohnheiten abseits schwerer Rucksäcke und Tablets aufzubauen.",
     },
   },
 };

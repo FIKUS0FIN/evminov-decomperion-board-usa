@@ -251,6 +251,68 @@ const LOCALIZED_FAQS: Record<Exclude<Locale, "en">, FaqItem[]> = {
       answer: "Доски Евминова относятся к оздоровительному оборудованию (HTS 9506.91.0030). Не используйте при острых переломах позвоночника, температуре/инфекциях, опухолях, тяжёлых сердечных кризах, после недавних операций без разрешения хирурга или при синдроме конского хвоста.",
     },
   ],
+  de: [
+    {
+      question: "Wie wird das Evminov Board an US-Standardwänden (Trockenbau & 16\"-Holzständer) montiert?",
+      answer: "US-Wände haben alle 16 Zoll Holzständer hinter dem Trockenbau. Jedes Board enthält eine Stahlhalterung (>180 kg / 400+ lb) und Schrauben: einen Ständer orten, in ca. 15 Min. montieren und das Board auf 6 cm (2,4\") flach an die Wand klappen. Mieter können den Freistehenden Ständer ($275) ohne Bohren nutzen.",
+    },
+    {
+      question: "Kann ich in den USA steuerbegünstigte HSA- oder FSA-Mittel nutzen?",
+      answer: "Viele US-Kunden sparen ca. 25–35 % über HSA/FSA-Erstattung mit einem Letter of Medical Necessity (LMN) von Arzt, Chiropraktiker oder Physiotherapeut und Zustimmung ihres Plans. Nach der Bestellung erhalten Sie eine detaillierte Rechnung sowie den LMN-Leitfaden im Patientenportal.",
+    },
+    {
+      question: "Warum ist das Evminov Board sicherer als eine Teeter-Inversionsbank?",
+      answer: "Inversionsbänke zwingen zum Kopfüber-Hängen bei 60°–90°, was Augen- und Kopfdruck erhöht und die Knöchel belastet. Das Evminov Board arbeitet mit Kopf oben bei 8°–35° auf federndem Kiefernholz – null Blutandrang im Kopf, kein Knöcheldruck plus aktives Rumpftraining.",
+    },
+    {
+      question: "Wie viel Zeit und Geld spart man gegenüber laufenden Praxisbesuchen?",
+      answer: "Zwei Termine pro Woche à $80–$120 summieren sich auf $3,500–$6,000+ pro Jahr plus über 200 Stunden Fahrtzeit. Ein einmaliges Evminov Board ab $450 (10 Jahre Garantie) amortisiert sich nach 4–6 Sitzungen für die ganze Familie.",
+    },
+    {
+      question: "Wie hilft das Evminov Board bei 8+ Stunden täglicher Schreibtischarbeit?",
+      answer: "Sitzen erzeugt bis zu 40 % mehr Druck auf die Lendenbandscheiben als Stehen. 10 Minuten am Abend bei 12°–16° dehnen verkürzte Hüftbeuger, entlasten L4–S1 und aktivieren tiefe Stabilisatoren.",
+    },
+    {
+      question: "Wie hilft es Pflegekräften, Lehrkräften und Berufen im Stehen?",
+      answer: "Nach 10–12 Stunden auf harten Böden entlastet ruhiges Liegen bei 10°–15° mit sanften Fußgelenksbewegungen die unteren Lendengelenke und müde Beine – ganz ohne Kopfüber-Hängen.",
+    },
+    {
+      question: "Können Kinder und Jugendliche das Evminov Board für ihre Haltung nutzen?",
+      answer: "Ja. Unter Aufsicht Erwachsener können Kinder und Jugendliche (4–15 Jahre) 5–8 Minuten täglich bei 6°–12° zu Musik trainieren. Bei struktureller Skoliose vorab einen Kinderorthopäden konsultieren.",
+    },
+    {
+      question: "Warum wird die Methode „Zahnbürste für die Wirbelsäule“ genannt?",
+      answer: "Wir pflegen täglich 32 Zähne, vernachlässigen aber 32–34 Wirbel. Ein $450-Board, das eine 3-köpfige Familie 20 Jahre lang nutzt, kostet nur ca. $7,50 pro Person und Jahr.",
+    },
+    {
+      question: "Wie funktionieren der 60-Tage-Heimtest und die 10-Jahres-Garantie?",
+      answer: "Testen Sie das Board 60 Tage ab Lieferung zu Hause. Wenn es nicht passt, kontaktieren Sie unser Team in Glendale unter support@evminovusa.com oder +1 (747) 306-0140 für eine volle Produkterstattung. Inklusive 10 Jahre struktureller Rahmengarantie.",
+    },
+    {
+      question: "Wie schnell ist der Versand in alle 50 US-Staaten, nach Kanada, Europa & in 40+ Länder?",
+      answer: "CA Warehouse Express startet ab Glendale, CA per versichertem UPS/FedEx: 1–2 Werktage Westküste, 2–3 Mitte/Süden, 3–4 Ostküste (4–5 AK/HI). Direktversand ab Werkstatt: 10–16 Werktage in 40+ Länder.",
+    },
+    {
+      question: "Welches Modell passt bei über 193 cm (6'4\") Größe oder über 95 kg (210 lbs) Gewicht?",
+      answer: "Wählen Sie das Breite Heavy-Duty Board ($500 Direkt / $635 CA Express) – 30 % breiter und verstärkt bis 150 kg (330 lbs) und 206 cm (6'9\").",
+    },
+    {
+      question: "Was ist der Unterschied zwischen Karpatenkiefer und Erlesener Ukrainischer Erle?",
+      answer: "Karpatenkiefer bietet straffe Federung für Alltag und Sport (10,5–11,3 kg). Erlesene Erle ($525 Direkt / $665 CA Express) ist ca. 15 % leichter (8,6–9,5 kg) und etwas weicher – beliebt bei Senioren und für sanfte Nackenroutinen.",
+    },
+    {
+      question: "Ist die patentierte Glisson-Schlaufe für den Nacken enthalten?",
+      answer: "Ja! Die weich gepolsterte Glisson-Schlaufe aus Baumwolle ist bei jedem Evminov Board KOSTENLOS für sanfte Nackentraktion bei 8°–12° enthalten.",
+    },
+    {
+      question: "Kann ich in 4 Raten zahlen oder mein Board heute reservieren?",
+      answer: "Ja. Während die Stripe/Klarna-Freischaltung für unsere US-LLC abgeschlossen wird, reservieren Sie heute ohne Vorauszahlung ($0) und erhalten Ihren sicheren Zahlungslink samt Rechnung innerhalb von 1 Werktag.",
+    },
+    {
+      question: "Gibt es Kontraindikationen oder Sicherheitshinweise?",
+      answer: "Ja. Evminov Boards sind Allgemeine Wellness- & Wirbelsäulen-Konditionierungsgeräte (HTS 9506.91.0030). Nicht verwenden bei akuten Wirbelfrakturen, Fieber/Infektionen, Wirbelsäulentumoren, schweren Herzkrisen, frischen Operationen ohne Freigabe oder Cauda-equina-Syndrom. Im Zweifel Arzt fragen.",
+    },
+  ],
 };
 
 export function getLocalizedFaqs(lang: Locale): FaqItem[] {
@@ -319,6 +381,17 @@ export const EXERCISE_GALLERY_UI: Record<Locale, ExerciseGalleryUi> = {
       family: "Семья и Дети",
     },
     closeBtn: "Закрыть Протокол",
+  },
+  de: {
+    tablistAria: "Übungskategorien",
+    filters: {
+      all: "Alle 20 Protokolle",
+      lumbar: "Lenden-Entlastung",
+      cervical: "Nacken & Brustwirbel",
+      core: "Athletik-Rumpf",
+      family: "Familie & Jugend",
+    },
+    closeBtn: "Protokoll schließen",
   },
 };
 
@@ -415,6 +488,28 @@ const EXERCISE_PATCHES: Record<Exclude<Locale, "en">, Record<string, ExPatch>> =
     "family-home-lifestyle": { title: "Ежедневная Семейная Станция Поколений", categoryLabel: "Семья и Дети", zone: "Вся Семья (6–85+)", duration: "10 мин ежедневно", benefit: "Один тренажёр для каждого члена семьи", description: "Настройка за 5 секунд под детей, родителей, атлетов и бабушек.", steps: ["Переставьте штифт каретки под рост.", "Выберите комфортный угол (8°–12° дети/старшие, 15°–25° взрослые).", "Наслаждайтесь 10 минутами заботы о спине."] },
     "youth-paired-traction": { title: "Ресет после Школьного Рюкзака и Экранов", categoryLabel: "Семья и Дети", zone: "Грудной Отдел и Плечи", duration: "6–8 мин", benefit: "Исправляет школьную сутулость", description: "Симметричное потягивание руками после уроков и домашних заданий.", steps: ["Положите обе руки симметрично на рукояти.", "Удлиняйте спину со спокойным дыханием.", "Держите 30–45 секунд, отдохните, повторите."] },
     "spinal-alignment-supine": { title: "Симметричное Выравнивание Оси Тела", categoryLabel: "Семья и Дети", zone: "Симметрия Осанки", duration: "5–8 мин", benefit: "Возвращает мозгу ощущение ровной спины", description: "Тактильный ориентир на ровной сосне переучивает привычную сутулость.", steps: ["Выровняйте плечи, таз и пятки на доске.", "Удерживайте нейтральное положение 5 минут.", "Перенесите это ощущение в положение стоя."] },
+  },
+  de: {
+    "supine-spinal-elongation": { title: "Vollständige Streckung in Rückenlage", categoryLabel: "Lenden-Entlastung", zone: "Gesamte Wirbelsäule (L1–S1)", duration: "8–12 Min.", benefit: "Grundlegende axiale Entlastung & Bandscheibenkomfort", description: "Grundhaltung nach Evminov: mittig auf der federnden Kiefer liegen und locker die oberen Schlittengriffe halten.", steps: ["Greifen Sie die oberen Griffe mit entspannten Schultern.", "Strecken Sie die Beine sanft entlang der Mitte aus.", "Atmen Sie tief in die unteren Rippen und bewegen Sie langsam die Fußgelenke."] },
+    "lumbar-single-leg-lift": { title: "Einseitiges Gleiten für Lenden & Ischias", categoryLabel: "Lenden-Entlastung", zone: "L4–L5, L5–S1", duration: "8–10 Min.", benefit: "Sanfte Entspannung für Lenden & Piriformis", description: "Abwechselndes Kniebeugen löst verspannte Oberschenkelrückseiten bei neutralem Becken.", steps: ["Legen Sie sich rücklings hin und halten Sie den Schlitten.", "Ziehen Sie eine Ferse bis 90° Kniebeugung heran.", "5 Atemzüge halten, langsam senken und Seite wechseln."] },
+    "hamstring-pelvic-stretch": { title: "Oberschenkel- & Becken-Traktion", categoryLabel: "Lenden-Entlastung", zone: "Rückseite & ISG", duration: "8 Min.", benefit: "Dehnt die Beinrückseite ohne runden Rücken", description: "Stützt die Wirbelsäule auf dem Holz, während die hintere Muskelkette sanft nachgibt.", steps: ["Ziehen Sie beide Knie sanft Richtung Brust.", "Strecken Sie die Fersen bequem nach oben.", "Lassen Sie die Beine langsam in 4 Sekunden sinken."] },
+    "lumbar-axial-extension": { title: "Psoas- & Hüftbeuger-Entlastung in Bauchlage", categoryLabel: "Lenden-Entlastung", zone: "Lenden & Hüftbeuger", duration: "6–8 Min.", benefit: "Löst verkürzte Hüftbeuger vom langen Sitzen", description: "Sanfte Mikroimpulse in Bauchlage aktivieren tiefe Lendenstabilisatoren und strecken die Hüftbeuger.", steps: ["Legen Sie sich bäuchlings hin und halten Sie den Schlitten.", "Beugen Sie ein Knie auf 90°.", "Führen Sie 1-cm-Mikrohebungen ohne Beckendrehung aus."] },
+    "lumbar-lordosis-roll": { title: "Unterstützung der natürlichen Lendenlordose", categoryLabel: "Lenden-Entlastung", zone: "Lendenbogen L1–L5", duration: "6–8 Min.", benefit: "Fördert eine angenehme natürliche Lendenkurve", description: "Kombinieren Sie einen flachen Winkel mit einem kleinen gerollten Handtuch unter der Lende.", steps: ["Legen Sie eine weiche Rolle unter den unteren Rücken.", "Legen Sie die Hände locker an die oberen Griffe.", "Atmen Sie 6 Minuten lang ruhig und gleichmäßig."] },
+    "lordosis-passive-traction": { title: "Abschlussruhe & Druckausgleich", categoryLabel: "Lenden-Entlastung", zone: "Gesamte Wirbelsäule", duration: "3–5 Min.", benefit: "Beruhigt das Nervensystem & festigt die Entlastung", description: "Beenden Sie jede Sitzung mit 3–5 Minuten entspannter Atmung in flacher Neigung.", steps: ["Lösen Sie jede Spannung aus Schultern und Kiefer.", "Atmen Sie 4 Sekunden ein und 6 Sekunden aus.", "Rollen Sie vor dem Aufstehen vorsichtig auf die Seite."] },
+    "glisson-cervical-neutral": { title: "Nackenentlastung mit Glisson-Schlaufe", categoryLabel: "Nacken & Brustwirbel", zone: "Halswirbelsäule C1–C7", duration: "5–8 Min.", benefit: "Lindert Handy-Nacken & obere Verspannungen", description: "Nutzt die enthaltene weiche Baumwoll-Schlaufe bei ultrasanften 8°–12° Neigung.", steps: ["Legen Sie die gepolsterte Schlaufe unter Kinn und Hinterkopf an.", "Haken Sie den Karabiner bei 8°–10° ein.", "Entspannen Sie den Nacken vollständig ohne ruckartige Drehungen."] },
+    "cervical-traction-incline": { title: "Schulterblatt- & Brustwirbel-Lockerung", categoryLabel: "Nacken & Brustwirbel", zone: "C6–T4 & Schultern", duration: "5–7 Min.", benefit: "Wirkt Laptop-Rundrücken entgegen", description: "Sanfter Zug an den oberen Griffen öffnet die Brustfaszie und entlastet zwischen den Schulterblättern.", steps: ["Greifen Sie beide oberen Griffe gleichmäßig.", "Lassen Sie den Oberkörper sanft 2 cm nach unten gleiten.", "Weiten Sie den Brustkorb bei jedem Einatmen."] },
+    "thoracic-opening-stretch": { title: "Brustkorb- & Rippenöffnung", categoryLabel: "Nacken & Brustwirbel", zone: "T1–T12 & Brust", duration: "5–8 Min.", benefit: "Verbessert Haltung & Atemtiefe", description: "Die federnde Kiefer stützt die Brustwirbelsäule während einer weiten Y-Armöffnung.", steps: ["Zentrieren Sie den mittleren Rücken auf dem Board.", "Öffnen Sie beide Arme sanft in Y-Form.", "Halten Sie die Position für 10 tiefe Atemzüge."] },
+    "latissimus-girdle-traction": { title: "Latissimus- & Schultergürtel-Dehnung", categoryLabel: "Nacken & Brustwirbel", zone: "Latissimus & Lendenfaszie", duration: "6–8 Min.", benefit: "Entlastet verspannte Rückenmuskeln nach Kraftsport/Schwimmen", description: "Sanfte Seitneigungen der Rippen mit erhobenen Armen lösen straffe Latissimus-Stränge.", steps: ["Halten Sie den Schlitten mit den Handflächen nach unten.", "Führen Sie kleine seitliche Rippenneigungen aus.", "Halten Sie jede Seite 15 Sekunden lang."] },
+    "alternating-leg-traction": { title: "Rumpf-Radfahren ohne Lendenkompression", categoryLabel: "Athletik-Rumpf", zone: "Tiefer Rumpf & Multifidus", duration: "8–10 Min.", benefit: "Starker Rumpf ohne Bandscheibenbelastung", description: "Ersetzt Boden-Crunches durch kontrolliertes Bein-Gleiten in sanfter Traktion.", steps: ["Heben Sie die Knie auf 90° an und halten Sie den Schlitten.", "Strecken Sie abwechselnd langsam ein Bein aus.", "Halten Sie die Lende sanft am Holz angelehnt."] },
+    "incline-glute-bridge": { title: "Geneigte Gesäßbrücke", categoryLabel: "Athletik-Rumpf", zone: "Gesäß, Beinrückseite & ISG", duration: "8 Min.", benefit: "Aktiviert die Gesäßmuskulatur bei entlasteter Wirbelsäule", description: "Kräftigt die hintere Kette ohne axiale Langhantel-Kompression.", steps: ["Stellen Sie die Füße bei gebeugten Knien flach auf.", "Drücken Sie über die Fersen die Hüfte kontrolliert hoch.", "Rollen Sie Wirbel für Wirbel langsam wieder ab."] },
+    "abdominal-decompression-crunch": { title: "Kompressionsfreie Rumpf-Aktivierung", categoryLabel: "Athletik-Rumpf", zone: "Bauch & Stabilisatoren", duration: "8 Min.", benefit: "Trainiert den Rumpf ohne Scherkräfte auf die Bandscheiben", description: "Kurze, kontrollierte Anhebungen mit durchgehender Unterstützung des federnden Holzes.", steps: ["Fixieren Sie die Füße bei leicht gebeugten Knien.", "Heben Sie die Schulterblätter nur ca. 7 cm vom Board ab.", "Senken Sie beim Einatmen ruhig wieder ab."] },
+    "incline-reverse-crunch": { title: "Knie-zur-Brust-Dekompression", categoryLabel: "Athletik-Rumpf", zone: "Lumbosakraler Übergang", duration: "7–10 Min.", benefit: "Löst Steifheit im unteren Rücken nach schwerem Kreuzheben", description: "Langsames Heranziehen der Knie öffnet den unteren Lendenraum und aktiviert die tiefe Bauchmuskulatur.", steps: ["Halten Sie den oberen Schlitten sicher fest.", "Ziehen Sie beide Knie ruhig Richtung Brust.", "2 Sekunden halten, dann sanft wieder ausstrecken."] },
+    "glisson-carriage-suspension": { title: "Sanfte Umkehr-Entlastung mit Manschetten", categoryLabel: "Athletik-Rumpf", zone: "Unterer Rücken & Hüften", duration: "4–6 Min.", benefit: "Gezielte Lendenentlastung für Athleten", description: "Sportliche Variante mit gepolsterten Fußmanschetten in moderater Neigung – niemals 90°.", steps: ["Legen Sie die Fersen in die weichen Manschetten ein.", "Legen Sie sich kontrolliert entlang des Boards zurück.", "Bleiben Sie im moderaten Winkel und richten Sie sich langsam wieder auf."] },
+    "family-prone-extension": { title: "Betreutes Haltungs-Strecken für Jugendliche", categoryLabel: "Familie & Jugend", zone: "Oberer Rücken & Symmetrie", duration: "5–8 Min.", benefit: "Fördert ausgeglichene Haltungsgewohnheiten", description: "Symmetrisches Strecken in Bauchlage stärkt die Haltung gelenkschonend ohne Stoßbelastung.", steps: ["Brust flach bei 10° Neigung auflegen.", "Beide Arme symmetrisch nach vorn strecken.", "3 Sekunden halten, ruhig atmen und 8× wiederholen."] },
+    "family-ball-decompression": { title: "Spielerische Koordination mit Softball", categoryLabel: "Familie & Jugend", zone: "Gesamte Achse & Koordination", duration: "6–8 Min.", benefit: "Motivierende Bewegungsroutine für die Familie", description: "Ein leichter Ball macht symmetrisches Haltungstraining für Kinder spielerisch.", steps: ["In Rückenlage mit angewinkelten Knien hinlegen.", "Den Ball symmetrisch über dem Kopf übergeben.", "Schultern dabei gerade und eben halten."] },
+    "family-home-lifestyle": { title: "Tägliche Mehrgenerationen-Station", categoryLabel: "Familie & Jugend", zone: "Ganze Familie (6–85+)", duration: "10 Min. täglich", benefit: "Ein einziges Gerät für jede Generation", description: "In 5 Sekunden anpassbar für Kinder, Eltern, Sportler und Großeltern.", steps: ["Schlittenstift auf die passende Körpergröße einstellen.", "Komfortablen Winkel wählen (8°–12° Kinder/Senioren, 15°–25° Erwachsene).", "10 ruhige Minuten für die Wirbelsäule genießen."] },
+    "youth-paired-traction": { title: "Schulranzen- & Bildschirm-Reset", categoryLabel: "Familie & Jugend", zone: "Brustwirbel & Schultern", duration: "6–8 Min.", benefit: "Wirkt runden Schultern durch Ranzen entgegen", description: "Symmetrische Überkopf-Streckung nach Schule und Hausaufgaben.", steps: ["Beide Hände gleichmäßig an den Griffen platzieren.", "Wirbelsäule bei ruhiger Atmung sanft strecken.", "30–45 Sekunden halten, kurz pausieren und wiederholen."] },
+    "spinal-alignment-supine": { title: "Symmetrische Körperachsen-Ausrichtung", categoryLabel: "Familie & Jugend", zone: "Haltungssymmetrie", duration: "5–8 Min.", benefit: "Schult das Gefühl für eine gerade Haltung", description: "Das gerade Kiefernholz dient als taktile Referenz gegen gewohntes Zusammensinken.", steps: ["Schultern, Hüften und Fersen gerade ausrichten.", "Neutrale Position 5 Minuten ruhig halten.", "Dieses gerade Gefühl anschließend ins Stehen mitnehmen."] },
   },
 };
 

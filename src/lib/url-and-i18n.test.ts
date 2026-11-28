@@ -18,6 +18,7 @@ describe("5-Language URL Routing & Single-Source-of-Truth Integrity", () => {
     expect(getLocalizedHref("/products/", "en")).toBe("/products/");
     expect(getLocalizedHref("/products/", "es")).toBe("/es/products/");
     expect(getLocalizedHref("/products/", "fr")).toBe("/fr/products/");
+    expect(getLocalizedHref("/products/", "de")).toBe("/de/products/");
     expect(getLocalizedHref("/products/", "uk")).toBe("/uk/products/");
     expect(getLocalizedHref("/products/", "ru")).toBe("/ru/products/");
     expect(getLocalizedHref("/es/guides/", "en")).toBe("/guides/");
@@ -31,6 +32,7 @@ describe("5-Language URL Routing & Single-Source-of-Truth Integrity", () => {
     expect(alts["en-US"]).toBe("https://evminovusa.com/products/standard-pine-board/");
     expect(alts["es-US"]).toBe("https://evminovusa.com/es/products/standard-pine-board/");
     expect(alts["fr-CA"]).toBe("https://evminovusa.com/fr/products/standard-pine-board/");
+    expect(alts["de-DE"]).toBe("https://evminovusa.com/de/products/standard-pine-board/");
     expect(alts["uk-UA"]).toBe("https://evminovusa.com/uk/products/standard-pine-board/");
     expect(alts["ru"]).toBe("https://evminovusa.com/ru/products/standard-pine-board/");
     expect(alts["x-default"]).toBe("https://evminovusa.com/products/standard-pine-board/");

@@ -19,9 +19,9 @@ function classifyPageContext(pathname: string): {
   pageType: string;
   slug?: string;
 } {
-  const locMatch = pathname.match(/^\/(es|fr|uk|ru)(\/|$)/);
+  const locMatch = pathname.match(/^\/(es|fr|de|uk|ru)(\/|$)/);
   const locale = locMatch ? locMatch[1] : "en";
-  const clean = locMatch ? pathname.replace(/^\/(es|fr|uk|ru)/, "") || "/" : pathname;
+  const clean = locMatch ? pathname.replace(/^\/(es|fr|de|uk|ru)/, "") || "/" : pathname;
 
   if (clean === "/") return { locale, pageType: "home" };
   if (clean.startsWith("/products/")) {

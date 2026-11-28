@@ -109,6 +109,20 @@ const HEADER_LABELS: Record<Locale, HeaderLabels> = {
     findMyAngle: "Мой Угол",
     cartOrder: "Корзина",
   },
+  de: {
+    estBadge: "SEIT 1996",
+    barTagline: "30 Jahre Wirbelsäulen-Biomechanik • Versand USA, Kanada & EU • 60 Tage Test",
+    whyNotInversion: "Warum keine Inversion?",
+    boardsPricing: "Boards & Preise",
+    protocols: "Protokolle",
+    since1996: "Tradition seit 1996",
+    spineGoals: "Rückenziele",
+    guides: "Ratgeber",
+    shipping50: "US-Versand",
+    patientPortal: "Patientenportal",
+    findMyAngle: "Mein Winkel",
+    cartOrder: "Warenkorb",
+  },
 };
 
 export function Header({ lang }: { lang: Locale }) {

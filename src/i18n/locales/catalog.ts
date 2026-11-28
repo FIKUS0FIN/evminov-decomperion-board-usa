@@ -9,6 +9,7 @@ export const FINISH_LABELS: Record<string, Record<Locale, string>> = {
     fr: "Pin Naturel Clair",
     uk: "Світла Натуральна Сосна",
     ru: "Светлая Натуральная Сосна",
+    de: "Helle Naturkiefer",
   },
   "Dark Walnut Pine": {
     en: "Dark Walnut Pine",
@@ -16,6 +17,7 @@ export const FINISH_LABELS: Record<string, Record<Locale, string>> = {
     fr: "Pin Noyer Foncé",
     uk: "Темний Горіх (Сосна)",
     ru: "Тёмный Орех (Сосна)",
+    de: "Dunkler Walnuss-Ton (Kiefer)",
   },
   "Gym Stealth Black": {
     en: "Gym Stealth Black",
@@ -23,6 +25,7 @@ export const FINISH_LABELS: Record<string, Record<Locale, string>> = {
     fr: "Noir Mat Sport",
     uk: "Спортивний Матовий Чорний",
     ru: "Спортивный Матовый Чёрный",
+    de: "Sport-Mattschwarz",
   },
   "Natural Warm Amber Alder": {
     en: "Natural Warm Amber Alder",
@@ -30,6 +33,7 @@ export const FINISH_LABELS: Record<string, Record<Locale, string>> = {
     fr: "Aulne Ambre Chaud Naturel",
     uk: "Тепла Бурштинова Вільха",
     ru: "Тёплая Янтарная Ольха",
+    de: "Warmer Bernstein (Erle)",
   },
   "Royal Cognac Alder": {
     en: "Royal Cognac Alder",
@@ -37,6 +41,7 @@ export const FINISH_LABELS: Record<string, Record<Locale, string>> = {
     fr: "Aulne Cognac Royal",
     uk: "Королівський Коньяк (Вільха)",
     ru: "Королевский Коньяк (Ольха)",
+    de: "Royal Cognac (Erle)",
   },
   "Natural Beech": {
     en: "Natural Beech",
@@ -44,6 +49,7 @@ export const FINISH_LABELS: Record<string, Record<Locale, string>> = {
     fr: "Hêtre Naturel",
     uk: "Натуральний Бук",
     ru: "Натуральный Бук",
+    de: "Naturbuche",
   },
   "Matching Pine Tone": {
     en: "Matching Pine Tone",
@@ -51,6 +57,7 @@ export const FINISH_LABELS: Record<string, Record<Locale, string>> = {
     fr: "Teinte Pin Assortie",
     uk: "У Тон Сосни",
     ru: "В Тон Сосны",
+    de: "Passender Kiefernton",
   },
 };
 
@@ -259,6 +266,46 @@ const PRODUCT_PATCHES: Record<
         },
       ],
     },
+    de: {
+      badge: "Klassisches Original • 1-teilig Massiv",
+      subtitle:
+        "Klassische, einteilige, nicht faltbare Resonanz-Karpatenkiefer-Planke mit gleichmäßiger elastischer Federung für tägliche Wirbelsäulen-Dekompression zu Hause oder im Studio.",
+      keyFeature:
+        "Monolithischer Mehrschichtkern aus Karpatenkiefer mit verstellbarem Leichtmetall-Schlitten, kostenloser Glisson-Nackenschlaufe und 16\"-US-Holzständer-Wandhalterung.",
+      heightLimitLabel: "Bis 193 cm (6'4\")",
+      boardWeightLabel: "10,5–11,3 kg (23–25 lbs)",
+      material: "Mehrschichtige resonante Karpatenkiefer (Hell oder Dunkel)",
+      construction: "Einteilige massive monolithische Planke",
+      mobility: "Feste Wandmontage (klappt auf 6 cm / 2,4\" flach)",
+      inclineRange: "8° bis 90° (plus sanfte -25° Umkehrtraktion)",
+      foldedDepth: "Schlankes 6-cm-Profil (2,4\") an der Wand",
+      includes: [
+        "Patentierte Glisson-Schlaufe für sanfte Halswirbel-Traktion (Kostenlos enthalten)",
+        "Verstellbarer Schlitten aus Luftfahrt-Legierung mit Schnellverschluss-Sicherungsstift",
+        "Schwerlast-Wandhalterung für 16\"-US-Holzständer & 400+-lb-Dübel",
+        "Digitales 30-Tage-Wirbelsäulen-Videoprogramm & illustriertes Handbuch",
+        "60-Tage-Heimtest & 10 Jahre strukturelle Rahmengarantie",
+      ],
+      galleryLabels: [
+        "Vollständiges Massiv-Kiefernholzboard",
+        "Geneigte Dekompressionssitzung",
+        "Übersicht der Board-Komponenten",
+        "Detail von Schlitten & Wandanker",
+        "16\"-Ständer-Wandhalterung",
+        "Ausführung Helle Naturkiefer",
+        "Ausführung Dunkler Walnuss-Ton",
+      ],
+      faqs: [
+        {
+          q: "Wie viel Wandfläche benötigt das Standard Massiv-Board?",
+          a: "Das Board ist ca. 2,40 m lang und 26,5 cm breit. Hochgeklappt an der Wand ragt es nur 6 cm (2,4 Zoll) vor und passt problemlos hinter eine Schlafzimmer- oder Homeoffice-Tür.",
+        },
+        {
+          q: "Lässt sich das Standard-Board an US-Trockenbauwänden (Drywall) montieren?",
+          a: "Ja. Jede US-Lieferung enthält eine Halterung für Standard-16-Zoll-Holzständer hinter Trockenbau sowie Dübel für Beton oder Ziegel. Mieter können es mit dem Freistehenden Ständer ohne Bohren kombinieren.",
+        },
+      ],
+    },
   },
   "2-piece-folding-board": {
     es: {
@@ -394,6 +441,40 @@ const PRODUCT_PATCHES: Record<
         {
           q: "Настолько ли жёсткая складная доска из 2 частей, как цельная?",
           a: "Да. Центральная стальная муфта плотно фиксирует обе половины без люфта, выдерживая до 100 кг (220 lbs) при сохранении мягкой упругости сосны.",
+        },
+      ],
+    },
+    de: {
+      badge: "Platzsparer • 2-teilig Faltbar",
+      subtitle:
+        "Lässt sich dank präziser Stahlverbinder in 30 Sekunden in zwei ca. 114 cm (45\") lange Hälften teilen – ideal zum flachen Verstauen unter dem Bett oder im Schrank.",
+      keyFeature:
+        "Spielfreie Stahlsteckverbindung bewahrt die authentische Federung der Karpatenkiefer bei maximaler Wohnungsfreundlichkeit.",
+      heightLimitLabel: "Bis 193 cm (6'4\")",
+      boardWeightLabel: "11,3 kg (25 lbs)",
+      material: "Resonante Karpatenkiefer mit zentraler Stahlverstärkung",
+      construction: "2-teilige präzisionszerlegbare Planke",
+      mobility: "Verstaubar unter Bett, im Schrank & SUV (Segmente ~114 cm)",
+      inclineRange: "8° bis 90°",
+      foldedDepth: "Flach verstaubar unter Bett oder im Schrank (~114 cm)",
+      includes: [
+        "Patentierte Glisson-Schlaufe für Nackentraktion (Kostenlos enthalten)",
+        "Präziser zentraler Stahlverbinder ohne Spiel",
+        "Verstellbarer mobiler Schlitten aus Luftfahrt-Legierung",
+        "16\"-US-Holzständer-Wandhalterung & Schnellspann-Ankerseil",
+        "60-Tage-Heimtest & 10 Jahre strukturelle Rahmengarantie",
+      ],
+      galleryLabels: [
+        "2-teilige zerlegbare Konstruktion",
+        "Profil-Perspektive",
+        "Stahl-Sicherungsstift",
+        "Ausführung Helle Kiefer",
+        "Ausführung Dunkler Walnuss-Ton",
+      ],
+      faqs: [
+        {
+          q: "Fühlt sich das 2-teilige Faltboard genauso stabil an wie das einteilige Modell?",
+          a: "Ja. Die zentrale Stahlhülse arretiert beide Hälften spielfrei, trägt bis zu 100 kg (220 lbs) und bewahrt die angenehme natürliche Federung der Kiefer.",
         },
       ],
     },
@@ -535,6 +616,40 @@ const PRODUCT_PATCHES: Record<
         },
       ],
     },
+    de: {
+      badge: "Kofferraum- & Flugtauglich • 3-teilig Reise",
+      subtitle:
+        "Ultrakompaktes 3-teiliges Design (~79 cm / 31\" Segmente) mit gepolsterter Reisetasche und Türanker-Gurt – perfekt für Vielreisende, Ferienhäuser und mobile Therapeuten.",
+      keyFeature:
+        "Passt in unter 60 Sekunden werkzeuglos in jeden Limousinen-Kofferraum, SUV oder ins Aufgabegepäck.",
+      heightLimitLabel: "Bis 193 cm (6'4\")",
+      boardWeightLabel: "11,8 kg (26 lbs)",
+      material: "Resonante Karpatenkiefer mit doppelten Leichtmetall-Verbindern",
+      construction: "3-teilige ultrakompakte zerlegbare Planke",
+      mobility: "Passt in Kofferraum, Schrank & Reisetasche (~79 cm Segmente)",
+      inclineRange: "8° bis 90°",
+      foldedDepth: "Ultrakompakte Segmentlänge ca. 79 cm (31\")",
+      includes: [
+        "Patentierte Glisson-Schlaufe für Nackentraktion (Kostenlos enthalten)",
+        "Doppelte Präzisions-Stahlverbindungen für werkzeuglosen Aufbau",
+        "Tragbarer Türanker-Gurt plus Standard-16\"-US-Wandmontageset",
+        "Gepolsterte Reisetasche mit Reißverschluss",
+        "60-Tage-Heimtest & 10 Jahre strukturelle Rahmengarantie",
+      ],
+      galleryLabels: [
+        "Kompaktes 3-teiliges Faltdesign",
+        "Gepolsterte Reisetasche",
+        "Mobiler Türanker-Aufbau",
+        "Präzisions-Verbindungsstifte",
+        "Helle Naturkiefer",
+      ],
+      faqs: [
+        {
+          q: "Kann ich das 3-teilige Board in Hotels oder Mietwohnungen ohne Bohren verwenden?",
+          a: "Ja! Das 3-teilige Reise-Set enthält einen Türanker-Gurt für den schnellen mobilen Aufbau und ist zudem zu 100 % mit unserem Freistehenden Leiterständer kompatibel.",
+        },
+      ],
+    },
   },
   "wide-heavy-duty-board": {
     es: {
@@ -670,6 +785,40 @@ const PRODUCT_PATCHES: Record<
         {
           q: "Когда стоит выбрать Широкую Усиленную модель вместо Стандартной?",
           a: "Выбирайте Широкую модель, если ваш вес превышает 95 кг (до 150 кг / 330 lbs), рост выше 193 см (до 206 см / 6'9\"), у вас широкие плечи или вы регулярно тренируетесь с тяжёлой штангой.",
+        },
+      ],
+    },
+    de: {
+      badge: "Heavy-Duty • Athleten & Breite Statur (Bis 150 kg / 330 lbs)",
+      subtitle:
+        "30 % breitere Mehrschicht-Kiefernholzfläche und verstärkter Doppelstift-Schlitten bis 150 kg (330 lbs) und 206 cm (6'9\") – gebaut für Kraftsportler, breite Schultern und große Nutzer.",
+      keyFeature:
+        "Maximaler Schulterkomfort und axiale Steifigkeit für Powerlifter, CrossFit-Athleten sowie Nutzer über 95 kg oder 193 cm.",
+      heightLimitLabel: "Bis 206 cm (6'9\")",
+      boardWeightLabel: "13,6 kg (30 lbs)",
+      material: "Verstärkter hochfester Mehrschichtkern aus Karpatenkiefer",
+      construction: "Extrabreite Schwerlast-Planke",
+      mobility: "Verstärkte 16\"-Ständer-Wandmontage oder Freistehender Ständer",
+      inclineRange: "8° bis 90°",
+      foldedDepth: "Verstärktes 7-cm-Wandprofil (2,8\")",
+      includes: [
+        "Verstärkte Glisson-Schlaufe mit breiter ergonomischer Polsterung (Kostenlos enthalten)",
+        "Extrabreiter Schwerlast-Schlitten mit doppelten Sicherungsstiften",
+        "Schwerlast-16\"-Ständer-Montageset & Mauerwerksdübel",
+        "Athletik-Leitfaden für Wirbelsäulen-Erholung nach Kreuzheben & Kniebeugen",
+        "60-Tage-Heimtest & 10 Jahre strukturelle Rahmengarantie",
+      ],
+      galleryLabels: [
+        "Breites Heavy-Duty Board",
+        "Spezifikation der breiten Liegefläche",
+        "Doppelter Sicherheitsstift",
+        "Maserung des verstärkten Kerns",
+        "Schwerlast-Montageset",
+      ],
+      faqs: [
+        {
+          q: "Wann sollte ich das Breite Heavy-Duty Modell statt des Standard-Boards wählen?",
+          a: "Wählen Sie das Breite Modell, wenn Sie über 95 kg wiegen (bis 150 kg / 330 lbs), größer als 193 cm sind (bis 206 cm / 6'9\"), breite sportliche Schultern haben oder schwer mit der Langhantel trainieren.",
         },
       ],
     },
@@ -811,6 +960,40 @@ const PRODUCT_PATCHES: Record<
         },
       ],
     },
+    de: {
+      badge: "Limitierte Edition • ~15 % Leichteres Erlenholz",
+      subtitle:
+        "Handgefertigt aus abgelagerter ukrainischer Erle – rund 15 % leichter als Kiefer für mühelose Winkelwechsel, mit seidiger, warm-bernsteinfarbener Maserung.",
+      keyFeature:
+        "Besonders sanfte Federung und leichtes Handling von 8,6–9,5 kg (19–21 lbs) – geschätzt von Senioren, für feine Nackenroutinen und edle Wohnräume.",
+      heightLimitLabel: "Bis 193 cm (6'4\")",
+      boardWeightLabel: "8,6–9,5 kg (~15 % leichter als Kiefer)",
+      material: "Abgelagerte erlesene ukrainische Erle (Warmer Bernstein / Cognac)",
+      construction: "Handgefertigte massive Erlenholz-Planke",
+      mobility: "Mühelose, leichte Winkelverstellung",
+      inclineRange: "8° bis 90° (plus sanfte -25° Umkehrtraktion)",
+      foldedDepth: "Schlankes 6-cm-Wandprofil (2,4\")",
+      includes: [
+        "Patentierte Glisson-Schlaufe mit warmem Bernstein-Detail (Kostenlos enthalten)",
+        "Polierter Leichtmetall-Schlitten mit besonders ruhigem Lauf",
+        "16\"-Ständer-Montageset mit dekorativen Abdeckkappen",
+        "Digitales 30-Tage-Videoprogramm & Start-Checkliste",
+        "60-Tage-Heimtest & 10 Jahre Handwerksgarantie",
+      ],
+      galleryLabels: [
+        "Seidige Erlenholz-Maserung",
+        "Warme Cognac-Ausführung",
+        "Handwerks-Profil",
+        "Leichtes, geschmeidiges Handling",
+        "Holzhandwerkskunst",
+      ],
+      faqs: [
+        {
+          q: "Worin unterscheidet sich Erlenholz von Karpatenkiefer?",
+          a: "Erle ist etwa 15 % leichter (8,6–9,5 kg gegenüber 10,5–11,3 kg), hat eine feine, gleichmäßige bernsteinfarbene Maserung und eine etwas weichere Federung – ideal bis 100 kg (220 lbs) bei häufigem Umstellen.",
+        },
+      ],
+    },
   },
   "free-standing-stand": {
     es: {
@@ -929,6 +1112,35 @@ const PRODUCT_PATCHES: Record<
         },
       ],
     },
+    de: {
+      badge: "Für Mieter & Wohnungen • Null Wandbohrungen",
+      subtitle:
+        "Stabiler freistehender Leiterständer aus Buchenholz und pulverbeschichtetem Stahl für volle 8°–90° Winkeleinstellung ohne ein einziges Loch in der Wand.",
+      keyFeature:
+        "Werkzeugloser Auf- und Abbau in 3 Minuten, kratzfeste Gummifüße, belastbar bis 159 kg (350 lbs) – kompatibel mit jedem Evminov Board.",
+      heightLimitLabel: "Kompatibel mit allen Evminov Boards",
+      boardWeightLabel: "10,9 kg (24 lbs)",
+      material: "Kammergetrocknetes Buchenholz & pulverbeschichteter Stahlrahmen",
+      construction: "Freistehender zerlegbarer Leiterständer",
+      mobility: "Werkzeugloser Auf- & Abbau in 3 Minuten",
+      inclineRange: "Voller Sprossenbereich von 8° bis 90°",
+      foldedDepth: "Weniger als 0,33 m² (3,5 sq ft) Stellfläche",
+      includes: [
+        "Werkzeuglose Sicherungsstifte & Sicherheitsbeschläge",
+        "Kratzfeste gummierte Bodenschutz-Auflagen",
+        "Illustrierte Aufbauanleitung & QR-Videoanleitung",
+      ],
+      galleryLabels: [
+        "Freistehende Aufstellung in der Wohnung",
+        "Kompatibel mit allen Boards",
+      ],
+      faqs: [
+        {
+          q: "Zerkratzt der Freistehende Ständer Parkett- oder Holzböden?",
+          a: "Nein. Er verfügt über breite, abriebfreie gummierte Schutzfüße, die Parkett, Fliesen, Vinyl und Teppich schonen und gleichzeitig felsenfesten Stand bieten.",
+        },
+      ],
+    },
   },
 };
 
@@ -943,6 +1155,8 @@ export function formatWeightLimit(weightLbs: number, lang: Locale): string {
       return `До ${kg} кг (${weightLbs} lbs)`;
     case "ru":
       return `До ${kg} кг (${weightLbs} lbs)`;
+    case "de":
+      return `Bis ${kg} kg (${weightLbs} lbs)`;
     case "en":
     default:
       return `Up to ${weightLbs} lbs`;
@@ -1314,6 +1528,56 @@ export const CATALOG_SECTION_COPY: Record<Locale, CatalogSectionCopy> = {
       },
     ],
   },
+  de: {
+    eyebrow: "Handgefertigt aus Karpatenkiefer & Erlesener Ukrainischer Erle",
+    mostPopular: "Am beliebtesten",
+    klarnaAprSuffix: "(0 % eff. Jahreszins gesch.)",
+    matrixEyebrow: "Direkter Spezifikationsvergleich",
+    matrixTitle:
+      "So wählen Sie Ihr Evminov Board: Die wichtigsten Unterschiede auf einen Blick",
+    matrixCalcCta: "Unsicher? Nutzen Sie den 30-Sekunden-Größenrechner",
+    tableHeaders: {
+      model: "Modell",
+      construction: "Bauweise",
+      maxWeightHeight: "Max. Gewicht / Größe",
+      boardWeight: "Board-Gewicht",
+      bestFor: "Ideal für",
+      directExpress: "Direkt / CA Express",
+    },
+    boxTitle: "Vollständiger Lieferumfang & Hardware-Details",
+    boxSubtitle:
+      "Jedes Evminov Board kommt montagefertig mit Glisson-Nackenschlaufe, Leichtmetall-Schlitten und 16\"-US-Holzständer-Montageset.",
+    boxItems: [
+      {
+        src: BOX_ITEM_SRCS[0],
+        alt: "Weich gepolsterte Baumwoll-Glisson-Schlaufe zur Nackentraktion kostenlos beim Evminov Board enthalten",
+        tag: "Kostenlos enthalten",
+        title: "Glisson-Nackenschlaufe",
+        desc: "Weich gepolsterte Nacken-Entlastungsschlaufe für sanfte 8°–12° HWS-Entlastung und Handy-Nacken-Reset.",
+      },
+      {
+        src: BOX_ITEM_SRCS[1],
+        alt: "Gleitschlitten aus Luftfahrt-Legierung mit Sicherungsstift",
+        tag: "Präzisions-Hardware",
+        title: "Leichtlauf-Schlitten aus Legierung",
+        desc: "Gleitet sauber entlang der Holzschiene und arretiert in 5 Sekunden für Körpergrößen von 122 bis 206 cm (4'0\"–6'9\").",
+      },
+      {
+        src: BOX_ITEM_SRCS[2],
+        alt: "Weich gepolsterte Fuß- und Griffmanschetten für sanfte Umkehr-Dekompression am Evminov Schlitten",
+        tag: "Gepolsterter Komfort",
+        title: "Weiche Fuß- & Griffmanschetten",
+        desc: "Gepolsterte Auflagen für komfortables Athletik-Rumpftraining und sanfte Umkehrtraktion.",
+      },
+      {
+        src: BOX_ITEM_SRCS[3],
+        alt: "Verstärkte Nähte und verstellbare Gurte der Evminov Nackentraktions-Schlaufe",
+        tag: "Universelle Passform",
+        title: "Verstellbare Gurte & Anker-Set",
+        desc: "Schwerlast-16\"-US-Holzständerhalterung, geflochtenes Stahl-Ankerseil und illustrierte Montageanleitung inklusive.",
+      },
+    ],
+  },
 };
 
 export interface ProductDetailCopy {
@@ -1395,6 +1659,19 @@ export const PRODUCT_DETAIL_COPY: Record<Locale, ProductDetailCopy> = {
     faqsHeading: "Вопросы и Ответы по Модели",
     relatedHeading: "Сравните Другие Модели Evminov",
     fromPrefix: "От",
+  },
+  de: {
+    hsaAppliedBtn: "HSA/FSA -30 % angewendet",
+    hsaApplyBtn: "~30 % HSA/FSA anwenden",
+    klarnaAprSuffix: "(0 % eff. Jahreszins gesch.)",
+    shipsEverywhere: "Versand in alle 50 US-Staaten, nach Kanada & in die EU",
+    skuLabel: "Artikelnummer (SKU)",
+    constructionLabel: "Bauweise",
+    boardWeightLabel: "Board-Gewicht",
+    mountingLabel: "Montage",
+    faqsHeading: "Fragen & Antworten zum Modell",
+    relatedHeading: "Weitere Evminov Modelle vergleichen",
+    fromPrefix: "Ab",
   },
 };
 
@@ -1707,6 +1984,63 @@ export const CALCULATOR_COPY: Record<Locale, CalculatorLocalizedCopy> = {
         "Классическая цельная упругая доска из карпатской сосны до 193 см и 95 кг. Петля Глиссона и крепление 16\" в комплекте.",
     },
   },
+  de: {
+    goals: {
+      hernia: "L4–S1 Bandscheibenkomfort",
+      sciatica: "Ischias- & Bein-Entlastung",
+      posture: "Büro & Handy-Nacken",
+      athlete: "Athleten- / Kraftsport-Erholung",
+      pediatric: "Jugend- & Familienhaltung",
+    },
+    safeWindowLabel: "Sicherer Bereich",
+    lbsUnit: "lbs",
+    kgUnit: "kg",
+    cmUnit: "cm",
+    minUnit: "Min.",
+    pullUnit: "lb",
+    svgTitle: "Live-Neigungsgeometrie",
+    svgHeadUpright: "Kopf oben (Kein Blutandrang)",
+    svgSmoothPull: "Sanfter Zug",
+    emailPlaceholder: "sie@beispiel.de",
+    shareBtn: "Meinen Winkelplan teilen / kopieren",
+    shareCopiedBtn: "Protokoll-Link kopiert – teilen Sie ihn mit Physiotherapeut oder Familie!",
+    shareTitle: "Mein Evminov Wirbelsäulen-Winkel- & Boardplan",
+    inclineRecs: {
+      hernia: {
+        label: "Lenden-Bandscheibenkomfort & L4–S1 Entlastung",
+        description:
+          "Sanfte Traktion bei flachem Winkel, um den axialen Bandscheibendruck schonend zu reduzieren, ohne muskuläre Schutzspannung auszulösen.",
+      },
+      sciatica: {
+        label: "Ischiasnerv & Beweglichkeit im unteren Rücken",
+        description:
+          "Schrittweise Streckung des unteren Rückens in Verbindung mit ruhiger Atmung und leichten Beckenmobilisationsübungen.",
+      },
+      athlete: {
+        label: "Sportliche Wirbelsäulen-Regeneration nach dem Training",
+        description:
+          "Entlastet axiale Wirbelsäulenermüdung nach schwerem Kreuzheben, Kniebeugen, Laufen oder Kampfsport.",
+      },
+      pediatric: {
+        label: "Jugendhaltung & symmetrische Ausrichtung (Ab 6 Jahren)",
+        description:
+          "Ultrasanfte symmetrische Routinen unter Aufsicht Erwachsener gegen Schulranzen-Rundrücken und Bildschirmhaltung.",
+      },
+      posture: {
+        label: "Bürohaltung & Nackenentlastung",
+        description:
+          "Gleicht stundenlanges Sitzen aus, öffnet gerundete Schultern und unterstützt sanfte Nackentraktion mit der Glisson-Schlaufe.",
+      },
+    },
+    boardReasons: {
+      "wide-heavy-duty-board":
+        "Zugelassen bis 150 kg (330 lbs) und 206 cm (6'9\") mit 30 % breiterer Karpatenkiefer-Planke und verstärktem Leichtmetall-Schlitten.",
+      "3-piece-travel-board":
+        "Zerlegbar in ca. 79 cm (31\") Segmente für Schrank, Kofferraum oder Flugreise bei einer Traglast bis 100 kg (220 lbs) und 193 cm (6'4\").",
+      "standard-pine-board":
+        "Klassisches einteiliges Karpatenkiefer-Flexboard für Nutzer bis 193 cm (6'4\") und 95 kg (210 lbs). Inklusive Glisson-Schlaufe und 16\"-Ständer-Montageset.",
+    },
+  },
 };
 
 export function buildCalculatorShareText(
@@ -1726,6 +2060,8 @@ export function buildCalculatorShareText(
       return `Мій план нахилу Evminov: кут ${angle}° (м'яка тяга ${pullKg} кг / ${pullLbs} lb, ~${unloadingPct}% розвантаження) — рекомендована дошка: ${boardName}.`;
     case "ru":
       return `Мой план наклона Evminov: угол ${angle}° (мягкая тяга ${pullKg} кг / ${pullLbs} lb, ~${unloadingPct}% разгрузки) — рекомендуемая доска: ${boardName}.`;
+    case "de":
+      return `Mein Evminov Winkelplan: ${angle}° Neigung (${pullKg} kg / ${pullLbs} lb sanfter axialer Zug, ~${unloadingPct} % Entlastung) – empfohlenes Board: ${boardName}.`;
     case "en":
     default:
       return `My Evminov spine angle plan: ${angle}° incline (${pullLbs} lb smooth axial pull, ~${unloadingPct}% unloading) — recommended board: ${boardName}.`;
@@ -1747,6 +2083,8 @@ export function buildCalculatorSvgAria(
       return `Профілактор Євмінова під кутом ${angle} градусів забезпечує ${pullKg} кг (${pullLbs} фунтів) плавної осьової тяги`;
     case "ru":
       return `Доска Евминова под углом ${angle} градусов создаёт ${pullKg} кг (${pullLbs} фунтов) плавной осевой тяги`;
+    case "de":
+      return `Evminov Board im Winkel von ${angle} Grad mit ${pullKg} kg (${pullLbs} lb) sanfter axialer Zugkraft`;
     case "en":
     default:
       return `Evminov board tilted at ${angle} degrees producing ${pullLbs} pounds of smooth axial traction`;
@@ -2021,5 +2359,50 @@ export const ORDER_WIZARD_COPY: Record<Locale, OrderWizardCopy> = {
     calcPrefillPrefix: "Профиль калькулятора:",
     calcGoalWord: "цель",
     calcAngleWord: "стартовый угол",
+  },
+  de: {
+    pageSubtitle:
+      "Kein Risiko im Voraus. Reservieren Sie Ihr Board direkt bei unserem Team in Glendale, Kalifornien – wir bestätigen Lagerbestand, exakten UPS/FedEx-Versand und senden Ihren sicheren Zahlungslink oder Ihre HSA/FSA-Unterlagen.",
+    shippingDirect: "Direktversand ab Werkstatt (10–16 Werktage)",
+    shippingDirectDesc:
+      "Bestes Preis-Leistungs-Verhältnis – direkt aus unserer Meister-Holzwerkstatt.",
+    shippingExpress: "Glendale, CA US-Lager Express (1–4 Werktage)",
+    shippingExpressDesc:
+      "Schneller versicherter UPS/FedEx-Versand ab Kalifornien in alle 50 US-Staaten.",
+    addFreeStand: "Zerlegbaren Freistehenden Leiterständer hinzufügen (+$275)",
+    addFreeStandDesc:
+      "Kein Bohren in der Wand erforderlich – ideal für Mietwohnungen.",
+    hsaCheckbox:
+      "Detaillierte Rechnung für Wellness-Equipment & LMN-Leitfaden für HSA/FSA-Erstattung beilegen",
+    stripeNotice:
+      "Der direkte Online-Kartenzahlungs-Checkout (Stripe, Apple Pay, Google Pay, Klarna) wird derzeit für unsere US-LLC finalisiert. Mit dem Absenden dieses Formulars reservieren Sie Ihr gewünschtes Modell sofort und erhalten eine Bestätigung samt Zahlungslink von orders@evminovusa.com.",
+    successBody:
+      "Wir haben eine Bestätigungsübersicht an Ihre E-Mail gesendet und unser Versandteam in Glendale, CA informiert. Versandbestätigung und Zahlungslink folgen innerhalb von 1 Werktag.",
+    orderRef: "Referenz-ID",
+    estimatedHsaLabel: "Gesch. Netto nach ~30 % HSA/FSA",
+    micError: "Mikrofonberechtigung verweigert oder in diesem Browser nicht verfügbar.",
+    validationNameEmail: "Bitte geben Sie Ihren Namen und Ihre E-Mail-Adresse ein.",
+    submitErrorFallback: "Reservierung konnte nicht übermittelt werden.",
+    submitErrorCatch: "Bestellanfrage konnte nicht gesendet werden.",
+    needFasterHelp: "Brauchen Sie schnellere Hilfe? Rufen Sie an unter",
+    orEmail: "oder schreiben Sie an",
+    directShort: "Direkt",
+    caExpressShort: "CA Express",
+    usStatesOptgroup: "Vereinigte Staaten (Alle 50 Bundesstaaten)",
+    intlOptgroup: "Internationaler Versand",
+    intlCanada: "Kanada (CAD / USD)",
+    intlEu: "Europäische Union (EUR)",
+    intlUk: "Vereinigtes Königreich",
+    intlUkraine: "Ukraine",
+    intlOther: "Anderes Land (40+ Lieferländer)",
+    phonePlaceholder: "+1 (747) 000-0000",
+    finishLabel: "Oberfläche",
+    standItemLabel: "Freistehender Leiterständer",
+    klarnaInstallments: "Gesch. 4× zweiwöchentliche Raten:",
+    trialWarrantyLine: "60-Tage-Heimtest & 10 Jahre Rahmengarantie",
+    trackingLine: "Versichertes UPS / FedEx Tracking",
+    calcPrefillPrefix: "Rechner-Profil:",
+    calcGoalWord: "Ziel",
+    calcAngleWord: "Startwinkel",
   },
 };

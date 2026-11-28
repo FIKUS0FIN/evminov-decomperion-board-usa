@@ -257,6 +257,65 @@ const CONDITION_TRANSLATIONS: Record<
         },
       ],
     },
+    de: {
+      shortTitle: "Bandscheiben-Komfort L4–L5 & L5–S1",
+      title: "Heim-Wirbelsäulenentlastung für Bandscheiben-Komfort bei L4–L5 & L5–S1",
+      eyebrow: "Lenden-Wellness • Fokus L4–S1",
+      summary:
+        "Die unteren Lendenbandscheiben (L4–L5 und L5–S1) tragen über 60 % der axialen Oberkörperlast. Kontrollierte Flachwinkel-Traktion mindert die Schwerkraftkompression, während sanfte Mikrobewegungen tiefe Stabilisatoren aktivieren.",
+      recommendedAngle: "10° – 18° Flache Neigung",
+      dailyDuration: "10–12 Min., 1–2× täglich",
+      targetZone: "Lendenwirbelsäule L4–L5 & L5–S1",
+      mechanisms: [
+        {
+          title: "Dosierte Eigengewichts-Entlastung",
+          detail:
+            "In Rückenlage bei 10°–18° sinkt der axiale Lendendruck sanft — ganz ohne ruckartigen Motorzug oder Blutandrang im Kopf.",
+        },
+        {
+          title: "Federung durch Karpaten-Kiefer",
+          detail:
+            "Anders als starre Stahlbänke gibt lamellierte Karpaten-Kiefer bei jedem Atemzug minimal nach und löst paravertebrale Spannungen.",
+        },
+        {
+          title: "Training des tiefen Multifidus",
+          detail:
+            "Sobald die Steifheit nachlässt, trainieren feine Beckenkippungen unter Traktion die tiefen Stabilisatoren für aufrechte Ausrichtung.",
+        },
+      ],
+      routineSteps: [
+        {
+          phase: "Woche 1–2 (Sanfte Entlastung)",
+          angle: "8° – 12°",
+          action:
+            "Entspannte Rückenlage + ruhige Zwerchfellatmung und langsames Fußkreisen (8 Min.).",
+        },
+        {
+          phase: "Woche 3–4 (Mobilität)",
+          angle: "12° – 18°",
+          action:
+            "Sanfte Beckenkippungen und schmerzfreies, abwechselndes Kniegleiten ergänzen.",
+        },
+        {
+          phase: "Monat 2+ (Stabilisierung)",
+          angle: "18° – 25°",
+          action:
+            "Progressive Rumpf-Halteübungen mit kleiner Amplitude für anhaltenden Alltagskomfort.",
+        },
+      ],
+      safetyNote:
+        "Sprechen Sie vor Beginn von Traktionsübungen stets mit Ihrem Arzt, falls eine akute Bandscheibenextrusion, fortschreitende Beinschwäche oder Taubheit vorliegt.",
+      faqs: [
+        {
+          q: "Welcher Startwinkel eignet sich für empfindliche L4–L5-Bandscheiben?",
+          a: "Beginnen Sie sanft bei 8° bis 12° für 6–8 Minuten, damit die Lendenmuskulatur ohne Schutzspasmus entspannt. Steigern Sie den Winkel erst bei völligem Wohlbefinden.",
+        },
+        {
+          q: "Soll ich das Board an der Wand montieren oder den freistehenden Ständer wählen?",
+          a: "Die Biomechanik ist identisch. Wählen Sie die 16\"-Holzständer-Wandmontage im Eigenheim oder den zerlegbaren Ständer ohne Bohren in Mietwohnungen.",
+        },
+      ],
+    },
   },
   "sciatica-relief": {
     es: {
@@ -459,6 +518,56 @@ const CONDITION_TRANSLATIONS: Record<
         },
       ],
     },
+    de: {
+      shortTitle: "Ischias & Nervenreizung",
+      title: "Kontrollierte Schrägtraktion für Ischias-Komfort & Lendenentlastung",
+      eyebrow: "Lenden- & Beinspannung • Ischias-Komfort",
+      summary:
+        "Ausstrahlende Spannungen in Gesäß und Bein verstärken sich oft durch langes Sitzen. Sanfte Flachwinkel-Entlastung mit leicht gebeugten Knien beruhigt Lenden- und Piriformis-Gewebe ohne Knöchelstress.",
+      recommendedAngle: "10° – 18° Neigung",
+      dailyDuration: "10–12 Min. täglich",
+      targetZone: "L4–S1 & Ischiasverlauf",
+      mechanisms: [
+        {
+          title: "Keine Torsion an den Knöcheln",
+          detail:
+            "Knöchelklammern von Inversionsbänken verdrehen oft das Becken und reizen den Nerv. Die oberen Handgriffe lassen Beine und Hüften frei und entspannt.",
+        },
+        {
+          title: "Sanftes einseitiges Beingleiten",
+          detail:
+            "Das leichte Beugen eines Knies auf der glatten Kiefer reduziert Zug auf die Oberschenkelrückseite während der Lendenentlastung.",
+        },
+      ],
+      routineSteps: [
+        {
+          phase: "Schritt 1 (Ankommen)",
+          angle: "10° – 12°",
+          action:
+            "Mit leicht gebeugten Knien zurücklegen; Schultern lösen und 4 Minuten tief durchatmen.",
+        },
+        {
+          phase: "Schritt 2 (Sanftes Gleiten)",
+          angle: "12° – 16°",
+          action:
+            "Langsames Fußwippen und schmerzfreies, abwechselndes Gleiten eines Beins ausführen.",
+        },
+        {
+          phase: "Schritt 3 (Ruhen & Absteigen)",
+          angle: "10°",
+          action:
+            "2 Minuten passiv nachruhen, dann vor dem Aufstehen behutsam über die Seite abrollen.",
+        },
+      ],
+      safetyNote:
+        "Beenden Sie die Einheit sofort, falls eine Bewegung stechenden Schmerz unterhalb des Knies verstärkt, und lassen Sie starke Taubheit oder Schwäche ärztlich abklären.",
+      faqs: [
+        {
+          q: "Warum ist ein Schrägbrett bei Ischias angenehmer als Bodendehnung?",
+          a: "Bodendehnungen stauchen beim Vorbeugen oft die Lendenbandscheiben. Das Evminov Board nimmt zuerst die axiale Schwerkraft heraus, damit Muskeln bei geringem Bandscheibendruck entspannen.",
+        },
+      ],
+    },
   },
   "degenerative-disc-disease": {
     es: {
@@ -634,6 +743,50 @@ const CONDITION_TRANSLATIONS: Record<
         {
           q: "Какая модель Евминова самая лёгкая для пожилых пользователей?",
           a: "Доска из Отборной Ольхи весит всего 8,6–9,5 кг (~15% легче сосны), поэтому угол наклона меняется без усилий.",
+        },
+      ],
+    },
+    de: {
+      shortTitle: "Bandscheiben-Mobilität & Steifheit",
+      title: "Tägliche Versorgung & Beweglichkeit bei altersbedingter Rückensteifheit",
+      eyebrow: "Aktive Langlebigkeit • Gegen Morgensteifheit",
+      summary:
+        "Bandscheiben Erwachsener besitzen keine direkten Blutgefäße und leben von regelmäßigen Zyklen aus Entlastung und sanfter Bewegung. 5 bis 10 Minuten täglich geben geschmeidige Beweglichkeit zurück.",
+      recommendedAngle: "8° – 15° Sanfte Neigung",
+      dailyDuration: "8–10 Min. täglich",
+      targetZone: "Lenden- & Brustwirbelsäule",
+      mechanisms: [
+        {
+          title: "Besonders sanfter Winkel ohne Kreislaufbelastung",
+          detail:
+            "Winkel von 8°–12° entlasten wohltuend ohne Blutdruckspitzen — besonders beliebt ab 55+ mit dem leichten Erlenholz-Modell.",
+        },
+        {
+          title: "Rhythmische Pump-Mikrobewegungen",
+          detail:
+            "Ruhige Atmung und kleine Fußbewegungen fördern die Wirbelsäulenmobilität ganz ohne Gelenkstöße.",
+        },
+      ],
+      routineSteps: [
+        {
+          phase: "Morgen-Reset",
+          angle: "8° – 12°",
+          action:
+            "5 Minuten entspannte Streckung in Rückenlage zum Lösen nächtlicher Steifheit.",
+        },
+        {
+          phase: "Abend-Entspannung",
+          angle: "10° – 15°",
+          action:
+            "5 Minuten sanfte Beckenkippungen und ruhiges Nachruhen vor dem Schlafengehen.",
+        },
+      ],
+      safetyNote:
+        "Personen mit fortgeschrittener Osteoporose oder Wirbelfrakturen benötigen vor der Nutzung von Traktionsgeräten eine ärztliche Freigabe.",
+      faqs: [
+        {
+          q: "Welches Evminov-Modell ist für Senioren am leichtesten zu handhaben?",
+          a: "Das Select Erlenholz-Board wiegt nur 8,6–9,5 kg (19–21 lbs, rund 15 % leichter als Kiefer) und lässt sich mühelos verstellen.",
         },
       ],
     },
@@ -827,6 +980,53 @@ const CONDITION_TRANSLATIONS: Record<
         },
       ],
     },
+    de: {
+      shortTitle: "Tägliche Lendenentlastung",
+      title: "10-Minuten-Heimroutine gegen tägliche Verspannungen im unteren Rücken",
+      eyebrow: "Tägliche Wirbelsäulen-Hygiene • Universallösung",
+      summary:
+        "Ob 9 Stunden am Schreibtisch oder eine ganze Schicht im Stehen: Die Schwerkraft staucht Ihren unteren Rücken. Zehn Minuten abends auf dem Evminov Board stellen spürbare Leichtigkeit wieder her.",
+      recommendedAngle: "12° – 20° Neigung",
+      dailyDuration: "10 Min. täglich",
+      targetZone: "Unterer Rücken & Hüften",
+      mechanisms: [
+        {
+          title: "Sofortige Entlastung am Feierabend",
+          detail:
+            "In schräger Rückenlage kehren Sie stundenlange Kompression in wenigen Minuten zu Hause um.",
+        },
+        {
+          title: "Psoas- & Hüftbeuger-Entspannung",
+          detail:
+            "Sanftes Beingleiten dehnt verkürzte Hüftbeuger, die sonst permanent an der Lendenkurve ziehen.",
+        },
+      ],
+      routineSteps: [
+        {
+          phase: "Lösen",
+          angle: "12° – 15°",
+          action: "4 Minuten entspannte Traktion in Rückenlage mit lockerem Griff am Schlitten.",
+        },
+        {
+          phase: "Aktivieren",
+          angle: "15° – 20°",
+          action: "4 Minuten sanfte Gesäßbrücken und langsames Luft-Radfahren.",
+        },
+        {
+          phase: "Beruhigen",
+          angle: "12°",
+          action: "2 Minuten ruhige Atmung vor dem langsamen Aufstehen.",
+        },
+      ],
+      safetyNote:
+        "Führen Sie alle Bewegungen fließend und schmerzfrei aus; springen Sie nach der Entlastung niemals ruckartig vom Board.",
+      faqs: [
+        {
+          q: "Wie schnell spürt man Erleichterung bei täglicher Lendensteifheit?",
+          a: "Die meisten Nutzer fühlen schon nach der ersten 10-Minuten-Einheit einen spürbar leichteren Rücken; nachhaltige Stabilität baut sich in 3–4 Wochen auf.",
+        },
+      ],
+    },
   },
   "scoliosis-posture": {
     es: {
@@ -1005,6 +1205,50 @@ const CONDITION_TRANSLATIONS: Record<
         },
       ],
     },
+    de: {
+      shortTitle: "Kinder- & Familienhaltung",
+      title: "Symmetrische Haltungsstation für Kinder, Jugendliche & Familie (ab 6 Jahren)",
+      eyebrow: "Familien-Ausrichtung • Alter 6–85+",
+      summary:
+        "Schwere Schulrucksäcke und Bildschirme fördern früh einen Rundrücken. Auf einer symmetrischen Kiefernfläche bei 8°–14° trainieren Kinder und Jugendliche in 5–8 spielerischen Minuten täglich eine aufrechte Haltung.",
+      recommendedAngle: "8° – 14° Flache Neigung",
+      dailyDuration: "5–8 Min. täglich (betreut)",
+      targetZone: "Gesamte Wirbelsäulen-Symmetrie",
+      mechanisms: [
+        {
+          title: "Taktiles Symmetrie-Feedback",
+          detail:
+            "Das mittige Liegen auf der ebenen Holzfläche gibt unmittelbare propriozeptive Orientierung für gerade Schultern und Hüften.",
+        },
+        {
+          title: "Wächst mit der ganzen Familie mit",
+          detail:
+            "Der Schnellverschluss-Schlitten passt sich in 5 Sekunden von 1,22 m bis 1,93 m (2,06 m beim Wide-Modell) an — für Kinder, Eltern und Großeltern.",
+        },
+      ],
+      routineSteps: [
+        {
+          phase: "Spielerisches Aufwärmen",
+          angle: "8° – 10°",
+          action:
+            "Mit Lieblingsmusik symmetrisches Armstrecken und ruhiges Kniegleiten.",
+        },
+        {
+          phase: "Haltungsstreckung in Bauchlage",
+          angle: "10° – 14°",
+          action:
+            "Sanfte „Superman“-Halteübungen (3–5 Sek.) ohne Wirbelsäulenkompression.",
+        },
+      ],
+      safetyNote:
+        "Kindereinheiten sollten stets unter Aufsicht Erwachsener stattfinden; strukturelle Skoliose gehört in kinderorthopädische Betreuung.",
+      faqs: [
+        {
+          q: "Ab welchem Alter können Kinder betreute Übungen auf dem Evminov Board beginnen?",
+          a: "Spielerische Gewöhnung unter direkter Aufsicht Erwachsener beginnt ab 5–6 Jahren bei sehr flachen 6°–10°.",
+        },
+      ],
+    },
   },
   "cervical-neck-traction": {
     es: {
@@ -1180,6 +1424,50 @@ const CONDITION_TRANSLATIONS: Record<
         {
           q: "Входит ли Петля Глиссона в комплект или продаётся отдельно?",
           a: "Она входит БЕСПЛАТНО в комплект каждой модели доски Евминова.",
+        },
+      ],
+    },
+    de: {
+      shortTitle: "Nacken & Glisson-Schlinge",
+      title: "Sanfte Halswirbel-Traktion & Handynacken-Entlastung mit der Glisson-Schlinge",
+      eyebrow: "Halswirbelsäule • Glisson-Schlinge inklusive",
+      summary:
+        "Ein 45°-Blick auf Laptop oder Smartphone erhöht die Last auf die Halswirbelsäule auf bis zu 22 kg. Jedes Evminov Board enthält unsere gepolsterte Glisson-Schlinge für dosierte Nackenentlastung.",
+      recommendedAngle: "8° – 12° Ultrasanft",
+      dailyDuration: "5–8 Min. täglich",
+      targetZone: "Halswirbelsäule C1–C7 & Nacken",
+      mechanisms: [
+        {
+          title: "Gepolsterter Hinterkopf- & Kinnhalt",
+          detail:
+            "Die Baumwollschlinge verteilt einen sanften Zug von 3–5 kg gleichmäßig ohne Druck auf den Kiefer.",
+        },
+        {
+          title: "Ergänzende Brustkorb-Öffnung",
+          detail:
+            "Kombinieren Sie die Nackenentlastung mit gestreckten Armen über Kopf, um vorgefallene Schultern zu öffnen.",
+        },
+      ],
+      routineSteps: [
+        {
+          phase: "Schlinge anlegen",
+          angle: "8° – 10°",
+          action:
+            "Gepolsterte Glisson-Schlinge am oberen Anker befestigen und Hinterkopf sowie Kinn bequem positionieren.",
+        },
+        {
+          phase: "Sanfte Streckung",
+          angle: "8° – 12°",
+          action:
+            "Schultern 5 Minuten bei ruhiger Nasenatmung komplett loslassen; keine ruckartigen Kopfdrehungen.",
+        },
+      ],
+      safetyNote:
+        "Überschreiten Sie mit der Glisson-Schlinge niemals flache Winkel (8°–12°) und verzichten Sie bei Instabilität, frischen Verletzungen oder gefäßbedingtem Schwindel auf Nackentraktion.",
+      faqs: [
+        {
+          q: "Ist die Glisson-Schlinge bei jedem Evminov Board dabei oder separat erhältlich?",
+          a: "Sie ist bei allen 5 Evminov Board-Modellen (Standard, 2-teilig Klappbar, 3-teilig Reise, Wide und Erle) GRATIS enthalten.",
         },
       ],
     },
@@ -1378,6 +1666,55 @@ const CONDITION_TRANSLATIONS: Record<
         {
           q: "Почему доска Евминова лучше виса на турнике?",
           a: "Вис на турнике заставляет сильно напрягать предплечья и широчайшие мышцы, которые крепятся к поясничной фасции и мешают полному расслаблению.",
+        },
+      ],
+    },
+    de: {
+      shortTitle: "Athleten & Kraftsport",
+      title: "Dekompression nach Kreuzheben & Kniebeugen für Athleten und Home-Gyms",
+      eyebrow: "Kraft & Leistung • Bis 150 kg (330 lbs)",
+      summary:
+        "Schwere Kniebeugen, Kreuzheben, Laufen und BJJ komprimieren die Lendenbandscheiben stark. Anders als das Aushängen an der Klimmzugstange — das die Latissimus-Muskeln anspannt — entspannt das Wide Board Ihre Rückenstrecker komplett.",
+      recommendedAngle: "20° – 32° Athleten-Neigung",
+      dailyDuration: "10–15 Min. nach dem Training",
+      targetZone: "Hintere Kette & L4–S1",
+      mechanisms: [
+        {
+          title: "Keine Griffkraft- oder Latissimus-Ermüdung",
+          detail:
+            "Da der Oberkörper auf dem 30 % breiteren Heavy-Duty-Board ruht, löst das Nervensystem sofort Schutzspannungen im unteren Rücken.",
+        },
+        {
+          title: "Rumpftraining ohne Wirbelsäulen-Kompression",
+          detail:
+            "Führen Sie Reverse Crunches, Beinheben und Hüftbrücken am Schrägbrett aus — für maximale Rumpfstabilität ohne Scherkräfte.",
+        },
+      ],
+      routineSteps: [
+        {
+          phase: "Post-Workout-Entlastung",
+          angle: "20° – 25°",
+          action:
+            "4 Minuten passive Rückenlage direkt nach Kniebeugen oder Kreuzheben.",
+        },
+        {
+          phase: "Oberschenkel & Hüften",
+          angle: "22° – 28°",
+          action:
+            "5 Minuten Hüftstreckung in Bauchlage und sanfte Dehnung der Beinrückseite.",
+        },
+        {
+          phase: "Rumpf-Finish",
+          angle: "20° – 30°",
+          action: "3 Minuten kontrolliertes Bauchtraining ohne Kompression.",
+        },
+      ],
+      safetyNote:
+        "Athleten über 95 kg (210 lbs) oder 1,93 m sollten das Wide Heavy-Duty Board wählen (bis 150 kg / 330 lbs und 2,06 m).",
+      faqs: [
+        {
+          q: "Warum ist das Evminov Board besser als das Aushängen an einer Klimmzugstange?",
+          a: "Beim Hängen müssen Unterarme und Latissimus stark angespannt werden — und der Latissimus setzt direkt an der Lendenfaszie an, was volle Entspannung verhindert.",
         },
       ],
     },
@@ -1580,6 +1917,56 @@ const CONDITION_TRANSLATIONS: Record<
         {
           q: "Поместится ли доска Евминова в небольшой квартире или домашнем офисе?",
           a: "Да. Складная 2-секционная модель помещается в шкаф или под кровать, а напольная стойка занимает менее 0,33 м² без отверстий в стене.",
+        },
+      ],
+    },
+    de: {
+      shortTitle: "Büroarbeit & Homeoffice",
+      title: "7-Minuten-Rücken-Reset: 9 Stunden Sitzen & Handynacken ausgleichen",
+      eyebrow: "Homeoffice-Ergonomie • 7 Min. täglich",
+      summary:
+        "Vorgebeugtes Sitzen vor Bildschirmen erhöht den Bandscheibendruck im unteren Rücken um bis zu 190 % gegenüber dem Stehen. Verstauen Sie Ihr Evminov Board hinter der Bürotür für einen 7-Minuten-Reset.",
+      recommendedAngle: "14° – 22° Neigung",
+      dailyDuration: "7–10 Min. täglich",
+      targetZone: "Nacken, oberer Rücken & Lende",
+      mechanisms: [
+        {
+          title: "Brustkorb- & Schulteröffnung",
+          detail:
+            "Der Griff nach oben zum Schlitten öffnet die von der Tastatur nach vorn gerundeten Schultern und vertieft die Atmung.",
+        },
+        {
+          title: "Ideal für Wohnungen & Homeoffices",
+          detail:
+            "Klappbar auf 6 cm an der Wand, 2-teilig verstaubar im Schrank oder ganz ohne Bohren auf dem freistehenden Ständer.",
+        },
+      ],
+      routineSteps: [
+        {
+          phase: "Min. 1–3",
+          angle: "15°",
+          action:
+            "Brustwirbel-Öffnung in Rückenlage mit gehobenen Armen und 10 langsamen Atemzügen.",
+        },
+        {
+          phase: "Min. 4–5",
+          angle: "10°",
+          action:
+            "Sanfte Nackenentlastung mit der Glisson-Schlinge gegen Bildschirm-Steifheit.",
+        },
+        {
+          phase: "Min. 6–7",
+          angle: "16°",
+          action:
+            "Einbeiniges Gleiten zum Lösen verkürzter Hüftbeuger.",
+        },
+      ],
+      safetyNote:
+        "Ergänzt Stehschreibtische und Bewegungspausen optimal: Tägliche 5–10 Minuten wirken nachhaltiger als seltene lange Einheiten.",
+      faqs: [
+        {
+          q: "Passt das Evminov Board in eine kleine Wohnung oder ein Homeoffice?",
+          a: "Ja. Das 2-teilige Klappmodell passt in einen Schrank oder unters Bett, und der freistehende Ständer benötigt unter 0,33 m² ganz ohne Bohrlöcher.",
         },
       ],
     },

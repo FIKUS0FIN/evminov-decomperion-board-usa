@@ -242,6 +242,25 @@ const PORTAL_COPY: Record<Locale, PortalCopy> = {
       warranty: "Гарантия и Поддержка",
     },
   },
+  de: {
+    badge: "GEGRÜNDET 1996 • PATIENTEN- & BESITZERPORTAL",
+    h1: "Evminov Patienten- & Besitzerportal",
+    subtitle:
+      "Ihr geführter 30-Tage-Arbeitsbereich für die Wirbelsäulen-Dekompression: interaktiver Sitzungstimer, Traktions-Biometrie, 16-Zoll-Holzständer-Montageanleitung (USA), druckbares HSA/FSA-LMN-Kit und 10-Jahres-Rahmengarantie-Registrierung.",
+    ownerCardTitle: "Besitzerbereich personalisieren",
+    ownerCardDesc:
+      "Geben Sie Ihre Bestellreferenz und E-Mail-Adresse ein, um Ihre HSA/FSA-Unterlagen und die 10-Jahres-Garantie vorab auszufüllen – oder erkunden Sie sofort den interaktiven Vorschaumodus.",
+    signedInAs: "Verifizierter Besitzerbereich aktiv",
+    signOut: "Profil wechseln",
+    activateBtn: "Besitzerprofil aktivieren",
+    tabs: {
+      overview: "Übersicht & 30-Tage-Plan",
+      routine: "Sitzungstimer & Videos",
+      biometrics: "Biometrie & Komfortlog",
+      documents: "HSA/FSA & Montage-Kit",
+      warranty: "Garantie & Support",
+    },
+  },
 };
 
 const GOAL_KEYS: ConditionGoal[] = [

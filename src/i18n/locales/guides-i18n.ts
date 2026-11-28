@@ -259,6 +259,68 @@ const GUIDE_TRANSLATIONS: Record<
         },
       ],
     },
+    de: {
+      title:
+        "Inversionsbänke vs. Schrägentlastung: Warum Flachwinkel-Traktion sicherer ist",
+      category: "Alternative zur Inversion",
+      readTime: "8 Min. Lesezeit",
+      author: {
+        name: "Evminov Redaktion für Wirbelsäulen-Biomechanik",
+        role: "Forschung für Rückengesundheit",
+        credentials: "30 Jahre Dokumentation der Evminov-Methode (seit 1996)",
+      },
+      excerpt:
+        "Kopfüberhängen bei 60°–90° lässt Augen- und Schädeldruck ansteigen und klemmt die Knöchel ein. Entdecken Sie die Physik kontrollierter 8°–35°-Entlastung auf resonanter Kiefer.",
+      sections: [
+        {
+          id: "gravity-paradox",
+          heading: "1. Das Schwerkraft-Paradoxon beim Kopfüberhängen",
+          paragraphs: [
+            "Jahrzehntelang wurden Inversionsbänke aus Stahl als Standardgerät für zu Hause vermarktet. Doch das menschliche Herz-Kreislauf- und Augensystem ist nicht für anhaltendes Kopfüberhängen geschaffen.",
+            "Augenärztliche Studien dokumentieren deutliche Anstiege des Augeninnendrucks (IOD) bei voller Inversion, während sich venöses Blut im Kopf staut — ungeeignet bei Bluthochdruck, Glaukom, Schwindel oder Nebenhöhlendruck.",
+          ],
+        },
+        {
+          id: "ankle-and-support",
+          heading: "2. Knöchelklemmung und fehlende Rückenunterstützung",
+          paragraphs: [
+            "Klassische Inversionsbänke fixieren die Knöchel und hängen das gesamte Oberkörpergewicht an Knien und Iliosakralgelenken auf. Viele Nutzer geben allein wegen Knöchelschmerzen auf.",
+            "Zudem begünstigt freies Hängen ohne durchgehende Rückenauflage eine Lenden-Überstreckung und löst Schutzspasmen der Muskulatur aus.",
+          ],
+        },
+        {
+          id: "low-angle-physics",
+          heading: "3. Kontrollierte Flachwinkel-Physik (8° bis 35°)",
+          paragraphs: [
+            "Auf dem patentierten Evminov Board (US-Patent 6,869,387 B2) bleibt der Kopf über dem Herzen, während die Wirbelsäule auf federnder Karpaten-Kiefer ruht. Bei 18° erlebt ein 82 kg schwerer Erwachsener ~19 kg sanfte Axialentlastung.",
+            "Ohne Kopfdruck oder Knöchelklammern entspannt das Nervensystem den Rücken binnen Sekunden und ermöglicht aktive Stabilisierungsübungen mit kleiner Amplitude.",
+          ],
+          bullets: [
+            "Kopf über Herzhöhe — keine Gesichtsrötung und kein Nebenhöhlendruck.",
+            "Keine Knöchel- oder Knieklammern — Hände ruhen bequem am gepolsterten Schlitten.",
+            "Natürliche Kiefernfederung stützt die Lendenwirbelsäule und verhindert Überstreckung.",
+            "Klappbar auf 6 cm an der Wand statt über 1,4 m² Bodenfläche zu belegen.",
+          ],
+        },
+        {
+          id: "who-should-switch",
+          heading: "4. Die richtige Alternative für Ihr Zuhause wählen",
+          paragraphs: [
+            "Wenn Sie tägliche Entlastung ohne Schwindel, Knöchelschmerzen und riesigen Stahlrahmen suchen, bietet das schräge Holzboard präzise Kontrolle, eine kostenlose Glisson-Nackenschlinge und über 20 Jahre Lebensdauer.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Ist ein Schrägbrett für Personen über 50 sicherer als eine Teeter Inversionsbank?",
+          a: "In den meisten Fällen ja, denn das Liegen mit erhöhtem Kopf bei 8°–25° vermeidet Augen- und Schädeldruckspitzen sowie Belastungen der Sprunggelenke.",
+        },
+        {
+          q: "Wie viel Zugkraft erzeugt ein Winkel von 15° bis 20°?",
+          a: "Für einen Erwachsenen mit 77–90 kg Körpergewicht entstehen bei 15° bis 20° rund 14 bis 25 kg sanfte Längsentlastung.",
+        },
+      ],
+    },
   },
   "how-to-decompress-herniated-disc-l4-l5-at-home": {
     es: {
@@ -450,6 +512,54 @@ const GUIDE_TRANSLATIONS: Record<
         {
           q: "Сколько минут стоит заниматься новичкам вначале?",
           a: "Начинайте с 6–8 минут под углом 8°–12° один-два раза в день, постепенно увеличивая длительность до 10–15 минут.",
+        },
+      ],
+    },
+    de: {
+      title:
+        "Leitfaden für Lendenentlastung zu Hause: L4–L5 / L5–S1 Bandscheiben-Biomechanik & Winkelprogression",
+      category: "Lenden-Biomechanik",
+      readTime: "9 Min. Lesezeit",
+      author: {
+        name: "Evminov Redaktion für Wirbelsäulen-Biomechanik",
+        role: "Forschung für Rückengesundheit",
+        credentials: "30 Jahre Dokumentation der Evminov-Methode (seit 1996)",
+      },
+      excerpt:
+        "Verstehen Sie, warum Bandscheiben Erwachsener keine direkte Blutversorgung haben, wie sanfte Bewegung den Flüssigkeitsaustausch fördert und wie Sie sicher von 8° auf 25° steigern.",
+      sections: [
+        {
+          id: "avascular-biology",
+          heading: "1. Warum Lendenbandscheiben auf entlasteten Flüssigkeitsaustausch angewiesen sind",
+          paragraphs: [
+            "Die Segmente L4–L5 und L5–S1 tragen beim Sitzen und Heben über 60 % des Oberkörpergewichts. Da Bandscheiben Erwachsener gefäßfrei (avaskulär) sind, werden sie über osmotische Diffusion durch die Endplatten versorgt.",
+            "Wird die Schwerkraftlast auf einer schiefen Ebene herausgenommen und mit rhythmischen Mikrobewegungen kombiniert, unterstützt der osmotische Austausch die Rückführung von Flüssigkeit und Nährstoffen ins Bandscheibengewebe.",
+          ],
+        },
+        {
+          id: "three-stage-progression",
+          heading: "2. Die 3-Stufen-Progression nach Evminov",
+          paragraphs: [
+            "Zu schnelles Steigern auf steile Winkel löst Schutzspasmen aus. Die klassische Progression baut Schritt für Schritt Belastbarkeit auf:",
+          ],
+          bullets: [
+            "Stufe 1 — Sanfte Entlastung (Wochen 1–2, 8°–12°): 8 Min. Rückenlage mit Zwerchfellatmung und Fußwippen.",
+            "Stufe 2 — Aktivierung der Tiefenmuskulatur (Wochen 3–6, 14°–22°): Sanfte Beckenkippungen und Beingleiten zur Aktivierung des Multifidus.",
+            "Stufe 3 — Tägliche Pflege (Dauerhaft, 15°–30°): 10 Min. ein- bis zweimal täglich als Ausgleich zum Sitzen.",
+          ],
+        },
+        {
+          id: "safety-screening",
+          heading: "3. Medizinische Warnsignale & Kontraindikationen",
+          paragraphs: [
+            "Heim-Konditionierungsboards sind allgemeine Wellness-Geräte (HTS 9506.91.0030) und ersetzen niemals ärztliche Hilfe bei Fußheberschwäche, Blasen-/Darmstörungen, akutem Trauma oder zunehmend ausstrahlenden Beinschmerzen.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Wie viele Minuten sollten Einsteiger auf dem Evminov Board beginnen?",
+          a: "Starten Sie mit 6 bis 8 Minuten bei 8°–12° ein- bis zweimal täglich und steigern Sie allmählich auf 10–15 Minuten.",
         },
       ],
     },
@@ -647,6 +757,54 @@ const GUIDE_TRANSLATIONS: Record<
         },
       ],
     },
+    de: {
+      title:
+        "Kraftsport-Ratgeber: Wirbelsäulen-Kompression nach schwerem Kreuzheben & Kniebeugen umkehren",
+      category: "Athleten-Regeneration",
+      readTime: "7 Min. Lesezeit",
+      author: {
+        name: "Evminov Team für Athletik & Regeneration",
+        role: "Kraft- & Mobilitäts-Biomechanik",
+        credentials: "Sportbiomechanik & Home-Gym-Regeneration",
+      },
+      excerpt:
+        "Aushängen an der Klimmzugstange aktiviert den Latissimus und hält den unteren Rücken unter Spannung. So entspannen Kraftsportler und Läufer ihre Rückenstrecker wirklich.",
+      sections: [
+        {
+          id: "barbell-compression",
+          heading: "1. Was schwere Axiallasten mit Ihrer Wirbelsäule machen",
+          paragraphs: [
+            "Schwere Kniebeugen, Kreuzheben und hohe Laufumfänge stauchen die Lendenbandscheiben. Stadiometrie-Messungen zeigen nach intensiven Einheiten eine vorübergehende Abnahme der Körpergröße um 8 bis 15 mm.",
+          ],
+        },
+        {
+          id: "why-pullup-hangs-fail",
+          heading: "2. Warum Aushängen an der Klimmzugstange den Rücken angespannt lässt",
+          paragraphs: [
+            "Beim Hängen sind starke Griffkraft und Latissimus-Spannung nötig — und der Latissimus setzt direkt an der thorakolumbalen Faszie an, wodurch der untere Rücken nicht loslassen kann.",
+            "Auf dem Wide Heavy-Duty Board (bis 150 kg / 330 lbs) schalten Schultern und Rückenstrecker komplett ab, während 20°–30° Neigung die Wirbelsäule sanft entlasten.",
+          ],
+        },
+        {
+          id: "post-workout-sequence",
+          heading: "3. 10-Minuten-Regenerationssequenz nach dem Training",
+          paragraphs: [
+            "Führen Sie dieses Cool-down unmittelbar nach Ihrem Bein- oder Rückentraining aus:",
+          ],
+          bullets: [
+            "Minuten 1–4 (20°): Passive Rückenlage mit langen, ruhigen Ausatmungen durch die Nase.",
+            "Minuten 5–7 (22°–25°): Abwechselndes Beingleiten und Dehnung der Beinrückseite ohne Einrunden der Lende.",
+            "Minuten 8–10 (25°): Kompressionsfreies schräges Bauchtraining und Hüftbrücken.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Kann ein 118 kg (260 lbs) schwerer Kraftsportler das Evminov Board sicher nutzen?",
+          a: "Ja — wählen Sie das Wide Panel Heavy-Duty Board mit 30 % breiterem Kern, ausgelegt bis 150 kg (330 lbs) und 2,06 m Körpergröße.",
+        },
+      ],
+    },
   },
   "sciatica-relief-exercises-home-equipment": {
     es: {
@@ -806,6 +964,46 @@ const GUIDE_TRANSLATIONS: Record<
         {
           q: "Можно ли заниматься через резкую простреливающую боль в ноге?",
           a: "Никогда. Каждое движение должно приносить облегчение; если боль спускается ниже по ноге, уменьшите угол или обратитесь к врачу.",
+        },
+      ],
+    },
+    de: {
+      title:
+        "Ischias-Komfort zu Hause: Sanfte Schrägentlastung & schonende Mobilität",
+      category: "Ischias-Entlastung",
+      readTime: "7 Min. Lesezeit",
+      author: {
+        name: "Evminov Redaktion für Wirbelsäulen-Biomechanik",
+        role: "Forschung für Rückengesundheit",
+        credentials: "30 Jahre Dokumentation der Evminov-Methode (seit 1996)",
+      },
+      excerpt:
+        "Warum sanfte Entlastung mit gebeugten Knien bei 10°–15° Lenden- und Gesäßspannungen deutlich angenehmer löst als intensives Dehnen.",
+      sections: [
+        {
+          id: "mechanical-compression",
+          heading: "1. Mechanische Spannung entlang des Ischiasnervs verstehen",
+          paragraphs: [
+            "Der Ischiasnerv entspringt den Nervenwurzeln L4–S3 und verläuft über das Gesäß hinab ins Bein. Langes gebeugtes Sitzen, ein verspannter Piriformis und gestauchte Bandscheiben verstärken die mechanische Reizung.",
+          ],
+        },
+        {
+          id: "gentle-bent-knee-sequence",
+          heading: "2. Sanfte 3-Schritte-Sequenz auf dem Schrägbrett",
+          paragraphs: [
+            "In empfindlichen Phasen zieht starkes Dehnen mit gestrecktem Bein am gereizten Nerv. Starten Sie stets behutsam im flachen Winkel:",
+          ],
+          bullets: [
+            "Schritt 1 (10°, 4 Min.): Entspannte Rückenlage mit leicht angewinkelten Knien.",
+            "Schritt 2 (12°–15°, 4 Min.): Langsames Fußwippen und schmerzfreies, einbeiniges Gleiten.",
+            "Schritt 3 (Sicheres Absteigen): 2 Min. ruhen, dann vor dem Aufstehen behutsam auf die Seite rollen.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Sollte ich bei stechendem Beinschmerz weiterüben?",
+          a: "Niemals. Jede Bewegung sollte spürbar entlasten; wenn Schmerzen weiter ins Bein ausstrahlen, reduzieren Sie den Winkel oder ziehen Sie einen Arzt hinzu.",
         },
       ],
     },
@@ -971,6 +1169,46 @@ const GUIDE_TRANSLATIONS: Record<
         },
       ],
     },
+    de: {
+      title:
+        "7-Minuten-Rücken-Reset fürs Homeoffice: 9 Stunden Sitzen & Handynacken ausgleichen",
+      category: "Büro-Ergonomie",
+      readTime: "7 Min. Lesezeit",
+      author: {
+        name: "Evminov Ergonomie-Gruppe",
+        role: "Haltung & Mobilität am Arbeitsplatz",
+        credentials: "Spezialisten für Wirbelsäulen-Hygiene zu Hause",
+      },
+      excerpt:
+        "Selbst ein $1,500-Bürostuhl hebt die Schwerkraftkompression nicht auf. So entlasten Entwickler und Büroangestellte ihren Rücken in 7 Minuten.",
+      sections: [
+        {
+          id: "seated-pressure",
+          heading: "1. Die biomechanischen Kosten von 9 Stunden auf dem Stuhl",
+          paragraphs: [
+            "Vorgebeugtes Sitzen lässt den intradiskalen Druck in der Lendenwirbelsäule stark ansteigen, während ein 45°-Neigungswinkel des Kopfes zum Laptop die Nackenlast von 5 kg auf fast 22 kg erhöht.",
+          ],
+        },
+        {
+          id: "seven-minute-protocol",
+          heading: "2. Der tägliche 7-Minuten-Reset im Homeoffice",
+          paragraphs: [
+            "Verstauen Sie das 2-teilige Klappboard im Schrank oder hinter der Tür — oder nutzen Sie den freistehenden Ständer ohne Bohren:",
+          ],
+          bullets: [
+            "Minuten 1–3 (15°): Brustkorb-Öffnung in Rückenlage mit 10 tiefen Atemzügen.",
+            "Minuten 4–5 (10°): Sanfte Halswirbel-Traktion mit der enthaltenen Glisson-Schlinge.",
+            "Minuten 6–7 (16°): Langsames einbeiniges Gleiten zur Dehnung des Psoas.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Können Mieter das Evminov Board ohne Bohren in die Wand nutzen?",
+          a: "Ja! Mit dem zerlegbaren freistehenden Ständer ($275 Direkt / $345 CA Express) bleiben Wände komplett unversehrt auf unter 0,33 m² Stellfläche.",
+        },
+      ],
+    },
   },
   "toothbrush-for-the-spine-daily-disc-hygiene": {
     es: {
@@ -1114,6 +1352,42 @@ const GUIDE_TRANSLATIONS: Record<
         {
           q: "Сколько минут в день достаточно для профилактической гигиены позвоночника?",
           a: "Регулярные короткие сеансы по 8–12 минут 1–2 раза в день эффективнее редких длинных тренировок.",
+        },
+      ],
+    },
+    de: {
+      title:
+        "Die „Zahnbürste für die Wirbelsäule“: Warum 10 Minuten täglich reaktive Behandlung schlagen",
+      category: "Präventive Wirbelsäulen-Hygiene",
+      readTime: "8 Min. Lesezeit",
+      author: {
+        name: "Evminov Redaktion für Wirbelsäulen-Biomechanik",
+        role: "Tradition der Rückengesundheit",
+        credentials: "Methoden-Archiv von Wjatscheslaw Evminov (seit 1996)",
+      },
+      excerpt:
+        "Wir putzen täglich 32 Zähne, um Probleme zu vermeiden, ignorieren aber 32 Wirbel bis zum ersten Schmerz. Die präventive Philosophie hinter Evminov.",
+      sections: [
+        {
+          id: "jama-evidence",
+          heading: "1. Was große systematische Übersichten zeigen",
+          paragraphs: [
+            "Eine systematische Übersichtsarbeit in JAMA Internal Medicine (Steffens et al., 30.850 Teilnehmende) kam zu dem Schluss, dass strukturierte Bewegung in Kombination mit Aufklärung die zuverlässigste Maßnahme zur Vorbeugung wiederkehrender Lendenbeschwerden ist.",
+            "Auch die globalen WHO-Leitlinien 2023 priorisieren nicht-medikamentöse, strukturierte Bewegung gegenüber rein passiven Übergangslösungen.",
+          ],
+        },
+        {
+          id: "thirty-two-vertebrae",
+          heading: "2. Wirtschaftlichkeit täglicher 10-Minuten-Prävention",
+          paragraphs: [
+            "Wjatscheslaw Evminov prägte in den 1990er-Jahren das Konzept der „täglichen Wirbelsäulen-Hygiene“. Ein handgefertigtes Board für $450 hält über 20 Jahre und dient einer dreiköpfigen Familie — rund $7.50 pro Person und Jahr.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Wie viele Minuten täglich reichen für präventive Wirbelsäulen-Hygiene?",
+          a: "Kurze, regelmäßige Einheiten von 8 bis 12 Minuten ein- bis zweimal täglich sind deutlich wirksamer als seltene lange Trainings.",
         },
       ],
     },
@@ -1319,6 +1593,56 @@ const GUIDE_TRANSLATIONS: Record<
         },
       ],
     },
+    de: {
+      title:
+        "Komplett-Ratgeber für Kauf & Montage zu Hause (16\"-US-Holzständer, HSA/FSA & Modelle)",
+      category: "Kaufberatung",
+      readTime: "10 Min. Lesezeit",
+      author: {
+        name: "Evminov USA Team für Beratung & Logistik",
+        role: "Versand & Kundenservice, Glendale, Kalifornien",
+        credentials: "Spezialisten für US-Montage & HSA/FSA",
+      },
+      excerpt:
+        "Alles vor Ihrer Bestellung: Wahl zwischen Kiefer, Erle oder Wide-Modell, Montage an 16\"-Holzständern, Mieter-Ständer ohne Bohren und HSA/FSA-Belege.",
+      sections: [
+        {
+          id: "choosing-your-model",
+          heading: "1. Das richtige unter den 5 Evminov Board-Modellen wählen",
+          paragraphs: [
+            "Die optimale Wahl hängt von drei Faktoren ab: Ihrer Körpergröße und Ihrem Gewicht, Ihrem Platzangebot sowie dem Bedarf an Transportierbarkeit.",
+          ],
+          bullets: [
+            "Standard Massiv-Kiefer ($450 Direkt / $595 CA Express): Ideal für dauerhafte Wandmontage bis 1,93 m und 95 kg (210 lbs).",
+            "2-teilig Klappbar ($475 / $615): In 30 Sekunden in zwei Hälften teilbar für Schrank oder unter dem Bett (bis 100 kg / 220 lbs).",
+            "3-teilig Reise ($495 / $635): Passt in eine 79-cm-Reisetasche inkl. Türanker (bis 100 kg / 220 lbs).",
+            "Wide Heavy-Duty ($500 / $635): +30 % breiter und verstärkt bis 150 kg (330 lbs) und 2,06 m (6'9\").",
+            "Select Erlenholz ($525 / $665): ~15 % leichter (8,6–9,5 kg / 19–21 lbs) für müheloses Verstellen.",
+          ],
+        },
+        {
+          id: "us-wall-mounting",
+          heading: "2. Montage an US-Standard-Holzständern (16\") oder Ständer ohne Bohren",
+          paragraphs: [
+            "Die Montage dauert ~15 Minuten: Einen einzelnen Holzständer per Ortungsgerät finden, zwei Führungslöcher bohren und die enthaltene Halterung verschrauben. Zusammengeklappt liegt das Board nur 6 cm flach an der Wand.",
+            "Sie wohnen zur Miete? Ergänzen Sie den zerlegbaren freistehenden Ständer ($275 Direkt / $345 CA Express) — ganz ohne Bohrlöcher.",
+          ],
+        },
+        {
+          id: "hsa-fsa-step-by-step",
+          heading: "3. HSA / FSA Vorsteuer-Guthaben nutzen (~25–35 % Ersparnis)",
+          paragraphs: [
+            "Viele US-Käufer sparen 25 %–35 % über HSA/FSA, indem sie ein kurzes Letter of Medical Necessity (LMN) von ihrem Arzt einholen und unseren detaillierten Einzelbeleg bei ihrem Plan-Administrator einreichen (vorbehaltlich Plangenehmigung).",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Wie schnell versendet Evminov USA ab Kalifornien?",
+          a: "CA-Express-Bestellungen verlassen unser Lager in Glendale, CA versichert per UPS/FedEx: 1–2 Werktage Westküste, 2–3 Zentral-/Südstaaten und 3–4 Ostküste.",
+        },
+      ],
+    },
   },
   "pediatric-scoliosis-prevention-kids-posture-spine": {
     es: {
@@ -1482,6 +1806,47 @@ const GUIDE_TRANSLATIONS: Record<
         {
           q: "Подойдёт ли одна доска для 9-летнего ребёнка и отца ростом 188 см?",
           a: "Да. Подвижная каретка переставляется за 5 секунд под любой рост членов семьи.",
+        },
+      ],
+    },
+    de: {
+      title:
+        "Ratgeber Kinder- & Familienhaltung: Rucksäcke & Bildschirme in 5 Minuten ausgleichen",
+      category: "Familien- & Jugendhaltung",
+      readTime: "7 Min. Lesezeit",
+      author: {
+        name: "Evminov Team für Familienhaltung",
+        role: "Jugend-Ergonomie & symmetrische Bewegung",
+        credentials: "Evminov Methoden-Archiv (seit 1996)",
+      },
+      excerpt:
+        "Wie eine symmetrische Holzfläche und 5-Minuten-Routinen mit Musik Kindern und Jugendlichen helfen, gesunde Haltungsgewohnheiten zu entwickeln.",
+      sections: [
+        {
+          id: "modern-school-posture",
+          heading: "1. Schulrucksäcke, Schreibtische & Smartphone-Haltung",
+          paragraphs: [
+            "Schulkinder verbringen 6–8 Stunden im Sitzen, gefolgt von Stunden vor Bildschirmen und schweren Rucksäcken — das fördert früh Muskel-Asymmetrien und vorgefallene Schultern.",
+          ],
+        },
+        {
+          id: "playful-symmetry-routine",
+          heading: "2. Tägliche Haltung spielerisch machen (5–8 Minuten mit Musik)",
+          paragraphs: [
+            "Der Evminov-Jugendansatz setzt auf kurze, rhythmische und betreute Einheiten bei sanften Winkeln von 6°–12°:",
+          ],
+          bullets: [
+            "Kinder immer beaufsichtigen und sehr flache Winkel (6°–12°) wählen.",
+            "Jede Bewegung strikt beidseitig und symmetrisch ausführen.",
+            "5 Minuten fröhliche Musik direkt nach den Hausaufgaben einplanen.",
+            "Bei Verdacht auf strukturelle Skoliose stets einen Kinderorthopäden hinzuziehen.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Passt ein einziges Board für ein 9-jähriges Kind und einen 1,88 m großen Vater?",
+          a: "Ja. Der verschiebbare Schlitten lässt sich in 5 Sekunden entlang des gesamten Boards für jedes Familienmitglied anpassen.",
         },
       ],
     },

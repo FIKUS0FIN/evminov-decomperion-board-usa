@@ -322,6 +322,78 @@ const COMPARISONS_TRANSLATIONS: Record<
         },
       ],
     },
+    de: {
+      shortTitle: "Evminov vs. Inversionsbänke",
+      title:
+        "Evminov Wirbelsäulen-Board vs. Inversionsbänke: Die sichere Flachwinkel-Alternative",
+      metaTitle:
+        "Alternative zur Inversionsbank: Evminov Board vs. Kopfüber-Hängen",
+      metaDescription:
+        "Vergleichen Sie das schräge Evminov Board (8°–35°) mit 90°-Inversionsbänken. Kein Blutandrang im Kopf, kein Knöcheldruck, volle Holzunterstützung und aktives Rumpftraining.",
+      competitorName: "Traditionelle Inversionsbänke",
+      eyebrow: "Direkter Vergleich • Alternative zur Inversion",
+      summary:
+        "Herkömmliche Inversionsbänke zwingen Sie, kopfüber an den Knöcheln zu hängen, was Kopf- und Augendruck stark ansteigen lässt. Das patentierte Evminov Board bietet kalibrierte Entlastung bei 8°–35°, während Ihr Rücken vollflächig auf federnder Karpaten-Kiefer ruht.",
+      keyTakeaways: [
+        "Der Kopf bleibt über dem Oberkörper: kein Blutandrang, ideal für Erwachsene, die auf Blutdruck oder Schwindel achten.",
+        "Das Körpergewicht ruht sanft auf elastischer Karpaten-Kiefer statt an den empfindlichen Sprunggelenken zu hängen.",
+        "Kombiniert sanfte Traktion mit aktiven Mikrobewegungen, die das tiefe paravertebrale Muskelkorsett stärken.",
+        "Lässt sich auf nur 6 cm (2.4\") flach an die Wand klappen statt über 1,4 m² Wohnfläche zu blockieren.",
+      ],
+      rows: [
+        {
+          metric: "Arbeitswinkel",
+          evminov: "Präzise flache Winkel (8° bis 35°)",
+          alternative: "Steile Inversion (60° bis 90° kopfüber)",
+        },
+        {
+          metric: "Blut- & Augendruck",
+          evminov: "Kein Druckanstieg im Kopf — aufrechte Kopfposition",
+          alternative: "Spürbarer Anstieg von systolischem und Augeninnendruck",
+        },
+        {
+          metric: "Knöchel- & Kniekomfort",
+          evminov: "Null Klemmdruck auf Knöchel oder Knie",
+          alternative: "100 % Körpergewicht hängt in den Knöchelklammern",
+        },
+        {
+          metric: "Wirbelsäulen-Unterstützung",
+          evminov: "Vollflächiger ergonomischer Kontakt auf federnder Kiefer",
+          alternative: "Frei hängend — Risiko einer Lenden-Überstreckung",
+        },
+        {
+          metric: "Muskelkräftigung",
+          evminov: "Aktives Training von tiefem Rumpf & Multifidi in Entlastung",
+          alternative: "Rein passives Hängen",
+        },
+        {
+          metric: "Platzbedarf zu Hause",
+          evminov: "Schlankes 6-cm-Wandprofil (2.4\") oder Klappmodelle",
+          alternative: "Schweres Stahlgestell mit über 1,4 m² Stellfläche",
+        },
+      ],
+      deepDiveSections: [
+        {
+          heading:
+            "Warum 15°–22° Schrägtraktion der 90°-Inversion überlegen ist",
+          body: "Nach der grundlegenden Mechanik der schiefen Ebene (F = W × sin θ − Reibung) erlebt ein 82 kg (180 lbs) schwerer Nutzer bei 18° rund 19 kg (42 lbs) gleichmäßige, sanfte Axialentlastung — genug, um den Bandscheibendruck zu senken, ohne Schutzspasmen der Rückenmuskulatur oder Blutandrang im Kopf auszulösen.",
+        },
+        {
+          heading: "Aktive Stabilisierung vs. kurzfristiges passives Hängen",
+          body: "Passives Hängen bringt oft nur 5 Minuten Erleichterung, doch beim Aufstehen drücken schwache Tiefenstabilisatoren die Wirbel sofort wieder zusammen. Auf dem Evminov Board trainieren sanfte Mikrobewegungen in der Entlastung die tiefen Multifidi und Rotatoren, sodass Ihre Haltung weit über die 10-Minuten-Einheit hinaus stabil bleibt.",
+        },
+      ],
+      faqs: [
+        {
+          q: "Können Senioren oder Menschen mit Bluthochdruck das Evminov Board nutzen?",
+          a: "Da der Kopf bei den Standardwinkeln von 8°–25° stets über dem Oberkörper bleibt, vermeidet das Evminov Board den kopfwärts gerichteten Gefäßdruck klassischer Inversionsbänke. Bei unkontrolliertem Bluthochdruck oder Herz-Kreislauf-Erkrankungen halten Sie bitte stets ärztliche Rücksprache.",
+        },
+        {
+          q: "Bietet das Evminov Board genauso viel Wirbelsäulendehnung wie eine Inversionsbank?",
+          a: "Ja — und mit deutlich feinerer Dosierung. Durch schrittweises Verstellen der Neigung passen Sie die Zugkraft sanft von ~7 kg bis über 36 kg an, während Ihre Knöchel völlig entlastet bleiben.",
+        },
+      ],
+    },
   },
   "evminov-vs-teeter": {
     es: {
@@ -556,6 +628,64 @@ const COMPARISONS_TRANSLATIONS: Record<
         },
       ],
     },
+    de: {
+      shortTitle: "Evminov vs. Teeter",
+      title:
+        "Evminov Board vs. Teeter Inversionsbank: Der direkte Vergleichsratgeber",
+      metaTitle:
+        "Alternative zur Teeter Inversionsbank | Evminov Board vs. Teeter",
+      metaDescription:
+        "Suchen Sie eine Alternative zur Teeter Inversionsbank? Vergleichen Sie die Schrägentlastung aus Karpaten-Kiefer von Evminov mit Teeter bei Sicherheit, Platzbedarf, Preis und Ergebnissen.",
+      competitorName: "Teeter Inversionsbänke",
+      eyebrow: "Markenvergleich • Teeter-Alternative",
+      summary:
+        "Teeter ist die bekannteste Inversionsbank-Marke in den USA, doch viele Käufer geben sie wegen Knöchelschmerzen, Schwindel und des sperrigen Stahlrahmens zurück. Sehen Sie, wie das Evminov Board in jedem praktischen Punkt abschneidet.",
+      keyTakeaways: [
+        "Vergleichbarer Einmalpreis ($450–$635) ohne verschleißende Knöchelpolster zum Nachkaufen.",
+        "Kein Schwindel und kein Gesichtsdruck — angenehm direkt morgens sowie vor dem Schlafengehen.",
+        "Inklusive kostenloser Glisson-Nackenschlinge für Halswirbel-Komfort und Bildschirmentlastung.",
+        "Handgefertigte Naturholz-Optik, die sich harmonisch in Schlafzimmer und moderne Home-Gyms einfügt.",
+      ],
+      rows: [
+        {
+          metric: "Einstiegspreis",
+          evminov: "$450 Direkt / $595 CA Express",
+          alternative: "$379 – $699 je nach Teeter-Serie",
+        },
+        {
+          metric: "Kopfüber-Unbehagen",
+          evminov: "Keines (Kopf bleibt oben bei 8°–35°)",
+          alternative: "Häufiger Druck in Nebenhöhlen, Augen und Kopf",
+        },
+        {
+          metric: "Knöchelklammer-Schmerz",
+          evminov: "Keiner — bequeme Griffe am oberen Schlitten",
+          alternative: "Häufige Beschwerden an Knöcheln und Knien",
+        },
+        {
+          metric: "Halswirbel-Traktion",
+          evminov: "Glisson-Nackenschlinge inklusive",
+          alternative: "Nicht enthalten / nur passives Hängen",
+        },
+        {
+          metric: "Wohnungs-Stauraum",
+          evminov: "Flaches 6-cm-Wandprofil (2.4\") oder 2-/3-teilig klappbar",
+          alternative: "Schwerer 30–34 kg Stahlrahmen (65–75 lbs), schwer zu bewegen",
+        },
+      ],
+      deepDiveSections: [
+        {
+          heading: "Warum Käufer von Teeter auf Evminov umsteigen",
+          body: "Die meisten Teeter-Besitzer nutzen ihre Bank nach 3 Wochen kaum noch, weil das Einrasten der Knöchelklammern und das Kopfüber-Kippen unangenehm sind und das Gestell den halben Raum blockiert. Das Evminov Board ist in 10 Sekunden einsatzbereit, wiegt nur 8,6–11,8 kg und fühlt sich ab der ersten Minute wohltuend an.",
+        },
+      ],
+      faqs: [
+        {
+          q: "Ist das Auf- und Absteigen beim Evminov Board einfacher als bei einer Teeter-Bank?",
+          a: "Ja. Sie setzen sich einfach auf den unteren Teil des schrägen Boards, legen sich sanft zurück und greifen die gepolsterten Schlittengriffe — ganz ohne Knöchelhebel und ohne das Risiko, kopfüber festzustecken.",
+        },
+      ],
+    },
   },
   "evminov-vs-back-stretcher": {
     es: {
@@ -767,6 +897,59 @@ const COMPARISONS_TRANSLATIONS: Record<
         {
           q: "Можно ли использовать массажный роллер вместе с Доской Евминова?",
           a: "Да — роллер хорошо подходит для миофасциальной разминки бёдер и верхней части спины, а Доска Евминова даёт подлинную осевую разгрузку позвоночника, которую не способен заменить ни один напольный роллер.",
+        },
+      ],
+    },
+    de: {
+      shortTitle: "Evminov vs. Rückenstrecker",
+      title:
+        "Evminov Board vs. Kunststoff-Rückenstrecker & Faszienrollen",
+      metaTitle:
+        "Evminov Board vs. Rückenstrecker-Bögen und Faszienrollen",
+      metaDescription:
+        "Warum $30-Kunststoff-Rückenbögen und Faszienrollen nur oberflächlich drücken, während das schräge Evminov Board echte axiale Wirbelsäulenentlastung erzeugt.",
+      competitorName: "Kunststoff-Rückenstrecker",
+      eyebrow: "Gerätevergleich • Echte Axialentlastung",
+      summary:
+        "Kunststoffbögen auf dem Boden drücken Ihre Lendenwirbelsäule nach oben in eine Überstreckung, was die hinteren Facettengelenke einengen kann. Echte Wirbelsäulenentlastung erfordert eine sanfte axiale Längsstreckung auf einer schiefen Ebene.",
+      keyTakeaways: [
+        "Echte longitudinale Axialtraktion statt passivem Punktdruck auf einen einzelnen Wirbel.",
+        "Keine harten Kunststoffkanten, die in die Dornfortsätze drücken.",
+        "Ganzheitliche Ausrichtung für Hals-, Brust- und Lendenwirbelsäule auf einem langlebigen Gerät.",
+      ],
+      rows: [
+        {
+          metric: "Biomechanische Kraft",
+          evminov: "Longitudinale axiale Dekompression (entlang der Wirbelsäule)",
+          alternative: "Punktueller Überstreckungsdruck gegen den Boden",
+        },
+        {
+          metric: "HWS + BWS + LWS",
+          evminov: "Vollständige Abdeckung aller 32 Wirbel",
+          alternative: "Nur ein kleiner Bogen im unteren Rücken",
+        },
+        {
+          metric: "Rumpfstabilisierung",
+          evminov: "20+ progressive Routinen für die Tiefenmuskulatur",
+          alternative: "Rein passives Liegen",
+        },
+        {
+          metric: "Lebensdauer",
+          evminov: "20+ Jahre Massivholz-Konstruktion (10 Jahre Garantie)",
+          alternative: "Kunststoffermüdung oder Brüche nach wenigen Monaten",
+        },
+      ],
+      deepDiveSections: [
+        {
+          heading:
+            "Warum axiale Längsstreckung erzwungenes Hohlkreuz schlägt",
+          body: "Wenn Ihr unterer Rücken nach langem Sitzen oder Heben steif ist, komprimiert das Auflegen auf einen harten Kunststoffbuckel die hinteren Bandscheibenränder und Facettengelenke. Das Liegen auf einer sanften 12°–20°-Neigung des Evminov Boards streckt die gesamte Wirbelsäule sanft in die Länge, sodass Bandscheiben und Hüftbeuger gleichzeitig entspannen.",
+        },
+      ],
+      faqs: [
+        {
+          q: "Kann ich eine Faszienrolle zusammen mit dem Evminov Board verwenden?",
+          a: "Ja — eine Faszienrolle eignet sich gut zum myofaszialen Aufwärmen von Oberschenkeln und oberem Rücken, während das Evminov Board echte axiale Wirbelsäulenentlastung bietet, die keine Bodenrolle ersetzen kann.",
         },
       ],
     },
@@ -984,6 +1167,59 @@ const COMPARISONS_TRANSLATIONS: Record<
         },
       ],
     },
+    de: {
+      shortTitle: "Evminov vs. Klinik-Besuche",
+      title:
+        "Wirbelsäulen-Dekompression zu Hause (Evminov) vs. laufende Klinik-Sitzungen",
+      metaTitle:
+        "Heim-Dekompressionsboard vs. Klinik-Traktion: Kosten & Ergebnisse",
+      metaDescription:
+        "Vergleichen Sie eine einmalige Investition von $450 für das Evminov Board mit $3,000–$6,000/Jahr an Klinik-Zuzahlungen und Anfahrten. Der Vorteil täglicher 10-Minuten-Konstanz zu Hause.",
+      competitorName: "Klinik-Traktionssitzungen",
+      eyebrow: "Wirtschaftlichkeit & Konstanz • Heim-Rückenstation",
+      summary:
+        "Motorisierte Klinik-Traktion kostet $80–$150 pro Termin und erfordert Autofahrten quer durch die Stadt — wodurch der Rücken im Verkehr direkt nach der Behandlung oft wieder gestaucht wird. Tägliche 10-Minuten-Einheiten zu Hause entlasten jeden Morgen und Abend.",
+      keyTakeaways: [
+        "Eine einmalige Investition von $450–$665 amortisiert sich im Vergleich zu Klinik-Zuzahlungen in 3–5 Wochen.",
+        "Keine Rückfahrt im Auto nach der Einheit: Entlasten Sie direkt vor dem Schlafengehen für nachhaltigen Komfort.",
+        "Ein einziges Board lässt sich in 5 Sekunden für jedes Familienmitglied von 6 bis 85+ Jahren einstellen.",
+      ],
+      rows: [
+        {
+          metric: "Jährliche Kosten",
+          evminov: "$450–$665 einmalig (jahrzehntelange Nutzung)",
+          alternative: "$3,000–$6,000+ pro Jahr an Zuzahlungen",
+        },
+        {
+          metric: "Häufigkeit der Einheiten",
+          evminov: "Tägliche 10-Minuten-Routine morgens & abends",
+          alternative: "1–3 Termine pro Woche",
+        },
+        {
+          metric: "Anfahrt & Wartezeit",
+          evminov: "0 Minuten — direkt bei Ihnen zu Hause",
+          alternative: "150–200+ Stunden/Jahr im Straßenverkehr",
+        },
+        {
+          metric: "Familiennutzung",
+          evminov: "Die ganze Familie nutzt ein verstellbares Board",
+          alternative: "Einzelabrechnung pro Patient",
+        },
+      ],
+      deepDiveSections: [
+        {
+          heading:
+            "Warum tägliche Mikro-Einheiten vereinzelte Klinik-Termine übertreffen",
+          body: "Bandscheiben sind auf regelmäßige Zyklen aus Entlastung und sanfter Bewegung angewiesen, um gut versorgt zu bleiben. 10 Minuten auf dem Evminov Board jeden Abend vor dem Schlafen — ohne anschließende Heimfahrt auf einem engen Autositz — fördern konstanten Alltagskomfort ergänzend zur fachärztlichen Betreuung.",
+        },
+      ],
+      faqs: [
+        {
+          q: "Kann ich das Evminov Board zwischen Physiotherapie- oder Chiropraktik-Terminen nutzen?",
+          a: "Ja! Viele Physiotherapeuten und Chiropraktiker in den USA befürworten die tägliche Schrägentlastung zu Hause, um Mobilitätsfortschritte zwischen Terminen zu erhalten. Stimmen Sie Ihre Routine stets mit Ihrem Behandler ab.",
+        },
+      ],
+    },
   },
   "evminov-vs-back-surgery": {
     es: {
@@ -1175,6 +1411,54 @@ const COMPARISONS_TRANSLATIONS: Record<
         {
           q: "Можно ли использовать Доску Евминова после операции на спине?",
           a: "Только после прямого разрешения вашего оперировавшего хирурга после завершения заживления. Начинайте с минимальных углов (8°–10°) под руководством физиотерапевта.",
+        },
+      ],
+    },
+    de: {
+      shortTitle: "Konservative Pflege vs. OP",
+      title:
+        "Konservative Wirbelsäulen-Konditionierung vs. Invasive Rücken-OP: Ihre Optionen verstehen",
+      metaTitle:
+        "Konservative Rückenpflege vs. Rücken-OP | Evminov Biomechanik",
+      metaDescription:
+        "Erfahren Sie, warum internationale Leitlinien (WHO, JAMA) strukturierte, nicht-invasive Bewegung und tägliche Entlastung vor elektiven Eingriffen in den Vordergrund stellen.",
+      competitorName: "Elektive invasive Rückenoperation",
+      eyebrow: "Evidenzbasierter Überblick • Nicht-invasiv zuerst",
+      summary:
+        "Chirurgische Notfall-Warnzeichen erfordern sofortige neurochirurgische Behandlung, doch bei alltäglicher mechanischer Rückensteifheit empfehlen weltweite Gesundheitsorganisationen konsequent, zuerst mit strukturierter konservativer Bewegung zu beginnen.",
+      keyTakeaways: [
+        "Im Einklang mit den WHO-Leitlinien 2023 für nicht-medikamentöse, strukturierte Bewegung im unteren Rücken.",
+        "Keine OP-Narben, keine Ausfallzeit und kein Narkoserisiko — sanfte tägliche Steigerung.",
+        "Klare medizinische Abklärung: Lassen Sie Warnsignale stets vorab durch Ihren Wirbelsäulenspezialisten ausschließen.",
+      ],
+      rows: [
+        {
+          metric: "Invasivität",
+          evminov: "100 % nicht-invasive, natürliche Bewegung",
+          alternative: "Chirurgischer Eingriff, Narkose & Genesungszeit",
+        },
+        {
+          metric: "Typische Kosten (USA)",
+          evminov: "$450–$665 einmalig",
+          alternative: "$45,000–$120,000+ Krankenhausrechnung",
+        },
+        {
+          metric: "Tiefe Rückenmuskulatur",
+          evminov: "Kräftigt tiefe Wirbelsäulen-Stabilisatoren",
+          alternative: "Erfordert lange postoperative Rehabilitation",
+        },
+      ],
+      deepDiveSections: [
+        {
+          heading:
+            "Schließen Sie medizinische Notfall-Warnzeichen immer zuerst aus",
+          body: "Evminov Boards sind allgemeine Wellness- und Wirbelsäulen-Konditionierungsgeräte (HTS 9506.91.0030) und kein Ersatz für eine Notfall-Neurochirurgie. Symptome wie fortschreitende Beinschwäche, Fußheberschwäche, Taubheit im Reithosenbereich oder Blasen-/Darmstörungen (Cauda-equina-Syndrom) erfordern sofortige ärztliche Abklärung.",
+        },
+      ],
+      faqs: [
+        {
+          q: "Kann ich ein Evminov Board nach einer Rückenoperation verwenden?",
+          a: "Nur nach ausdrücklicher Freigabe durch Ihren behandelnden Wirbelsäulenchirurgen nach abgeschlossener Heilung. Beginnen Sie unter Anleitung Ihres Physiotherapeuten mit sehr flachen Winkeln (8°–10°).",
         },
       ],
     },

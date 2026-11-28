@@ -355,6 +355,67 @@ export const SILO_UI: Record<Locale, SiloUiStrings> = {
         "Сборка за 3 минуты без инструментов, нескользящие защитные опоры, нагрузка до 158 кг (350 lbs) — совместима с любой доской Евминова.",
     },
   },
+  de: {
+    common: {
+      backToCompareHub: "Alle Vergleiche",
+      backToConditionsHub: "Alle Rücken-Ziele",
+      backToGuidesHub: "Alle Fachratgeber",
+      configureAndOrder: "Konfigurieren & Bestellen",
+      orderBoard: "Board bestellen",
+      calculateExactAngle: "Exakten Winkel berechnen",
+      calculateSafeAngle: "Sicheren Winkel berechnen",
+      startingFrom: "Ab",
+      fromLabel: "Ab",
+      directLabel: "Direkt",
+      caExpressLabel: "CA Express",
+      homeTrialBadge: "60 Tage Heimtest",
+      glissonIncludedBadge: "Glisson-Schlinge inklusive",
+      hsaFsaReceiptBadge: "HSA/FSA-Einzelbeleg",
+    },
+    comparison: {
+      keyTakeaways: "Wichtigste Erkenntnisse",
+      criteriaHeader: "Kriterium",
+      evminovBoardHeader: "Evminov Wirbelsäulen-Board",
+      recommendedUpgrade: "Empfohlenes Upgrade",
+      faqHeading: "Häufig gestellte Fragen",
+      moreComparisons: "Weitere Vergleiche",
+    },
+    condition: {
+      suggestedAngle: "Empfohlener Winkel",
+      dailySession: "Tägliche Einheit",
+      focusArea: "Zielbereich",
+      howItWorksHeading: "Wie kontrollierte Schrägentlastung hilft",
+      starterRoutineHeading: "Progressive Heimroutine",
+      safetyNoteLabel: "Sicherheitshinweis",
+      recommendedBoardLabel: "Passendes Evminov Board",
+      qaHeading: "Fragen & Antworten",
+      otherSpineGoals: "Weitere Rücken-Ziele",
+    },
+    guide: {
+      byAuthorPrefix: "Von",
+      updatedLabel: "Aktualisiert",
+      tocAriaLabel: "Inhaltsverzeichnis",
+      inThisGuide: "In diesem Ratgeber",
+      referencesHeading: "Klinische & biomechanische Quellen",
+      keyQuestionsHeading: "Wichtige Fragen beantwortet",
+      featuredEquipment: "Empfohlene Ausstattung",
+      relatedGuides: "Verwandte Ratgeber",
+    },
+    productKeyFeatures: {
+      "standard-pine-board":
+        "Monolithischer Mehrschicht-Kern aus Karpaten-Kiefer mit verstellbarem Leichtmetall-Schlitten, kostenloser Glisson-Nackenschlinge und Wandhalterung für 16\"-US-Holzständer.",
+      "2-piece-folding-board":
+        "Spielfreie Stahl-Steckverbindung bewahrt die authentische Resonanz der Karpaten-Kiefer bei maximaler Alltagstauglichkeit in Wohnungen.",
+      "3-piece-travel-board":
+        "Passt in unter 60 Sekunden und ohne Werkzeug in jeden Limousinen-Kofferraum, SUV oder Aufgabegepäck-Koffer.",
+      "wide-heavy-duty-board":
+        "Maximaler Schulterkomfort und axiale Steifigkeit für Kraftsportler, CrossFit-Athleten sowie Personen über 210 lbs (95 kg) oder 6'4\" (193 cm).",
+      "select-alder-board":
+        "Besonders sanfte Federung und leichtes Handling von 19–21 lbs (8,6–9,5 kg) — beliebt bei Senioren, sanften Nackenroutinen und gehobenen Wohnräumen.",
+      "free-standing-stand":
+        "Werkzeuglose Demontage in 3 Minuten, kratzfeste Gummifüße, belastbar bis 350 lbs (158 kg) — kompatibel mit jedem Evminov Board.",
+    },
+  },
 };
 
 export function getSiloUi(lang: Locale): SiloUiStrings {

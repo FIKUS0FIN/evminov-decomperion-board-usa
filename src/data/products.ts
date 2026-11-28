@@ -48,6 +48,7 @@ export const PRODUCTS: ProductItem[] = [
       fr: "Planche Evminov Standard Monobloc (1 Pièce)",
       uk: "Стандартний цільний Профілактор Євмінова",
       ru: "Стандартная цельная Доска Евминова (1 секция)",
+      de: "Standard Massives Evminov Board (1-teilig)",
     },
     badge: "Flagship Original • 1-Piece Solid",
     subtitle:
@@ -107,6 +108,7 @@ export const PRODUCTS: ProductItem[] = [
       fr: "Planche Evminov Pliable 2 Pièces",
       uk: "Складаний Профілактор Євмінова з 2-х частин",
       ru: "Складная Доска Евминова из 2 частей",
+      de: "2-teiliges Faltbares Evminov Board (Platzsparend)",
     },
     badge: "Space Saver • 2-Piece Folding",
     subtitle:
@@ -160,6 +162,7 @@ export const PRODUCTS: ProductItem[] = [
       fr: "Planche Evminov Pliable 3 Pièces (Voyage)",
       uk: "Складаний Профілактор з 3-х частин (Для авто та подорожей)",
       ru: "Складная Доска Евминова из 3 частей (Для авто и путешествий)",
+      de: "3-teiliges Faltbares Evminov Board (Reise & Kofferraum)",
     },
     badge: "Car Trunk & Airline Ready • 3-Piece Travel",
     subtitle:
@@ -213,6 +216,7 @@ export const PRODUCTS: ProductItem[] = [
       fr: "Planche Evminov Large Renforcée (Jusqu'à 150 kg)",
       uk: "Широкий Профілактор Євмінова (Посилений до 150 кг)",
       ru: "Широкая Доска Евминова (Усиленная до 150 кг)",
+      de: "Breites Heavy-Duty Evminov Board (Bis 150 kg / 330 lbs)",
     },
     badge: "Heavy-Duty • Athletes & Broad Build (Up to 330 lbs)",
     subtitle:
@@ -266,6 +270,7 @@ export const PRODUCTS: ProductItem[] = [
       fr: "Planche Evminov en Aulne Sélectionné (Légère)",
       uk: "Профілактор Євмінова з відбірної Вільхи (Полегшений)",
       ru: "Доска Евминова из отборной Ольхи (Облегчённая)",
+      de: "Erlesenes Erlenholz Evminov Board (Leichtgewicht-Edition)",
     },
     badge: "Limited Edition • ~15% Lighter Alder Timber",
     subtitle:
@@ -319,6 +324,7 @@ export const PRODUCTS: ProductItem[] = [
       fr: "Support Autoportant Démontable (Sans Perçage)",
       uk: "Розбірна Підлогова Стійка-Драбина (Без Свердління)",
       ru: "Разборная Напольная Стойка-Лестница (Без Сверления)",
+      de: "Zerlegbarer Freistehender Leiterständer (Ohne Bohren)",
     },
     badge: "For Renters & Apartments • Zero Wall Holes",
     subtitle:

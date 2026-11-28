@@ -60,6 +60,7 @@ function pathnameToOutHtmlPath(pathname) {
 function expectedLangForPath(pathname) {
   if (pathname === "/es/" || pathname.startsWith("/es/")) return "es";
   if (pathname === "/fr/" || pathname.startsWith("/fr/")) return "fr";
+  if (pathname === "/de/" || pathname.startsWith("/de/")) return "de";
   if (pathname === "/uk/" || pathname.startsWith("/uk/")) return "uk";
   if (pathname === "/ru/" || pathname.startsWith("/ru/")) return "ru";
   return "en";
@@ -104,7 +105,7 @@ function auditHtml(html, expectedCanonical, relContext) {
   const isStatePage = /^\/shipping\/[^/]+\/$/.test(parsed.pathname);
   const requiredHreflangs = isStatePage
     ? ["en-US", "x-default"]
-    : ["en-US", "es-US", "fr-CA", "uk-UA", "ru", "x-default"];
+    : ["en-US", "es-US", "fr-CA", "de-DE", "uk-UA", "ru", "x-default"];
 
   for (const hl of requiredHreflangs) {
     const regex = new RegExp(
