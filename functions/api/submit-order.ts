@@ -260,172 +260,304 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
       const calcHeightLabel = escapeHtml(String(calcRaw.heightLabel || "5'10\""));
       const calcHeightCm = Number(calcRaw.heightCm || 178);
       const calcModel = escapeHtml(String(calcRaw.recommendedModel || productName || "2-Piece Folding Evminov Board (Home Storage)"));
-      const calcWidth = String(calcRaw.boardWidth || "standard") === "wide" ? "Wide Heavy-Duty (up to 330 lbs)" : "Standard Width (up to 220 lbs)";
+      const calcIsWide = String(calcRaw.boardWidth || "standard") === "wide";
+      const calcWidth = calcIsWide
+        ? lang === "uk"
+          ? "Посилена широка 30 см (понад 100 кг / до 150 кг)"
+          : lang === "ru"
+          ? "Усиленная широкая 30 см (свыше 100 кг / до 150 кг)"
+          : "Reinforced Wide 30 cm (>100 kg / up to 330 lbs)"
+        : lang === "uk"
+        ? "Стандартна ширина 26 см (до 100 кг)"
+        : lang === "ru"
+        ? "Стандартная ширина 26 см (до 100 кг)"
+        : "Standard Width 26 cm (up to 100 kg / 220 lbs)";
       const calcPrice = Number(calcRaw.priceUsd || totalUsd || 475);
       const calcOrderPath = String(calcRaw.prefilledOrderPath || `${localePrefix}/order/?product=${encodeURIComponent(product)}&angle=${calcAngle}&goal=${calcGoal}&step=1#order-form`);
       const calcOrderUrl = calcOrderPath.startsWith("http") ? calcOrderPath : `${siteOrigin}${calcOrderPath}`;
       const calcReopenUrl = `${siteOrigin}${localePrefix}/calculator/?goal=${encodeURIComponent(String(calcRaw.goal || "hernia"))}&weight=${calcWeightLbs}&angle=${calcAngle}`;
+      const calcVideoUrl = `${siteOrigin}${localePrefix}/#videos`;
+      const calcHeroImg = `${siteOrigin}/images/authentic/hero-full-device-traction.jpg`;
+      const calcBoardImg =
+        product === "3-piece-travel-board"
+          ? `${siteOrigin}/images/products/board-perspective-view.jpg`
+          : `${siteOrigin}/images/products/board-door-mount-setup.jpg`;
+      const gentleStartAngle = Math.max(8, calcAngle - 3);
 
       const protocolEmailCopy = (() => {
         if (lang === "uk") {
           return {
-            subject: `Ваш персональний план нахилу Evminov (${calcAngle}°) + Бонуси`,
+            subject: `Ваш персональний план нахилу Evminov (${calcAngle}°) + Гайд`,
+            preheader: `Безпечний кут ${calcAngle}°, тяга ${calcPull} lb і підбір розбірного Профілактора Євмінова + відео-демо.`,
             eyebrow: "ПЕРСОНАЛЬНИЙ ПЛАН ЗДОРОВОЇ СПИНИ • З 1996 РОКУ",
-            title: "Ваші результати біомеханічного калькулятора Evminov",
-            intro: "Дякуємо, що скористалися нашим калькулятором! Нижче — ваш персональний безпечний кут нахилу, рекомендована модель дошки Євмінова та корисні матеріали, які допоможуть почати заняття вдома без ризику.",
-            kpiAngle: "Рекомендований кут",
-            kpiPull: "М'яка осьова тяга",
-            kpiDisc: "Зниження тиску на диски",
+            title: `Ваш безпечний план розвантаження: ${calcAngle}°`,
+            intro: "Нижче — персональний розрахунок за методикою Євмінова, оптимальна розбірна модель під ваш зріст і вагу, стартовий графік на перший тиждень та офіційне відео методики.",
+            kpiAngle: "Кут нахилу",
+            kpiPull: "Осьова тяга",
+            kpiDisc: "Розвантаження",
             minDay: "хв/день",
-            recTitle: "ІДЕАЛЬНА МОДЕЛЬ ДЛЯ ВАШИХ ПАРАМЕТРІВ",
+            bwLabel: "від ваги тіла",
+            profileLabel: "Ваш профіль",
+            headUpNote: "Головою вгору (без припливу крові)",
+            recTitle: "ІДЕАЛЬНА МОДЕЛЬ ПІД ВАШІ ПАРАМЕТРИ",
+            recSpecs: "Світлий (вільха) або Темний (горіх) • Петля Гліссона у подарунок • Гарантія 1 рік",
+            fromLabel: "Від",
             ctaOrder: "Замовити Цю Конфігурацію →",
-            ctaCalc: "Відкрити Мій Калькулятор",
-            whyTitle: "Чому 100 000+ користувачів обирають Evminov замість інверсійного столу?",
-            why1: "Голова вище серця — нуль припливу крові до очей, запаморочення та затиску щиколоток.",
-            why2: "Резонансна деревина (Natural Warm Amber Alder або Dark Walnut Pine) + активація глибоких м'язів-стабілізаторів.",
-            why3: "Безкоштовна Петля Гліссона в комплекті, 60-денний тест-драйв вдома та гарантія 1 рік.",
-            exploreTitle: "Корисні розділи на нашому сайті",
-            linkProducts: "Порівняти 2-Piece та 3-Piece дошки",
-            linkCompare: "Evminov vs. Інверсійні столи (3D-порівняння)",
-            linkCenters: "30 років клінічної історії та відео вправ",
-            linkGuides: "Гайди по грижах L4–S1, ішіасу та поставі",
-            linkShipping: "Доставка до США та Канади (~2 тижні)",
-            linkPortal: "Клієнтський Портал і Гайд по монтажу",
-            shippingNote: "Актуальна доставка до США та Канади зараз займає ~2 тижні прямою відправкою. З Нового року повернеться швидка локальна експрес-доставка.",
+            ctaWhatsApp: "Написати у WhatsApp (+1 747 306-0140)",
+            ctaCalc: "Змінити параметри в калькуляторі",
+            starterTitle: "Ваш м’який старт: план на перші 14 днів",
+            step1Title: `Дні 1–3 • Адаптація (${gentleStartAngle}°)`,
+            step1Desc: "5–8 хвилин спокійного лежання головою вгору з плавним диханням — без різких рухів.",
+            step2Title: `Дні 4–7 • Цільове розвантаження (${calcAngle}°)`,
+            step2Desc: `${calcDuration} хв/день: м’яке подовження хребта + делікатні малоамплітудні вправи для глибоких м’язів.`,
+            step3Title: "Тиждень 2+ • Повна гігієна спини",
+            step3Desc: "Додайте 3–5 хв розвантаження шиї з Петлею Гліссона (8°–12°), що йде безкоштовно в комплекті.",
+            videoBadge: "ОФІЦІЙНЕ ВІДЕО • 4:15",
+            videoTitle: "Подивіться Профілактор Євмінова в дії + Гайд по монтажу",
+            videoDesc: "Реальна демонстрація методики, вправ і кріплення на стіну чи розбірну стійку-драбинку.",
+            videoCta: "Дивитись відео на сайті →",
+            whyTitle: "Чому 100 000+ людей обирають Evminov замість інверсійного стола",
+            why1: "Голова вище серця — безпечно при тиску та чутливих очах, жодного болю в щиколотках.",
+            why2: "Резонансне багатошарове дерево активує глибокі м’язи-стабілізатори, а не просто «тягне».",
+            why3: "Розбірні 3- та 2-секційні панелі (до 120 см), 6 офіційних аксесуарів, інвойс HSA/FSA та гарантія 1 рік.",
+            exploreTitle: "Корисні розділи та порівняння",
+            linkProducts: "Порівняти 3-секційну та 2-секційну моделі",
+            linkCompare: "Evminov vs. Інверсійні столи, Teeter, Nubax і Saunders",
+            linkCenters: "30 років клінічної спадщини та патенти",
+            linkGuides: "Гайди по L4–S1, стенозу, ішіасу та HSA/FSA",
+            linkShipping: "Умови доставки по США та Канаді (~2 тижні)",
+            linkPortal: "Клієнтський Портал і чекліст монтажу",
+            shippingLabel: "Доставка США та Канада:",
+            shippingNote: "Міжнародна кур’єрська доставка розбірних моделей займає приблизно 2 тижні. Офіційна гарантія — 1 рік.",
           };
         }
         if (lang === "ru") {
           return {
-            subject: `Ваш персональный план наклона Evminov (${calcAngle}°) + Материалы`,
+            subject: `Ваш персональный план наклона Evminov (${calcAngle}°) + Гайд`,
+            preheader: `Безопасный угол ${calcAngle}°, тяга ${calcPull} lb и подбор разборного Профилактора Евминова + видео-демо.`,
             eyebrow: "ПЕРСОНАЛЬНЫЙ ПЛАН ЗДОРОВОЙ СПИНЫ • С 1996 ГОДА",
-            title: "Ваши результаты биомеханического калькулятора Evminov",
-            intro: "Спасибо, что воспользовались нашим калькулятором! Ниже — ваш персональный безопасный угол наклона, рекомендованная модель доски Евминова и все полезные материалы нашего сайта.",
-            kpiAngle: "Рекомендуемый угол",
-            kpiPull: "Мягкая осевая тяга",
-            kpiDisc: "Снижение нагрузки на диски",
+            title: `Ваш безопасный план разгрузки: ${calcAngle}°`,
+            intro: "Ниже — персональный расчёт по методике Евминова, оптимальная разборная модель под ваш рост и вес, мягкий стартовый план на первую неделю и официальное видео.",
+            kpiAngle: "Угол наклона",
+            kpiPull: "Осевая тяга",
+            kpiDisc: "Разгрузка",
             minDay: "мин/день",
-            recTitle: "ИДЕАЛЬНАЯ МОДЕЛЬ ДЛЯ ВАШИХ ПАРАМЕТРОВ",
+            bwLabel: "от веса тела",
+            profileLabel: "Ваш профиль",
+            headUpNote: "Головой вверх (без прилива крови)",
+            recTitle: "ИДЕАЛЬНАЯ МОДЕЛЬ ПОД ВАШИ ПАРАМЕТРЫ",
+            recSpecs: "Светлый (ольха) или Тёмный (орех) • Петля Глиссона в подарок • Гарантия 1 год",
+            fromLabel: "От",
             ctaOrder: "Заказать Эту Конфигурацию →",
-            ctaCalc: "Открыть Мой Калькулятор",
-            whyTitle: "Почему 100 000+ пользователей выбирают Evminov вместо инверсионного стола?",
-            why1: "Голова выше сердца — ноль прилива крови к глазам, головокружения и зажима лодыжек.",
-            why2: "Резонансная древесина (Natural Warm Amber Alder или Dark Walnut Pine) + активация глубоких мышц-стабилизаторов.",
-            why3: "Бесплатная Петля Глиссона в комплекте, 60-дневный тест-драйв дома и гарантия 1 год.",
-            exploreTitle: "Полезные разделы нашего сайта",
-            linkProducts: "Сравнить складные модели 2-Piece и 3-Piece",
-            linkCompare: "Evminov vs. Инверсионные столы (3D-сравнение)",
-            linkCenters: "30 лет клинической истории и видео упражнений",
-            linkGuides: "Гайды по грыжам L4–S1, ишиасу и осанке",
-            linkShipping: "Доставка в США и Канаду (~2 недели)",
-            linkPortal: "Личный Кабинет и Инструкция по установке",
-            shippingNote: "Сейчас доставка в США и Канаду занимает ~2 недели прямой отправкой. С Нового года вернётся быстрая локальная экспресс-доставка.",
+            ctaWhatsApp: "Написать в WhatsApp (+1 747 306-0140)",
+            ctaCalc: "Изменить параметры в калькуляторе",
+            starterTitle: "Ваш мягкий старт: план на первые 14 дней",
+            step1Title: `Дни 1–3 • Адаптация (${gentleStartAngle}°)`,
+            step1Desc: "5–8 минут спокойного лежания головой вверх с ровным дыханием — без резких движений.",
+            step2Title: `Дни 4–7 • Целевая разгрузка (${calcAngle}°)`,
+            step2Desc: `${calcDuration} мин/день: мягкое вытяжение позвоночника + деликатные малоамплитудные упражнения.`,
+            step3Title: "Неделя 2+ • Полная гигиена спины",
+            step3Desc: "Добавьте 3–5 мин разгрузки шеи с Петлёй Глиссона (8°–12°), которая идёт бесплатно в комплекте.",
+            videoBadge: "ОФИЦИАЛЬНОЕ ВИДЕО • 4:15",
+            videoTitle: "Посмотрите Профилактор Евминова в действии + Гайд по монтажу",
+            videoDesc: "Реальная демонстрация методики, упражнений и крепления на стену или разборную стойку-лесенку.",
+            videoCta: "Смотреть видео на сайте →",
+            whyTitle: "Почему 100 000+ человек выбирают Evminov вместо инверсионного стола",
+            why1: "Голова выше сердца — безопасно при давлении и чувствительных глазах, без нагрузки на лодыжки.",
+            why2: "Резонансное многослойное дерево активирует глубокие мышцы-стабилизаторы, а не просто «тянет».",
+            why3: "Разборные 3- и 2-секционные панели (до 120 см), 6 официальных аксессуаров, чек HSA/FSA и гарантия 1 год.",
+            exploreTitle: "Полезные разделы и сравнения",
+            linkProducts: "Сравнить 3-секционную и 2-секционную модели",
+            linkCompare: "Evminov vs. Инверсионные столы, Teeter, Nubax и Saunders",
+            linkCenters: "30 лет клинической истории и патенты",
+            linkGuides: "Гайды по L4–S1, стенозу, ишиасу и HSA/FSA",
+            linkShipping: "Условия доставки по США и Канаде (~2 недели)",
+            linkPortal: "Личный Кабинет и чеклист установки",
+            shippingLabel: "Доставка США и Канада:",
+            shippingNote: "Международная курьерская доставка разборных моделей занимает около 2 недель. Официальная гарантия — 1 год.",
           };
         }
         if (lang === "de") {
           return {
-            subject: `Ihr persönlicher Evminov-Winkelplan (${calcAngle}°) & Empfehlungen`,
+            subject: `Ihr persönlicher Evminov-Winkelplan (${calcAngle}°) + Guide`,
+            preheader: `Sicherer Winkel ${calcAngle}°, ${calcPull} lb Zug & Ihr klappbares Evminov Board + offizielles Demo-Video.`,
             eyebrow: "PERSÖNLICHES WIRBELSÄULEN-PROTOKOLL • SEIT 1996",
-            title: "Ihre Ergebnisse aus dem Evminov Biomechanik-Rechner",
-            intro: "Vielen Dank für die Nutzung unseres Rechners! Hier finden Sie Ihren persönlichen sicheren Neigungswinkel, Ihr passendes Evminov-Board und alle wichtigen Ressourcen unserer Website.",
-            kpiAngle: "Empfohlener Winkel",
-            kpiPull: "Sanfter Zug",
-            kpiDisc: "Bandscheiben-Entlastung",
+            title: `Ihr sicherer Entlastungsplan: ${calcAngle}°`,
+            intro: "Unten finden Sie Ihren individuellen Kopf-oben-Winkel, das passende klappbare Evminov Board für Ihre Maße, den sanften 14-Tage-Startplan und unser offizielles Demo-Video.",
+            kpiAngle: "Startwinkel",
+            kpiPull: "Axialer Zug",
+            kpiDisc: "Entlastung",
             minDay: "Min./Tag",
-            recTitle: "PASSENDES EVMINOV-MODELL FÜR IHRE DATEN",
+            bwLabel: "Körpergewicht",
+            profileLabel: "Ihr Profil",
+            headUpNote: "Kopf oben (kein Blutstau)",
+            recTitle: "PASSENDES EVMINOV BOARD FÜR IHR PROFIL",
+            recSpecs: "Hell (Erle) oder Dunkel (Walnuss) • Gratis Glisson-Schlaufe • 1 Jahr Garantie",
+            fromLabel: "Ab",
             ctaOrder: "Dieses Setup Konfigurieren →",
-            ctaCalc: "Meinen Rechner Öffnen",
-            whyTitle: "Warum 100.000+ Nutzer das Evminov Board der Inversionsbank vorziehen",
-            why1: "Kopf bleibt über dem Herzen — kein Blutstau im Kopf, kein Schwindel und keine Knöchelklemmen.",
-            why2: "Resonantes Karpatenholz (Natural Warm Amber Alder oder Dark Walnut Pine) + tiefe Rumpfstabilisatoren.",
-            why3: "Gratis Glisson-Schlaufe enthalten, 60-Tage-Testphase zuhause & 1 Jahr Rahmengarantie.",
-            exploreTitle: "Entdecken Sie unsere Website-Ressourcen",
-            linkProducts: "2-teilige & 3-teilige Klappboards vergleichen",
-            linkCompare: "Evminov vs. Inversionsbänke (3D-Vergleich)",
-            linkCenters: "30 Jahre klinische Erfahrung & Übungsvideos",
-            linkGuides: "Ratgeber zu Bandscheiben L4–S1, Ischias & Haltung",
+            ctaWhatsApp: "Per WhatsApp fragen (+1 747 306-0140)",
+            ctaCalc: "Rechner erneut öffnen",
+            starterTitle: "Ihr sanfter 14-Tage-Startplan",
+            step1Title: `Tage 1–3 • Eingewöhnung (${gentleStartAngle}°)`,
+            step1Desc: "5–8 Minuten ruhiges Liegen mit Kopf über Herzhöhe und entspannter Nasenatmung.",
+            step2Title: `Tage 4–7 • Ziel-Entlastung (${calcAngle}°)`,
+            step2Desc: `${calcDuration} Min./Tag sanfte Längsstreckung + kleine Mikrobewegungen für tiefe Stabilisatoren.`,
+            step3Title: "Woche 2+ • Komplette Rückenhygiene",
+            step3Desc: "Ergänzen Sie 3–5 Min. sanfte Nackenentlastung mit der gratis enthaltenen Glisson-Schlaufe (8°–12°).",
+            videoBadge: "OFFIZIELLES VIDEO • 4:15",
+            videoTitle: "Evminov Board in Aktion + Aufbau- & Montageguide ansehen",
+            videoDesc: "Echte Übungsdemonstration, Wandmontage und der zerlegbare 4-teilige Ständer.",
+            videoCta: "Offizielle Videos ansehen →",
+            whyTitle: "Warum 100.000+ Nutzer Evminov der 90°-Inversionsbank vorziehen",
+            why1: "Kopf bleibt ruhig über dem Herzen — kein Augen-/Blutdruckanstieg und kein Knöcheldruck.",
+            why2: "Federndes Resonanzholz kombiniert Dekompression mit aktivem Tiefenmuskel-Training.",
+            why3: "Zerlegbare 3- & 2-teilige Modelle, 6 Original-Zubehörteile, HSA/FSA-Beleg & 1 Jahr Garantie.",
+            exploreTitle: "Hilfreiche Guides & Vergleiche",
+            linkProducts: "3-teilige & 2-teilige Klappboards vergleichen",
+            linkCompare: "Evminov vs. Inversionsbänke, Teeter, Nubax & Saunders",
+            linkCenters: "30 Jahre Geschichte & internationale Patente",
+            linkGuides: "Ratgeber: L4–S1, Stenose, Ischias & HSA/FSA",
             linkShipping: "Versand in die USA & nach Kanada (~2 Wochen)",
             linkPortal: "Patientenportal & Montage-Checkliste",
-            shippingNote: "Aktuell beträgt die Lieferzeit in die USA & nach Kanada ca. 2 Wochen per Direktversand. Ab Neujahr kehrt der schnellere Express-Versand zurück.",
+            shippingLabel: "Versand USA & Kanada:",
+            shippingNote: "Internationaler Kurierversand für klappbare Modelle dauert ca. 2 Wochen. Inklusive 1 Jahr Garantie.",
           };
         }
         if (lang === "es") {
           return {
-            subject: `Tu Plan Personalizado de Ángulo Evminov (${calcAngle}°) + Guías`,
+            subject: `Tu Plan Personalizado Evminov (${calcAngle}°) + Guía de Inicio`,
+            preheader: `Ángulo seguro ${calcAngle}°, tracción de ${calcPull} lb, tabla plegable ideal y video demostrativo oficial.`,
             eyebrow: "PROTOCOLO ESPINAL PERSONALIZADO • DESDE 1996",
-            title: "Tus Resultados de la Calculadora Biomecánica Evminov",
-            intro: "¡Gracias por usar nuestra calculadora! Aquí tienes tu ángulo seguro personalizado, el modelo Evminov ideal para ti y todos los recursos de nuestro sitio web.",
-            kpiAngle: "Ángulo Recomendado",
-            kpiPull: "Tracción Axial Suave",
-            kpiDisc: "Descarga Discal Est.",
+            title: `Tu Plan Seguro de Descarga: ${calcAngle}°`,
+            intro: "Aquí tienes tu ángulo cabeza arriba personalizado, la tabla plegable Evminov ideal para tu peso y estatura, tu rutina suave de 14 días y nuestro video oficial.",
+            kpiAngle: "Ángulo Ideal",
+            kpiPull: "Tracción Suave",
+            kpiDisc: "Descarga Discal",
             minDay: "min/día",
-            recTitle: "MODELO IDEAL PARA TU PERFIL",
+            bwLabel: "peso corporal",
+            profileLabel: "Tu perfil",
+            headUpNote: "Cabeza arriba (cero mareo)",
+            recTitle: "TABLA EVMINOV IDEAL PARA TU PERFIL",
+            recSpecs: "Claro (Aliso) u Oscuro (Nogal) • Lazo Glisson gratis • Garantía de 1 Año",
+            fromLabel: "Desde",
             ctaOrder: "Configurar Esta Tabla Ahora →",
-            ctaCalc: "Abrir Mi Calculadora",
-            whyTitle: "¿Por qué 100,000+ usuarios eligen Evminov frente a mesas de inversión?",
-            why1: "Cabeza siempre sobre el corazón: cero presión ocular, mareos ni dolor en tobillos.",
-            why2: "Madera resonante (Natural Warm Amber Alder o Dark Walnut Pine) + activación de estabilizadores profundos.",
-            why3: "Lazo de Glisson incluido gratis, prueba de 60 días en casa y garantía de 1 año.",
-            exploreTitle: "Explora Todo en Nuestro Sitio Web",
-            linkProducts: "Comparar Tablas Plegables de 2 y 3 Piezas",
-            linkCompare: "Evminov vs. Mesas de Inversión (Comparativa 3D)",
-            linkCenters: "30 Años de Historia Clínica y Videos",
-            linkGuides: "Guías de Hernia L4–S1, Ciática y Postura",
+            ctaWhatsApp: "Consultar por WhatsApp (+1 747 306-0140)",
+            ctaCalc: "Reabrir Mi Calculadora",
+            starterTitle: "Tu Inicio Suave: Plan de 14 Días",
+            step1Title: `Días 1–3 • Adaptación (${gentleStartAngle}°)`,
+            step1Desc: "5–8 minutos tumbado cabeza arriba con respiración nasal calma — sin forzar.",
+            step2Title: `Días 4–7 • Descarga Objetivo (${calcAngle}°)`,
+            step2Desc: `${calcDuration} min/día de elongación axial suave + micro-movimientos para estabilizadores profundos.`,
+            step3Title: "Semana 2+ • Higiene Espinal Completa",
+            step3Desc: "Añade 3–5 min de alivio cervical con el Lazo de Glisson incluido gratis (8°–12°).",
+            videoBadge: "VIDEO OFICIAL • 4:15",
+            videoTitle: "Ver la Tabla Evminov en Acción + Guía de Montaje",
+            videoDesc: "Demostración real del método, ejercicios en casa y soporte desmontable de 4 piezas.",
+            videoCta: "Ver Videos Oficiales →",
+            whyTitle: "Por qué 100,000+ usuarios eligen Evminov frente a mesas de inversión",
+            why1: "Cabeza siempre sobre el corazón — sin picos de presión ocular ni dolor de tobillos.",
+            why2: "Madera resonante multicapa que fortalece los músculos profundos mientras descarga los discos.",
+            why3: "Modelos plegables de 3 y 2 piezas, 6 accesorios oficiales, recibo HSA/FSA y Garantía de 1 Año.",
+            exploreTitle: "Explora Guías y Comparativas",
+            linkProducts: "Comparar Tablas Plegables de 3 y 2 Piezas",
+            linkCompare: "Evminov vs. Inversión, Teeter, Nubax y Saunders",
+            linkCenters: "30 Años de Historia Clínica y Patentes",
+            linkGuides: "Guías: L4–S1, Estenosis, Ciática y HSA/FSA",
             linkShipping: "Envíos a EE. UU. y Canadá (~2 semanas)",
             linkPortal: "Portal del Paciente y Guía de Montaje",
-            shippingNote: "Actualmente los envíos a EE. UU. y Canadá tardan ~2 semanas por envío directo. El envío exprés local más rápido vuelve en Año Nuevo.",
+            shippingLabel: "Envío EE. UU. y Canadá:",
+            shippingNote: "Entrega por mensajería internacional en aproximadamente 2 semanas. Garantía oficial de 1 año.",
           };
         }
         if (lang === "fr") {
           return {
-            subject: `Votre Plan d'Angle Evminov Personnalisé (${calcAngle}°) + Guides`,
+            subject: `Votre Plan Personnalisé Evminov (${calcAngle}°) + Guide`,
+            preheader: `Angle sûr ${calcAngle}°, traction ${calcPull} lb, planche pliable recommandée et vidéo officielle.`,
             eyebrow: "PROTOCOLE VERTÉBRAL PERSONNALISÉ • DEPUIS 1996",
-            title: "Vos Résultats du Calculateur Biomécanique Evminov",
-            intro: "Merci d'avoir utilisé notre calculateur ! Voici votre angle sûr personnalisé, le modèle Evminov recommandé et toutes les ressources utiles de notre site.",
-            kpiAngle: "Angle Recommandé",
-            kpiPull: "Traction Axiale Douce",
-            kpiDisc: "Décharge Discale Est.",
+            title: `Votre Plan de Décharge Sûr : ${calcAngle}°`,
+            intro: "Voici votre angle tête en haut personnalisé, le modèle démontable Evminov adapté à votre gabarit, votre routine douce de 14 jours et notre vidéo officielle.",
+            kpiAngle: "Angle Sûr",
+            kpiPull: "Traction Douce",
+            kpiDisc: "Décharge Discale",
             minDay: "min/jour",
-            recTitle: "MODÈLE IDÉAL POUR VOTRE PROFIL",
+            bwLabel: "du poids",
+            profileLabel: "Votre profil",
+            headUpNote: "Tête en haut (zéro afflux sanguin)",
+            recTitle: "PLANCHE EVMINOV IDÉALE POUR VOTRE PROFIL",
+            recSpecs: "Clair (Aulne) ou Foncé (Noyer) • Sangle Glisson offerte • Garantie 1 An",
+            fromLabel: "Dès",
             ctaOrder: "Configurer Cette Planche →",
+            ctaWhatsApp: "Écrire sur WhatsApp (+1 747 306-0140)",
             ctaCalc: "Rouvrir Mon Calculateur",
-            whyTitle: "Pourquoi 100 000+ utilisateurs choisissent Evminov plutôt que l'inversion ?",
-            why1: "Tête au-dessus du cœur : zéro afflux sanguin vers les yeux, zéro vertige, aucune tension aux chevilles.",
-            why2: "Bois résonant (Natural Warm Amber Alder ou Dark Walnut Pine) + activation des stabilisateurs profonds.",
-            why3: "Boucle de Glisson offerte, essai 60 jours à domicile et garantie structurelle de 1 an.",
-            exploreTitle: "Découvrez Toutes Nos Ressources",
-            linkProducts: "Comparer nos Planches Pliables 2 et 3 Pièces",
-            linkCompare: "Evminov vs. Tables d'Inversion (Comparatif 3D)",
-            linkCenters: "30 Ans d'Héritage Clinique & Vidéos",
-            linkGuides: "Guides L4–S1, Sciatique & Posture",
-            linkShipping: "Livraison États-Unis & Canada (~2 semaines)",
-            linkPortal: "Portail Patient & Guide d'Installation",
-            shippingNote: "Les livraisons vers les États-Unis et le Canada prennent actuellement ~2 semaines par envoi direct. La livraison express locale reprend au Nouvel An.",
+            starterTitle: "Votre Démarrage Doux : Plan 14 Jours",
+            step1Title: `Jours 1–3 • Adaptation (${gentleStartAngle}°)`,
+            step1Desc: "5–8 minutes allongé tête en haut avec respiration calme — zéro tension.",
+            step2Title: `Jours 4–7 • Décharge Cible (${calcAngle}°)`,
+            step2Desc: `${calcDuration} min/jour d'allongement axial doux + micro-mouvements profonds.`,
+            step3Title: "Semaine 2+ • Hygiène Dorsale Complète",
+            step3Desc: "Ajoutez 3–5 min de détente cervicale avec la Sangle de Glisson offerte (8°–12°).",
+            videoBadge: "VIDÉO OFFICIELLE • 4:15",
+            videoTitle: "Voir la Planche Evminov en Action + Guide d'Installation",
+            videoDesc: "Démonstration réelle des exercices, fixation murale et support-échelle 4 pièces.",
+            videoCta: "Regarder les Vidéos →",
+            whyTitle: "Pourquoi 100 000+ utilisateurs choisissent Evminov plutôt que l'inversion",
+            why1: "Tête au-dessus du cœur — sans pression oculaire ni blocage douloureux des chevilles.",
+            why2: "Bois résonant multicouche associant décompression douce et renforcement profond.",
+            why3: "Modèles démontables 3 et 2 pièces, 6 accessoires officiels, reçu détaillé et Garantie 1 An.",
+            exploreTitle: "Explorer Guides & Comparatifs",
+            linkProducts: "Comparer les Planches 3 et 2 Pièces",
+            linkCompare: "Evminov vs. Inversion, Teeter, Nubax & Saunders",
+            linkCenters: "30 Ans d'Héritage Clinique & Brevets",
+            linkGuides: "Guides : L4–S1, Sténose, Sciatique & Avantages",
+            linkShipping: "Livraison Canada & États-Unis (~2 semaines)",
+            linkPortal: "Portail Patient & Guide de Montage",
+            shippingLabel: "Livraison Canada & USA :",
+            shippingNote: "Livraison internationale suivie en environ 2 semaines. Garantie fabricant officielle de 1 an.",
           };
         }
         return {
-          subject: `Your Custom Evminov Spine Angle Plan (${calcAngle}°) + Setup Guide`,
+          subject: `Your Custom Evminov Spine Plan (${calcAngle}°) + Setup Guide`,
+          preheader: `Your safe ${calcAngle}° head-up angle, ${calcPull} lb pull & best-fit folding Evminov Board + official 4-min demo.`,
           eyebrow: "PERSONALIZED SPINE DECOMPRESSION PLAN • EST. 1996",
-          title: "Your Biomechanical Calculator Results Are Ready",
-          intro: "Thanks for using the Evminov Biomechanical Calculator! Below is your custom head-up traction angle, your best-fit folding Evminov Board, and direct links to our clinical guides, 3D comparisons, and home setup resources.",
-          kpiAngle: "Recommended Angle",
-          kpiPull: "Smooth Axial Pull",
-          kpiDisc: "Est. Disc Unloading",
+          title: `Your Custom Head-Up Spine Plan: ${calcAngle}°`,
+          intro: "Here is your personalized biomechanical calculation, the best-fit folding Evminov Board for your height and weight, your gentle 14-day starter plan, and our official demonstration video.",
+          kpiAngle: "Target Angle",
+          kpiPull: "Axial Pull",
+          kpiDisc: "Disc Relief",
           minDay: "min/day",
+          bwLabel: "bodyweight",
+          profileLabel: "Your Profile",
+          headUpNote: "Head Upright (Zero Blood Rush)",
           recTitle: "BEST-FIT EVMINOV BOARD FOR YOUR PROFILE",
+          recSpecs: "Light (Warm Amber Alder) or Dark (Walnut Pine) • Free Glisson Loop • 1-Yr Warranty",
+          fromLabel: "From",
           ctaOrder: "Order This Exact Setup →",
-          ctaCalc: "Re-Open My Calculator",
+          ctaWhatsApp: "Chat on WhatsApp (+1 747 306-0140)",
+          ctaCalc: "Adjust My Calculator",
+          starterTitle: "Your Gentle 14-Day Starter Routine",
+          step1Title: `Days 1–3 • Calm Acclimation (${gentleStartAngle}°)`,
+          step1Desc: "5–8 minutes of relaxed head-up unloading with slow nasal breathing — zero straining.",
+          step2Title: `Days 4–7 • Target Unloading (${calcAngle}°)`,
+          step2Desc: `${calcDuration} min/day smooth axial lengthening + tiny pain-free deep stabilizer movements.`,
+          step3Title: "Week 2+ • Complete Spine Hygiene",
+          step3Desc: "Add 3–5 min of gentle cervical unloading with your free cotton-padded Glisson Loop (8°–12°).",
+          videoBadge: "OFFICIAL DEMO • 4:15",
+          videoTitle: "Watch the Evminov Board in Action + Home Setup Guide",
+          videoDesc: "See real head-up exercises, 16\" wall mounting, and the 4-piece no-drill ladder stand.",
+          videoCta: "Watch Official Videos →",
           whyTitle: "Why 100,000+ Users Choose Evminov Over 90° Inversion Tables",
-          why1: "Head stays calmly above heart — zero cranial blood rush, dizziness, or clamped ankles.",
-          why2: "Resonant wood deck (Natural Warm Amber Alder or Dark Walnut Pine) activates deep spinal stabilizers.",
-          why3: "Free Glisson Cervical Loop included, 60-Day Home Trial, HSA/FSA Eligible (with LMN), and 1-Year Warranty.",
-          exploreTitle: "Explore Everything on Our Website",
-          linkProducts: "Compare 2-Piece & 3-Piece Folding Boards",
-          linkCompare: "Evminov vs. Inversion Tables (Interactive 3D)",
-          linkCenters: "30 Years Clinical Heritage & Exercise Videos",
-          linkGuides: "Home Relief Guides (L4–S1, Sciatica, Posture)",
-          linkShipping: "US & Canada Shipping (~2 Weeks Dispatch)",
+          why1: "Head stays calmly above heart — safe for sensitive blood/eye pressure with zero ankle clamping.",
+          why2: "Resonant multi-layer wood deck pairs decompression with active deep paraspinal strengthening.",
+          why3: "Compact 3-piece & 2-piece folding models, 6 factory accessories, itemized HSA/FSA receipt & 1-Year Warranty.",
+          exploreTitle: "Explore Clinical Guides & 2026 Comparisons",
+          linkProducts: "Compare 3-Piece & 2-Piece Folding Boards",
+          linkCompare: "Evminov vs. Inversion Tables, Teeter, Nubax & Saunders",
+          linkCenters: "30 Years Clinical Heritage & Global Patents",
+          linkGuides: "2026 Guides: L4–S1, Stenosis, High BP & HSA/FSA",
+          linkShipping: "US & Canada Courier Delivery (~2 Weeks)",
           linkPortal: "Patient Portal & 16\" Mounting Checklist",
-          shippingNote: "Current Shipping Update: All US & Canada orders currently deliver in ~2 weeks via direct dispatch. Faster local express shipping (2–5 days) resumes in the New Year.",
+          shippingLabel: "US & Canada Delivery:",
+          shippingNote: "Tracked international courier delivery for folding models takes approximately 2 weeks. Backed by a 1-Year Warranty.",
         };
       })();
 
@@ -436,109 +568,270 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
           ? `Evminov 1-Year Structural Warranty Registered (${orderRef})`
           : `Evminov Reservation Confirmed — ${orderRef}`;
 
-      const protocolCustomerHtml = `
-        <div style="background:#f1f5f9;padding:24px 12px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
-          <div style="max-width:620px;margin:0 auto;background:#ffffff;border-radius:20px;overflow:hidden;border:1px solid #e2e8f0;box-shadow:0 12px 32px rgba(11,31,58,0.08);">
-            <!-- Dark Navy Hero Header -->
-            <div style="background:#0b1f3a;padding:28px 28px 24px;color:#ffffff;">
-              <p style="margin:0;font-size:11px;font-weight:800;letter-spacing:1.2px;color:#34d399;text-transform:uppercase;">${protocolEmailCopy.eyebrow}</p>
-              <h1 style="margin:8px 0 0;font-size:22px;line-height:1.25;font-weight:900;color:#ffffff;">${protocolEmailCopy.title}</h1>
-              <p style="margin:10px 0 0;font-size:13px;line-height:1.55;color:#cbd5e1;">${protocolEmailCopy.intro}</p>
-            </div>
+      // Dark-Mode-Safe Luxury Brochure HTML (Zero linear-gradient behind text; explicit solid surfaces for Gmail iOS/Android & Apple Mail)
+      const protocolCustomerHtml = `<!DOCTYPE html>
+<html lang="${safeLang}" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="color-scheme" content="light only" />
+  <meta name="supported-color-schemes" content="light only" />
+  <title>${protocolEmailCopy.subject}</title>
+</head>
+<body style="margin:0;padding:0;background-color:#f1f5f9;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <!-- Inbox Preview Preheader -->
+  <div style="display:none;max-height:0;overflow:hidden;opacity:0;font-size:1px;line-height:1px;color:#f1f5f9;">
+    ${protocolEmailCopy.preheader}
+  </div>
 
-            <div style="padding:24px 28px;">
-              <!-- 3-Column Biomechanical KPI Dashboard -->
-              <table role="presentation" style="width:100%;border-collapse:separate;border-spacing:8px 0;margin:0 -8px 20px;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#f1f5f9;">
+    <tr>
+      <td align="center" style="padding:20px 10px;">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:600px;background-color:#ffffff;border-radius:20px;overflow:hidden;border:1px solid #cbd5e1;">
+          <!-- 1. Brand Header Bar -->
+          <tr>
+            <td style="background-color:#0b1f3a;padding:24px 24px 20px;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
                 <tr>
-                  <td style="width:33.3%;background:#0b1f3a;border-radius:14px;padding:14px 10px;text-align:center;">
-                    <div style="font-size:24px;font-weight:900;color:#34d399;">${calcAngle}°</div>
-                    <div style="font-size:11px;font-weight:700;color:#e2e8f0;margin-top:4px;">${protocolEmailCopy.kpiAngle}</div>
-                    <div style="font-size:10px;color:#94a3b8;margin-top:2px;">${calcSafeWindow}</div>
+                  <td>
+                    <span style="display:inline-block;background-color:#064e3b;border:1px solid #10b981;border-radius:999px;padding:4px 12px;font-size:10px;font-weight:800;letter-spacing:1px;color:#6ee7b7;text-transform:uppercase;">
+                      ${protocolEmailCopy.eyebrow}
+                    </span>
                   </td>
-                  <td style="width:33.3%;background:#0b1f3a;border-radius:14px;padding:14px 10px;text-align:center;">
-                    <div style="font-size:24px;font-weight:900;color:#fbbf24;">${calcPull} lb</div>
-                    <div style="font-size:11px;font-weight:700;color:#e2e8f0;margin-top:4px;">${protocolEmailCopy.kpiPull}</div>
-                    <div style="font-size:10px;color:#94a3b8;margin-top:2px;">${calcPctBw}% Bodyweight</div>
+                </tr>
+                <tr>
+                  <td style="padding-top:12px;">
+                    <h1 style="margin:0;font-size:23px;line-height:1.22;font-weight:900;color:#ffffff;">
+                      ${protocolEmailCopy.title}
+                    </h1>
                   </td>
-                  <td style="width:33.3%;background:#0b1f3a;border-radius:14px;padding:14px 10px;text-align:center;">
-                    <div style="font-size:24px;font-weight:900;color:#38bdf8;">-${calcDiscPct}%</div>
-                    <div style="font-size:11px;font-weight:700;color:#e2e8f0;margin-top:4px;">${protocolEmailCopy.kpiDisc}</div>
-                    <div style="font-size:10px;color:#94a3b8;margin-top:2px;">${calcDuration} ${protocolEmailCopy.minDay}</div>
+                </tr>
+                <tr>
+                  <td style="padding-top:8px;">
+                    <p style="margin:0;font-size:13px;line-height:1.55;color:#cbd5e1;">
+                      ${protocolEmailCopy.intro}
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- 2. Authentic Lifestyle Hero Visual -->
+          <tr>
+            <td style="background-color:#0b1f3a;padding:0;">
+              <a href="${calcOrderUrl}" style="display:block;text-decoration:none;">
+                <img src="${calcHeroImg}" alt="Evminov Spine Decompression Board — Head-Up Inclined Unloading" width="600" style="display:block;width:100%;max-width:600px;height:auto;border:0;" />
+              </a>
+            </td>
+          </tr>
+
+          <!-- 3. Main Brochure Body -->
+          <tr>
+            <td style="padding:22px 20px 26px;background-color:#ffffff;">
+              <!-- 3-Column Telemetry Strip (Solid light cards + nowrap numbers = crisp in Light & Dark Mode) -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom:18px;">
+                <tr>
+                  <td width="32%" valign="top" style="background-color:#f8fafc;border:1px solid #e2e8f0;border-top:3px solid #059669;border-radius:12px;padding:12px 6px;text-align:center;">
+                    <div style="font-size:21px;line-height:1.1;font-weight:900;color:#059669;white-space:nowrap;">${calcAngle}°</div>
+                    <div style="font-size:11px;font-weight:800;color:#0f172a;margin-top:5px;">${protocolEmailCopy.kpiAngle}</div>
+                    <div style="font-size:10px;color:#64748b;margin-top:2px;white-space:nowrap;">${calcSafeWindow}</div>
+                  </td>
+                  <td width="2%">&nbsp;</td>
+                  <td width="32%" valign="top" style="background-color:#f8fafc;border:1px solid #e2e8f0;border-top:3px solid #d97706;border-radius:12px;padding:12px 6px;text-align:center;">
+                    <div style="font-size:21px;line-height:1.1;font-weight:900;color:#b45309;white-space:nowrap;">${calcPull}&nbsp;lb</div>
+                    <div style="font-size:11px;font-weight:800;color:#0f172a;margin-top:5px;">${protocolEmailCopy.kpiPull}</div>
+                    <div style="font-size:10px;color:#64748b;margin-top:2px;white-space:nowrap;">${calcPctBw}% ${protocolEmailCopy.bwLabel}</div>
+                  </td>
+                  <td width="2%">&nbsp;</td>
+                  <td width="32%" valign="top" style="background-color:#f8fafc;border:1px solid #e2e8f0;border-top:3px solid #0284c7;border-radius:12px;padding:12px 6px;text-align:center;">
+                    <div style="font-size:21px;line-height:1.1;font-weight:900;color:#0369a1;white-space:nowrap;">-${calcDiscPct}%</div>
+                    <div style="font-size:11px;font-weight:800;color:#0f172a;margin-top:5px;">${protocolEmailCopy.kpiDisc}</div>
+                    <div style="font-size:10px;color:#64748b;margin-top:2px;white-space:nowrap;">${calcDuration} ${protocolEmailCopy.minDay}</div>
                   </td>
                 </tr>
               </table>
 
-              <!-- Profile & Goal Summary -->
-              <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:16px 18px;margin-bottom:20px;">
-                <p style="margin:0;font-size:12px;font-weight:800;color:#0f766e;text-transform:uppercase;letter-spacing:0.6px;">${calcGoalLabel}</p>
-                <p style="margin:6px 0 0;font-size:13px;line-height:1.55;color:#334155;">${calcGoalDesc}</p>
-                <p style="margin:10px 0 0;font-size:12px;color:#64748b;">
-                  <strong>Profile:</strong> ${calcWeightLbs} lbs (${calcWeightKg} kg) • ${calcHeightLabel} (${calcHeightCm} cm) • Head Upright (Zero Blood Rush)
-                </p>
-              </div>
+              <!-- Goal & Profile Card -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#f8fafc;border:1px solid #e2e8f0;border-left:4px solid #0d9488;border-radius:12px;margin-bottom:20px;">
+                <tr>
+                  <td style="padding:15px 16px;">
+                    <div style="font-size:11px;font-weight:800;color:#0f766e;text-transform:uppercase;letter-spacing:0.6px;">${calcGoalLabel}</div>
+                    <p style="margin:6px 0 0;font-size:13px;line-height:1.55;color:#1e293b;">${calcGoalDesc}</p>
+                    <p style="margin:10px 0 0;font-size:12px;line-height:1.45;color:#475569;">
+                      <strong style="color:#0f172a;">${protocolEmailCopy.profileLabel}:</strong> ${calcWeightLbs} lbs (${calcWeightKg} kg) • ${calcHeightLabel} (${calcHeightCm} cm) • ${protocolEmailCopy.headUpNote}
+                    </p>
+                  </td>
+                </tr>
+              </table>
 
-              <!-- Recommended Model Spotlight + Primary Conversion CTA -->
-              <div style="background:linear-gradient(135deg,#ecfdf5 0%,#ffffff 100%);border:2px solid #10b981;border-radius:16px;padding:20px;margin-bottom:22px;">
-                <p style="margin:0;font-size:11px;font-weight:800;color:#047857;letter-spacing:0.8px;text-transform:uppercase;">${protocolEmailCopy.recTitle}</p>
-                <h2 style="margin:6px 0 4px;font-size:18px;font-weight:900;color:#0f172a;">${calcModel}</h2>
-                <p style="margin:0;font-size:13px;color:#334155;">${escapeHtml(calcWidth)} • Natural Warm Amber Alder / Dark Walnut Pine • Free Glisson Loop</p>
-                <p style="margin:10px 0 16px;font-size:20px;font-weight:900;color:#0f766e;">From $${calcPrice} ${orderCurrency} <span style="font-size:12px;font-weight:600;color:#475569;">(60-Day Trial • 1-Yr Warranty • ${isCanadaOrigin ? "Extended Health / HSA" : "HSA/FSA with LMN"})</span></p>
-                <div>
-                  <a href="${calcOrderUrl}" style="display:inline-block;background:#10b981;color:#052e16;text-decoration:none;font-weight:900;font-size:14px;padding:13px 24px;border-radius:12px;">${protocolEmailCopy.ctaOrder}</a>
-                  <a href="${calcReopenUrl}" style="display:inline-block;margin-left:8px;margin-top:8px;background:#ffffff;color:#0f172a;text-decoration:none;font-weight:700;font-size:13px;padding:11px 18px;border-radius:12px;border:1px solid #cbd5e1;">${protocolEmailCopy.ctaCalc}</a>
-                </div>
-              </div>
+              <!-- Best-Fit Board Spotlight (Solid #ffffff surface + dark text = 100% immune to Gmail Dark Mode white-on-white!) -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#ffffff;border:2px solid #059669;border-radius:16px;overflow:hidden;margin-bottom:20px;">
+                <tr>
+                  <td style="background-color:#059669;padding:10px 16px;">
+                    <span style="font-size:11px;font-weight:800;letter-spacing:0.8px;color:#ffffff;text-transform:uppercase;">
+                      ★ ${protocolEmailCopy.recTitle}
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:18px 16px;background-color:#ffffff;">
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                      <tr>
+                        <td valign="top" style="padding-bottom:12px;">
+                          <a href="${calcOrderUrl}" style="display:block;text-decoration:none;">
+                            <img src="${calcBoardImg}" alt="${calcModel}" width="520" style="display:block;width:100%;max-height:210px;object-fit:cover;border-radius:10px;border:1px solid #e2e8f0;" />
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <h2 style="margin:0 0 6px;font-size:19px;line-height:1.25;font-weight:900;color:#0f172a;">
+                            ${calcModel}
+                          </h2>
+                          <p style="margin:0;font-size:13px;line-height:1.5;color:#334155;">
+                            <strong style="color:#0f172a;">${escapeHtml(calcWidth)}</strong><br/>
+                            ${protocolEmailCopy.recSpecs}
+                          </p>
+                          <p style="margin:12px 0 16px;font-size:22px;line-height:1.2;font-weight:900;color:#047857;">
+                            ${protocolEmailCopy.fromLabel} $${calcPrice} ${orderCurrency}
+                            <span style="display:block;margin-top:3px;font-size:12px;font-weight:600;color:#475569;">
+                              1-Year Warranty • ${isCanadaOrigin ? "Extended Health / HSA Eligible (with Rx)" : "HSA/FSA Eligible (with LMN)"} • ~2 Weeks Delivery
+                            </span>
+                          </p>
+                        </td>
+                      </tr>
+                      <!-- Full-Width Stacked High-Contrast CTA Buttons -->
+                      <tr>
+                        <td style="padding-bottom:10px;">
+                          <a href="${calcOrderUrl}" style="display:block;background-color:#059669;color:#ffffff;text-align:center;text-decoration:none;font-weight:900;font-size:15px;padding:14px 18px;border-radius:12px;">
+                            ${protocolEmailCopy.ctaOrder}
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding-bottom:10px;">
+                          <a href="https://wa.me/17473060140?text=Hello%20Evminov!%20My%20calculator%20angle%20is%20${calcAngle}%C2%B0%20(${calcWeightLbs}%20lbs)%20and%20I%20want%20help%20choosing%20my%20folding%20board." style="display:block;background-color:#16a34a;color:#ffffff;text-align:center;text-decoration:none;font-weight:800;font-size:14px;padding:13px 18px;border-radius:12px;">
+                            💬 ${protocolEmailCopy.ctaWhatsApp}
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <a href="${calcReopenUrl}" style="display:block;background-color:#f8fafc;color:#0f172a;text-align:center;text-decoration:none;font-weight:700;font-size:13px;padding:11px 16px;border-radius:12px;border:1px solid #cbd5e1;">
+                            ${protocolEmailCopy.ctaCalc}
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- 14-Day Gentle Starter Plan -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;margin-bottom:20px;">
+                <tr>
+                  <td style="padding:18px 16px;">
+                    <h3 style="margin:0 0 12px;font-size:15px;font-weight:900;color:#0f172a;">${protocolEmailCopy.starterTitle}</h3>
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                      <tr>
+                        <td width="28" valign="top" style="padding-bottom:10px;">
+                          <span style="display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;border-radius:999px;background-color:#059669;color:#ffffff;font-size:11px;font-weight:900;">1</span>
+                        </td>
+                        <td valign="top" style="padding-bottom:10px;">
+                          <div style="font-size:13px;font-weight:800;color:#0f172a;">${protocolEmailCopy.step1Title}</div>
+                          <div style="font-size:12px;line-height:1.5;color:#475569;margin-top:2px;">${protocolEmailCopy.step1Desc}</div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="28" valign="top" style="padding-bottom:10px;">
+                          <span style="display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;border-radius:999px;background-color:#0284c7;color:#ffffff;font-size:11px;font-weight:900;">2</span>
+                        </td>
+                        <td valign="top" style="padding-bottom:10px;">
+                          <div style="font-size:13px;font-weight:800;color:#0f172a;">${protocolEmailCopy.step2Title}</div>
+                          <div style="font-size:12px;line-height:1.5;color:#475569;margin-top:2px;">${protocolEmailCopy.step2Desc}</div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="28" valign="top">
+                          <span style="display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;border-radius:999px;background-color:#0f172a;color:#ffffff;font-size:11px;font-weight:900;">3</span>
+                        </td>
+                        <td valign="top">
+                          <div style="font-size:13px;font-weight:800;color:#0f172a;">${protocolEmailCopy.step3Title}</div>
+                          <div style="font-size:12px;line-height:1.5;color:#475569;margin-top:2px;">${protocolEmailCopy.step3Desc}</div>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Official Video Demo Banner -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#0b1f3a;border-radius:14px;margin-bottom:20px;">
+                <tr>
+                  <td style="padding:18px 16px;">
+                    <span style="display:inline-block;background-color:#065f46;color:#6ee7b7;font-size:10px;font-weight:800;letter-spacing:0.8px;padding:3px 10px;border-radius:999px;text-transform:uppercase;">
+                      ▶ ${protocolEmailCopy.videoBadge}
+                    </span>
+                    <div style="margin-top:8px;font-size:15px;font-weight:900;color:#ffffff;">${protocolEmailCopy.videoTitle}</div>
+                    <p style="margin:5px 0 12px;font-size:12px;line-height:1.5;color:#cbd5e1;">${protocolEmailCopy.videoDesc}</p>
+                    <a href="${calcVideoUrl}" style="display:inline-block;background-color:#10b981;color:#052e16;text-decoration:none;font-weight:900;font-size:13px;padding:10px 16px;border-radius:10px;">
+                      ${protocolEmailCopy.videoCta}
+                    </a>
+                  </td>
+                </tr>
+              </table>
 
               <!-- Why Evminov Highlights -->
-              <div style="margin-bottom:22px;">
+              <div style="margin-bottom:20px;">
                 <h3 style="margin:0 0 10px;font-size:15px;font-weight:900;color:#0f172a;">${protocolEmailCopy.whyTitle}</h3>
-                <ul style="margin:0;padding-left:18px;color:#334155;font-size:13px;line-height:1.65;">
-                  <li style="margin-bottom:6px;">${protocolEmailCopy.why1}</li>
-                  <li style="margin-bottom:6px;">${protocolEmailCopy.why2}</li>
-                  <li>${protocolEmailCopy.why3}</li>
-                </ul>
-              </div>
-
-              <!-- Promotional Website Resource Hub -->
-              <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:18px;margin-bottom:18px;">
-                <h3 style="margin:0 0 12px;font-size:14px;font-weight:900;color:#0f172a;">${protocolEmailCopy.exploreTitle}</h3>
-                <table role="presentation" style="width:100%;border-collapse:collapse;font-size:13px;">
-                  <tr>
-                    <td style="padding:6px 0;border-bottom:1px solid #e2e8f0;"><a href="${siteOrigin}${localePrefix}/products/" style="color:#0f766e;font-weight:700;text-decoration:none;">→ ${protocolEmailCopy.linkProducts}</a></td>
-                  </tr>
-                  <tr>
-                    <td style="padding:6px 0;border-bottom:1px solid #e2e8f0;"><a href="${siteOrigin}${localePrefix}/compare/evminov-vs-inversion-table/" style="color:#0f766e;font-weight:700;text-decoration:none;">→ ${protocolEmailCopy.linkCompare}</a></td>
-                  </tr>
-                  <tr>
-                    <td style="padding:6px 0;border-bottom:1px solid #e2e8f0;"><a href="${siteOrigin}${localePrefix}/centers/" style="color:#0f766e;font-weight:700;text-decoration:none;">→ ${protocolEmailCopy.linkCenters}</a></td>
-                  </tr>
-                  <tr>
-                    <td style="padding:6px 0;border-bottom:1px solid #e2e8f0;"><a href="${siteOrigin}${localePrefix}/guides/" style="color:#0f766e;font-weight:700;text-decoration:none;">→ ${protocolEmailCopy.linkGuides}</a></td>
-                  </tr>
-                  <tr>
-                    <td style="padding:6px 0;border-bottom:1px solid #e2e8f0;"><a href="${siteOrigin}${localePrefix}/shipping/" style="color:#0f766e;font-weight:700;text-decoration:none;">→ ${protocolEmailCopy.linkShipping}</a></td>
-                  </tr>
-                  <tr>
-                    <td style="padding:6px 0;"><a href="${siteOrigin}${localePrefix}/portal/" style="color:#0f766e;font-weight:700;text-decoration:none;">→ ${protocolEmailCopy.linkPortal}</a></td>
-                  </tr>
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="font-size:13px;line-height:1.55;color:#334155;">
+                  <tr><td valign="top" width="20" style="color:#059669;font-weight:900;padding-bottom:6px;">✓</td><td style="padding-bottom:6px;">${protocolEmailCopy.why1}</td></tr>
+                  <tr><td valign="top" width="20" style="color:#059669;font-weight:900;padding-bottom:6px;">✓</td><td style="padding-bottom:6px;">${protocolEmailCopy.why2}</td></tr>
+                  <tr><td valign="top" width="20" style="color:#059669;font-weight:900;">✓</td><td>${protocolEmailCopy.why3}</td></tr>
                 </table>
               </div>
 
-              <!-- Current 2-Week Shipping Note -->
-              <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:12px 14px;font-size:12px;line-height:1.5;color:#92400e;margin-bottom:18px;">
-                <strong>Shipping Note:</strong> ${protocolEmailCopy.shippingNote}
-              </div>
+              <!-- Website Resource Hub -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;margin-bottom:18px;">
+                <tr>
+                  <td style="padding:16px;">
+                    <h3 style="margin:0 0 10px;font-size:14px;font-weight:900;color:#0f172a;">${protocolEmailCopy.exploreTitle}</h3>
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="font-size:13px;">
+                      <tr><td style="padding:7px 0;border-bottom:1px solid #e2e8f0;"><a href="${siteOrigin}${localePrefix}/products/" style="color:#0f766e;font-weight:700;text-decoration:none;">→ ${protocolEmailCopy.linkProducts}</a></td></tr>
+                      <tr><td style="padding:7px 0;border-bottom:1px solid #e2e8f0;"><a href="${siteOrigin}${localePrefix}/compare/evminov-vs-inversion-table/" style="color:#0f766e;font-weight:700;text-decoration:none;">→ ${protocolEmailCopy.linkCompare}</a></td></tr>
+                      <tr><td style="padding:7px 0;border-bottom:1px solid #e2e8f0;"><a href="${siteOrigin}${localePrefix}/centers/" style="color:#0f766e;font-weight:700;text-decoration:none;">→ ${protocolEmailCopy.linkCenters}</a></td></tr>
+                      <tr><td style="padding:7px 0;border-bottom:1px solid #e2e8f0;"><a href="${siteOrigin}${localePrefix}/guides/" style="color:#0f766e;font-weight:700;text-decoration:none;">→ ${protocolEmailCopy.linkGuides}</a></td></tr>
+                      <tr><td style="padding:7px 0;border-bottom:1px solid #e2e8f0;"><a href="${siteOrigin}${localePrefix}/shipping/" style="color:#0f766e;font-weight:700;text-decoration:none;">→ ${protocolEmailCopy.linkShipping}</a></td></tr>
+                      <tr><td style="padding:7px 0;"><a href="${siteOrigin}${localePrefix}/portal/" style="color:#0f766e;font-weight:700;text-decoration:none;">→ ${protocolEmailCopy.linkPortal}</a></td></tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Shipping Notice -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#fffbeb;border:1px solid #fcd34d;border-radius:12px;margin-bottom:18px;">
+                <tr>
+                  <td style="padding:12px 14px;font-size:12px;line-height:1.5;color:#78350f;">
+                    <strong>${protocolEmailCopy.shippingLabel}</strong> ${protocolEmailCopy.shippingNote}
+                  </td>
+                </tr>
+              </table>
 
               <!-- Footer -->
               <div style="border-top:1px solid #e2e8f0;padding-top:16px;font-size:11px;line-height:1.6;color:#64748b;">
-                <p style="margin:0;"><strong>Evminov Spine Systems</strong> • 4525 San Fernando Rd, Unit H, Glendale, CA 91204, USA</p>
+                <p style="margin:0;"><strong style="color:#0f172a;">${emailCfg.brandHeader}</strong> • ${isCanadaOrigin ? "Nationwide Canadian Delivery" : "4525 San Fernando Rd, Unit H, Glendale, CA 91204, USA"}</p>
                 <p style="margin:4px 0 0;">WhatsApp (Fastest): <a href="https://wa.me/17473060140" style="color:#059669;font-weight:700;text-decoration:none;">+1 (747) 306-0140</a> • Email: <a href="mailto:${emailCfg.supportEmail}" style="color:#0f766e;text-decoration:none;">${emailCfg.supportEmail}</a></p>
-                <p style="margin:8px 0 0;font-size:10px;color:#94a3b8;">General Wellness &amp; Spine Conditioning Equipment (HTS 9506.91.0030). HSA/FSA pre-tax reimbursement requires a Letter of Medical Necessity (LMN) from your healthcare provider and plan approval.</p>
+                <p style="margin:8px 0 0;font-size:10px;color:#94a3b8;">General Wellness &amp; Spine Conditioning Equipment (HTS 9506.91.0030). Not intended to diagnose, treat, cure, or prevent any disease. HSA/FSA pre-tax reimbursement requires a Letter of Medical Necessity (LMN) from your healthcare provider and plan approval.</p>
               </div>
-            </div>
-          </div>
-        </div>
-      `;
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
 
       const detailsRowsHtml = `
         <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:13px;">
