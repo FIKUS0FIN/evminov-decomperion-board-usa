@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Award, CheckCircle2, MessageCircle, ShieldCheck } from "lucide-react";
+import { ArrowRight, Award, CheckCircle2, MessageCircle, Play, ShieldCheck } from "lucide-react";
 import { Locale } from "@/i18n/types";
 import { getDictionary } from "@/i18n/dictionaries";
 import { HOME_MATRIX_COPY } from "@/i18n/locales/home-part1";
@@ -16,8 +16,8 @@ import { CONDITIONS } from "@/data/conditions";
 import { GUIDES } from "@/data/guides";
 import { PRODUCTS } from "@/data/products";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
-import { LiteYouTube } from "@/components/ui/LiteYouTube";
 import { HeroShowcaseGallery } from "@/components/sections/HeroShowcaseGallery";
+import { VideoSpotlightSection } from "@/components/sections/VideoSpotlightSection";
 import { ClinicalPathwaysNav } from "@/components/sections/ClinicalPathwaysNav";
 import { BiomechanicalCalculator } from "@/components/sections/BiomechanicalCalculator";
 import { InversionVisualComparison } from "@/components/sections/InversionVisualComparison";
@@ -36,6 +36,42 @@ import {
   HomepageRichSchemas,
   VideoObjectJsonLd,
 } from "@/components/seo/JsonLd";
+
+const HERO_VIDEO_TEASER: Record<
+  Locale,
+  { title: string; subtitle: string; badge: string }
+> = {
+  en: {
+    title: "Watch Official 4-Min Demo & Setup Guide",
+    subtitle: "See real head-up exercises & home mounting on YouTube",
+    badge: "2 Videos • 4:15",
+  },
+  es: {
+    title: "Ver Demostración Oficial (4 min) e Instalación",
+    subtitle: "Vea ejercicios reales cabeza arriba y montaje en casa",
+    badge: "2 Videos • 4:15",
+  },
+  fr: {
+    title: "Voir la Démo Officielle (4 min) & Montage",
+    subtitle: "Exercices réels tête en haut et installation à domicile",
+    badge: "2 Vidéos • 4:15",
+  },
+  de: {
+    title: "Offizielle 4-Min.-Demo & Montage ansehen",
+    subtitle: "Echte Kopf-oben-Übungen & Wandaufbau im Video",
+    badge: "2 Videos • 4:15",
+  },
+  uk: {
+    title: "Дивитись офіційне відео-демо (4 хв) і монтаж",
+    subtitle: "Реальні вправи головою вгору та встановлення вдома",
+    badge: "2 Відео • 4:15",
+  },
+  ru: {
+    title: "Смотреть официальное видео-демо (4 мин) и монтаж",
+    subtitle: "Реальные упражнения головой вверх и установка дома",
+    badge: "2 Видео • 4:15",
+  },
+};
 
 export function HomePageContent({ lang }: { lang: Locale }) {
   const dict = getDictionary(lang);
@@ -132,13 +168,46 @@ export function HomePageContent({ lang }: { lang: Locale }) {
             </div>
           </div>
 
-          <div className="lg:col-span-6">
+          <div className="space-y-3 lg:col-span-6">
             <HeroShowcaseGallery lang={lang} />
+            <a
+              href="#videos"
+              className="group flex items-center gap-3.5 rounded-2xl border border-emerald-400/30 bg-white/[0.07] p-2.5 pr-4 backdrop-blur-md transition hover:border-emerald-400/70 hover:bg-white/[0.12] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+            >
+              <span className="relative h-12 w-20 shrink-0 overflow-hidden rounded-xl border border-white/15 bg-slate-950">
+                <OptimizedImage
+                  src={SITE_CONFIG.videos.methodDemo.thumbnail}
+                  alt={HERO_VIDEO_TEASER[lang].title}
+                  fill
+                  sizes="80px"
+                  className="object-cover opacity-85 transition-transform duration-300 group-hover:scale-105"
+                />
+                <span className="absolute inset-0 flex items-center justify-center bg-slate-950/35">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-500 text-slate-950 shadow-md transition-transform group-hover:scale-110">
+                    <Play className="ml-0.5 h-3.5 w-3.5 fill-current" />
+                  </span>
+                </span>
+              </span>
+              <div className="min-w-0 flex-1">
+                <p className="truncate font-display text-xs font-extrabold text-white group-hover:text-emerald-300 sm:text-sm">
+                  {HERO_VIDEO_TEASER[lang].title}
+                </p>
+                <p className="truncate text-[11px] text-slate-300">
+                  {HERO_VIDEO_TEASER[lang].subtitle}
+                </p>
+              </div>
+              <span className="hidden shrink-0 rounded-full border border-emerald-400/35 bg-emerald-500/15 px-2.5 py-1 font-mono text-[11px] font-bold text-emerald-300 sm:inline-block">
+                {HERO_VIDEO_TEASER[lang].badge}
+              </span>
+            </a>
           </div>
         </div>
       </section>
 
-      {/* 2. 8-CARD CLINICAL PATHWAYS ROUTER */}
+      {/* 2. FEATURED VIDEO SPOTLIGHT (Official @evminoviusa Method Demo & Setup Guide) */}
+      <VideoSpotlightSection lang={lang} />
+
+      {/* 3. 8-CARD CLINICAL PATHWAYS ROUTER */}
       <ClinicalPathwaysNav lang={lang} />
 
       {/* 3. PRODUCT CATALOG */}
@@ -270,29 +339,7 @@ export function HomePageContent({ lang }: { lang: Locale }) {
         </div>
       </section>
 
-      {/* 12. REAL OFFICIAL VIDEOS */}
-      <section id="videos" className="mx-auto max-w-7xl px-4 py-16">
-        <div className="max-w-3xl">
-          <h2 className="font-display text-3xl font-black tracking-tight text-slate-950 md:text-4xl">
-            {s.videosTitle}
-          </h2>
-          <p className="mt-3 text-base text-slate-600">{s.videosSubtitle}</p>
-        </div>
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          <LiteYouTube
-            videoId={SITE_CONFIG.videos.methodDemo.id}
-            title={extra.methodDemoVideoTitle}
-            thumbnail={SITE_CONFIG.videos.methodDemo.thumbnail}
-          />
-          <LiteYouTube
-            videoId={SITE_CONFIG.videos.wallMounting.id}
-            title={extra.wallMountingVideoTitle}
-            thumbnail={SITE_CONFIG.videos.wallMounting.thumbnail}
-          />
-        </div>
-      </section>
-
-      {/* 13. 20 AUTHENTIC EXERCISE PROTOCOLS */}
+      {/* 12. 20 AUTHENTIC EXERCISE PROTOCOLS */}
       <section id="gallery" className="bg-slate-50 py-16">
         <div className="mx-auto max-w-7xl px-4">
           <div className="max-w-3xl">

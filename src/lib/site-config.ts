@@ -38,7 +38,7 @@ export const SITE_CONFIG = {
       id: "fP-biAHusGs",
       title: "Evminov Board 16-Inch US Wood Stud Wall Mounting & Setup Guide",
       duration: "PT3M40S",
-      thumbnail: "/images/products/board-mounting-bracket.jpg",
+      thumbnail: "/images/products/board-door-mount-setup.jpg",
     },
   },
   compliance: {
