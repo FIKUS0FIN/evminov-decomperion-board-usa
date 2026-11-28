@@ -97,18 +97,22 @@ export function EvminovBrandLockup({
   dark?: boolean;
 }) {
   return (
-    <span className="inline-flex items-center gap-2.5 shrink-0">
-      <EvminovLogo size={size} variant={dark ? "light" : "color"} />
+    <span className="inline-flex items-center gap-2 sm:gap-2.5 shrink-0">
+      <EvminovLogo
+        size={size}
+        variant={dark ? "light" : "color"}
+        className="h-8 w-8 sm:h-[38px] sm:w-[38px] shrink-0"
+      />
       <span className="flex flex-col leading-none">
         <span
-          className={`font-display text-[1.15rem] font-extrabold tracking-tight ${
+          className={`font-display text-[1rem] sm:text-[1.15rem] font-extrabold tracking-tight ${
             dark ? "text-white" : "text-[#0B1F3A]"
           }`}
         >
           Evminov
         </span>
         <span
-          className={`mt-0.5 text-[10px] font-bold uppercase tracking-[0.14em] ${
+          className={`mt-0.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.12em] sm:tracking-[0.14em] ${
             dark ? "text-slate-400" : "text-slate-500"
           }`}
         >

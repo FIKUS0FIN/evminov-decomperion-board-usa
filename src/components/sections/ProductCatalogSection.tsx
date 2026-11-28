@@ -98,7 +98,7 @@ export function ProductCard({
                 type="button"
                 onClick={prevImg}
                 aria-label="Previous photo"
-                className="absolute left-2.5 top-1/2 flex h-8 w-8 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-slate-200/80 bg-white/90 text-slate-800 shadow-sm backdrop-blur transition hover:bg-slate-950 hover:text-white"
+                className="absolute left-2.5 top-1/2 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-slate-200/80 bg-white/90 text-slate-800 shadow-sm backdrop-blur transition hover:bg-slate-950 hover:text-white"
               >
                 <ChevronLeft className="h-4 w-4" />
               </button>
@@ -106,15 +106,15 @@ export function ProductCard({
                 type="button"
                 onClick={nextImg}
                 aria-label="Next photo"
-                className="absolute right-2.5 top-1/2 flex h-8 w-8 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-slate-200/80 bg-white/90 text-slate-800 shadow-sm backdrop-blur transition hover:bg-slate-950 hover:text-white"
+                className="absolute right-2.5 top-1/2 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-slate-200/80 bg-white/90 text-slate-800 shadow-sm backdrop-blur transition hover:bg-slate-950 hover:text-white"
               >
                 <ChevronRight className="h-4 w-4" />
               </button>
               <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between gap-2">
-                <span className="rounded-full bg-slate-950/80 px-2.5 py-0.5 text-[10px] font-bold text-white backdrop-blur-sm">
+                <span className="max-w-[75%] truncate rounded-full bg-slate-950/80 px-2.5 py-0.5 text-[10px] font-bold text-white backdrop-blur-sm">
                   {activeSlide.label}
                 </span>
-                <span className="rounded-full bg-slate-950/75 px-2 py-0.5 text-[10px] font-bold text-slate-200 backdrop-blur-sm">
+                <span className="shrink-0 rounded-full bg-slate-950/75 px-2 py-0.5 text-[10px] font-bold text-slate-200 backdrop-blur-sm">
                   {imgIdx + 1} / {gallery.length}
                 </span>
               </div>
@@ -122,9 +122,9 @@ export function ProductCard({
           )}
         </div>
 
-        {/* Clickable Thumbnail Strip */}
+        {/* Clickable Thumbnail Strip (touch-scrollable on mobile, 6-col grid on sm+) */}
         {gallery.length > 1 && (
-          <div className="grid grid-cols-6 gap-1.5 border-t border-slate-200/70 bg-white/80 px-3 py-2">
+          <div className="no-scrollbar flex gap-1.5 overflow-x-auto border-t border-slate-200/70 bg-white/80 px-3 py-2 sm:grid sm:grid-cols-6 sm:overflow-visible">
             {gallery.map((item, idx) => {
               const isSelected = idx === imgIdx;
               return (
@@ -134,7 +134,7 @@ export function ProductCard({
                   onClick={() => setImgIdx(idx)}
                   aria-label={item.label}
                   aria-pressed={isSelected}
-                  className={`relative aspect-[4/3] cursor-pointer overflow-hidden rounded-lg border bg-[#F4F7F9] transition ${
+                  className={`relative aspect-[4/3] w-[60px] shrink-0 cursor-pointer overflow-hidden rounded-lg border bg-[#F4F7F9] transition sm:w-auto ${
                     isSelected
                       ? "border-teal-600 ring-2 ring-teal-500/30"
                       : "border-slate-200 opacity-75 hover:opacity-100"
@@ -154,7 +154,7 @@ export function ProductCard({
         )}
       </div>
 
-      <div className="flex flex-1 flex-col p-6">
+      <div className="flex flex-1 flex-col p-4 sm:p-6">
         <h3 className="font-display text-lg font-extrabold text-slate-950">
           <Link
             href={getLocalizedHref(`/products/${product.slug}/`, lang)}
@@ -249,7 +249,7 @@ export function ProductCard({
             <Link
               href={getLocalizedHref(`/products/${product.slug}/`, lang)}
               onClick={() => sendGTMEvent("view_item", { product_slug: product.slug })}
-              className="inline-flex items-center justify-center rounded-xl border border-slate-300 px-3 py-2.5 text-xs font-bold text-slate-800 transition hover:bg-slate-50"
+              className="inline-flex min-h-[44px] items-center justify-center rounded-xl border border-slate-300 px-3 py-2.5 text-center text-xs font-bold text-slate-800 transition hover:bg-slate-50"
             >
               {ui.viewDetails}
             </Link>
@@ -262,10 +262,10 @@ export function ProductCard({
               onClick={() =>
                 sendGTMEvent("begin_checkout", { product_slug: product.slug })
               }
-              className="inline-flex items-center justify-center gap-1 rounded-xl bg-teal-700 px-3 py-2.5 text-xs font-bold text-white transition hover:bg-teal-800"
+              className="inline-flex min-h-[44px] items-center justify-center gap-1 rounded-xl bg-teal-700 px-3 py-2.5 text-center text-xs font-bold text-white transition hover:bg-teal-800"
             >
               <span>{ui.orderModel}</span>
-              <ArrowRight className="h-3.5 w-3.5" />
+              <ArrowRight className="h-3.5 w-3.5 shrink-0" />
             </Link>
           </div>
         </div>
@@ -408,7 +408,7 @@ export function ProductCatalogSection({ lang }: { lang: Locale }) {
         </div>
       </div>
 
-      <div className="mt-14 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+      <div className="mt-14 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6 md:p-8">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <span className="text-xs font-extrabold uppercase tracking-wider text-teal-700">
@@ -490,7 +490,7 @@ export function ProductCatalogSection({ lang }: { lang: Locale }) {
               type="button"
               onClick={() => scrollBox(-1)}
               aria-label="Scroll left"
-              className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-2xs transition hover:border-teal-600 hover:text-teal-700"
+              className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-2xs transition hover:border-teal-600 hover:text-teal-700"
             >
               <ChevronLeft className="h-4 w-4" />
             </button>
@@ -498,7 +498,7 @@ export function ProductCatalogSection({ lang }: { lang: Locale }) {
               type="button"
               onClick={() => scrollBox(1)}
               aria-label="Scroll right"
-              className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-2xs transition hover:border-teal-600 hover:text-teal-700"
+              className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-2xs transition hover:border-teal-600 hover:text-teal-700"
             >
               <ChevronRight className="h-4 w-4" />
             </button>
@@ -507,12 +507,12 @@ export function ProductCatalogSection({ lang }: { lang: Locale }) {
 
         <div
           ref={boxScrollRef}
-          className="no-scrollbar mt-4 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-1"
+          className="no-scrollbar mt-4 flex snap-x snap-mandatory gap-3.5 overflow-x-auto pb-1 sm:gap-4"
         >
           {visibleBoxItems.map((item) => (
             <div
               key={item.src}
-              className="w-[270px] shrink-0 snap-start overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xs sm:w-[300px] lg:w-[calc(33.333%-11px)]"
+              className="w-[80vw] max-w-[280px] shrink-0 snap-start overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xs sm:w-[300px] sm:max-w-none lg:w-[calc(33.333%-11px)]"
             >
               <div className="relative aspect-[16/10] w-full bg-[#F4F7F9]">
                 <OptimizedImage

@@ -227,31 +227,31 @@ export function Header({ lang }: { lang: Locale }) {
 
   return (
     <>
-      {/* Top Announcement & Heritage Trust Bar (matches original dark clinical navy bar) */}
+      {/* Top Announcement & Heritage Trust Bar (single compact row on mobile, full bar on desktop) */}
       <aside
         aria-label={hx.heritageBarAria}
         className="border-b border-white/10 bg-[#0B1628] text-white"
       >
-        <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-x-4 gap-y-1.5 px-4 py-2 text-[11px] sm:text-xs lg:flex-nowrap">
-          <div className="flex min-w-0 flex-1 items-center gap-2">
+        <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-2 px-3 py-1.5 text-[11px] sm:px-4 sm:py-2 sm:text-xs">
+          <div className="hidden min-w-0 flex-1 items-center gap-2 md:flex">
             <span className="shrink-0 font-extrabold tracking-[0.05em] text-[#34D399]">
               {hl.estBadge}
             </span>
             <span className="text-white/30" aria-hidden="true">
               •
             </span>
-            <span className="truncate text-slate-200 font-medium">
+            <span className="truncate font-medium text-slate-200">
               {hl.barTagline}
             </span>
           </div>
 
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex w-full items-center justify-between gap-2 md:w-auto md:justify-end md:gap-3">
             {/* Compact HSA/FSA ~30% Toggle Pill */}
             <button
               type="button"
               onClick={toggleHsaSavings}
               aria-pressed={applyHsaSavings}
-              className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/25 bg-emerald-500/10 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-300 transition hover:bg-emerald-500/20"
+              className="inline-flex min-h-[30px] shrink-0 items-center gap-1.5 rounded-full border border-emerald-400/25 bg-emerald-500/10 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-300 transition hover:bg-emerald-500/20"
             >
               <ShieldCheck className="h-3.5 w-3.5 shrink-0" />
               <span className="hidden sm:inline">
@@ -271,9 +271,15 @@ export function Header({ lang }: { lang: Locale }) {
               </span>
             </button>
 
-            {/* 5-Language Switcher */}
-            <nav aria-label={hx.langSwitcherAria} className="flex items-center gap-0.5">
-              <Globe className="mr-1 h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
+            {/* 6-Language Switcher (horizontally scrollable safety on tiny screens) */}
+            <nav
+              aria-label={hx.langSwitcherAria}
+              className="no-scrollbar flex min-w-0 items-center gap-0.5 overflow-x-auto"
+            >
+              <Globe
+                className="mr-1 hidden h-3.5 w-3.5 shrink-0 text-slate-400 sm:block"
+                aria-hidden="true"
+              />
               {LOCALES.map((loc) => {
                 const active = loc === lang;
                 return (
@@ -281,7 +287,7 @@ export function Header({ lang }: { lang: Locale }) {
                     key={loc}
                     href={getLocalizedHref(switchBasePath, loc)}
                     hrefLang={LOCALE_META[loc].hreflang}
-                    className={`rounded px-1.5 py-0.5 text-[11px] font-bold transition ${
+                    className={`shrink-0 rounded px-1.5 py-1 text-[11px] font-bold transition ${
                       active
                         ? "bg-emerald-500 text-slate-950"
                         : "text-slate-300 hover:bg-white/10 hover:text-white"
@@ -304,7 +310,7 @@ export function Header({ lang }: { lang: Locale }) {
             : "border-slate-200/90 bg-white/95 shadow-[0_1px_12px_rgba(11,31,58,0.05)]"
         }`}
       >
-        <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-3 px-4 py-2.5">
+        <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-2 px-3 py-2 sm:gap-3 sm:px-4 sm:py-2.5">
           {/* Official Evminov Monogram + Wordmark */}
           <Link
             href={getLocalizedHref("/", lang)}
@@ -367,7 +373,7 @@ export function Header({ lang }: { lang: Locale }) {
           </div>
 
           {/* Right Action Pills: WhatsApp + Patient Portal + Find My Angle + Cart/Order */}
-          <div className="flex shrink-0 items-center gap-2">
+          <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
             {/* Primary WhatsApp Instant-Chat Pill */}
             <a
               href={SITE_CONFIG.whatsappHref}
@@ -380,14 +386,15 @@ export function Header({ lang }: { lang: Locale }) {
               <span>WhatsApp</span>
             </a>
 
-            {/* Patient Portal Outlined Pill (with emerald User icon, matching screenshot) */}
+            {/* Patient Portal Outlined Pill */}
             <Link
               href={getLocalizedHref("/portal/", lang)}
-              className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-[#0B1F3A] shadow-xs transition hover:border-emerald-500/60 hover:bg-emerald-50/40 sm:text-[13px]"
+              aria-label={hl.patientPortal}
+              className="inline-flex min-h-[40px] items-center gap-1.5 rounded-full border border-slate-200 bg-white px-2.5 py-2 text-xs font-bold text-[#0B1F3A] shadow-xs transition hover:border-emerald-500/60 hover:bg-emerald-50/40 sm:px-3.5 sm:text-[13px]"
             >
-              <User className="h-4 w-4 text-emerald-600 shrink-0" />
+              <User className="h-4 w-4 shrink-0 text-emerald-600" />
               <span className="hidden sm:inline">{hl.patientPortal}</span>
-              <span className="sm:hidden">{hx.portalShort}</span>
+              <span className="hidden min-[380px]:inline sm:hidden">{hx.portalShort}</span>
             </Link>
 
             {/* Find My Angle Pill */}
@@ -401,20 +408,21 @@ export function Header({ lang }: { lang: Locale }) {
             {/* Cart / Order Soft Pill */}
             <Link
               href={getLocalizedHref("/order/", lang)}
+              aria-label={hl.cartOrder}
               onClick={() => sendGTMEvent("click_order_cta", { location: "header_cart" })}
-              className="inline-flex items-center gap-1.5 rounded-full bg-[#EFF3F8] px-4 py-2 text-xs font-extrabold text-[#0B1F3A] transition hover:bg-[#0B1F3A] hover:text-white sm:text-[13px]"
+              className="inline-flex min-h-[40px] items-center gap-1.5 rounded-full bg-[#EFF3F8] px-3 py-2 text-xs font-extrabold text-[#0B1F3A] transition hover:bg-[#0B1F3A] hover:text-white sm:px-4 sm:text-[13px]"
             >
               <ShoppingCart className="h-4 w-4 shrink-0" />
-              <span>{hl.cartOrder}</span>
+              <span className="hidden min-[410px]:inline">{hl.cartOrder}</span>
             </Link>
 
-            {/* Mobile Hamburger Trigger */}
+            {/* Mobile Hamburger Trigger (WCAG 44x44px touch target) */}
             <button
               type="button"
               onClick={() => setMobileOpen((prev) => !prev)}
               aria-expanded={mobileOpen}
               aria-label={hx.toggleMenuAria}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 lg:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 lg:hidden"
             >
               {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -432,11 +440,11 @@ export function Header({ lang }: { lang: Locale }) {
           />
         </div>
 
-        {/* Mobile Clinical Directory Drawer */}
+        {/* Mobile Clinical Directory Drawer (scrollable within dvh, clears bottom mobile dock) */}
         {mobileOpen && (
-          <div className="border-t border-slate-200 bg-white px-4 pb-6 pt-4 shadow-2xl lg:hidden">
+          <div className="max-h-[calc(100dvh-104px)] overflow-y-auto overscroll-contain border-t border-slate-200 bg-white px-4 pb-28 pt-4 shadow-2xl lg:hidden">
             {/* Quick Action Cards */}
-            <div className="grid grid-cols-2 gap-2.5 mb-4">
+            <div className="mb-4 grid grid-cols-2 gap-2.5">
               <Link
                 href={getLocalizedHref("/centers/", lang)}
                 onClick={() => setMobileOpen(false)}
@@ -461,7 +469,7 @@ export function Header({ lang }: { lang: Locale }) {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className={`rounded-xl px-3.5 py-2.5 text-sm font-semibold ${
+                  className={`flex min-h-[44px] items-center rounded-xl px-3.5 py-2.5 text-sm font-semibold ${
                     item.highlight
                       ? "bg-emerald-50 text-emerald-800"
                       : "text-slate-800 hover:bg-slate-50"
@@ -473,7 +481,7 @@ export function Header({ lang }: { lang: Locale }) {
               <Link
                 href={getLocalizedHref("/calculator/", lang)}
                 onClick={() => setMobileOpen(false)}
-                className="rounded-xl px-3.5 py-2.5 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+                className="flex min-h-[44px] items-center rounded-xl px-3.5 py-2.5 text-sm font-semibold text-slate-800 hover:bg-slate-50"
               >
                 {hl.findMyAngle}
               </Link>
@@ -485,7 +493,7 @@ export function Header({ lang }: { lang: Locale }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => sendGTMEvent("click_whatsapp", { location: "mobile_drawer" })}
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#16A34A] px-4 py-2.5 text-sm font-extrabold text-white shadow-sm hover:bg-emerald-700"
+                className="inline-flex min-h-[46px] items-center justify-center gap-2 rounded-xl bg-[#16A34A] px-4 py-2.5 text-sm font-extrabold text-white shadow-sm hover:bg-emerald-700"
               >
                 <MessageCircle className="h-4 w-4" />
                 <span>WhatsApp • {SITE_CONFIG.phoneDisplay}</span>
@@ -500,8 +508,8 @@ export function Header({ lang }: { lang: Locale }) {
         role="status"
         className="border-b border-amber-200/80 bg-gradient-to-r from-amber-50 via-emerald-50/60 to-amber-50 text-slate-900"
       >
-        <div className="mx-auto flex max-w-[1400px] items-center justify-center gap-2 px-4 py-2 text-center text-[11px] font-semibold leading-snug sm:text-xs">
-          <Truck className="h-3.5 w-3.5 shrink-0 text-teal-700" aria-hidden="true" />
+        <div className="mx-auto flex max-w-[1400px] items-start justify-center gap-2 px-3 py-1.5 text-left text-[11px] font-semibold leading-snug sm:items-center sm:px-4 sm:py-2 sm:text-center sm:text-xs">
+          <Truck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-teal-700 sm:mt-0" aria-hidden="true" />
           <span>{hl.shippingNoticeBanner}</span>
         </div>
       </div>

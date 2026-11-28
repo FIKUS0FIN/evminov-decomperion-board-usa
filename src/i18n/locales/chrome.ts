@@ -516,47 +516,47 @@ export const FOOTER_CONTENT: Record<Locale, FooterContent> = {
 
 export interface MobileDockExtra {
   navAria: string;
-  fromPrice: string;
-  installments: string;
+  fromPrefix: string;
+  orPrefix: string;
   trialExpress: string;
 }
 
 export const MOBILE_DOCK_EXTRA: Record<Locale, MobileDockExtra> = {
   en: {
     navAria: "Mobile quick actions",
-    fromPrice: "From $450",
-    installments: "(or 4× $112.50)",
-    trialExpress: "60-Day Trial • US Express",
+    fromPrefix: "From",
+    orPrefix: "or",
+    trialExpress: "1-Yr Warranty • ~2 Wks",
   },
   es: {
     navAria: "Acciones rápidas móviles",
-    fromPrice: "Desde $450",
-    installments: "(o 4× $112.50)",
-    trialExpress: "Prueba 60 Días • Express EE. UU.",
+    fromPrefix: "Desde",
+    orPrefix: "o",
+    trialExpress: "Garantía 1 Año • ~2 Sem.",
   },
   fr: {
     navAria: "Actions rapides mobiles",
-    fromPrice: "Dès 450 $",
-    installments: "(ou 4× 112,50 $)",
-    trialExpress: "Essai 60 Jours • Express US",
+    fromPrefix: "Dès",
+    orPrefix: "ou",
+    trialExpress: "Garantie 1 An • ~2 Sem.",
   },
   uk: {
     navAria: "Швидкі дії на мобільному",
-    fromPrice: "Від $450",
-    installments: "(або 4× $112.50)",
-    trialExpress: "60 Днів Тесту • Експрес США",
+    fromPrefix: "Від",
+    orPrefix: "або",
+    trialExpress: "Гарантія 1 Рік • ~2 Тижні",
   },
   ru: {
     navAria: "Быстрые действия на мобильном",
-    fromPrice: "От $450",
-    installments: "(или 4× $112.50)",
-    trialExpress: "60 Дней Теста • Экспресс США",
+    fromPrefix: "От",
+    orPrefix: "или",
+    trialExpress: "Гарантия 1 Год • ~2 Нед.",
   },
   de: {
     navAria: "Mobile Schnellaktionen",
-    fromPrice: "Ab $450",
-    installments: "(oder 4× $112.50)",
-    trialExpress: "60 Tage Test • US-Express",
+    fromPrefix: "Ab",
+    orPrefix: "oder",
+    trialExpress: "1 Jahr Garantie • ~2 Wo.",
   },
 };
 

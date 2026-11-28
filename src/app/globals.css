@@ -19,6 +19,7 @@
 
 html {
   overflow-x: clip;
+  scroll-padding-top: 88px;
   -webkit-tap-highlight-color: transparent;
   text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -29,6 +30,25 @@ body {
   color: var(--foreground);
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   overflow-x: clip;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+}
+
+/* Prevent iOS Safari violent 125% auto-zoom on form controls < 16px */
+@media (max-width: 767px) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]):not([type="hidden"]),
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
 }
 
 h1,

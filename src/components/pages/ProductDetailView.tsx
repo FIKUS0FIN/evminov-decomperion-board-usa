@@ -59,10 +59,10 @@ export function ProductDetailView({
       <ProductJsonLd product={product} lang={lang} />
       <FaqJsonLd faqs={lp.faqs} />
 
-      <div className="mx-auto max-w-7xl px-4 py-10 md:py-14">
-        <div className="grid gap-10 lg:grid-cols-12">
+      <div className="mx-auto max-w-7xl px-4 py-8 md:py-14">
+        <div className="grid gap-8 lg:grid-cols-12 lg:gap-10">
           {/* Gallery */}
-          <div className="lg:col-span-6">
+          <div className="min-w-0 lg:col-span-6">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-slate-200 bg-[#F4F7F9] shadow-sm">
               <OptimizedImage
                 src={activeImg}
@@ -73,14 +73,14 @@ export function ProductDetailView({
                 className="object-contain p-3"
               />
             </div>
-            <div className="mt-3 grid grid-cols-6 gap-2">
+            <div className="no-scrollbar mt-3 flex gap-2 overflow-x-auto pb-0.5 sm:grid sm:grid-cols-6 sm:overflow-visible">
               {lp.galleryImages.map((img) => (
                 <button
                   key={img.url}
                   type="button"
                   onClick={() => setActiveImg(img.url)}
                   aria-label={img.label}
-                  className={`relative aspect-[4/3] overflow-hidden rounded-xl border-2 bg-[#F4F7F9] transition ${
+                  className={`relative aspect-[4/3] w-[68px] shrink-0 overflow-hidden rounded-xl border-2 bg-[#F4F7F9] transition sm:w-auto ${
                     activeImg === img.url
                       ? "border-teal-700"
                       : "border-slate-200 opacity-75 hover:opacity-100"
@@ -99,19 +99,19 @@ export function ProductDetailView({
           </div>
 
           {/* Purchase Panel */}
-          <div className="lg:col-span-6">
+          <div className="min-w-0 lg:col-span-6">
             <span className="inline-block rounded-full bg-teal-50 px-3 py-1 text-xs font-bold text-teal-800">
               {lp.badge}
             </span>
-            <h1 className="mt-3 font-display text-3xl font-black tracking-tight text-slate-950 md:text-4xl">
+            <h1 className="mt-3 break-words font-display text-2xl font-black tracking-tight text-slate-950 sm:text-3xl md:text-4xl">
               {lp.name}
             </h1>
-            <p className="mt-3 text-base leading-relaxed text-slate-600">
+            <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
               {lp.subtitle}
             </p>
 
             {/* Price & HSA Toggle */}
-            <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+            <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-5">
               <div className="flex flex-wrap items-baseline justify-between gap-2">
                 <div>
                   <p className="text-3xl font-black text-slate-950">
@@ -129,7 +129,7 @@ export function ProductDetailView({
                 <button
                   type="button"
                   onClick={toggleHsaSavings}
-                  className={`rounded-xl border px-3 py-1.5 text-xs font-bold ${
+                  className={`min-h-[40px] rounded-xl border px-3 py-1.5 text-xs font-bold ${
                     applyHsaSavings
                       ? "border-emerald-600 bg-emerald-100 text-emerald-900"
                       : "border-slate-300 bg-white text-slate-700"
@@ -139,11 +139,11 @@ export function ProductDetailView({
                 </button>
               </div>
 
-              <div className="mt-4 grid grid-cols-2 gap-2">
+              <div className="mt-4 grid grid-cols-1 gap-2 min-[380px]:grid-cols-2">
                 <button
                   type="button"
                   onClick={() => setShipping("express")}
-                  className={`rounded-xl border p-3 text-left text-xs transition ${
+                  className={`min-h-[56px] rounded-xl border p-3 text-left text-xs transition ${
                     shipping === "express"
                       ? "border-teal-700 bg-white font-bold text-slate-950 shadow-sm"
                       : "border-slate-200 text-slate-600"
@@ -157,7 +157,7 @@ export function ProductDetailView({
                 <button
                   type="button"
                   onClick={() => setShipping("direct")}
-                  className={`rounded-xl border p-3 text-left text-xs transition ${
+                  className={`min-h-[56px] rounded-xl border p-3 text-left text-xs transition ${
                     shipping === "direct"
                       ? "border-teal-700 bg-white font-bold text-slate-950 shadow-sm"
                       : "border-slate-200 text-slate-600"
@@ -176,11 +176,11 @@ export function ProductDetailView({
               <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
                 26 cm / 30 cm
               </p>
-              <div className="mt-2 grid grid-cols-2 gap-2">
+              <div className="mt-2 grid grid-cols-1 gap-2 min-[380px]:grid-cols-2">
                 <button
                   type="button"
                   onClick={() => setBoardWidth("standard")}
-                  className={`rounded-xl border px-3 py-2.5 text-left text-xs font-bold transition ${
+                  className={`min-h-[56px] rounded-xl border px-3 py-2.5 text-left text-xs font-bold transition ${
                     boardWidth === "standard"
                       ? "border-slate-950 bg-slate-950 text-white"
                       : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
@@ -194,7 +194,7 @@ export function ProductDetailView({
                 <button
                   type="button"
                   onClick={() => setBoardWidth("wide")}
-                  className={`rounded-xl border px-3 py-2.5 text-left text-xs font-bold transition ${
+                  className={`min-h-[56px] rounded-xl border px-3 py-2.5 text-left text-xs font-bold transition ${
                     boardWidth === "wide"
                       ? "border-slate-950 bg-slate-950 text-white"
                       : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
@@ -221,7 +221,7 @@ export function ProductDetailView({
                     key={f}
                     type="button"
                     onClick={() => setSelectedFinish(f)}
-                    className={`rounded-xl px-4 py-2 text-xs font-bold transition ${
+                    className={`min-h-[42px] rounded-xl px-4 py-2 text-xs font-bold transition ${
                       selectedFinish === f
                         ? "bg-slate-950 text-white"
                         : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50"

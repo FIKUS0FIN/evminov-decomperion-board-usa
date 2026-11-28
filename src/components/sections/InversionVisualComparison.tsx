@@ -332,7 +332,7 @@ export function InversionVisualComparison({ lang = "en" }: { lang?: Locale }) {
                         type="button"
                         aria-pressed={isActive}
                         onClick={() => setSelectedIdx(idx)}
-                        className={`cursor-pointer rounded-lg px-2.5 py-1.5 text-[11px] font-bold transition ${
+                        className={`min-h-[38px] cursor-pointer rounded-lg px-2.5 py-1.5 text-[11px] font-bold transition ${
                           isActive
                             ? "bg-emerald-500 text-slate-950 shadow-[0_0_16px_rgba(16,185,129,0.5)]"
                             : "bg-white/10 text-slate-200 hover:bg-white/20"
@@ -351,16 +351,16 @@ export function InversionVisualComparison({ lang = "en" }: { lang?: Locale }) {
           </div>
 
           {/* Semantic Telemetry Strip (<dl> for SEO & Scannability) */}
-          <dl className="mt-4 grid grid-cols-3 gap-2">
+          <dl className="mt-4 grid grid-cols-3 gap-1.5 sm:gap-2">
             {c.evminovMetrics.map((m) => (
               <div
                 key={m.label}
-                className="rounded-xl border border-emerald-200/80 bg-emerald-50/60 px-2.5 py-2 text-center"
+                className="min-w-0 rounded-xl border border-emerald-200/80 bg-emerald-50/60 px-1.5 py-2 text-center sm:px-2.5"
               >
-                <dt className="text-[10px] font-semibold uppercase tracking-wider text-emerald-800/80">
+                <dt className="truncate text-[9.5px] font-semibold uppercase tracking-wider text-emerald-800/80 sm:text-[10px]">
                   {m.label}
                 </dt>
-                <dd className="mt-0.5 text-xs font-extrabold text-emerald-950">
+                <dd className="mt-0.5 break-words text-[11px] font-extrabold leading-tight text-emerald-950 sm:text-xs">
                   {m.value}
                 </dd>
               </div>
@@ -535,16 +535,16 @@ export function InversionVisualComparison({ lang = "en" }: { lang?: Locale }) {
           </div>
 
           {/* Semantic Telemetry Strip */}
-          <dl className="mt-4 grid grid-cols-3 gap-2">
+          <dl className="mt-4 grid grid-cols-3 gap-1.5 sm:gap-2">
             {c.invMetrics.map((m) => (
               <div
                 key={m.label}
-                className="rounded-xl border border-slate-200 bg-white px-2.5 py-2 text-center"
+                className="min-w-0 rounded-xl border border-slate-200 bg-white px-1.5 py-2 text-center sm:px-2.5"
               >
-                <dt className="text-[10px] font-semibold uppercase tracking-wider text-slate-500">
+                <dt className="truncate text-[9.5px] font-semibold uppercase tracking-wider text-slate-500 sm:text-[10px]">
                   {m.label}
                 </dt>
-                <dd className="mt-0.5 text-xs font-extrabold text-rose-700">
+                <dd className="mt-0.5 break-words text-[11px] font-extrabold leading-tight text-rose-700 sm:text-xs">
                   {m.value}
                 </dd>
               </div>

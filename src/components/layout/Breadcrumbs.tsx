@@ -65,7 +65,7 @@ export function Breadcrumbs({ lang }: { lang: Locale }) {
       <BreadcrumbJsonLd items={crumbs.map((c) => ({ name: c.name, url: c.url }))} />
       <nav
         aria-label={BREADCRUMB_COPY[lang].navAria}
-        className="mx-auto flex max-w-7xl items-center gap-1.5 overflow-x-auto px-4 py-2.5 text-xs text-slate-600"
+        className="no-scrollbar mx-auto flex max-w-7xl items-center gap-1.5 overflow-x-auto px-4 py-2.5 text-xs text-slate-600"
       >
         {crumbs.map((crumb, idx) => {
           const isLast = idx === crumbs.length - 1;

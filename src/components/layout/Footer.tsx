@@ -45,7 +45,7 @@ export function Footer({ lang }: { lang: Locale }) {
 
   return (
     <footer className="border-t border-white/10 bg-gradient-to-b from-[#0B192C] to-[#060E1A] text-slate-300">
-      <div className="mx-auto max-w-[1360px] px-4 pb-10 pt-14">
+      <div className="mx-auto max-w-[1360px] px-4 pb-32 pt-10 sm:pt-14 md:pb-10">
         {/* 4-Column Classic Evminov Footer Directory */}
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-12">
           {/* Column 1: Brand & Origin */}

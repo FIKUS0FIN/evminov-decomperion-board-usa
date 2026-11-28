@@ -54,14 +54,14 @@ export function ConsentBanner({ lang }: { lang: Locale }) {
     <div
       role="dialog"
       aria-label={t.title}
-      className="fixed bottom-20 md:bottom-5 left-4 right-4 md:left-6 md:right-auto md:max-w-md z-50 rounded-2xl border border-slate-200 bg-white/98 p-5 shadow-2xl backdrop-blur"
+      className="fixed bottom-[104px] left-3 right-3 z-50 max-h-[72dvh] overflow-y-auto rounded-2xl border border-slate-200 bg-white/98 p-4 shadow-2xl backdrop-blur sm:p-5 md:bottom-5 md:left-6 md:right-auto md:max-w-md"
     >
       <p className="text-sm font-bold text-slate-900">{t.title}</p>
       <p className="mt-1.5 text-xs leading-relaxed text-slate-600">{t.body}</p>
 
       {showCustom && (
         <div className="mt-3 space-y-2 rounded-xl bg-slate-50 p-3 text-xs">
-          <label className="flex items-center justify-between gap-2 text-slate-800">
+          <label className="flex min-h-[36px] items-center justify-between gap-2 text-slate-800">
             <span>{t.analyticsLabel}</span>
             <input
               type="checkbox"
@@ -70,7 +70,7 @@ export function ConsentBanner({ lang }: { lang: Locale }) {
               className="h-4 w-4 accent-teal-700"
             />
           </label>
-          <label className="flex items-center justify-between gap-2 text-slate-800">
+          <label className="flex min-h-[36px] items-center justify-between gap-2 text-slate-800">
             <span>{t.marketingLabel}</span>
             <input
               type="checkbox"
@@ -86,14 +86,14 @@ export function ConsentBanner({ lang }: { lang: Locale }) {
         <button
           type="button"
           onClick={() => choose("all")}
-          className="rounded-lg bg-teal-700 px-3.5 py-2 text-xs font-semibold text-white hover:bg-teal-800 transition-colors"
+          className="min-h-[44px] rounded-lg bg-teal-700 px-3.5 py-2 text-xs font-semibold text-white transition-colors hover:bg-teal-800"
         >
           {t.acceptAll}
         </button>
         <button
           type="button"
           onClick={() => choose("necessary")}
-          className="rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 transition-colors"
+          className="min-h-[44px] rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-xs font-semibold text-slate-800 transition-colors hover:bg-slate-50"
         >
           {t.necessaryOnly}
         </button>
@@ -101,7 +101,7 @@ export function ConsentBanner({ lang }: { lang: Locale }) {
           <button
             type="button"
             onClick={saveCustom}
-            className="rounded-lg bg-slate-900 px-3.5 py-2 text-xs font-semibold text-white hover:bg-slate-800 transition-colors"
+            className="min-h-[44px] rounded-lg bg-slate-900 px-3.5 py-2 text-xs font-semibold text-white transition-colors hover:bg-slate-800"
           >
             {t.save}
           </button>
@@ -109,7 +109,7 @@ export function ConsentBanner({ lang }: { lang: Locale }) {
           <button
             type="button"
             onClick={() => setShowCustom(true)}
-            className="px-2 py-2 text-xs font-medium text-slate-600 underline hover:text-slate-900"
+            className="min-h-[44px] px-2.5 py-2 text-xs font-medium text-slate-600 underline hover:text-slate-900"
           >
             {t.customize}
           </button>

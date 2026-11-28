@@ -141,24 +141,24 @@ export function AIChatWidget({ lang }: { lang: Locale }) {
         <div
           role="dialog"
           aria-label={t.title}
-          className="fixed bottom-20 right-4 md:bottom-6 md:right-6 z-50 flex h-[500px] w-[calc(100vw-2rem)] max-w-sm flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl"
+          className="fixed inset-x-3 bottom-[104px] z-50 flex h-[min(500px,calc(100dvh-8.5rem))] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl md:inset-x-auto md:bottom-6 md:right-6 md:h-[520px] md:w-[380px]"
         >
-          <div className="flex items-center justify-between bg-slate-950 px-4 py-3 text-white">
-            <div>
-              <p className="text-sm font-bold">{t.title}</p>
-              <p className="text-[11px] text-emerald-300">{t.subtitle}</p>
+          <div className="flex items-center justify-between gap-2 bg-slate-950 px-4 py-3 text-white">
+            <div className="min-w-0">
+              <p className="truncate text-sm font-bold">{t.title}</p>
+              <p className="truncate text-[11px] text-emerald-300">{t.subtitle}</p>
             </div>
             <button
               type="button"
               onClick={() => setOpen(false)}
               aria-label="Close AI chat"
-              className="rounded-lg p-1 text-slate-300 hover:bg-white/10 hover:text-white"
+              className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-slate-300 hover:bg-white/10 hover:text-white"
             >
               <X className="h-5 w-5" />
             </button>
           </div>
 
-          <div className="flex-1 space-y-3 overflow-y-auto p-4 text-sm">
+          <div className="flex-1 space-y-3 overflow-y-auto overscroll-contain p-4 text-sm">
             {messages.map((m, idx) => (
               <div
                 key={idx}
@@ -181,7 +181,7 @@ export function AIChatWidget({ lang }: { lang: Locale }) {
                       className="mb-2 max-h-32 rounded-lg object-cover"
                     />
                   )}
-                  <p className="whitespace-pre-line">{m.content}</p>
+                  <p className="whitespace-pre-line break-words">{m.content}</p>
                 </div>
               </div>
             ))}
@@ -219,7 +219,7 @@ export function AIChatWidget({ lang }: { lang: Locale }) {
                 onClick={() => fileRef.current?.click()}
                 aria-label={t.photoHint}
                 title={t.photoHint}
-                className="rounded-xl border border-slate-200 p-2 text-slate-600 hover:bg-slate-100"
+                className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-100"
               >
                 <Camera className="h-4 w-4" />
               </button>
@@ -228,13 +228,13 @@ export function AIChatWidget({ lang }: { lang: Locale }) {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder={t.placeholder}
-                className="flex-1 rounded-xl border border-slate-200 px-3 py-2 text-sm text-slate-900 focus:border-teal-600"
+                className="min-h-[44px] min-w-0 flex-1 rounded-xl border border-slate-200 px-3 py-2 text-sm text-slate-900 focus:border-teal-600"
               />
               <button
                 type="submit"
                 disabled={loading}
                 aria-label={t.send}
-                className="rounded-xl bg-teal-700 p-2 text-white hover:bg-teal-800 disabled:opacity-50"
+                className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal-700 text-white hover:bg-teal-800 disabled:opacity-50"
               >
                 <Send className="h-4 w-4" />
               </button>

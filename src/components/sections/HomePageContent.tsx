@@ -92,23 +92,23 @@ export function HomePageContent({ lang }: { lang: Locale }) {
 
       {/* 1. HERO (Pre-rendered Static HTML + Interactive 6-Photo Gallery) */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#0B1628] via-[#0B1F3A] to-[#0D3B46] text-white">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 md:py-16 lg:grid-cols-12">
-          <div className="lg:col-span-6">
-            <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3.5 py-1.5 text-xs font-bold text-emerald-300">
-              <Award className="h-3.5 w-3.5" />
+        <div className="mx-auto grid max-w-7xl items-center gap-6 px-4 py-6 sm:py-12 md:py-16 lg:grid-cols-12 lg:gap-10">
+          <div className="min-w-0 lg:col-span-6">
+            <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3 py-1 text-[11px] font-bold text-emerald-300 sm:px-3.5 sm:py-1.5 sm:text-xs">
+              <Award className="h-3.5 w-3.5 shrink-0" />
               <span>{h.badge}</span>
             </span>
 
-            <h1 className="mt-5 font-display text-4xl font-black leading-tight tracking-tight sm:text-5xl">
+            <h1 className="mt-3 break-words font-display text-[1.75rem] font-black leading-[1.13] tracking-tight sm:mt-5 sm:text-4xl lg:text-5xl">
               {h.title}{" "}
               <span className="text-emerald-400">{h.titleHighlight}</span>
             </h1>
 
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
+            <p className="mt-3 max-w-2xl text-[14.5px] leading-relaxed text-slate-300 sm:mt-5 sm:text-lg">
               {h.subtitle}
             </p>
 
-            <ul className="mt-6 grid gap-2.5 text-sm text-slate-200 sm:grid-cols-2">
+            <ul className="mt-4 grid gap-1.5 text-[13px] text-slate-200 sm:mt-6 sm:grid-cols-2 sm:gap-2.5 sm:text-sm">
               {h.trustItems.map((item) => (
                 <li key={item} className="flex items-start gap-2">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" />
@@ -117,32 +117,34 @@ export function HomePageContent({ lang }: { lang: Locale }) {
               ))}
             </ul>
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-5 flex flex-col gap-2.5 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
               <Link
                 href={getLocalizedHref("/order/", lang)}
-                className="inline-flex min-h-[48px] items-center gap-2 rounded-2xl bg-emerald-500 px-6 py-3.5 text-sm font-black text-slate-950 shadow-xl transition hover:bg-emerald-400"
+                className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-2xl bg-emerald-500 px-6 py-3.5 text-sm font-black text-slate-950 shadow-xl transition hover:bg-emerald-400 sm:w-auto"
               >
                 <span>{h.ctaPrimary}</span>
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4 shrink-0" />
               </Link>
-              <a
-                href="#calculator"
-                className="inline-flex min-h-[48px] items-center gap-2 rounded-2xl border border-white/25 bg-white/10 px-5 py-3.5 text-sm font-bold text-white backdrop-blur transition hover:bg-white/20"
-              >
-                <span>{h.ctaSecondary}</span>
-              </a>
-              <a
-                href={SITE_CONFIG.whatsappHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-[48px] items-center gap-2 rounded-2xl bg-[#16A34A] px-4 py-3.5 text-sm font-extrabold text-white shadow-lg transition hover:bg-emerald-500"
-              >
-                <MessageCircle className="h-4 w-4 shrink-0" />
-                <span>WhatsApp</span>
-              </a>
+              <div className="grid grid-cols-2 gap-2.5 sm:flex sm:items-center sm:gap-3">
+                <a
+                  href="#calculator"
+                  className="inline-flex min-h-[48px] items-center justify-center gap-1.5 rounded-2xl border border-white/25 bg-white/10 px-3.5 py-3 text-center text-xs font-bold text-white backdrop-blur transition hover:bg-white/20 sm:px-5 sm:py-3.5 sm:text-sm"
+                >
+                  <span className="truncate">{h.ctaSecondary}</span>
+                </a>
+                <a
+                  href={SITE_CONFIG.whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-[48px] items-center justify-center gap-1.5 rounded-2xl bg-[#16A34A] px-3.5 py-3 text-xs font-extrabold text-white shadow-lg transition hover:bg-emerald-500 sm:px-4 sm:py-3.5 sm:text-sm"
+                >
+                  <MessageCircle className="h-4 w-4 shrink-0" />
+                  <span>WhatsApp</span>
+                </a>
+              </div>
             </div>
 
-            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-slate-300">
+            <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-slate-300 sm:mt-6 sm:gap-x-5">
               <span>
                 {h.startingFrom}{" "}
                 <strong className="text-sm text-white">
@@ -168,13 +170,13 @@ export function HomePageContent({ lang }: { lang: Locale }) {
             </div>
           </div>
 
-          <div className="space-y-3 lg:col-span-6">
+          <div className="min-w-0 space-y-3 lg:col-span-6">
             <HeroShowcaseGallery lang={lang} />
             <a
               href="#videos"
-              className="group flex items-center gap-3.5 rounded-2xl border border-emerald-400/30 bg-white/[0.07] p-2.5 pr-4 backdrop-blur-md transition hover:border-emerald-400/70 hover:bg-white/[0.12] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+              className="group flex min-h-[56px] items-center gap-3 rounded-2xl border border-emerald-400/30 bg-white/[0.07] p-2.5 pr-3.5 backdrop-blur-md transition hover:border-emerald-400/70 hover:bg-white/[0.12] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 sm:gap-3.5 sm:pr-4"
             >
-              <span className="relative h-12 w-20 shrink-0 overflow-hidden rounded-xl border border-white/15 bg-slate-950">
+              <span className="relative h-12 w-16 shrink-0 overflow-hidden rounded-xl border border-white/15 bg-slate-950 sm:w-20">
                 <OptimizedImage
                   src={SITE_CONFIG.videos.methodDemo.thumbnail}
                   alt={HERO_VIDEO_TEASER[lang].title}
@@ -196,7 +198,7 @@ export function HomePageContent({ lang }: { lang: Locale }) {
                   {HERO_VIDEO_TEASER[lang].subtitle}
                 </p>
               </div>
-              <span className="hidden shrink-0 rounded-full border border-emerald-400/35 bg-emerald-500/15 px-2.5 py-1 font-mono text-[11px] font-bold text-emerald-300 sm:inline-block">
+              <span className="shrink-0 rounded-full border border-emerald-400/35 bg-emerald-500/15 px-2 py-0.5 font-mono text-[10px] font-bold text-emerald-300 sm:px-2.5 sm:py-1 sm:text-[11px]">
                 {HERO_VIDEO_TEASER[lang].badge}
               </span>
             </a>
@@ -240,17 +242,17 @@ export function HomePageContent({ lang }: { lang: Locale }) {
         <InversionVisualComparison lang={lang} />
 
         <div className="mt-8 overflow-x-auto rounded-3xl border border-slate-200 shadow-sm">
-          <table className="w-full min-w-[640px] border-collapse text-left text-sm">
+          <table className="w-full min-w-[600px] border-collapse text-left text-xs sm:text-sm">
             <thead className="bg-[#0B1F3A] text-white">
               <tr>
-                <th className="p-4 font-bold">{matrix.colFactor}</th>
-                <th className="p-4 font-bold text-emerald-400">
+                <th className="p-3 font-bold sm:p-4">{matrix.colFactor}</th>
+                <th className="p-3 font-bold text-emerald-400 sm:p-4">
                   {matrix.colEvminov}
                 </th>
-                <th className="p-4 font-bold text-slate-300">
+                <th className="p-3 font-bold text-slate-300 sm:p-4">
                   {matrix.colInversion}
                 </th>
-                <th className="p-4 font-bold text-slate-300">
+                <th className="p-3 font-bold text-slate-300 sm:p-4">
                   {matrix.colClinic}
                 </th>
               </tr>
@@ -258,12 +260,12 @@ export function HomePageContent({ lang }: { lang: Locale }) {
             <tbody className="divide-y divide-slate-200 bg-white">
               {matrix.rows.map((row) => (
                 <tr key={row.metric}>
-                  <td className="p-4 font-bold text-slate-900">{row.metric}</td>
-                  <td className="bg-emerald-50/50 p-4 font-semibold text-teal-900">
+                  <td className="p-3 font-bold text-slate-900 sm:p-4">{row.metric}</td>
+                  <td className="bg-emerald-50/50 p-3 font-semibold text-teal-900 sm:p-4">
                     {row.evminov}
                   </td>
-                  <td className="p-4 text-slate-600">{row.inversion}</td>
-                  <td className="p-4 text-slate-600">{row.clinic}</td>
+                  <td className="p-3 text-slate-600 sm:p-4">{row.inversion}</td>
+                  <td className="p-3 text-slate-600 sm:p-4">{row.clinic}</td>
                 </tr>
               ))}
             </tbody>

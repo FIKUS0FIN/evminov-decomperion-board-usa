@@ -228,10 +228,10 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
       : baseOrderHref;
 
   return (
-    <div className="overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-5 shadow-[0_24px_60px_-24px_rgba(11,31,58,0.18)] sm:p-7 md:p-8">
-      <div className="grid gap-7 lg:grid-cols-12">
+    <div className="overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-4 shadow-[0_24px_60px_-24px_rgba(11,31,58,0.18)] sm:p-7 md:p-8">
+      <div className="grid gap-6 lg:grid-cols-12 lg:gap-7">
         {/* LEFT COLUMN: TACTILE CONTROLS */}
-        <div className="space-y-5 lg:col-span-7">
+        <div className="min-w-0 space-y-5 lg:col-span-7">
           {/* Goal Selector */}
           <div>
             <p className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-teal-700">
@@ -346,7 +346,7 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
                     key={preset}
                     type="button"
                     onClick={() => setAngle(preset)}
-                    className={`cursor-pointer rounded-lg px-2.5 py-1 text-[11px] font-bold transition ${
+                    className={`min-h-[40px] min-w-[44px] cursor-pointer rounded-lg px-3 py-1.5 text-xs font-bold transition ${
                       angle === preset
                         ? "bg-amber-600 text-white shadow-xs"
                         : "border border-slate-200 bg-white text-slate-700 hover:border-amber-400"
@@ -405,7 +405,7 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
                 <button
                   type="submit"
                   disabled={leadBusy}
-                  className="cursor-pointer rounded-xl bg-teal-700 px-5 py-2.5 text-xs font-extrabold text-white shadow-sm transition hover:bg-teal-800 disabled:opacity-50"
+                  className="min-h-[44px] cursor-pointer rounded-xl bg-teal-700 px-5 py-2.5 text-xs font-extrabold text-white shadow-sm transition hover:bg-teal-800 disabled:opacity-50"
                 >
                   {c.emailProtocolButton}
                 </button>
@@ -415,7 +415,7 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
         </div>
 
         {/* RIGHT COLUMN: 3D LIVE BIOMECHANICAL OUTPUT & CONVERSION CARD */}
-        <div className="relative flex flex-col justify-between overflow-hidden rounded-3xl border border-emerald-500/30 bg-gradient-to-b from-[#071529] via-[#0B1F3A] to-[#081A2A] p-6 text-white shadow-2xl lg:col-span-5">
+        <div className="relative flex min-w-0 flex-col justify-between overflow-hidden rounded-3xl border border-emerald-500/30 bg-gradient-to-b from-[#071529] via-[#0B1F3A] to-[#081A2A] p-4 text-white shadow-2xl sm:p-6 lg:col-span-5">
           {/* Ambient Glow */}
           <div
             aria-hidden="true"
@@ -593,28 +593,28 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
             </div>
 
             {/* 3 Telemetry KPI Cards */}
-            <div className="mt-4 grid grid-cols-3 gap-2.5">
-              <div className="rounded-xl border border-white/10 bg-white/5 p-3 text-center">
-                <p className="text-lg font-black text-emerald-400 sm:text-xl">
+            <div className="mt-4 grid grid-cols-3 gap-2">
+              <div className="rounded-xl border border-white/10 bg-white/5 p-2.5 text-center sm:p-3">
+                <p className="whitespace-nowrap text-base font-black text-emerald-400 sm:text-xl">
                   {physics.netTractionLbs} {cx.pullUnit}
                 </p>
-                <p className="mt-0.5 text-[10px] font-semibold text-slate-300">
+                <p className="mt-0.5 text-[10px] font-semibold leading-tight text-slate-300">
                   {c.netTraction}
                 </p>
               </div>
-              <div className="rounded-xl border border-white/10 bg-white/5 p-3 text-center">
-                <p className="text-lg font-black text-amber-400 sm:text-xl">
+              <div className="rounded-xl border border-white/10 bg-white/5 p-2.5 text-center sm:p-3">
+                <p className="whitespace-nowrap text-base font-black text-amber-400 sm:text-xl">
                   {physics.percentBodyWeight}%
                 </p>
-                <p className="mt-0.5 text-[10px] font-semibold text-slate-300">
+                <p className="mt-0.5 text-[10px] font-semibold leading-tight text-slate-300">
                   {c.bodyweightPull}
                 </p>
               </div>
-              <div className="rounded-xl border border-white/10 bg-white/5 p-3 text-center">
-                <p className="text-lg font-black text-sky-400 sm:text-xl">
+              <div className="rounded-xl border border-white/10 bg-white/5 p-2.5 text-center sm:p-3">
+                <p className="whitespace-nowrap text-base font-black text-sky-400 sm:text-xl">
                   {physics.estimatedDiscUnloadingPct}%
                 </p>
-                <p className="mt-0.5 text-[10px] font-semibold text-slate-300">
+                <p className="mt-0.5 text-[10px] font-semibold leading-tight text-slate-300">
                   {c.discUnloading}
                 </p>
               </div>
@@ -666,7 +666,7 @@ export function BiomechanicalCalculator({ lang }: { lang: Locale }) {
             <button
               type="button"
               onClick={handleShareProtocol}
-              className="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-xs font-bold text-slate-200 transition hover:bg-white/10 hover:text-white"
+              className="inline-flex min-h-[44px] w-full cursor-pointer items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-xs font-bold text-slate-200 transition hover:bg-white/10 hover:text-white"
             >
               <Share2 className="h-3.5 w-3.5 text-emerald-400" />
               <span>{shareCopied ? cx.shareCopiedBtn : cx.shareBtn}</span>

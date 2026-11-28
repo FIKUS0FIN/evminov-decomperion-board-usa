@@ -36,9 +36,9 @@ import { CentersHeritagePage } from "@/components/pages/CentersHeritagePage";
 
 export function ProductsHubView({ lang }: { lang: Locale }) {
   return (
-    <div className="py-6">
-      <div className="mx-auto max-w-7xl px-4 pt-6">
-        <h1 className="font-display text-4xl font-black tracking-tight text-slate-950">
+    <div className="py-4 sm:py-6">
+      <div className="mx-auto max-w-7xl px-4 pt-4 sm:pt-6">
+        <h1 className="break-words font-display text-[1.75rem] font-black leading-[1.15] tracking-tight text-slate-950 sm:text-3xl md:text-4xl">
           {getDictionary(lang).sections.catalogTitle}
         </h1>
       </div>
@@ -51,11 +51,11 @@ export function CompareHubView({ lang }: { lang: Locale }) {
   const s = getDictionary(lang).sections;
   const hub = HUB_VIEWS_COPY[lang];
   return (
-    <div className="mx-auto max-w-6xl px-4 py-12">
-      <h1 className="font-display text-4xl font-black tracking-tight text-slate-950">
+    <div className="mx-auto max-w-6xl px-4 py-7 sm:py-10 md:py-12">
+      <h1 className="break-words font-display text-[1.75rem] font-black leading-[1.15] tracking-tight text-slate-950 sm:text-3xl md:text-4xl">
         {s.compareTitle}
       </h1>
-      <p className="mt-3 max-w-3xl text-base text-slate-600">{s.compareSubtitle}</p>
+      <p className="mt-2.5 max-w-3xl text-sm text-slate-600 sm:mt-3 sm:text-base">{s.compareSubtitle}</p>
       <div className="mt-8 grid gap-6 md:grid-cols-2">
         {COMPARISONS.map((raw) => {
           const c = getLocalizedComparison(raw, lang);
@@ -87,11 +87,11 @@ export function ConditionsHubView({ lang }: { lang: Locale }) {
   const s = getDictionary(lang).sections;
   const hub = HUB_VIEWS_COPY[lang];
   return (
-    <div className="mx-auto max-w-6xl px-4 py-12">
-      <h1 className="font-display text-4xl font-black tracking-tight text-slate-950">
+    <div className="mx-auto max-w-6xl px-4 py-7 sm:py-10 md:py-12">
+      <h1 className="break-words font-display text-[1.75rem] font-black leading-[1.15] tracking-tight text-slate-950 sm:text-3xl md:text-4xl">
         {s.conditionsTitle}
       </h1>
-      <p className="mt-3 max-w-3xl text-base text-slate-600">{s.conditionsSubtitle}</p>
+      <p className="mt-2.5 max-w-3xl text-sm text-slate-600 sm:mt-3 sm:text-base">{s.conditionsSubtitle}</p>
       <div className="mt-8 grid gap-6 md:grid-cols-2">
         {CONDITIONS.map((raw) => {
           const c = getLocalizedCondition(raw, lang);
@@ -123,11 +123,11 @@ export function GuidesHubView({ lang }: { lang: Locale }) {
   const s = getDictionary(lang).sections;
   const hub = HUB_VIEWS_COPY[lang];
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12">
-      <h1 className="font-display text-4xl font-black tracking-tight text-slate-950">
+    <div className="mx-auto max-w-7xl px-4 py-7 sm:py-10 md:py-12">
+      <h1 className="break-words font-display text-[1.75rem] font-black leading-[1.15] tracking-tight text-slate-950 sm:text-3xl md:text-4xl">
         {s.guidesTitle}
       </h1>
-      <p className="mt-3 max-w-3xl text-base text-slate-600">{s.guidesSubtitle}</p>
+      <p className="mt-2.5 max-w-3xl text-sm text-slate-600 sm:mt-3 sm:text-base">{s.guidesSubtitle}</p>
       <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {GUIDES.map((raw) => {
           const g = getLocalizedGuide(raw, lang);
@@ -179,11 +179,11 @@ export function ShippingHubView({ lang }: { lang: Locale }) {
   const hub = HUB_VIEWS_COPY[lang];
   const sc = hub.shippingCards;
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12">
-      <h1 className="font-display text-4xl font-black tracking-tight text-slate-950">
+    <div className="mx-auto max-w-7xl px-4 py-7 sm:py-10 md:py-12">
+      <h1 className="break-words font-display text-[1.75rem] font-black leading-[1.15] tracking-tight text-slate-950 sm:text-3xl md:text-4xl">
         {s.shippingTitle}
       </h1>
-      <p className="mt-3 max-w-3xl text-base text-slate-600">{s.shippingSubtitle}</p>
+      <p className="mt-2.5 max-w-3xl text-sm text-slate-600 sm:mt-3 sm:text-base">{s.shippingSubtitle}</p>
 
       <div className="mt-8 grid gap-4 md:grid-cols-3">
         <div className="rounded-2xl bg-slate-950 p-6 text-white">
@@ -248,13 +248,13 @@ export function CentersHeritageView({ lang }: { lang: Locale }) {
 export function CalculatorPageView({ lang }: { lang: Locale }) {
   const s = getDictionary(lang).sections;
   return (
-    <div className="mx-auto max-w-6xl px-4 py-12">
+    <div className="mx-auto max-w-6xl px-4 py-6 sm:py-10 md:py-12">
       <CalculatorWebAppJsonLd lang={lang} />
-      <h1 className="font-display text-4xl font-black tracking-tight text-slate-950">
+      <h1 className="break-words font-display text-[1.65rem] font-black leading-[1.15] tracking-tight text-slate-950 sm:text-3xl md:text-4xl">
         {s.calculatorTitle}
       </h1>
-      <p className="mt-3 max-w-3xl text-base text-slate-600">{s.calculatorSubtitle}</p>
-      <div className="mt-8">
+      <p className="mt-2 max-w-3xl text-sm text-slate-600 sm:mt-3 sm:text-base">{s.calculatorSubtitle}</p>
+      <div className="mt-5 sm:mt-8">
         <BiomechanicalCalculator lang={lang} />
       </div>
     </div>
@@ -265,12 +265,12 @@ export function OrderPageView({ lang }: { lang: Locale }) {
   const o = getDictionary(lang).orderUi;
   const ow = ORDER_WIZARD_COPY[lang];
   return (
-    <div className="mx-auto max-w-6xl px-4 py-12">
-      <h1 className="font-display text-4xl font-black tracking-tight text-slate-950">
+    <div className="mx-auto max-w-6xl px-4 py-6 sm:py-10 md:py-12">
+      <h1 className="break-words font-display text-[1.65rem] font-black leading-[1.15] tracking-tight text-slate-950 sm:text-3xl md:text-4xl">
         {o.pageTitle}
       </h1>
-      <p className="mt-3 max-w-3xl text-base text-slate-600">{ow.pageSubtitle}</p>
-      <div className="mt-8">
+      <p className="mt-2 max-w-3xl text-sm text-slate-600 sm:mt-3 sm:text-base">{ow.pageSubtitle}</p>
+      <div className="mt-5 sm:mt-8">
         <Suspense fallback={<div className="h-96 rounded-3xl bg-slate-100" />}>
           <OrderWizard lang={lang} />
         </Suspense>
@@ -282,15 +282,15 @@ export function OrderPageView({ lang }: { lang: Locale }) {
 export function WelcomePageView({ lang = "en" }: { lang?: Locale }) {
   const w = WELCOME_HUB_COPY[lang];
   return (
-    <div className="mx-auto max-w-5xl px-4 py-12">
+    <div className="mx-auto max-w-5xl px-4 py-7 sm:py-10 md:py-12">
       <span className="inline-block rounded-full bg-emerald-50 px-3.5 py-1 text-xs font-bold text-emerald-800">
         {w.badge}
       </span>
-      <h1 className="mt-3 font-display text-4xl font-black tracking-tight text-slate-950">
+      <h1 className="mt-3 break-words font-display text-[1.65rem] font-black leading-[1.15] tracking-tight text-slate-950 sm:text-3xl md:text-4xl">
         {w.pageTitle}
       </h1>
-      <p className="mt-3 text-base text-slate-600">{w.pageSubtitle}</p>
-      <div className="mt-8">
+      <p className="mt-2.5 text-sm text-slate-600 sm:mt-3 sm:text-base">{w.pageSubtitle}</p>
+      <div className="mt-6 sm:mt-8">
         <WelcomeReviewHub lang={lang} />
       </div>
     </div>

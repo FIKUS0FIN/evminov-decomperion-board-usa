@@ -80,9 +80,9 @@ export function HeroShowcaseGallery({ lang = "en" }: { lang?: Locale }) {
         </div>
       </div>
 
-      {/* 6 Interactive Thumbnail Switchers */}
+      {/* 6 Interactive Thumbnail Switchers (touch-scrollable 68px targets on mobile, 6-col grid on sm+) */}
       <div
-        className="grid grid-cols-6 gap-2"
+        className="no-scrollbar flex gap-2 overflow-x-auto pb-0.5 sm:grid sm:grid-cols-6 sm:overflow-visible"
         role="tablist"
         aria-label={copy.tablistAria}
       >
@@ -96,7 +96,7 @@ export function HeroShowcaseGallery({ lang = "en" }: { lang?: Locale }) {
               aria-selected={active}
               aria-label={`${copy.viewPrefix} ${slide.badge}`}
               onClick={() => setActiveIndex(idx)}
-              className={`relative aspect-[4/3] overflow-hidden rounded-xl border-2 transition ${
+              className={`relative aspect-[4/3] w-[68px] shrink-0 overflow-hidden rounded-xl border-2 transition sm:w-auto ${
                 active
                   ? "border-emerald-400 ring-2 ring-emerald-400/30"
                   : "border-white/15 opacity-70 hover:opacity-100"

@@ -7,6 +7,7 @@ import { Locale } from "@/i18n/types";
 import { GLOBAL_ROI_COPY } from "@/i18n/locales/home-part1";
 import { getLocalizedHref } from "@/lib/url";
 import { formatUSD } from "@/lib/physics";
+import { PRODUCTS } from "@/data/products";
 import { EvminovLogo } from "@/components/brand/EvminovLogo";
 
 export function GlobalHeritageRoiSection({ lang }: { lang: Locale }) {
@@ -16,7 +17,7 @@ export function GlobalHeritageRoiSection({ lang }: { lang: Locale }) {
 
   const annualClinicCost = visitsPerWeek * costPerVisit * 48;
   const threeYearClinicCost = annualClinicCost * 3;
-  const boardOneTimeCost = 450;
+  const boardOneTimeCost = Math.min(...PRODUCTS.map((p) => p.directPriceUsd));
   const threeYearSavings = Math.max(0, threeYearClinicCost - boardOneTimeCost);
   const hoursSavedPerYear = Math.round(visitsPerWeek * 2.2 * 48);
   const breakEvenVisits = Math.max(1, Math.ceil(boardOneTimeCost / costPerVisit));
@@ -51,24 +52,24 @@ export function GlobalHeritageRoiSection({ lang }: { lang: Locale }) {
         {/* 4 Signature Authority Counters */}
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
-            <p className="font-display text-4xl font-black text-[#023373]">30+</p>
+            <p className="font-display text-3xl font-black text-[#023373] sm:text-4xl">30+</p>
             <p className="mt-1 text-sm font-extrabold text-slate-950">{c.kpi1Title}</p>
             <p className="mt-1 text-xs leading-relaxed text-slate-600">{c.kpi1Desc}</p>
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
-            <p className="font-display text-4xl font-black text-teal-700">40+</p>
+            <p className="font-display text-3xl font-black text-teal-700 sm:text-4xl">40+</p>
             <p className="mt-1 text-sm font-extrabold text-slate-950">{c.kpi2Title}</p>
             <p className="mt-1 text-xs leading-relaxed text-slate-600">{c.kpi2Desc}</p>
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
-            <p className="font-display text-4xl font-black text-emerald-700">
+            <p className="font-display text-3xl font-black text-emerald-700 sm:text-4xl">
               {hoursSavedPerYear}+
             </p>
             <p className="mt-1 text-sm font-extrabold text-slate-950">{c.kpi3Title}</p>
             <p className="mt-1 text-xs leading-relaxed text-slate-600">{c.kpi3Desc}</p>
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
-            <p className="font-display text-4xl font-black text-amber-600">
+            <p className="font-display text-3xl font-black text-amber-600 sm:text-4xl">
               {formatUSD(annualClinicCost)}+
             </p>
             <p className="mt-1 text-sm font-extrabold text-slate-950">{c.kpi4Title}</p>
@@ -81,7 +82,7 @@ export function GlobalHeritageRoiSection({ lang }: { lang: Locale }) {
 
         {/* Interactive Clinic vs. Home Board ROI Calculator */}
         <div className="mt-10 grid gap-6 lg:grid-cols-12">
-          <div className="rounded-3xl border border-slate-200 bg-[#0B1F3A] p-6 text-white shadow-xl lg:col-span-7 md:p-8">
+          <div className="rounded-3xl border border-slate-200 bg-[#0B1F3A] p-5 text-white shadow-xl sm:p-6 md:p-8 lg:col-span-7">
             <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-emerald-400">
               <Calculator className="h-4 w-4" />
               <span>{c.calcBadge}</span>
@@ -139,15 +140,15 @@ export function GlobalHeritageRoiSection({ lang }: { lang: Locale }) {
                 </div>
               </div>
               <div>
-                <div className="flex justify-between font-bold">
+                <div className="flex justify-between gap-2 font-bold">
                   <span className="text-emerald-300">{c.boardBarLabel}</span>
-                  <span className="text-emerald-400">$450</span>
+                  <span className="shrink-0 text-emerald-400">{formatUSD(boardOneTimeCost)}</span>
                 </div>
                 <div className="mt-1.5 h-3 w-full overflow-hidden rounded-full bg-white/10">
                   <div
                     className="h-full rounded-full bg-emerald-400 transition-all"
                     style={{
-                      width: `${Math.max(4, Math.min(100, Math.round((450 / threeYearClinicCost) * 100)))}%`,
+                      width: `${Math.max(4, Math.min(100, Math.round((boardOneTimeCost / threeYearClinicCost) * 100)))}%`,
                     }}
                   />
                 </div>

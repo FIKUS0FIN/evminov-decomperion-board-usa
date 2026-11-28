@@ -187,7 +187,7 @@ gtag('set', 'url_passthrough', true);
             <Header lang={lang} />
             <main
               id="main-content"
-              className="relative z-0 flex-grow pb-20 md:pb-0"
+              className="relative z-0 flex-grow"
             >
               <Breadcrumbs lang={lang} />
               {children}

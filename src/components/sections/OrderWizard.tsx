@@ -609,8 +609,8 @@ export function OrderWizard({ lang }: { lang: Locale }) {
   }
 
   return (
-    <div id="order-form" className="grid gap-8 lg:grid-cols-12">
-      <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8 lg:col-span-8">
+    <div id="order-form" className="grid gap-6 lg:grid-cols-12 lg:gap-8">
+      <div className="min-w-0 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6 md:p-8 lg:col-span-8">
         {/* 4-Step Stepper */}
         <div className="mb-6 grid grid-cols-2 gap-2 sm:grid-cols-4">
           {([1, 2, 3, 4] as const).map((s) => {
@@ -635,7 +635,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                     setStep(s);
                   }
                 }}
-                className={`cursor-pointer rounded-xl px-2.5 py-2.5 text-[11px] font-bold transition sm:text-xs ${
+                className={`min-h-[44px] cursor-pointer rounded-xl px-2.5 py-2.5 text-[11px] font-bold transition sm:text-xs ${
                   active
                     ? "bg-slate-950 text-white"
                     : done
@@ -781,7 +781,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                       key={f}
                       type="button"
                       onClick={() => setFinish(f)}
-                      className={`rounded-xl px-4 py-2 text-xs font-bold transition ${
+                      className={`min-h-[42px] rounded-xl px-4 py-2 text-xs font-bold transition ${
                         finish === f
                           ? "bg-slate-950 text-white"
                           : "border border-slate-200 bg-slate-50 text-slate-700"
@@ -796,7 +796,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
               <button
                 type="button"
                 onClick={() => setStep(2)}
-                className="w-full rounded-xl bg-teal-700 py-3.5 text-sm font-extrabold text-white hover:bg-teal-800"
+                className="min-h-[48px] w-full rounded-xl bg-teal-700 py-3.5 text-sm font-extrabold text-white hover:bg-teal-800"
               >
                 {t.nextStep} →
               </button>
@@ -840,7 +840,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                         </p>
                       </div>
                     </div>
-                    <span className="font-extrabold text-slate-950">
+                    <span className="shrink-0 font-extrabold text-slate-950">
                       {formatUSD(getProductPrice(selectedProduct, boardWidth, "express"))}
                     </span>
                   </label>
@@ -869,7 +869,7 @@ export function OrderWizard({ lang }: { lang: Locale }) {
                         </p>
                       </div>
                     </div>
-                    <span className="font-extrabold text-slate-950">
+                    <span className="shrink-0 font-extrabold text-slate-950">
                       {formatUSD(getProductPrice(selectedProduct, boardWidth, "direct"))}
                     </span>
                   </label>
