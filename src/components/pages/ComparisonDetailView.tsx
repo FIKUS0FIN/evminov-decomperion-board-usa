@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, MessageCircle } from "lucide-react";
 import { Locale } from "@/i18n/types";
 import { ComparisonPageData, COMPARISONS } from "@/data/comparisons";
 import { getProductBySlug } from "@/data/products";
@@ -8,6 +8,7 @@ import { getSiloUi } from "@/i18n/locales/silo-ui";
 import { getLocalizedProduct } from "@/i18n/locales/catalog";
 import { buildPrefilledOrderUrl, getLocalizedHref } from "@/lib/url";
 import { formatUSD } from "@/lib/physics";
+import { SITE_CONFIG } from "@/lib/site-config";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import { FaqJsonLd } from "@/components/seo/JsonLd";
 
@@ -28,7 +29,8 @@ export function ComparisonDetailView({
   return (
     <>
       <FaqJsonLd faqs={comparison.faqs} />
-      <article className="mx-auto max-w-5xl px-4 py-12">
+      <article className="mx-auto max-w-5xl px-4 py-10 md:py-12">
+
         <span className="inline-block rounded-full bg-teal-50 px-3.5 py-1 text-xs font-bold text-teal-800">
           {comparison.eyebrow}
         </span>
@@ -40,14 +42,14 @@ export function ComparisonDetailView({
         </p>
 
         <div className="mt-8 grid gap-6 md:grid-cols-12">
-          <div className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-slate-200 md:col-span-6">
+          <div className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-slate-200 bg-[#F4F7F9] md:col-span-6">
             <OptimizedImage
               src={comparison.heroImage}
               alt={comparison.title}
               fill
               priority
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
+              className="object-contain p-3"
             />
           </div>
           <div className="rounded-3xl bg-slate-950 p-6 text-white md:col-span-6">
@@ -122,17 +124,28 @@ export function ComparisonDetailView({
                 {ui.common.homeTrialBadge} • {ui.common.glissonIncludedBadge}
               </p>
             </div>
-            <Link
-              href={buildPrefilledOrderUrl({
-                lang,
-                product: recProduct.slug,
-                step: 2,
-              })}
-              className="inline-flex shrink-0 items-center gap-2 rounded-2xl bg-emerald-400 px-6 py-3.5 text-sm font-black text-slate-950 hover:bg-emerald-300"
-            >
-              <span>{ui.common.configureAndOrder}</span>
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+            <div className="flex flex-wrap gap-2.5">
+              <Link
+                href={buildPrefilledOrderUrl({
+                  lang,
+                  product: recProduct.slug,
+                  step: 1,
+                })}
+                className="inline-flex min-h-[48px] shrink-0 items-center gap-2 rounded-2xl bg-emerald-400 px-6 py-3.5 text-sm font-black text-slate-950 hover:bg-emerald-300"
+              >
+                <span>{ui.common.configureAndOrder}</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <a
+                href={SITE_CONFIG.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-[48px] shrink-0 items-center gap-2 rounded-2xl bg-[#16A34A] px-5 py-3.5 text-sm font-extrabold text-white hover:bg-emerald-500"
+              >
+                <MessageCircle className="h-4 w-4" />
+                <span>WhatsApp</span>
+              </a>
+            </div>
           </div>
         )}
 

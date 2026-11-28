@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Award, CheckCircle2, ShieldCheck } from "lucide-react";
+import { ArrowRight, Award, CheckCircle2, MessageCircle, ShieldCheck } from "lucide-react";
 import { Locale } from "@/i18n/types";
 import { getDictionary } from "@/i18n/dictionaries";
 import { HOME_MATRIX_COPY } from "@/i18n/locales/home-part1";
@@ -10,9 +10,11 @@ import { getLocalizedCondition } from "@/i18n/locales/conditions-i18n";
 import { getLocalizedGuide } from "@/i18n/locales/guides-i18n";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { getLocalizedHref } from "@/lib/url";
+import { calculateHsaPrice, formatKlarnaBiWeekly, formatUSD } from "@/lib/physics";
 import { COMPARISONS } from "@/data/comparisons";
 import { CONDITIONS } from "@/data/conditions";
 import { GUIDES } from "@/data/guides";
+import { PRODUCTS } from "@/data/products";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import { LiteYouTube } from "@/components/ui/LiteYouTube";
 import { HeroShowcaseGallery } from "@/components/sections/HeroShowcaseGallery";
@@ -42,6 +44,9 @@ export function HomePageContent({ lang }: { lang: Locale }) {
   const matrix = HOME_MATRIX_COPY[lang];
   const extra = HOMEPAGE_EXTRA_COPY[lang];
   const faqs = getLocalizedFaqs(lang);
+  const minDirectPrice = Math.min(...PRODUCTS.map((p) => p.directPriceUsd));
+  const minHsaNet = calculateHsaPrice(minDirectPrice);
+  const minInstallment = formatKlarnaBiWeekly(minDirectPrice);
 
   return (
     <>
@@ -76,33 +81,53 @@ export function HomePageContent({ lang }: { lang: Locale }) {
               ))}
             </ul>
 
-            <div className="mt-8 flex flex-wrap items-center gap-3.5">
+            <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link
                 href={getLocalizedHref("/order/", lang)}
-                className="inline-flex items-center gap-2 rounded-2xl bg-emerald-500 px-6 py-4 text-sm font-black text-slate-950 shadow-xl transition hover:bg-emerald-400"
+                className="inline-flex min-h-[48px] items-center gap-2 rounded-2xl bg-emerald-500 px-6 py-3.5 text-sm font-black text-slate-950 shadow-xl transition hover:bg-emerald-400"
               >
                 <span>{h.ctaPrimary}</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <a
                 href="#calculator"
-                className="inline-flex items-center gap-2 rounded-2xl border border-white/25 bg-white/10 px-6 py-4 text-sm font-bold text-white backdrop-blur transition hover:bg-white/20"
+                className="inline-flex min-h-[48px] items-center gap-2 rounded-2xl border border-white/25 bg-white/10 px-5 py-3.5 text-sm font-bold text-white backdrop-blur transition hover:bg-white/20"
               >
                 <span>{h.ctaSecondary}</span>
               </a>
+              <a
+                href={SITE_CONFIG.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-[48px] items-center gap-2 rounded-2xl bg-[#16A34A] px-4 py-3.5 text-sm font-extrabold text-white shadow-lg transition hover:bg-emerald-500"
+              >
+                <MessageCircle className="h-4 w-4 shrink-0" />
+                <span>WhatsApp</span>
+              </a>
             </div>
 
-            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-slate-300">
+            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-slate-300">
               <span>
                 {h.startingFrom}{" "}
-                <strong className="text-sm text-white">$450</strong>
+                <strong className="text-sm text-white">
+                  {formatUSD(minDirectPrice)}
+                </strong>
               </span>
-              <span>
+              <Link
+                href={getLocalizedHref(
+                  "/guides/hsa-fsa-spinal-decompression-lmn-guide/",
+                  lang
+                )}
+                className="underline decoration-emerald-400/60 underline-offset-2 hover:text-emerald-200"
+              >
                 {h.hsaSavedNote}:{" "}
-                <strong className="text-emerald-300">~$315</strong>
-              </span>
+                <strong className="text-emerald-300">
+                  ~{formatUSD(minHsaNet)}
+                </strong>
+              </Link>
               <span>
-                {h.klarnaNote} <strong className="text-white">$112.50</strong>
+                {h.klarnaNote}{" "}
+                <strong className="text-white">{minInstallment}</strong>
               </span>
             </div>
           </div>

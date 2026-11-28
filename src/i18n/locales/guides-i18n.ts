@@ -1851,6 +1851,555 @@ const GUIDE_TRANSLATIONS: Record<
       ],
     },
   },
+  "hsa-fsa-spinal-decompression-lmn-guide": {
+    es: {
+      title: "Uso de Fondos HSA, FSA y Beneficios en Canadá para Descompresión Espinal (Guía LMN)",
+      category: "HSA / FSA y Seguros",
+      readTime: "7 min de lectura",
+      author: {
+        name: "Equipo Editorial de Biomecánica Evminov",
+        role: "Documentación de Reembolso EE. UU. y Canadá",
+        credentials: "30 Años de Documentación del Método Evminov (Desde 1996)",
+      },
+      excerpt:
+        "No pierdas tus fondos FSA antes del 31 de diciembre. Sigue esta guía paso a paso para solicitar reembolso de tu Tabla Evminov con HSA/FSA en EE. UU. o beneficios de salud en Canadá mediante Carta de Necesidad Médica (LMN).",
+      sections: [
+        {
+          id: "hsa-fsa-overview",
+          heading: "1. Cómo Funciona el Ahorro Pre-Impuestos HSA / FSA (~25%–35%)",
+          paragraphs: [
+            "Las Tablas Evminov están clasificadas como Equipo de Bienestar General y Acondicionamiento Espinal (HTS 9506.91.0030). Cuando un médico o fisioterapeuta recomienda el equipo mediante una Carta de Necesidad Médica (LMN), muchos planes HSA y FSA aprueban el reembolso libre de impuestos.",
+            "Dado que los saldos FSA suelen vencer el 31 de diciembre, noviembre y diciembre son el momento ideal para invertir en tu estación espinal en casa.",
+          ],
+          bullets: [
+            "Ahorro estimado antes de impuestos: ~25%–35% según tu tramo fiscal.",
+            "Factura detallada incluida inmediatamente con cada pedido.",
+            "Guía LMN imprimible disponible dentro del Portal del Paciente Evminov.",
+          ],
+        },
+        {
+          id: "lmn-checklist",
+          heading: "2. Qué Debe Incluir tu Carta de Necesidad Médica (LMN)",
+          paragraphs: [
+            "Solicita a tu médico, quiropráctico o fisioterapeuta una carta breve que especifique tu nombre, diagnóstico (ej. molestia discal L4–L5, ciática o rigidez lumbar), la recomendación de una tabla inclinada de descompresión espinal Evminov y la firma y fecha del profesional.",
+          ],
+        },
+        {
+          id: "canada-extended-health",
+          heading: "3. Compradores en Canadá: Extended Health Benefits y CRA",
+          paragraphs: [
+            "En Canadá, muchos planes de Extended Health Benefits, cuentas HSA y el crédito fiscal médico de la CRA aceptan equipos de rehabilitación prescritos con nota médica. Los pedidos en evminovcanada.com incluyen recibo detallado en CAD.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "¿Necesito una Carta de Necesidad Médica (LMN) para usar HSA o FSA?",
+          a: "Sí, al ser equipo de bienestar y acondicionamiento espinal (HTS 9506.91.0030), la mayoría de administradores HSA/FSA solicitan una LMN firmada por tu proveedor de salud junto con nuestra factura detallada.",
+        },
+      ],
+    },
+    fr: {
+      title: "Utiliser HSA, FSA et Assurances Canadiennes pour la Décompression Vertébrale (Guide LMN)",
+      category: "HSA / FSA & Assurances",
+      readTime: "7 min de lecture",
+      author: {
+        name: "Équipe Éditoriale Biomécanique Evminov",
+        role: "Documentation Remboursement USA & Canada",
+        credentials: "30 Ans d'Archives de la Méthode Evminov (Depuis 1996)",
+      },
+      excerpt:
+        "Ne perdez pas vos crédits FSA au 31 décembre ni vos prestations canadiennes annuelles. Voici la démarche complète avec ordonnance/LMN et reçu détaillé Evminov.",
+      sections: [
+        {
+          id: "hsa-fsa-overview",
+          heading: "1. Économiser ~25 %–35 % via HSA / FSA ou Assurances Collectives",
+          paragraphs: [
+            "Les planches Evminov sont classées comme équipement de bien-être et de conditionnement vertébral (HTS 9506.91.0030). Avec une Lettre de Nécessité Médicale (LMN) ou une prescription médicale, de nombreux régimes HSA/FSA américains et régimes d'assurance maladie complémentaires canadiens acceptent le remboursement.",
+          ],
+          bullets: [
+            "Économie fiscale estimée : ~25 % à 35 % selon votre tranche d'imposition.",
+            "Reçu détaillé en USD ou en CAD fourni immédiatement après commande.",
+            "Modèle LMN imprimable inclus dans le Portail Patient Evminov.",
+          ],
+        },
+        {
+          id: "canada-extended-health",
+          heading: "2. Acheteurs Canadiens : Assurances Collectives, HSA & Crédit ARC",
+          paragraphs: [
+            "Au Canada, les régimes Sun Life, Manuvie, Canada Vie, Croix Bleue ou le crédit d'impôt pour frais médicaux de l'ARC peuvent couvrir l'équipement prescrit par un médecin. Vérifiez toujours les conditions de votre police.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Evminov fournit-il un reçu détaillé en CAD pour les assurances canadiennes ?",
+          a: "Oui. Chaque commande sur evminovcanada.com inclut un reçu détaillé en dollars canadiens (CAD) prêt à soumettre avec votre prescription médicale.",
+        },
+      ],
+    },
+    uk: {
+      title: "Як Використати HSA / FSA у США та Страховку в Канаді для Покупки Профілактора Євмінова (Гайд LMN)",
+      category: "HSA / FSA та Страховка",
+      readTime: "7 хв читання",
+      author: {
+        name: "Редакція Біомеханіки Evminov",
+        role: "Документація для Відшкодування (США та Канада)",
+        credentials: "30 Років Документації Методики Євмінова (З 1996)",
+      },
+      excerpt:
+        "Не дайте невикористаним коштам FSA згоріти 31 грудня! Покрокова інструкція, як заощадити ~25–35% через HSA/FSA у США або Extended Health Benefits / CRA у Канаді за допомогою Letter of Medical Necessity (LMN).",
+      sections: [
+        {
+          id: "hsa-fsa-overview",
+          heading: "1. Як Працює Економія ~25–35% через HSA / FSA у США",
+          paragraphs: [
+            "Профілактор Євмінова класифікується як General Wellness & Spine Conditioning Equipment (HTS 9506.91.0030). За правилами IRS, для компенсації з рахунків HSA або FSA потрібен короткий лист від лікаря або фізіотерапевта — Letter of Medical Necessity (LMN) — та деталізований інвойс, який ми видаємо до кожного замовлення.",
+            "Оскільки кошти FSA зазвичай діють до 31 грудня («use-it-or-lose-it»), листопад і грудень — найкращий час використати залишок на власну дошку Євмінова.",
+          ],
+          bullets: [
+            "Орієнтовна економія на податках: ~25–35% залежно від вашої податкової ставки.",
+            "3-секційний Профілактор ($495 USD) обходиться орієнтовно в ~$346 після ~30% економії HSA/FSA.",
+            "Деталізований чек і готовий шаблон LMN доступні одразу у вашому Клієнтському Порталі.",
+          ],
+        },
+        {
+          id: "canada-extended-health",
+          heading: "2. Для Покупців у Канаді: Extended Health Benefits, HSA та CRA",
+          paragraphs: [
+            "У Канаді багато корпоративних планів Extended Health Benefits (Sun Life, Manulife, Canada Life, Blue Cross), приватні HSA та федеральний податковий кредит CRA Medical Expense Tax Credit дозволяють компенсувати обладнання за рецептом чи запискою лікаря. На evminovcanada.com ви отримуєте деталізований інвойс у CAD.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Чи потрібен лист LMN від лікаря для HSA/FSA?",
+          a: "Так, для обладнання категорії General Wellness (HTS 9506.91.0030) адміністратори HSA/FSA зазвичай вимагають Letter of Medical Necessity (LMN) від лікаря або фізіотерапевта та схвалення вашого плану.",
+        },
+      ],
+    },
+    ru: {
+      title: "Как Использовать HSA / FSA в США и Страховку в Канаде для Покупки Профилактора Евминова (Гайд LMN)",
+      category: "HSA / FSA и Страховка",
+      readTime: "7 мин чтения",
+      author: {
+        name: "Редакция Биомеханики Evminov",
+        role: "Документация для Возмещения (США и Канада)",
+        credentials: "30 Лет Документации Методики Евминова (С 1996)",
+      },
+      excerpt:
+        "Не дайте сгореть остатку FSA 31 декабря! Пошаговое руководство, как сэкономить ~25–35% через HSA/FSA в США или Extended Health Benefits / CRA в Канаде с помощью Letter of Medical Necessity (LMN).",
+      sections: [
+        {
+          id: "hsa-fsa-overview",
+          heading: "1. Как Работает Экономия ~25–35% через HSA / FSA в США",
+          paragraphs: [
+            "Профилактор Евминова классифицируется как General Wellness & Spine Conditioning Equipment (HTS 9506.91.0030). Для возмещения со счёта HSA или FSA требуется письмо от врача или физиотерапевта (Letter of Medical Necessity — LMN) и детализированный инвойс, который мы предоставляем к каждому заказу.",
+          ],
+          bullets: [
+            "Ориентировочная экономия до налогов: ~25–35%.",
+            "Детализированный инвойс и печатный шаблон LMN доступны в Личном Кабинете.",
+            "В Канаде заказы на evminovcanada.com получают инвойс в CAD для Extended Health / CRA.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Нужно ли письмо LMN от врача для оплаты через HSA/FSA?",
+          a: "Да, большинство администраторов планов HSA/FSA требуют Letter of Medical Necessity (LMN) от врача и детализированную квитанцию.",
+        },
+      ],
+    },
+    de: {
+      title: "HSA, FSA & Kanadische Gesundheitsleistungen für das Evminov Board (LMN-Leitfaden)",
+      category: "HSA / FSA & Erstattung",
+      readTime: "7 Min. Lesezeit",
+      author: {
+        name: "Evminov Biomechanik-Redaktion",
+        role: "US- & Kanada-Erstattungsdokumentation",
+        credentials: "30 Jahre Dokumentation der Evminov-Methode (Seit 1996)",
+      },
+      excerpt:
+        "Lassen Sie Ihr FSA-Guthaben am 31. Dezember nicht verfallen: Schritt-für-Schritt-Anleitung zur steuerfreien Erstattung mit LMN in den USA & Kanada.",
+      sections: [
+        {
+          id: "hsa-fsa-overview",
+          heading: "1. ~25 %–35 % vor Steuern mit HSA / FSA & LMN sparen",
+          paragraphs: [
+            "Evminov Boards sind als General Wellness & Spine Conditioning Equipment (HTS 9506.91.0030) eingestuft. Mit einem Letter of Medical Necessity (LMN) Ihres Arztes oder Physiotherapeuten erstatten viele US-HSA/FSA-Pläne sowie kanadische Extended Health Benefits die Kosten.",
+          ],
+          bullets: [
+            "Geschätzte Steuerersparnis: ~25 %–35 %.",
+            "Detaillierte Rechnung (USD oder CAD) direkt nach der Bestellung enthalten.",
+            "Druckbare LMN-Checkliste im Evminov Patientenportal.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Benötige ich einen Letter of Medical Necessity (LMN)?",
+          a: "Ja, die meisten HSA/FSA-Administratoren verlangen eine ärztliche LMN-Empfehlung zusammen mit unserer detaillierten Rechnung.",
+        },
+      ],
+    },
+  },
+  "buy-evminov-board-usa-canada-shipping-guide": {
+    es: {
+      title: "Comprar una Tabla Evminov Original en EE. UU. y Canadá: Línea de 3 y 2 Piezas, Envío (~2 Semanas) y Por Qué Evitar Copias DIY",
+      category: "Guía de Compra EE. UU. y Canadá",
+      readTime: "8 min de lectura",
+      author: {
+        name: "Equipo Editorial de Biomecánica Evminov",
+        role: "Guía Oficial de Envíos Norteamérica",
+        credentials: "30 Años de Documentación del Método Evminov (Desde 1996)",
+      },
+      excerpt:
+        "Descubre la línea oficial para EE. UU. y Canadá: paneles desmontables de 3 piezas (230–245 cm) y 2 piezas en 26 cm o 30 cm, 4 accesorios originales, envío internacional en ~2 semanas y garantía de 1 año.",
+      sections: [
+        {
+          id: "why-folding-us-canada",
+          heading: "1. Por Qué a EE. UU. y Canadá Solo Se Envían Modelos Desmontables",
+          paragraphs: [
+            "Las empresas de mensajería internacional limitan el paquete a 120 cm de largo. Por eso, nuestra línea oficial para EE. UU. y Canadá se envía exclusivamente en secciones desmontables de precisión — con entrega internacional rastreada en aproximadamente 2 semanas.",
+          ],
+        },
+        {
+          id: "official-6-item-lineup",
+          heading: "2. Línea Completa Oficial EE. UU. y Canadá (Tablas y 4 Accesorios)",
+          paragraphs: [
+            "Cada tabla incluye el Lazo de Glisson, herrajes de pared, manual ilustrado, pasaporte del producto y garantía de 1 año:",
+          ],
+          bullets: [
+            "1. Tabla Evminov de 3 Piezas (230–245 cm): Estándar 26 cm (≤100 kg) o Reforzada 30 cm (>100 kg), tono Claro u Oscuro.",
+            "2. Modelo Compacto de 2 Piezas (solo en 2 partes): 26 cm o 30 cm, tono Claro u Oscuro.",
+            "3. Soporte-Escalera Desmontable de 4 Piezas (altura máx. 123 cm) para modelos 26 cm y 30 cm.",
+            "4. Ganchos de Montaje para Soporte-Escalera o Espaldera Sueca.",
+            "5. Set de 2 Bolsas Protectoras para la Tabla de 3 Piezas.",
+            "6. Funda Individual (1 bolsa) para la Tabla de 2 Piezas.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "¿Cuánto tarda el envío internacional a EE. UU. y Canadá?",
+          a: "Aproximadamente 2 semanas por mensajería internacional rastreada a todos los estados de EE. UU. y provincias de Canadá.",
+        },
+      ],
+    },
+    fr: {
+      title: "Acheter une Planche Evminov Originale aux USA & au Canada : Gamme 3 et 2 Pièces, Livraison (~2 Semaines) & Pourquoi Éviter le DIY",
+      category: "Guide d'Achat USA & Canada",
+      readTime: "8 min de lecture",
+      author: {
+        name: "Équipe Éditoriale Biomécanique Evminov",
+        role: "Guide Officiel Amérique du Nord",
+        credentials: "30 Ans d'Archives de la Méthode Evminov (Depuis 1996)",
+      },
+      excerpt:
+        "Gamme officielle USA & Canada : planches démontables 3 pièces (230–245 cm) et 2 pièces en largeur 26 ou 30 cm, 4 accessoires officiels, livraison internationale ~2 semaines et garantie 1 an.",
+      sections: [
+        {
+          id: "why-folding-us-canada",
+          heading: "1. Pourquoi Seuls les Modèles Démontables Sont Expédiés en Amérique du Nord",
+          paragraphs: [
+            "Les transporteurs internationaux imposent une limite de 120 cm par colis. Nos modèles démontables en 3 pièces (230–245 cm) et 2 pièces garantissent une livraison suivie aux USA et au Canada en environ 2 semaines.",
+          ],
+        },
+        {
+          id: "official-6-item-lineup",
+          heading: "2. La Gamme Complète USA & Canada (Planches & 4 Accessoires)",
+          paragraphs: [
+            "Chaque planche comprend la Boucle de Glisson, le kit mural, le manuel illustré, le passeport officiel et une garantie de 1 an :",
+          ],
+          bullets: [
+            "1. Planche Evminov 3 Pièces (230–245 cm) : Standard 26 cm (≤100 kg) ou Renforcée 30 cm (>100 kg), Claire ou Foncée.",
+            "2. Planche Compacte 2 Pièces (uniquement en 2 sections) : 26 cm ou 30 cm, Claire ou Foncée.",
+            "3. Support-Échelle Démontable 4 Pièces (hauteur max 123 cm) pour modèles 26 cm et 30 cm.",
+            "4. Crochets de Fixation pour Support-Échelle ou Espalier Suédois.",
+            "5. Ensemble 2 Housses de Transport pour la Planche 3 Pièces.",
+            "6. Housse Individuelle (1 sac) pour la Planche 2 Pièces.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Quel est le délai de livraison vers le Canada et les États-Unis ?",
+          a: "Environ 2 semaines par transporteur international suivi (Toronto, Montréal, Vancouver, Calgary, Ottawa et partout aux USA).",
+        },
+      ],
+    },
+    uk: {
+      title: "Як Купити Оригінальний Профілактор Євмінова у США та Канаді: Лінійка з 3 і 2 Частин, Доставка (~2 Тижні) і Чому Саморобка Не Працює",
+      category: "Гайд Покупця США та Канада",
+      readTime: "8 хв читання",
+      author: {
+        name: "Редакція Біомеханіки Evminov",
+        role: "Офіційна Доставка у Північну Америку",
+        credentials: "30 Років Документації Методики Євмінова (З 1996)",
+      },
+      excerpt:
+        "Шукаєте оригінальний Профілактор Євмінова в Чикаго, Нью-Йорку, Торонто, Ванкувері чи Калгарі? Повний огляд офіційної лінійки для США та Канади: розбірні панелі 3 та 2 частини, 26/30 см, 4 аксесуари та доставка ~2 тижні.",
+      sections: [
+        {
+          id: "why-folding-us-canada",
+          heading: "1. Чому у США та Канаду Поставляються Тільки Розбірні Панелі",
+          paragraphs: [
+            "Міжнародні поштові й кур'єрські перевізники приймають посилки довжиною не більше 120 см. Саме тому офіційна лінійка для США та Канади складається виключно з розбірних моделей, які легко проходять митницю та доставляються міжнародними перевізниками приблизно за 2 тижні.",
+          ],
+        },
+        {
+          id: "official-6-item-lineup",
+          heading: "2. Повна Офіційна Лінійка США та Канади (6 Позицій)",
+          paragraphs: [
+            "Кожна дошка комплектується Петлею Гліссона, кріпленням у стіну, методичкою, офіційним паспортом виробу та має гарантію 1 рік:",
+          ],
+          bullets: [
+            "1. Профілактор із 3-х частин (230–245 см): стандарт 26 см (до 100 кг) або посилений 30 см (для ваги >100 кг), світлий або темний.",
+            "2. «Зубна щітка для хребта» з 2-х частин (тільки з 2-х частин): стандарт 26 см або посилена 30 см, світла або темна.",
+            "3. Стійка-драбинка розбірна з 4 частин (макс. висота 123 см) для стандартної (26 см) та посиленої (30 см) моделей.",
+            "4. Гачки для Профілактора Євмінова — для кріплення на стійку-драбинку або шведську стінку.",
+            "5. Комплект чохлів із двох сумок для 3-секційного Профілактора Євмінова.",
+            "6. Чохол (одна сумка) для 2-секційної «Зубної щітки».",
+          ],
+        },
+        {
+          id: "original-vs-diy",
+          heading: "3. Чому Оригінальна Резонансна Панель Краща за Саморобку з Будмаркету",
+          paragraphs: [
+            "Звичайна меблева чи будівельна дошка або занадто жорстка (передає ударне навантаження на фасеткові суглоби), або нерівномірно прогинається. Оригінальний Профілактор має запатентовану багатошарову структуру з точною пружністю, сталеві безлюфтові муфти та плавну каретку.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Скільки триває доставка у США та Канаду?",
+          a: "Доставка міжнародними перевізниками займає приблизно 2 тижні в будь-який штат США чи провінцію Канади.",
+        },
+        {
+          q: "Як найшвидше уточнити деталі доставки, ширини та кольору?",
+          a: "Напишіть нашому оператору напряму в WhatsApp за номером +1 (747) 306-0140 — ми миттєво підкажемо оптимальну конфігурацію.",
+        },
+      ],
+    },
+    ru: {
+      title: "Как Купить Оригинальный Профилактор Евминова в США и Канаде: Линейка из 3 и 2 Частей, Доставка (~2 Недели)",
+      category: "Гид Покупателя США и Канада",
+      readTime: "8 мин чтения",
+      author: {
+        name: "Редакция Биомеханики Evminov",
+        role: "Официальная Доставка в Северную Америку",
+        credentials: "30 Лет Документации Методики Евминова (С 1996)",
+      },
+      excerpt:
+        "Ищете оригинальный Профилактор Евминова в США или Канаде? Полный обзор официальной линейки: разборные панели из 3 и 2 частей, ширина 26/30 см, 4 аксессуара, гарантия 1 год и доставка ~2 недели.",
+      sections: [
+        {
+          id: "why-folding-us-canada",
+          heading: "1. Почему в США и Канаду Поставляются Только Разборные Модели",
+          paragraphs: [
+            "Международные почтовые перевозчики принимают посылки длиной до 120 см. Поэтому для США и Канады поставляются только разборные панели — с доставкой международными перевозчиками примерно за 2 недели.",
+          ],
+        },
+        {
+          id: "official-6-item-lineup",
+          heading: "2. Официальная Линейка Продаж в США и Канаде",
+          paragraphs: [
+            "В комплекте с каждым тренажёром — Петля Глиссона, крепление в стену, методичка, паспорт изделия и гарантия 1 год:",
+          ],
+          bullets: [
+            "1. Профилактор из 3-х частей (230–245 см): стандарт 26 см (до 100 кг) или усиленный 30 см (для веса более 100 кг), светлый или тёмный.",
+            "2. «Зубная щётка» из 2-х частей (только из 2-х частей): стандарт 26 см или усиленная 30 см, светлая или тёмная.",
+            "3. Стойка-лесенка разборная из 4 частей (макс. высота 123 см) для стандартной и усиленной модели.",
+            "4. Крючки для крепления на стойку-лесенку или шведскую стенку.",
+            "5. Комплект чехлов из двух сумок для Профилактора Евминова.",
+            "6. Чехол для «Зубной щётки» (одна сумка).",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Сколько занимает доставка в США и Канаду?",
+          a: "Доставка международными перевозчиками занимает примерно 2 недели. Для быстрой консультации напишите оператору в WhatsApp: +1 (747) 306-0140.",
+        },
+      ],
+    },
+    de: {
+      title: "Original Evminov Board in den USA & Kanada kaufen: 3- & 2-teiliges Sortiment & ~2 Wochen Versand",
+      category: "USA & Kanada Kaufratgeber",
+      readTime: "8 Min. Lesezeit",
+      author: {
+        name: "Evminov Biomechanik-Redaktion",
+        role: "Nordamerika-Versandratgeber",
+        credentials: "30 Jahre Dokumentation der Evminov-Methode (Seit 1996)",
+      },
+      excerpt:
+        "Offizielles Nordamerika-Sortiment: 3-teiliges Board (230–245 cm), kompaktes 2-teiliges Board in 26 oder 30 cm, 4 Original-Zubehörteile, ~2 Wochen Kurierlieferung und 1 Jahr Garantie.",
+      sections: [
+        {
+          id: "official-6-item-lineup",
+          heading: "1. Komplettes Sortiment für USA & Kanada (~2 Wochen Kurierlieferung)",
+          paragraphs: [
+            "Da internationale Paketdienste auf 120 cm Länge begrenzen, liefern wir nach Nordamerika ausschließlich präzisionsgekoppelte Klappmodelle — inklusive Glisson-Schlaufe, Wandmontagekit, Handbuch, Produktpass und 1 Jahr Garantie:",
+          ],
+          bullets: [
+            "1. 3-teiliges Evminov Board (230–245 cm): 26 cm Standard (≤100 kg) oder 30 cm Verstärkt (>100 kg), Hell oder Dunkel.",
+            "2. 2-teiliges Evminov Board: 26 cm Standard oder 30 cm Verstärkt, Hell oder Dunkel.",
+            "3. 4-teiliger Zerlegbarer Leiterständer (max. 123 cm) für 26-cm- und 30-cm-Modelle.",
+            "4. Befestigungshaken für Leiterständer oder Sprossenwand.",
+            "5. 2-Taschen-Trageset (3-teiliges Board) & 6. Einzel-Tragetasche (2-teiliges Board).",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Wie lange dauert der Versand in die USA und nach Kanada?",
+          a: "Etwa 2 Wochen per internationalem Kurierdienst mit Sendungsverfolgung.",
+        },
+      ],
+    },
+  },
+  "glisson-loop-cervical-traction-neck-relief-guide": {
+    es: {
+      title: "Tracción Cervical con Lazo de Glisson en Casa: Descarga Suave a 8°–12° para Cuello de Pantalla y C5–C6",
+      category: "Cervical y Cuello",
+      readTime: "7 min de lectura",
+      author: {
+        name: "Equipo Editorial de Biomecánica Evminov",
+        role: "Ergonomía Cervical y Seguridad en Casa",
+        credentials: "30 Años de Documentación del Método Evminov (Desde 1996)",
+      },
+      excerpt:
+        "Descubre cómo usar el Lazo de Glisson acolchado (incluido gratis con tu Tabla Evminov) en ángulos suaves de 8°–12° para aliviar la tensión cervical sin sobrecargar la mandíbula.",
+      sections: [
+        {
+          id: "why-inclined-beats-hanging",
+          heading: "1. Por Qué 8°–12° Sobre Madera Es Más Suave Que Colgar Pesas en una Puerta",
+          paragraphs: [
+            "En la tabla inclinada Evminov tu espalda descansa apoyada mientras el Lazo de Glisson genera una tracción mínima y totalmente controlable. Comienza siempre en 8°–12° durante 3–5 minutos y consulta primero a tu médico si tienes una hernia cervical diagnosticada.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "¿El Lazo de Glisson viene gratis con las tablas de 3 y 2 piezas?",
+          a: "Sí, cada Tabla Evminov incluye gratis el Lazo de Glisson original acolchado de algodón.",
+        },
+      ],
+    },
+    fr: {
+      title: "Traction Cervicale avec Boucle de Glisson à Domicile : Décompression Douce à 8°–12°",
+      category: "Cervicales & Nuque",
+      readTime: "7 min de lecture",
+      author: {
+        name: "Équipe Éditoriale Biomécanique Evminov",
+        role: "Ergonomie Cervicale & Sécurité",
+        credentials: "30 Ans d'Archives de la Méthode Evminov (Depuis 1996)",
+      },
+      excerpt:
+        "Apprenez à utiliser la Boucle de Glisson rembourrée (offerte avec chaque planche Evminov) à un angle très doux de 8°–12° pour soulager les tensions cervicales en toute prudence.",
+      sections: [
+        {
+          id: "why-inclined-beats-hanging",
+          heading: "1. Traction Soutenue à 8°–12° vs. Suspension Verticale",
+          paragraphs: [
+            "Allongé sur le bois résonant à 8°–12°, la tension cervicale reste douce, progressive et contrôlable à tout instant. Arrêtez immédiatement en cas de douleur irradiante, vertige ou engourdissement, et consultez votre médecin en cas de hernie C5–C6.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "La Boucle de Glisson est-elle offerte avec toutes les planches ?",
+          a: "Oui, elle est incluse gratuitement avec nos modèles 3 pièces et 2 pièces.",
+        },
+      ],
+    },
+    uk: {
+      title: "Петля Гліссона для Шиї Вдома: Безпечне Розвантаження під Кутом 8°–12° при Tech-Neck та Дискомфорті C5–C6",
+      category: "Шийний Відділ",
+      readTime: "7 хв читання",
+      author: {
+        name: "Редакція Біомеханіки Evminov",
+        role: "Ергономіка Шийного Відділу та Безпека",
+        credentials: "30 Років Документації Методики Євмінова (З 1996)",
+      },
+      excerpt:
+        "Дізнайтеся, чому м'яка бавовняна Петля Гліссона (іде безкоштовно в комплекті з кожним Профілактором Євмінова) під кутом 8°–12° безпечніша за вертикальні дверні підвіси з вантажами.",
+      sections: [
+        {
+          id: "why-inclined-beats-hanging",
+          heading: "1. Чому Кут 8°–12° на Дошці М'якший за Вертикальне Витяжіння",
+          paragraphs: [
+            "На відміну від агресивних дверних противаг, які перевантажують щелепу (СНЩС), на Профілакторі Євмінова спина повністю лежить на пружній деревині під мінімальним кутом 8°–12°. Ви контролюєте зусилля власним розслабленням без ривків.",
+          ],
+          bullets: [
+            "Починайте лише з 8°–12° по 3–5 хвилин — без жодних важких гир.",
+            "Негайно зупиніться при запамороченні, онімінні чи прострілі в руку.",
+            "При діагностованій грижі C5–C6 або нестабільності обов'язково проконсультуйтеся з лікарем.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Чи входить Петля Гліссона безкоштовно в комплект?",
+          a: "Так, оригінальна м'яка Петля Гліссона йде в подарунок з кожним 3-секційним і 2-секційним Профілактором Євмінова.",
+        },
+      ],
+    },
+    ru: {
+      title: "Петля Глиссона для Шеи Дома: Безопасная Разгрузка под Углом 8°–12° при Tech-Neck и C5–C6",
+      category: "Шейный Отдел",
+      readTime: "7 мин чтения",
+      author: {
+        name: "Редакция Биомеханики Evminov",
+        role: "Эргономика Шейного Отдела и Безопасность",
+        credentials: "30 Лет Документации Методики Евминова (С 1996)",
+      },
+      excerpt:
+        "Почему мягкая хлопковая Петля Глиссона (бесплатно в комплекте с каждой доской Евминова) под малым углом 8°–12° безопаснее вертикальных дверных подвесов с грузами.",
+      sections: [
+        {
+          id: "why-inclined-beats-hanging",
+          heading: "1. Мягкая Опорная Тракция 8°–12° вместо Резких Грузов",
+          paragraphs: [
+            "На наклонной доске Евминова корпус полностью опирается на упругое дерево, а минимальный угол 8°–12° обеспечивает плавную и контролируемую разгрузку шеи на 3–5 минут. При грыжах C5–C6, онемении или головокружении обязательно проконсультируйтесь с врачом.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Входит ли Петля Глиссона в комплект бесплатно?",
+          a: "Да, оригинальная мягкая Петля Глиссона включена бесплатно в каждый комплект 3-секционной и 2-секционной доски.",
+        },
+      ],
+    },
+    de: {
+      title: "Glisson-Schlaufe zu Hause: Sanfte 8°–12° HWS-Entlastung bei Handy-Nacken & C5–C6",
+      category: "HWS & Nacken",
+      readTime: "7 Min. Lesezeit",
+      author: {
+        name: "Evminov Biomechanik-Redaktion",
+        role: "HWS-Ergonomie & Heimsicherheit",
+        credentials: "30 Jahre Dokumentation der Evminov-Methode (Seit 1996)",
+      },
+      excerpt:
+        "Warum die gepolsterte Glisson-Schlaufe (gratis bei jedem Evminov Board) im sanften 8°–12°-Winkel schonender ist als vertikale Tür-Traktionsgewichte.",
+      sections: [
+        {
+          id: "why-inclined-beats-hanging",
+          heading: "1. Sanfte 8°–12° Auflage-Traktion statt harter Gewichte",
+          paragraphs: [
+            "Auf dem federnden Holzboard bleibt der Rücken komplett gestützt, sodass bei 8°–12° nur ein minimaler, jederzeit steuerbarer Zug wirkt. Bei diagnostiziertem C5–C6-Vorfall, Taubheitsgefühl oder Schwindel stets zuerst ärztlich abklären.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          q: "Ist die Glisson-Schlaufe bei jedem Evminov Board gratis dabei?",
+          a: "Ja, jedes 3-teilige und 2-teilige Evminov Board enthält die original gepolsterte Glisson-Schlaufe kostenlos.",
+        },
+      ],
+    },
+  },
 };
 
 export function getLocalizedGuide(guide: GuideItem, lang: Locale): GuideItem {

@@ -13,7 +13,7 @@ const SEGMENT_LABELS: Record<string, Record<Locale, string>> = {
   compare: { en: "Compare", es: "Comparar", fr: "Comparer", de: "Vergleich", uk: "Порівняння", ru: "Сравнение" },
   conditions: { en: "Spine Goals", es: "Objetivos", fr: "Objectifs", de: "Rückenziele", uk: "Програми", ru: "Программы" },
   guides: { en: "Guides", es: "Guías", fr: "Guides", de: "Ratgeber", uk: "Гайди", ru: "Статьи" },
-  shipping: { en: "US Shipping", es: "Envíos", fr: "Livraison", de: "Versand", uk: "Доставка", ru: "Доставка" },
+  shipping: { en: "US & Canada Shipping", es: "Envíos EE. UU. y Canadá", fr: "Livraison USA & Canada", de: "USA & Kanada Versand", uk: "Доставка США та Канада", ru: "Доставка США и Канада" },
   centers: { en: "Heritage 1996", es: "Historia 1996", fr: "Histoire 1996", de: "Tradition 1996", uk: "Історія 1996", ru: "История 1996" },
   calculator: { en: "Angle Calculator", es: "Calculadora", fr: "Calculateur", de: "Winkelrechner", uk: "Калькулятор", ru: "Калькулятор" },
   order: { en: "Order Board", es: "Pedir Tabla", fr: "Commander", de: "Bestellen", uk: "Замовлення", ru: "Заказ" },

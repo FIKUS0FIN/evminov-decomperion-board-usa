@@ -486,6 +486,225 @@ export const GUIDES: GuideItem[] = [
       },
     ],
   },
+  {
+    id: "hsa-fsa-spinal-decompression-lmn",
+    slug: "hsa-fsa-spinal-decompression-lmn-guide",
+    title: "Using HSA, FSA & Canadian Extended Health Benefits for Home Spinal Decompression (LMN Guide)",
+    metaTitle: "HSA & FSA Spinal Decompression Board Guide + LMN Checklist | Evminov",
+    metaDescription:
+      "Save ~25%–35% pre-tax with US HSA/FSA funds (including Dec 31 use-it-or-lose-it FSA) or Canadian Extended Health & CRA Medical Expense claims using a Letter of Medical Necessity (LMN).",
+    category: "HSA / FSA & Insurance",
+    datePublished: "2026-11-28",
+    dateModified: "2026-11-28",
+    readTime: "7 min read",
+    author: {
+      name: "Evminov Spine Biomechanics Editorial Team",
+      role: "US & Canada Reimbursement Documentation",
+      credentials: "30 Years of Evminov Method Documentation (Since 1996)",
+    },
+    heroImage: "/images/authentic/evminov-board-profile.jpg",
+    excerpt:
+      "Don't forfeit expiring FSA dollars on December 31. Here is the exact step-by-step process to claim an Evminov Spine Decompression Board using US HSA/FSA funds or Canadian Extended Health Benefits with a provider Letter of Medical Necessity (LMN).",
+    recommendedProductSlug: "3-piece-travel-board",
+    sections: [
+      {
+        id: "hsa-fsa-overview",
+        heading: "1. How Pre-Tax HSA & FSA Reimbursement Works (Save ~25%–35%)",
+        paragraphs: [
+          "Evminov Spine Decompression Boards are classified in North America as General Wellness & Spine Conditioning Equipment (HTS 9506.91.0030). Under IRS guidelines for US Health Savings Accounts (HSA) and Flexible Spending Accounts (FSA), dual-purpose spine conditioning equipment becomes eligible for pre-tax reimbursement when recommended by a licensed healthcare provider for a specific diagnosed condition such as lumbar disc discomfort, sciatica, or chronic back stiffness.",
+          "Because FSA balances are typically subject to year-end 'use-it-or-lose-it' deadlines (often December 31), November and December are the highest-value months to put remaining pre-tax healthcare funds toward a durable home spine decompression station.",
+        ],
+        bullets: [
+          "Estimated pre-tax tax savings: ~25%–35% depending on your federal & state tax bracket.",
+          "3-Piece Evminov Board ($495 USD direct) drops to roughly ~$346 net effective cost after ~30% HSA/FSA savings.",
+          "Every order includes an itemized wellness equipment receipt from Evminov Spine Systems immediately upon confirmation.",
+        ],
+      },
+      {
+        id: "lmn-checklist",
+        heading: "2. What Your Letter of Medical Necessity (LMN) Should Include",
+        paragraphs: [
+          "Requesting an LMN from your primary care physician, chiropractor, orthopedic specialist, or physical therapist usually takes one short appointment or telehealth portal message. Make sure the letter clearly states:",
+        ],
+        bullets: [
+          "Patient full name and date of visit.",
+          "Specific condition or diagnosis (e.g., lumbar disc protrusion L4–L5, sciatica, chronic myofascial lower-back pain, or cervical postural strain).",
+          "Recommended equipment: 'Inclined Spinal Decompression & Spine Conditioning Board (Evminov Board)' and recommended duration of use (typically 12 months).",
+          "Provider signature, credentials, clinic name, and date (dated on or before your purchase date for cleanest plan approval).",
+        ],
+      },
+      {
+        id: "canada-extended-health",
+        heading: "3. Canadian Buyers: Extended Health Benefits, HSA & CRA Medical Expense Tax Credit",
+        paragraphs: [
+          "In Canada, many employer Extended Health Benefit plans, private Health Spending Accounts (HSA), and the federal CRA Medical Expense Tax Credit allow reimbursement or tax claims for prescribed home rehabilitation equipment when supported by a doctor's prescription or clinical note.",
+          "Orders placed through evminovcanada.com include a CAD itemized receipt with full equipment classification details so you can submit cleanly to Sun Life, Manulife, Canada Life, Blue Cross, or your tax preparer. Plan coverage varies by policy, so confirm eligibility with your administrator.",
+        ],
+      },
+      {
+        id: "step-by-step-claim",
+        heading: "4. 4-Step Fast Claim Workflow",
+        paragraphs: [
+          "Step 1: Ask your provider for a brief LMN or prescription recommending an inclined home spinal decompression board. Step 2: Configure your 3-Piece (230–245 cm) or 2-Piece Evminov Board in Standard 26 cm or Reinforced Wide 30 cm and check 'Include Itemized HSA/FSA Receipt' at checkout. Step 3: Download your itemized receipt and printable LMN guide from your Evminov Patient Portal. Step 4: Upload both documents to your HSA/FSA or Canadian benefits portal for reimbursement.",
+        ],
+      },
+    ],
+    references: [
+      { citation: "Internal Revenue Service (IRS). Publication 502: Medical and Dental Expenses (Dual-Purpose Equipment & Letter of Medical Necessity).", source: "IRS.gov" },
+      { citation: "Canada Revenue Agency (CRA). Eligible Medical Expenses & Prescription Requirements for Rehabilitation Equipment.", source: "Canada.ca" },
+    ],
+    faqs: [
+      {
+        q: "Can I use my HSA or FSA card directly without a Letter of Medical Necessity?",
+        a: "Because Evminov boards are classified as General Wellness & Spine Conditioning Equipment (HTS 9506.91.0030), most HSA/FSA administrators require a Letter of Medical Necessity (LMN) from your healthcare provider to substantiate reimbursement. Always verify with your plan administrator.",
+      },
+      {
+        q: "Does Evminov provide an itemized invoice suitable for US HSA/FSA and Canadian benefits?",
+        a: "Yes. Every US (USD) and Canada (CAD) order includes an itemized wellness equipment receipt plus a printable LMN checklist inside your Patient Portal.",
+      },
+    ],
+  },
+  {
+    id: "buy-evminov-board-usa-canada-shipping",
+    slug: "buy-evminov-board-usa-canada-shipping-guide",
+    title: "Buying an Original Evminov Board in the US & Canada: 3-Piece vs. 2-Piece Lineup, Delivery (~2 Weeks) & Why DIY Fails",
+    metaTitle: "Buy Original Evminov Board in USA & Canada (3-Piece & 2-Piece Guide)",
+    metaDescription:
+      "Official buyer's guide for US & Canada: why international couriers require 3-piece (230–245 cm) & 2-piece folding panels, choosing 26 cm vs 30 cm width, official accessories, ~2-week shipping, and 1-year warranty.",
+    category: "US & Canada Buying Guide",
+    datePublished: "2026-11-28",
+    dateModified: "2026-11-28",
+    readTime: "8 min read",
+    author: {
+      name: "Evminov Spine Biomechanics Editorial Team",
+      role: "North American Fulfillment & Equipment Guide",
+      credentials: "30 Years of Evminov Method Documentation (Since 1996)",
+    },
+    heroImage: "/images/products/board-perspective-view.jpg",
+    excerpt:
+      "Searching for an original Profilaktor Evminova in the United States or Canada? Learn how our demountable 3-piece (230–245 cm) and 2-piece boards ship cleanly in ~2 weeks via international couriers, how to pick 26 cm vs 30 cm width, and why hardware-store DIY planks lack calibrated flex.",
+    recommendedProductSlug: "3-piece-travel-board",
+    sections: [
+      {
+        id: "why-folding-us-canada",
+        heading: "1. Why US & Canada Ship Exclusively in Demountable Folding Panels",
+        paragraphs: [
+          "International air and parcel couriers serving the United States and Canada enforce a strict 120 cm maximum package length. A monolithic one-piece 240 cm board cannot travel via standard international parcel networks without prohibitive freight charges and high transit damage risk.",
+          "To solve this without sacrificing a single millimeter of clinical length, our official North American lineup ships exclusively in precision-coupled demountable panels — arriving via tracked international carriers in approximately 2 weeks to any US state or Canadian province.",
+        ],
+      },
+      {
+        id: "official-6-item-lineup",
+        heading: "2. Complete Official US & Canada Lineup (Boards & 4 Factory Accessories)",
+        paragraphs: [
+          "Every Evminov board includes the patented Glisson Cervical Loop, wall mounting kit, illustrated exercise manual, official product passport, and a 1-Year Warranty. Choose from two folding boards and four matching factory accessories:",
+        ],
+        bullets: [
+          "1. 3-Piece Folding Evminov Board (230–245 cm full length): Standard 26 cm (≤100 kg / 220 lbs) or Reinforced Wide 30 cm (>100 kg / up to 330 lbs), in Light (Natural Warm Amber Alder) or Dark (Dark Walnut Pine).",
+          "2. 2-Piece Folding Evminov Board ('Spine Toothbrush' — 2 sections only): Compact home model in Standard 26 cm or Reinforced Wide 30 cm, Light or Dark finish.",
+          "3. 4-Piece Demountable Ladder Stand (max height 123 cm): Freestanding no-drill stand compatible with both 26 cm Standard and 30 cm Reinforced Wide Evminov Boards.",
+          "4. Evminov Board Mounting Hooks: Heavy-duty steel hooks for attaching your board to the 4-Piece Ladder Stand or any Swedish Wall.",
+          "5. 2-Bag Protective Carry Case Set: Dual-bag storage & transport set tailored for the 3-Piece Evminov Board.",
+          "6. Single Protective Carry Case Bag: One fitted carry bag tailored for the 2-Piece 'Spine Toothbrush' Board.",
+        ],
+      },
+      {
+        id: "width-and-finish-guide",
+        heading: "3. How to Choose: 26 cm Standard vs. 30 cm Reinforced Wide & Light vs. Dark",
+        paragraphs: [
+          "Picking the right width takes 10 seconds: if you weigh up to 100 kg (220 lbs) and are up to 6'4\" (193 cm), the Standard 26 cm deck matches the original Kyiv Center ergonomics. If you weigh over 100 kg (rated up to 150 kg / 330 lbs), have broad athletic shoulders, or are taller than 6'4\" (up to 6'9\"), choose the Reinforced Wide 30 cm panel (+$25 USD / +$35 CAD).",
+          "Both widths come in Light (Natural Warm Amber Alder) and Dark (Dark Walnut Pine) finishes — identical biomechanical flex, chosen simply to match your home decor.",
+        ],
+      },
+      {
+        id: "original-vs-diy",
+        heading: "4. Why Original Multi-Layer Resonant Timber Beats Hardware-Store DIY Planks",
+        paragraphs: [
+          "Many diaspora families in Chicago, New York, Toronto, Vancouver, and Los Angeles initially wonder whether a local carpenter can build an Evminov board from hardware-store pine. In practice, ordinary construction lumber is either dangerously rigid (transferring shock directly to facet joints) or warps unevenly under load.",
+          "Authentic Evminov boards use patented multi-layer resonant timber lamination calibrated for controlled micro-amortization, paired with zero-play steel couplers, a smooth-glide alloy carriage, and the genuine cotton-padded Glisson Cervical Loop.",
+        ],
+      },
+    ],
+    references: [
+      { citation: "Evminov V. Device for Treating Spine Diseases (Multi-Layer Elastic Inclined Board & Sliding Carriage). US Patent 6,869,387 B2 / EP 1 038 512 B1.", source: "USPTO / EPO" },
+    ],
+    faqs: [
+      {
+        q: "How long does shipping take to the United States and Canada?",
+        a: "Delivery via tracked international couriers takes approximately 2 weeks across all 50 US states and all Canadian provinces (Toronto, Montreal, Vancouver, Calgary, Ottawa, and nationwide).",
+      },
+      {
+        q: "What is the fastest way to confirm shipping, customs, and model sizing?",
+        a: "Message our operator directly on WhatsApp at +1 (747) 306-0140 for instant confirmation of width (26 cm vs 30 cm), finish (Light vs Dark), and accessories.",
+      },
+    ],
+  },
+  {
+    id: "glisson-loop-cervical-traction-guide",
+    slug: "glisson-loop-cervical-traction-neck-relief-guide",
+    title: "Glisson Loop Cervical Traction at Home: Safe Low-Angle Neck Unloading for Tech-Neck & C5–C6 Comfort",
+    metaTitle: "Glisson Loop Cervical Traction Guide: Safe Low-Angle Neck Relief | Evminov",
+    metaDescription:
+      "Learn how to use the cotton-padded Glisson Cervical Loop included free with every Evminov Board at safe 8°–12° head-up angles for gentle tech-neck and cervical spine comfort.",
+    category: "Cervical & Tech-Neck",
+    datePublished: "2026-11-28",
+    dateModified: "2026-11-28",
+    readTime: "7 min read",
+    author: {
+      name: "Evminov Spine Biomechanics Editorial Team",
+      role: "Cervical Ergonomics & Home Safety",
+      credentials: "30 Years of Evminov Method Documentation (Since 1996)",
+    },
+    heroImage: "/images/products/glisson-loop-studio.jpg",
+    excerpt:
+      "Weighted over-the-door neck hanging can overload the jaw (TMJ) and cervical ligaments. Discover why gentle 8°–12° supported traction with the Evminov Glisson Loop (included free) offers calm, controllable neck unloading.",
+    recommendedProductSlug: "2-piece-folding-board",
+    sections: [
+      {
+        id: "tech-neck-load",
+        heading: "1. Why Desk Screens Overload C5–C6 and Upper Neck Muscles",
+        paragraphs: [
+          "In neutral alignment, an adult head weighs 10–12 lbs. Tilting your head forward 45° over a laptop or phone multiplies effective cervical load to nearly 49 lbs — compressing the lower cervical discs (especially C5–C6 and C6–C7) and locking upper trapezius muscles into chronic tension.",
+        ],
+      },
+      {
+        id: "why-inclined-beats-hanging",
+        heading: "2. Why Supported 8°–12° Board Traction Is Gentler Than Vertical Over-the-Door Hanging",
+        paragraphs: [
+          "Standard vertical over-the-door traction bags yank directly upward with abrupt counterweight spikes that can irritate the temporomandibular joint (TMJ) or trigger defensive neck spasms. On the Evminov inclined board, your entire torso rests comfortably on the flexing wooden deck at a shallow 8°–12° incline while the cotton-padded Glisson Loop attaches smoothly to the carriage.",
+          "Because only a small, cosine-reduced fraction of bodyweight translates into axial pull, you control tension to the millimeter simply by relaxing your shoulders or sliding slightly downward — and you can release tension instantaneously.",
+        ],
+        bullets: [
+          "Start exclusively at ultra-gentle angles (8°–12°) for 3–5 minutes — never use heavy weights or steep angles for cervical routines.",
+          "Position the occipital strap snugly under the base of the skull so the chin strap stays comfortable without clenching the jaw.",
+          "Keep breathing slow and nasal; perform tiny controlled head turns only if completely pain-free and cleared by your clinician.",
+          "Every Evminov 3-Piece and 2-Piece board includes the genuine padded Glisson Loop free in the box.",
+        ],
+      },
+      {
+        id: "cervical-red-flags",
+        heading: "3. Essential Safety Red Flags & When to Consult Your Doctor First",
+        paragraphs: [
+          "Cervical traction is never a 'no pain, no gain' exercise. Evminov equipment is general wellness and spine conditioning gear — always obtain medical clearance from a physician or physical therapist before using cervical traction if you have a diagnosed C5–C6 disc herniation, osteoarthritis, osteoporosis, rheumatoid arthritis, cervical instability, or prior neck surgery.",
+          "Stop immediately and seek professional medical evaluation if you ever feel radiating electrical pain, numbness or tingling down the arms/hands, grip weakness, dizziness, visual changes, or jaw discomfort.",
+        ],
+      },
+    ],
+    references: [
+      { citation: "Hansraj KK. Assessment of stresses in the cervical spine caused by posture and position of the head. Surg Technol Int. 2014;25:277-279.", source: "PubMed" },
+      { citation: "Romeo A et al. Cervical traction for cervical radiculopathy: systematic review and meta-analysis. J Orthop Sports Phys Ther. 2018.", source: "JOSPT" },
+    ],
+    faqs: [
+      {
+        q: "Is the Glisson Cervical Loop included free with both the 3-Piece and 2-Piece Evminov Boards?",
+        a: "Yes! Every authentic Evminov Board ships with the genuine cotton-padded Glisson Cervical Loop at no extra charge.",
+      },
+      {
+        q: "What angle should I use for neck traction on the Evminov Board?",
+        a: "Always stay in the ultra-gentle 8° to 12° range for cervical sessions and keep sessions brief (3–5 minutes). Consult your healthcare provider first if you have a diagnosed cervical disc bulge or nerve symptoms.",
+      },
+    ],
+  },
 ];
 
 export function getGuideWordCount(guide: GuideItem): number {

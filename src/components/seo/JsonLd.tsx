@@ -89,7 +89,7 @@ export function OrganizationAndWebsiteSchema({ lang }: { lang: Locale }) {
             "@type": "OrderAction",
             target: {
               "@type": "EntryPoint",
-              urlTemplate: `${origin}/order/?product={product_slug}&shipping={shipping_mode}&step=2#order-form`,
+              urlTemplate: `${origin}/order/?product={product_slug}&shipping={shipping_mode}&step=1#order-form`,
               actionPlatform: [
                 "http://schema.org/DesktopWebPlatform",
                 "http://schema.org/MobileWebPlatform",
@@ -98,7 +98,7 @@ export function OrganizationAndWebsiteSchema({ lang }: { lang: Locale }) {
           },
           {
             "@type": "CommunicateAction",
-            target: SITE_CONFIG.phoneHref,
+            target: SITE_CONFIG.whatsappHref,
           },
         ],
       },

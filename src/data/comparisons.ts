@@ -369,6 +369,84 @@ export const COMPARISONS: ComparisonPageData[] = [
     ],
     recommendedProductSlug: "2-piece-folding-board",
   },
+  {
+    slug: "evminov-vs-chirp-contour-posture-pump",
+    shortTitle: "Evminov vs. Chirp Contour & Posture Pump",
+    title: "Evminov Board vs. Chirp Contour, Posture Pump & Decompression Belts (2026 Comparison)",
+    metaTitle: "Evminov vs. Chirp Contour & Posture Pump | Non-Inverted Spine Relief",
+    metaDescription:
+      "Comparing top non-inverted home spinal decompression devices in 2026: Evminov inclined wood board vs. Chirp Contour motorized bed, Posture Pump air cells, and lumbar traction belts.",
+    competitorName: "Chirp Contour / Posture Pump / Air Belts",
+    eyebrow: "2026 Trending Comparison • Non-Inverted Alternatives",
+    summary:
+      "More US and Canadian buyers are skipping 90° inversion tables in favor of head-up options like the Chirp Contour, Posture Pump, lumbar air belts, or the Evminov inclined board. Here is how they truly differ in traction physics, deep muscle activation, and long-term durability.",
+    heroImage: "/images/authentic/hero-full-device-traction.jpg",
+    keyTakeaways: [
+      "True continuous axial decompression + active deep core strengthening — not just passive rolling massage or temporary air inflation.",
+      "Covers lumbar, thoracic, AND cervical spine (free Glisson Loop included) on one single heirloom wood station.",
+      "Zero motors, circuit boards, air bladders, or batteries to leak or fail — built from resonant multi-layer timber for 20+ years.",
+      "Folds into 3 or 2 compact sections (26 cm Standard or 30 cm Reinforced Wide) with 1-Year Warranty & itemized HSA/FSA receipt.",
+    ],
+    rows: [
+      {
+        metric: "Decompression Mechanism",
+        evminov: "Calibrated 8°–35° inclined axial unloading + active micro-movements",
+        alternative: "Chirp: motorized floor rollers + heat | Posture Pump / Belts: passive air bladders",
+        winner: "evminov",
+      },
+      {
+        metric: "Deep Core & Stabilizer Training",
+        evminov: "Yes — builds deep paraspinal muscle corset while spine is unloaded",
+        alternative: "No — 100% passive massage or static air inflation",
+        winner: "evminov",
+      },
+      {
+        metric: "Full Spine + Neck Coverage",
+        evminov: "Full lumbar, thoracic & cervical (free Glisson Loop included)",
+        alternative: "Usually separate units required for neck vs. lower back",
+        winner: "evminov",
+      },
+      {
+        metric: "Electronics & Air Bladders",
+        evminov: "Zero motors, outlets, pumps, or leaking air chambers",
+        alternative: "Chirp requires wall power & motors; Posture Pump/Belts rely on air bladders",
+        winner: "evminov",
+      },
+      {
+        metric: "Head-Up Safety (Zero Inversion)",
+        evminov: "Head stays calmly above heart at all standard angles",
+        alternative: "Flat/upright (also avoids upside-down head rush)",
+        winner: "tie",
+      },
+      {
+        metric: "Typical Investment",
+        evminov: "$475–$495 USD direct (26 cm / 30 cm Wide • HSA/FSA with LMN)",
+        alternative: "Chirp Contour ~$500–$600 | Posture Pump ~$150–$250 per zone",
+        winner: "evminov",
+      },
+    ],
+    deepDiveSections: [
+      {
+        heading: "Passive Rolling & Air Pumps vs. Active Axial Decompression",
+        body: "Motorized roller beds like the Chirp Contour feel soothing on tight superficial back muscles, and pneumatic devices like Posture Pump gently arch one localized segment. However, neither creates true full-length axial unloading paired with unloaded deep stabilizer training. The Evminov Method combines smooth longitudinal gravity traction (8°–35°) with targeted micro-exercises that teach your deep multifidus muscles to hold the gained disc space throughout the day.",
+      },
+      {
+        heading: "One Lifetime Mechanical Station vs. Multiple Single-Zone Gadgets",
+        body: "Many back-pain sufferers end up spending $600–$900 across a lumbar air belt, a neck air collar, and a roller mat — only to replace worn bladders or motors within a couple of years. One folding Evminov Board (3-Piece 230–245 cm or 2-Piece compact) handles cervical, thoracic, and lumbar care for the whole family with zero electronics.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Is the Evminov Board better than a Chirp Contour or Posture Pump for long-term disc support?",
+        a: "If you want soothing heated massage, Chirp Contour focuses on surface muscles. If you want calibrated full-spine axial unloading combined with active deep stabilizer strengthening and zero motors to wear out, the Evminov Board addresses both decompression and long-term muscular support.",
+      },
+      {
+        q: "Can I use my HSA/FSA or Canadian Extended Health Benefits for an Evminov Board?",
+        a: "Yes — with a Letter of Medical Necessity (LMN) or doctor's prescription and plan approval. Every order includes an itemized wellness equipment receipt (HTS 9506.91.0030).",
+      },
+    ],
+    recommendedProductSlug: "3-piece-travel-board",
+  },
 ];
 
 export function getComparisonBySlug(slug: string): ComparisonPageData | undefined {

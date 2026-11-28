@@ -1,15 +1,106 @@
 import Link from "next/link";
-import { ArrowRight, BookOpen } from "lucide-react";
+import { ArrowRight, BookOpen, MessageCircle, ShieldCheck } from "lucide-react";
 import { Locale } from "@/i18n/types";
 import { GuideItem, GUIDES } from "@/data/guides";
+import { COMPARISONS } from "@/data/comparisons";
 import { getProductBySlug } from "@/data/products";
 import { getLocalizedGuide } from "@/i18n/locales/guides-i18n";
+import { getLocalizedComparison } from "@/i18n/locales/comparisons-i18n";
 import { getSiloUi } from "@/i18n/locales/silo-ui";
 import { getLocalizedProduct } from "@/i18n/locales/catalog";
 import { buildPrefilledOrderUrl, getLocalizedHref } from "@/lib/url";
 import { formatUSD } from "@/lib/physics";
+import { SITE_CONFIG } from "@/lib/site-config";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import { FaqJsonLd, GuideArticleJsonLd } from "@/components/seo/JsonLd";
+
+const GUIDE_CRO_COPY: Record<
+  Locale,
+  {
+    homeLabel: string;
+    guidesLabel: string;
+    midCardBadge: string;
+    midCardTitle: string;
+    midCardDesc: string;
+    stdBtn: string;
+    wideBtn: string;
+    waBtn: string;
+    compareHeading: string;
+  }
+> = {
+  en: {
+    homeLabel: "Home",
+    guidesLabel: "Guides",
+    midCardBadge: "US & Canada • ~2 Weeks Courier Delivery • 1-Year Warranty",
+    midCardTitle: "Ready to Configure Your Folding Evminov Board?",
+    midCardDesc:
+      "Choose Standard 26 cm (≤100 kg / 220 lbs) or Reinforced Wide 30 cm (>100 kg / up to 330 lbs) in Light or Dark finish — free Glisson Loop & HSA/FSA itemized receipt included.",
+    stdBtn: "Standard 26 cm →",
+    wideBtn: "Reinforced Wide 30 cm →",
+    waBtn: "Ask Operator on WhatsApp",
+    compareHeading: "Compare Home Decompression Options",
+  },
+  es: {
+    homeLabel: "Inicio",
+    guidesLabel: "Guías",
+    midCardBadge: "EE. UU. y Canadá • Envío ~2 Semanas • Garantía 1 Año",
+    midCardTitle: "¿Listo para Configurar Tu Tabla Evminov Plegable?",
+    midCardDesc:
+      "Elige Estándar 26 cm (≤100 kg) o Reforzada 30 cm (>100 kg) en acabado Claro u Oscuro — Lazo de Glisson gratis y recibo HSA/FSA incluidos.",
+    stdBtn: "Estándar 26 cm →",
+    wideBtn: "Reforzada 30 cm →",
+    waBtn: "Consultar por WhatsApp",
+    compareHeading: "Compara Opciones de Descompresión",
+  },
+  fr: {
+    homeLabel: "Accueil",
+    guidesLabel: "Guides",
+    midCardBadge: "USA & Canada • Livraison ~2 Semaines • Garantie 1 An",
+    midCardTitle: "Prêt à Configurer Votre Planche Evminov Pliable ?",
+    midCardDesc:
+      "Choisissez Standard 26 cm (≤100 kg) ou Renforcée 30 cm (>100 kg), finition Claire ou Foncée — Boucle de Glisson offerte et reçu détaillé inclus.",
+    stdBtn: "Standard 26 cm →",
+    wideBtn: "Renforcée 30 cm →",
+    waBtn: "Écrire sur WhatsApp",
+    compareHeading: "Comparer les Solutions de Décompression",
+  },
+  de: {
+    homeLabel: "Startseite",
+    guidesLabel: "Ratgeber",
+    midCardBadge: "USA & Kanada • ~2 Wochen Versand • 1 Jahr Garantie",
+    midCardTitle: "Bereit für Ihr klappbares Evminov Board?",
+    midCardDesc:
+      "Wählen Sie Standard 26 cm (≤100 kg) oder Verstärkt 30 cm (>100 kg) in Hell oder Dunkel — inkl. gratis Glisson-Schlaufe & HSA/FSA-Beleg.",
+    stdBtn: "Standard 26 cm →",
+    wideBtn: "Verstärkt 30 cm →",
+    waBtn: "Per WhatsApp fragen",
+    compareHeading: "Dekompressions-Alternativen vergleichen",
+  },
+  uk: {
+    homeLabel: "Головна",
+    guidesLabel: "Гайди",
+    midCardBadge: "США та Канада • Доставка ~2 Тижні • Гарантія 1 Рік",
+    midCardTitle: "Готові Підібрати Свій Розбірний Профілактор Євмінова?",
+    midCardDesc:
+      "Обирайте Стандарт 26 см (до 100 кг) або Посилений 30 см (>100 кг), світлий чи темний — Петля Гліссона безкоштовно та інвойс HSA/FSA у комплекті.",
+    stdBtn: "Стандарт 26 см →",
+    wideBtn: "Посилений 30 см →",
+    waBtn: "Написати у WhatsApp",
+    compareHeading: "Порівняння з Іншими Методами",
+  },
+  ru: {
+    homeLabel: "Главная",
+    guidesLabel: "Гайды",
+    midCardBadge: "США и Канада • Доставка ~2 Недели • Гарантия 1 Год",
+    midCardTitle: "Готовы Подобрать Свой Разборный Профилактор Евминова?",
+    midCardDesc:
+      "Выбирайте Стандарт 26 см (до 100 кг) или Усиленный 30 см (>100 кг), светлый или тёмный — Петля Глиссона бесплатно и чек HSA/FSA в комплекте.",
+    stdBtn: "Стандарт 26 см →",
+    wideBtn: "Усиленный 30 см →",
+    waBtn: "Написать в WhatsApp",
+    compareHeading: "Сравнение с Другими Методами",
+  },
+};
 
 export function GuideDetailView({
   guide: rawGuide,
@@ -20,6 +111,7 @@ export function GuideDetailView({
 }) {
   const guide = getLocalizedGuide(rawGuide, lang);
   const ui = getSiloUi(lang);
+  const cro = GUIDE_CRO_COPY[lang];
   const recProduct = getProductBySlug(guide.recommendedProductSlug);
   const recLocalized = recProduct
     ? getLocalizedProduct(recProduct, lang)
@@ -30,9 +122,10 @@ export function GuideDetailView({
       <GuideArticleJsonLd guide={guide} lang={lang} />
       <FaqJsonLd faqs={guide.faqs} />
 
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 lg:grid-cols-12">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-10 md:py-12 lg:grid-cols-12">
         {/* Main Article */}
         <article className="lg:col-span-8">
+
           <span className="inline-block rounded-full bg-teal-50 px-3 py-1 text-xs font-bold text-teal-800">
             {guide.category} • {guide.readTime}
           </span>
@@ -54,14 +147,14 @@ export function GuideDetailView({
             </span>
           </div>
 
-          <div className="relative mt-6 aspect-[16/9] w-full overflow-hidden rounded-3xl border border-slate-200">
+          <div className="relative mt-6 aspect-[16/9] w-full overflow-hidden rounded-3xl border border-slate-200 bg-[#F4F7F9]">
             <OptimizedImage
               src={guide.heroImage}
               alt={guide.title}
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 66vw"
-              className="object-cover"
+              className="object-contain p-3"
             />
           </div>
 
@@ -88,26 +181,74 @@ export function GuideDetailView({
             </ul>
           </nav>
 
-          {/* Sections */}
+          {/* Sections + In-Article CRO Width Picker after Section #2 */}
           <div className="mt-8 space-y-8">
-            {guide.sections.map((sec) => (
-              <section key={sec.id} id={sec.id}>
-                <h2 className="font-display text-2xl font-black text-slate-950">
-                  {sec.heading}
-                </h2>
-                <div className="mt-3 space-y-4 text-base leading-relaxed text-slate-700">
-                  {sec.paragraphs.map((p, idx) => (
-                    <p key={idx}>{p}</p>
-                  ))}
-                </div>
-                {sec.bullets && (
-                  <ul className="mt-4 list-disc space-y-2 pl-6 text-base text-slate-700">
-                    {sec.bullets.map((b) => (
-                      <li key={b}>{b}</li>
+            {guide.sections.map((sec, secIdx) => (
+              <div key={sec.id} className="space-y-8">
+                <section id={sec.id}>
+                  <h2 className="font-display text-2xl font-black text-slate-950">
+                    {sec.heading}
+                  </h2>
+                  <div className="mt-3 space-y-4 text-base leading-relaxed text-slate-700">
+                    {sec.paragraphs.map((p, idx) => (
+                      <p key={idx}>{p}</p>
                     ))}
-                  </ul>
+                  </div>
+                  {sec.bullets && (
+                    <ul className="mt-4 list-disc space-y-2 pl-6 text-base text-slate-700">
+                      {sec.bullets.map((b) => (
+                        <li key={b}>{b}</li>
+                      ))}
+                    </ul>
+                  )}
+                </section>
+
+                {secIdx === Math.min(1, guide.sections.length - 1) && recProduct && (
+                  <div className="rounded-3xl border border-emerald-200 bg-gradient-to-br from-[#0B1F3A] to-[#0D3B46] p-6 text-white shadow-lg">
+                    <p className="inline-flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-emerald-300">
+                      <ShieldCheck className="h-4 w-4" />
+                      <span>{cro.midCardBadge}</span>
+                    </p>
+                    <h3 className="mt-2 font-display text-xl font-black">
+                      {cro.midCardTitle}
+                    </h3>
+                    <p className="mt-1.5 text-xs leading-relaxed text-slate-200 sm:text-sm">
+                      {cro.midCardDesc}
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-2.5">
+                      <Link
+                        href={`${buildPrefilledOrderUrl({
+                          lang,
+                          product: recProduct.slug,
+                          step: 1,
+                        }).replace("#order-form", "")}&width=standard#order-form`}
+                        className="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-emerald-400 px-4 py-2.5 text-xs font-black text-slate-950 transition hover:bg-emerald-300"
+                      >
+                        {cro.stdBtn}
+                      </Link>
+                      <Link
+                        href={`${buildPrefilledOrderUrl({
+                          lang,
+                          product: recProduct.slug,
+                          step: 1,
+                        }).replace("#order-form", "")}&width=wide#order-form`}
+                        className="inline-flex min-h-[44px] items-center justify-center rounded-xl border border-white/25 bg-white/10 px-4 py-2.5 text-xs font-extrabold text-white transition hover:bg-white/20"
+                      >
+                        {cro.wideBtn}
+                      </Link>
+                      <a
+                        href={SITE_CONFIG.whatsappHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex min-h-[44px] items-center justify-center gap-1.5 rounded-xl bg-[#16A34A] px-4 py-2.5 text-xs font-extrabold text-white transition hover:bg-emerald-500"
+                      >
+                        <MessageCircle className="h-4 w-4" />
+                        <span>{cro.waBtn}</span>
+                      </a>
+                    </div>
+                  </div>
                 )}
-              </section>
+              </div>
             ))}
           </div>
 
@@ -154,6 +295,27 @@ export function GuideDetailView({
               </div>
             </section>
           )}
+
+          {/* Silo Internal Cross-Links to Comparisons */}
+          <section className="mt-10 border-t border-slate-200 pt-7">
+            <h2 className="text-xs font-extrabold uppercase tracking-wider text-slate-500">
+              {cro.compareHeading}
+            </h2>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {COMPARISONS.slice(0, 4).map((rawComp) => {
+                const c = getLocalizedComparison(rawComp, lang);
+                return (
+                  <Link
+                    key={c.slug}
+                    href={getLocalizedHref(`/compare/${c.slug}/`, lang)}
+                    className="rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-bold text-slate-800 transition hover:border-teal-600 hover:text-teal-800"
+                  >
+                    {c.shortTitle} →
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
         </article>
 
         {/* Contextual Conversion Sidebar */}
@@ -181,16 +343,25 @@ export function GuideDetailView({
                   href={buildPrefilledOrderUrl({
                     lang,
                     product: recProduct.slug,
-                    step: 2,
+                    step: 1,
                   })}
-                  className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-400 px-5 py-3 text-sm font-black text-slate-950 hover:bg-emerald-300"
+                  className="mt-5 inline-flex min-h-[46px] w-full items-center justify-center gap-2 rounded-xl bg-emerald-400 px-5 py-3 text-sm font-black text-slate-950 hover:bg-emerald-300"
                 >
                   <span>{ui.common.configureAndOrder}</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
+                <a
+                  href={SITE_CONFIG.whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2.5 inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-xl bg-[#16A34A] px-5 py-2.5 text-xs font-extrabold text-white transition hover:bg-emerald-500"
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  <span>WhatsApp • {SITE_CONFIG.phoneDisplay}</span>
+                </a>
                 <Link
                   href={getLocalizedHref("/calculator/", lang)}
-                  className="mt-2.5 inline-flex w-full items-center justify-center rounded-xl border border-white/20 px-5 py-2.5 text-xs font-bold text-white hover:bg-white/10"
+                  className="mt-2.5 inline-flex min-h-[44px] w-full items-center justify-center rounded-xl border border-white/20 px-5 py-2.5 text-xs font-bold text-white hover:bg-white/10"
                 >
                   {ui.common.calculateSafeAngle}
                 </Link>
@@ -202,7 +373,7 @@ export function GuideDetailView({
                 </p>
                 <ul className="mt-3 space-y-2.5 text-sm">
                   {GUIDES.filter((g) => g.slug !== guide.slug)
-                    .slice(0, 4)
+                    .slice(0, 5)
                     .map((raw) => {
                       const g = getLocalizedGuide(raw, lang);
                       return (

@@ -54,12 +54,12 @@ export function HeroShowcaseGallery({ lang = "en" }: { lang?: Locale }) {
           </span>
         </div>
 
-        {/* Left/Right Navigation Controls */}
+        {/* Left/Right Navigation Controls (WCAG 44px+ Tap Targets & Keyboard Focus) */}
         <button
           type="button"
           onClick={prevSlide}
           aria-label={copy.prevAria}
-          className="absolute left-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-slate-950/70 text-white backdrop-blur transition hover:bg-emerald-500 hover:text-slate-950"
+          className="absolute left-3 top-1/2 flex h-11 w-11 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/25 bg-slate-950/75 text-white backdrop-blur transition hover:bg-emerald-500 hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
         >
           <ChevronLeft className="h-5 w-5" />
         </button>
@@ -67,7 +67,7 @@ export function HeroShowcaseGallery({ lang = "en" }: { lang?: Locale }) {
           type="button"
           onClick={nextSlide}
           aria-label={copy.nextAria}
-          className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-slate-950/70 text-white backdrop-blur transition hover:bg-emerald-500 hover:text-slate-950"
+          className="absolute right-3 top-1/2 flex h-11 w-11 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/25 bg-slate-950/75 text-white backdrop-blur transition hover:bg-emerald-500 hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
         >
           <ChevronRight className="h-5 w-5" />
         </button>

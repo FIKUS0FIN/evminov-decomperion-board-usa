@@ -28,6 +28,20 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
       });
     }
 
+    // Silent honeypot filter against automated form spam bots
+    if (String(payload.website || payload.company_url || "").trim().length > 0) {
+      return new Response(
+        JSON.stringify({ ok: true, orderRef: "EV-RECEIVED" }),
+        {
+          status: 200,
+          headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            "Cache-Control": "no-store",
+          },
+        }
+      );
+    }
+
     const mode = String(payload.mode || "order_reservation").slice(0, 40);
     const sessionUser = await getSessionUser(request, env);
 

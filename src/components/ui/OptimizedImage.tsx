@@ -12,6 +12,8 @@ export function OptimizedImage({
     <ExportedImage
       alt={alt}
       priority={priority}
+      fetchPriority={priority ? "high" : undefined}
+      decoding={priority ? "sync" : "async"}
       loading={priority ? undefined : loading || "lazy"}
       {...props}
     />

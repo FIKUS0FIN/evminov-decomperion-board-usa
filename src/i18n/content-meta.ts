@@ -166,6 +166,38 @@ const COMPARISON_META: Record<string, Record<Locale, LocalizedMeta>> = {
         "Entdecken Sie sanfte Schrägentlastung und tägliche Tiefenmuskel-Kräftigung als konservative Wellness-Routine begleitend zur ärztlichen Beratung vor invasiven Schritten.",
     },
   },
+  "evminov-vs-chirp-contour-posture-pump": {
+    en: {
+      title: "Evminov vs. Chirp Contour & Posture Pump (2026 Comparison)",
+      description:
+        "Compare non-inverted home spinal decompression: Evminov inclined wood board vs. Chirp Contour motorized bed, Posture Pump air cells, and lumbar traction belts.",
+    },
+    es: {
+      title: "Evminov vs. Chirp Contour y Posture Pump (Comparativa 2026)",
+      description:
+        "Compara descompresión espinal sin inversión: tabla Evminov inclinada frente a Chirp Contour motorizado, Posture Pump neumático y cinturones de tracción lumbar.",
+    },
+    fr: {
+      title: "Evminov vs. Chirp Contour & Posture Pump (Comparatif 2026)",
+      description:
+        "Comparez la décompression vertébrale tête haute : planche inclinée Evminov vs. Chirp Contour motorisé, Posture Pump pneumatique et ceintures lombaires.",
+    },
+    uk: {
+      title: "Evminov проти Chirp Contour і Posture Pump (Порівняння 2026)",
+      description:
+        "Порівняйте домашню декомпресію без інверсії: похилий Профілактор Євмінова проти Chirp Contour, Posture Pump та надувних поясів для спини.",
+    },
+    ru: {
+      title: "Evminov против Chirp Contour и Posture Pump (Сравнение 2026)",
+      description:
+        "Сравните домашнюю декомпрессию без инверсии: наклонный Профилактор Евминова против Chirp Contour, Posture Pump и надувных поясов для спины.",
+    },
+    de: {
+      title: "Evminov vs. Chirp Contour & Posture Pump (Vergleich 2026)",
+      description:
+        "Vergleichen Sie kopf-oben Wirbelsäulen-Dekompression: schräges Evminov Holzboard vs. motorisiertes Chirp Contour, Posture Pump Luftkissen und Traktionsgurte.",
+    },
+  },
 };
 
 const CONDITION_META: Record<string, Record<Locale, LocalizedMeta>> = {
@@ -682,6 +714,102 @@ const GUIDE_META: Record<string, Record<Locale, LocalizedMeta>> = {
       title: "Haltungsgewohnheiten für Kinder & Jugendliche: Rucksack & Bildschirm",
       description:
         "Wie betreute 6°–12°-Einheiten mit Musik Schulkindern helfen, symmetrische Haltungsgewohnheiten abseits schwerer Rucksäcke und Tablets aufzubauen.",
+    },
+  },
+  "hsa-fsa-spinal-decompression-lmn-guide": {
+    en: {
+      title: "HSA, FSA & Canadian Benefits Guide for Evminov Board (LMN)",
+      description:
+        "Save ~25%–35% pre-tax with US HSA/FSA funds (Dec 31 FSA deadline) or Canadian Extended Health & CRA Medical Expense claims using a Letter of Medical Necessity.",
+    },
+    es: {
+      title: "Guía HSA, FSA y Beneficios de Salud para Tabla Evminov (LMN)",
+      description:
+        "Ahorra ~25%–35% antes de impuestos con HSA/FSA en EE. UU. o beneficios extendidos en Canadá con Carta de Necesidad Médica (LMN) y factura detallada.",
+    },
+    fr: {
+      title: "Guide HSA, FSA et Assurances Canadiennes pour Planche Evminov",
+      description:
+        "Économisez ~25 %–35 % via HSA/FSA aux USA ou assurances collectives / crédit d'impôt ARC au Canada avec ordonnance et reçu détaillé Evminov.",
+    },
+    uk: {
+      title: "Як Оплатити Профілактор Євмінова через HSA/FSA (США) та Страховку в Канаді",
+      description:
+        "Економте ~25–35% за рахунок HSA/FSA (до 31 грудня!) у США або Extended Health / CRA у Канаді з листом LMN і деталізованим інвойсом Evminov.",
+    },
+    ru: {
+      title: "Как Оплатить Доску Евминова через HSA/FSA (США) и Страховку в Канаде",
+      description:
+        "Экономьте ~25–35% с помощью HSA/FSA (до 31 декабря!) в США или Extended Health / CRA в Канаде с письмом LMN и детализированным инвойсом Evminov.",
+    },
+    de: {
+      title: "HSA, FSA & Kanadische Gesundheitsleistungen für Evminov Board (LMN)",
+      description:
+        "Sparen Sie ca. 25 %–35 % vor Steuern mit US-HSA/FSA (Frist 31. Dezember) oder kanadischen Extended Health Benefits samt LMN-Checkliste.",
+    },
+  },
+  "buy-evminov-board-usa-canada-shipping-guide": {
+    en: {
+      title: "Buy Original Evminov Board in USA & Canada (3-Piece & 2-Piece)",
+      description:
+        "Official US & Canada buyer's guide: 3-piece (230–245 cm) & 2-piece folding panels, 26 cm vs 30 cm width, 4 accessories, ~2-week courier shipping, and 1-year warranty.",
+    },
+    es: {
+      title: "Comprar Tabla Evminov Original en EE. UU. y Canadá (3 y 2 Piezas)",
+      description:
+        "Guía oficial EE. UU. y Canadá: modelos plegables de 3 piezas (230–245 cm) y 2 piezas, ancho 26 cm vs 30 cm, 4 accesorios, envío ~2 semanas y garantía 1 año.",
+    },
+    fr: {
+      title: "Acheter une Planche Evminov Originale aux USA & Canada (3 et 2 Pièces)",
+      description:
+        "Guide officiel USA & Canada : modèles démontables 3 pièces (230–245 cm) et 2 pièces, largeur 26 ou 30 cm, 4 accessoires, livraison ~2 semaines et garantie 1 an.",
+    },
+    uk: {
+      title: "Купити Оригінальний Профілактор Євмінова в США та Канаді (~2 Тижні)",
+      description:
+        "Офіційна лінійка для США і Канади: 3-секційний (230–245 см) та 2-секційна «Зубна щітка», 26 або 30 см, 4 аксесуари, доставка ~2 тижні, гарантія 1 рік.",
+    },
+    ru: {
+      title: "Купить Оригинальный Профилактор Евминова в США и Канаде (~2 Недели)",
+      description:
+        "Официальная линейка для США и Канады: 3-секционный (230–245 см) и 2-секционная «Зубная щётка», 26 или 30 см, 4 аксессуара, доставка ~2 недели, гарантия 1 год.",
+    },
+    de: {
+      title: "Original Evminov Board in den USA & Kanada kaufen (3- & 2-teilig)",
+      description:
+        "Offizieller Ratgeber USA & Kanada: 3-teiliges (230–245 cm) & 2-teiliges Klappboard, 26 cm vs. 30 cm Breite, 4 Zubehörteile, ~2 Wochen Versand, 1 Jahr Garantie.",
+    },
+  },
+  "glisson-loop-cervical-traction-neck-relief-guide": {
+    en: {
+      title: "Glisson Loop Cervical Traction Guide: Safe 8°–12° Neck Relief",
+      description:
+        "Safe low-angle neck unloading with the cotton-padded Glisson Loop included free with every Evminov Board — gentle tech-neck & C5–C6 comfort without jaw strain.",
+    },
+    es: {
+      title: "Guía del Lazo de Glisson: Tracción Cervical Segura a 8°–12°",
+      description:
+        "Descarga cervical suave a bajo ángulo con el Lazo de Glisson incluido gratis en cada tabla Evminov — alivio del cuello de pantalla sin tensión mandibular.",
+    },
+    fr: {
+      title: "Guide Boucle de Glisson : Traction Cervicale Douce à 8°–12°",
+      description:
+        "Décompression cervicale contrôlée à faible angle avec la Boucle de Glisson offerte sur chaque planche Evminov — soulagement nuque et C5–C6 en douceur.",
+    },
+    uk: {
+      title: "Петля Гліссона для Шиї: Безпечне Витяжіння під Кутом 8°–12°",
+      description:
+        "Як безпечно використовувати м'яку Петлю Гліссона (у подарунок до кожної дошки Євмінова) для зняття напруги шиї, tech-neck і комфорту C5–C6.",
+    },
+    ru: {
+      title: "Петля Глиссона для Шеи: Безопасное Вытяжение под Углом 8°–12°",
+      description:
+        "Как безопасно использовать мягкую Петлю Глиссона (бесплатно с каждой доской Евминова) для разгрузки шеи, tech-neck и комфорта C5–C6.",
+    },
+    de: {
+      title: "Glisson-Schlaufe Ratgeber: Sanfte HWS-Traktion bei 8°–12°",
+      description:
+        "Sichere Nackenentlastung mit der gepolsterten Glisson-Schlaufe (kostenlos bei jedem Evminov Board) — sanfte Hilfe bei Handy-Nacken & C5–C6.",
     },
   },
 };

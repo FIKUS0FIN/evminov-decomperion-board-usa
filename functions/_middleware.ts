@@ -246,10 +246,13 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     }
 
     const apiRes = await next();
-    if (!trusted) return apiRes;
-
     const apiHeaders = new Headers(apiRes.headers);
-    if (!apiHeaders.has("Access-Control-Allow-Origin")) {
+    apiHeaders.set("X-Content-Type-Options", "nosniff");
+    apiHeaders.set("Referrer-Policy", "strict-origin-when-cross-origin");
+    if (!apiHeaders.has("Cache-Control")) {
+      apiHeaders.set("Cache-Control", "no-store");
+    }
+    if (trusted && !apiHeaders.has("Access-Control-Allow-Origin")) {
       apiHeaders.set("Access-Control-Allow-Origin", reqOrigin);
       apiHeaders.set("Access-Control-Allow-Credentials", "true");
       const existingVary = apiHeaders.get("Vary");
@@ -382,6 +385,19 @@ export const onRequest: PagesFunction<Env> = async (context) => {
 
   const newHeaders = new Headers(response.headers);
   newHeaders.set("Link", LINK_HEADERS);
+  newHeaders.set("X-Content-Type-Options", "nosniff");
+  newHeaders.set("X-Frame-Options", "SAMEORIGIN");
+  newHeaders.set("Referrer-Policy", "strict-origin-when-cross-origin");
+  newHeaders.set(
+    "Permissions-Policy",
+    "camera=(), geolocation=(), payment=(), usb=()"
+  );
+  if (
+    url.pathname.startsWith("/_next/static/") ||
+    url.pathname.startsWith("/images/")
+  ) {
+    newHeaders.set("Cache-Control", "public, max-age=31536000, immutable");
+  }
   if (robotsTag) newHeaders.set("X-Robots-Tag", robotsTag);
 
   const vary = response.headers.get("vary");
