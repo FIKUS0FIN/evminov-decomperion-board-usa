@@ -54,6 +54,9 @@ const EXACT_REDIRECTS: Record<string, string> = {
   "/store": "/products/",
   "/checkout": "/order/",
   "/contact": "/order/",
+  "/wholesale": "/clinics/",
+  "/b2b": "/clinics/",
+  "/partners": "/clinics/",
   "/faq": "/#faq",
   "/guides/remote-worker-spine-hygiene-posture-stick":
     "/guides/remote-worker-spine-hygiene-posture-reset/",

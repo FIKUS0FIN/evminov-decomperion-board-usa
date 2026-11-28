@@ -8,4 +8,4 @@ All discovery, sizing, AI concierge, and catalog endpoints on `https://evminovus
 - `GET/POST /api/acp/checkout_sessions` — Agentic Commerce Protocol catalog (boards + 6 accessories) and pre-filled reservation sessions
 - `POST /api/submit-order` — Submit a board reservation, New Year VIP price lock, or HSA/FSA LMN protocol request with buyer consent
 
-No API key is required for public catalog, chat, and calculator tools. For fastest human support or B2B/clinic wholesale inquiries, message WhatsApp `+1 (747) 306-0140` (`https://wa.me/17473060140`) or email `support@evminovusa.com`.
+No API key is required for public catalog, chat, and calculator tools. For B2B multi-station clinic and Pilates studio pricing (5%–15% volume tiers & commercial W-9 invoices), visit `https://evminovusa.com/clinics/` or message WhatsApp `+1 (747) 306-0140` (`https://wa.me/17473060140`) / email `support@evminovusa.com`.

@@ -47,6 +47,17 @@ export function generateRssXml(): string {
     </item>`;
   });
 
+  const clinicsItem = `    <item>
+      <title>${escapeXml("Evminov B2B Multi-Station Program for Clinics, PT & Pilates Studios")}</title>
+      <link>${origin}/clinics/</link>
+      <guid isPermaLink="true">${origin}/clinics/</guid>
+      <pubDate>${now}</pubDate>
+      <category>B2B Clinics &amp; Studios</category>
+      <description>${escapeXml(
+        `Equip physical therapy clinics, chiropractic offices, and Pilates studios with Reinforced Wide 30 cm Evminov stations rated to 330 lbs (150 kg), zero electricity, and 5%–15% multi-station volume tiers.`
+      )}</description>
+    </item>`;
+
   const guideItems = GUIDES.map((g) => {
     const url = `${origin}/guides/${g.slug}/`;
     const pubDate = new Date(g.datePublished).toUTCString();
@@ -71,7 +82,7 @@ export function generateRssXml(): string {
     )}</description>
     <language>${IS_CANADA ? "en-ca" : "en-us"}</language>
     <lastBuildDate>${now}</lastBuildDate>
-${[...productItems, ...comparisonItems, ...guideItems].join("\n")}
+${[...productItems, clinicsItem, ...comparisonItems, ...guideItems].join("\n")}
   </channel>
 </rss>
 `;

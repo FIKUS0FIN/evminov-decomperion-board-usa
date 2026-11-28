@@ -70,7 +70,7 @@ const TOOLS = [
   {
     name: "search_spine_guides",
     description:
-      "Query the 6-language Evminov Spine Systems knowledge base for product sizing, wall mounting, HSA/FSA LMN, piriformis vs sciatica, nerve flossing & sleep, spondylolisthesis/facet safety, dead hang vs Evminov, or athlete recovery.",
+      "Query the 6-language Evminov Spine Systems knowledge base for product sizing, B2B clinic/studio wholesale tiers, wall mounting, HSA/FSA LMN, piriformis vs sciatica, nerve flossing & sleep, spondylolisthesis/facet safety, dead hang vs Evminov, or athlete recovery.",
     inputSchema: {
       type: "object",
       properties: {
@@ -100,6 +100,8 @@ function executeTool(name: string, args: Record<string, unknown> = {}, requestOr
         email: cfg.email,
         ordersEmail: cfg.ordersEmail,
         hubAddress: cfg.hub,
+        b2bClinicsUrl: `${cfg.origin}/clinics/`,
+        b2bVolumeTiers: "1 station: Standard Direct | 2-3 stations: 5% off | 4-6 stations: 10% off | 7+ stations: 15% off",
         patents: "US 6,869,387 B2 | EP 1 038 512 B1 | WO 1999/043288 | UA 27976 & 28849A",
         shipping: {
           internationalCourier:

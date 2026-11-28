@@ -31,6 +31,7 @@ interface HeaderLabels {
   boardsPricing: string;
   protocols: string;
   since1996: string;
+  clinicsPartners: string;
   spineGoals: string;
   guides: string;
   shipping50: string;
@@ -48,6 +49,7 @@ const HEADER_LABELS: Record<Locale, HeaderLabels> = {
     boardsPricing: "Boards & Pricing",
     protocols: "Protocols",
     since1996: "Since 1996 Heritage",
+    clinicsPartners: "Clinics & Studios",
     spineGoals: "Spine Goals",
     guides: "Guides",
     shipping50: "US & Canada Shipping",
@@ -63,6 +65,7 @@ const HEADER_LABELS: Record<Locale, HeaderLabels> = {
     boardsPricing: "Tablas y Precios",
     protocols: "Protocolos",
     since1996: "Historia desde 1996",
+    clinicsPartners: "Clínicas y Estudios",
     spineGoals: "Objetivos",
     guides: "Guías",
     shipping50: "Envíos EE. UU. y Canadá",
@@ -78,6 +81,7 @@ const HEADER_LABELS: Record<Locale, HeaderLabels> = {
     boardsPricing: "Planches & Tarifs",
     protocols: "Protocoles",
     since1996: "Héritage 1996",
+    clinicsPartners: "Cliniques & Studios",
     spineGoals: "Objectifs",
     guides: "Guides",
     shipping50: "Livraison US & Canada",
@@ -93,6 +97,7 @@ const HEADER_LABELS: Record<Locale, HeaderLabels> = {
     boardsPricing: "Дошки та Ціни",
     protocols: "Протоколи",
     since1996: "Спадщина з 1996",
+    clinicsPartners: "Клінікам і Студіям",
     spineGoals: "Програми",
     guides: "Гайди",
     shipping50: "Доставка США та Канада",
@@ -108,6 +113,7 @@ const HEADER_LABELS: Record<Locale, HeaderLabels> = {
     boardsPricing: "Доски и Цены",
     protocols: "Протоколы",
     since1996: "Наследие с 1996",
+    clinicsPartners: "Клиникам и Студиям",
     spineGoals: "Программы",
     guides: "Статьи",
     shipping50: "Доставка США и Канада",
@@ -123,6 +129,7 @@ const HEADER_LABELS: Record<Locale, HeaderLabels> = {
     boardsPricing: "Boards & Preise",
     protocols: "Protokolle",
     since1996: "Tradition seit 1996",
+    clinicsPartners: "Praxen & Studios",
     spineGoals: "Rückenziele",
     guides: "Ratgeber",
     shipping50: "US- & Kanada-Versand",
@@ -164,6 +171,11 @@ export function Header({ lang }: { lang: Locale }) {
       label: hl.since1996,
       href: getLocalizedHref("/centers/", lang),
       highlight: true,
+    },
+    {
+      label: hl.clinicsPartners,
+      href: getLocalizedHref("/clinics/", lang),
+      highlight: false,
     },
     {
       label: hl.spineGoals,

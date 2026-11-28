@@ -251,7 +251,16 @@ export function queryEvminovKnowledge(rawQuery: string, lang = "en", originOrUrl
   let guideUrl = `${cfg.origin}${localePrefix}/guides/best-home-spinal-decompression-devices-2026-guide/`;
   let topic = "general_spine_decompression";
 
-  if (/neck\s*hump|dowager|forward\s*head|kyphosis|холка|вдовий|горб/.test(q)) {
+  if (
+    /wholesale|b2b|bulk|multi[\s-]*station|pilates\s*studio|rehab\s*studio|chiropractic\s*clinic|pt\s*clinic|equip\s*(a\s*)?(clinic|studio)|опто|для\s*клінік|для\s*клиник|студі[їй]|студи[ий]/.test(
+      q
+    )
+  ) {
+    topic = "b2b_clinic_studio_wholesale";
+    recommended = products[0]; // 3-Piece 230-245 cm + Reinforced Wide 30 cm (330 lbs)
+    recommendedWidth = "wide";
+    guideUrl = `${cfg.origin}${localePrefix}/clinics/`;
+  } else if (/neck\s*hump|dowager|forward\s*head|kyphosis|холка|вдовий|горб/.test(q)) {
     topic = "neck_hump_forward_head_posture";
     recommended = products[1]; // 2-Piece Folding
     guideUrl = `${cfg.origin}${localePrefix}/guides/neck-hump-dowagers-hump-and-forward-head-posture-guide/`;

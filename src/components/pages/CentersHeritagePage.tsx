@@ -77,6 +77,15 @@ const KYIV_IMAGES = [
   "/images/centers/kyiv-center-session.png",
 ] as const;
 
+const B2B_BANNER_CTA: Record<Locale, string> = {
+  en: "Equip Your Clinic or Pilates Studio (B2B Tiers)",
+  es: "Equipa Tu Clínica o Estudio Pilates (Precios B2B)",
+  fr: "Équipez Votre Clinique ou Studio Pilates (B2B)",
+  de: "Praxis oder Pilates-Studio Ausstatten (B2B)",
+  uk: "Оснастити Клініку чи Студію (Опт B2B)",
+  ru: "Оснастить Клинику или Студию (Опт B2B)",
+};
+
 const WOOD_IMAGES = [
   "/images/products/board-natural-pine-finish.jpg",
   "/images/products/board-studio-woodgrain.jpg",
@@ -798,6 +807,13 @@ export function CentersHeritagePage({ lang }: { lang: Locale }) {
                 className="inline-flex items-center gap-2 rounded-2xl border border-emerald-300 bg-emerald-50 px-5 py-3.5 text-sm font-bold text-emerald-900 transition hover:bg-emerald-100"
               >
                 <span>{c.ctaPortal}</span>
+              </Link>
+              <Link
+                href={getLocalizedHref("/clinics/", lang)}
+                className="inline-flex items-center gap-2 rounded-2xl border border-sky-300 bg-sky-50 px-5 py-3.5 text-sm font-extrabold text-[#0B1F3A] transition hover:bg-sky-100"
+              >
+                <span>{B2B_BANNER_CTA[lang]}</span>
+                <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>

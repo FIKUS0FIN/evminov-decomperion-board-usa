@@ -595,3 +595,69 @@ export function CalculatorWebAppJsonLd({ lang }: { lang: Locale }) {
 
   return <JsonLdScript data={schema} />;
 }
+
+export function ClinicsB2bJsonLd({
+  lang,
+  title,
+  description,
+}: {
+  lang: Locale;
+  title: string;
+  description: string;
+}) {
+  const origin = SITE_CONFIG.canonicalOrigin;
+  const clinicsUrl = getCanonicalUrl("/clinics/", lang);
+  const flagshipWide = PRODUCTS[0].wideDirectPriceUsd;
+
+  const tiers = [
+    { name: "1 Station — Pilot Evaluation (Reinforced Wide 30 cm)", discount: 1 },
+    { name: "2–3 Stations — Studio Partner Tier (-5% Volume Discount)", discount: 0.95 },
+    { name: "4–6 Stations — Multi-Bay Clinic Tier (-10% Volume Discount)", discount: 0.9 },
+    { name: "7+ Stations — Regional Center Tier (-15% Volume Discount)", discount: 0.85 },
+  ];
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${clinicsUrl}#webpage`,
+        url: clinicsUrl,
+        name: title,
+        description,
+        inLanguage: LOCALE_META[lang].hreflang,
+        isPartOf: { "@id": `${origin}/#website` },
+        about: { "@id": `${origin}/#organization` },
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: ["h1", "#b2b-geo-summary"],
+        },
+      },
+      {
+        "@type": "Service",
+        "@id": `${clinicsUrl}#b2b-service`,
+        name: "Evminov Multi-Station Clinic, Chiropractic & Pilates Studio Equipment Program",
+        provider: { "@id": `${origin}/#organization` },
+        areaServed: [
+          { "@type": "Country", name: "United States" },
+          { "@type": "Country", name: "Canada" },
+        ],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Reinforced Wide 30 cm B2B Volume Partner Tiers",
+          itemListElement: tiers.map((tier) => ({
+            "@type": "Offer",
+            name: tier.name,
+            price: String(Math.round(flagshipWide * tier.discount)),
+            priceCurrency: SITE_CONFIG.currency,
+            availability: "https://schema.org/InStock",
+            url: clinicsUrl,
+            seller: { "@id": `${origin}/#organization` },
+          })),
+        },
+      },
+    ],
+  };
+
+  return <JsonLdScript data={schema} />;
+}

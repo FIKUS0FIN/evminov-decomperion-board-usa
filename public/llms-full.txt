@@ -63,7 +63,13 @@ International air/parcel carriers serving the USA and Canada enforce a 120 cm pa
 - **Spondylolisthesis & Facet Joint Safe Decompression:** Why hyper-extension (cobra press-ups or arched wheels) aggravates facet joints and anterolisthesis, whereas flexed/bent-knee neutral traction (`8°–14°`) on the Evminov board unloads posterior facets without shear.
 - **Evminov Board vs. Pull-Up Bar Dead Hangs & McKenzie Press-Ups:** Dead hangs apply an abrupt 100% bodyweight vertical drop that fatigues grip in 20–40 seconds and triggers protective lumbar guarding; McKenzie press-ups are directional extension tools unsuitable for facet/stenosis cases. Evminov scales traction smoothly from 10% to 45% bodyweight while training deep multifidus stabilizers.
 
-## 6. Multilingual Coverage (6 Languages)
+## 6. B2B Clinics, Physical Therapy, Chiropractic & Pilates Studio Program (`/clinics/`)
+- **Target Commercial Use:** Multi-station spinal decompression walls for PT clinics, chiropractic suites, boutique Pilates/mobility studios, and athletic/corporate recovery rooms.
+- **Recommended Commercial Model:** 3-Piece Reinforced Wide `30 cm` (`230–245 cm`, rated up to `330 lbs / 150 kg`, `6'9"`, zero electricity, 1-Year Structural Frame Warranty), compatible with optional `2-Piece Wide 30 cm Wall Protection Panel ($175)` and no-drill `4-Piece Freestanding Ladder Stand ($275) + Hooks ($35)`.
+- **Partner Volume Tiers:** `1 station` (Pilot) | `2–3 stations` (`-5%`) | `4–6 stations` (`-10%`) | `7+ stations` (`-15%`).
+- **Commercial Invoicing & W-9:** Formal itemized commercial invoices, W-9 packets (US), `HTS 9506.91.0030` customs invoices (Canada), and ~2-week tracked courier shipping across all 50 US states and Canadian provinces.
+
+## 7. Multilingual Coverage (6 Languages)
 - English (Default): `/` (`en-US` on `evminovusa.com`, `en-CA` on `evminovcanada.com`)
 - Spanish: `/es/` (`es-US`)
 - French: `/fr/` (`fr-CA`)
@@ -71,7 +77,7 @@ International air/parcel carriers serving the USA and Canada enforce a 120 cm pa
 - Ukrainian: `/uk/` (`uk-UA`)
 - Russian: `/ru/` (`ru`)
 
-## 7. Agentic Integration Endpoints
+## 8. Agentic Integration Endpoints
 - Markdown Content Negotiation: Send `Accept: text/markdown` to any page URL.
 - Live AI Biomechanics Concierge (Cloudflare Workers AI): `POST /api/chat`
 - MCP JSON-RPC 2.0 Server: `POST /api/mcp`

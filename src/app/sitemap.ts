@@ -67,6 +67,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       images: centerImages,
     },
+    {
+      path: "/clinics/",
+      priority: 0.88,
+      changeFrequency: "monthly",
+      images: centerImages,
+    },
     { path: "/portal/", priority: 0.75, changeFrequency: "monthly" },
     { path: "/welcome/", priority: 0.6, changeFrequency: "monthly" },
     { path: "/privacy/", priority: 0.3, changeFrequency: "yearly" },

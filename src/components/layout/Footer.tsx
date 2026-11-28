@@ -149,6 +149,14 @@ export function Footer({ lang }: { lang: Locale }) {
               </li>
               <li>
                 <Link
+                  href={getLocalizedHref("/clinics/", lang)}
+                  className="font-bold text-sky-300 transition hover:text-sky-200"
+                >
+                  {fc.clinicsLink}
+                </Link>
+              </li>
+              <li>
+                <Link
                   href={getLocalizedHref("/conditions/athlete-spine-recovery/", lang)}
                   className="text-amber-300 transition hover:text-amber-200"
                 >

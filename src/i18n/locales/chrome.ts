@@ -127,6 +127,7 @@ export interface FooterContent {
   vsTeeterLink: string;
   calculatorLink: string;
   centersLink: string;
+  clinicsLink: string;
   athleteLink: string;
   guidesLink: string;
   patientPortalLink: string;
@@ -163,6 +164,7 @@ export const FOOTER_CONTENT: Record<Locale, FooterContent> = {
     vsTeeterLink: "Evminov vs. Teeter Alternative",
     calculatorLink: "Incline Angle Calculator",
     centersLink: "Since 1996 Centers & Heritage",
+    clinicsLink: "For Clinics, PT & Pilates Studios (B2B)",
     athleteLink: "Athletic Recovery (Deadlifts & Squats)",
     guidesLink: "Evidence-Informed Guides",
     patientPortalLink: "Patient Portal",
@@ -223,6 +225,7 @@ export const FOOTER_CONTENT: Record<Locale, FooterContent> = {
     vsTeeterLink: "Alternativa a Teeter: Tabla Evminov",
     calculatorLink: "Calculadora de Ángulo de Inclinación",
     centersLink: "Centros y Trayectoria Desde 1996",
+    clinicsLink: "Para Clínicas, Fisio y Estudios Pilates (B2B)",
     athleteLink: "Recuperación Atlética (Peso Muerto y Sentadillas)",
     guidesLink: "Guías Basadas en Evidencia",
     patientPortalLink: "Portal del Paciente",
@@ -283,6 +286,7 @@ export const FOOTER_CONTENT: Record<Locale, FooterContent> = {
     vsTeeterLink: "Alternative à Teeter : Planche Evminov",
     calculatorLink: "Calculateur d'Angle d'Inclinaison",
     centersLink: "Centres & Héritage Depuis 1996",
+    clinicsLink: "Pour Cliniques, Kinés & Studios Pilates (B2B)",
     athleteLink: "Récupération Sportive (Soulevé de Terre & Squats)",
     guidesLink: "Guides Documentés",
     patientPortalLink: "Portail Patient",
@@ -343,6 +347,7 @@ export const FOOTER_CONTENT: Record<Locale, FooterContent> = {
     vsTeeterLink: "Альтернатива Teeter: Профілактор Євмінова",
     calculatorLink: "Калькулятор Кута Нахилу",
     centersLink: "Центри та Спадщина з 1996 Року",
+    clinicsLink: "Для Клінік, Реабілітологів і Студій (B2B)",
     athleteLink: "Відновлення Спортсменів (Тяга та Присідання)",
     guidesLink: "Експертні Гайди",
     patientPortalLink: "Кабінет Пацієнта",
@@ -403,6 +408,7 @@ export const FOOTER_CONTENT: Record<Locale, FooterContent> = {
     vsTeeterLink: "Альтернатива Teeter: Доска Евминова",
     calculatorLink: "Калькулятор Угла Наклона",
     centersLink: "Центры и Наследие с 1996 Года",
+    clinicsLink: "Для Клиник, Реабилитологов и Студий (B2B)",
     athleteLink: "Восстановление Спортсменов (Тяга и Приседания)",
     guidesLink: "Экспертные Статьи",
     patientPortalLink: "Кабинет Пациента",
@@ -463,6 +469,7 @@ export const FOOTER_CONTENT: Record<Locale, FooterContent> = {
     vsTeeterLink: "Evminov vs. Teeter Alternative",
     calculatorLink: "Neigungswinkel-Rechner",
     centersLink: "Zentren & Tradition seit 1996",
+    clinicsLink: "Für Praxen, Physio & Pilates-Studios (B2B)",
     athleteLink: "Sportregeneration (Kreuzheben & Kniebeugen)",
     guidesLink: "Evidenzbasierte Ratgeber",
     patientPortalLink: "Patientenportal",

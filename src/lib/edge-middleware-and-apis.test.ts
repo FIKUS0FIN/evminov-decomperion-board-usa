@@ -18,6 +18,8 @@ describe("Cloudflare Edge Middleware, NLWeb & Security Helpers", () => {
       "/guides/inversion-table-dangers-and-safe-alternatives/"
     );
     expect(canonicalizePathname("/backbrush")).toBe("/products/2-piece-folding-board/");
+    expect(canonicalizePathname("/wholesale")).toBe("/clinics/");
+    expect(canonicalizePathname("/b2b")).toBe("/clinics/");
     expect(canonicalizePathname("/portal")).toBe("/portal/");
     expect(canonicalizePathname("/shipping/california")).toBe("/shipping/california/");
   });
@@ -102,6 +104,15 @@ describe("Cloudflare Edge Middleware, NLWeb & Security Helpers", () => {
     expect(drxCostEn.guideUrl).toContain(
       "drx9000-spinal-decompression-therapy-cost-vs-home-board-guide/"
     );
+
+    const b2bStudioEn = queryEvminovKnowledge(
+      "wholesale multi-station Pilates studio equipment",
+      "en",
+      "https://evminovusa.com"
+    );
+    expect(b2bStudioEn.topic).toBe("b2b_clinic_studio_wholesale");
+    expect(b2bStudioEn.recommendedWidth).toBe("wide");
+    expect(b2bStudioEn.guideUrl).toBe("https://evminovusa.com/clinics/");
   });
 
   it("escapes XSS payloads in order confirmation email HTML", () => {
