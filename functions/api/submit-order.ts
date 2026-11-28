@@ -156,8 +156,8 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
         mode === "protocol_lead"
           ? `📐 New Evminov Calculator Lead (${orderRef})`
           : mode === "warranty_registration"
-            ? `🛡️ New 10-Year Warranty Registration (${orderRef})`
-            : `🌲 New Evminov Board Reservation (${orderRef})`,
+          ? `🛡️ New 10-Year Warranty Registration (${orderRef})`
+          : `🌲 New Evminov Board Reservation (${orderRef})`,
         `Product: ${productName} (${finish})`,
         `Shipping: ${shipping}${includeStand ? " + Free-Standing Stand" : ""}`,
         totalUsd > 0 ? `Est. Total: $${totalUsd} USD` : "",
@@ -216,8 +216,8 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
         mode === "protocol_lead"
           ? `Your Evminov Custom Spine Angle Plan (${orderRef})`
           : mode === "warranty_registration"
-            ? `Evminov 10-Year Structural Warranty Registered (${orderRef})`
-            : `Evminov Reservation Confirmed — ${orderRef}`;
+          ? `Evminov 10-Year Structural Warranty Registered (${orderRef})`
+          : `Evminov Reservation Confirmed — ${orderRef}`;
 
       const detailsRowsHtml = `
         <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:13px;">
