@@ -1,12 +1,13 @@
 {
-  "schemaVersion": "1.0",
+  "schemaVersion": "1.1",
   "id": "did:web:evminovusa.com",
   "name": "Evminov Spine Systems USA",
-  "description": "Patented inclined Carpathian pine spine decompression boards (since 1996) — safer low-angle alternative to 90-degree inversion tables.",
-  "languages": ["en-US", "es-US", "fr-CA", "uk-UA", "ru"],
+  "description": "Patented demountable inclined wood spine decompression boards (since 1996) — safer head-up low-angle alternative to 90-degree inversion tables, dead hangs, and passive traction.",
+  "languages": ["en-US", "en-CA", "es-US", "fr-CA", "de-DE", "uk-UA", "ru"],
   "endpoints": {
     "mcp": "https://evminovusa.com/api/mcp",
     "nlweb": "https://evminovusa.com/api/ask",
+    "chat": "https://evminovusa.com/api/chat",
     "acp": "https://evminovusa.com/api/acp/checkout_sessions",
     "openapi": "https://evminovusa.com/openapi.json",
     "llms": "https://evminovusa.com/llms.txt",
@@ -16,10 +17,13 @@
     "calculator": "https://evminovusa.com/calculator/"
   },
   "representativeQueries": [
-    "What is the safest alternative to a Teeter inversion table?",
-    "Best home spinal decompression board for 240 lb lifter",
-    "Can I use HSA or FSA funds for an Evminov board?",
-    "How do I mount an Evminov board on 16 inch drywall wood studs?",
-    "Tabla de descompresión espinal Evminov en Estados Unidos"
+    "What is the safest head-up alternative to a Teeter inversion table for high blood pressure?",
+    "Piriformis syndrome vs true lumbar sciatica self-test and gentle decompression",
+    "Evminov board vs pull-up bar dead hangs and McKenzie extensions",
+    "Is spinal decompression safe for Grade 1 spondylolisthesis or facet joint arthritis?",
+    "Best home spinal decompression board for 240 lb lifter (Reinforced Wide 30 cm)",
+    "Can I use HSA or FSA funds with an LMN for an Evminov board before Dec 31?",
+    "Tabla de descompresión espinal Evminov en Estados Unidos",
+    "Evminov Board Bandscheibenvorfall Dekompression zu Hause Alternative zur Inversionsbank"
   ]
 }

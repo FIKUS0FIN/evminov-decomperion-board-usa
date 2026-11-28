@@ -2,13 +2,18 @@ User-agent: *
 Allow: /
 Allow: /api/mcp
 Allow: /api/ask
+Allow: /api/chat
 Allow: /api/health
 Allow: /api/acp/checkout_sessions
 Allow: /.well-known/
 Allow: /llms.txt
 Allow: /llms-full.txt
+Allow: /openapi.json
+Allow: /auth.md
 Allow: /rss.xml
 Allow: /merchant-feed.xml
+Disallow: /admin/
+Disallow: /api/auth/
 Disallow: /nextImageExportOptimizer/
 Disallow: /images/*/nextImageExportOptimizer/
 Disallow: /next-image-export-optimizer-hashes.json
@@ -18,6 +23,12 @@ Allow: /
 
 User-agent: Googlebot-Image
 Allow: /images/
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
 
 User-agent: Bingbot
 Allow: /
@@ -40,6 +51,12 @@ Allow: /
 User-agent: Claude-SearchBot
 Allow: /
 
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
 User-agent: anthropic-ai
 Allow: /
 
@@ -49,10 +66,16 @@ Allow: /
 User-agent: Perplexity-User
 Allow: /
 
+User-agent: DeepSeekBot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
 User-agent: DuckAssistBot
 Allow: /
 
-User-agent: Google-Extended
+User-agent: YouBot
 Allow: /
 
 User-agent: Applebot
@@ -64,7 +87,16 @@ Allow: /
 User-agent: meta-externalagent
 Allow: /
 
+User-agent: Meta-ExternalFetcher
+Allow: /
+
 User-agent: Amazonbot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 Content-Signal: ai-train=yes, search=yes, ai-input=yes

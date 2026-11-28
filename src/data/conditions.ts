@@ -35,7 +35,7 @@ export const CONDITIONS: ConditionPageData[] = [
     recommendedAngle: "10° – 18° Low Incline",
     dailyDuration: "10–12 min, 1–2× daily",
     targetZone: "Lumbar L4–L5 & L5–S1",
-    recommendedProductSlug: "standard-pine-board",
+    recommendedProductSlug: "3-piece-travel-board",
     heroImage: "/images/gallery/supine-spinal-elongation.jpg",
     mechanisms: [
       {
@@ -83,7 +83,7 @@ export const CONDITIONS: ConditionPageData[] = [
     recommendedAngle: "10° – 18° Incline",
     dailyDuration: "10–12 min daily",
     targetZone: "L4–S1 & Sciatic Pathway",
-    recommendedProductSlug: "standard-pine-board",
+    recommendedProductSlug: "3-piece-travel-board",
     heroImage: "/images/gallery/lumbar-single-leg-lift.jpg",
     mechanisms: [
       {
@@ -123,7 +123,7 @@ export const CONDITIONS: ConditionPageData[] = [
     recommendedAngle: "8° – 15° Gentle Incline",
     dailyDuration: "8–10 min daily",
     targetZone: "Full Lumbar & Thoracic Spine",
-    recommendedProductSlug: "select-alder-board",
+    recommendedProductSlug: "2-piece-folding-board",
     heroImage: "/images/gallery/lordosis-passive-traction.jpg",
     mechanisms: [
       {
@@ -162,7 +162,7 @@ export const CONDITIONS: ConditionPageData[] = [
     recommendedAngle: "12° – 20° Incline",
     dailyDuration: "10 min daily",
     targetZone: "Lower Back & Hips",
-    recommendedProductSlug: "standard-pine-board",
+    recommendedProductSlug: "2-piece-folding-board",
     heroImage: "/images/authentic/hero-evminov-decompression.jpg",
     mechanisms: [
       {
@@ -201,7 +201,7 @@ export const CONDITIONS: ConditionPageData[] = [
     recommendedAngle: "8° – 14° Low Incline",
     dailyDuration: "5–8 min daily (supervised)",
     targetZone: "Full Spinal Symmetry",
-    recommendedProductSlug: "standard-pine-board",
+    recommendedProductSlug: "2-piece-folding-board",
     heroImage: "/images/gallery/family-prone-extension.jpg",
     mechanisms: [
       {
@@ -240,7 +240,7 @@ export const CONDITIONS: ConditionPageData[] = [
     recommendedAngle: "8° – 12° Ultra-Gentle Incline",
     dailyDuration: "5–8 min daily",
     targetZone: "Cervical C1–C7 & Upper Trapezius",
-    recommendedProductSlug: "select-alder-board",
+    recommendedProductSlug: "2-piece-folding-board",
     heroImage: "/images/gallery/glisson-cervical-neutral.jpg",
     mechanisms: [
       {
@@ -279,7 +279,7 @@ export const CONDITIONS: ConditionPageData[] = [
     recommendedAngle: "20° – 32° Athletic Incline",
     dailyDuration: "10–15 min post-workout",
     targetZone: "Full Posterior Chain & L4–S1",
-    recommendedProductSlug: "wide-heavy-duty-board",
+    recommendedProductSlug: "3-piece-travel-board",
     heroImage: "/images/gallery/incline-glute-bridge.jpg",
     mechanisms: [
       {

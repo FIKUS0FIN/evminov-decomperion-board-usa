@@ -1,8 +1,8 @@
 {
   "protocolVersion": "2024-11-05",
   "name": "Evminov Spine Systems MCP Server",
-  "version": "1.0.0",
-  "description": "Board sizing, traction physics calculator, inversion table comparison, and US/global ordering tools for evminovusa.com.",
+  "version": "2.0.0",
+  "description": "6-language board & width sizing, traction physics calculator, 6 official accessories, inversion table comparison, and US/Canada ordering tools for evminovusa.com.",
   "endpoint": "https://evminovusa.com/api/mcp",
   "transport": "streamable-http",
   "authentication": "none"

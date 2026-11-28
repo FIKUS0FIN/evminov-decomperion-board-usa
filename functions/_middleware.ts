@@ -33,6 +33,7 @@ const LINK_HEADERS = [
   '</.well-known/ai-catalog.json>; rel="ai-catalog"',
   '</.well-known/acp.json>; rel="acp-discovery"',
   '</.well-known/ucp>; rel="ucp-discovery"',
+  '</llms.txt>; rel="llms-txt"',
 ].join(", ");
 
 const EXACT_REDIRECTS: Record<string, string> = {
@@ -138,7 +139,24 @@ export function prefersMarkdown(acceptHeader: string): boolean {
   return mdQ >= htmlQ;
 }
 
-export function convertHtmlToMarkdown(html: string): string {
+export function localizeDiscoveryText(text: string, activeHost: string): string {
+  if (activeHost !== "evminovcanada.com") return text;
+  return text
+    .replaceAll("https://evminovusa.com", "https://evminovcanada.com")
+    .replaceAll("did:web:evminovusa.com", "did:web:evminovcanada.com")
+    .replaceAll("support@evminovusa.com", "support@evminovcanada.com")
+    .replaceAll("orders@evminovusa.com", "orders@evminovcanada.com")
+    .replaceAll("Evminov Spine Systems USA", "Evminov Spine Systems Canada")
+    .replaceAll("evminovusa.com", "evminovcanada.com");
+}
+
+export function convertHtmlToMarkdown(
+  html: string,
+  origin = "https://evminovusa.com"
+): string {
+  const isCanada = origin.toLowerCase().includes("evminovcanada.com");
+  const normalizedOrigin = isCanada ? "https://evminovcanada.com" : "https://evminovusa.com";
+
   let content = html
     .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
     .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, "")
@@ -159,31 +177,46 @@ export function convertHtmlToMarkdown(html: string): string {
     .replace(/<h1\b[^>]*>([\s\S]*?)<\/h1>/gi, "\n# $1\n")
     .replace(/<h2\b[^>]*>([\s\S]*?)<\/h2>/gi, "\n## $1\n")
     .replace(/<h3\b[^>]*>([\s\S]*?)<\/h3>/gi, "\n### $1\n")
+    .replace(/<h4\b[^>]*>([\s\S]*?)<\/h4>/gi, "\n#### $1\n")
     .replace(/<strong\b[^>]*>([\s\S]*?)<\/strong>/gi, "**$1**")
     .replace(/<p\b[^>]*>([\s\S]*?)<\/p>/gi, "\n$1\n")
     .replace(/<br\s*\/?>/gi, "\n")
-    .replace(/<a\b[^>]*href="([^"]*)"[^>]*>([\s\S]*?)<\/a>/gi, "[$2]($1)")
+    .replace(/<a\b[^>]*href="([^"]*)"[^>]*>([\s\S]*?)<\/a>/gi, " [$2]($1) ")
     .replace(/<li\b[^>]*>([\s\S]*?)<\/li>/gi, "\n- $1")
-    .replace(/<[^>]+>/g, "")
+    .replace(/<\/(div|section|article|tr|td|th|dt|dd|blockquote)>/gi, "\n")
+    .replace(/<[^>]+>/g, " ")
     .replaceAll("&nbsp;", " ")
     .replaceAll("&amp;", "&")
     .replaceAll("&lt;", "<")
     .replaceAll("&gt;", ">")
     .replaceAll("&quot;", '"')
     .replaceAll("&#39;", "'")
-    .replace(/\n\s*\n\s*\n/g, "\n\n")
+    .replaceAll("&#x27;", "'")
+    .replaceAll("&#x2F;", "/")
+    .replaceAll("&mdash;", "—")
+    .replaceAll("&ndash;", "–")
+    .replaceAll("&rsquo;", "'")
+    .replaceAll("&ldquo;", '"')
+    .replaceAll("&rdquo;", '"')
+    .replace(/[ \t]{2,}/g, " ")
+    .replace(/ *\n */g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
     .trim();
+
+  const pricingLine = isCanada
+    ? "- **2026 Folding Models (CAD)**: 3-Piece Folding 230–245 cm ($445 Direct / $545 Express Std 26 cm; $500 / $585 Wide 30 cm) | 2-Piece Spine Toothbrush ($435 / $540 Std; $495 / $580 Wide) | 6 Official Accessories: 4-Pc Ladder Stand ($275), Hooks ($35), Carry Bags ($105), Wall Panels ($155/$175)."
+    : "- **2026 Folding Models (USD)**: 3-Piece Folding 230–245 cm ($495 Direct / $635 Express Std 26 cm; $520 / $660 Wide 30 cm) | 2-Piece Spine Toothbrush ($475 / $615 Std; $500 / $640 Wide) | 6 Official Accessories: 4-Pc Ladder Stand ($275), Hooks ($35), Carry Bags ($105), Wall Panels ($155/$175).";
 
   const agentBlock = [
     "",
     "---",
-    "## AI Agent Summary & 1-Click Ordering (Evminov Spine Systems USA)",
+    `## AI Agent Summary & 1-Click Ordering (${isCanada ? "Evminov Spine Systems Canada" : "Evminov Spine Systems USA"})`,
     "- **Brand**: Evminov Spine Systems (Patented Since 1996 • US Patent 6,869,387 B2 • EU Patent EP 1 038 512 B1)",
-    "- **US Hub**: 4525 San Fernando Rd, Unit H, Glendale, CA 91204 | **Phone**: `+1 (747) 306-0140` | **Email**: `support@evminovusa.com`",
-    "- **Classification**: General Wellness & Spine Conditioning Equipment (HTS 9506.91.0030) — 60-Day Home Trial, 1-Year Frame Warranty, Itemized HSA/FSA Receipt.",
-    "- **Models**: Standard Solid ($450 direct / $595 CA Express) | 2-Piece Folding ($475 / $615) | 3-Piece Travel ($495 / $635) | Wide 330 lb ($500 / $635) | Select Alder ($525 / $665) | No-Drill Renter Stand ($275 / $345).",
-    "- **1-Click Pre-Filled Order URL**: `https://evminovusa.com/order/?product={slug}&shipping={express|direct}&stand={0|1}&step=2#order-form`",
-    "- **Agent APIs (EN/ES/FR/UK/RU)**: `GET /api/ask?q=...&lang={en|es|fr|uk|ru}` | `POST /api/mcp` | `POST /api/acp/checkout_sessions` | `POST /api/submit-order`",
+    `- **Support (WhatsApp Primary)**: \`+1 (747) 306-0140\` (https://wa.me/17473060140) | **Email**: \`${isCanada ? "support@evminovcanada.com" : "support@evminovusa.com"}\``,
+    `- **Classification**: General Wellness & Spine Conditioning Equipment (HTS 9506.91.0030) — ~2 weeks tracked international courier delivery, 60-Day Home Trial, 1-Year Manufacturer Warranty, Itemized ${isCanada ? "Extended Health / CRA" : "HSA/FSA (with LMN)"} Receipt.`,
+    pricingLine,
+    `- **1-Click Pre-Filled Order URL**: \`${normalizedOrigin}/order/?product={3-piece-travel-board|2-piece-folding-board}&width={standard|wide}&step=1#order-form\``,
+    "- **Agent APIs (6 Languages: EN/ES/FR/DE/UK/RU)**: `GET /api/ask?q=...&lang={en|es|fr|de|uk|ru}` | `POST /api/chat` | `POST /api/mcp` | `GET/POST /api/acp/checkout_sessions` | `POST /api/submit-order`",
   ].join("\n");
 
   return `${content}\n${agentBlock}`;
@@ -222,6 +255,10 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   const { request, next } = context;
   const url = new URL(request.url);
   const pathname = url.pathname.toLowerCase();
+  const activeHost = SUPPORTED_HOSTS.has(url.hostname)
+    ? url.hostname
+    : CANONICAL_HOST;
+  const activeOrigin = `https://${activeHost}`;
 
   if (pathname.endsWith(".pdf")) {
     return next();
@@ -305,7 +342,7 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     });
   }
 
-  // Serve /.well-known/* reliably from /well-known/*
+  // Serve /.well-known/* reliably from /well-known/* with dynamic US/Canada domain localization
   if (
     url.pathname.startsWith("/.well-known/") ||
     url.pathname.startsWith("/well-known/")
@@ -316,27 +353,68 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     const assetUrl = new URL(`/well-known/${subpath}`, request.url);
     const assetRes = await context.env.ASSETS.fetch(assetUrl);
     if (assetRes.ok) {
+      const rawText = await assetRes.text();
+      const localized = localizeDiscoveryText(rawText, activeHost);
       const headers = new Headers(assetRes.headers);
       headers.set("Content-Type", getWellKnownContentType(subpath));
       headers.set("Access-Control-Allow-Origin", "*");
       headers.set("Cache-Control", "public, max-age=3600");
+      headers.set("Content-Signal", "ai-train=yes, search=yes, ai-input=yes");
       headers.set("Link", LINK_HEADERS);
-      return new Response(assetRes.body, { status: 200, headers });
+      headers.delete("Content-Length");
+      return new Response(localized, { status: 200, headers });
     }
   }
 
-  // Ensure /robots.txt always carries Content-Signal and Agentmap
+  // Serve /openapi.json and /auth.md with dynamic US/Canada domain localization
+  if (pathname === "/openapi.json" || pathname === "/auth.md") {
+    const res = await next();
+    if (res.ok) {
+      const rawText = await res.text();
+      const localized = localizeDiscoveryText(rawText, activeHost);
+      const headers = new Headers(res.headers);
+      headers.set(
+        "Content-Type",
+        pathname.endsWith(".json")
+          ? "application/json; charset=utf-8"
+          : "text/markdown; charset=utf-8"
+      );
+      headers.set("Access-Control-Allow-Origin", "*");
+      headers.set("Cache-Control", "public, max-age=3600");
+      headers.set("Content-Signal", "ai-train=yes, search=yes, ai-input=yes");
+      headers.set("Link", LINK_HEADERS);
+      headers.delete("Content-Length");
+      return new Response(localized, { status: 200, headers });
+    }
+  }
+
+  // Serve /llms.txt and /llms-full.txt with clean AI discovery headers
+  if (pathname === "/llms.txt" || pathname === "/llms-full.txt") {
+    const res = await next();
+    if (res.ok) {
+      const headers = new Headers(res.headers);
+      headers.set("Content-Type", "text/markdown; charset=utf-8");
+      headers.set("Access-Control-Allow-Origin", "*");
+      headers.set("Cache-Control", "public, max-age=3600");
+      headers.set("Content-Signal", "ai-train=yes, search=yes, ai-input=yes");
+      headers.set("Link", LINK_HEADERS);
+      return new Response(res.body, { status: 200, headers });
+    }
+  }
+
+  // Ensure /robots.txt always carries region-correct Sitemap, Agentmap, and Content-Signal
   if (pathname === "/robots.txt") {
     const res = await next();
     let text = res.ok ? await res.text() : "";
+    text = localizeDiscoveryText(text, activeHost);
     if (!text.includes("Content-Signal:")) {
       text = `${text.trim()}\nContent-Signal: ai-train=yes, search=yes, ai-input=yes\n`;
     }
-    const activeHost = SUPPORTED_HOSTS.has(url.hostname)
-      ? url.hostname
-      : CANONICAL_HOST;
     if (!text.includes("Agentmap:")) {
-      text = `${text.trim()}\nAgentmap: https://${activeHost}/.well-known/ai-catalog.json\n`;
+      text = `${text.trim()}\nAgentmap: ${activeOrigin}/.well-known/ai-catalog.json\n`;
+    }
+    if (!text.includes("Sitemap:")) {
+      text = `${text.trim()}\nSitemap: ${activeOrigin}/sitemap.xml\n`;
     }
     return new Response(text, {
       status: 200,
@@ -363,7 +441,7 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     contentType.toLowerCase().includes("text/html")
   ) {
     const html = await response.text();
-    const markdown = convertHtmlToMarkdown(html);
+    const markdown = convertHtmlToMarkdown(html, activeOrigin);
     const words = markdown.split(/\s+/).filter(Boolean).length;
     const tokens = Math.ceil(words * 1.3);
 
@@ -385,12 +463,15 @@ export const onRequest: PagesFunction<Env> = async (context) => {
 
   const newHeaders = new Headers(response.headers);
   newHeaders.set("Link", LINK_HEADERS);
+  if (contentType.toLowerCase().includes("text/html")) {
+    newHeaders.set("Content-Signal", "ai-train=yes, search=yes, ai-input=yes");
+  }
   newHeaders.set("X-Content-Type-Options", "nosniff");
   newHeaders.set("X-Frame-Options", "SAMEORIGIN");
   newHeaders.set("Referrer-Policy", "strict-origin-when-cross-origin");
   newHeaders.set(
     "Permissions-Policy",
-    "camera=(), geolocation=(), payment=(), usb=()"
+    "camera=(), microphone=(self), geolocation=(), payment=(), usb=()"
   );
   if (
     url.pathname.startsWith("/_next/static/") ||

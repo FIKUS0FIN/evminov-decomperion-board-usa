@@ -31,6 +31,7 @@ import { PatentsLightboxSection } from "@/components/sections/PatentsLightboxSec
 import { ExerciseGallerySection } from "@/components/sections/ExerciseGallerySection";
 import { InteractiveUsDeliverySection } from "@/components/sections/InteractiveUsDeliverySection";
 import { OwnerScenariosAndReviewsSection } from "@/components/sections/OwnerScenariosAndReviewsSection";
+import { YearEndLeadMagnetSection } from "@/components/sections/YearEndLeadMagnetSection";
 import {
   FaqJsonLd,
   HomepageRichSchemas,
@@ -457,6 +458,9 @@ export function HomePageContent({ lang }: { lang: Locale }) {
           ))}
         </div>
       </section>
+
+      {/* 18B. PRE-STRIPE CLEVER LEAD MAGNET: FREE LMN KIT + NEW YEAR VIP PRIORITY */}
+      <YearEndLeadMagnetSection lang={lang} />
 
       {/* 19. FINAL CTA */}
       <section className="bg-gradient-to-r from-[#023373] via-teal-800 to-[#0B1628] py-16 text-white">

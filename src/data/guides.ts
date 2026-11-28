@@ -907,6 +907,203 @@ export const GUIDES: GuideItem[] = [
       },
     ],
   },
+  {
+    id: "piriformis-syndrome-vs-sciatica",
+    slug: "piriformis-syndrome-vs-sciatica-self-test-and-relief-guide",
+    title: "Piriformis Syndrome vs. Lumbar Sciatica (L4–S1): Key Differences & Safe Home Relief",
+    metaTitle: "Piriformis Syndrome vs. Sciatica: Differences & Home Relief",
+    metaDescription:
+      "Deep glute or leg pain? Learn how to tell tight piriformis muscle irritation apart from L4–S1 disc sciatica, plus safe low-angle home unloading & mobility.",
+    category: "Sciatica & Glute Pain",
+    datePublished: "2026-11-28",
+    dateModified: "2026-11-28",
+    readTime: "8 min read",
+    author: {
+      name: "Evminov Spine Biomechanics Editorial Team",
+      role: "Lumbar & Pelvic Biomechanics",
+      credentials: "30 Years of Evminov Method Documentation (Since 1996)",
+    },
+    heroImage: "/images/gallery/lumbar-single-leg-lift.jpg",
+    excerpt:
+      "Glute and leg pain that flares up when sitting could stem from a compressed L4–S1 lumbar disc or a tight piriformis muscle pinching the sciatic nerve in the hip. Learn the core differences and how gentle head-up unloading eases both safely.",
+    recommendedProductSlug: "3-piece-travel-board",
+    sections: [
+      {
+        id: "disc-vs-piriformis",
+        heading: "1. Lumbar Disc Sciatica (L4–S1) vs. Piriformis Syndrome: How They Differ",
+        paragraphs: [
+          "Both conditions irritate the same sciatic nerve pathway, which is why millions of back-pain sufferers search 'piriformis vs. sciatica' every year. The crucial difference is where the mechanical pinch starts:",
+        ],
+        bullets: [
+          "True Lumbar Sciatica (L4–L5 / L5–S1): Originates at the spinal nerve root. Pain often includes lower-back stiffness, travels below the knee into the calf or foot, and worsens with coughing, sneezing, or slouched forward bending.",
+          "Piriformis Syndrome: Originates deep inside the glute where a tight piriformis muscle compresses the sciatic nerve. Tenderness concentrates sharply in the buttock, worsens after prolonged sitting on hard seats or climbing stairs, and typically causes less lower-back pain.",
+          "Overlap Is Common: Chronic lumbar disc compression frequently triggers protective hip and piriformis tightness — meaning both areas benefit from unloading spinal pressure first.",
+        ],
+      },
+      {
+        id: "safe-home-approach",
+        heading: "2. Why Aggressive Deep Glute Stretching Can Backfire — And What Works Better",
+        paragraphs: [
+          "Pulling a tight leg aggressively across your chest on a hard floor can overstretch an already sensitized sciatic nerve and compress lumbar discs at the same time. A calmer two-step sequence respects nerve irritability:",
+        ],
+        bullets: [
+          "Step 1 — Gentle 10°–14° Inclined Unloading (4 min): Lie supine on the Evminov Board with knees softly bent so lumbar roots decompress smoothly without hamstring pull.",
+          "Step 2 — Pain-Free Micro-Mobility (4 min): Perform tiny alternating heel slides and calm pelvic tilts while the spine remains supported and unloaded.",
+          "Step 3 — Gradual Hip Mobility: Once nerve sharpness calms down, add gentle, non-forcing figure-4 relaxation only within a strictly pain-free range.",
+        ],
+      },
+      {
+        id: "when-to-see-clinician",
+        heading: "3. Clinical Screening & Red Flags",
+        paragraphs: [
+          "Only a licensed physician or physical therapist can formally diagnose disc radiculopathy versus deep gluteal syndrome. Seek prompt medical evaluation if you experience progressive foot weakness, numbness spreading down the foot, or any loss of bowel or bladder control.",
+        ],
+      },
+    ],
+    references: [
+      { citation: "Hicks BL, Lam JC, Varacallo M. Piriformis Syndrome. StatPearls Publishing; NIH / NCBI Bookshelf.", source: "NIH / PubMed" },
+      { citation: "Ropper AH, Zafonte RD. Sciatica. New England Journal of Medicine. 2015;372(13):1240-1248.", source: "NEJM" },
+    ],
+    faqs: [
+      {
+        q: "How do I know if my glute pain is piriformis syndrome or a herniated disc?",
+        a: "Piriformis irritation usually centers deeply in the buttock and worsens when sitting on firm chairs, whereas lumbar disc sciatica often involves lower-back pain, worsens with coughing or rounded forward bending, and radiates past the knee. A physical therapist can run quick orthopedic tests to confirm.",
+      },
+      {
+        q: "Is inclined decompression safe if I have both lumbar tightness and piriformis tension?",
+        a: "Yes for most wellness users once cleared by a clinician — gentle 10°–14° head-up unloading with softly bent knees relaxes both the lower lumbar spine and tight hip musculature without harsh ankle clamps.",
+      },
+    ],
+  },
+  {
+    id: "sciatic-nerve-flossing-and-sleeping-positions",
+    slug: "sciatic-nerve-flossing-and-sleeping-positions-guide",
+    title: "Sciatic Nerve Flossing & Best Sleeping Positions for Sciatica and L5–S1 Comfort (2026)",
+    metaTitle: "Sciatic Nerve Flossing & Sleeping Positions Guide (2026)",
+    metaDescription:
+      "Struggling to sleep with sciatica or L5–S1 flare-ups? Learn gentle sciatic nerve glides (without overstretching), pillow alignment, and 10-min pre-bed unloading.",
+    category: "Sleep & Nerve Mobility",
+    datePublished: "2026-11-28",
+    dateModified: "2026-11-28",
+    readTime: "7 min read",
+    author: {
+      name: "Evminov Spine Biomechanics Editorial Team",
+      role: "Nighttime Spine Hygiene & Mobility",
+      credentials: "30 Years of Evminov Method Documentation (Since 1996)",
+    },
+    heroImage: "/images/gallery/supine-spinal-elongation.jpg",
+    excerpt:
+      "Nighttime sciatica ruins recovery and sleep quality. Discover the difference between gentle nerve gliding ('flossing') and aggressive nerve stretching, exact pillow placement for back and side sleepers, and a 10-minute pre-sleep decompression habit.",
+    recommendedProductSlug: "2-piece-folding-board",
+    sections: [
+      {
+        id: "gentle-nerve-glides",
+        heading: "1. Sciatic Nerve Flossing Done Gently: Slide, Never Yank",
+        paragraphs: [
+          "Unlike tight muscles, peripheral nerves do not like forceful static stretching — pulling both ends of an irritated sciatic nerve simultaneously can worsen radiating symptoms. Gentle 'nerve sliders' (flossing) move one end while slackening the other:",
+        ],
+        bullets: [
+          "Keep amplitude tiny and strictly pain-free (5–8 slow repetitions max).",
+          "Pair gentle ankle dorsiflexion with relaxed hip posture — stop immediately if tingling travels further down the leg.",
+          "Performing calm ankle pumps while supported on a gentle 10°–12° Evminov incline keeps lumbar disc pressure low during mobilization.",
+        ],
+      },
+      {
+        id: "best-sleeping-positions",
+        heading: "2. Best Sleeping Positions to Quiet Nighttime Sciatica & L5–S1 Pressure",
+        paragraphs: [
+          "A twisted pelvis or unsupported hollow lower back adds hours of silent mechanical irritation overnight. Two neutral setups dramatically reduce nighttime flare-ups:",
+        ],
+        bullets: [
+          "Side Sleepers (Affected Side Up): Place a thick firm pillow between your knees AND ankles so your top hip stays perfectly level instead of rotating forward.",
+          "Back Sleepers: Slide 1–2 firm pillows or a wedge bolster under your knees to gently flatten lumbar arch and take tension off L5–S1 nerve roots.",
+          "Avoid Stomach Sleeping: Sleeping face down twists the cervical spine and pushes lower lumbar facet joints into prolonged hyperextension.",
+        ],
+      },
+      {
+        id: "pre-bed-10-min-reset",
+        heading: "3. The 10-Minute Pre-Sleep Decompression Routine",
+        paragraphs: [
+          "Spending 8–10 minutes on a calm 10°–15° Evminov incline right before bed reverses a full day of gravity compression without getting back into a car seat afterward — letting you step straight into neutral pillow-supported sleep.",
+        ],
+      },
+    ],
+    references: [
+      { citation: "Ellis RF, Hing WA. Neural mobilization: a systematic review of randomized controlled trials. J Man Manip Ther. 2008;16(1):8-22.", source: "PubMed / PMC" },
+    ],
+    faqs: [
+      {
+        q: "Can sciatic nerve flossing make sciatica worse?",
+        a: "Aggressive tensioning can definitely flare up an acutely inflamed nerve. Always use tiny, pain-free gliding movements, keep repetitions low (5–8), and stop if symptoms increase or travel farther down the leg.",
+      },
+      {
+        q: "Which side should I sleep on with sciatica?",
+        a: "Most side sleepers feel clearest relief lying on the non-painful side with a supportive pillow between both knees and ankles to keep the spine straight.",
+      },
+    ],
+  },
+  {
+    id: "spondylolisthesis-and-facet-joint-safe-decompression",
+    slug: "spondylolisthesis-and-facet-joint-safe-decompression-guide",
+    title: "Spondylolisthesis & Facet Joint Pain vs. Disc Pain: Safe Neutral Conditioning & Movements to Avoid",
+    metaTitle: "Spondylolisthesis & Facet Pain: Safe Spine Conditioning",
+    metaDescription:
+      "Diagnosed with Grade 1 spondylolisthesis or lumbar facet arthropathy? Learn why hyperextension hurts, how facet pain differs from disc pain, and safe doctor-cleared stability.",
+    category: "Spondylolisthesis & Facets",
+    datePublished: "2026-11-28",
+    dateModified: "2026-11-28",
+    readTime: "8 min read",
+    author: {
+      name: "Evminov Spine Biomechanics Editorial Team",
+      role: "Spinal Stability & Clinical Safety",
+      credentials: "30 Years of Evminov Method Documentation (Since 1996)",
+    },
+    heroImage: "/images/gallery/lordosis-passive-traction.jpg",
+    excerpt:
+      "An MRI mentioning Grade 1 spondylolisthesis or facet joint arthropathy changes which stretches are safe. Learn why forced backward arching often aggravates posterior spinal joints and how neutral deep-core stability supports long-term comfort.",
+    recommendedProductSlug: "2-piece-folding-board",
+    sections: [
+      {
+        id: "facet-vs-disc-clues",
+        heading: "1. Facet Joint Pain vs. Disc Pain: Classic Everyday Clues",
+        paragraphs: [
+          "Not all lower-back stiffness comes from an intervertebral disc. Understanding whether posterior facet joints or anterior discs are more sensitive prevents picking the wrong exercises:",
+        ],
+        bullets: [
+          "Facet Joint / Spondylolisthesis Pattern: Typically feels sharper when standing still for long periods, walking downhill, or arching backward (extension), and feels calmer when sitting or gently flattening the lower back.",
+          "Discogenic Pattern: Typically flares with prolonged slouched sitting, forward bending, or morning stiffness, and eases with gentle upright walking or neutral axial unloading.",
+        ],
+      },
+      {
+        id: "spondylolisthesis-safety",
+        heading: "2. Spondylolisthesis: Movements to Avoid & Why Deep Core Stability Is King",
+        paragraphs: [
+          "Spondylolisthesis occurs when one vertebra slips slightly forward over the vertebra beneath it (most commonly at L4–L5 or L5–S1). Because stability is the #1 priority, aggressive hyperextension, deep twisting, and heavy unsupported hanging are generally discouraged.",
+          "With physician or physical therapist clearance for stable Grade 1 spondylolisthesis, gentle neutral pelvic control and deep multifidus/transverse abdominis activation on a fully supported, ultra-low incline (8°–12° with knees bent) avoids shearing forces while building the internal muscle brace.",
+        ],
+      },
+      {
+        id: "strict-medical-clearance",
+        heading: "3. Mandatory Medical Clearance Rule",
+        paragraphs: [
+          "Evminov Boards are General Wellness & Spine Conditioning Equipment (HTS 9506.91.0030). Anyone with Grade 2+ spondylolisthesis, unstable vertebral slippage, pars fractures, or radiating numbness must follow an orthopedic specialist's or physical therapist's direct rehabilitation plan before using any home traction device.",
+        ],
+      },
+    ],
+    references: [
+      { citation: "North American Spine Society (NASS). Evidence-Based Clinical Guidelines for Degenerative Lumbar Spondylolisthesis.", source: "NASS Clinical Guidelines" },
+    ],
+    faqs: [
+      {
+        q: "Should people with spondylolisthesis avoid 90-degree inversion tables and back-arching wheels?",
+        a: "Yes — most spine clinicians caution against forced lumbar hyperextension, back-arching rollers, and unsupported upside-down hanging because they can load the posterior arch and irritate slipped segments. Always obtain physician clearance for your specific grade.",
+      },
+      {
+        q: "What exercises help stabilize mild Grade 1 spondylolisthesis once cleared by a doctor?",
+        a: "Clinicians typically emphasize neutral-spine deep core bracing, gentle posterior pelvic tilts, bent-knee supine marches, and glute strengthening — avoiding deep backbends.",
+      },
+    ],
+  },
 ];
 
 export function getGuideWordCount(guide: GuideItem): number {

@@ -1,8 +1,8 @@
 {
   "name": "Evminov Spine Systems Concierge Agent",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "url": "https://evminovusa.com/",
-  "description": "Multilingual (EN/ES/FR/UK/RU) spine board sizing, inclined traction physics, inversion table comparison, and US/global ordering agent.",
+  "description": "Multilingual (EN/ES/FR/DE/UK/RU) spine board sizing (26 cm Standard vs 30 cm Wide), inclined traction physics, inversion table & dead-hang comparisons, HSA/FSA LMN guidance, and US/Canada courier ordering agent.",
   "provider": {
     "organization": "Evminov Spine Systems USA",
     "url": "https://evminovusa.com/"
@@ -10,6 +10,7 @@
   "interfaces": {
     "mcp": "https://evminovusa.com/api/mcp",
     "nlweb": "https://evminovusa.com/api/ask",
+    "chat": "https://evminovusa.com/api/chat",
     "acp": "https://evminovusa.com/api/acp/checkout_sessions",
     "openapi": "https://evminovusa.com/openapi.json"
   }

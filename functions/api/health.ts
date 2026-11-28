@@ -1,6 +1,11 @@
 import { AuthEnv, getRegionalEmailConfig } from "../_lib/auth";
 
-export const onRequestGet: PagesFunction<AuthEnv> = async ({ request, env }) => {
+interface HealthEnv extends AuthEnv {
+  AI?: unknown;
+  GEMINI_API_KEY?: string;
+}
+
+export const onRequestGet: PagesFunction<HealthEnv> = async ({ request, env }) => {
   const emailCfg = getRegionalEmailConfig(request, env);
   return new Response(
     JSON.stringify({
@@ -8,6 +13,12 @@ export const onRequestGet: PagesFunction<AuthEnv> = async ({ request, env }) => 
       service: "evminov-spine-systems-edge",
       origin: emailCfg.siteOrigin,
       region: emailCfg.isCanada ? "CA" : "US",
+      aiConfigured: Boolean(env.AI || env.GEMINI_API_KEY?.trim()),
+      aiProvider: env.AI
+        ? "cloudflare-workers-ai"
+        : env.GEMINI_API_KEY?.trim()
+        ? "gemini"
+        : "biomechanical-engine",
       telegramConfigured: Boolean(
         env.TELEGRAM_BOT_TOKEN?.trim() && env.TELEGRAM_CHAT_ID?.trim()
       ),

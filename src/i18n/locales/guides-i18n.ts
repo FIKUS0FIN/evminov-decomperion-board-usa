@@ -2696,6 +2696,307 @@ const GUIDE_TRANSLATIONS: Record<
       ],
     },
   },
+  "piriformis-syndrome-vs-sciatica-self-test-and-relief-guide": {
+    es: {
+      title: "Síndrome Piriforme vs. Ciática Lumbar (L4–S1): Diferencias y Alivio Seguro en Casa",
+      category: "Ciática y Glúteo",
+      readTime: "8 min de lectura",
+      author: { name: "Equipo Editorial de Biomecánica Evminov", role: "Biomecánica Lumbar y Pélvica", credentials: "30 Años del Método Evminov (Desde 1996)" },
+      excerpt: "¿Dolor profundo en el glúteo o la pierna? Aprende a distinguir la compresión del músculo piriforme de una ciática discal L4–S1 y cómo descomprimir suavemente a 10°–14°.",
+      sections: [
+        {
+          id: "disc-vs-piriformis",
+          heading: "1. Ciática Discal (L4–S1) vs. Síndrome Piriforme",
+          paragraphs: ["La ciática discal suele originarse en la columna lumbar e irradiar por debajo de la rodilla al toser o agacharse; el síndrome piriforme concentra la sensibilidad en el glúteo y empeora al sentarse en superficies duras."],
+        },
+        {
+          id: "safe-home-approach",
+          heading: "2. Descarga Suave Cabeza Arriba Sin Sobrestirar el Nervio",
+          paragraphs: ["Recostarse a 10°–14° en la tabla Evminov con rodillas ligeramente flexionadas alivia la presión lumbar y relaja la cadera sin tirones bruscos en el nervio ciático. Consulte siempre con un profesional ante entumecimiento o debilidad."],
+        },
+      ],
+      faqs: [
+        { q: "¿Cómo distinguir dolor piriforme de hernia discal?", a: "El piriforme duele sobre todo en el glúteo al sentarse; la ciática lumbar suele acompañarse de rigidez en la espalda baja e irradiar más allá de la rodilla." },
+      ],
+    },
+    fr: {
+      title: "Syndrome du Piriforme vs Sciatique Lombaire (L4–S1) : Différences & Soulagement à Domicile",
+      category: "Sciatique & Fessier",
+      readTime: "8 min de lecture",
+      author: { name: "Équipe Éditoriale Biomécanique Evminov", role: "Biomécanique Lombaire & Pelvienne", credentials: "30 Ans de Méthode Evminov (Depuis 1996)" },
+      excerpt: "Douleur fessière ou dans la jambe ? Distinguez la compression du muscle piriforme d'une vraie sciatique discale L4–S1 et découvrez la décharge douce à 10°–14°.",
+      sections: [
+        {
+          id: "disc-vs-piriformis",
+          heading: "1. Sciatique Discale (L4–S1) vs Syndrome du Piriforme",
+          paragraphs: ["La sciatique lombaire provient de la racine nerveuse L4–S1 et descend souvent sous le genou, tandis que le syndrome du piriforme provoque une sensibilité profonde dans la fesse aggravée par la position assise prolongée."],
+        },
+        {
+          id: "safe-home-approach",
+          heading: "2. Décharge Douce Genoux Fléchis Sans Tirer sur le Nerf",
+          paragraphs: ["S'allonger sur la planche Evminov à 10°–14° genoux légèrement fléchis relâche les lombaires et les hanches sans étirer brutalement un nerf irrité."],
+        },
+      ],
+      faqs: [
+        { q: "Comment différencier syndrome du piriforme et hernie discale ?", a: "Le piriforme se concentre dans la fesse en position assise ; la sciatique discale s'accompagne souvent de gêne lombaire et descend sous le genou." },
+      ],
+    },
+    uk: {
+      title: "Синдром грушоподібного м’яза чи ішіас (L4–S1): як відрізнити та безпечно розвантажити спину",
+      category: "Ішіас та сідниця",
+      readTime: "8 хв читання",
+      author: { name: "Редакція біомеханіки Evminov", role: "Біомеханіка попереку і тазу", credentials: "30 років документації методики Євмінова (з 1996)" },
+      excerpt: "Біль у сідниці, що віддає в ногу, може бути викликаний як грижею L4–S1, так і спазмом грушоподібного м’яза. Пояснюємо головні відмінності та м’яку розгрузку під кутом 10°–14°.",
+      sections: [
+        {
+          id: "disc-vs-piriformis",
+          heading: "1. Справжній поперековий ішіас (L4–S1) проти синдрому грушоподібного м’яза",
+          paragraphs: ["Обидва стани подразнюють сідничний нерв, але причина різна. При дискогенному ішіасі біль часто починається у попереку, посилюється при кашлі чи нахилах уперед і спускається нижче коліна. При синдромі грушоподібного м’яза болючість зосереджена глибоко в сідниці й посилюється від сидіння на твердій поверхні."],
+        },
+        {
+          id: "safe-home-approach",
+          heading: "2. Чому різка розтяжка на підлозі шкодить — і як допомагає кут 10°–14°",
+          paragraphs: ["Різке підтягування ноги до грудей на твердій підлозі натягує запалений нерв. Натомість м’яке розвантаження головою вгору на Профілакторі Євмінова (10°–14° зі злегка зігнутими колінами, 8 хв) знімає осьовий тиск із попереку й заспокоює спазм м’язів тазу. При онімінні або слабкості стопи обов’язково зверніться до лікаря."],
+        },
+      ],
+      faqs: [
+        { q: "Як відрізнити синдром грушоподібного м’яза від грижі L5–S1?", a: "Грушоподібний м’яз зазвичай болить точково в сідниці при сидінні, а грижа частіше супроводжується болем у попереку та прострілами нижче коліна. Точний діагноз встановлює лікар або фізіотерапевт." },
+      ],
+    },
+    ru: {
+      title: "Синдром грушевидной мышцы или ишиас (L4–S1): как отличить и безопасно разгрузить спину",
+      category: "Ишиас и ягодица",
+      readTime: "8 мин чтения",
+      author: { name: "Редакция биомеханики Evminov", role: "Биомеханика поясницы и таза", credentials: "30 лет документации методики Евминова (с 1996)" },
+      excerpt: "Боль в ягодице с отдачей в ногу может быть вызвана грыжей L4–S1 или спазмом грушевидной мышцы. Разбираем главные отличия и мягкую разгрузку под углом 10°–14°.",
+      sections: [
+        {
+          id: "disc-vs-piriformis",
+          heading: "1. Поясничный ишиас (L4–S1) против синдрома грушевидной мышцы",
+          paragraphs: ["При грыже L4–S1 боль чаще сочетается со скованностью в пояснице, усиливается при кашле или наклонах и уходит ниже колена. При синдроме грушевидной мышцы болезненность сосредоточена глубоко в ягодице и усиливается от долгого сидения."],
+        },
+        {
+          id: "safe-home-approach",
+          heading: "2. Мягкая разгрузка 10°–14° без резкого натяжения нерва",
+          paragraphs: ["Спокойное вытяжение головой вверх на Доске Евминова под углом 10°–14° со слегка согнутыми коленями разгружает поясничные корешки и расслабляет глубокие мышцы таза без резких рывков. При онемении или слабости стопы обратитесь к врачу."],
+        },
+      ],
+      faqs: [
+        { q: "Как отличить синдром грушевидной мышцы от грыжи диска?", a: "Синдром грушевидной мышцы локализуется преимущественно в ягодице при сидении, тогда как дискогенный ишиас часто сопровождается болью в пояснице и отдаёт ниже колена." },
+      ],
+    },
+    de: {
+      title: "Piriformis-Syndrom vs. LWS-Ischias (L4–S1): Unterschiede & sanfte Entlastung zuhause",
+      category: "Ischias & Gesäß",
+      readTime: "8 Min. Lesezeit",
+      author: { name: "Evminov Biomechanik-Redaktion", role: "LWS- & Beckenbiomechanik", credentials: "30 Jahre Evminov-Methode (Seit 1996)" },
+      excerpt: "Tiefer Gesäß- oder Beinschmerz? So unterscheiden Sie einen verspannten Piriformis-Muskel von echtem L4–S1-Bandscheiben-Ischias — inkl. sanfter 10°–14°-Entlastung.",
+      sections: [
+        {
+          id: "disc-vs-piriformis",
+          heading: "1. Bandscheiben-Ischias (L4–S1) vs. Piriformis-Syndrom",
+          paragraphs: ["Echter LWS-Ischias strahlt oft vom unteren Rücken über das Knie hinaus und verstärkt sich beim Husten oder Vorbeugen. Beim Piriformis-Syndrom sitzt der Druckschmerz tief im Gesäß und nimmt beim Sitzen zu."],
+        },
+        {
+          id: "safe-home-approach",
+          heading: "2. Sanfte Kopf-oben-Entlastung statt aggressivem Ziehen",
+          paragraphs: ["Sanfte 10°–14°-Entlastung auf dem Evminov Board mit leicht gebeugten Knien beruhigt Lendenwirbelsäule und Hüftmuskulatur ohne den gereizten Nerv zu überdehnen."],
+        },
+      ],
+      faqs: [
+        { q: "Wie erkenne ich Piriformis-Syndrom vs. Bandscheibenvorfall?", a: "Piriformis-Schmerz konzentriert sich beim Sitzen tief im Gesäß; Bandscheiben-Ischias geht oft mit LWS-Steifheit und Ausstrahlung unterhalb des Knies einher." },
+      ],
+    },
+  },
+  "sciatic-nerve-flossing-and-sleeping-positions-guide": {
+    es: {
+      title: "Deslizamiento del Nervio Ciático (Nerve Flossing) y Mejores Posturas para Dormir (2026)",
+      category: "Sueño y Movilidad",
+      readTime: "7 min de lectura",
+      author: { name: "Equipo Editorial de Biomecánica Evminov", role: "Higiene Nocturna Espinal", credentials: "30 Años del Método Evminov (Desde 1996)" },
+      excerpt: "¿La ciática no te deja dormir? Aprende a deslizar el nervio suavemente sin sobreestirarlo, cómo colocar las almohadas y la rutina de 10 minutos antes de acostarte.",
+      sections: [
+        {
+          id: "gentle-nerve-glides",
+          heading: "1. Nerve Flossing Suave y Posturas Neutras para Dormir",
+          paragraphs: ["Los nervios irritados toleran mejor deslizamientos suaves sin dolor que estiramientos fuertes. Para dormir, coloca una almohada firme entre rodillas y tobillos (de lado) o bajo las rodillas (boca arriba), precedido de 8–10 minutos de descarga a 10°–15°."],
+        },
+      ],
+      faqs: [
+        { q: "¿De qué lado conviene dormir con ciática?", a: "La mayoría descansa mejor sobre el lado sin dolor con una almohada firme entre rodillas y tobillos para mantener la pelvis alineada." },
+      ],
+    },
+    fr: {
+      title: "Glissement du Nerf Sciatique (Nerve Flossing) & Meilleures Positions de Sommeil (2026)",
+      category: "Sommeil & Mobilité",
+      readTime: "7 min de lecture",
+      author: { name: "Équipe Éditoriale Biomécanique Evminov", role: "Hygiène Nocturne du Dos", credentials: "30 Ans de Méthode Evminov (Depuis 1996)" },
+      excerpt: "La sciatique perturbe vos nuits ? Découvrez les glissements nerveux doux, le placement exact des oreillers et le rituel de décharge de 10 minutes avant le coucher.",
+      sections: [
+        {
+          id: "gentle-nerve-glides",
+          heading: "1. Glissements Doux & Sommeil Aligné Sans Torsion",
+          paragraphs: ["Évitez de tirer brutalement sur un nerf enflammé : privilégiez 5 à 8 glissements sans douleur. La nuit, placez un oreiller entre les genoux (sur le côté) ou sous les genoux (sur le dos) après 10 minutes de décharge douce à 10°–15°."],
+        },
+      ],
+      faqs: [
+        { q: "Sur quel côté dormir avec une sciatique ?", a: "Dormez sur le côté non douloureux avec un coussin ferme entre les genoux et les chevilles pour éviter la torsion pelvienne." },
+      ],
+    },
+    uk: {
+      title: "М’яке ковзання сідничного нерва (Nerve Flossing) та найкращі пози для сну при ішіасі й L5–S1",
+      category: "Сон та мобільність",
+      readTime: "7 хв читання",
+      author: { name: "Редакція біомеханіки Evminov", role: "Вечірня гігієна хребта", credentials: "30 років документації методики Євмінова (з 1996)" },
+      excerpt: "Нічний біль при ішіасі заважає відновленню? Пояснюємо різницю між м’яким ковзанням нерва та шкідливим натягом, точне положення подушок і 10-хвилинну вечірню розгрузку перед сном.",
+      sections: [
+        {
+          id: "gentle-nerve-glides",
+          heading: "1. М’яке ковзання (флосінг) без болю — не тягніть запалений нерв",
+          paragraphs: ["На відміну від м’язів, подразнений нерв не любить сильного статичного розтягування. Виконуйте лише 5–8 плавних безболісних рухів стопою, а на Профілакторі Євмінова під кутом 10°–12° поперек залишається розвантаженим під час мобілізації."],
+        },
+        {
+          id: "best-sleeping-positions",
+          heading: "2. Найкращі пози для сну при ішіасі та протрузії L5–S1",
+          paragraphs: ["Сон на боці (хвора сторона зверху): покладіть щільну подушку між колінами й щиколотками, щоб таз не скручувався. Сон на спині: підкладіть 1–2 подушки під коліна, щоб зняти прогин у L5–S1. 8–10 хвилин спокійної розгрузки на дошці за 15 хвилин до сну допомагають заснути без стиснення."],
+        },
+      ],
+      faqs: [
+        { q: "На якому боці краще спати при ішіасі?", a: "Більшості найкомфортніше спати на здоровому боці зі щільною подушкою між колінами та гомілками або на спині з валиком під колінами." },
+      ],
+    },
+    ru: {
+      title: "Мягкое скольжение седалищного нерва (Nerve Flossing) и лучшие позы для сна при ишиасе и L5–S1",
+      category: "Сон и мобильность",
+      readTime: "7 мин чтения",
+      author: { name: "Редакция биомеханики Evminov", role: "Вечерняя гигиена позвоночника", credentials: "30 лет документации методики Евминова (с 1996)" },
+      excerpt: "Ишиас мешает спать по ночам? Разбираем технику мягкого скольжения нерва без боли, правильное положение подушек и 10-минутную вечернюю разгрузку перед сном.",
+      sections: [
+        {
+          id: "gentle-nerve-glides",
+          heading: "1. Мягкий флоссинг без резкого натяжения",
+          paragraphs: ["Воспалённый нерв плохо реагирует на сильную растяжку. Делайте 5–8 плавных безболезненных движений стопой. На Доске Евминова под углом 10°–12° поясничные корешки при этом разгружены."],
+        },
+        {
+          id: "best-sleeping-positions",
+          heading: "2. Нейтральные позы сна и 10 минут разгрузки перед сном",
+          paragraphs: ["Спите на здоровом боку с плотной подушкой между коленями и лодыжками, либо на спине с подушкой под коленями — избегайте сна на животе. Вечерняя разгрузка 8–10 минут под углом 10°–15° снимает дневное сжатие перед сном."],
+        },
+      ],
+      faqs: [
+        { q: "На каком боку лучше спать при ишиасе?", a: "Чаще всего комфортнее спать на неповреждённой стороне с плотной подушкой между коленями и лодыжками." },
+      ],
+    },
+    de: {
+      title: "Ischias-Nervenmobilisation (Nerve Flossing) & beste Schlafpositionen bei L5–S1 (2026)",
+      category: "Schlaf & Nervenmobilität",
+      readTime: "7 Min. Lesezeit",
+      author: { name: "Evminov Biomechanik-Redaktion", role: "Nächtliche Rückengesundheit", credentials: "30 Jahre Evminov-Methode (Seit 1996)" },
+      excerpt: "Schlaflose Nächte wegen Ischias? Lernen Sie sanftes Nervengleiten ohne Überdehnung, die optimale Kissenlagerung und die 10-Minuten-Abendroutine.",
+      sections: [
+        {
+          id: "gentle-nerve-glides",
+          heading: "1. Sanftes Gleiten & neutrale Schlafpositionen",
+          paragraphs: ["Gereizte Nerven mögen sanfte Gleitbewegungen statt starkem Zug. Schlafen Sie auf der schmerzfreien Seite mit festem Kissen zwischen Knien & Knöcheln oder auf dem Rücken mit Kissen unter den Knien — ideal nach 10 Minuten ruhiger 10°–15°-Entlastung."],
+        },
+      ],
+      faqs: [
+        { q: "Auf welcher Seite sollte man bei Ischias schlafen?", a: "Meist auf der schmerzfreien Seite mit einem festen Kissen zwischen Knien und Knöcheln, damit das Becken gerade bleibt." },
+      ],
+    },
+  },
+  "spondylolisthesis-and-facet-joint-safe-decompression-guide": {
+    es: {
+      title: "Espondilolistesis y Dolor Facetario vs. Discal: Movimientos a Evitar y Estabilidad Neutra",
+      category: "Espondilolistesis y Facetas",
+      readTime: "8 min de lectura",
+      author: { name: "Equipo Editorial de Biomecánica Evminov", role: "Estabilidad Espinal y Seguridad", credentials: "30 Años del Método Evminov (Desde 1996)" },
+      excerpt: "Con espondilolistesis grado 1 o dolor facetario, hiperextender la espalda suele empeorar el dolor. Aprende la diferencia frente al dolor discal y pautas seguras con aprobación médica.",
+      sections: [
+        {
+          id: "facet-vs-disc-clues",
+          heading: "1. Dolor Facetario vs. Discal y Reglas Seguras en Espondilolistesis",
+          paragraphs: ["El dolor facetario o por espondilolistesis suele aumentar al arquear la espalda hacia atrás o permanecer mucho tiempo de pie. Evita mesas de inversión de 90° y arcos rígidos; con aprobación médica, prioriza la estabilidad neutra del core profundo a ángulos muy suaves (8°–12° con rodillas flexionadas)."],
+        },
+      ],
+      faqs: [
+        { q: "¿Son recomendables las mesas de inversión con espondilolistesis?", a: "Por lo general se desaconsejan la hiperextensión lumbar forzada y colgar boca abajo; consulte siempre con su especialista según su grado de desplazamiento." },
+      ],
+    },
+    fr: {
+      title: "Spondylolisthésis & Douleur Facettaire vs Discale : Mouvements à Éviter et Stabilité Neutre",
+      category: "Spondylolisthésis & Facettes",
+      readTime: "8 min de lecture",
+      author: { name: "Équipe Éditoriale Biomécanique Evminov", role: "Stabilité Vertébrale & Sécurité", credentials: "30 Ans de Méthode Evminov (Depuis 1996)" },
+      excerpt: "Spondylolisthésis grade 1 ou arthrose facettaire ? Pourquoi l'hyperextension aggrave les symptômes et comment privilégier le gainage profond neutre après avis médical.",
+      sections: [
+        {
+          id: "facet-vs-disc-clues",
+          heading: "1. Douleur Facettaire vs Discale & Précautions Indispensables",
+          paragraphs: ["Les douleurs facettaires et le spondylolisthésis s'aggravent souvent en cambrant le dos. Évitez l'inversion à 90° et les arches rigides ; avec accord médical, travaillez uniquement en position neutre (8°–12° genoux fléchis) pour renforcer les stabilisateurs profonds."],
+        },
+      ],
+      faqs: [
+        { q: "Peut-on utiliser une table d'inversion avec un spondylolisthésis ?", a: "L'hyperextension forcée et la suspension tête en bas sont généralement déconseillées ; demandez impérativement l'avis de votre médecin." },
+      ],
+    },
+    uk: {
+      title: "Спондилолістез та фасетковий біль проти болю диска: чого уникати і як безпечно зміцнювати кор",
+      category: "Спондилолістез і фасетки",
+      readTime: "8 хв читання",
+      author: { name: "Редакція біомеханіки Evminov", role: "Стабільність хребта та безпека", credentials: "30 років документації методики Євмінова (з 1996)" },
+      excerpt: "Діагноз спондилолістез 1 ступеня або фасет-синдром змінює правила тренувань: чому небезпечні прогини назад і висіння, як відрізнити фасетковий біль від дискогенного та роль глибокого кору.",
+      sections: [
+        {
+          id: "facet-vs-disc-clues",
+          heading: "1. Фасетковий біль проти болю диска: прості орієнтири",
+          paragraphs: ["Фасетковий біль і спондилолістез зазвичай загострюються при тривалому стоянні або прогині назад (розгинанні) і стихають при легкому згинанні. Біль від диска, навпаки, частіше реагує на довге згорблене сидіння й нахили вперед."],
+        },
+        {
+          id: "spondylolisthesis-safety",
+          heading: "2. Спондилолістез: обов’язкове погодження з лікарем та нейтральна стабілізація",
+          paragraphs: ["При зміщенні хребця головний пріоритет — стабільність, тому різкі прогини, скручування та 90° інверсійні столи не рекомендовані. Лише після дозволу ортопеда/фізіотерапевта (для стабільного 1 ступеня) застосовують ультрам’які нейтральні вправи для глибокого кору під кутом 8°–12° із зігнутими колінами."],
+        },
+      ],
+      faqs: [
+        { q: "Чи можна висіти на інверсійному столі при спондилолістезі?", a: "Більшість вертебрологів застерігають від агресивного перерозгинання та висіння догори ногами при спондилолістезі — будь-які вправи погоджуйте з лікарем за результатами МРТ/рентгену." },
+      ],
+    },
+    ru: {
+      title: "Спондилолистез и фасеточная боль против боли диска: чего избегать и как укреплять кор",
+      category: "Спондилолистез и фасетки",
+      readTime: "8 мин чтения",
+      author: { name: "Редакция биомеханики Evminov", role: "Стабильность позвоночника и безопасность", credentials: "30 лет документации методики Евминова (с 1996)" },
+      excerpt: "При спондилолистезе 1 степени или фасет-синдроме резкие прогибы назад и вис вниз головой вредят. Разбираем отличия от боли диска и безопасную стабилизацию с одобрения врача.",
+      sections: [
+        {
+          id: "facet-vs-disc-clues",
+          heading: "1. Фасеточная боль против дискогенной и правила при спондилолистезе",
+          paragraphs: ["Фасеточная боль и спондилолистез чаще усиливаются при прогибе назад и долгом стоянии. Главная цель — глубокая стабилизация без переразгибания: избегайте 90° инверсии и жёстких дуг. После одобрения врача (для стабильной 1 степени) применяются мягкие нейтральные упражнения при 8°–12° с согнутыми коленями."],
+        },
+      ],
+      faqs: [
+        { q: "Можно ли использовать инверсионный стол при спондилолистезе?", a: "Специалисты обычно не рекомендуют резкое переразгибание и вис вниз головой при смещении позвонка — обязательно проконсультируйтесь с врачом." },
+      ],
+    },
+    de: {
+      title: "Spondylolisthese & Facettengelenkschmerz vs. Bandscheibe: Sicher trainieren & was vermeiden",
+      category: "Spondylolisthese & Facetten",
+      readTime: "8 Min. Lesezeit",
+      author: { name: "Evminov Biomechanik-Redaktion", role: "Wirbelsäulenstabilität & Sicherheit", credentials: "30 Jahre Evminov-Methode (Seit 1996)" },
+      excerpt: "Grad-1-Wirbelgleiten oder Facettenarthrose? Warum Hohlkreuz-Dehnen schadet, wie sich Facetten- und Bandscheibenschmerz unterscheiden und wie neutrale Tiefenstabilisation hilft.",
+      sections: [
+        {
+          id: "facet-vs-disc-clues",
+          heading: "1. Facetten- vs. Bandscheibenschmerz & ärztliche Freigabe",
+          paragraphs: ["Facettenschmerzen und Wirbelgleiten verschlimmern sich meist beim Rückbeugen oder langen Stehen. Vermeiden Sie 90°-Inversion und starke Rückbeugen; nach ärztlicher Freigabe steht neutrale Tiefenrumpf-Stabilisation bei sanften 8°–12° mit gebeugten Knien im Vordergrund."],
+        },
+      ],
+      faqs: [
+        { q: "Sollte man bei Spondylolisthese Inversionstische meiden?", a: "Ja — forciertes Hohlkreuz und Kopfüber-Hängen werden bei Wirbelgleiten meist abgeraten. Holen Sie stets eine ärztliche Freigabe ein." },
+      ],
+    },
+  },
 };
 
 export function getLocalizedGuide(guide: GuideItem, lang: Locale): GuideItem {

@@ -529,6 +529,78 @@ export const COMPARISONS: ComparisonPageData[] = [
     ],
     recommendedProductSlug: "3-piece-travel-board",
   },
+  {
+    slug: "evminov-vs-pull-up-bar-dead-hang-and-mckenzie",
+    shortTitle: "Evminov vs. Dead Hangs & McKenzie",
+    title: "Evminov Board vs. Pull-Up Bar Dead Hangs & McKenzie Floor Extensions (2026 Comparison)",
+    metaTitle: "Evminov Board vs. Pull-Up Bar Dead Hangs & McKenzie Method",
+    metaDescription:
+      "Comparing popular head-up back relief methods in 2026: Evminov inclined board vs. pull-up bar dead hangs (grip/lat tension) & McKenzie floor extensions.",
+    competitorName: "Pull-Up Bar Dead Hangs & McKenzie Floor Exercises",
+    eyebrow: "2026 Head-Up Comparison • Supported vs. Hanging",
+    summary:
+      "Pull-up bar dead hangs and McKenzie floor extensions are two of the most recommended non-inversion alternatives on Reddit and YouTube. Here is why supported 8°–35° inclined traction solves the grip fatigue, lat bracing, and hyperextension limits of both.",
+    heroImage: "/images/gallery/incline-glute-bridge.jpg",
+    keyTakeaways: [
+      "Zero forearm grip failure or shoulder impingement — stay calmly unloaded for 10 full minutes instead of 25 seconds.",
+      "Relaxes the latissimus dorsi completely (unlike dead hangs where firing your lats braces the lower-back thoracolumbar fascia).",
+      "Safe for stenosis & facet-sensitive backs that cannot tolerate McKenzie floor back-arching (hyperextension).",
+      "Combines gentle axial traction + active deep core stabilization + Glisson cervical neck relief in one station.",
+    ],
+    rows: [
+      {
+        metric: "Session Duration Before Fatigue",
+        evminov: "8–15 calm minutes with zero forearm or shoulder burn",
+        alternative: "Dead hang: 20–45 seconds before grip/shoulders fail",
+        winner: "evminov",
+      },
+      {
+        metric: "Lower-Back Muscle Relaxation",
+        evminov: "Full pine support turns off defensive lat & erector guarding",
+        alternative: "Dead hang fires lats (attached to lumbar fascia); floor lacks traction",
+        winner: "evminov",
+      },
+      {
+        metric: "Safe for Stenosis & Facet Pain",
+        evminov: "Yes (doctor-cleared neutral / bent-knee low angles 8°–12°)",
+        alternative: "McKenzie back-arching often aggravates stenosis & facet joints",
+        winner: "evminov",
+      },
+      {
+        metric: "Calibrated Force Control",
+        evminov: "Exact 8°–35° incline dial (~15 to 80+ lbs smooth pull)",
+        alternative: "Dead hang = abrupt 100% lower-body weight; McKenzie = zero axial pull",
+        winner: "evminov",
+      },
+      {
+        metric: "Neck & Tech-Neck Relief",
+        evminov: "Included Glisson Cervical Loop (8°–12° head-up)",
+        alternative: "No cervical unloading",
+        winner: "evminov",
+      },
+    ],
+    deepDiveSections: [
+      {
+        heading: "Why Pull-Up Bar Dead Hangs Often Leave Your Lower Back Guarded",
+        body: "When you grab a pull-up bar, your forearms, rotator cuffs, and latissimus dorsi must contract forcefully just to hold on. Because the latissimus dorsi inserts directly into the thoracolumbar fascia spanning L1–S1, firing your lats keeps your lower back partially braced — and most people run out of grip strength in 30 seconds before deep discs even begin to hydrate. Resting supine on the Evminov Board lets your arms and back switch off completely for a full 10 minutes.",
+      },
+      {
+        heading: "Pairing Directional Mobility With Real Axial Decompression",
+        body: "McKenzie floor press-ups help specific flexion-intolerant disc bulges, but they offer zero axial spinal traction and can aggravate spinal stenosis or facet arthropathy. On the Evminov Board, you gain smooth longitudinal unloading first, then perform tiny, clinician-friendly stabilizing movements in neutral alignment.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Is an Evminov Board better than dead-hanging from a pull-up bar for L4–L5 / L5–S1 relief?",
+        a: "For most adults, yes — dead hangs fail after 20–45 seconds due to grip/shoulder fatigue and tense the lats, whereas the Evminov Board supports your full spine for 10+ relaxed minutes with calibrated 8°–25° unloading.",
+      },
+      {
+        q: "Can I combine McKenzie-style gentle movements with the Evminov Board?",
+        a: "Yes — many physical therapists pair directional mobility with low-angle Evminov unloading and deep multifidus stabilization. Always follow your provider's guidance for stenosis or spondylolisthesis.",
+      },
+    ],
+    recommendedProductSlug: "3-piece-travel-board",
+  },
 ];
 
 export function getComparisonBySlug(slug: string): ComparisonPageData | undefined {

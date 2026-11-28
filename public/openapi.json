@@ -2,33 +2,39 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Evminov Spine Systems USA Public Agent & Commerce API",
-    "version": "1.0.0",
-    "description": "Public sizing, traction physics, catalog search, MCP, and ACP reservation APIs for evminovusa.com."
+    "version": "2.0.0",
+    "description": "Public 6-language (EN/ES/FR/DE/UK/RU) sizing, traction physics, live AI concierge, catalog search, MCP, and ACP reservation APIs for evminovusa.com."
   },
   "servers": [{ "url": "https://evminovusa.com" }],
   "paths": {
     "/api/health": {
-      "get": { "summary": "API health status", "responses": { "200": { "description": "OK" } } }
+      "get": { "summary": "API, email, Telegram, and Workers AI health status", "responses": { "200": { "description": "OK" } } }
     },
     "/api/ask": {
       "get": {
-        "summary": "NLWeb natural-language board recommendation",
+        "summary": "NLWeb natural-language board & width recommendation",
         "parameters": [
           { "name": "q", "in": "query", "required": true, "schema": { "type": "string" } },
-          { "name": "lang", "in": "query", "required": false, "schema": { "type": "string", "enum": ["en", "es", "fr", "uk", "ru"] } }
+          { "name": "lang", "in": "query", "required": false, "schema": { "type": "string", "enum": ["en", "es", "fr", "de", "uk", "ru"] } }
         ],
         "responses": { "200": { "description": "Structured recommendation JSON or Markdown" } }
       }
     },
+    "/api/chat": {
+      "post": {
+        "summary": "Multilingual AI Spine Concierge (text + wall-photo vision via Cloudflare Workers AI)",
+        "responses": { "200": { "description": "Contextual answer + quickLinks action chips" } }
+      }
+    },
     "/api/mcp": {
-      "post": { "summary": "JSON-RPC 2.0 Model Context Protocol endpoint", "responses": { "200": { "description": "JSON-RPC response" } } }
+      "post": { "summary": "JSON-RPC 2.0 Model Context Protocol endpoint (v2.0.0)", "responses": { "200": { "description": "JSON-RPC response" } } }
     },
     "/api/acp/checkout_sessions": {
-      "get": { "summary": "List ACP product catalog", "responses": { "200": { "description": "Catalog items" } } },
+      "get": { "summary": "List ACP folding board & accessory catalog", "responses": { "200": { "description": "Catalog items" } } },
       "post": { "summary": "Create pre-filled ACP checkout/reservation session", "responses": { "201": { "description": "Session created" } } }
     },
     "/api/submit-order": {
-      "post": { "summary": "Submit board reservation or protocol email lead", "responses": { "200": { "description": "Confirmed" } } }
+      "post": { "summary": "Submit board reservation, VIP price-lock, or HSA/FSA LMN protocol lead", "responses": { "200": { "description": "Confirmed" } } }
     }
   }
 }

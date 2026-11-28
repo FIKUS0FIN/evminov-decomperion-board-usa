@@ -1837,6 +1837,148 @@ const COMPARISONS_TRANSLATIONS: Record<
       ],
     },
   },
+  "evminov-vs-pull-up-bar-dead-hang-and-mckenzie": {
+    es: {
+      shortTitle: "Evminov vs. Barra y McKenzie",
+      title: "Tabla Evminov vs. Colgarse de Barra (Dead Hang) y Extensiones McKenzie (2026)",
+      metaTitle: "Evminov vs. Colgarse de Barra y Método McKenzie",
+      metaDescription: "Compara la tabla Evminov frente a colgarse de barra (fatiga de agarre) y extensiones McKenzie en el suelo para alivio lumbar seguro.",
+      competitorName: "Barra (Dead Hang) y Ejercicios McKenzie",
+      eyebrow: "Comparativa 2026 • Apoyo Completo vs. Colgar",
+      summary: "Colgarse de una barra agota los antebrazos en 30 segundos y tensa los dorsales, mientras McKenzie no genera tracción axial. La tabla inclinada Evminov permite 10 minutos de descarga relajada y fortalecimiento profundo.",
+      keyTakeaways: [
+        "Cero fatiga de agarre ni dolor de hombros — 10 minutos de descarga tranquila.",
+        "Relaja totalmente los dorsales y la fascia lumbar.",
+        "Segura para estenosis y dolor facetario con rodillas flexionadas (sin arqueo forzado).",
+        "Incluye tracción cervical con Lazo de Glisson gratis.",
+      ],
+      rows: [
+        { metric: "Duración sin fatiga", evminov: "8–15 min relajados sin fatigar manos ni hombros", alternative: "20–45 segundos antes de que falle el agarre" },
+        { metric: "Relajación lumbar", evminov: "Soporte completo en madera desactiva espasmos", alternative: "Colgar tensa dorsales; el suelo no descomprime" },
+        { metric: "Seguridad en estenosis", evminov: "Sí (8°–12° neutro con rodillas flexionadas)", alternative: "El arqueo McKenzie puede irritar facetas/estenosis" },
+        { metric: "Control de fuerza", evminov: "Ángulo graduable 8°–35°", alternative: "Peso brusco al colgar / cero tracción en suelo" },
+        { metric: "Cuello (Cervical)", evminov: "Lazo Glisson incluido gratis", alternative: "Sin descarga cervical" },
+      ],
+      deepDiveSections: [
+        { heading: "Por Qué el Apoyo Inclinado Supera al Dead Hang", body: "Al colgarte de una barra, los dorsales se contraen y tensan la fascia lumbar. Recostado en la tabla Evminov, la musculatura se suelta en segundos para lograr una hidratación discal real." },
+      ],
+      faqs: [
+        { q: "¿Es mejor la tabla Evminov que colgarse de una barra para L4–L5?", a: "Sí, porque permite 10 minutos continuos de tracción controlada sin fatiga de manos ni tensión en hombros." },
+      ],
+    },
+    fr: {
+      shortTitle: "Evminov vs. Barre & McKenzie",
+      title: "Planche Evminov vs Suspension Barre Fixe (Dead Hang) & Extensions McKenzie (2026)",
+      metaTitle: "Evminov vs Suspension Barre Fixe & Méthode McKenzie",
+      metaDescription: "Comparez la décompression inclinée Evminov aux suspensions barre fixe et extensions McKenzie au sol pour le soulagement lombaire.",
+      competitorName: "Barre Fixe (Dead Hang) & Exercices McKenzie",
+      eyebrow: "Comparatif 2026 • Soutien vs Suspension",
+      summary: "Se suspendre à une barre épuise les avant-bras en 30 secondes et contracte les dorsaux, tandis que McKenzie n'offre aucune traction axiale. La planche Evminov offre 10 minutes de décharge calme et maîtrisée.",
+      keyTakeaways: [
+        "Zéro fatigue de préhension ni douleur d'épaule — 10 minutes de détente.",
+        "Relâche complètement le grand dorsal et le fascia lombaire.",
+        "Adaptée à la sténose et aux facettes sans cambrure forcée.",
+        "Boucle cervicale de Glisson offerte.",
+      ],
+      rows: [
+        { metric: "Durée sans fatigue", evminov: "8–15 min calmes sans brûlure des mains", alternative: "20–45 secondes avant épuisement de la prise" },
+        { metric: "Relâchement lombaire", evminov: "Soutien intégral en bois qui calme les spasmes", alternative: "La barre contracte les dorsaux ; le sol ne décompresse pas" },
+        { metric: "Sténose & facettes", evminov: "Oui (8°–12° neutre genoux fléchis)", alternative: "L'extension McKenzie peut irriter les facettes" },
+        { metric: "Contrôle de traction", evminov: "Inclinaison précise 8°–35°", alternative: "Poids brusque ou aucune traction" },
+        { metric: "Nuque (Cervicales)", evminov: "Sangle Glisson incluse gratuitement", alternative: "Aucune décharge cervicale" },
+      ],
+      deepDiveSections: [
+        { heading: "Pourquoi la Décharge Soutenue Bat la Suspension à la Barre", body: "À la barre fixe, la contraction des dorsaux maintient les lombaires sous tension. Sur la planche Evminov, vos épaules et votre dos se relâchent totalement pendant 10 minutes." },
+      ],
+      faqs: [
+        { q: "La planche Evminov est-elle plus efficace que la suspension barre fixe ?", a: "Oui pour la majorité des adultes : zéro fatigue des mains ou épaules et traction calibrée 8°–25°." },
+      ],
+    },
+    uk: {
+      shortTitle: "Evminov vs. Турнік і Маккензі",
+      title: "Профілактор Євмінова проти вису на турніку (Dead Hang) та вправ Маккензі (2026)",
+      metaTitle: "Дошка Євмінова проти турніка та методу Маккензі",
+      metaDescription: "Порівняння популярних методів без інверсії: похила дошка Євмінова проти вису на турніку (напруга найширших м’язів) та розгинань Маккензі.",
+      competitorName: "Вис на турніку та вправи Маккензі",
+      eyebrow: "Порівняння 2026 • Опора проти вису",
+      summary: "Вис на турніку та розгинання Маккензі — найпопулярніші поради проти болю в спині на YouTube та Reddit. Пояснюємо, чому опора на резонансну похилу дошку 8°–35° знімає втому хвату, спазм спини та ризики перерозгинання.",
+      keyTakeaways: [
+        "Жодної втоми кистей чи болю в плечах — спокійна 10-хвилинна розгрузка замість 25 секунд вису.",
+        "Повне розслаблення найширших м’язів спини (на турніку вони напружуються й затискають поперекову фасцію).",
+        "Безпечно для стенозу та фасеток у нейтральному положенні зі злегка зігнутими колінами (без різких прогинів Маккензі).",
+        "Поєднує плавне витягування, глибоку стабілізацію та Петлю Гліссона для шиї.",
+      ],
+      rows: [
+        { metric: "Тривалість без втоми", evminov: "8–15 хвилин спокійного розвантаження", alternative: "Турнік: 20–45 секунд до втоми рук і плечей" },
+        { metric: "Розслаблення попереку", evminov: "Повна опора вимикає захисний спазм м’язів", alternative: "Турнік напружує найширші м’язи; підлога не дає витягування" },
+        { metric: "При стенозі та фасетках", evminov: "Так (8°–12° зі злегка зігнутими колінами)", alternative: "Прогини Маккензі часто загострюють стеноз і фасетки" },
+        { metric: "Дозування сили тяги", evminov: "Точний кут 8°–35° (від 10 до 35+ кг)", alternative: "Турнік — різка вага тіла; Маккензі — 0 кг тяги" },
+        { metric: "Розвантаження шиї", evminov: "Петля Гліссона в комплекті безкоштовно", alternative: "Відсутнє" },
+      ],
+      deepDiveSections: [
+        { heading: "Чому вис на турніку часто залишає поперек затиснутим", body: "Під час вису на перекладині кисті, плечі та найширші м’язи спини напружуються, щоб утримати тіло — а найширші м’язи вплітаються прямо в поперекову фасцію L1–S1. До того ж хват втомлюється за пів хвилини. На Профілакторі Євмінова ви лежите на пружній дерев’яній опорі, м’язи вимикаються за секунди, а диски отримують повноцінні 10 хвилин розвантаження." },
+      ],
+      faqs: [
+        { q: "Що краще при грижі L4–L5 — вис на турніку чи Профілактор Євмінова?", a: "Профілактор Євмінова безпечніший і ефективніший: немає різкого зістрибування після вису, немає втоми плечей і є дозоване навантаження з активним зміцненням глибокого кору." },
+      ],
+    },
+    ru: {
+      shortTitle: "Evminov vs. Турник и Маккензи",
+      title: "Доска Евминова против виса на турнике (Dead Hang) и упражнений Маккензи (2026)",
+      metaTitle: "Доска Евминова против турника и метода Маккензи",
+      metaDescription: "Сравнение популярных методов без инверсии: наклонная доска Евминова против виса на турнике и разгибаний Маккензи на полу.",
+      competitorName: "Вис на турнике и упражнения Маккензи",
+      eyebrow: "Сравнение 2026 • Опора против виса",
+      summary: "Вис на турнике утомляет кисти за 30 секунд и напрягает широчайшие мышцы поясницы, а упражнения Маккензи не дают осевой разгрузки. Наклонная Доска Евминова позволяет спокойно разгружать спину 10 минут.",
+      keyTakeaways: [
+        "Без усталости хвата и боли в плечах — 8–15 минут спокойной разгрузки вместо 30 секунд.",
+        "Полное расслабление широчайших мышц и поясничной фасции.",
+        "Подходит при стенозе и фасеточной боли без форсированного прогиба назад.",
+        "Петля Глиссона для шеи включена бесплатно.",
+      ],
+      rows: [
+        { metric: "Длительность без усталости", evminov: "8–15 минут спокойной разгрузки", alternative: "Турник: 20–45 секунд до усталости хвата" },
+        { metric: "Расслабление поясницы", evminov: "Полная опора снимает защитный спазм", alternative: "Турник напрягает широчайшие; пол не даёт тяги" },
+        { metric: "При стенозе и фасетках", evminov: "Да (8°–12° с согнутыми коленями)", alternative: "Прогибы Маккензи могут усиливать боль в фасетках" },
+        { metric: "Контроль силы тяги", evminov: "Точный угол 8°–35°", alternative: "Резкая нагрузка на турнике / 0 тяги на полу" },
+        { metric: "Разгрузка шеи", evminov: "Петля Глиссона бесплатно в комплекте", alternative: "Отсутствует" },
+      ],
+      deepDiveSections: [
+        { heading: "Почему опора на наклонную доску эффективнее виса на турнике", body: "На турнике широчайшие мышцы напряжены и не дают пояснице полностью расслабиться, а спрыгивание с перекладины повторно сжимает диски. На Доске Евминова вы спокойно лежите 10 минут и плавно выходите через бок." },
+      ],
+      faqs: [
+        { q: "Что лучше при грыже L4–L5 — турник или Доска Евминова?", a: "Доска Евминова даёт контролируемую 10-минутную разгрузку без резкого соскока и одновременно укрепляет глубокий кор." },
+      ],
+    },
+    de: {
+      shortTitle: "Evminov vs. Klimmzugstange & McKenzie",
+      title: "Evminov Board vs. Klimmzugstangen-Aushängen (Dead Hang) & McKenzie-Übungen (2026)",
+      metaTitle: "Evminov Board vs. Dead Hang & McKenzie-Methode",
+      metaDescription: "Vergleich beliebter Kopf-oben-Methoden 2026: Evminov Board vs. Aushängen an der Stange (Griff-/Lat-Spannung) & McKenzie-Bodenübungen.",
+      competitorName: "Klimmzugstange (Dead Hang) & McKenzie",
+      eyebrow: "Vergleich 2026 • Gestützt vs. Hängend",
+      summary: "Aushängen an der Stange ermüdet Hände und Schultern nach 30 Sekunden und spannt den Latissimus an, während McKenzie-Übungen keine Axialtraktion bieten. Das Evminov Board ermöglicht 10 ruhige Minuten vollständiger Entlastung.",
+      keyTakeaways: [
+        "Keine Griff- oder Schulterermüdung — entspannte 8–15 Minuten statt 30 Sekunden.",
+        "Löst die Latissimus- und LWS-Faszien-Anspannung vollständig.",
+        "Neutral & kniefreundlich (8°–12°) — auch wenn McKenzie-Rückbeugen schmerzen.",
+        "Inklusive Glisson-Nackenschlinge gratis.",
+      ],
+      rows: [
+        { metric: "Dauer ohne Ermüdung", evminov: "8–15 entspannte Minuten", alternative: "Dead Hang: 20–45 Sek. bis Griff/Schultern aufgeben" },
+        { metric: "LWS-Entspannung", evminov: "Volle Holzauflage beendet Schutzspannung", alternative: "Latissimus bleibt angespannt / Boden ohne Zug" },
+        { metric: "Bei Stenose & Facetten", evminov: "Ja (8°–12° neutral, gebeugte Knie)", alternative: "McKenzie-Rückbeugen reizen oft Facetten/Stenose" },
+        { metric: "Dosierbarkeit", evminov: "Fein einstellbare 8°–35° Neigung", alternative: "Volles Körpergewicht ruckartig / kein Zug" },
+        { metric: "HWS-Entlastung", evminov: "Glisson-Schlinge kostenlos enthalten", alternative: "Keine Nackenentlastung" },
+      ],
+      deepDiveSections: [
+        { heading: "Warum gestützte Schräg-Traktion das Aushängen übertrifft", body: "Beim Hängen an der Stange zieht der angespannte Latissimus direkt an der Lendenfaszie. Liegend auf dem Evminov Board lassen Muskeln sofort los." },
+      ],
+      faqs: [
+        { q: "Ist das Evminov Board bei L4–L5 besser als Aushängen an der Klimmzugstange?", a: "Ja — statt 30 Sekunden Griffkampf erhalten Sie 10 ruhige Minuten dosierte Entlastung plus tiefes Stabilisationstraining." },
+      ],
+    },
+  },
 };
 
 export function getLocalizedComparison(

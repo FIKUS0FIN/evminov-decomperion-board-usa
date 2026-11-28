@@ -18,7 +18,7 @@
   `F_net = max(0, Weight_lbs * sin(angle) - Weight_lbs * cos(angle) * 0.08)`
 - Typical starting windows (always head-up — zero upside-down blood rush):
   - Youth / Seniors 55+ / High Blood Pressure Safe / Gentle Cervical (Glisson Loop): `8°–12°` (`3–8 min`)
-  - Lumbar Disc Comfort (`L4–L5`, `L5–S1`) / Sciatica / Neutral Stenosis (knees softly bent): `10°–18°` (`8–12 min`)
+  - Lumbar Disc Comfort (`L4–L5`, `L5–S1`) / Sciatica / Neutral Stenosis / Spondylolisthesis & Facet (knees softly bent): `10°–18°` (`8–12 min`)
   - Desk Worker Posture Reset & Tech-Neck: `14°–22°` (`7–10 min`)
   - Athletes / Post-Deadlift & Squat Recovery: `20°–32°` (`10–15 min`)
 
@@ -51,9 +51,15 @@ International air/parcel carriers serving the USA and Canada enforce a 120 cm pa
 
 ## 4. Shipping & Ordering Workflow
 - **International Courier Delivery (USA & Canada):** Approximately **2 weeks** tracked delivery to all 50 US states and all Canadian provinces (Ontario, Quebec, BC, Alberta, Manitoba, Nova Scotia, and nationwide).
-- **Zero-Risk Reservation & Operator Confirmation:** Online checkout reserves your configuration and opens a tracked order in the Patient Portal; our operations specialist confirms exact finish, width (`26 cm` vs `30 cm`), accessories, shipping & customs details via email and WhatsApp (`+1 747 306-0140`). Direct Stripe online card checkout is planned for early next year.
+- **Zero-Risk Reservation & Operator Confirmation:** Online checkout reserves your configuration and opens a tracked order in the Patient Portal; our operations specialist confirms exact finish, width (`26 cm` vs `30 cm`), accessories, shipping & customs details via email and WhatsApp (`+1 747 306-0140`). Direct Stripe online card checkout & Local Express warehouse fulfillment launch in the New Year; buyers can also lock 2026 direct pricing and download the free Doctor LMN Template + 14-day starter protocol right on the homepage.
 
-## 5. Multilingual Coverage (6 Languages)
+## 5. High-Demand 2025–2026 Clinical Topics Covered (All 6 Languages)
+- **Piriformis Syndrome vs. Lumbar Disc Sciatica:** Self-check differentiation (FAIR/seated glute pinch vs. cough/Valsalva/dermatomal radiation) and why low-angle (`10°–16°`) supported unloading relieves both disc-root and deep-gluteal guarding without hamstring over-stretching.
+- **Sciatic Nerve Flossing & Best Sleeping Positions:** Pairing 8-minute evening head-up decompression (`10°–15°`) with gentle ankle-pump nerve glides and pillow-supported side-lying / supine knee-bolster sleep posture to curb morning sciatic flare-ups.
+- **Spondylolisthesis & Facet Joint Safe Decompression:** Why hyper-extension (cobra press-ups or arched wheels) aggravates facet joints and anterolisthesis, whereas flexed/bent-knee neutral traction (`8°–14°`) on the Evminov board unloads posterior facets without shear.
+- **Evminov Board vs. Pull-Up Bar Dead Hangs & McKenzie Press-Ups:** Dead hangs apply an abrupt 100% bodyweight vertical drop that fatigues grip in 20–40 seconds and triggers protective lumbar guarding; McKenzie press-ups are directional extension tools unsuitable for facet/stenosis cases. Evminov scales traction smoothly from 10% to 45% bodyweight while training deep multifidus stabilizers.
+
+## 6. Multilingual Coverage (6 Languages)
 - English (Default): `/` (`en-US` on `evminovusa.com`, `en-CA` on `evminovcanada.com`)
 - Spanish: `/es/` (`es-US`)
 - French: `/fr/` (`fr-CA`)
@@ -61,8 +67,9 @@ International air/parcel carriers serving the USA and Canada enforce a 120 cm pa
 - Ukrainian: `/uk/` (`uk-UA`)
 - Russian: `/ru/` (`ru`)
 
-## 6. Agentic Integration Endpoints
+## 7. Agentic Integration Endpoints
 - Markdown Content Negotiation: Send `Accept: text/markdown` to any page URL.
+- Live AI Biomechanics Concierge (Cloudflare Workers AI): `POST /api/chat`
 - MCP JSON-RPC 2.0 Server: `POST /api/mcp`
 - NLWeb Search API: `GET /api/ask?q=...&lang={en|es|fr|de|uk|ru}`
 - ACP Commerce API: `GET/POST /api/acp/checkout_sessions`

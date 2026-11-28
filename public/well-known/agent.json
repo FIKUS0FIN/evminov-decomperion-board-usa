@@ -1,10 +1,11 @@
 {
   "name": "Evminov Spine Systems Concierge Agent",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "url": "https://evminovusa.com/",
   "interfaces": {
     "mcp": "https://evminovusa.com/api/mcp",
     "nlweb": "https://evminovusa.com/api/ask",
+    "chat": "https://evminovusa.com/api/chat",
     "acp": "https://evminovusa.com/api/acp/checkout_sessions",
     "openapi": "https://evminovusa.com/openapi.json"
   }

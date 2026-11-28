@@ -230,6 +230,38 @@ const COMPARISON_META: Record<string, Record<Locale, LocalizedMeta>> = {
         "Vergleich nicht-invertierter Dekompression: schräges Evminov Holzboard vs. kniender Nubax Trio vs. pneumatische Saunders & ComforTrac Traktion.",
     },
   },
+  "evminov-vs-pull-up-bar-dead-hang-and-mckenzie": {
+    en: {
+      title: "Evminov Board vs. Pull-Up Bar Dead Hangs & McKenzie Method",
+      description:
+        "Compare supported 8°–35° Evminov inclined unloading against pull-up bar dead hangs (grip fatigue, muscle guarding) and McKenzie extension press-ups.",
+    },
+    es: {
+      title: "Tabla Evminov vs. Colgarse de Barra Fija y Método McKenzie",
+      description:
+        "Compara la descarga inclinada Evminov (8°–35°) frente a colgarse de barra de dominadas (fatiga de agarre, espasmo) y extensiones McKenzie.",
+    },
+    fr: {
+      title: "Planche Evminov vs. Barre de Traction et Méthode McKenzie",
+      description:
+        "Comparez la décharge inclinée Evminov (8°–35°) à la suspension à une barre fixe (fatigue des mains, contracture) et aux extensions McKenzie.",
+    },
+    uk: {
+      title: "Профілактор Євмінова проти Вису на Турніку та Методу Маккензі",
+      description:
+        "Порівняйте похилу декомпресію Євмінова (8°–35°) з висом на турніку (втома хвату, спазм) та вправами Маккензі для попереку.",
+    },
+    ru: {
+      title: "Доска Евминова против Виса на Турнике и Метода Маккензи",
+      description:
+        "Сравните наклонную разгрузку Евминова (8°–35°) с висом на турнике (усталость хвата, защитный спазм) и разгибаниями по Маккензи.",
+    },
+    de: {
+      title: "Evminov Board vs. Aushängen an Klimmzugstange & McKenzie-Methode",
+      description:
+        "Vergleichen Sie gestützte 8°–35°-Schrägentlastung am Evminov Board mit Dead Hangs an der Klimmzugstange und McKenzie-Übungen.",
+    },
+  },
 };
 
 const CONDITION_META: Record<string, Record<Locale, LocalizedMeta>> = {
@@ -938,6 +970,102 @@ const GUIDE_META: Record<string, Record<Locale, LocalizedMeta>> = {
       title: "Spinalkanalstenose & L5–S1: Schlaf, Morgenregel & Entlastung",
       description:
         "Warum Überstreckung bei Stenose schadet, wie die 30-Minuten-Morgenregel L5–S1 schützt und wie sanfte 8°–12°-Entlastung mit gebeugten Knien klappt.",
+    },
+  },
+  "piriformis-syndrome-vs-sciatica-self-test-and-relief-guide": {
+    en: {
+      title: "Piriformis Syndrome vs. Sciatica: Differences & Home Relief",
+      description:
+        "How to tell deep gluteal piriformis tension from L4–S1 disc sciatica, simple self-checks, and why gentle 10°–16° head-up unloading calms both safely.",
+    },
+    es: {
+      title: "Síndrome Piramidal vs. Ciática Lumbar: Test y Alivio en Casa",
+      description:
+        "Diferencia entre tensión del músculo piriforme y ciática discal L4–S1, autoevaluaciones sencillas y descarga inclinada suave de 10°–16°.",
+    },
+    fr: {
+      title: "Syndrome du Piriforme vs. Sciatique : Auto-Tests et Soulagement",
+      description:
+        "Comment distinguer le syndrome du piriforme d'une sciatique discale L4–S1, auto-tests doux et décharge inclinée sécurisée à 10°–16°.",
+    },
+    uk: {
+      title: "Синдром Грушоподібного М'яза чи Ішіас: Тест і Полегшення Вдома",
+      description:
+        "Як відрізнити спазм грушоподібного м'яза від корінцевого ішіасу L4–S1, прості самоперевірки та м'яке розвантаження 10°–16° без інверсії.",
+    },
+    ru: {
+      title: "Синдром Грушевидной Мышцы или Ишиас: Тест и Облегчение Дома",
+      description:
+        "Как отличить спазм грушевидной мышцы от дискового ишиаса L4–S1, простые самопроверки и мягкая наклонная разгрузка 10°–16°.",
+    },
+    de: {
+      title: "Piriformis-Syndrom vs. Ischias: Selbsttest & Sanfte Hilfe (2026)",
+      description:
+        "Unterschied zwischen Piriformis-Verspannung und L4–S1-Bandscheiben-Ischias, einfache Selbsttests und sanfte 10°–16° Schrägentlastung.",
+    },
+  },
+  "sciatic-nerve-flossing-and-sleeping-positions-guide": {
+    en: {
+      title: "Sciatic Nerve Flossing & Sleeping Positions Guide (2026)",
+      description:
+        "How gentle sciatic nerve glides, evening 10°–15° inclined unloading, and pillow-supported sleep postures reduce morning lower-back stiffness.",
+    },
+    es: {
+      title: "Deslizamiento del Nervio Ciático y Posturas para Dormir (2026)",
+      description:
+        "Combina movilización suave del nervio ciático, descarga nocturna a 10°–15° y posturas con almohada para despertar sin rigidez lumbar.",
+    },
+    fr: {
+      title: "Glissement du Nerf Sciatique et Positions de Sommeil (2026)",
+      description:
+        "Associez neuro-glissement doux du nerf sciatique, décharge du soir à 10°–15° et coussins ergonomiques pour des matins sans raideur.",
+    },
+    uk: {
+      title: "Нейрофлосінг Сідничного Нерва та Найкращі Пози для Сну (2026)",
+      description:
+        "Як м'яке ковзання сідничного нерва, вечірнє розвантаження 10°–15° і правильні подушки для сну зменшують ранкову скутість попереку.",
+    },
+    ru: {
+      title: "Нейрофлоссинг Седалищного Нерва и Лучшие Позы для Сна (2026)",
+      description:
+        "Как мягкое скольжение седалищного нерва, вечерняя разгрузка 10°–15° и правильные подушки для сна снижают утреннюю скованность.",
+    },
+    de: {
+      title: "Ischias-Nervenmobilisation (Flossing) & Beste Schlafpositionen",
+      description:
+        "Wie sanftes Nerven-Gleiten, 10°–15° Abend-Entlastung am Evminov Board und richtige Kissenlagerung morgendliche Rückenschmerzen lindern.",
+    },
+  },
+  "spondylolisthesis-and-facet-joint-safe-decompression-guide": {
+    en: {
+      title: "Spondylolisthesis & Facet Pain: Safe Spine Conditioning",
+      description:
+        "Why forced back-arching aggravates facet joints and Grade 1 spondylolisthesis, and how bent-knee neutral 8°–14° unloading protects posterior joints.",
+    },
+    es: {
+      title: "Espondilolistesis y Dolor Facetario: Descompresión Segura",
+      description:
+        "Por qué arquear la espalda empeora las articulaciones facetarias y cómo la descarga neutra con rodillas flexionadas a 8°–14° protege la lumbar.",
+    },
+    fr: {
+      title: "Spondylolisthésis et Douleur Facettaire : Décharge Neutre Sûre",
+      description:
+        "Pourquoi l'hyperextension irrite les facettes articulaires et comment la décharge douce genoux fléchis à 8°–14° préserve l'alignement neutre.",
+    },
+    uk: {
+      title: "Спондилолістез і Фасеткові Суглоби: Безпечне Розвантаження",
+      description:
+        "Чому прогини назад погіршують фасетковий біль і спондилолістез 1 ст., та як нейтральне розвантаження зі зігнутими колінами 8°–14° знімає тиск.",
+    },
+    ru: {
+      title: "Спондилолистез и Фасеточные Суставы: Безопасная Разгрузка",
+      description:
+        "Почему прогибы назад усиливают фасеточную боль и спондилолистез 1 ст., и как нейтральная разгрузка с согнутыми коленями 8°–14° бережёт спину.",
+    },
+    de: {
+      title: "Wirbelgleiten (Spondylolisthesis) & Facettensyndrom: Sicher Entlasten",
+      description:
+        "Warum Hohlkreuz-Überstreckung Facettengelenke reizt und wie neutrale 8°–14°-Schrägentlastung mit angewinkelten Knien sanft entlastet.",
     },
   },
 };
