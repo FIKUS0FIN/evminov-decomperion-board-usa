@@ -54,6 +54,33 @@ export function getRegionalEmailConfig(
   };
 }
 
+/**
+ * Optional instant Telegram notification for Kostiantyn / operations.
+ * Activates automatically once TELEGRAM_BOT_TOKEN & TELEGRAM_CHAT_ID are set in Cloudflare Pages.
+ */
+export async function sendTelegramAdminAlert(
+  env: AuthEnv,
+  text: string
+): Promise<void> {
+  if (!env.TELEGRAM_BOT_TOKEN || !env.TELEGRAM_CHAT_ID) return;
+  try {
+    await fetch(
+      `https://api.telegram.org/bot${encodeURIComponent(env.TELEGRAM_BOT_TOKEN)}/sendMessage`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: env.TELEGRAM_CHAT_ID,
+          text: text.slice(0, 3800),
+          disable_web_page_preview: true,
+        }),
+      }
+    );
+  } catch {
+    // Non-blocking alert — never break order or message flow
+  }
+}
+
 export interface AuthUser {
   id: string;
   email: string;

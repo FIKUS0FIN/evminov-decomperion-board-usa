@@ -71,21 +71,23 @@ const ORDER_STATUSES = [
 
 const QUICK_TEMPLATES = [
   {
-    label: "Лінійка США/Канада + WhatsApp",
+    label: "США (лінійка + WhatsApp)",
     text: `Hello!
 
 My name is Kostiantyn, and I will help you finalize your Evminov Board order, shipping, and customs paperwork.
 
-Because international carriers enforce a 120 cm parcel limit, our US & Canada lineup ships exclusively in demountable folding sections (delivery by international couriers takes approximately 2 weeks, backed by a 1-Year Warranty):
+Because international carriers enforce a 120 cm parcel limit, our US lineup ships exclusively in demountable folding sections (delivery by international couriers takes approximately 2 weeks, backed by a 1-Year Warranty):
 
 1. 3-Piece Folding Evminov Board (230–245 cm):
 https://evminovusa.com/products/3-piece-travel-board/
-• Standard Width (26 cm, up to 100 kg / 220 lbs) or Reinforced Wide (30 cm, for >100 kg / up to 330 lbs)
+• Standard Width (26 cm, up to 100 kg / 220 lbs) — $495 Direct / $635 Express
+• Reinforced Wide (30 cm, for >100 kg / up to 330 lbs) — $520 Direct / $660 Express
 • Light (Natural Warm Amber Alder) or Dark (Dark Walnut Pine) finish
 
 2. 2-Piece Folding Evminov Board ("Spine Toothbrush" — 2 sections only):
 https://evminovusa.com/products/2-piece-folding-board/
-• Standard Width (26 cm) or Reinforced Wide (30 cm)
+• Standard Width (26 cm) — $475 Direct / $615 Express
+• Reinforced Wide (30 cm) — $500 Direct / $640 Express
 • Light or Dark wood finish
 
 Every board includes the Glisson Cervical Loop, wall mounting hardware, illustrated manual, official product passport, and a 1-Year Warranty.
@@ -102,6 +104,41 @@ https://wa.me/17473060140 (+1 747 306-0140)
 Warm regards,
 Kostiantyn
 Evminov Spine Systems Operations Team`,
+  },
+  {
+    label: "Канада (ціни CA + WhatsApp)",
+    text: `Hello!
+
+My name is Kostiantyn, and I will help you finalize your Evminov Board delivery to Canada and customs paperwork.
+
+Because international carriers enforce a 120 cm parcel limit, orders to Canada ship exclusively in demountable folding sections (~2 weeks tracked international courier delivery, 1-Year Warranty):
+
+1. 3-Piece Folding Evminov Board (230–245 cm):
+https://evminovcanada.com/products/3-piece-travel-board/
+• Standard Width (26 cm, up to 100 kg / 220 lbs) — $445 Direct / $545 Express
+• Reinforced Wide (30 cm, >100 kg / up to 330 lbs) — $500 Direct / $585 Express
+• Light or Dark wood finish
+
+2. 2-Piece Folding Evminov Board ("Spine Toothbrush" — 2 sections only):
+https://evminovcanada.com/products/2-piece-folding-board/
+• Standard Width (26 cm) — $435 Direct / $540 Express
+• Reinforced Wide (30 cm) — $495 Direct / $580 Express
+• Light or Dark wood finish
+
+Every board includes the Glisson Cervical Loop, wall mounting kit, illustrated manual, official product passport, and a 1-Year Warranty.
+
+Optional official accessories:
+• 4-Piece Demountable Ladder Stand (max height 123 cm, 26 cm & 30 cm) — $275
+• Mounting Hooks (Ladder Stand / Swedish Wall) — $35
+• 2-Bag Carry Case Set (3-Piece Board) — $105 / Single Carry Bag (2-Piece Board) — $105
+• 2-Piece Wall Protection Panel: Standard 26 cm ($155) or Reinforced Wide 30 cm ($175)
+
+For the fastest confirmation of all Canadian shipping, customs, and payment details, please message our operator directly on WhatsApp:
+https://wa.me/17473060140 (+1 747 306-0140)
+
+Warm regards,
+Kostiantyn
+Evminov Spine Systems Canada Operations`,
   },
   {
     label: "Запросити адресу і тел.",

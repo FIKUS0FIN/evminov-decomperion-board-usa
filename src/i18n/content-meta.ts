@@ -106,32 +106,32 @@ const COMPARISON_META: Record<string, Record<Locale, LocalizedMeta>> = {
     en: {
       title: "Home Decompression Board vs. Clinic Traction Cost & ROI",
       description:
-        "Compare $3,500+/year in recurring clinic decompression visits against a one-time $450 Evminov board with 1-year frame warranty and 10-minute home sessions.",
+        "Compare $3,500+/year in recurring clinic decompression visits against a one-time $475 Evminov board with 1-year frame warranty and 10-minute home sessions.",
     },
     es: {
       title: "Tabla Evminov en Casa vs. Costo de Clínicas de Tracción",
       description:
-        "Compara $3,500+ al año en citas clínicas de descompresión frente a una inversión única de $450 en la tabla Evminov con garantía estructural de 1 año.",
+        "Compara $3,500+ al año en citas clínicas de descompresión frente a una inversión única de $475 en la tabla Evminov con garantía estructural de 1 año.",
     },
     fr: {
       title: "Planche Evminov à Domicile vs. Coût des Cliniques",
       description:
-        "Comparez 3 500 $/an de séances en clinique à un investissement unique de 450 $ pour la planche Evminov garantie 1 an pour toute la famille.",
+        "Comparez 3 500 $/an de séances en clinique à un investissement unique de 475 $ pour la planche Evminov garantie 1 an pour toute la famille.",
     },
     uk: {
       title: "Дошка Євмінова Вдома проти Ціни Клінічних Сеансів",
       description:
-        "Порівняйте $3,500+/рік витрат на клінічну тракцію з разовою інвестицією $450 у Профілактор Євмінова з 1-річною гарантією для всієї родини.",
+        "Порівняйте $3,500+/рік витрат на клінічну тракцію з разовою інвестицією $475 у Профілактор Євмінова з 1-річною гарантією для всієї родини.",
     },
     ru: {
       title: "Доска Евминова Дома против Цены Клинической Тракции",
       description:
-        "Сравните $3,500+ в год на визиты в клиники с разовой покупкой доски Евминова за $450, 1-летней гарантией и 10 минутами занятий дома.",
+        "Сравните $3,500+ в год на визиты в клиники с разовой покупкой доски Евминова за $475, 1-летней гарантией и 10 минутами занятий дома.",
     },
     de: {
       title: "Heim-Dekompressionsboard vs. Klinik-Traktion: Kosten & Nutzen",
       description:
-        "Vergleichen Sie $3,500+/Jahr für Klinik-Traktionssitzungen mit einer einmaligen Investition von $450 in das Evminov Board samt 1-Jahres-Garantie und 10-Minuten-Heimroutine.",
+        "Vergleichen Sie $3,500+/Jahr für Klinik-Traktionssitzungen mit einer einmaligen Investition von $475 in das Evminov Board samt 1-Jahres-Garantie und 10-Minuten-Heimroutine.",
     },
   },
   "evminov-vs-back-surgery": {

@@ -18,7 +18,7 @@ const LOCALIZED_FAQS: Record<Exclude<Locale, "en">, FaqItem[]> = {
     },
     {
       question: "¿Cuánto tiempo y dinero ahorra frente a visitas recurrentes a clínicas?",
-      answer: "2 visitas semanales a $80–$120 suman $3,500–$6,000+ al año más 200+ horas de traslados. Una tabla Evminov de $450 (garantía 1 año) se paga en 4–6 sesiones y sirve a toda la familia.",
+      answer: "2 visitas semanales a $80–$120 suman $3,500–$6,000+ al año más 200+ horas de traslados. Una tabla Evminov de $475 (garantía 1 año) se paga en 4–6 sesiones y sirve a toda la familia.",
     },
     {
       question: "¿Cómo ayuda la tabla Evminov a quienes trabajan sentados 8+ horas al día?",
@@ -34,7 +34,7 @@ const LOCALIZED_FAQS: Record<Exclude<Locale, "en">, FaqItem[]> = {
     },
     {
       question: "¿Por qué se llama el método «Cepillo de Dientes para la Columna»?",
-      answer: "Cepillamos 32 dientes cada día, pero descuidamos 32–34 vértebras. Una tabla de $450 usada 20 años por una familia de 3 cuesta unos $7.50 por persona al año.",
+      answer: "Cepillamos 32 dientes cada día, pero descuidamos 32–34 vértebras. Una tabla de $475 usada 20 años por una familia de 3 cuesta unos $7.50 por persona al año.",
     },
     {
       question: "¿En qué consiste la Prueba en Casa de 60 Días y Garantía de 1 Año?",
@@ -80,7 +80,7 @@ const LOCALIZED_FAQS: Record<Exclude<Locale, "en">, FaqItem[]> = {
     },
     {
       question: "Combien économise-t-on par rapport aux séances répétées en clinique ?",
-      answer: "2 séances/semaine à 80–120 $ coûtent 3 500–6 000 $/an. Une planche à 450 $ (garantie 1 an) est amortie en 4 à 6 séances pour toute la famille.",
+      answer: "2 séances/semaine à 80–120 $ coûtent 3 500–6 000 $/an. Une planche à 475 $ (garantie 1 an) est amortie en 4 à 6 séances pour toute la famille.",
     },
     {
       question: "Comment aide-t-elle les télétravailleurs assis 8h+ par jour ?",
@@ -96,7 +96,7 @@ const LOCALIZED_FAQS: Record<Exclude<Locale, "en">, FaqItem[]> = {
     },
     {
       question: "Pourquoi parle-t-on de « Brosse à Dents de la Colonne » ?",
-      answer: "Nous brossons 32 dents par jour mais négligeons 32–34 vertèbres. Sur 20 ans pour une famille de 3, la planche à 450 $ revient à ~7,50 $/personne/an.",
+      answer: "Nous brossons 32 dents par jour mais négligeons 32–34 vertèbres. Sur 20 ans pour une famille de 3, la planche à 475 $ revient à ~7,50 $/personne/an.",
     },
     {
       question: "Comment fonctionnent l'Essai 60 Jours et la Garantie 1 An ?",
@@ -142,7 +142,7 @@ const LOCALIZED_FAQS: Record<Exclude<Locale, "en">, FaqItem[]> = {
     },
     {
       question: "Скільки часу й грошей економить домашня декомпресія порівняно з клініками?",
-      answer: "2 візити на тиждень по $80–$120 — це $3,500–$6,000+ на рік і 200+ годин у дорозі. Разова покупка дошки за $450 (гарантія 1 рік) окупається за 4–6 сеансів і служить всій родині.",
+      answer: "2 візити на тиждень по $80–$120 — це $3,500–$6,000+ на рік і 200+ годин у дорозі. Разова покупка дошки за $475 (гарантія 1 рік) окупається за 4–6 сеансів і служить всій родині.",
     },
     {
       question: "Як дошка допомагає офісним та віддаленим працівникам (8+ годин сидіння)?",
@@ -158,7 +158,7 @@ const LOCALIZED_FAQS: Record<Exclude<Locale, "en">, FaqItem[]> = {
     },
     {
       question: "Чому методику називають «Зубною щіткою для хребта»?",
-      answer: "Ми чистимо 32 зуби щодня, але ігноруємо 32–34 хребці. Дошка за $450 на 20 років для родини з 3 осіб коштує ~$7.50 на людину на рік (менше 3 центів на день).",
+      answer: "Ми чистимо 32 зуби щодня, але ігноруємо 32–34 хребці. Дошка за $475 на 20 років для родини з 3 осіб коштує ~$7.50 на людину на рік (менше 3 центів на день).",
     },
     {
       question: "Як працюють 60-Денний Тест-Період та 1-Річна Гарантія?",
@@ -204,7 +204,7 @@ const LOCALIZED_FAQS: Record<Exclude<Locale, "en">, FaqItem[]> = {
     },
     {
       question: "Сколько времени и денег экономит домашняя декомпрессия по сравнению с клиниками?",
-      answer: "2 визита в неделю по $80–$120 — это $3,500–$6,000+ в год и 200+ часов в дороге. Разовая покупка доски за $450 (гарантия 1 год) окупается за 4–6 сеансов для всей семьи.",
+      answer: "2 визита в неделю по $80–$120 — это $3,500–$6,000+ в год и 200+ часов в дороге. Разовая покупка доски за $475 (гарантия 1 год) окупается за 4–6 сеансов для всей семьи.",
     },
     {
       question: "Как доска помогает офисным и удалённым сотрудникам (8+ часов сидения)?",
@@ -220,7 +220,7 @@ const LOCALIZED_FAQS: Record<Exclude<Locale, "en">, FaqItem[]> = {
     },
     {
       question: "Почему методику называют «Зубной щёткой для позвоночника»?",
-      answer: "Мы чистим 32 зуба каждый день, но забываем о 32–34 позвонках. Доска за $450 на 20 лет для семьи из 3 человек стоит ~$7.50 на человека в год.",
+      answer: "Мы чистим 32 зуба каждый день, но забываем о 32–34 позвонках. Доска за $475 на 20 лет для семьи из 3 человек стоит ~$7.50 на человека в год.",
     },
     {
       question: "Как работают 60-Дневный Тест-Период и 1-Летняя Гарантия?",
@@ -266,7 +266,7 @@ const LOCALIZED_FAQS: Record<Exclude<Locale, "en">, FaqItem[]> = {
     },
     {
       question: "Wie viel Zeit und Geld spart man gegenüber laufenden Praxisbesuchen?",
-      answer: "Zwei Termine pro Woche à $80–$120 summieren sich auf $3,500–$6,000+ pro Jahr plus über 200 Stunden Fahrtzeit. Ein einmaliges Evminov Board ab $450 (1 Jahr Garantie) amortisiert sich nach 4–6 Sitzungen für die ganze Familie.",
+      answer: "Zwei Termine pro Woche à $80–$120 summieren sich auf $3,500–$6,000+ pro Jahr plus über 200 Stunden Fahrtzeit. Ein einmaliges Evminov Board ab $475 (1 Jahr Garantie) amortisiert sich nach 4–6 Sitzungen für die ganze Familie.",
     },
     {
       question: "Wie hilft das Evminov Board bei 8+ Stunden täglicher Schreibtischarbeit?",
@@ -282,7 +282,7 @@ const LOCALIZED_FAQS: Record<Exclude<Locale, "en">, FaqItem[]> = {
     },
     {
       question: "Warum wird die Methode „Zahnbürste für die Wirbelsäule“ genannt?",
-      answer: "Wir pflegen täglich 32 Zähne, vernachlässigen aber 32–34 Wirbel. Ein $450-Board, das eine 3-köpfige Familie 20 Jahre lang nutzt, kostet nur ca. $7,50 pro Person und Jahr.",
+      answer: "Wir pflegen täglich 32 Zähne, vernachlässigen aber 32–34 Wirbel. Ein $475-Board, das eine 3-köpfige Familie 20 Jahre lang nutzt, kostet nur ca. $7,50 pro Person und Jahr.",
     },
     {
       question: "Wie funktionieren der 60-Tage-Heimtest und die 1-Jahres-Garantie?",

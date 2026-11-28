@@ -262,7 +262,11 @@ export function GoogleTagManager() {
               click_location: currentPath,
             });
           }
-        } else if (href.startsWith("http") && !href.includes("evminovusa.com")) {
+        } else if (
+          href.startsWith("http") &&
+          !href.includes("evminovusa.com") &&
+          !href.includes("evminovcanada.com")
+        ) {
           sendGTMEvent("click_external", {
             external_url: href,
             click_location: currentPath,

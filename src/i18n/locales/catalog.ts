@@ -1,6 +1,7 @@
 import { Locale } from "@/i18n/types";
 import { ProductGalleryImage, ProductItem } from "@/data/products";
 import { ConditionGoal, lbsToKg } from "@/lib/physics";
+import { SITE_CONFIG } from "@/lib/site-config";
 
 export const FINISH_LABELS: Record<string, Record<Locale, string>> = {
   "Light Natural Pine": {
@@ -2248,7 +2249,7 @@ export const ORDER_WIZARD_COPY: Record<Locale, OrderWizardCopy> = {
     hsaCheckbox:
       "Include itemized wellness equipment invoice & LMN guide for HSA/FSA claim",
     stripeNotice:
-      "Direct online card checkout (Stripe, Apple Pay, Google Pay, Klarna) is being finalized for our US LLC entity. Submitting this form reserves your selected unit immediately and emails you a confirmation + payment link from orders@evminovusa.com.",
+      `Direct online card checkout via Stripe launches early next year. Submitting this form reserves your selected folding board immediately with zero upfront charge — our operator emails your confirmation & payment instructions from ${SITE_CONFIG.ordersEmail} (or message us on WhatsApp ${SITE_CONFIG.phoneDisplay}).`,
     successBody:
       "We sent a confirmation summary to your email and alerted our Glendale, CA fulfillment team. Expect shipping verification and your payment link within 1 business day.",
     orderRef: "Reference ID",
@@ -2293,7 +2294,7 @@ export const ORDER_WIZARD_COPY: Record<Locale, OrderWizardCopy> = {
     hsaCheckbox:
       "Incluir factura detallada de equipo de bienestar y guía LMN para reembolso HSA/FSA",
     stripeNotice:
-      "El pago directo en línea con tarjeta (Stripe, Apple Pay, Google Pay, Klarna) se está finalizando para nuestra entidad LLC en EE. UU. Al enviar este formulario reservas tu unidad de inmediato y recibes confirmación y enlace de pago desde orders@evminovusa.com.",
+      `El pago directo en línea con tarjeta (Stripe) se activará a principios del próximo año. Enviar este formulario reserva tu tabla plegable al instante sin cargo previo y recibirás confirmación e instrucciones de pago desde ${SITE_CONFIG.ordersEmail} (o vía WhatsApp ${SITE_CONFIG.phoneDisplay}).`,
     successBody:
       "Enviamos un resumen de confirmación a tu correo y notificamos a nuestro equipo de despacho en Glendale, CA. Recibirás la verificación de envío y tu enlace de pago en 1 día hábil.",
     orderRef: "Código de Referencia",
@@ -2338,7 +2339,7 @@ export const ORDER_WIZARD_COPY: Record<Locale, OrderWizardCopy> = {
     hsaCheckbox:
       "Inclure une facture détaillée d'équipement de bien-être et le guide LMN (HSA/FSA)",
     stripeNotice:
-      "Le paiement direct en ligne par carte (Stripe, Apple Pay, Google Pay, Klarna) est en cours de finalisation pour notre entité LLC américaine. L'envoi de ce formulaire réserve immédiatement votre modèle et vous transmet une confirmation et un lien de paiement depuis orders@evminovusa.com.",
+      `Le paiement direct en ligne par carte (Stripe) sera activé en début d'année prochaine. L'envoi de ce formulaire réserve immédiatement votre planche pliable sans frais initiaux et vous transmet confirmation et instructions de paiement depuis ${SITE_CONFIG.ordersEmail} (ou via WhatsApp ${SITE_CONFIG.phoneDisplay}).`,
     successBody:
       "Nous avons envoyé un récapitulatif de confirmation à votre adresse courriel et averti notre entrepôt de Glendale, CA. Attendez la vérification d'expédition et votre lien de paiement sous 1 jour ouvrable.",
     orderRef: "Référence",
@@ -2382,7 +2383,7 @@ export const ORDER_WIZARD_COPY: Record<Locale, OrderWizardCopy> = {
     hsaCheckbox:
       "Додати деталізований інвойс та шаблон LMN для HSA/FSA у США",
     stripeNotice:
-      "Пряма онлайн-оплата карткою (Stripe, Apple Pay, Google Pay, Klarna) завершує підключення під американську LLC. Після відправки цієї форми ми миттєво бронюємо дошку й надсилаємо підтвердження та посилання на оплату з orders@evminovusa.com.",
+      `Пряма онлайн-оплата карткою через Stripe запрацює на початку року. Відправка цієї форми миттєво бронює вашу розбірну дошку без передоплати — оператор надішле підтвердження та деталі оплати з ${SITE_CONFIG.ordersEmail} (або напишіть у WhatsApp ${SITE_CONFIG.phoneDisplay}).`,
     successBody:
       "Ми надіслали деталі на ваш email і сповістили склад у Глендейлі, Каліфорнія. Очікуйте підтвердження доставки та посилання на оплату протягом 1 робочого дня.",
     orderRef: "Номер Заявки",
@@ -2425,7 +2426,7 @@ export const ORDER_WIZARD_COPY: Record<Locale, OrderWizardCopy> = {
     hsaCheckbox:
       "Включить детализированный инвойс и шаблон LMN для HSA/FSA в США",
     stripeNotice:
-      "Прямая онлайн-оплата картой (Stripe, Apple Pay, Google Pay, Klarna) завершает подключение под американскую LLC. Отправка этой формы мгновенно бронирует доску и отправляет подтверждение со ссылкой на оплату с orders@evminovusa.com.",
+      `Прямая онлайн-оплата картой через Stripe запустится в начале года. Отправка этой формы мгновенно бронирует вашу разборную доску без предоплаты — оператор отправит подтверждение и реквизиты оплаты с ${SITE_CONFIG.ordersEmail} (или напишите в WhatsApp ${SITE_CONFIG.phoneDisplay}).`,
     successBody:
       "Мы отправили детали на ваш email и уведомили склад в Глендейле, Калифорния. Ожидайте подтверждение доставки и ссылку на оплату в течение 1 рабочего дня.",
     orderRef: "Номер Заявки",
@@ -2470,7 +2471,7 @@ export const ORDER_WIZARD_COPY: Record<Locale, OrderWizardCopy> = {
     hsaCheckbox:
       "Detaillierte Rechnung für Wellness-Equipment & LMN-Leitfaden für HSA/FSA-Erstattung beilegen",
     stripeNotice:
-      "Der direkte Online-Kartenzahlungs-Checkout (Stripe, Apple Pay, Google Pay, Klarna) wird derzeit für unsere US-LLC finalisiert. Mit dem Absenden dieses Formulars reservieren Sie Ihr gewünschtes Modell sofort und erhalten eine Bestätigung samt Zahlungslink von orders@evminovusa.com.",
+      `Die direkte Online-Kartenzahlung über Stripe startet Anfang nächsten Jahres. Mit dem Absenden dieses Formulars reservieren Sie Ihr klappbares Board sofort unverbindlich und erhalten Bestätigung sowie Zahlungsdetails von ${SITE_CONFIG.ordersEmail} (oder per WhatsApp ${SITE_CONFIG.phoneDisplay}).`,
     successBody:
       "Wir haben eine Bestätigungsübersicht an Ihre E-Mail gesendet und unser Versandteam in Glendale, CA informiert. Versandbestätigung und Zahlungslink folgen innerhalb von 1 Werktag.",
     orderRef: "Referenz-ID",

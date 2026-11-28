@@ -21,6 +21,7 @@ import {
 import { Locale } from "@/i18n/types";
 import { AUTH_UI_COPY } from "@/i18n/locales/auth";
 import { AuthUser, OrderEvent, OrderRecord } from "@/components/auth/useAuth";
+import { SITE_CONFIG } from "@/lib/site-config";
 import { getLocalizedHref } from "@/lib/url";
 
 const TIMELINE_STEPS = [
@@ -480,20 +481,20 @@ export function MarketplaceOrderHub({
       .hdr{border-bottom:2px solid #0b1f3a;padding-bottom:14px;margin-bottom:20px;}
       table{width:100%;border-collapse:collapse;margin:16px 0;}td{padding:8px;border-bottom:1px solid #e2e8f0;font-size:13px;}
       </style></head><body>
-      <div class="hdr"><h1 style="margin:0;font-size:20px;">EVMINOV SPINE SYSTEMS USA — ITEMIZED WELLNESS RECEIPT</h1>
+      <div class="hdr"><h1 style="margin:0;font-size:20px;">${SITE_CONFIG.legalName.toUpperCase()} — ITEMIZED WELLNESS RECEIPT</h1>
       <p style="margin:4px 0 0;font-size:12px;color:#475569;">Reference: ${ord.order_ref} • HTS 9506.91.0030 (General Wellness &amp; Spine Conditioning Equipment)</p></div>
       <table>
         <tr><td><strong>Customer</strong></td><td>${ord.customer_name || user.name} (${ord.customer_email})</td></tr>
         <tr><td><strong>Phone</strong></td><td>${ord.customer_phone || user.phone || "—"}</td></tr>
         <tr><td><strong>Shipping Destination</strong></td><td>${ord.state_or_country} ${ord.address}</td></tr>
-        <tr><td><strong>Equipment</strong></td><td>${ord.product_name} (${ord.finish})${ord.include_stand ? " + Free-Standing Stand" : ""}</td></tr>
+        <tr><td><strong>Equipment</strong></td><td>${ord.product_name} (${ord.finish})${ord.include_stand ? " + 4-Piece Ladder Stand" : ""}</td></tr>
         <tr><td><strong>Fulfillment</strong></td><td>${ord.shipping_method}</td></tr>
         <tr><td><strong>Status</strong></td><td>${authCopy.statuses[ord.status] || ord.status}</td></tr>
         ${ord.tracking_number ? `<tr><td><strong>Tracking</strong></td><td>${ord.tracking_number}</td></tr>` : ""}
-        <tr><td><strong>Total (USD)</strong></td><td><strong>$${ord.total_usd} USD</strong></td></tr>
+        <tr><td><strong>Total (${SITE_CONFIG.currency})</strong></td><td><strong>$${ord.total_usd} ${SITE_CONFIG.currency}</strong></td></tr>
       </table>
-      <p style="font-size:11px;color:#64748b;margin-top:24px;">Evminov Spine Systems USA • 4525 San Fernando Rd, Unit H, Glendale, CA 91204 • +1 (747) 306-0140 • support@evminovusa.com<br/>
-      For HSA/FSA pre-tax reimbursement, submit this itemized receipt with a Letter of Medical Necessity (LMN) from your healthcare provider.</p>
+      <p style="font-size:11px;color:#64748b;margin-top:24px;">${SITE_CONFIG.legalName} • WhatsApp: ${SITE_CONFIG.phoneDisplay} • ${SITE_CONFIG.supportEmail} • 1-Year Manufacturer Warranty<br/>
+      For US HSA/FSA or Canadian Extended Health / CRA reimbursement, submit this itemized receipt with a Letter of Medical Necessity (LMN) or prescription from your healthcare provider.</p>
       <script>window.print();</script></body></html>
     `);
     w.document.close();

@@ -409,7 +409,7 @@ const COMPARISONS_TRANSLATIONS: Record<
       summary:
         "Teeter es la marca de mesas de inversión más conocida en EE. UU., pero muchos compradores la devuelven por molestias en los tobillos, mareos y su enorme estructura de acero. Mira cómo se compara la tabla Evminov en cada aspecto práctico.",
       keyTakeaways: [
-        "Precio único comparable ($450–$635) sin almohadillas de tobillo de repuesto que se desgasten.",
+        "Precio único comparable ($475–$660) sin almohadillas de tobillo de repuesto que se desgasten.",
         "Cero mareos ni presión facial: cómoda tanto al despertar como antes de dormir.",
         "Incluye el lazo cervical de Glisson para el confort del cuello y la tensión frente a pantallas.",
         "Estética artesanal de madera natural que armoniza con dormitorios y gimnasios modernos en casa.",
@@ -417,7 +417,7 @@ const COMPARISONS_TRANSLATIONS: Record<
       rows: [
         {
           metric: "Precio Inicial",
-          evminov: "$450 directo / $595 Express CA",
+          evminov: "$475 directo / $615 Express CA",
           alternative: "$379 – $699 según la serie de Teeter",
         },
         {
@@ -467,7 +467,7 @@ const COMPARISONS_TRANSLATIONS: Record<
       summary:
         "Teeter est la marque de tables d'inversion la plus connue en Amérique du Nord, mais de nombreux acheteurs la retournent à cause des douleurs aux chevilles, des étourdissements et de son encombrant châssis en acier. Découvrez le comparatif point par point avec la planche Evminov.",
       keyTakeaways: [
-        "Tarif unique comparable (450 $–635 $) sans mousses de chevilles à remplacer.",
+        "Tarif unique comparable (475 $–635 $) sans mousses de chevilles à remplacer.",
         "Zéro vertige ni pression faciale : agréable le matin comme juste avant le coucher.",
         "Inclut la boucle cervicale de Glisson pour soulager la nuque et la posture sur écran.",
         "Esthétique artisanale en bois naturel qui s'intègre élégamment dans une chambre ou un bureau.",
@@ -475,7 +475,7 @@ const COMPARISONS_TRANSLATIONS: Record<
       rows: [
         {
           metric: "Prix de Départ",
-          evminov: "450 $ direct / 595 $ Express CA",
+          evminov: "475 $ direct / 615 $ Express CA",
           alternative: "379 $ – 699 $ selon la gamme Teeter",
         },
         {
@@ -525,7 +525,7 @@ const COMPARISONS_TRANSLATIONS: Record<
       summary:
         "Teeter — найвідоміший бренд інверсійних столів у США, проте багато покупців повертають його через біль у щиколотках, запаморочення та масивну сталеву конструкцію. Подивіться, як Профілактор Євмінова перевершує його за всіма практичними параметрами.",
       keyTakeaways: [
-        "Порівнянна разова ціна ($450–$635) без витрат на заміну поролонових валиків для ніг.",
+        "Порівнянна разова ціна ($475–$660) без витрат на заміну поролонових валиків для ніг.",
         "Жодного запаморочення чи тиску в очах — комфортно вранці та перед сном.",
         "Петля Гліссона для м'якої шийної тракції та зняття напруги від екранів вже у комплекті.",
         "Натуральна ручна обробка деревини гармонійно доповнює сучасну спальню або домашній зал.",
@@ -533,7 +533,7 @@ const COMPARISONS_TRANSLATIONS: Record<
       rows: [
         {
           metric: "Стартова Ціна",
-          evminov: "$450 напряму / $595 Експрес CA",
+          evminov: "$475 напряму / $615 Експрес CA",
           alternative: "$379 – $699 залежно від серії Teeter",
         },
         {
@@ -583,7 +583,7 @@ const COMPARISONS_TRANSLATIONS: Record<
       summary:
         "Teeter — самый известный бренд инверсионных столов в США, но многие покупатели возвращают его из-за боли в лодыжках, головокружения и громоздкой стальной рамы. Сравните Доску Евминова по каждому практическому параметру.",
       keyTakeaways: [
-        "Сопоставимая разовая цена ($450–$635) без износа и замены мягких валиков для лодыжек.",
+        "Сопоставимая разовая цена ($475–$660) без износа и замены мягких валиков для лодыжек.",
         "Никакого головокружения и давления в глазах — комфортно утром и перед сном.",
         "Петля Глиссона для мягкой шейной тракции и снятия напряжения от экранов уже в комплекте.",
         "Эстетика натурального дерева органично вписывается в современную спальню или домашний кабинет.",
@@ -591,7 +591,7 @@ const COMPARISONS_TRANSLATIONS: Record<
       rows: [
         {
           metric: "Стартовая Цена",
-          evminov: "$450 напрямую / $595 Экспресс CA",
+          evminov: "$475 напрямую / $615 Экспресс CA",
           alternative: "$379 – $699 в зависимости от серии Teeter",
         },
         {
@@ -641,7 +641,7 @@ const COMPARISONS_TRANSLATIONS: Record<
       summary:
         "Teeter ist die bekannteste Inversionsbank-Marke in den USA, doch viele Käufer geben sie wegen Knöchelschmerzen, Schwindel und des sperrigen Stahlrahmens zurück. Sehen Sie, wie das Evminov Board in jedem praktischen Punkt abschneidet.",
       keyTakeaways: [
-        "Vergleichbarer Einmalpreis ($450–$635) ohne verschleißende Knöchelpolster zum Nachkaufen.",
+        "Vergleichbarer Einmalpreis ($475–$660) ohne verschleißende Knöchelpolster zum Nachkaufen.",
         "Kein Schwindel und kein Gesichtsdruck — angenehm direkt morgens sowie vor dem Schlafengehen.",
         "Inklusive kostenloser Glisson-Nackenschlinge für Halswirbel-Komfort und Bildschirmentlastung.",
         "Handgefertigte Naturholz-Optik, die sich harmonisch in Schlafzimmer und moderne Home-Gyms einfügt.",
@@ -649,7 +649,7 @@ const COMPARISONS_TRANSLATIONS: Record<
       rows: [
         {
           metric: "Einstiegspreis",
-          evminov: "$450 Direkt / $595 CA Express",
+          evminov: "$475 Direkt / $615 CA Express",
           alternative: "$379 – $699 je nach Teeter-Serie",
         },
         {
@@ -962,20 +962,20 @@ const COMPARISONS_TRANSLATIONS: Record<
       metaTitle:
         "Tabla de Descompresión en Casa vs. Costo y Resultados de Clínicas",
       metaDescription:
-        "Compara una inversión única de $450 en la tabla Evminov frente a $3,000–$6,000/año en copagos clínicos y traslados. Constancia diaria de 10 minutos en casa.",
+        "Compara una inversión única de $475 en la tabla Evminov frente a $3,000–$6,000/año en copagos clínicos y traslados. Constancia diaria de 10 minutos en casa.",
       competitorName: "Sesiones de Tracción en Clínica",
       eyebrow: "Economía y Constancia • Estación Espinal en Casa",
       summary:
         "La tracción motorizada en clínica cuesta $80–$150 por sesión y exige conducir por la ciudad — volviendo a comprimir tu columna en el tráfico justo después del tratamiento. Las sesiones diarias de 10 minutos en casa te permiten descomprimir cada mañana y cada noche.",
       keyTakeaways: [
-        "Una inversión única de $450–$665 se amortiza en 3–5 semanas frente a los copagos clínicos.",
+        "Una inversión única de $475–$660 se amortiza en 3–5 semanas frente a los copagos clínicos.",
         "Cero viajes en coche tras la sesión: acuéstate directamente antes de dormir para conservar el alivio espinal.",
         "Una sola tabla se ajusta en 5 segundos para cada miembro de la familia, de los 6 a los 85+ años.",
       ],
       rows: [
         {
           metric: "Costo Anual",
-          evminov: "$450–$665 una sola vez (décadas de uso)",
+          evminov: "$475–$660 una sola vez (décadas de uso)",
           alternative: "$3,000–$6,000+ al año en copagos",
         },
         {
@@ -1015,20 +1015,20 @@ const COMPARISONS_TRANSLATIONS: Record<
       metaTitle:
         "Planche de Décompression à Domicile vs. Coût et Résultats en Clinique",
       metaDescription:
-        "Comparez un achat unique de 450 $ pour la planche Evminov face à 3 000 $–6 000 $/an de frais cliniques et de trajets. L'avantage d'une routine quotidienne de 10 minutes à la maison.",
+        "Comparez un achat unique de 475 $ pour la planche Evminov face à 3 000 $–6 000 $/an de frais cliniques et de trajets. L'avantage d'une routine quotidienne de 10 minutes à la maison.",
       competitorName: "Séances de Traction en Clinique",
       eyebrow: "Économie et Régularité • Station Vertébrale à Domicile",
       summary:
         "La traction motorisée en clinique coûte 80 $ à 150 $ par séance et impose de reprendre le volant — recomprimant souvent votre colonne dans les embouteillages juste après la séance. Dix minutes quotidiennes à la maison permettent de décompresser matin et soir.",
       keyTakeaways: [
-        "Un investissement unique de 450 $–665 $ est rentabilisé en 3 à 5 semaines par rapport aux frais cliniques.",
+        "Un investissement unique de 475 $–665 $ est rentabilisé en 3 à 5 semaines par rapport aux frais cliniques.",
         "Zéro trajet en voiture après la séance : allongez-vous directement avant le coucher pour prolonger le relâchement.",
         "Une seule planche se règle en 5 secondes pour toute la famille, de 6 à 85+ ans.",
       ],
       rows: [
         {
           metric: "Coût Annuel",
-          evminov: "450 $–665 $ une seule fois (des décennies d'usage)",
+          evminov: "475 $–665 $ une seule fois (des décennies d'usage)",
           alternative: "3 000 $–6 000 $+ par an en frais de clinique",
         },
         {
@@ -1068,20 +1068,20 @@ const COMPARISONS_TRANSLATIONS: Record<
       metaTitle:
         "Домашня Дошка Декомпресії проти Вартості та Результату Клінічної Тракції",
       metaDescription:
-        "Порівняйте разову покупку Профілактора Євмінова за $450 із витратами $3,000–$6,000/рік на візити в клініки та дорогу. Щоденні 10-хвилинні заняття вдома.",
+        "Порівняйте разову покупку Профілактора Євмінова за $475 із витратами $3,000–$6,000/рік на візити в клініки та дорогу. Щоденні 10-хвилинні заняття вдома.",
       competitorName: "Сеанси Тракції в Клініці",
       eyebrow: "Економіка та Регулярність • Домашня Станція для Спини",
       summary:
         "Апаратна тракція в клініці коштує $80–$150 за сеанс і вимагає поїздок містом — дорога в авто часто знову стискає хребет одразу після процедури. Щоденні 10-хвилинні заняття вдома дозволяють розвантажувати спину щоранку та щовечора.",
       keyTakeaways: [
-        "Разова інвестиція $450–$665 окупається за 3–5 тижнів порівняно з доплатами в клініках.",
+        "Разова інвестиція $475–$660 окупається за 3–5 тижнів порівняно з доплатами в клініках.",
         "Жодних поїздок у заторах після заняття — лягайте одразу перед сном, щоб закріпити полегшення.",
         "Один тренажер за 5 секунд налаштовується під кожного члена родини від 6 до 85+ років.",
       ],
       rows: [
         {
           metric: "Річні Витрати",
-          evminov: "$450–$665 один раз (десятиліття служби)",
+          evminov: "$475–$660 один раз (десятиліття служби)",
           alternative: "$3,000–$6,000+ щороку на візити",
         },
         {
@@ -1121,20 +1121,20 @@ const COMPARISONS_TRANSLATIONS: Record<
       metaTitle:
         "Домашняя Доска Декомпрессии против Цены и Результатов Клинической Тракции",
       metaDescription:
-        "Сравните разовую покупку Доски Евминова за $450 с расходами $3,000–$6,000/год на клиники и дорогу. Преимущество ежедневных 10-минутных занятий дома.",
+        "Сравните разовую покупку Доски Евминова за $475 с расходами $3,000–$6,000/год на клиники и дорогу. Преимущество ежедневных 10-минутных занятий дома.",
       competitorName: "Сеансы Тракции в Клинике",
       eyebrow: "Экономика и Регулярность • Домашняя Станция для Спины",
       summary:
         "Аппаратная тракция в клинике стоит $80–$150 за сеанс и требует поездок по городу — дорога за рулём нередко снова сжимает позвоночник сразу после процедуры. Ежедневные 10-минутные сеансы дома позволяют разгружать спину каждое утро и вечер.",
       keyTakeaways: [
-        "Разовая инвестиция $450–$665 окупается за 3–5 недель по сравнению с визитами в клиники.",
+        "Разовая инвестиция $475–$660 окупается за 3–5 недель по сравнению с визитами в клиники.",
         "Никаких поездок в пробках после сеанса — отдыхайте прямо перед сном, закрепляя разгрузку.",
         "Одна доска за 5 секунд регулируется под каждого члена семьи от 6 до 85+ лет.",
       ],
       rows: [
         {
           metric: "Годовые Расходы",
-          evminov: "$450–$665 один раз (десятилетия службы)",
+          evminov: "$475–$660 один раз (десятилетия службы)",
           alternative: "$3,000–$6,000+ в год на приёмы",
         },
         {
@@ -1174,20 +1174,20 @@ const COMPARISONS_TRANSLATIONS: Record<
       metaTitle:
         "Heim-Dekompressionsboard vs. Klinik-Traktion: Kosten & Ergebnisse",
       metaDescription:
-        "Vergleichen Sie eine einmalige Investition von $450 für das Evminov Board mit $3,000–$6,000/Jahr an Klinik-Zuzahlungen und Anfahrten. Der Vorteil täglicher 10-Minuten-Konstanz zu Hause.",
+        "Vergleichen Sie eine einmalige Investition von $475 für das Evminov Board mit $3,000–$6,000/Jahr an Klinik-Zuzahlungen und Anfahrten. Der Vorteil täglicher 10-Minuten-Konstanz zu Hause.",
       competitorName: "Klinik-Traktionssitzungen",
       eyebrow: "Wirtschaftlichkeit & Konstanz • Heim-Rückenstation",
       summary:
         "Motorisierte Klinik-Traktion kostet $80–$150 pro Termin und erfordert Autofahrten quer durch die Stadt — wodurch der Rücken im Verkehr direkt nach der Behandlung oft wieder gestaucht wird. Tägliche 10-Minuten-Einheiten zu Hause entlasten jeden Morgen und Abend.",
       keyTakeaways: [
-        "Eine einmalige Investition von $450–$665 amortisiert sich im Vergleich zu Klinik-Zuzahlungen in 3–5 Wochen.",
+        "Eine einmalige Investition von $475–$660 amortisiert sich im Vergleich zu Klinik-Zuzahlungen in 3–5 Wochen.",
         "Keine Rückfahrt im Auto nach der Einheit: Entlasten Sie direkt vor dem Schlafengehen für nachhaltigen Komfort.",
         "Ein einziges Board lässt sich in 5 Sekunden für jedes Familienmitglied von 6 bis 85+ Jahren einstellen.",
       ],
       rows: [
         {
           metric: "Jährliche Kosten",
-          evminov: "$450–$665 einmalig (jahrzehntelange Nutzung)",
+          evminov: "$475–$660 einmalig (jahrzehntelange Nutzung)",
           alternative: "$3,000–$6,000+ pro Jahr an Zuzahlungen",
         },
         {
@@ -1247,7 +1247,7 @@ const COMPARISONS_TRANSLATIONS: Record<
         },
         {
           metric: "Costo Típico (EE. UU.)",
-          evminov: "$450–$665 pago único",
+          evminov: "$475–$660 pago único",
           alternative: "$45,000–$120,000+ facturación hospitalaria",
         },
         {
@@ -1295,7 +1295,7 @@ const COMPARISONS_TRANSLATIONS: Record<
         },
         {
           metric: "Coût Habituel (États-Unis)",
-          evminov: "450 $–665 $ en une fois",
+          evminov: "475 $–665 $ en une fois",
           alternative: "45 000 $–120 000 $+ facturation hospitalière",
         },
         {
@@ -1343,7 +1343,7 @@ const COMPARISONS_TRANSLATIONS: Record<
         },
         {
           metric: "Типова Вартість (США)",
-          evminov: "$450–$665 одноразово",
+          evminov: "$475–$660 одноразово",
           alternative: "$45,000–$120,000+ рахунок клініки",
         },
         {
@@ -1391,7 +1391,7 @@ const COMPARISONS_TRANSLATIONS: Record<
         },
         {
           metric: "Типичная Стоимость (США)",
-          evminov: "$450–$665 однократно",
+          evminov: "$475–$660 однократно",
           alternative: "$45,000–$120,000+ больничный счёт",
         },
         {
@@ -1439,7 +1439,7 @@ const COMPARISONS_TRANSLATIONS: Record<
         },
         {
           metric: "Typische Kosten (USA)",
-          evminov: "$450–$665 einmalig",
+          evminov: "$475–$660 einmalig",
           alternative: "$45,000–$120,000+ Krankenhausrechnung",
         },
         {

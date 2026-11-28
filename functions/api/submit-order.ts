@@ -212,7 +212,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
         `Destination: ${stateOrCountry}${address ? ` — ${address}` : ""}`,
         notes ? `Notes: ${notes}` : "",
         `Locale: ${lang}`,
-        `Admin: https://evminovusa.com/admin/`,
+        `Admin: ${emailCfg.siteOrigin}/admin/`,
       ]
         .filter(Boolean)
         .join("\n");
@@ -592,7 +592,7 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
             ${detailsRowsHtml}
             ${safeAttribution ? `<p style="font-size:12px;color:#64748b;"><strong>Traffic Source:</strong> ${safeAttribution}</p>` : ""}
             <p style="margin-top:18px;">
-              <a href="https://evminovusa.com/admin/" style="display:inline-block;background:#0f766e;color:#fff;text-decoration:none;font-weight:700;padding:10px 18px;border-radius:8px;">Open in Admin Dashboard</a>
+              <a href="${emailCfg.siteOrigin}/admin/" style="display:inline-block;background:#0f766e;color:#fff;text-decoration:none;font-weight:700;padding:10px 18px;border-radius:8px;">Open in Admin Dashboard</a>
             </p>
             <p style="font-size:12px;color:#64748b;">Hit Reply in Gmail to respond directly to ${safeEmail}.</p>
           </div>

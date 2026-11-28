@@ -1,53 +1,69 @@
-# Evminov Spine Systems USA — Complete AI Knowledge Base
+# Evminov Spine Systems (USA & Canada) — Complete AI Knowledge Base
 
 ## 1. Verified Brand & Legal Entity Facts
-- **Brand Name:** Evminov Spine Systems (`Evminov USA`)
-- **Official Domain:** https://evminovusa.com/
+- **Brand Name:** Evminov Spine Systems (`Evminov USA` / `Evminov Canada`)
+- **Official Domains:** `https://evminovusa.com/` (USA — USD) | `https://evminovcanada.com/` (Canada — CAD)
 - **Founded:** 1996 by Vyacheslav Volodymyrovych Evminov (Kyiv, Ukraine) — 30 years of continuous methodology heritage.
-- **US Operations & Fulfillment Hub:** 4525 San Fernando Rd, Unit H, Glendale, CA 91204, USA
-- **Phone:** +1 (747) 306-0140 | **Email:** support@evminovusa.com / orders@evminovusa.com
-- **Official YouTube Channel:** https://www.youtube.com/channel/UCwsC2K28uWYijzAKnZljzsw (@evminoviusa)
-- **US Product Classification:** General Wellness & Spine Conditioning Equipment (HTS 9506.91.0030). Not intended to diagnose, treat, cure, or prevent any disease.
-- **Patents:** US Patent 6,869,387 B2 | European Patent EP 1 038 512 B1 | WIPO PCT WO 1999/043288 | Ukrainian Patents 27976 & 28849A | China CN 1292706A.
-- **Trial & Warranty:** 60-Day Home Trial & 10-Year Structural Frame Warranty.
-- **HSA / FSA:** Itemized wellness equipment receipt + Letter of Medical Necessity (LMN) guide emailed upon order (~25%–35% typical US pre-tax savings when approved by plan administrator).
+- **US Operations Hub:** 4525 San Fernando Rd, Unit H, Glendale, CA 91204, USA
+- **Primary Contact (WhatsApp):** `https://wa.me/17473060140` (`+1 (747) 306-0140`)
+- **Email:** `support@evminovusa.com` / `orders@evminovusa.com` (US) | `support@evminovcanada.com` / `orders@evminovcanada.com` (Canada)
+- **Official YouTube Channel:** `https://www.youtube.com/channel/UCwsC2K28uWYijzAKnZljzsw` (`@evminoviusa`) — verified demos: `GDLVNWynWF0` (Method Demo 4:15) & `fP-biAHusGs` (Mounting & Setup Guide 3:40).
+- **Product Classification (US/CA Compliance):** General Wellness & Spine Conditioning Equipment (`HTS 9506.91.0030`). Not intended to diagnose, treat, cure, or prevent any disease.
+- **Patents:** US Patent `6,869,387 B2` | European Patent `EP 1 038 512 B1` | WIPO PCT `WO 1999/043288` | Ukrainian Patents `27976` & `28849A` | China `CN 1292706A`.
+- **Warranty & Trial:** **1-Year Manufacturer Warranty** & 60-Day Home Trial.
+- **HSA / FSA & Canadian Benefits:** Itemized wellness equipment receipt + printable Letter of Medical Necessity (LMN) checklist included (`~25%–35%` estimated US pre-tax HSA/FSA savings or Canadian Extended Health / CRA Medical Expense claim with provider LMN/prescription and plan approval).
 
 ## 2. Biomechanical Formula
-- Inclined-plane axial traction force on lacquered Carpathian pine (`mu = 0.08`):
+- Inclined-plane axial traction force on resonant multi-layer timber (`mu = 0.08`):
   `F_net = max(0, Weight_lbs * sin(angle) - Weight_lbs * cos(angle) * 0.08)`
-- Typical starting windows:
-  - Youth / Seniors / Gentle cervical (Glisson Loop): `8°–12°` (5–8 min)
-  - Lumbar disc comfort / Sciatica unloading: `10°–18°` (8–12 min)
-  - Desk worker posture reset: `14°–22°` (7–10 min)
-  - Athletes / Post-deadlift recovery: `20°–32°` (10–15 min)
+- Typical starting windows (always head-up — zero upside-down blood rush):
+  - Youth / Seniors 55+ / High Blood Pressure Safe / Gentle Cervical (Glisson Loop): `8°–12°` (`3–8 min`)
+  - Lumbar Disc Comfort (`L4–L5`, `L5–S1`) / Sciatica / Neutral Stenosis (knees softly bent): `10°–18°` (`8–12 min`)
+  - Desk Worker Posture Reset & Tech-Neck: `14°–22°` (`7–10 min`)
+  - Athletes / Post-Deadlift & Squat Recovery: `20°–32°` (`10–15 min`)
 
-## 3. Complete Product Lineup (Exact Single Source of Truth)
-1. **Standard Solid Evminov Board (`standard-pine-board`, SKU `EV-STD-PINE-1P`)**: `$450` Direct / `$595` CA Express. Up to `6'4"`, `210 lbs`. Weight `23–25 lbs`. Folds `2.4"` flat to wall. Includes Glisson Loop + 16" US wood stud bracket.
-2. **2-Piece Folding Board (`2-piece-folding-board`, SKU `EV-FOLD-2P`)**: `$475` Direct / `$615` CA Express. Up to `6'4"`, `220 lbs`. Splits into two ~45" halves in 30s for under-bed/closet storage.
-3. **3-Piece Travel Board (`3-piece-travel-board`, SKU `EV-FOLD-3P-TRV`)**: `$495` Direct / `$635` CA Express. Up to `6'4"`, `220 lbs`. ~31" segments, padded carry case, over-the-door strap.
-4. **Wide Panel Heavy-Duty Board (`wide-heavy-duty-board`, SKU `EV-WIDE-330`)**: `$500` Direct / `$635` CA Express. Up to `6'9"`, `330 lbs`. 30% wider deck & reinforced dual-pin carriage for strength athletes.
-5. **Select Alder Wood Board (`select-alder-board`, SKU `EV-ALDER-LTD`)**: `$525` Direct / `$665` CA Express. Up to `6'4"`, `220 lbs`. ~15% lighter cured Ukrainian alder (`19–21 lbs`).
-6. **Demountable Free-Standing Ladder Stand (`free-standing-stand`, SKU `EV-STAND-RENT`)**: `$275` Direct / `$345` CA Express. Rated `350 lbs`. Zero wall drilling for apartments (<3.5 sq ft).
+## 3. Official US & Canada Product Lineup (Demountable Folding Panels <=120 cm)
+International air/parcel carriers serving the USA and Canada enforce a 120 cm package length limit. All North American Evminov boards ship exclusively in precision-coupled demountable panels, arriving via tracked international couriers in **approximately 2 weeks**, complete with the patented Glisson Cervical Loop, wall mounting kit, illustrated exercise manual, official product passport, and 1-Year Warranty.
 
-## 4. Shipping Timelines
-- **US Express from Glendale, CA (All 50 States):** 1–2 business days (CA, AZ, NV, OR, UT), 2–3 business days (TX, CO, WA, IL, Midwest, South), 3–4 business days (NY, FL, East Coast), 4–5 business days (AK, HI air cargo).
-- **Direct Workshop Delivery (US, Canada, EU, UK, Ukraine):** 10–16 business days worldwide.
+### Folding Evminov Boards (Light Warm Amber Alder OR Dark Walnut Pine)
+1. **3-Piece Folding Evminov Board (`3-piece-travel-board`, 230–245 cm full length):**
+   - **Standard Width `26 cm`** (up to `100 kg` / `220 lbs`, `6'4"`):
+     - US: `$495` Direct / `$635` Express USD
+     - Canada: `$445` Direct / `$545` Express CAD
+   - **Reinforced Wide `30 cm`** (`>100 kg` / up to `150 kg` / `330 lbs`, `6'9"`):
+     - US: `$520` Direct / `$660` Express USD
+     - Canada: `$500` Direct / `$585` Express CAD
+2. **2-Piece Folding Evminov Board (`2-piece-folding-board`, "Spine Toothbrush" — 2 sections only):**
+   - **Standard Width `26 cm`** (up to `100 kg` / `220 lbs`, `6'4"`):
+     - US: `$475` Direct / `$615` Express USD
+     - Canada: `$435` Direct / `$540` Express CAD
+   - **Reinforced Wide `30 cm`** (`>100 kg` / up to `150 kg` / `330 lbs`, `6'9"`):
+     - US: `$500` Direct / `$640` Express USD
+     - Canada: `$495` Direct / `$580` Express CAD
 
-## 5. Patient & Owner Portal, 30-Day Protocol & Family Economics
-- **5-Language Patient Portal:** `https://evminovusa.com/portal/` (also `/es/portal/`, `/fr/portal/`, `/uk/portal/`, `/ru/portal/`) — includes guided countdown session timer (8/10/12/15 min), 30-day habit tracker, 16-inch US wood stud mounting checklist, printable HSA/FSA LMN reference sheet, and live 10-year frame warranty registration.
-- **30-Day Progression:** Phase 1 (Days 1–7, 10°–15°, 8–10 min gentle acclimation) → Phase 2 (Days 8–14, 15°–20°, 10–12 min deep stabilizer activation) → Phase 3 (Days 15–30+, 18°–28°, 12–15 min functional posture & athletic maintenance).
-- **"Spine Toothbrush" Family Economics:** One `$450` board adjusts in 5 seconds for ages 4–85+ (~`$7.50`/person/year for a family of three over 20 years) and typically pays for itself in 4–6 massage/PT clinic visits.
+### 6 Official Factory Accessories
+1. **4-Piece Demountable Ladder Stand (max height 123 cm):** `$275` — freestanding no-drill stand compatible with both `26 cm` Standard and `30 cm` Reinforced Wide boards.
+2. **Evminov Board Mounting Hooks:** `$35` — heavy-duty steel hooks for the 4-Piece Ladder Stand or any Swedish Wall.
+3. **2-Bag Protective Carry Case Set (3-Piece Board):** `$105` — dual-bag storage & transport set.
+4. **Single Protective Carry Case Bag (2-Piece Board):** `$105` — single fitted bag for the 2-Piece "Spine Toothbrush".
+5. **2-Piece Wall Protection Panel — Standard `26 cm`:** `$155` — protective wall backing for standard boards.
+6. **2-Piece Wall Protection Panel — Reinforced Wide `30 cm`:** `$175` — protective wall backing for wide 30 cm boards.
 
-## 6. Multilingual Coverage
-- English (Default): `https://evminovusa.com/`
-- Spanish (US/LATAM): `https://evminovusa.com/es/`
-- French (Canada/EU): `https://evminovusa.com/fr/`
-- Ukrainian: `https://evminovusa.com/uk/`
-- Russian: `https://evminovusa.com/ru/`
+## 4. Shipping & Ordering Workflow
+- **International Courier Delivery (USA & Canada):** Approximately **2 weeks** tracked delivery to all 50 US states and all Canadian provinces (Ontario, Quebec, BC, Alberta, Manitoba, Nova Scotia, and nationwide).
+- **Zero-Risk Reservation & Operator Confirmation:** Online checkout reserves your configuration and opens a tracked order in the Patient Portal; our operations specialist confirms exact finish, width (`26 cm` vs `30 cm`), accessories, shipping & customs details via email and WhatsApp (`+1 747 306-0140`). Direct Stripe online card checkout is planned for early next year.
 
-## 7. Agentic Integration Endpoints
+## 5. Multilingual Coverage (6 Languages)
+- English (Default): `/` (`en-US` on `evminovusa.com`, `en-CA` on `evminovcanada.com`)
+- Spanish: `/es/` (`es-US`)
+- French: `/fr/` (`fr-CA`)
+- German: `/de/` (`de-DE`)
+- Ukrainian: `/uk/` (`uk-UA`)
+- Russian: `/ru/` (`ru`)
+
+## 6. Agentic Integration Endpoints
 - Markdown Content Negotiation: Send `Accept: text/markdown` to any page URL.
-- MCP JSON-RPC 2.0 Server: `POST https://evminovusa.com/api/mcp`
-- NLWeb Search API: `GET https://evminovusa.com/api/ask?q=...&lang={en|es|fr|uk|ru}`
-- ACP Commerce API: `GET/POST https://evminovusa.com/api/acp/checkout_sessions`
-- Discovery Catalogs: `/.well-known/ai-catalog.json`, `/.well-known/agent-card.json`, `/.well-known/mcp/server-card.json`, `/.well-known/acp.json`, `/.well-known/ucp`, `/.well-known/api-catalog`, `/openapi.json`
+- MCP JSON-RPC 2.0 Server: `POST /api/mcp`
+- NLWeb Search API: `GET /api/ask?q=...&lang={en|es|fr|de|uk|ru}`
+- ACP Commerce API: `GET/POST /api/acp/checkout_sessions`
+- Discovery Catalogs: `/.well-known/ai-catalog.json`, `/.well-known/agent-card.json`, `/.well-known/mcp/server-card.json`, `/.well-known/acp.json`, `/.well-known/ucp`, `/.well-known/api-catalog`, `/openapi.json`, `/merchant-feed.xml`, `/rss.xml`

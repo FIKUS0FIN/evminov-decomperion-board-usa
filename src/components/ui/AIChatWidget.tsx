@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { MessageSquare, X, Send, Camera, Loader2 } from "lucide-react";
 import { Locale } from "@/i18n/types";
 import { getDictionary } from "@/i18n/dictionaries";
+import { SITE_CONFIG } from "@/lib/site-config";
 import { sendGTMEvent } from "@/lib/gtm";
 
 interface ChatMessage {
@@ -103,7 +104,7 @@ export function AIChatWidget({ lang }: { lang: Locale }) {
           role: "assistant",
           content:
             data.reply ||
-            "Please call our Glendale, CA team at +1 (747) 306-0140 or email support@evminovusa.com for personalized sizing.",
+            `Message our Evminov specialist directly on WhatsApp at ${SITE_CONFIG.phoneDisplay} (https://wa.me/17473060140) or email ${SITE_CONFIG.supportEmail} for personalized sizing.`,
         },
       ]);
     } catch {
@@ -111,8 +112,7 @@ export function AIChatWidget({ lang }: { lang: Locale }) {
         ...nextHistory,
         {
           role: "assistant",
-          content:
-            "I could not reach the concierge server right now. You can use our Angle Calculator or contact support@evminovusa.com / +1 (747) 306-0140.",
+          content: `I could not reach the concierge server right now. You can use our Angle Calculator or message us on WhatsApp at ${SITE_CONFIG.phoneDisplay} (${SITE_CONFIG.supportEmail}).`,
         },
       ]);
     } finally {

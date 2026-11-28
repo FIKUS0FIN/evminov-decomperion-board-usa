@@ -69,7 +69,10 @@ export function captureAttributionFromUrl(): AttributionSnapshot | null {
     if (!updated.referrer && document.referrer) {
       try {
         const refUrl = new URL(document.referrer);
-        if (!refUrl.hostname.includes("evminovusa.com")) {
+        if (
+          !refUrl.hostname.includes("evminovusa.com") &&
+          !refUrl.hostname.includes("evminovcanada.com")
+        ) {
           updated.referrer = refUrl.hostname.slice(0, 120);
         }
       } catch {

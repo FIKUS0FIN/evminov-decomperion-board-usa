@@ -3,6 +3,7 @@ import {
   getRegionalEmailConfig,
   getSessionUser,
   jsonResponse,
+  sendTelegramAdminAlert,
 } from "../../_lib/auth";
 import { escapeHtml } from "../submit-order";
 
@@ -106,6 +107,18 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
         }),
       }).catch(() => {});
     }
+
+    await sendTelegramAdminAlert(
+      env,
+      [
+        `💬 Нове повідомлення клієнта (${emailCfg.isCanada ? "CA" : "US"})`,
+        `Замовлення: ${String(order.order_ref || "")}`,
+        `Від: ${authorName} (${user.email})`,
+        `Товар: ${String(order.product_name || "")}`,
+        `Текст: ${message.slice(0, 600)}`,
+        `Адмінка: ${emailCfg.siteOrigin}/admin/`,
+      ].join("\n")
+    );
 
     return jsonResponse({
       ok: true,

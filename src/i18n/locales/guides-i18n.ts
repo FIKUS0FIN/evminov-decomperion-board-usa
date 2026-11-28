@@ -1236,7 +1236,7 @@ const GUIDE_TRANSLATIONS: Record<
           id: "thirty-two-vertebrae",
           heading: "2. Economía de la Prevención Diaria de 10 Minutos",
           paragraphs: [
-            "Vyacheslav Evminov creó el concepto «Higiene Diaria de la Columna» en los años 90. Una tabla artesanal de $450 dura más de 20 años y sirve a toda una familia de tres — unos $7.50 por persona al año.",
+            "Vyacheslav Evminov creó el concepto «Higiene Diaria de la Columna» en los años 90. Una tabla artesanal de $475 dura más de 20 años y sirve a toda una familia de tres — unos $7.50 por persona al año.",
           ],
         },
       ],
@@ -1272,7 +1272,7 @@ const GUIDE_TRANSLATIONS: Record<
           id: "thirty-two-vertebrae",
           heading: "2. L'Économie de 10 Minutes de Prévention Quotidienne",
           paragraphs: [
-            "Une planche artisanale à 450 $ dure plus de 20 ans et s'adapte à une famille de trois personnes — soit environ 7,50 $ par personne et par an.",
+            "Une planche artisanale à 475 $ dure plus de 20 ans et s'adapte à une famille de trois personnes — soit environ 7,50 $ par personne et par an.",
           ],
         },
       ],
@@ -1308,7 +1308,7 @@ const GUIDE_TRANSLATIONS: Record<
           id: "thirty-two-vertebrae",
           heading: "2. Економіка Щоденної 10-Хвилинної Профілактики",
           paragraphs: [
-            "В'ячеслав Євмінов запровадив принцип «Щоденної Гігієни Хребта» у 1990-х. Одна дошка за $450 служить понад 20 років і підходить для родини з трьох осіб — близько $7,50 на людину на рік.",
+            "В'ячеслав Євмінов запровадив принцип «Щоденної Гігієни Хребта» у 1990-х. Одна дошка за $475 служить понад 20 років і підходить для родини з трьох осіб — близько $7,50 на людину на рік.",
           ],
         },
       ],
@@ -1344,7 +1344,7 @@ const GUIDE_TRANSLATIONS: Record<
           id: "thirty-two-vertebrae",
           heading: "2. Экономика Ежедневной 10-Минутной Профилактики",
           paragraphs: [
-            "Вячеслав Евминов ввёл принцип «Ежедневной Гигиены Позвоночника» в 1990-х. Одна доска за $450 служит более 20 лет и подходит для семьи из трёх человек — около $7,50 на человека в год.",
+            "Вячеслав Евминов ввёл принцип «Ежедневной Гигиены Позвоночника» в 1990-х. Одна доска за $475 служит более 20 лет и подходит для семьи из трёх человек — около $7,50 на человека в год.",
           ],
         },
       ],
@@ -1380,7 +1380,7 @@ const GUIDE_TRANSLATIONS: Record<
           id: "thirty-two-vertebrae",
           heading: "2. Wirtschaftlichkeit täglicher 10-Minuten-Prävention",
           paragraphs: [
-            "Wjatscheslaw Evminov prägte in den 1990er-Jahren das Konzept der „täglichen Wirbelsäulen-Hygiene“. Ein handgefertigtes Board für $450 hält über 20 Jahre und dient einer dreiköpfigen Familie — rund $7.50 pro Person und Jahr.",
+            "Wjatscheslaw Evminov prägte in den 1990er-Jahren das Konzept der „täglichen Wirbelsäulen-Hygiene“. Ein handgefertigtes Board für $475 hält über 20 Jahre und dient einer dreiköpfigen Familie — rund $7.50 pro Person und Jahr.",
           ],
         },
       ],
@@ -1413,7 +1413,7 @@ const GUIDE_TRANSLATIONS: Record<
             "Elegir la tabla adecuada depende de tres factores: su estatura/peso, su espacio disponible y si planea transportarla.",
           ],
           bullets: [
-            "Pino Sólido Estándar ($450 directo / $595 CA Express): Ideal para pared permanente hasta 1,93 m y 95 kg.",
+            "Pino Sólido Estándar ($475 directo / $615 CA Express): Ideal para pared permanente hasta 1,93 m y 95 kg.",
             "Plegable 2 Piezas ($475 / $615): Se divide en dos mitades en 30 segundos para clóset o bajo cama (hasta 100 kg).",
             "Viaje 3 Piezas ($495 / $635): Cabe en bolsa de 79 cm con correa para puerta (hasta 100 kg).",
             "Ancha Heavy-Duty ($500 / $635): +30% anchura reforzada hasta 150 kg y 2,06 m.",
@@ -1463,7 +1463,7 @@ const GUIDE_TRANSLATIONS: Record<
             "Le choix repose sur trois critères simples : taille/poids, espace disponible et besoin de portabilité.",
           ],
           bullets: [
-            "Pin Massif Standard (450 $ / 595 $ CA Express) : Fixation murale idéale jusqu'à 1,93 m et 95 kg.",
+            "Pin Massif Standard (475 $ / 615 $ CA Express) : Fixation murale idéale jusqu'à 1,93 m et 95 kg.",
             "Pliante 2 Pièces (475 $ / 615 $) : Se sépare en deux en 30 s pour placard ou sous-lit (100 kg).",
             "Voyage 3 Pièces (495 $ / 635 $) : Sac 79 cm avec sangle de porte (100 kg).",
             "Large Heavy-Duty (500 $ / 635 $) : +30 % de largeur renforcée jusqu'à 150 kg et 2,06 m.",
@@ -1513,7 +1513,7 @@ const GUIDE_TRANSLATIONS: Record<
             "Вибір залежить від трьох параметрів: ваш зріст і вага, площа житла та потреба в перевезенні.",
           ],
           bullets: [
-            "Стандартна Сосна ($450 напряму / $595 CA Express): Найкраща для стіни до 193 см і 95 кг.",
+            "Стандартна Сосна ($475 напряму / $615 CA Express): Найкраща для стіни до 193 см і 95 кг.",
             "Складна 2-Секційна ($475 / $615): Розкладається за 30 секунд для шафи або під ліжко (до 100 кг).",
             "Дорожня 3-Секційна ($495 / $635): Сумка 79 см із дверним кріпленням (до 100 кг).",
             "Широка Посилена ($500 / $635): На 30% ширша, до 150 кг і 206 см.",
@@ -1563,7 +1563,7 @@ const GUIDE_TRANSLATIONS: Record<
             "Выбор зависит от трёх параметров: ваш рост и вес, площадь жилья и необходимость перевозки.",
           ],
           bullets: [
-            "Стандартная Сосна ($450 напрямую / $595 CA Express): Лучшая для стены до 193 см и 95 кг.",
+            "Стандартная Сосна ($475 напрямую / $615 CA Express): Лучшая для стены до 193 см и 95 кг.",
             "Складная 2-Секционная ($475 / $615): Разбирается за 30 секунд для шкафа или под кровать (до 100 кг).",
             "Дорожная 3-Секционная ($495 / $635): Сумка 79 см с дверным креплением (до 100 кг).",
             "Широкая Усиленная ($500 / $635): На 30% шире, до 150 кг и 206 см.",
@@ -1613,7 +1613,7 @@ const GUIDE_TRANSLATIONS: Record<
             "Die optimale Wahl hängt von drei Faktoren ab: Ihrer Körpergröße und Ihrem Gewicht, Ihrem Platzangebot sowie dem Bedarf an Transportierbarkeit.",
           ],
           bullets: [
-            "Standard Massiv-Kiefer ($450 Direkt / $595 CA Express): Ideal für dauerhafte Wandmontage bis 1,93 m und 95 kg (210 lbs).",
+            "Standard Massiv-Kiefer ($475 Direkt / $615 CA Express): Ideal für dauerhafte Wandmontage bis 1,93 m und 95 kg (210 lbs).",
             "2-teilig Klappbar ($475 / $615): In 30 Sekunden in zwei Hälften teilbar für Schrank oder unter dem Bett (bis 100 kg / 220 lbs).",
             "3-teilig Reise ($495 / $635): Passt in eine 79-cm-Reisetasche inkl. Türanker (bis 100 kg / 220 lbs).",
             "Wide Heavy-Duty ($500 / $635): +30 % breiter und verstärkt bis 150 kg (330 lbs) und 2,06 m (6'9\").",
