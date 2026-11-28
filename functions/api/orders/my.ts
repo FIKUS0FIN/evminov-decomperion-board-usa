@@ -10,7 +10,7 @@ export const onRequestGet: PagesFunction<AuthEnv> = async ({ request, env }) => 
     return jsonResponse({ ok: false, error: "Unauthorized" }, 401);
   }
 
-  const { results } = await env.DB.prepare(
+  const { results: orders } = await env.DB.prepare(
     `SELECT
        id, order_ref, mode, status,
        customer_name, customer_email, customer_phone,
@@ -24,7 +24,33 @@ export const onRequestGet: PagesFunction<AuthEnv> = async ({ request, env }) => 
      LIMIT 100`
   )
     .bind(user.id, user.email.toLowerCase())
-    .all();
+    .all<Record<string, unknown>>();
 
-  return jsonResponse({ ok: true, orders: results || [] });
+  const orderList = orders || [];
+  const eventsByOrder: Record<string, Record<string, unknown>[]> = {};
+
+  if (orderList.length > 0) {
+    const { results: events } = await env.DB.prepare(
+      `SELECT e.id, e.order_id, e.event_type, e.status, e.message, e.author_role, e.author_name, e.created_at
+       FROM order_events e
+       INNER JOIN orders o ON o.id = e.order_id
+       WHERE o.user_id = ? OR lower(o.customer_email) = ?
+       ORDER BY e.created_at ASC`
+    )
+      .bind(user.id, user.email.toLowerCase())
+      .all<Record<string, unknown>>();
+
+    for (const ev of events || []) {
+      const oid = String(ev.order_id || "");
+      if (!eventsByOrder[oid]) eventsByOrder[oid] = [];
+      eventsByOrder[oid].push(ev);
+    }
+  }
+
+  const enriched = orderList.map((o) => ({
+    ...o,
+    events: eventsByOrder[String(o.id)] || [],
+  }));
+
+  return jsonResponse({ ok: true, orders: enriched });
 };

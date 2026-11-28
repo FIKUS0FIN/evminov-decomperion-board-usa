@@ -29,7 +29,8 @@ import {
 import { Locale } from "@/i18n/types";
 import { AUTH_UI_COPY } from "@/i18n/locales/auth";
 import { AuthCard } from "@/components/auth/AuthCard";
-import { OrderRecord, useAuth } from "@/components/auth/useAuth";
+import { OrderEvent, OrderRecord, useAuth } from "@/components/auth/useAuth";
+import { MarketplaceOrderHub } from "@/components/portal/MarketplaceOrderHub";
 import {
   LOCALIZED_CONTRAINDICATIONS,
   PORTAL_UI_COPY,
@@ -642,70 +643,23 @@ export function PatientPortalDashboard({ lang }: { lang: Locale }) {
                   </div>
                 </div>
 
-                {/* Live Orders & Status Panel */}
-                <section className="no-print mx-auto max-w-7xl px-4 pt-6">
-                  <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
-                    <div className="flex flex-wrap items-center justify-between gap-3">
-                      <div>
-                        <h2 className="flex items-center gap-2 font-display text-lg font-black text-slate-950">
-                          <Package className="h-5 w-5 text-teal-700" />
-                          <span>{authCopy.myOrdersHeading}</span>
-                        </h2>
-                        <p className="mt-0.5 text-xs text-slate-500">{authCopy.myOrdersSub}</p>
-                      </div>
-                      <Link
-                        href={getLocalizedHref("/order/", lang)}
-                        className="rounded-xl bg-teal-700 px-4 py-2 text-xs font-extrabold text-white transition hover:bg-teal-800"
-                      >
-                        {authCopy.placeFirstOrder}
-                      </Link>
-                    </div>
-
-                    {ordersLoading ? (
-                      <p className="mt-4 text-xs text-slate-500">{authCopy.loadingSession}</p>
-                    ) : myOrders.length === 0 ? (
-                      <p className="mt-4 rounded-2xl bg-slate-50 p-4 text-xs text-slate-600">
-                        {authCopy.noOrdersYet}
-                      </p>
-                    ) : (
-                      <div className="mt-4 grid gap-3 md:grid-cols-2">
-                        {myOrders.map((ord) => (
-                          <div
-                            key={ord.id}
-                            className="rounded-2xl border border-slate-200 bg-slate-50/70 p-4 text-xs"
-                          >
-                            <div className="flex items-center justify-between gap-2">
-                              <span className="font-mono font-extrabold text-slate-950">
-                                {ord.order_ref}
-                              </span>
-                              <span className="rounded-full bg-teal-100 px-2.5 py-0.5 font-extrabold text-teal-900">
-                                {authCopy.statuses[ord.status] || ord.status}
-                              </span>
-                            </div>
-                            <p className="mt-1.5 font-bold text-slate-900">
-                              {ord.product_name} {ord.finish ? `• ${ord.finish}` : ""}
-                            </p>
-                            <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-slate-600">
-                              {ord.total_usd > 0 && (
-                                <span>
-                                  {authCopy.totalLabel}: <strong>${ord.total_usd} USD</strong>
-                                </span>
-                              )}
-                              {ord.tracking_number && (
-                                <span>
-                                  {authCopy.trackingLabel}:{" "}
-                                  <strong className="font-mono text-slate-900">
-                                    {ord.tracking_number}
-                                  </strong>
-                                </span>
-                              )}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </section>
+                {/* Marketplace Order Timeline & Account Profile Hub */}
+                <MarketplaceOrderHub
+                  lang={lang}
+                  user={user}
+                  onUserUpdated={(nextUser) => setUser(nextUser)}
+                  orders={myOrders}
+                  ordersLoading={ordersLoading}
+                  onOrderEventAdded={(orderId: string, ev: OrderEvent) => {
+                    setMyOrders((prev) =>
+                      prev.map((ord) =>
+                        ord.id === orderId
+                          ? { ...ord, events: [...(ord.events || []), ev] }
+                          : ord
+                      )
+                    );
+                  }}
+                />
 
                 {/* Clinical Navy Hero + Inline Owner Access Card */}
                 <section className="no-print border-b border-slate-200 bg-gradient-to-br from-[#0B1628] via-[#0B1F3A] to-[#0E2949] text-white">

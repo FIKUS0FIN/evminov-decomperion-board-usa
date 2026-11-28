@@ -85,6 +85,21 @@ export function OrderWizard({ lang }: { lang: Locale }) {
     setName((prev) => prev || user.name || "");
     setEmail((prev) => prev || user.email || "");
     setPhone((prev) => prev || user.phone || "");
+    if (user.shippingState) {
+      setStateOrCountry((prev) =>
+        prev === "California (CA)" ? user.shippingState || prev : prev
+      );
+    }
+    const savedFullAddress = [
+      user.shippingAddress,
+      user.shippingCity,
+      user.shippingZip,
+    ]
+      .filter(Boolean)
+      .join(", ");
+    if (savedFullAddress) {
+      setAddress((prev) => prev || savedFullAddress);
+    }
   }, [user]);
 
   const selectedProduct =

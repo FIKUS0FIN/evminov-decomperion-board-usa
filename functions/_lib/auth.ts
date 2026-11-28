@@ -19,6 +19,11 @@ export interface AuthUser {
   hasPassword: boolean;
   hasGoogle: boolean;
   locale: string;
+  shippingState: string;
+  shippingCity: string;
+  shippingAddress: string;
+  shippingZip: string;
+  deliveryNotes: string;
   createdAt: string;
   lastLoginAt: string;
 }
@@ -197,6 +202,11 @@ interface DbUserRow {
   avatar_url: string | null;
   role: string;
   locale: string;
+  shipping_state?: string | null;
+  shipping_city?: string | null;
+  shipping_address?: string | null;
+  shipping_zip?: string | null;
+  delivery_notes?: string | null;
   created_at: string;
   last_login_at: string;
 }
@@ -214,6 +224,11 @@ export function mapUserRow(row: DbUserRow, env: AuthEnv): AuthUser {
     hasPassword: Boolean(row.password_hash),
     hasGoogle: Boolean(row.google_id),
     locale: row.locale || "en",
+    shippingState: row.shipping_state || "",
+    shippingCity: row.shipping_city || "",
+    shippingAddress: row.shipping_address || "",
+    shippingZip: row.shipping_zip || "",
+    deliveryNotes: row.delivery_notes || "",
     createdAt: row.created_at,
     lastLoginAt: row.last_login_at,
   };
@@ -231,7 +246,9 @@ export async function getSessionUser(
   const nowIso = new Date().toISOString();
 
   const row = await env.DB.prepare(
-    `SELECT u.id, u.email, u.name, u.phone, u.password_hash, u.google_id, u.avatar_url, u.role, u.locale, u.created_at, u.last_login_at
+    `SELECT u.id, u.email, u.name, u.phone, u.password_hash, u.google_id, u.avatar_url, u.role, u.locale,
+            u.shipping_state, u.shipping_city, u.shipping_address, u.shipping_zip, u.delivery_notes,
+            u.created_at, u.last_login_at
      FROM sessions s
      INNER JOIN users u ON u.id = s.user_id
      WHERE s.id = ? AND s.expires_at > ?

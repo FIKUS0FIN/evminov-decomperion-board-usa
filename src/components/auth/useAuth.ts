@@ -12,8 +12,24 @@ export interface AuthUser {
   hasPassword: boolean;
   hasGoogle: boolean;
   locale: string;
+  shippingState?: string;
+  shippingCity?: string;
+  shippingAddress?: string;
+  shippingZip?: string;
+  deliveryNotes?: string;
   createdAt: string;
   lastLoginAt: string;
+}
+
+export interface OrderEvent {
+  id: string;
+  order_id: string;
+  event_type: string;
+  status: string;
+  message: string;
+  author_role: string;
+  author_name: string;
+  created_at: string;
 }
 
 export interface OrderRecord {
@@ -40,6 +56,7 @@ export interface OrderRecord {
   locale: string;
   created_at: string;
   updated_at: string;
+  events?: OrderEvent[];
 }
 
 export function useAuth() {

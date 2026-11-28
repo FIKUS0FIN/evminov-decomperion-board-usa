@@ -100,15 +100,30 @@ export const onRequestPost: PagesFunction<AuthEnv> = async ({ request, env }) =>
         )
         .run();
 
-      // Keep user's phone/name enriched on their profile
+      // Log initial order received event for timeline
+      await env.DB.prepare(
+        `INSERT INTO order_events (id, order_id, event_type, status, message, author_role, author_name, created_at)
+         VALUES (?, ?, 'status_change', 'new', ?, 'system', 'Evminov Spine Med', ?)`
+      )
+        .bind(
+          crypto.randomUUID(),
+          orderId,
+          `Order ${orderRef} received (${productName}, ${finish}).`,
+          nowIso
+        )
+        .run();
+
+      // Keep user's phone/name/address enriched on their profile
       if (sessionUser) {
         await env.DB.prepare(
           `UPDATE users
            SET name = COALESCE(NULLIF(?, ''), name),
-               phone = COALESCE(NULLIF(?, ''), phone)
+               phone = COALESCE(NULLIF(?, ''), phone),
+               shipping_state = COALESCE(NULLIF(shipping_state, ''), ?),
+               shipping_address = COALESCE(NULLIF(shipping_address, ''), ?)
            WHERE id = ?`
         )
-          .bind(name, phone, sessionUser.id)
+          .bind(name, phone, stateOrCountry, address, sessionUser.id)
           .run();
       }
     }

@@ -4,9 +4,13 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import {
   CheckCircle2,
+  Download,
   LogOut,
   Mail,
+  MapPin,
+  MessageSquare,
   Package,
+  Plus,
   RefreshCw,
   Search,
   ShieldAlert,
@@ -16,6 +20,7 @@ import {
 } from "lucide-react";
 import { AuthCard } from "@/components/auth/AuthCard";
 import { OrderRecord, useAuth } from "@/components/auth/useAuth";
+import { PRODUCTS } from "@/data/products";
 
 interface AdminUserRow {
   id: string;
@@ -25,6 +30,11 @@ interface AdminUserRow {
   role: "user" | "admin";
   avatar_url: string | null;
   locale: string;
+  shipping_state?: string;
+  shipping_city?: string;
+  shipping_address?: string;
+  shipping_zip?: string;
+  delivery_notes?: string;
   has_google: number;
   has_password: number;
   created_at: string;
@@ -40,18 +50,37 @@ interface StatusSummary {
 }
 
 const ORDER_STATUSES = [
-  { value: "new", label: "Нове (New)", badge: "bg-sky-100 text-sky-900" },
+  { value: "new", label: "Нове замовлення (Order Received)", badge: "bg-sky-100 text-sky-900" },
   {
     value: "operator_review",
-    label: "Обробка нового замовлення оператором (Operator Review)",
+    label: "Обробка оператором Evminov Spine Med",
     badge: "bg-cyan-100 text-cyan-900",
   },
-  { value: "confirmed", label: "Підтверджено (Confirmed)", badge: "bg-indigo-100 text-indigo-900" },
-  { value: "paid", label: "Оплачено (Paid)", badge: "bg-emerald-100 text-emerald-900" },
-  { value: "in_production", label: "Готується (In Production)", badge: "bg-amber-100 text-amber-900" },
-  { value: "shipped", label: "Відправлено (Shipped)", badge: "bg-purple-100 text-purple-900" },
+  {
+    value: "confirmed",
+    label: "Підтверджено оператором Evminov Spine Med",
+    badge: "bg-indigo-100 text-indigo-900",
+  },
+  { value: "paid", label: "Оплату підтверджено (Payment Verified)", badge: "bg-emerald-100 text-emerald-900" },
+  { value: "in_production", label: "Підготовка та перевірка якості", badge: "bg-amber-100 text-amber-900" },
+  { value: "shipped", label: "Відправлено — в дорозі (Shipped)", badge: "bg-purple-100 text-purple-900" },
   { value: "delivered", label: "Доставлено (Delivered)", badge: "bg-teal-100 text-teal-900" },
   { value: "cancelled", label: "Скасовано (Cancelled)", badge: "bg-rose-100 text-rose-900" },
+];
+
+const QUICK_TEMPLATES = [
+  {
+    label: "Запросити адресу і тел.",
+    text: "Hello! Thank you for your Evminov Board order. Could you please confirm your full street shipping address, postal/ZIP code, and phone number for the courier so we can finalize your shipment?",
+  },
+  {
+    label: "Реквізити / оплата",
+    text: "Hello! Your order has been confirmed by our Evminov Spine Med operator. Please reply to confirm your preferred payment method (Card / Zelle / Wire) and we will send your itemized HSA/FSA-ready invoice right away.",
+  },
+  {
+    label: "Відправлено + трекінг",
+    text: "Great news! Your Evminov Board has shipped and is on its way. You can track delivery using the tracking number above or anytime in your Evminov Patient Portal.",
+  },
 ];
 
 function getStatusBadge(status: string): string {
@@ -92,6 +121,7 @@ export function AdminDashboard() {
   const [orderSearch, setOrderSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
   const [userSearch, setUserSearch] = useState("");
+  const [selectedUser, setSelectedUser] = useState<AdminUserRow | null>(null);
 
   // Selected order editor
   const [selectedOrder, setSelectedOrder] = useState<OrderRecord | null>(null);
@@ -99,9 +129,28 @@ export function AdminDashboard() {
   const [editTracking, setEditTracking] = useState("");
   const [editNotes, setEditNotes] = useState("");
   const [editCustomerMessage, setEditCustomerMessage] = useState("");
+  const [editCustomerName, setEditCustomerName] = useState("");
+  const [editCustomerPhone, setEditCustomerPhone] = useState("");
+  const [editStateOrCountry, setEditStateOrCountry] = useState("");
+  const [editAddress, setEditAddress] = useState("");
+  const [editTotalUsd, setEditTotalUsd] = useState("0");
   const [notifyCustomer, setNotifyCustomer] = useState(true);
   const [savingOrder, setSavingOrder] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
+
+  // Manual phone/WhatsApp order modal
+  const [showManualModal, setShowManualModal] = useState(false);
+  const [mName, setMName] = useState("");
+  const [mEmail, setMEmail] = useState("");
+  const [mPhone, setMPhone] = useState("");
+  const [mProduct, setMProduct] = useState(PRODUCTS[0].slug);
+  const [mFinish, setMFinish] = useState("Light Natural Pine");
+  const [mShipping, setMShipping] = useState<"express" | "direct">("express");
+  const [mState, setMState] = useState("California (CA)");
+  const [mAddress, setMAddress] = useState("");
+  const [mTotal, setMTotal] = useState(String(PRODUCTS[0].expressPriceUsd));
+  const [mNotify, setMNotify] = useState(true);
+  const [creatingManual, setCreatingManual] = useState(false);
 
   const loadOrders = useCallback(async () => {
     setBusy(true);
@@ -151,7 +200,9 @@ export function AdminDashboard() {
 
   const kpis = useMemo(() => {
     const totalCount = summary.reduce((acc, s) => acc + Number(s.count || 0), 0);
-    const newCount = Number(summary.find((s) => s.status === "new")?.count || 0);
+    const newCount =
+      Number(summary.find((s) => s.status === "new")?.count || 0) +
+      Number(summary.find((s) => s.status === "operator_review")?.count || 0);
     const shippedCount =
       Number(summary.find((s) => s.status === "shipped")?.count || 0) +
       Number(summary.find((s) => s.status === "delivered")?.count || 0);
@@ -167,6 +218,11 @@ export function AdminDashboard() {
     setEditTracking(ord.tracking_number || "");
     setEditNotes(ord.admin_notes || "");
     setEditCustomerMessage("");
+    setEditCustomerName(ord.customer_name || "");
+    setEditCustomerPhone(ord.customer_phone || "");
+    setEditStateOrCountry(ord.state_or_country || "");
+    setEditAddress(ord.address || "");
+    setEditTotalUsd(String(ord.total_usd ?? 0));
     setNotifyCustomer(true);
     setToast(null);
   };
@@ -187,6 +243,11 @@ export function AdminDashboard() {
           tracking_number: editTracking,
           admin_notes: editNotes,
           customer_message: editCustomerMessage,
+          customer_name: editCustomerName,
+          customer_phone: editCustomerPhone,
+          state_or_country: editStateOrCountry,
+          address: editAddress,
+          total_usd: Number(editTotalUsd || 0),
           notifyCustomer,
         }),
       });
@@ -207,8 +268,8 @@ export function AdminDashboard() {
       }
       setToast(
         data.emailSent
-          ? "Статус оновлено і лист відправлено в тред замовлення!"
-          : "Статус замовлення успішно оновлено."
+          ? "Збережено і лист відправлено в тред замовлення!"
+          : "Дані та статус замовлення оновлено."
       );
       void loadOrders();
     } catch (err) {
@@ -216,6 +277,91 @@ export function AdminDashboard() {
     } finally {
       setSavingOrder(false);
     }
+  };
+
+  const handleCreateManualOrder = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setCreatingManual(true);
+    try {
+      const prod = PRODUCTS.find((p) => p.slug === mProduct) || PRODUCTS[0];
+      const res = await fetch("/api/admin/orders", {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          customer_name: mName,
+          customer_email: mEmail,
+          customer_phone: mPhone,
+          product_slug: prod.slug,
+          product_name: prod.name,
+          finish: mFinish,
+          shipping_method: mShipping,
+          state_or_country: mState,
+          address: mAddress,
+          total_usd: Number(mTotal || 0),
+          status: "confirmed",
+          notifyCustomer: mNotify,
+        }),
+      });
+      if (res.ok) {
+        setShowManualModal(false);
+        setMName("");
+        setMEmail("");
+        setMPhone("");
+        setMAddress("");
+        void loadOrders();
+      }
+    } finally {
+      setCreatingManual(false);
+    }
+  };
+
+  const handleExportCsv = () => {
+    const header = [
+      "Order Ref",
+      "Created At",
+      "Status",
+      "Customer Name",
+      "Email",
+      "Phone",
+      "Product",
+      "Finish",
+      "Shipping",
+      "Total USD",
+      "State/Country",
+      "Address",
+      "Tracking",
+      "Admin Notes",
+    ];
+    const esc = (v: unknown) => `"${String(v ?? "").replace(/"/g, '""')}"`;
+    const rows = orders.map((o) =>
+      [
+        o.order_ref,
+        o.created_at,
+        o.status,
+        o.customer_name,
+        o.customer_email,
+        o.customer_phone,
+        o.product_name,
+        o.finish,
+        o.shipping_method,
+        o.total_usd,
+        o.state_or_country,
+        o.address,
+        o.tracking_number,
+        o.admin_notes || "",
+      ]
+        .map(esc)
+        .join(",")
+    );
+    const csv = [header.map(esc).join(","), ...rows].join("\n");
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `evminov-orders-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
   };
 
   const handleToggleUserRole = async (target: AdminUserRow) => {
@@ -297,7 +443,7 @@ export function AdminDashboard() {
           <div>
             <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-emerald-400">
               <ShieldCheck className="h-4 w-4" />
-              <span>Evminov USA Operations</span>
+              <span>Evminov Spine Med Operations CRM</span>
             </div>
             <h1 className="mt-1 font-display text-2xl font-black">
               Адмін-кабінет замовлень та клієнтів
@@ -327,7 +473,7 @@ export function AdminDashboard() {
             <p className="mt-1 text-3xl font-black text-slate-950">{kpis.totalCount}</p>
           </div>
           <div className="rounded-2xl border border-sky-200 bg-sky-50/50 p-5 shadow-sm">
-            <p className="text-xs font-bold uppercase text-sky-800">Нові (потребують обробки)</p>
+            <p className="text-xs font-bold uppercase text-sky-800">Нові / в обробці</p>
             <p className="mt-1 text-3xl font-black text-sky-950">{kpis.newCount}</p>
           </div>
           <div className="rounded-2xl border border-teal-200 bg-teal-50/50 p-5 shadow-sm">
@@ -342,16 +488,17 @@ export function AdminDashboard() {
           </div>
         </div>
 
-        {/* Navigation Tabs */}
+        {/* Navigation Tabs & Action Buttons */}
         <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
           <div className="inline-flex rounded-2xl border border-slate-200 bg-white p-1 shadow-sm">
             <button
               type="button"
               onClick={() => setTab("orders")}
-              className={`inline-flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-extrabold transition ${tab === "orders"
-                ? "bg-slate-950 text-white"
-                : "text-slate-600 hover:text-slate-950"
-                }`}
+              className={`inline-flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-extrabold transition ${
+                tab === "orders"
+                  ? "bg-slate-950 text-white"
+                  : "text-slate-600 hover:text-slate-950"
+              }`}
             >
               <Package className="h-4 w-4" />
               <span>Замовлення ({orders.length})</span>
@@ -359,24 +506,45 @@ export function AdminDashboard() {
             <button
               type="button"
               onClick={() => setTab("users")}
-              className={`inline-flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-extrabold transition ${tab === "users"
-                ? "bg-slate-950 text-white"
-                : "text-slate-600 hover:text-slate-950"
-                }`}
+              className={`inline-flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-extrabold transition ${
+                tab === "users"
+                  ? "bg-slate-950 text-white"
+                  : "text-slate-600 hover:text-slate-950"
+              }`}
             >
               <Users className="h-4 w-4" />
               <span>Користувачі ({users.length})</span>
             </button>
           </div>
 
-          <button
-            type="button"
-            onClick={() => (tab === "orders" ? void loadOrders() : void loadUsers())}
-            className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-slate-700 shadow-sm hover:bg-slate-50"
-          >
-            <RefreshCw className={`h-3.5 w-3.5 ${busy ? "animate-spin" : ""}`} />
-            <span>Оновити</span>
-          </button>
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setShowManualModal(true)}
+              className="inline-flex items-center gap-1.5 rounded-xl bg-teal-700 px-3.5 py-2 text-xs font-extrabold text-white shadow-sm hover:bg-teal-800"
+            >
+              <Plus className="h-3.5 w-3.5" />
+              <span>Нове замовлення (Телефон/WhatsApp)</span>
+            </button>
+            {tab === "orders" && orders.length > 0 && (
+              <button
+                type="button"
+                onClick={handleExportCsv}
+                className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-slate-700 shadow-sm hover:bg-slate-50"
+              >
+                <Download className="h-3.5 w-3.5" />
+                <span>CSV</span>
+              </button>
+            )}
+            <button
+              type="button"
+              onClick={() => (tab === "orders" ? void loadOrders() : void loadUsers())}
+              className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-slate-700 shadow-sm hover:bg-slate-50"
+            >
+              <RefreshCw className={`h-3.5 w-3.5 ${busy ? "animate-spin" : ""}`} />
+              <span>Оновити</span>
+            </button>
+          </div>
         </div>
 
         {/* ORDERS TAB */}
@@ -435,8 +603,9 @@ export function AdminDashboard() {
                           <tr
                             key={ord.id}
                             onClick={() => openOrderEditor(ord)}
-                            className={`cursor-pointer transition hover:bg-slate-50 ${active ? "bg-teal-50/60" : ""
-                              }`}
+                            className={`cursor-pointer transition hover:bg-slate-50 ${
+                              active ? "bg-teal-50/60" : ""
+                            }`}
                           >
                             <td className="p-3.5">
                               <div className="font-mono font-extrabold text-slate-950">
@@ -507,12 +676,12 @@ export function AdminDashboard() {
               </div>
             </div>
 
-            {/* Order Detail & Status Editor Panel */}
+            {/* Order Detail, Editable Address, Quick Templates & Event History Panel */}
             {selectedOrder && (
               <div className="lg:col-span-5">
                 <form
                   onSubmit={handleSaveOrder}
-                  className="sticky top-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-md"
+                  className="sticky top-6 space-y-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-md"
                 >
                   <div className="flex items-start justify-between gap-2">
                     <div>
@@ -522,6 +691,10 @@ export function AdminDashboard() {
                       <h2 className="mt-0.5 font-display text-lg font-black text-slate-950">
                         {selectedOrder.product_name || selectedOrder.mode}
                       </h2>
+                      <p className="text-xs text-slate-500">
+                        {selectedOrder.customer_email} • HSA/FSA:{" "}
+                        {selectedOrder.include_hsa_doc ? "Так" : "Ні"}
+                      </p>
                     </div>
                     <button
                       type="button"
@@ -532,32 +705,75 @@ export function AdminDashboard() {
                     </button>
                   </div>
 
-                  <div className="mt-4 space-y-1.5 rounded-2xl bg-slate-50 p-4 text-xs text-slate-700">
-                    <p>
-                      <strong>Клієнт:</strong> {selectedOrder.customer_name || "—"} (
-                      {selectedOrder.customer_email})
-                    </p>
-                    {selectedOrder.customer_phone && (
-                      <p>
-                        <strong>Телефон:</strong> {selectedOrder.customer_phone}
-                      </p>
-                    )}
-                    <p>
-                      <strong>Адреса:</strong> {selectedOrder.state_or_country}{" "}
-                      {selectedOrder.address}
-                    </p>
-                    <p>
-                      <strong>Сума:</strong> ${selectedOrder.total_usd} USD • HSA/FSA:{" "}
-                      {selectedOrder.include_hsa_doc ? "Так" : "Ні"}
-                    </p>
+                  {/* Editable Customer Contact & Shipping */}
+                  <div className="grid gap-2.5 rounded-2xl bg-slate-50 p-3.5 text-xs sm:grid-cols-2">
+                    <div>
+                      <label className="block text-[11px] font-bold text-slate-500">
+                        Ім&apos;я клієнта
+                      </label>
+                      <input
+                        type="text"
+                        value={editCustomerName}
+                        onChange={(e) => setEditCustomerName(e.target.value)}
+                        className="mt-0.5 w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs text-slate-900"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-bold text-slate-500">
+                        Телефон
+                      </label>
+                      <input
+                        type="text"
+                        value={editCustomerPhone}
+                        onChange={(e) => setEditCustomerPhone(e.target.value)}
+                        placeholder="+1 ..."
+                        className="mt-0.5 w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs text-slate-900"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-bold text-slate-500">
+                        Штат / Країна
+                      </label>
+                      <input
+                        type="text"
+                        value={editStateOrCountry}
+                        onChange={(e) => setEditStateOrCountry(e.target.value)}
+                        className="mt-0.5 w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs text-slate-900"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-bold text-slate-500">
+                        Сума ($ USD)
+                      </label>
+                      <input
+                        type="number"
+                        step="1"
+                        value={editTotalUsd}
+                        onChange={(e) => setEditTotalUsd(e.target.value)}
+                        className="mt-0.5 w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-bold text-teal-800"
+                      />
+                    </div>
+                    <div className="sm:col-span-2">
+                      <label className="block text-[11px] font-bold text-slate-500">
+                        Адреса доставки
+                      </label>
+                      <input
+                        type="text"
+                        value={editAddress}
+                        onChange={(e) => setEditAddress(e.target.value)}
+                        placeholder="Вулиця, місто, індекс..."
+                        className="mt-0.5 w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs text-slate-900"
+                      />
+                    </div>
                     {selectedOrder.customer_notes && (
-                      <p className="pt-1 text-slate-600">
-                        <strong>Коментар клієнта:</strong> {selectedOrder.customer_notes}
+                      <p className="text-[11px] text-slate-500 sm:col-span-2">
+                        <strong>Примітка форми:</strong> {selectedOrder.customer_notes}
                       </p>
                     )}
                   </div>
 
-                  <div className="mt-5 space-y-4">
+                  {/* Status & Tracking */}
+                  <div className="space-y-3">
                     <div>
                       <label className="block text-xs font-bold text-slate-700">
                         Статус замовлення
@@ -565,7 +781,7 @@ export function AdminDashboard() {
                       <select
                         value={editStatus}
                         onChange={(e) => setEditStatus(e.target.value)}
-                        className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm font-semibold text-slate-900"
+                        className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs font-bold text-slate-900"
                       >
                         {ORDER_STATUSES.map((s) => (
                           <option key={s.value} value={s.value}>
@@ -584,20 +800,35 @@ export function AdminDashboard() {
                         value={editTracking}
                         onChange={(e) => setEditTracking(e.target.value)}
                         placeholder="1Z999AA10123456784"
-                        className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2.5 font-mono text-xs text-slate-900"
+                        className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 font-mono text-xs text-slate-900"
                       />
                     </div>
 
+                    {/* Customer Message + Quick Templates */}
                     <div>
-                      <label className="block text-xs font-bold text-teal-800">
-                        Повідомлення / нотатка клієнту (додається в email у тред замовлення)
-                      </label>
+                      <div className="flex flex-wrap items-center justify-between gap-1">
+                        <label className="block text-xs font-bold text-teal-800">
+                          Повідомлення клієнту (у лист + Портал)
+                        </label>
+                      </div>
+                      <div className="mt-1.5 flex flex-wrap gap-1.5">
+                        {QUICK_TEMPLATES.map((tpl) => (
+                          <button
+                            key={tpl.label}
+                            type="button"
+                            onClick={() => setEditCustomerMessage(tpl.text)}
+                            className="rounded-lg border border-teal-200 bg-teal-50 px-2 py-1 text-[11px] font-bold text-teal-900 hover:bg-teal-100"
+                          >
+                            + {tpl.label}
+                          </button>
+                        ))}
+                      </div>
                       <textarea
                         rows={3}
                         value={editCustomerMessage}
                         onChange={(e) => setEditCustomerMessage(e.target.value)}
-                        placeholder="Наприклад: Дякуємо за замовлення! Уточніть, будь ласка, повну адресу доставки та номер телефону..."
-                        className="mt-1 w-full rounded-xl border border-teal-300 bg-teal-50/30 px-3 py-2 text-xs text-slate-900 focus:border-teal-600 focus:outline-none"
+                        placeholder="Текст повідомлення, який клієнт побачить у листі (в тому ж треді) та в Порталі..."
+                        className="mt-1.5 w-full rounded-xl border border-teal-300 bg-teal-50/30 px-3 py-2 text-xs text-slate-900 focus:border-teal-600 focus:outline-none"
                       />
                     </div>
 
@@ -606,10 +837,10 @@ export function AdminDashboard() {
                         Внутрішні нотатки адміна (клієнт не бачить)
                       </label>
                       <textarea
-                        rows={3}
+                        rows={2}
                         value={editNotes}
                         onChange={(e) => setEditNotes(e.target.value)}
-                        placeholder="Оплата підтверджена, відправлено зі складу Glendale..."
+                        placeholder="Оплата підтверджена, відправлено..."
                         className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 text-xs text-slate-900"
                       />
                     </div>
@@ -622,7 +853,7 @@ export function AdminDashboard() {
                         className="h-4 w-4 accent-teal-700"
                       />
                       <Mail className="h-4 w-4 shrink-0 text-teal-700" />
-                      <span>Надіслати клієнту email про новий статус / трекінг (Resend)</span>
+                      <span>Надіслати клієнту email у тред замовлення (Resend)</span>
                     </label>
 
                     {toast && (
@@ -640,6 +871,36 @@ export function AdminDashboard() {
                       {savingOrder ? "Збереження..." : "Зберегти зміни"}
                     </button>
                   </div>
+
+                  {/* Full Order Event & Message History */}
+                  {(selectedOrder.events || []).length > 0 && (
+                    <div className="border-t border-slate-200 pt-4">
+                      <h3 className="flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-slate-500">
+                        <MessageSquare className="h-3.5 w-3.5 text-teal-700" />
+                        <span>Історія подій та переписки ({selectedOrder.events?.length})</span>
+                      </h3>
+                      <div className="mt-2.5 max-h-56 space-y-2 overflow-y-auto pr-1">
+                        {(selectedOrder.events || []).map((ev) => (
+                          <div
+                            key={ev.id}
+                            className={`rounded-xl px-3 py-2 text-[11px] ${
+                              ev.author_role === "customer"
+                                ? "border border-amber-200 bg-amber-50 text-amber-950"
+                                : "border border-slate-200 bg-slate-50 text-slate-800"
+                            }`}
+                          >
+                            <div className="flex justify-between gap-2 text-[10px] text-slate-500">
+                              <strong className="text-slate-700">
+                                {ev.author_name || ev.author_role}
+                              </strong>
+                              <span>{formatDateShort(ev.created_at)}</span>
+                            </div>
+                            <p className="mt-0.5 whitespace-pre-line">{ev.message}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </form>
               </div>
             )}
@@ -648,120 +909,367 @@ export function AdminDashboard() {
 
         {/* USERS TAB */}
         {tab === "users" && (
-          <div className="mt-5">
-            <div className="mb-4 max-w-md">
-              <div className="relative">
-                <Search className="pointer-events-none absolute left-3 top-2.5 h-4 w-4 text-slate-400" />
+          <div className="mt-5 grid gap-6 lg:grid-cols-12">
+            <div className={selectedUser ? "lg:col-span-8" : "lg:col-span-12"}>
+              <div className="mb-4 max-w-md">
+                <div className="relative">
+                  <Search className="pointer-events-none absolute left-3 top-2.5 h-4 w-4 text-slate-400" />
+                  <input
+                    type="text"
+                    value={userSearch}
+                    onChange={(e) => setUserSearch(e.target.value)}
+                    placeholder="Пошук користувача за email, іменем, телефоном..."
+                    className="w-full rounded-xl border border-slate-300 bg-white py-2 pl-9 pr-3 text-xs text-slate-900 focus:border-teal-600 focus:outline-none"
+                  />
+                </div>
+              </div>
+
+              <div className="overflow-x-auto rounded-3xl border border-slate-200 bg-white shadow-sm">
+                <table className="w-full min-w-[700px] border-collapse text-left text-xs">
+                  <thead className="border-b border-slate-200 bg-slate-50 text-[11px] uppercase text-slate-500">
+                    <tr>
+                      <th className="p-3.5 font-bold">Користувач</th>
+                      <th className="p-3.5 font-bold">Спосіб входу</th>
+                      <th className="p-3.5 font-bold">Замовлення</th>
+                      <th className="p-3.5 font-bold">Реєстрація / Вхід</th>
+                      <th className="p-3.5 font-bold">Роль</th>
+                      <th className="p-3.5 font-bold text-right">Дії</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100">
+                    {users.length === 0 ? (
+                      <tr>
+                        <td colSpan={6} className="p-8 text-center text-slate-500">
+                          Зареєстрованих користувачів поки немає.
+                        </td>
+                      </tr>
+                    ) : (
+                      users.map((u) => (
+                        <tr
+                          key={u.id}
+                          onClick={() => setSelectedUser(u)}
+                          className={`cursor-pointer hover:bg-slate-50 ${
+                            selectedUser?.id === u.id ? "bg-teal-50/60" : ""
+                          }`}
+                        >
+                          <td className="p-3.5">
+                            <div className="font-bold text-slate-950">{u.name || "—"}</div>
+                            <div className="text-slate-600">{u.email}</div>
+                            {u.phone && (
+                              <div className="text-[11px] text-slate-500">{u.phone}</div>
+                            )}
+                          </td>
+                          <td className="p-3.5">
+                            <div className="flex flex-wrap gap-1">
+                              {u.has_google ? (
+                                <span className="rounded-md bg-blue-50 px-2 py-0.5 text-[11px] font-bold text-blue-800">
+                                  Google
+                                </span>
+                              ) : null}
+                              {u.has_password ? (
+                                <span className="rounded-md bg-slate-100 px-2 py-0.5 text-[11px] font-bold text-slate-700">
+                                  Email/Pass
+                                </span>
+                              ) : null}
+                            </div>
+                          </td>
+                          <td className="p-3.5">
+                            <div className="font-extrabold text-slate-900">
+                              {u.order_count} шт.
+                            </div>
+                            {u.total_spent_usd > 0 && (
+                              <div className="text-[11px] font-bold text-teal-700">
+                                ${u.total_spent_usd} USD
+                              </div>
+                            )}
+                          </td>
+                          <td className="p-3.5 text-[11px] text-slate-600">
+                            <div>{formatDateShort(u.created_at)}</div>
+                            <div className="text-slate-400">
+                              Вхід: {formatDateShort(u.last_login_at)}
+                            </div>
+                          </td>
+                          <td className="p-3.5">
+                            <span
+                              className={`rounded-full px-2.5 py-0.5 text-[11px] font-extrabold ${
+                                u.role === "admin"
+                                  ? "bg-amber-100 text-amber-900"
+                                  : "bg-slate-100 text-slate-700"
+                              }`}
+                            >
+                              {u.role}
+                            </span>
+                          </td>
+                          <td className="p-3.5 text-right">
+                            <div className="flex justify-end gap-2">
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setOrderSearch(u.email);
+                                  setStatusFilter("");
+                                  setTab("orders");
+                                }}
+                                className="rounded-lg border border-slate-200 px-2.5 py-1 text-[11px] font-bold text-slate-700 hover:bg-slate-100"
+                              >
+                                Замовлення
+                              </button>
+                              {u.id !== user.id && (
+                                <button
+                                  type="button"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    void handleToggleUserRole(u);
+                                  }}
+                                  className="rounded-lg bg-slate-900 px-2.5 py-1 text-[11px] font-bold text-white hover:bg-teal-700"
+                                >
+                                  {u.role === "admin" ? "Зняти admin" : "Зробити admin"}
+                                </button>
+                              )}
+                            </div>
+                          </td>
+                        </tr>
+                      ))
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {selectedUser && (
+              <div className="lg:col-span-4">
+                <div className="sticky top-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-md">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <p className="text-xs font-extrabold uppercase text-teal-700">
+                        Профіль клієнта
+                      </p>
+                      <h2 className="mt-0.5 font-display text-lg font-black text-slate-950">
+                        {selectedUser.name || "Без імені"}
+                      </h2>
+                      <p className="text-xs text-slate-500">{selectedUser.email}</p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setSelectedUser(null)}
+                      className="rounded-lg px-2 py-1 text-xs font-bold text-slate-400 hover:bg-slate-100"
+                    >
+                      ✕
+                    </button>
+                  </div>
+
+                  <div className="mt-4 space-y-2.5 rounded-2xl bg-slate-50 p-4 text-xs text-slate-700">
+                    <p>
+                      <strong>Телефон:</strong> {selectedUser.phone || "Не вказано"}
+                    </p>
+                    <p>
+                      <strong>Мова:</strong> {selectedUser.locale || "en"}
+                    </p>
+                    <p className="flex items-start gap-1.5">
+                      <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-teal-700" />
+                      <span>
+                        <strong>Збережена адреса:</strong>{" "}
+                        {[
+                          selectedUser.shipping_address,
+                          selectedUser.shipping_city,
+                          selectedUser.shipping_state,
+                          selectedUser.shipping_zip,
+                        ]
+                          .filter(Boolean)
+                          .join(", ") || "Ще не заповнена"}
+                      </span>
+                    </p>
+                    {selectedUser.delivery_notes && (
+                      <p>
+                        <strong>Примітка кур&apos;єру:</strong> {selectedUser.delivery_notes}
+                      </p>
+                    )}
+                    <p>
+                      <strong>Замовлень / LTV:</strong> {selectedUser.order_count} шт. •{" "}
+                      <strong className="text-teal-800">
+                        ${selectedUser.total_spent_usd} USD
+                      </strong>
+                    </p>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setOrderSearch(selectedUser.email);
+                      setStatusFilter("");
+                      setTab("orders");
+                    }}
+                    className="mt-4 w-full rounded-xl bg-slate-950 py-2.5 text-xs font-extrabold text-white hover:bg-teal-700"
+                  >
+                    Переглянути замовлення клієнта
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* MANUAL PHONE / WHATSAPP ORDER MODAL */}
+      {showManualModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60 p-4">
+          <form
+            onSubmit={handleCreateManualOrder}
+            className="w-full max-w-lg rounded-3xl bg-white p-6 shadow-2xl"
+          >
+            <div className="flex items-center justify-between">
+              <h2 className="font-display text-lg font-black text-slate-950">
+                Нове замовлення (Телефон / WhatsApp)
+              </h2>
+              <button
+                type="button"
+                onClick={() => setShowManualModal(false)}
+                className="rounded-lg px-2 py-1 text-xs font-bold text-slate-400 hover:bg-slate-100"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="mt-4 grid gap-3 text-xs sm:grid-cols-2">
+              <div>
+                <label className="block font-bold text-slate-700">Ім&apos;я клієнта *</label>
                 <input
                   type="text"
-                  value={userSearch}
-                  onChange={(e) => setUserSearch(e.target.value)}
-                  placeholder="Пошук користувача за email, іменем, телефоном..."
-                  className="w-full rounded-xl border border-slate-300 bg-white py-2 pl-9 pr-3 text-xs text-slate-900 focus:border-teal-600 focus:outline-none"
+                  required
+                  value={mName}
+                  onChange={(e) => setMName(e.target.value)}
+                  className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2"
+                />
+              </div>
+              <div>
+                <label className="block font-bold text-slate-700">Email клієнта *</label>
+                <input
+                  type="email"
+                  required
+                  value={mEmail}
+                  onChange={(e) => setMEmail(e.target.value)}
+                  className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2"
+                />
+              </div>
+              <div>
+                <label className="block font-bold text-slate-700">Телефон</label>
+                <input
+                  type="tel"
+                  value={mPhone}
+                  onChange={(e) => setMPhone(e.target.value)}
+                  className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2"
+                />
+              </div>
+              <div>
+                <label className="block font-bold text-slate-700">Модель</label>
+                <select
+                  value={mProduct}
+                  onChange={(e) => {
+                    const slug = e.target.value;
+                    setMProduct(slug);
+                    const p = PRODUCTS.find((item) => item.slug === slug);
+                    if (p) {
+                      setMTotal(
+                        String(mShipping === "express" ? p.expressPriceUsd : p.directPriceUsd)
+                      );
+                    }
+                  }}
+                  className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2"
+                >
+                  {PRODUCTS.map((p) => (
+                    <option key={p.slug} value={p.slug}>
+                      {p.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="block font-bold text-slate-700">Доставка</label>
+                <select
+                  value={mShipping}
+                  onChange={(e) => {
+                    const nextShip = e.target.value as "express" | "direct";
+                    setMShipping(nextShip);
+                    const p = PRODUCTS.find((item) => item.slug === mProduct);
+                    if (p) {
+                      setMTotal(
+                        String(nextShip === "express" ? p.expressPriceUsd : p.directPriceUsd)
+                      );
+                    }
+                  }}
+                  className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2"
+                >
+                  <option value="express">CA Express</option>
+                  <option value="direct">Direct Workshop</option>
+                </select>
+              </div>
+              <div>
+                <label className="block font-bold text-slate-700">Сума ($ USD)</label>
+                <input
+                  type="number"
+                  value={mTotal}
+                  onChange={(e) => setMTotal(e.target.value)}
+                  className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 font-bold"
+                />
+              </div>
+              <div>
+                <label className="block font-bold text-slate-700">Колір / Дерево</label>
+                <input
+                  type="text"
+                  value={mFinish}
+                  onChange={(e) => setMFinish(e.target.value)}
+                  className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2"
+                />
+              </div>
+              <div>
+                <label className="block font-bold text-slate-700">Штат / Країна</label>
+                <input
+                  type="text"
+                  value={mState}
+                  onChange={(e) => setMState(e.target.value)}
+                  className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2"
+                />
+              </div>
+              <div className="sm:col-span-2">
+                <label className="block font-bold text-slate-700">Адреса доставки</label>
+                <input
+                  type="text"
+                  value={mAddress}
+                  onChange={(e) => setMAddress(e.target.value)}
+                  className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2"
                 />
               </div>
             </div>
 
-            <div className="overflow-x-auto rounded-3xl border border-slate-200 bg-white shadow-sm">
-              <table className="w-full min-w-[760px] border-collapse text-left text-xs">
-                <thead className="border-b border-slate-200 bg-slate-50 text-[11px] uppercase text-slate-500">
-                  <tr>
-                    <th className="p-3.5 font-bold">Користувач</th>
-                    <th className="p-3.5 font-bold">Спосіб входу</th>
-                    <th className="p-3.5 font-bold">Замовлення</th>
-                    <th className="p-3.5 font-bold">Реєстрація / Останній вхід</th>
-                    <th className="p-3.5 font-bold">Роль</th>
-                    <th className="p-3.5 font-bold text-right">Дії</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100">
-                  {users.length === 0 ? (
-                    <tr>
-                      <td colSpan={6} className="p-8 text-center text-slate-500">
-                        Зареєстрованих користувачів поки немає.
-                      </td>
-                    </tr>
-                  ) : (
-                    users.map((u) => (
-                      <tr key={u.id} className="hover:bg-slate-50">
-                        <td className="p-3.5">
-                          <div className="font-bold text-slate-950">{u.name || "—"}</div>
-                          <div className="text-slate-600">{u.email}</div>
-                          {u.phone && (
-                            <div className="text-[11px] text-slate-500">{u.phone}</div>
-                          )}
-                        </td>
-                        <td className="p-3.5">
-                          <div className="flex flex-wrap gap-1">
-                            {u.has_google ? (
-                              <span className="rounded-md bg-blue-50 px-2 py-0.5 text-[11px] font-bold text-blue-800">
-                                Google
-                              </span>
-                            ) : null}
-                            {u.has_password ? (
-                              <span className="rounded-md bg-slate-100 px-2 py-0.5 text-[11px] font-bold text-slate-700">
-                                Email/Pass
-                              </span>
-                            ) : null}
-                          </div>
-                        </td>
-                        <td className="p-3.5">
-                          <div className="font-extrabold text-slate-900">
-                            {u.order_count} шт.
-                          </div>
-                          {u.total_spent_usd > 0 && (
-                            <div className="text-[11px] font-bold text-teal-700">
-                              ${u.total_spent_usd} USD
-                            </div>
-                          )}
-                        </td>
-                        <td className="p-3.5 text-[11px] text-slate-600">
-                          <div>Створено: {formatDateShort(u.created_at)}</div>
-                          <div>Вхід: {formatDateShort(u.last_login_at)}</div>
-                        </td>
-                        <td className="p-3.5">
-                          <span
-                            className={`rounded-full px-2.5 py-0.5 text-[11px] font-extrabold ${u.role === "admin"
-                              ? "bg-amber-100 text-amber-900"
-                              : "bg-slate-100 text-slate-700"
-                              }`}
-                          >
-                            {u.role}
-                          </span>
-                        </td>
-                        <td className="p-3.5 text-right">
-                          <div className="flex justify-end gap-2">
-                            <button
-                              type="button"
-                              onClick={() => {
-                                setOrderSearch(u.email);
-                                setStatusFilter("");
-                                setTab("orders");
-                              }}
-                              className="rounded-lg border border-slate-200 px-2.5 py-1 text-[11px] font-bold text-slate-700 hover:bg-slate-100"
-                            >
-                              Замовлення
-                            </button>
-                            {u.id !== user.id && (
-                              <button
-                                type="button"
-                                onClick={() => void handleToggleUserRole(u)}
-                                className="rounded-lg bg-slate-900 px-2.5 py-1 text-[11px] font-bold text-white hover:bg-teal-700"
-                              >
-                                {u.role === "admin" ? "Зняти admin" : "Зробити admin"}
-                              </button>
-                            )}
-                          </div>
-                        </td>
-                      </tr>
-                    ))
-                  )}
-                </tbody>
-              </table>
+            <label className="mt-4 flex cursor-pointer items-center gap-2 text-xs font-semibold text-slate-700">
+              <input
+                type="checkbox"
+                checked={mNotify}
+                onChange={(e) => setMNotify(e.target.checked)}
+                className="h-4 w-4 accent-teal-700"
+              />
+              <span>Надіслати клієнту лист підтвердження (Resend)</span>
+            </label>
+
+            <div className="mt-5 flex justify-end gap-2">
+              <button
+                type="button"
+                onClick={() => setShowManualModal(false)}
+                className="rounded-xl border border-slate-300 px-4 py-2 text-xs font-bold text-slate-700"
+              >
+                Скасувати
+              </button>
+              <button
+                type="submit"
+                disabled={creatingManual}
+                className="rounded-xl bg-teal-700 px-5 py-2 text-xs font-extrabold text-white hover:bg-teal-800 disabled:opacity-50"
+              >
+                {creatingManual ? "Створення..." : "Створити замовлення"}
+              </button>
             </div>
-          </div>
-        )}
-      </div>
+          </form>
+        </div>
+      )}
     </div>
   );
 }
