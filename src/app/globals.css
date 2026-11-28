@@ -69,6 +69,86 @@ footer {
   display: none;
 }
 
+/* 3D Biomechanical Comparison Animations */
+@keyframes spine-pulse {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.18);
+  }
+}
+
+@keyframes cranial-pulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.35);
+  }
+}
+
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes inversion-sway {
+  0%, 100% {
+    transform: rotate(72deg);
+  }
+  50% {
+    transform: rotate(77deg);
+  }
+}
+
+.animate-spine-pulse {
+  animation: spine-pulse 2.4s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.animate-cranial-pulse {
+  animation: cranial-pulse 1.8s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.animate-float-gentle {
+  animation: float-gentle 3.8s ease-in-out infinite;
+}
+
+.animate-inversion-sway {
+  animation: inversion-sway 4.2s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: 50% 15%;
+}
+
+.perspective-stage {
+  perspective: 1100px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-spine-pulse,
+  .animate-cranial-pulse,
+  .animate-float-gentle,
+  .animate-inversion-sway {
+    animation: none;
+  }
+}
+
 @media print {
   header,
   aside,

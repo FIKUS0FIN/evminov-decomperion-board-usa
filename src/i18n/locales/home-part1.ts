@@ -324,157 +324,318 @@ export const PATHWAYS_ITEMS: Record<Locale, PathwayCardCopy[]> = {
 export interface InversionVisualCopy {
   evminovBadge: string;
   evminovSub: string;
+  evminovRecommended: string;
   evminovAria: string;
   evminovHeadUp: string;
   evminovSvgTitle: string;
   evminovSvgSub: string;
+  evminovModes: Array<{
+    angle: number;
+    label: string;
+    tractionPct: string;
+    desc: string;
+  }>;
+  evminovMetrics: Array<{ label: string; value: string }>;
   evminovPoints: Array<{ bold: string; text: string }>;
   invBadge: string;
   invSub: string;
+  invWarningTag: string;
   invAria: string;
   invSvgTitle: string;
   invSvgSub: string;
+  invMetrics: Array<{ label: string; value: string }>;
   invPoints: Array<{ bold: string; text: string }>;
+  ctaEyebrow: string;
+  ctaTitle: string;
+  ctaSubtitle: string;
+  ctaTrustPills: string[];
+  ctaPrimary: string;
+  ctaSecondary: string;
+  ctaCompareLink: string;
 }
 
 export const INVERSION_VISUAL_COPY: Record<Locale, InversionVisualCopy> = {
   en: {
     evminovBadge: "Evminov Method (8°–35° Upright)",
     evminovSub: "Active + Relaxed",
-    evminovAria: "Evminov 15 degree inclined board keeps head above hips for calm spinal unloading",
-    evminovHeadUp: "HEAD UP ✓",
-    evminovSvgTitle: "15° Gentle Flex-Pine Incline",
+    evminovRecommended: "Recommended Choice",
+    evminovAria: "Interactive 3D Evminov inclined board keeping head above heart for calm spinal unloading",
+    evminovHeadUp: "HEAD ABOVE HEART",
+    evminovSvgTitle: "Controlled Flex-Pine Incline",
     evminovSvgSub: "Normal blood flow • Zero ankle clamping • Deep core activation",
+    evminovModes: [
+      { angle: 12, label: "12° Gentle", tractionPct: "21% traction", desc: "Calm lumbar & sciatic unloading" },
+      { angle: 18, label: "18° Daily", tractionPct: "31% traction", desc: "Optimal disc hydration + deep core" },
+      { angle: 28, label: "28° Athletic", tractionPct: "47% traction", desc: "Post-lifting spine reset & mobility" },
+    ],
+    evminovMetrics: [
+      { label: "Head Pressure", value: "Normal (0 spike)" },
+      { label: "Core Muscles", value: "Active Stabilizers" },
+      { label: "Home Footprint", value: "2.4\" Flat Fold" },
+    ],
     evminovPoints: [
       { bold: "Head stays above heart:", text: "zero cranial blood rush, dizziness, or ocular pressure spikes." },
-      { bold: "Full spine support:", text: "resonant Carpathian pine cushions every vertebra while deep stabilizers train." },
-      { bold: "All-ages safe (4 to 85+):", text: "folds to 2.4\" flat against a bedroom or office wall." },
+      { bold: "Full spine support:", text: "resonant Carpathian wood cushions every vertebra while deep stabilizers train." },
+      { bold: "All-ages safe (4 to 85+):", text: "2-Piece & 3-Piece folding models store neatly in any bedroom or office." },
     ],
     invBadge: "Traditional Inversion Tables (60°–90°)",
     invSub: "Passive Hang Only",
-    invAria: "Traditional 90 degree upside down inversion table causes head rush and ankle stress",
+    invWarningTag: "High Pressure Risk",
+    invAria: "Traditional 90 degree upside down inversion table showing cranial blood rush and ankle clamping stress",
     invSvgTitle: "60°–90° Upside-Down Hang",
     invSvgSub: "Blood rushes to head/eyes • Clamped ankles • Bulky 16 sq ft frame",
+    invMetrics: [
+      { label: "Head Pressure", value: "High Spike" },
+      { label: "Core Muscles", value: "0% (Passive)" },
+      { label: "Home Footprint", value: "16 sq ft Steel" },
+    ],
     invPoints: [
       { bold: "Upside-down pressure:", text: "hanging inverted raises blood pressure in the head, sinuses, and eyes." },
       { bold: "Ankle & knee strain:", text: "clamps full body weight onto ankles and knees with zero core strengthening." },
       { bold: "Passive rebound:", text: "without stabilizer activation, gravity re-compresses discs minutes after standing up." },
     ],
+    ctaEyebrow: "Switch to Calm, Head-Up Decompression",
+    ctaTitle: "Experience 15 minutes a day without hanging upside down",
+    ctaSubtitle: "Choose our 2-Piece Folding Board (Support Stand included) or 3-Piece Travel Board in Natural Warm Amber Alder or Dark Walnut Pine.",
+    ctaTrustPills: ["From $475 USD", "60-Day Home Trial", "HSA/FSA Eligible (with LMN)", "10-Yr Warranty"],
+    ctaPrimary: "Configure Your Evminov Board",
+    ctaSecondary: "Calculate Your Safe Angle",
+    ctaCompareLink: "Read full clinical comparison",
   },
   es: {
     evminovBadge: "Método Evminov (8°–35° Cabeza Arriba)",
     evminovSub: "Activo + Relajado",
-    evminovAria: "La tabla inclinada Evminov a 15 grados mantiene la cabeza elevada para descarga calma",
-    evminovHeadUp: "CABEZA ARRIBA ✓",
-    evminovSvgTitle: "Inclinación Suave 15° en Pino",
+    evminovRecommended: "Opción Recomendada",
+    evminovAria: "Tabla inclinada 3D Evminov que mantiene la cabeza elevada para descarga espinal calma",
+    evminovHeadUp: "CABEZA SOBRE CORAZÓN",
+    evminovSvgTitle: "Inclinación Controlada en Madera",
     evminovSvgSub: "Flujo sanguíneo normal • Sin pinzas de tobillo • Core profundo",
+    evminovModes: [
+      { angle: 12, label: "12° Suave", tractionPct: "21% tracción", desc: "Alivio lumbar y ciático suave" },
+      { angle: 18, label: "18° Diario", tractionPct: "31% tracción", desc: "Hidratación discal + core profundo" },
+      { angle: 28, label: "28° Atlético", tractionPct: "47% tracción", desc: "Recuperación post-entrenamiento" },
+    ],
+    evminovMetrics: [
+      { label: "Presión Cefálica", value: "Normal (0 picos)" },
+      { label: "Músculos Core", value: "Estabilizadores Activos" },
+      { label: "Espacio en Casa", value: "6 cm Plegada" },
+    ],
     evminovPoints: [
       { bold: "Cabeza sobre el corazón:", text: "cero congestión craneal, mareos o picos de presión ocular." },
-      { bold: "Soporte espinal total:", text: "el pino resonante amortigua cada vértebra mientras entrena estabilizadores." },
-      { bold: "Seguro para todas las edades (4–85+):", text: "se pliega a 6 cm contra la pared." },
+      { bold: "Soporte espinal total:", text: "la madera resonante amortigua cada vértebra mientras entrena estabilizadores." },
+      { bold: "Seguro para todas las edades (4–85+):", text: "modelos plegables de 2 y 3 piezas ideales para cualquier hogar." },
     ],
     invBadge: "Mesas de Inversión Tradicionales (60°–90°)",
     invSub: "Solo Colgado Pasivo",
-    invAria: "La mesa de inversión tradicional a 90 grados genera congestión cefálica y estrés en tobillos",
+    invWarningTag: "Alto Riesgo de Presión",
+    invAria: "Mesa de inversión tradicional a 90 grados con congestión cefálica y estrés en tobillos",
     invSvgTitle: "Colgado Boca Abajo 60°–90°",
     invSvgSub: "Sangre hacia cabeza/ojos • Tobillos apretados • Ocupa 1,5 m²",
+    invMetrics: [
+      { label: "Presión Cefálica", value: "Pico Elevado" },
+      { label: "Músculos Core", value: "0% (Pasivo)" },
+      { label: "Espacio en Casa", value: "1,5 m² Acero" },
+    ],
     invPoints: [
       { bold: "Presión invertida:", text: "colgar boca abajo eleva la presión en cabeza, senos paranasales y ojos." },
       { bold: "Estrés en tobillos y rodillas:", text: "cuelga todo el peso por los tobillos sin fortalecer el core." },
       { bold: "Rebote pasivo:", text: "sin activar estabilizadores, la gravedad vuelve a comprimir los discos en minutos." },
     ],
+    ctaEyebrow: "Pasa a una Descompresión Calma con Cabeza Arriba",
+    ctaTitle: "Disfruta 15 minutos al día sin colgarte boca abajo",
+    ctaSubtitle: "Elige nuestra Tabla Plegable de 2 Piezas (con soporte incluido) o 3 Piezas de Viaje en Aliso Ámbar o Pino Nogal Oscuro.",
+    ctaTrustPills: ["Desde $475 USD", "Prueba de 60 Días", "Elegible HSA/FSA (con LMN)", "Garantía 10 Años"],
+    ctaPrimary: "Configurar Tu Tabla Evminov",
+    ctaSecondary: "Calcular Tu Ángulo Seguro",
+    ctaCompareLink: "Ver comparativa clínica completa",
   },
   fr: {
     evminovBadge: "Méthode Evminov (8°–35° Tête Haute)",
     evminovSub: "Actif + Détendu",
-    evminovAria: "La planche Evminov à 15 degrés garde la tête au-dessus des hanches",
-    evminovHeadUp: "TÊTE HAUTE ✓",
-    evminovSvgTitle: "Inclinaison Douce 15° sur Pin",
+    evminovRecommended: "Choix Recommandé",
+    evminovAria: "Planche Evminov 3D interactive gardant la tête au-dessus du cœur pour une décompression calme",
+    evminovHeadUp: "TÊTE AU-DESSUS DU CŒUR",
+    evminovSvgTitle: "Inclinaison Douce Contrôlée",
     evminovSvgSub: "Circulation normale • Sans serrage chevilles • Gainage profond",
+    evminovModes: [
+      { angle: 12, label: "12° Doux", tractionPct: "21% traction", desc: "Soulagement lombaire & sciatique" },
+      { angle: 18, label: "18° Quotidien", tractionPct: "31% traction", desc: "Hydratation discale + gainage" },
+      { angle: 28, label: "28° Sportif", tractionPct: "47% traction", desc: "Récupération post-entraînement" },
+    ],
+    evminovMetrics: [
+      { label: "Pression Crânienne", value: "Normale (0 pic)" },
+      { label: "Muscles Profonds", value: "Stabilisateurs Actifs" },
+      { label: "Encombrement", value: "6 cm Repliée" },
+    ],
     evminovPoints: [
       { bold: "Tête au-dessus du cœur :", text: "aucun afflux sanguin, vertige ni pic de pression oculaire." },
-      { bold: "Soutien dorsal intégral :", text: "le pin des Carpates amortit chaque vertèbre pendant le renforcement." },
-      { bold: "Adapté de 4 à 85+ ans :", text: "se replie à 6 cm contre le mur d'une chambre ou d'un bureau." },
+      { bold: "Soutien dorsal intégral :", text: "le bois résonant des Carpates amortit chaque vertèbre pendant le renforcement." },
+      { bold: "Adapté de 4 à 85+ ans :", text: "modèles pliables 2 ou 3 pièces faciles à ranger dans une chambre ou un bureau." },
     ],
     invBadge: "Tables d'Inversion Classiques (60°–90°)",
     invSub: "Suspension Passive Seule",
-    invAria: "Une table d'inversion à 90 degrés provoque afflux sanguin et gêne aux chevilles",
+    invWarningTag: "Risque de Pression",
+    invAria: "Table d'inversion à 90 degrés montrant l'afflux sanguin vers la tête et la tension aux chevilles",
     invSvgTitle: "Suspension Tête en Bas 60°–90°",
     invSvgSub: "Afflux vers tête/yeux • Chevilles serrées • Cadre 1,5 m²",
+    invMetrics: [
+      { label: "Pression Crânienne", value: "Pic Élevé" },
+      { label: "Muscles Profonds", value: "0% (Passif)" },
+      { label: "Encombrement", value: "1,5 m² Acier" },
+    ],
     invPoints: [
       { bold: "Pression inversée :", text: "se suspendre tête en bas augmente la pression crânienne et oculaire." },
       { bold: "Tension chevilles et genoux :", text: "supporte tout le poids par les chevilles sans aucun gainage." },
       { bold: "Effet rebond passif :", text: "sans muscles stabilisateurs, la gravité recomprime les disques en quelques minutes." },
     ],
+    ctaEyebrow: "Passez à une Décompression Calme Tête Haute",
+    ctaTitle: "15 minutes par jour sans vous suspendre tête en bas",
+    ctaSubtitle: "Choisissez le modèle Pliable 2 Pièces (support inclus) ou 3 Pièces Voyage en Aulne Ambré Naturel ou Pin Noyer Foncé.",
+    ctaTrustPills: ["Dès 475 $ USD", "Essai 60 Jours", "Éligible HSA/FSA (LMN)", "Garantie 10 Ans"],
+    ctaPrimary: "Configurer Votre Planche",
+    ctaSecondary: "Calculer Mon Angle Sûr",
+    ctaCompareLink: "Lire la comparaison complète",
   },
   uk: {
     evminovBadge: "Методика Євмінова (8°–35° Головою Вгору)",
     evminovSub: "Активно + Спокійно",
-    evminovAria: "Дошка Євмінова під 15 градусів тримає голову вище серця для спокійного розвантаження",
-    evminovHeadUp: "ГОЛОВА ВГОРУ ✓",
-    evminovSvgTitle: "М'який Нахил 15° на Сосні",
+    evminovRecommended: "Розумний Вибір",
+    evminovAria: "Інтерактивна 3D-дошка Євмінова тримає голову вище серця для безпечного розвантаження хребта",
+    evminovHeadUp: "ГОЛОВА ВИЩЕ СЕРЦЯ",
+    evminovSvgTitle: "Керований Нахил на Дереві",
     evminovSvgSub: "Нормальний кровотік • Без затиску щиколоток • Глибокий кор",
+    evminovModes: [
+      { angle: 12, label: "12° Делікатний", tractionPct: "21% витяжки", desc: "М'яке розвантаження попереку та сідничного нерва" },
+      { angle: 18, label: "18° Щоденний", tractionPct: "31% витяжки", desc: "Живлення дисків + активація глибокого кору" },
+      { angle: 28, label: "28° Атлетичний", tractionPct: "47% витяжки", desc: "Відновлення спини після тренувань і навантажень" },
+    ],
+    evminovMetrics: [
+      { label: "Тиск у Голові", value: "Норма (0 стрибків)" },
+      { label: "М'язи Кору", value: "Активні Стабілізатори" },
+      { label: "Місце Вдома", value: "6 см Складена" },
+    ],
     evminovPoints: [
       { bold: "Голова вище серця:", text: "нуль припливу крові, запаморочення чи стрибків очного тиску." },
-      { bold: "Повна опора хребта:", text: "резонансна сосна амортизує кожен хребець під час тренування стабілізаторів." },
-      { bold: "Безпечно для будь-якого віку (4–85+):", text: "складається до 6 см уздовж стіни." },
+      { bold: "Повна опора хребта:", text: "резонансна деревина амортизує кожен хребець під час тренування стабілізаторів." },
+      { bold: "Безпечно для будь-якого віку (4–85+):", text: "складні моделі 2-Piece та 3-Piece легко поміщаються в кімнаті чи офісі." },
     ],
     invBadge: "Звичайні Інверсійні Столи (60°–90°)",
     invSub: "Лише Пасивний Вис",
-    invAria: "Інверсійний стіл на 90 градусів викликає приплив крові та тиск на щиколотки",
+    invWarningTag: "Ризик Тиску",
+    invAria: "Звичайний інверсійний стіл на 90 градусів із припливом крові до голови та навантаженням на щиколотки",
     invSvgTitle: "Вис Головою Вниз 60°–90°",
     invSvgSub: "Приплив до голови/очей • Затиснуті щиколотки • Рама 1,5 м²",
+    invMetrics: [
+      { label: "Тиск у Голові", value: "Різкий Стрибок" },
+      { label: "М'язи Кору", value: "0% (Пасивно)" },
+      { label: "Місце Вдома", value: "1,5 м² Сталь" },
+    ],
     invPoints: [
       { bold: "Тиск у голові:", text: "вис догори ногами підвищує тиск у голові, пазухах та очах." },
       { bold: "Біль у щиколотках і колінах:", text: "утримує всю вагу тіла за щиколотки без зміцнення кору." },
       { bold: "Швидкий відкат:", text: "без активації м'язів-стабілізаторів гравітація знову стискає диски за лічені хвилини." },
     ],
+    ctaEyebrow: "Переходьте на Спокійну Декомпресію Головою Вгору",
+    ctaTitle: "15 хвилин на день для здорової спини без вису догори ногами",
+    ctaSubtitle: "Обирайте складну модель 2-Piece (зі стійкою в комплекті) або 3-Piece Travel у кольорах Natural Warm Amber Alder чи Dark Walnut Pine.",
+    ctaTrustPills: ["Від $475 USD", "Тест-драйв 60 Днів", "HSA/FSA (з LMN)", "Гарантія 10 Років"],
+    ctaPrimary: "Налаштувати Свою Дошку",
+    ctaSecondary: "Розрахувати Безпечний Кут",
+    ctaCompareLink: "Читати повне клінічне порівняння",
   },
   ru: {
     evminovBadge: "Методика Евминова (8°–35° Головой Вверх)",
     evminovSub: "Активно + Спокойно",
-    evminovAria: "Доска Евминова под 15 градусов держит голову выше сердца для спокойной разгрузки",
-    evminovHeadUp: "ГОЛОВА ВВЕРХ ✓",
-    evminovSvgTitle: "Мягкий Наклон 15° на Сосне",
+    evminovRecommended: "Умный Выбор",
+    evminovAria: "Интерактивная 3D-доска Евминова держит голову выше сердца для безопасной разгрузки позвоночника",
+    evminovHeadUp: "ГОЛОВА ВЫШЕ СЕРДЦА",
+    evminovSvgTitle: "Управляемый Наклон на Дереве",
     evminovSvgSub: "Нормальный кровоток • Без зажима лодыжек • Глубокий кор",
+    evminovModes: [
+      { angle: 12, label: "12° Щадящий", tractionPct: "21% вытяжки", desc: "Мягкая разгрузка поясницы и седалищного нерва" },
+      { angle: 18, label: "18° Ежедневный", tractionPct: "31% вытяжки", desc: "Питание дисков + активация глубокого кора" },
+      { angle: 28, label: "28° Атлетичный", tractionPct: "47% вытяжки", desc: "Восстановление спины после тренировок" },
+    ],
+    evminovMetrics: [
+      { label: "Давление в Голове", value: "Норма (0 скачков)" },
+      { label: "Мышцы Кора", value: "Активные Стабилизаторы" },
+      { label: "Место Дома", value: "6 см В Сложенном Виде" },
+    ],
     evminovPoints: [
       { bold: "Голова выше сердца:", text: "ноль прилива крови, головокружения и скачков глазного давления." },
-      { bold: "Полная опора позвоночника:", text: "резонансная сосна амортизирует каждый позвонок при тренировке стабилизаторов." },
-      { bold: "Безопасно для любого возраста (4–85+):", text: "складывается до 6 см вдоль стены." },
+      { bold: "Полная опора позвоночника:", text: "резонансная древесина амортизирует каждый позвонок при тренировке стабилизаторов." },
+      { bold: "Безопасно для любого возраста (4–85+):", text: "складные модели 2-Piece и 3-Piece легко хранятся в спальне или офисе." },
     ],
     invBadge: "Обычные Инверсионные Столы (60°–90°)",
     invSub: "Только Пассивный Вис",
-    invAria: "Инверсионный стол на 90 градусов вызывает прилив крови и нагрузку на лодыжки",
+    invWarningTag: "Риск Давления",
+    invAria: "Обычный инверсионный стол на 90 градусов с приливом крови к голове и нагрузкой на лодыжки",
     invSvgTitle: "Вис Головой Вниз 60°–90°",
     invSvgSub: "Прилив к голове/глазам • Зажатые лодыжки • Рама 1,5 м²",
+    invMetrics: [
+      { label: "Давление в Голове", value: "Резкий Скачок" },
+      { label: "Мышцы Кора", value: "0% (Пассивно)" },
+      { label: "Место Дома", value: "1,5 м² Сталь" },
+    ],
     invPoints: [
       { bold: "Давление в голове:", text: "вис вниз головой повышает давление в голове, пазухах и глазах." },
       { bold: "Боль в лодыжках и коленях:", text: "подвешивает весь вес тела за лодыжки без укрепления кора." },
       { bold: "Быстрый откат:", text: "без активации стабилизаторов гравитация снова сжимает диски за считаные минуты." },
     ],
+    ctaEyebrow: "Переходите на Спокойную Декомпрессию Головой Вверх",
+    ctaTitle: "15 минут в день для здоровой спины без виса вверх ногами",
+    ctaSubtitle: "Выбирайте складную модель 2-Piece (со стойкой в комплекте) или 3-Piece Travel в цветах Natural Warm Amber Alder или Dark Walnut Pine.",
+    ctaTrustPills: ["От $475 USD", "Тест-драйв 60 Дней", "HSA/FSA (с LMN)", "Гарантия 10 Лет"],
+    ctaPrimary: "Настроить Свою Доску",
+    ctaSecondary: "Рассчитать Безопасный Угол",
+    ctaCompareLink: "Читать полное клиническое сравнение",
   },
   de: {
     evminovBadge: "Evminov-Methode (8°–35° Kopf oben)",
     evminovSub: "Aktiv + Entspannt",
-    evminovAria: "Das 15-Grad geneigte Evminov Board hält den Kopf über dem Herzen für ruhige Wirbelsäulen-Entlastung",
-    evminovHeadUp: "KOPF OBEN ✓",
-    evminovSvgTitle: "15° Sanfte Kiefern-Neigung",
+    evminovRecommended: "Empfohlene Wahl",
+    evminovAria: "Interaktives 3D-Evminov-Board hält den Kopf über dem Herzen für ruhige Wirbelsäulen-Entlastung",
+    evminovHeadUp: "KOPF ÜBER HERZ",
+    evminovSvgTitle: "Kontrollierte Holz-Neigung",
     evminovSvgSub: "Normaler Blutfluss • Keine Knöchelklemmen • Tiefes Core-Training",
+    evminovModes: [
+      { angle: 12, label: "12° Sanft", tractionPct: "21% Traktion", desc: "Ruhige Lenden- & Ischias-Entlastung" },
+      { angle: 18, label: "18° Täglich", tractionPct: "31% Traktion", desc: "Bandscheiben-Hydration + tiefer Core" },
+      { angle: 28, label: "28° Athletisch", tractionPct: "47% Traktion", desc: "Post-Workout-Rücken-Reset" },
+    ],
+    evminovMetrics: [
+      { label: "Kopfdruck", value: "Normal (0 Spitzen)" },
+      { label: "Rumpfmuskulatur", value: "Aktive Stabilisatoren" },
+      { label: "Platzbedarf", value: "6 cm Flach Klappbar" },
+    ],
     evminovPoints: [
       { bold: "Kopf bleibt über dem Herzen:", text: "kein Blutstau im Kopf, kein Schwindel und keine Augendruckspitzen." },
-      { bold: "Volle Wirbelsäulen-Stützung:", text: "resonante Karpaten-Kiefer polstert jeden Wirbel, während tiefe Stabilisatoren trainieren." },
-      { bold: "Sicher für alle Altersgruppen (4 bis 85+):", text: "klappt auf 6 cm flach an Schlafzimmer- oder Bürowände." },
+      { bold: "Volle Wirbelsäulen-Stützung:", text: "resonantes Karpatenholz polstert jeden Wirbel, während tiefe Stabilisatoren trainieren." },
+      { bold: "Sicher für alle Altersgruppen (4 bis 85+):", text: "2-teilige & 3-teilige Klappmodelle passen ordentlich in jedes Zimmer oder Büro." },
     ],
     invBadge: "Klassische Inversionsbänke (60°–90°)",
     invSub: "Nur passives Hängen",
-    invAria: "Klassische 90-Grad-Inversionsbank verursacht Blutstau im Kopf und Knöchelbelastung",
+    invWarningTag: "Hohes Druckrisiko",
+    invAria: "Klassische 90-Grad-Inversionsbank mit Blutstau im Kopf und Knöchelbelastung",
     invSvgTitle: "60°–90° Kopfüber-Hängen",
     invSvgSub: "Blut staut in Kopf/Augen • Eingeklemmte Knöchel • Sperriger 1,5 m² Rahmen",
+    invMetrics: [
+      { label: "Kopfdruck", value: "Starke Spitze" },
+      { label: "Rumpfmuskulatur", value: "0% (Passiv)" },
+      { label: "Platzbedarf", value: "1,5 m² Stahlrahmen" },
+    ],
     invPoints: [
       { bold: "Kopfüber-Druck:", text: "Kopfüberhängen erhöht den Druck in Kopf, Nebenhöhlen und Augen." },
       { bold: "Knöchel- & Kniebelastung:", text: "hängt das gesamte Körpergewicht an Knöchel und Knie ohne jede Rumpfkräftigung." },
       { bold: "Passiver Rückfall:", text: "ohne Aktivierung der Stabilisatoren staucht die Schwerkraft die Bandscheiben Minuten nach dem Aufstehen erneut." },
     ],
+    ctaEyebrow: "Wechseln Sie zu ruhiger Kopf-oben-Dekompression",
+    ctaTitle: "15 Minuten täglich ohne Kopfüber-Hängen",
+    ctaSubtitle: "Wählen Sie unser 2-teiliges Klappboard (inkl. Stützständer) oder das 3-teilige Reiseboard in Natural Warm Amber Alder oder Dark Walnut Pine.",
+    ctaTrustPills: ["Ab $475 USD", "60-Tage-Testphase", "HSA/FSA (mit LMN)", "10 Jahre Garantie"],
+    ctaPrimary: "Ihr Evminov Board Konfigurieren",
+    ctaSecondary: "Sicheren Winkel Berechnen",
+    ctaCompareLink: "Vollständigen klinischen Vergleich lesen",
   },
 };
 
